@@ -1,0 +1,14 @@
+Kerberos
+Third
+Trusted
+Symmetric
+Freshness
+Reflection
+Attack
+freshness
+nonce
+esplicitezza
+Explicitness
+timestamp
+frehness
+autenticatore

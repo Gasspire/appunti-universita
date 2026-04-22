@@ -1,0 +1,4 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qeliminazione e\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qè dunque il seguente:\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qè dunque il seguente: \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+$"}
+{"rule":"ST_03_001","sentence":"^\\QSe, invece, \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q è uguale ad \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q, vuol dire c\\E$"}

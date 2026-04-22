@@ -1,0 +1,61 @@
+\chapter{La Blockchain}
+Una volta che le transazioni vengono create e firmate tramite la logica degli script, esse devono essere raggruppate e "sigillate" all'interno di un \textbf{blocco}. 
+La blockchain non è altro che una catena sequenziale di questi contenitori, dove ogni blocco garantisce l'immutabilità dei dati che contiene.
+\section{Il Blocco}
+Ogni blocco è identificato da un \textbf{Header} (intestazione), che possiamo immaginare come la carta d'identità del blocco stesso. Esso contiene i metadati fondamentali per la sicurezza della rete:
+\begin{itemize}
+    \item \textbf{Hash del blocco precedente (\textit{prev\_block}):} È il legame che crea la catena. Ogni blocco contiene l'impronta digitale di quello precedente; se qualcuno provasse a modificare una transazione in un blocco passato, l'hash cambierebbe, rendendo istantaneamente invalidi tutti i blocchi successivi.
+    \item \textbf{Nonce e Bits:} Sono parametri legati al mining. Il \textit{nonce} è il numero che i miner continuano a variare per trovare un hash che soddisfi la difficoltà della rete (\textit{bits}), confermando così il blocco tramite la Proof-of-Work.
+    \item \textbf{Merkle Root (\textit{mrkl\_root}):} Una stringa che riassume in modo univoco tutte le transazioni presenti nel blocco
+\end{itemize}
+    
+\subsection{Merkle Tree e Proof of Membership}
+Per gestire i dati delle transazioni in modo efficiente, Bitcoin non le elenca semplicemente una dopo l'altra, ma utilizza una struttura chiamata \textbf{Merkle Tree} (albero di Merkle). Si tratta di un albero binario in cui si parte dagli hash delle singole transazioni alla base e, accoppiandoli, si sale di livello calcolando nuovi hash fino ad arrivare alla radice (\textbf{Merkle Root}).
+Questa struttura è fondamentale per la cosiddetta \textbf{Proof of Membership}. Supponiamo che un utente $A$ utilizzi un wallet "leggero" sul suo smartphone. Grazie al Merkle Tree, $A$ non deve scaricare tutte le migliaia di transazioni del blocco, ma gli basta ricevere solo una piccola serie di hash intermedi. Combinando questi hash con quello della propria transazione, $A$ può ricalcolare la Merkle Root: se il risultato coincide con quello presente nell'header del blocco, allora ha la certezza matematica che la sua transazione è stata confermata.Infatti, non tutti i partecipanti alla rete scaricano l'intera blockchain. Esistono due tipologie di nodi:
+\begin{itemize}
+    \item \textbf{Full Node:} Sono i nodi che contengono l'intera cronologia delle transazioni e verificano ogni singola regola del protocollo. Sono "pesanti" in termini di memoria ma garantiscono la massima sicurezza. I miner possono solamente essere dei nodi di questo tipo.
+    \item \textbf{Lightweight Node (o nodi SPV):} Sono nodi che non contengono tutte le transazioni, bensì conservano solo i \textbf{Block Header}. Quando questi nodi hanno necessità di verificare l'esistenza di una certa transazione, interrogano i Full Node chiedendo loro di inviargli i dati necessari (il "cammino" nell'albero di Merkle) per effettuare la Proof of Membership.
+\end{itemize}
+\subsection{Coinbase transaction}
+Fino ad ora abbiamo visto come $A$ possa inviare Bitcoin a $B$ partendo da fondi già esistenti (UTXO). Ma come entrano in circolazione i nuovi Bitcoin se non esiste una banca centrale? La soluzione è la \textbf{Coinbase Transaction}, una transazione "speciale" che deve essere presente obbligatoriamente come prima operazione di ogni singolo blocco. Questa transazione ha tre caratteristiche fondamentali:
+\begin{itemize}
+    \item \textbf{Emissione Monetaria:} È l'unico modo previsto dal protocollo per \textbf{creare nuovi Bitcoin}. Non avendo un input che proviene da una transazione precedente, essa "genera" valuta dal nulla seguendo una regola matematica precisa.
+    \item \textbf{Remunerazione dei Miner:} Rappresenta il guadagno principale per chi mette in sicurezza la rete. Il miner che riesce a chiudere il blocco assegna a se stesso una somma composta da:
+    \begin{enumerate}
+        \item Il \textbf{Block Subsidy} (il premio per il blocco).
+        \item Le \textbf{Fees} (le commissioni) di tutte le transazioni incluse nel blocco.
+    \end{enumerate}
+    Il premio iniziale era di 50 BTC, ma ogni 210.000 blocchi (circa 4 anni) questa cifra viene dimezzata tramite un evento chiamato \textbf{Halving}. Come si vede nell'immagine, nel 2020 il premio è sceso a 6.25 BTC e dall'aprile 2024 è passato a \textbf{3.125 BTC}.
+    
+    \item \textbf{Il campo Coinbase:} A differenza delle transazioni normali, l'input della Coinbase Transaction non punta a un UTXO precedente (infatti il campo \textit{hash} è composto da soli zeri). Al suo posto troviamo un campo libero chiamato \textit{coinbase}, dove il miner può inserire dati arbitrari. L'esempio più famoso è quello di Satoshi Nakamoto nel Blocco 0, dove inserì il titolo del quotidiano \textit{The Times} per denunciare l'instabilità del sistema bancario tradizionale.
+\end{itemize}
+
+\section{Il Network Bitcoin}
+Dopo aver analizzato la struttura dei blocchi, è fondamentale capire come le informazioni (transazioni e blocchi) viaggino tra i partecipanti. Bitcoin non si appoggia a un server centrale, ma utilizza una rete \textbf{P2P ad-hoc} dove tutti i nodi sono considerati uguali.
+
+La rete Bitcoin presenta alcune proprietà fondamentali che ne garantiscono la resilienza:
+\begin{itemize}
+    \item \textbf{Connessioni TCP:} I nodi comunicano solitamente sulla porta \texttt{8333}.
+    \item \textbf{Topologia Logica vs Fisica:} La rete è organizzata in modo "random". Un nodo in Italia potrebbe essere logicamente connesso a un nodo in Giappone; la struttura logica non rispecchia quella geografica.
+    \item \textbf{Discovery e Oblivion:} Quando un nuovo nodo entra nella rete (come il nodo 8 nell'immagine), deve "scoprire" i suoi vicini. Lo fa inviando messaggi di \textit{getaddr()} per ottenere liste di indirizzi IP di altri nodi attivi. Allo stesso modo, se un nodo smette di rispondere, viene dimenticato dalla rete (\textit{oblivion}).
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/capitolo_mdr_2/nuovo_nodo.png}
+\end{figure}
+
+\subsection{Inserimento di una Transazione}
+Quando un utente $A$ crea una transazione per pagare $B$, questa non finisce immediatamente nella blockchain. Deve prima essere propagata a tutti i nodi della rete tramite un \textbf{Gossip Protocol} (o \textit{Flooding}).
+Il funzionamento è simile al diffondersi di un pettegolezzo: $A$ invia la transazione ai propri vicini; questi la verificano e, se valida, la inviano ai propri vicini, e così via fino a coprire l'intera rete in pochi secondi.
+\subsection{La Transaction Pool e i Controlli Standard}
+Ogni singolo nodo mantiene in memoria una "vasca" temporanea chiamata \textbf{Transaction Pool} (o \textit{Mempool}), dove conserva le transazioni ricevute che sono in attesa di essere inserite in un blocco dai miner. Prima di accettare una transazione nella propria pool e inoltrarla agli altri, ogni nodo effettua dei \textbf{controlli standard}:
+\begin{enumerate}
+    \item \textbf{Validità:} La transazione deve avere firme corrette e formattazione valida.
+    \item \textbf{Script Whitelist:} Lo script deve rientrare tra quelli considerati "standard" (come visto nei capitoli precedenti).
+    \item \textbf{Unicità:} La transazione non deve essere già presente nella pool.
+    \item \textbf{Assenza di conflitti:} La transazione non deve tentare di spendere UTXO già impegnati da altre transazioni presenti nella pool (evitando il double spending immediato).
+\end{enumerate}
+
+\subsection{Race Conditions e Coerenza delle Pool}
+Poiché la rete è distribuita e la propagazione richiede tempo, le Mempool dei vari nodi non sono sempre identiche (\textit{out-of-sync}). Se due transazioni in conflitto (ad esempio $A$ prova a mandare gli stessi soldi sia a $C$ che a $B$ contemporaneamente) si diffondono nella rete, si crea una \textbf{Race Condition}. 
+In questo caso vale la regola del \textbf{"the first win!"}: ogni nodo terrà in memoria solo la prima transazione che riceve e scarterà la seconda. Sarà poi il miner, scegliendo quale includere nel prossimo blocco, a decretare quale delle due transazioni diventerà definitiva. Esiste però un'eccezione chiamata \textbf{Replace-By-Fee (RBF)}, che permette a un utente di "sovrascrivere" una propria transazione in attesa con una nuova che offra una mancia (\textit{fee}) più alta ai miner.

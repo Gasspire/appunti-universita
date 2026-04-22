@@ -1,0 +1,48 @@
+Definizione di Grafo (orientato/non, semplice/multi, neighbourhood aperto/chiuso, dominating set, vertice che domina, completo, connesso, grado, matrice di adiacenza/lista incidenza)
+Definizione di Walk/catena aperta, Trail/ catena semplice, Path/catena elementare, ciclo
+Grafo connesso/fortemente connesso, cut vertex, cut edge
+Grafo bipartito, insieme stabile, bipartito completo
+Operazioni sui grafi
+Sottografo indotto, sottografo parziale (spanning)
+Isomorfismo
+Facoltativo (platonici, cubi)
+Teorema Handshake lemma 
+
+Albero, foresta, spanning tree
+Caratterizzazione degli alberi (tutti i teoremini)
+Minimum spanning Tree + algoritmo (kruskal) + dim
+Modello per MST
+Teorema di Cayley
+
+Grafi euleriani 
+cammino e ciclo euleriano
+Caratterizzazione dei grafi euleriani
+
+Grafi Hamiltoniani
+Cammino e ciclo hamiltoniano
+Teorema di Ore (dim solo la prima), Birac (corollario di ore) e Bondy-Chavatal(dim)
+Grafo del cavallo
+
+Grafi planari
+Grafo completo planare massimale\Grafo non completo planare massimale
+Omeomorfi
+Suddivisione per spigoli/riduzione
+Teorema di Jordan (no dim)
+Teorema di Eulero + Teorema di Eulero Generalizzato
+Teoremi vari + Kuratowski
+
+Problemi legati a grafi elueriani/hamiltoniani 
+Commesso viaggiatore
+Postino cinese
+
+Colorazione dei vertici
+Numero di stabilità, cosa è una colorazione
+k-colorabile, numero cromatico, classi di colorazione
+Densità di un grafo (numero di grafo completo) + clique + teoremi vari sulla densità
+Algoritmo per determinare il num cromatico
+
+densità cromatica (penso sia meglio da Emma)
+Teorema di Grotzsch + grafo
+Teroema di mycieski solo enunciato e costruzione (anche da C_5)
+Brooks solo enunciato
+Teorema dei 5 colori

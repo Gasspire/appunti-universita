@@ -1,0 +1,84 @@
+\chapter{Parallelismo e Scalabilità}
+Definiamo il parallelismo come l'\textbf{esecuzione simultanea} da parte di più unità di lavoro al fine di \textbf{ridurre il tempo di esecuzione o aumentare la dimensione del problema risolvibile.}
+Facciamo una distinzione tra esecuzione in \textbf{contemporanea (concurrency)} ed esecuzione in \textbf{parallelo}:
+\begin{itemize}
+    \item \textbf{Concurrency}: La concurrency è la capacità di un sistema di gestire più compiti (task) nello stesso intervallo di tempo, ma \textbf{non necessariamente nello stesso istante.}
+    \item \textbf{Parallelism}: Il parallelismo si verifica quando più compiti vengono eseguiti fisicamente nello stesso istante.
+\end{itemize}
+Adesso che abbiamo parlato dell'ottimizzazione, ci rendiamo facilmente conto di quanto il parallelismo sia ormai fondamentale nelle architetture odierne. Senza questo strumento sarebbe impossibile risolvere problemi complessi a cui lavoriamo oggi e, nonostante questo strumento, siamo ancora molto lontani dall'avere le prestazioni che vorremmo. 
+\section{Modelli di parallelismo}
+Parliamo dunque nel dettaglio di \textbf{modelli di parallelismo}. Questi definiscono:
+\begin{itemize}
+    \item Come il lavoro viene suddiviso;
+    \item Come le unità di elaborazione interagiscono tra loro;
+    \item Il modello di memoria da adottare;
+    \item I costi di \textbf{comunicazione, sincronizzazione e gestione dei dati}.
+\end{itemize}
+
+Il modello ha, dunque, un'influenza riguardo al come dobbiamo progettare il nostro codice e di come questo possa scalare.
+Possiamo dividere il parallelismo sulla base di \textbf{come si suddivide il lavoro}:
+\begin{itemize}
+    \item \textbf{Data Parallelism}: La stessa operazione è applicata a porzioni o \textbf{chunck} di dati diversi. Questo tipo di parallelismo è dominante in HPC scientifico.
+    \item \textbf{Task Parallelism}: Compiti diversi vengono eseguiti in parallelo. Tipico in applicazioni eterogenee.
+\end{itemize}
+O sulla base di come è organizzata la memoria:
+\begin{itemize}
+    \item \textbf{Shared memory}: Secondo questa organizzazione abbiamo uno \textbf{spazio di indirizzamento unico}. Abbiamo quindi che i thread/processi guardano tutti la stessa porzione di memoria e, dunque, comunicano \textbf{implicitamente} proprio guardando la memoria. Questo modello di memoria è generalmente adottato sui singoli nodi poiché non è possibile collegare più di un certo numero di nodi alla stessa memoria per problemi di sovraffollamento e controlli di coerenza tra di essi.
+    \item \textbf{Distribuited memory}: Ogni processo ha una memoria \textbf{privata} che, quindi, nel caso in cui avesse bisogno di comunicare con un altro processo, dovrà farlo mediante messaggi \textbf{espliciti}. Questo modello è generalmente usato nei cluster così ché ogni nodo del cluster abbia la sua memoria dato che questi sono indipendenti gli uni dagli altri, ciò è molto più scalabile.
+    \item \textbf{Hibrid}: I sistemi HPC moderni sono spesso \textbf{ibridi} per cercare di prendere il meglio dall'uno e dall'altro. 
+\end{itemize}
+\subsection*{Modelli a Memoria Condivisa}
+Come già detto, nel modello a memoria condivisa, tutte le unità di esecuzione condividono lo spazio degli indirizzi.
+Le variabili sono dunque visibili da tutte le unità di esecuzione e la comunicazione avviene implicitamente tramite l'accesso a memoria condivisa.
+
+Questo modello ha il vantaggio di avere una comunicazione intra-nodo estremamente rapida al costo, però, di dover \textbf{gestire i meccanismi di sincronizzazione} dovuti ai problemi di race condition ecc.
+\subsection*{Modelli a Memoria Distribuita}
+Nei modelli a memoria distribuita ogni processo ha la sua memoria privata e i dati che si scambiano i vari processi devono essere scambiati esplicitamente mediante messaggi o scambi di dati. Questo garantisce un \textbf{maggiore controllo sulla distribuzione dei dati} a patto di avere una maggiore complessità riguardo alla programmazione degli stessi. 
+
+Questo modello è \textbf{altamente scalabile} e adatto a \textbf{sistemi multi-nodo}.
+\section{Scalabilità}
+La scalabilità è la capacità di un sistema parallelo di migliorare le prestazioni al crescere delle risorse utilizzate.
+
+Distinguiamo tra \textbf{Strong Scaling} e \textbf{Weak Scaling}:
+\begin{itemize}
+    \item \textbf{Strong Scaling}: Questo scenario suppone di avere un problema di dimensione fissa e che, all'aumentare del numero di processi di lavoro, si misura una riduzione del tempo di risoluzione del problema.
+    \item \textbf{Weak Scaling}: Qui, invece, abbiamo uno scenario con un problema che cresce all'aumentare dei processi. In questo caso, il nostro obiettivo sarà quello non di andare a diminuire il tempo di risoluzione del problema, bensì quello di farlo rimanere costante all'aumentare della dimensione del problema.
+\end{itemize}
+
+Sia $T(1)$ il tempo di risoluzione con un processo e $T(p)$ il tempo di risoluzione con $p$ processi, definiamo:
+\begin{itemize}
+    \item \textbf{Speedup}: Come il rapporto tra il tempo di esecuzione con un singolo processo e il tempo con $p$ processi, cioè:
+    \[S(p) = \frac{T(1)}{T(p)}\]
+    Questo va a misurare quanto il nostro problema migliora in termini di tempo all'aumentare dei processi che lo elaborano. Idealmente, vorremmo che $S(p) = p$.
+    \item \textbf{Efficienza}: Questa è definita come il rapporto tra lo Speedup e p, cioè:
+    \[E(p)=\frac{S(p)}{p}\]
+    Questo va a misurare quanto il nostro problema scala bene all'aumentare dei processi che lo elaborano. Idealmente, vorremmo che $E(p)=1$.
+\end{itemize}
+In realtà, per quanto vorremmo che lo Speedup sia lineare, non è così poiché:
+\begin{itemize}
+    \item \textbf{Parte Seriale}: Una parte del programma potrebbe non essere parallelizzabile e, dunque, l'aumentare i processi non è una soluzione.
+    \item \textbf{Comunicazione}: Inevitabilmente, a causa dell'uso di molti processi, questi hanno la necessità di comunicare e, ciò, introduce una latenza.
+    \item \textbf{Sincronizzazione}: Poiché lavoriamo con sezioni critiche ecc. abbiamo la necessità di introdurre delle attese.
+    \item \textbf{Overhead di gestione}: Dovuto allo scheduling o alla creazione dei thread/processi.
+    \item \textbf{Load imbalance}: Cioè alcuni processi terminano prima di altri.
+\end{itemize}
+\subsection*{Legge di Amdahl}
+Sia $\alpha$ la frazione parallelizzabile e $1-\alpha$ la parte seriale. Il tempo di esecuzione con $p$ processi è:
+\[T(p)=T(1)* [(1-\alpha)+\frac{\alpha}{p}] \]
+Lo Speedup è, invece:
+\[S(p)=\frac{1}{(1-\alpha)+\frac{\alpha}{p}}\]
+Il limite teorico per p che tende a infinito è:
+\[\lim_{p\to \inf}S(p)= \frac{1}{1-\alpha}\]
+Questo dipende dal fatto che, anche con infiniti processi, la parte seriale rimane un limite non superabile.
+\subsection*{Legge di Gustafson}
+La legge di Gustafson è applicabile nel caso di \textbf{weak scaling} in cui il problema cresce con il numero di processi ma la parte seriale rimane costante. Quella che, dunque, non sarà costante, sarà proprio la parte parallelizzabile che crescerà con p.
+Lo Speedup diventerà:
+\[S(p)=p-(1-\alpha)(p-1)\]
+Se $\alpha$ fosse vicino a 1, cioè la parte parallelizzabile fosse quasi la totalità del programma, allora lo Speedup crescerebbe quasi linearmente. Per questa legge non abbiamo un limite come nel caso della legge di Amdahl.
+
+Abbiamo un vantaggio nell'aggiungere processi quando:
+\begin{itemize}
+    \item La parte seriale è minima.
+    \item Il problema è sufficientemente grande a tal punto che il calcolo domina la comunicazione.
+    \item Il carico è ben bilanciato.
+\end{itemize}
