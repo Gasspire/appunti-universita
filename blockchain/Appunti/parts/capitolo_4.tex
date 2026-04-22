@@ -45,6 +45,32 @@ Il protocollo si basa sul concetto crittografico delle \textbf{Blind Signatures}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/capitolo_4/transazione_blind.png}
-    \caption{Schema logico del protocollo e-cash basato su Blind Signatures.}
+    \includegraphics[width=0.9\linewidth]{Images/capitolo_4/transazione_blind.png}
 \end{figure}
+Naturalmente, per garantire tale anonimato abbiamo bisogno di spese unitarie o, al più, un numero limitato di quantità "prestabilite" in maniera tale che la banca non possa fare linking mediante la cifra spesa. Si presuppone chiaramente che il sistema sia utilizzato da più persone poiché altrimenti il link risulta banale.
+
+Il vero e proprio problema è il fatto che i protocolli interattivi con la banca sono complicati da gestire e da decentralizzare soprattutto.
+
+\subsection{Anonimato grazie a nuovi indirizzi}
+Supponiamo che A voglia ottenere il massimo anonimato dal sistema blockchain e che, intuitivamente, decide di usare sempre indirizzi diversi per ogni transazione. 
+
+Siamo adesso nella situazione in cui A voglia comprare un oggetto e, per farlo, necessita di un certo numero di monete che sono, quindi, dentro tanti UTXO diversi che hanno una firma diversa.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Images/capitolo_4/tegliera.png}
+\end{figure}
+Poiché un attaccante vede una transazione verso una certa autorità, \footnote{Vedremo dopo come questa cosa venga capita} questo vede prima la transazione di compattazione degli uTXO e, quindi, riesce a collegare che quei due UTXO appartenevano alla stessa entità. Non solo, se il pagamento non è per intero, allora è necessario dare il resto che, quindi, apparterrà alla stessa entità del pagamento.
+
+Tramite queste intuizioni, possiamo tracciare un grafo di questo tipo:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Images/capitolo_4/grafo_conoscenza.png}
+\end{figure}
+Possiamo notare che quelli che ricevono tante transazioni sono, in genere, le autorità di cui parlavamo prima. Tra queste, possiamo trovare le più note \textbf{silkroad, satoshi dice, ecc.}.
+Siamo a tutti gli effetti riusciti a capire come individuare le grossi autorità ma non è ancora ben chiaro come possiamo a tutti gli effetti deanonimizzare i singoli utenti. Per farlo, l'approccio più semplice è quello del \textit{social engineering}:
+\begin{itemize}
+    \item \textbf{Transazioni dirette:} Se io faccio in modo che qualcuno mi paghi, trovo il suo indirizzo e, tramite il blockchain explorer, posso vedere quanto si aveva nel portafoglio, da chi ha ricevuto questi soldi ecc.
+    \item \textbf{Fornitori di Servizi:} Poiché non tutti possono minare Bitcoin, la maggior parte li compra da servizi esterni come binance e quei servizi devono per leggere conoscere l'identità della persona.
+    \item \textbf{Careless:} La gente può deanonimizzarsi da sola pubblicando l'indirizzo online per ricevere donazioni ecc.
+    \item \textbf{Attacchi retroattivi:} Poiché vengono scoperte algoritmi sempre più efficaci per raggruppare indirizzi e dato che la blockchain è immutabile, è possibile che in futuro venga scoperto un modo ancora più forte per deanonimizzare qualcuno.
+\end{itemize}

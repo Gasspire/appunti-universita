@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex document"] 0 "document.aux" "document.bbl" "document" 1774873994.13061 0
+["bibtex document"] 0 "document.aux" "document.bbl" "document" 1776881318.94925 0
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/unsrt.bst" 1291864736 18030 1376b4b231b50c66211e47e42eda2875 ""
   "bibliography.bib" 0 -1 0 ""
   "document.aux" 0 -1 0 "pdflatex"
@@ -7,7 +7,7 @@
   "document.bbl"
   "document.blg"
   (rewritten before read)
-["pdflatex"] 1774873990.73022 "c:/Users/lolcr/OneDrive - Università degli Studi di Catania/Unict/M_Primo_Anno/Blockchain/Appunti/document.tex" "document.pdf" "document" 1774873994.13161 0
+["pdflatex"] 1776881314.94418 "c:/Users/lolcr/OneDrive - Università degli Studi di Catania/Unict/M_Primo_Anno/Blockchain/Appunti/document.tex" "document.pdf" "document" 1776881318.95007 0
   "C:/Users/lolcr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1761305174 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/lolcr/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1761305181 14064 88669b11f3a58b706952338a7021e0ce ""
   "C:/Users/lolcr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761306947 13321664 a52a7e6d9f07fc357164fe775f660180 ""
@@ -17,7 +17,6 @@
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1200.tfm" 993062508 1444 95ffe0f19b974d50849790c8225c7ef7 ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
-  "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbxti10.tfm" 1136765053 1532 9162035f4e7176612125649e348e2195 ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmcsc10.tfm" 1136765053 1300 63a6111ee6274895728663cf4b4e7e81 ""
@@ -25,7 +24,6 @@
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136765053 1524 4414a8315f39513458b80dfc63bff03a ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi6.tfm" 1136765053 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi8.tfm" 1136765053 1520 eccf95517727cb11801f4f1aee3a21b4 ""
-  "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr10.tfm" 1136765053 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr12.tfm" 1136765053 1288 655e228510b4c2a1abe905c368440826 ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr17.tfm" 1136765053 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr6.tfm" 1136765053 1300 b62933e007d01cfd073f79b963c01526 ""
@@ -35,7 +33,6 @@
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti12.tfm" 1136765053 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
-  "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb" 1247596667 36554 b67dc2cfa451409e100b3fcf5f506509 ""
   "C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb" 1247596667 32001 6aeea3afe875097b1eb0da29acd61e28 ""
@@ -131,21 +128,23 @@
   "Images/capitolo_2/trans_real.png" 1774866267 169396 830627d228f8e95533e5d0d2c74e08bc ""
   "Images/capitolo_2/verifica_firma.png" 1774866300 205090 12ae21a6603ef9a9d0f5adac9bac36e5 ""
   "Images/capitolo_3/tentativo_ds.png" 1773772363 16637 25753ff1b13e02658febadfd1c0b5e4f ""
+  "Images/capitolo_4/grafo_conoscenza.png" 1776879672 589364 7cae49620e1c978e2067add463aee070 ""
+  "Images/capitolo_4/tegliera.png" 1776879420 34805 ea6ee38fedfc408aea0611453262f11d ""
   "Images/capitolo_4/transazione_blind.png" 1774455431 50756 527e663f1680e63be0fd4b71b22e082a ""
   "Images/capitolo_mdr_2/nuovo_nodo.png" 1774873837 77868 8499113f9b875f6b239e888b47c65e5d ""
   "Images/university_logo.png" 1759403835 5102 48465574081c3a80c7c19521f56f8aea ""
   "c:/Users/lolcr/OneDrive - Università degli Studi di Catania/Unict/M_Primo_Anno/Blockchain/Appunti/document.tex" 1774872601 1781 187ea9b067d3b5ce0bb29656ab19fbb8 ""
-  "document.aux" 1774873993 6179 7be97d53e76b38da7f4a8307c61e489a "pdflatex"
+  "document.aux" 1776881317 6139 b42a516c55ffae258aa22cdbde72d6fb "pdflatex"
   "document.bbl" 0 -1 0 "bibtex document"
-  "document.out" 1774873993 7671 67afc96563a69d0be206c2949db9a53e "pdflatex"
+  "document.out" 1776881317 7915 fbc0a3bb98f1410170f3cda0ba229331 "pdflatex"
   "document.tex" 1774872601 1781 187ea9b067d3b5ce0bb29656ab19fbb8 ""
-  "document.toc" 1774873993 3655 62eef8ad3a8dec21ceb1fd166d8b171a "pdflatex"
+  "document.toc" 1776881317 3760 b4d43d215f968177d7cf04e716fe9fc1 "pdflatex"
   "parts/capitolo_1.tex" 1773216439 15627 510c7dc8f08fe2913e2b27a6ebe8f6b3 ""
   "parts/capitolo_2.tex" 1774801084 21477 d46570b10165e91fc4fd1548824526d8 ""
   "parts/capitolo_3.tex" 1774432113 13689 76421a611e9c92421a06a6b3e34eabf0 ""
-  "parts/capitolo_4.tex" 1774455538 7384 1784aeff051384fd305ca005f5805762 ""
+  "parts/capitolo_4.tex" 1776881314 10240 7774b409475d6e16804a6cc158161e66 ""
   "parts/capitolo_mdr_1.tex" 1774872601 18023 5792e22d8d654be6d7413f698f91ae6b ""
-  "parts/capitolo_mdr_2.tex" 1774873986 8578 cb8e53807cea48d76cfb09d34e744e67 ""
+  "parts/capitolo_mdr_2.tex" 1776878417 8541 0959ce46028d919cf1a6b532a146d419 ""
   "parts/frontespizio.tex" 1772741762 1003 a0c2b8240b6c1fc7f88ee930903ea3e9 ""
   (generated)
   "document.aux"

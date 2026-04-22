@@ -51,7 +51,7 @@ Il funzionamento è simile al diffondersi di un pettegolezzo: $A$ invia la trans
 Ogni singolo nodo mantiene in memoria una "vasca" temporanea chiamata \textbf{Transaction Pool} (o \textit{Mempool}), dove conserva le transazioni ricevute che sono in attesa di essere inserite in un blocco dai miner. Prima di accettare una transazione nella propria pool e inoltrarla agli altri, ogni nodo effettua dei \textbf{controlli standard}:
 \begin{enumerate}
     \item \textbf{Validità:} La transazione deve avere firme corrette e formattazione valida.
-    \item \textbf{Script Whitelist:} Lo script deve rientrare tra quelli considerati "standard" (come visto nei capitoli precedenti).
+    \item \textbf{Script Whitelist:} Lo script deve rientrare tra quelli considerati "standard".
     \item \textbf{Unicità:} La transazione non deve essere già presente nella pool.
     \item \textbf{Assenza di conflitti:} La transazione non deve tentare di spendere UTXO già impegnati da altre transazioni presenti nella pool (evitando il double spending immediato).
 \end{enumerate}

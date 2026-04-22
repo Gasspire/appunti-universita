@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.24)  30 MAR 2026 14:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.24)  22 APR 2026 20:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -834,7 +834,7 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count332
  (parts/frontespizio.tex
-<Images/university_logo.png, id=159, 106.3975pt x 112.42pt>
+<Images/university_logo.png, id=163, 106.3975pt x 112.42pt>
 File: Images/university_logo.png Graphic file (type png)
 <use Images/university_logo.png>
 Package pdftex.def Info: Images/university_logo.png  used on input line 3.
@@ -850,7 +850,7 @@ Package pdftex.def Info: Images/university_logo.png  used on input line 3.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.31 ...e Lightning Network}{38}{subsection.5.1.6}
+l.31 ...nsaction con Escrow}{39}{subsection.5.1.5}
                                                   % [1
 
 ])
@@ -872,7 +872,7 @@ Capitolo 1.
 [5
 
 ]
-<Images/capitolo_1/tampering_block.png, id=236, 560.8453pt x 307.90031pt>
+<Images/capitolo_1/tampering_block.png, id=241, 560.8453pt x 307.90031pt>
 File: Images/capitolo_1/tampering_block.png Graphic file (type png)
 <use Images/capitolo_1/tampering_block.png>
 Package pdftex.def Info: Images/capitolo_1/tampering_block.png  used on input line 45.
@@ -880,7 +880,7 @@ Package pdftex.def Info: Images/capitolo_1/tampering_block.png  used on input li
 
 
 [6]
-<Images/capitolo_1/Merkle_tree.png, id=247, 573.64313pt x 297.36093pt>
+<Images/capitolo_1/Merkle_tree.png, id=252, 573.64313pt x 297.36093pt>
 File: Images/capitolo_1/Merkle_tree.png Graphic file (type png)
 <use Images/capitolo_1/Merkle_tree.png>
 Package pdftex.def Info: Images/capitolo_1/Merkle_tree.png  used on input line 62.
@@ -888,7 +888,7 @@ Package pdftex.def Info: Images/capitolo_1/Merkle_tree.png  used on input line 6
 
 
 [7 <./Images/capitolo_1/tampering_block.png> <./Images/capitolo_1/Merkle_tree.png>]
-<Images/capitolo_1/ecdsa.png, id=257, 832.61063pt x 658.71094pt>
+<Images/capitolo_1/ecdsa.png, id=262, 832.61063pt x 658.71094pt>
 File: Images/capitolo_1/ecdsa.png Graphic file (type png)
 <use Images/capitolo_1/ecdsa.png>
 Package pdftex.def Info: Images/capitolo_1/ecdsa.png  used on input line 92.
@@ -898,12 +898,12 @@ Package pdftex.def Info: Images/capitolo_1/ecdsa.png  used on input line 92.
 [8]
 
 [9 <./Images/capitolo_1/ecdsa.png>]
-<Images/capitolo_1/double_spending.png, id=276, 575.14874pt x 324.46219pt>
+<Images/capitolo_1/double_spending.png, id=281, 575.14874pt x 324.46219pt>
 File: Images/capitolo_1/double_spending.png Graphic file (type png)
 <use Images/capitolo_1/double_spending.png>
 Package pdftex.def Info: Images/capitolo_1/double_spending.png  used on input line 108.
 (pdftex.def)             Requested size: 272.99881pt x 154.0122pt.
-<Images/capitolo_1/scrooge_coin.png, id=277, 496.10344pt x 283.81032pt>
+<Images/capitolo_1/scrooge_coin.png, id=282, 496.10344pt x 283.81032pt>
 File: Images/capitolo_1/scrooge_coin.png Graphic file (type png)
 <use Images/capitolo_1/scrooge_coin.png>
 Package pdftex.def Info: Images/capitolo_1/scrooge_coin.png  used on input line 119.
@@ -940,7 +940,7 @@ Overfull \hbox (14.67776pt too wide) has occurred while \output is active
  []
 
 [15]
-<Images/capitolo_2/double_spending_bc.png, id=320, 1107.38719pt x 427.5975pt>
+<Images/capitolo_2/double_spending_bc.png, id=325, 1107.38719pt x 427.5975pt>
 File: Images/capitolo_2/double_spending_bc.png Graphic file (type png)
 <use Images/capitolo_2/double_spending_bc.png>
 Package pdftex.def Info: Images/capitolo_2/double_spending_bc.png  used on input line 73.
@@ -979,12 +979,12 @@ Overfull \hbox (14.67776pt too wide) has occurred while \output is active
  []
 
 [19]
-<Images/capitolo_2/account_ledger.png, id=348, 1096.84781pt x 441.90094pt>
+<Images/capitolo_2/account_ledger.png, id=353, 1096.84781pt x 441.90094pt>
 File: Images/capitolo_2/account_ledger.png Graphic file (type png)
 <use Images/capitolo_2/account_ledger.png>
 Package pdftex.def Info: Images/capitolo_2/account_ledger.png  used on input line 128.
 (pdftex.def)             Requested size: 272.99881pt x 109.98273pt.
-<Images/capitolo_2/input_out.png, id=349, 773.89125pt x 513.41812pt>
+<Images/capitolo_2/input_out.png, id=354, 773.89125pt x 513.41812pt>
 File: Images/capitolo_2/input_out.png Graphic file (type png)
 <use Images/capitolo_2/input_out.png>
 Package pdftex.def Info: Images/capitolo_2/input_out.png  used on input line 136.
@@ -1010,7 +1010,7 @@ Capitolo 3.
 [22
 
 ]
-<Images/capitolo_3/tentativo_ds.png, id=366, 397.485pt x 124.21407pt>
+<Images/capitolo_3/tentativo_ds.png, id=371, 397.485pt x 124.21407pt>
 File: Images/capitolo_3/tentativo_ds.png Graphic file (type png)
 <use Images/capitolo_3/tentativo_ds.png>
 Package pdftex.def Info: Images/capitolo_3/tentativo_ds.png  used on input line 23.
@@ -1036,25 +1036,38 @@ Capitolo 4.
 ]
 
 [30]
-<Images/capitolo_4/transazione_blind.png, id=407, 642.14906pt x 211.54031pt>
+<Images/capitolo_4/transazione_blind.png, id=412, 642.14906pt x 211.54031pt>
 File: Images/capitolo_4/transazione_blind.png Graphic file (type png)
 <use Images/capitolo_4/transazione_blind.png>
 Package pdftex.def Info: Images/capitolo_4/transazione_blind.png  used on input line 48.
-(pdftex.def)             Requested size: 272.99881pt x 89.9341pt.
-) (parts/capitolo_mdr_1.tex
+(pdftex.def)             Requested size: 350.99762pt x 115.63094pt.
+
 
 [31]
+<Images/capitolo_4/tegliera.png, id=418, 483.30562pt x 212.29312pt>
+File: Images/capitolo_4/tegliera.png Graphic file (type png)
+<use Images/capitolo_4/tegliera.png>
+Package pdftex.def Info: Images/capitolo_4/tegliera.png  used on input line 60.
+(pdftex.def)             Requested size: 234.00238pt x 102.78711pt.
+<Images/capitolo_4/grafo_conoscenza.png, id=420, 735.49782pt x 605.26125pt>
+File: Images/capitolo_4/grafo_conoscenza.png Graphic file (type png)
+<use Images/capitolo_4/grafo_conoscenza.png>
+Package pdftex.def Info: Images/capitolo_4/grafo_conoscenza.png  used on input line 67.
+(pdftex.def)             Requested size: 234.00238pt x 192.5608pt.
 
-[32 <./Images/capitolo_4/transazione_blind.png>]
+
+[32 <./Images/capitolo_4/transazione_blind.png> <./Images/capitolo_4/tegliera.png>]) (parts/capitolo_mdr_1.tex
+
+[33 <./Images/capitolo_4/grafo_conoscenza.png>]
 Capitolo 5.
-<Images/capitolo_2/trans_real.png, id=420, 1160.08406pt x 612.78937pt>
+<Images/capitolo_2/trans_real.png, id=436, 1160.08406pt x 612.78937pt>
 File: Images/capitolo_2/trans_real.png Graphic file (type png)
 <use Images/capitolo_2/trans_real.png>
 Package pdftex.def Info: Images/capitolo_2/trans_real.png  used on input line 7.
 (pdftex.def)             Requested size: 390.0pt x 206.00803pt.
 
 
-[33
+[34
 
  <./Images/capitolo_2/trans_real.png>]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 35.
@@ -1062,45 +1075,45 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 35
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 
-[34{C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
-<Images/capitolo_2/verifica_firma.png, id=436, 1258.7025pt x 200.24812pt>
+[35{C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+<Images/capitolo_2/verifica_firma.png, id=452, 1258.7025pt x 200.24812pt>
 File: Images/capitolo_2/verifica_firma.png Graphic file (type png)
 <use Images/capitolo_2/verifica_firma.png>
 Package pdftex.def Info: Images/capitolo_2/verifica_firma.png  used on input line 55.
 (pdftex.def)             Requested size: 390.0pt x 62.04572pt.
 
 
-[35 <./Images/capitolo_2/verifica_firma.png>]
-
-[36]
+[36 <./Images/capitolo_2/verifica_firma.png>]
 
 [37]
 
 [38]
 
-[39]) (parts/capitolo_mdr_2.tex
+[39]
 
-[40]
+[40]) (parts/capitolo_mdr_2.tex
+
+[41]
 Capitolo 6.
 
 
-[41
+[42
 
 ]
 
-[42]
-<Images/capitolo_mdr_2/nuovo_nodo.png, id=480, 620.3175pt x 426.09187pt>
+[43]
+<Images/capitolo_mdr_2/nuovo_nodo.png, id=496, 620.3175pt x 426.09187pt>
 File: Images/capitolo_mdr_2/nuovo_nodo.png Graphic file (type png)
 <use Images/capitolo_mdr_2/nuovo_nodo.png>
 Package pdftex.def Info: Images/capitolo_mdr_2/nuovo_nodo.png  used on input line 44.
 (pdftex.def)             Requested size: 272.99881pt x 187.52pt.
 
 
-[43])
+[44])
 
-[44 <./Images/capitolo_mdr_2/nuovo_nodo.png>]
+[45 <./Images/capitolo_mdr_2/nuovo_nodo.png>]
 
-[45]
+[46]
 No file document.bbl.
 (document.aux)
  ***********
@@ -1108,20 +1121,20 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 67AFC96563A69D0BE206C2949DB9A53E;7671.
+(rerunfilecheck)             Checksum: FBC0A3BB98F1410170F3CDA0BA229331;7915.
  ) 
 Here is how much of TeX's memory you used:
- 13711 strings out of 468080
- 224425 string characters out of 5425767
+ 13725 strings out of 468080
+ 224986 string characters out of 5425767
  810695 words of memory out of 5000000
- 42036 multiletter control sequences out of 15000+600000
- 637176 words of font info for 72 fonts, out of 8000000 for 9000
+ 42046 multiletter control sequences out of 15000+600000
+ 636568 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,9n,79p,983b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\lolcr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on document.pdf (46 pages, 1240222 bytes).
+ <C:\Users\lolcr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on document.pdf (47 pages, 1798083 bytes).
 PDF statistics:
- 612 PDF objects out of 1000 (max. 8388607)
- 149 named destinations out of 1000 (max. 500000)
- 383 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 625 PDF objects out of 1000 (max. 8388607)
+ 154 named destinations out of 1000 (max. 500000)
+ 401 words of extra memory for PDF output out of 10000 (max. 10000000)
 
