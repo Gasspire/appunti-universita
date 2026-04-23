@@ -75,6 +75,32 @@ Solito protocollo Diffie-Hellman
 
 Sfruttiamo questa idea come segue:
 Vogliamo provare che $(g, g^x, g^y, g^{xy})$ sia una quadrupla Diffie-Hellman tale che:
-$$DL_{g^x}(g^{xy}) = DL_{g^y}(g^{xy})$$
+$$DL_{g}(g^{y}) = DL_{g^x}(g^{xy})$$
 
-Il prover sceglierà dei valori a caso che sono $u = g^r,v = X^r$ che  vengono mandati al verificatore. Il verificatore sceglie $C \xleftarrow{R} \{1,\dots,m\}$ e lo manda al prover. Il prover risponderà con $Z = r+ cy  \mod m$ . Alla fine la verificherà sarà $g^z =? u \cdot Y^c$ e $x^Z =? v \cdot W^c$
+Il prover sceglierà dei valori a caso che sono $u = g^r,v = X^r$ che  vengono mandati al verificatore. Il verificatore sceglie $C \xleftarrow{R} \{1,\dots,m\}$ e lo manda al prover. Il prover risponderà con $Z = r+ cy  \mod m$ . Alla fine la verificherà sarà:
+1. $g^z =? u \cdot Y^c$ 
+2. $x^Z =? v \cdot W^c$
+
+#### Completness
+Se la quadrupla è valida, allora questa rispetta il protocollo e funziona correttamente.
+Siano $X=g^x,Y=g^Y, Z = g^{x,y}$:
+- $g^z = g^{r+cy} = g^r \cdot (g^Y)^c$
+#### Zero Knowledge
+Cerchiamo innanzitutto di capire la view:
+* (u,v), c, z 
+Vediamo come costruire una tripletta a posteriori:
+1. Scegliamo c random tra 1, ..., m
+2. Scegliamo z random tra 0, ... m
+3. Calcoliamo $u = g^z/ y^c$ e $v = X^z/W^c$ 
+In questo modo, quando il Verificatore andrà a controllare se $X^z = v \cdot W^c$, l'uguaglianza sarà vera per costruzione, anche se il simulatore non sa assolutamente nulla di $x$ o $y$.
+#### Soundness
+Proviamo a capire cosa può fare l'attaccante per fregare il verifier
+![[soundness_diffie.png|475]]
+
+L'attaccante per fregare il verifier dovrebbe riuscire a calcolare $\alpha$ che è:
+$$\alpha = \frac{\beta + s c}{x}-yc$$ Dunque, anche scegliendo $\beta$, per riscrivere il tutto abbiamo bisogno di indovinare c a priori. Ancora, abbiamo che l'attaccante può indovinare con probabilità $\frac{1}{m}$ dove m è la grandezza del gruppo degli esponenti.
+
+## Teorema
+Se esistono funzioni unidirezionali, allora qualunque linguaggio in NP, ammette una **Zero Knowledge Proof** computazionale cioè che il verifier è computazionalmente limitato. 
+
+La dimostrazione è complessa e molto articolata (non la famo)
