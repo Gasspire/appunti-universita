@@ -1,0 +1,1498 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.24)  2 FEB 2026 17:09
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"c:/Users/lolcr/OneDrive - Università degli Studi di Catania/Unict/M_Primo_Anno/Algoritmi/Appunti_Algoritmi/document.tex"
+(c:/Users/lolcr/OneDrive - Università degli Studi di Catania/Unict/M_Primo_Anno/Algoritmi/Appunti_Algoritmi/document.tex
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-09-02>
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\bk12.clo
+File: bk12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@chapter=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count284
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count285
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen149
+\Hy@linkcounter=\count286
+\Hy@pagecounter=\count287
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count288
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count289
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen150
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count290
+\Field@Width=\dimen151
+\Fld@charsize=\dimen152
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count291
+\c@Item=\count292
+\c@Hfootnote=\count293
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+\Fld@listcount=\count294
+\c@bookmark@seq@number=\count295
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+)
+\Hy@SectionHShift=\skip51
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2025/10/01 v25.13 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
+\babel@savecnt=\count296
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2045.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2047.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2049.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2050.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2051.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2053.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2078.
+\U@D=\dimen153
+\l@unhyphenated=\language79
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count297
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/babel-italian\italian.ldf
+Language: italian 2024/10/10 v.1.5.01 Italian support for the babel system
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/it\babel-italian.tex
+Package babel Info: Importing font and identification data for italian
+(babel)             from babel-it.ini. Reported on input line 12.
+)
+\it@lettering=\count298
+\it@doublequoteactive=\count299
+\it@ISOcompliance=\count300
+)) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count301
+\float@exts=\toks18
+\float@box=\box53
+\@float@everytoks=\toks19
+\@floatcapt=\box54
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
+\col@sep=\dimen154
+\ar@mcellbox=\box55
+\extrarowheight=\dimen155
+\NC@list=\toks20
+\extratabsurround=\skip52
+\backup@length=\skip53
+\ar@cellbox=\box56
+)
+\TX@col@width=\dimen156
+\TX@old@table=\dimen157
+\TX@old@col=\dimen158
+\TX@target=\dimen159
+\TX@delta=\dimen160
+\TX@cols=\count302
+\TX@ftn=\toks21
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count303
+\Gm@cntv=\count304
+\c@Gm@tempcnt=\count305
+\Gm@bindingoffset=\dimen161
+\Gm@wd@mp=\dimen162
+\Gm@odd@mp=\dimen163
+\Gm@even@mp=\dimen164
+\Gm@layoutwidth=\dimen165
+\Gm@layoutheight=\dimen166
+\Gm@layouthoffset=\dimen167
+\Gm@layoutvoffset=\dimen168
+\Gm@dimlist=\toks22
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks23
+\inpenc@posthook=\toks24
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/06/16 v2.17y AMS math features
+\@mathmargin=\skip54
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks25
+\ex@=\dimen169
+)) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen170
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count306
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count307
+\leftroot@=\count308
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count309
+\DOTSCASE@=\count310
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box57
+\strutbox@=\box58
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen171
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count311
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count312
+\dotsspace@=\muskip18
+\c@parentequation=\count313
+\dspbrk@lvl=\count314
+\tag@help=\toks26
+\row@=\count315
+\column@=\count316
+\maxfields@=\count317
+\andhelp@=\toks27
+\eqnshift@=\dimen172
+\alignsep@=\dimen173
+\tagshift@=\dimen174
+\tagwidth@=\dimen175
+\totwidth@=\dimen176
+\lineht@=\dimen177
+\@envbody=\toks28
+\multlinegap=\skip55
+\multlinetaggap=\skip56
+\mathdisplay@stack=\toks29
+LaTeX Info: Redefining \[ on input line 2949.
+LaTeX Info: Redefining \] on input line 2950.
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks30
+\c@algorithm=\count318
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algpseudocode.sty
+Package: algpseudocode 
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count319
+\c@ALG@rem=\count320
+\c@ALG@nested=\count321
+\ALG@tlm=\skip57
+\ALG@thistlm=\skip58
+\c@ALG@Lnr=\count322
+\c@ALG@blocknr=\count323
+\c@ALG@storecount=\count324
+\c@ALG@tmpcounter=\count325
+\ALG@tmplength=\skip59
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen178
+\captionmargin=\dimen179
+\caption@leftmargin=\dimen180
+\caption@rightmargin=\dimen181
+\caption@width=\dimen182
+\caption@indent=\dimen183
+\caption@parindent=\dimen184
+\caption@hangindent=\dimen185
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count326
+\c@continuedfloat=\count327
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count328
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count329
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen186
+\Gin@req@width=\dimen187
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count330
+\lst@gtempboxa=\box59
+\lst@token=\toks31
+\lst@length=\count331
+\lst@currlwidth=\dimen188
+\lst@column=\count332
+\lst@pos=\count333
+\lst@lostspace=\dimen189
+\lst@width=\dimen190
+\lst@newlines=\count334
+\lst@lineno=\count335
+\lst@maxwidth=\dimen191
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count336
+\lst@skipnumbers=\count337
+\lst@framebox=\box60
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\courier.sty
+Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip60
+\fb@frw=\dimen192
+\fb@frh=\dimen193
+\FrameRule=\dimen194
+\FrameSep=\dimen195
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count338
+) (document.aux)
+\openout1 = `document.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+Package hyperref Info: Link coloring OFF on input line 51.
+ (document.out) (document.out)
+\@outlinefile=\write3
+\openout3 = `document.out'.
+
+LaTeX Info: Redefining \it@ocap on input line 51.
+LaTeX Info: Redefining \it@ccap on input line 51.
+
+
+File italian.ldf warning: 
+italian.ldf    With OT1 encoding guillemets are poorly faked
+italian.ldf    Use T1 encoding
+italian.ldf    or specify a font with command \CaporaliFrom
+italian.ldf    See the documentation concerning the babel-italian typesetting
+italian.ldf    on input line 51.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=426.79135pt
+* \textheight=674.33032pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-18.78552pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=38.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count339
+\scratchdimen=\dimen196
+\scratchbox=\box61
+\nofMPsegments=\count340
+\nofMParguments=\count341
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count342
+\MPscratchDim=\dimen197
+\MPnumerator=\count343
+\makeMPintoPDFobject=\count344
+\everyMPtoPDFconversion=\toks33
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+\c@lstlisting=\count345
+ (parts/frontespizio.tex
+<Images/university_logo.png, id=363, 106.3975pt x 112.42pt>
+File: Images/university_logo.png Graphic file (type png)
+<use Images/university_logo.png>
+Package pdftex.def Info: Images/university_logo.png  used on input line 3.
+(pdftex.def)             Requested size: 69.2582pt x 72.98463pt.
+
+
+[1
+
+
+{C:/Users/lolcr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Images/university_logo.png>]) (document.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.38 ...perazioni Heap Binomiali}{39}{section.4.3}
+                                                  % [1
+
+]
+
+[2])
+\tf@toc=\write4
+\openout4 = `document.toc'.
+
+ (parts/capitolo_1.tex
+
+[3]
+Capitolo 1.
+
+
+[4
+
+]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 42.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+
+[5]
+<Images/capitolo_1_2/contatore_binario_cambi.png, id=496, 1186.4325pt x 555.07375pt>
+File: Images/capitolo_1_2/contatore_binario_cambi.png Graphic file (type png)
+<use Images/capitolo_1_2/contatore_binario_cambi.png>
+Package pdftex.def Info: Images/capitolo_1_2/contatore_binario_cambi.png  used on input line 65.
+(pdftex.def)             Requested size: 341.43437pt x 159.73914pt.
+
+
+[6{C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./Images/capitolo_1_2/contatore_binario_cambi.png>]
+
+[7]
+
+[8]
+
+[9]
+
+[10]
+
+[11]
+<Images/capitolo_1_2/schema_inserimenti_tabella.png, id=540, 525.46312pt x 361.35pt>
+File: Images/capitolo_1_2/schema_inserimenti_tabella.png Graphic file (type png)
+<use Images/capitolo_1_2/schema_inserimenti_tabella.png>
+Package pdftex.def Info: Images/capitolo_1_2/schema_inserimenti_tabella.png  used on input line 212.
+(pdftex.def)             Requested size: 213.39568pt x 146.74844pt.
+
+
+[12 <./Images/capitolo_1_2/schema_inserimenti_tabella.png>]
+<Images/capitolo_1_2/schema_tabella_dinamica.png, id=549, 1075.01625pt x 647.41875pt>
+File: Images/capitolo_1_2/schema_tabella_dinamica.png Graphic file (type png)
+<use Images/capitolo_1_2/schema_tabella_dinamica.png>
+Package pdftex.def Info: Images/capitolo_1_2/schema_tabella_dinamica.png  used on input line 244.
+(pdftex.def)             Requested size: 341.43437pt x 205.62726pt.
+
+
+[13 <./Images/capitolo_1_2/schema_tabella_dinamica.png>]
+<Images/capitolo_1_2/schema_casi_inserimento.png, id=555, 348.55219pt x 97.86563pt>
+File: Images/capitolo_1_2/schema_casi_inserimento.png Graphic file (type png)
+<use Images/capitolo_1_2/schema_casi_inserimento.png>
+Package pdftex.def Info: Images/capitolo_1_2/schema_casi_inserimento.png  used on input line 269.
+(pdftex.def)             Requested size: 213.39568pt x 59.91745pt.
+
+
+[14 <./Images/capitolo_1_2/schema_casi_inserimento.png>]
+<Images/capitolo_1_2/costi_tabelle_dinamiche.png, id=562, 1009.7725pt x 554.07pt>
+File: Images/capitolo_1_2/costi_tabelle_dinamiche.png Graphic file (type png)
+<use Images/capitolo_1_2/costi_tabelle_dinamiche.png>
+Package pdftex.def Info: Images/capitolo_1_2/costi_tabelle_dinamiche.png  used on input line 305.
+(pdftex.def)             Requested size: 341.43437pt x 187.34987pt.
+
+
+[15 <./Images/capitolo_1_2/costi_tabelle_dinamiche.png>]
+<Images/capitolo_1_2/prestazioni_foresee_movetofront.png, id=568, 637.38126pt x 381.425pt>
+File: Images/capitolo_1_2/prestazioni_foresee_movetofront.png Graphic file (type png)
+<use Images/capitolo_1_2/prestazioni_foresee_movetofront.png>
+Package pdftex.def Info: Images/capitolo_1_2/prestazioni_foresee_movetofront.png  used on input line 347.
+(pdftex.def)             Requested size: 213.39568pt x 127.69814pt.
+
+
+[16]
+<Images/capitolo_1_2/inversioni_esempio.png, id=573, 334.24875pt x 222.8325pt>
+File: Images/capitolo_1_2/inversioni_esempio.png Graphic file (type png)
+<use Images/capitolo_1_2/inversioni_esempio.png>
+Package pdftex.def Info: Images/capitolo_1_2/inversioni_esempio.png  used on input line 361.
+(pdftex.def)             Requested size: 213.39568pt x 142.26889pt.
+<Images/capitolo_1_2/mtf_competitiva.png, id=574, 817.0525pt x 331.2375pt>
+File: Images/capitolo_1_2/mtf_competitiva.png Graphic file (type png)
+<use Images/capitolo_1_2/mtf_competitiva.png>
+Package pdftex.def Info: Images/capitolo_1_2/mtf_competitiva.png  used on input line 378.
+(pdftex.def)             Requested size: 213.39568pt x 86.50888pt.
+
+
+[17 <./Images/capitolo_1_2/prestazioni_foresee_movetofront.png> <./Images/capitolo_1_2/inversioni_esempio.png>]
+<Images/capitolo_1_2/mtf_primo.png, id=582, 986.18437pt x 558.58687pt>
+File: Images/capitolo_1_2/mtf_primo.png Graphic file (type png)
+<use Images/capitolo_1_2/mtf_primo.png>
+Package pdftex.def Info: Images/capitolo_1_2/mtf_primo.png  used on input line 408.
+(pdftex.def)             Requested size: 213.39568pt x 120.86946pt.
+<Images/capitolo_1_2/mtf_secondo.png, id=583, 720.6925pt x 440.64626pt>
+File: Images/capitolo_1_2/mtf_secondo.png Graphic file (type png)
+<use Images/capitolo_1_2/mtf_secondo.png>
+Package pdftex.def Info: Images/capitolo_1_2/mtf_secondo.png  used on input line 415.
+(pdftex.def)             Requested size: 213.39568pt x 130.47362pt.
+) (parts/capitolo_2.tex
+
+[18 <./Images/capitolo_1_2/mtf_competitiva.png>]
+
+[19 <./Images/capitolo_1_2/mtf_primo.png> <./Images/capitolo_1_2/mtf_secondo.png>]
+Capitolo 2.
+<Images/capitolo_1_2/albero_search.png, id=604, 1093.08376pt x 874.26625pt>
+File: Images/capitolo_1_2/albero_search.png Graphic file (type png)
+<use Images/capitolo_1_2/albero_search.png>
+Package pdftex.def Info: Images/capitolo_1_2/albero_search.png  used on input line 9.
+(pdftex.def)             Requested size: 277.41176pt x 221.87439pt.
+
+
+[20
+
+ <./Images/capitolo_1_2/albero_search.png>]
+<Images/capitolo_1_2/zig_zigzag_zigzig.png, id=610, 843.15pt x 700.6175pt>
+File: Images/capitolo_1_2/zig_zigzag_zigzig.png Graphic file (type png)
+<use Images/capitolo_1_2/zig_zigzag_zigzig.png>
+Package pdftex.def Info: Images/capitolo_1_2/zig_zigzag_zigzig.png  used on input line 19.
+(pdftex.def)             Requested size: 426.79135pt x 354.64825pt.
+
+
+[21 <./Images/capitolo_1_2/zig_zigzag_zigzig.png>]
+<Images/capitolo_1_2/splay_tree.png, id=616, 912.40875pt x 160.34906pt>
+File: Images/capitolo_1_2/splay_tree.png Graphic file (type png)
+<use Images/capitolo_1_2/splay_tree.png>
+Package pdftex.def Info: Images/capitolo_1_2/splay_tree.png  used on input line 30.
+(pdftex.def)             Requested size: 341.43437pt x 60.00351pt.
+<Images/capitolo_1_2/rango_s_splay.png, id=618, 909.3975pt x 362.10281pt>
+File: Images/capitolo_1_2/rango_s_splay.png Graphic file (type png)
+<use Images/capitolo_1_2/rango_s_splay.png>
+Package pdftex.def Info: Images/capitolo_1_2/rango_s_splay.png  used on input line 44.
+(pdftex.def)             Requested size: 341.43437pt x 135.95396pt.
+<Images/capitolo_1_2/dimostrazione_lemma.png, id=619, 703.62875pt x 491.8375pt>
+File: Images/capitolo_1_2/dimostrazione_lemma.png Graphic file (type png)
+<use Images/capitolo_1_2/dimostrazione_lemma.png>
+Package pdftex.def Info: Images/capitolo_1_2/dimostrazione_lemma.png  used on input line 57.
+(pdftex.def)             Requested size: 213.39568pt x 149.15842pt.
+
+
+[22 <./Images/capitolo_1_2/splay_tree.png> <./Images/capitolo_1_2/rango_s_splay.png>]
+<Images/dimostrazione_zig_zigzag_zigzig/zig_1.png, id=629, 742.775pt x 256.96pt>
+File: Images/dimostrazione_zig_zigzag_zigzig/zig_1.png Graphic file (type png)
+<use Images/dimostrazione_zig_zigzag_zigzig/zig_1.png>
+Package pdftex.def Info: Images/dimostrazione_zig_zigzag_zigzig/zig_1.png  used on input line 68.
+(pdftex.def)             Requested size: 213.39568pt x 73.82248pt.
+<Images/dimostrazione_zig_zigzag_zigzig/zig-zig_dimostrazione.png, id=631, 1379.1525pt x 1023.825pt>
+File: Images/dimostrazione_zig_zigzag_zigzig/zig-zig_dimostrazione.png Graphic file (type png)
+<use Images/dimostrazione_zig_zigzag_zigzig/zig-zig_dimostrazione.png>
+Package pdftex.def Info: Images/dimostrazione_zig_zigzag_zigzig/zig-zig_dimostrazione.png  used on input line 78.
+(pdftex.def)             Requested size: 426.79135pt x 316.8357pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--82
+
+ []
+
+
+
+[23 <./Images/capitolo_1_2/dimostrazione_lemma.png> <./Images/dimostrazione_zig_zigzag_zigzig/zig_1.png>]
+<Images/dimostrazione_zig_zigzag_zigzig/zig-zag.png, id=639, 999.735pt x 761.09344pt>
+File: Images/dimostrazione_zig_zigzag_zigzig/zig-zag.png Graphic file (type png)
+<use Images/dimostrazione_zig_zigzag_zigzig/zig-zag.png>
+Package pdftex.def Info: Images/dimostrazione_zig_zigzag_zigzig/zig-zag.png  used on input line 88.
+(pdftex.def)             Requested size: 426.79135pt x 324.91791pt.
+
+
+[24 <./Images/dimostrazione_zig_zigzag_zigzig/zig-zig_dimostrazione.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+
+ []
+
+
+
+[25 <./Images/dimostrazione_zig_zigzag_zigzig/zig-zag.png>]
+<Images/top-down_tree/totale.png, id=652, 832.61063pt x 531.48563pt>
+File: Images/top-down_tree/totale.png Graphic file (type png)
+<use Images/top-down_tree/totale.png>
+Package pdftex.def Info: Images/top-down_tree/totale.png  used on input line 128.
+(pdftex.def)             Requested size: 426.79135pt x 272.44086pt.
+) (parts/capitolo_3.tex
+
+[26]
+
+[27 <./Images/top-down_tree/totale.png>]
+Capitolo 3.
+<Images/capitolo_3/b_tree_esempio.png, id=666, 665.48625pt x 235.88126pt>
+File: Images/capitolo_3/b_tree_esempio.png Graphic file (type png)
+<use Images/capitolo_3/b_tree_esempio.png>
+Package pdftex.def Info: Images/capitolo_3/b_tree_esempio.png  used on input line 6.
+(pdftex.def)             Requested size: 213.39568pt x 75.6347pt.
+<Images/capitolo_3/hard_disk.png, id=667, 885.3075pt x 473.77pt>
+File: Images/capitolo_3/hard_disk.png Graphic file (type png)
+<use Images/capitolo_3/hard_disk.png>
+Package pdftex.def Info: Images/capitolo_3/hard_disk.png  used on input line 14.
+(pdftex.def)             Requested size: 213.39568pt x 114.1987pt.
+
+
+[28
+
+ <./Images/capitolo_3/b_tree_esempio.png>]
+<Images/capitolo_3/dimostrazione_altezza_prima.png, id=673, 1154.3125pt x 854.19125pt>
+File: Images/capitolo_3/dimostrazione_altezza_prima.png Graphic file (type png)
+<use Images/capitolo_3/dimostrazione_altezza_prima.png>
+Package pdftex.def Info: Images/capitolo_3/dimostrazione_altezza_prima.png  used on input line 45.
+(pdftex.def)             Requested size: 426.79135pt x 315.82423pt.
+<Images/capitolo_3/dimostrazione_altezza_seconda.png, id=674, 1285.80376pt x 828.09375pt>
+File: Images/capitolo_3/dimostrazione_altezza_seconda.png Graphic file (type png)
+<use Images/capitolo_3/dimostrazione_altezza_seconda.png>
+Package pdftex.def Info: Images/capitolo_3/dimostrazione_altezza_seconda.png  used on input line 50.
+(pdftex.def)             Requested size: 426.79135pt x 274.86388pt.
+
+
+[29 <./Images/capitolo_3/hard_disk.png>]
+
+[30 <./Images/capitolo_3/dimostrazione_altezza_prima.png> <./Images/capitolo_3/dimostrazione_altezza_seconda.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 70.
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+
+ []
+
+
+
+[31]
+<Images/capitolo_3/inserimento_con_split.png, id=697, 746.79pt x 213.79875pt>
+File: Images/capitolo_3/inserimento_con_split.png Graphic file (type png)
+<use Images/capitolo_3/inserimento_con_split.png>
+Package pdftex.def Info: Images/capitolo_3/inserimento_con_split.png  used on input line 107.
+(pdftex.def)             Requested size: 341.43437pt x 97.74834pt.
+
+
+[32 <./Images/capitolo_3/inserimento_con_split.png>]
+
+[33]
+
+[34]
+<Images/capitolo_3/cancellazione_b_tree.png, id=715, 838.13126pt x 328.22626pt>
+File: Images/capitolo_3/cancellazione_b_tree.png Graphic file (type png)
+<use Images/capitolo_3/cancellazione_b_tree.png>
+Package pdftex.def Info: Images/capitolo_3/cancellazione_b_tree.png  used on input line 198.
+(pdftex.def)             Requested size: 341.43437pt x 133.70718pt.
+<Images/capitolo_3/cancellazione_cix_fratello_non_magro.png, id=716, 1391.1975pt x 384.43625pt>
+File: Images/capitolo_3/cancellazione_cix_fratello_non_magro.png Graphic file (type png)
+<use Images/capitolo_3/cancellazione_cix_fratello_non_magro.png>
+Package pdftex.def Info: Images/capitolo_3/cancellazione_cix_fratello_non_magro.png  used on input line 217.
+(pdftex.def)             Requested size: 341.43437pt x 94.34901pt.
+
+
+[35 <./Images/capitolo_3/cancellazione_b_tree.png>]
+<Images/capitolo_3/fratelli_magri.png, id=725, 651.18282pt x 304.88907pt>
+File: Images/capitolo_3/fratelli_magri.png Graphic file (type png)
+<use Images/capitolo_3/fratelli_magri.png>
+Package pdftex.def Info: Images/capitolo_3/fratelli_magri.png  used on input line 223.
+(pdftex.def)             Requested size: 341.43437pt x 159.86446pt.
+) (parts/capitolo_heap.tex
+
+[36 <./Images/capitolo_3/cancellazione_cix_fratello_non_magro.png> <./Images/capitolo_3/fratelli_magri.png>]
+Capitolo 4.
+<Images/capitolo_heap_binomiale/combinazione_albero_binom.png, id=735, 274.02374pt x 172.645pt>
+File: Images/capitolo_heap_binomiale/combinazione_albero_binom.png Graphic file (type png)
+<use Images/capitolo_heap_binomiale/combinazione_albero_binom.png>
+Package pdftex.def Info: Images/capitolo_heap_binomiale/combinazione_albero_binom.png  used on input line 11.
+(pdftex.def)             Requested size: 213.39568pt x 134.44916pt.
+
+
+[37
+
+ <./Images/capitolo_heap_binomiale/combinazione_albero_binom.png>]
+<Images/capitolo_heap_binomiale/albero_binom_ordine.png, id=744, 648.4225pt x 296.10625pt>
+File: Images/capitolo_heap_binomiale/albero_binom_ordine.png Graphic file (type png)
+<use Images/capitolo_heap_binomiale/albero_binom_ordine.png>
+Package pdftex.def Info: Images/capitolo_heap_binomiale/albero_binom_ordine.png  used on input line 22.
+(pdftex.def)             Requested size: 213.39568pt x 97.44878pt.
+
+
+[38 <./Images/capitolo_heap_binomiale/albero_binom_ordine.png>]
+<Images/capitolo_heap_binomiale/esempio_heap_binomial.png, id=759, 809.0225pt x 616.3025pt>
+File: Images/capitolo_heap_binomiale/esempio_heap_binomial.png Graphic file (type png)
+<use Images/capitolo_heap_binomiale/esempio_heap_binomial.png>
+Package pdftex.def Info: Images/capitolo_heap_binomiale/esempio_heap_binomial.png  used on input line 56.
+(pdftex.def)             Requested size: 213.39568pt x 162.55765pt.
+
+
+[39 <./Images/capitolo_heap_binomiale/esempio_heap_binomial.png>]
+<Images/capitolo_heap_binomiale/link_tra_alberi.png, id=766, 859.21pt x 226.8475pt>
+File: Images/capitolo_heap_binomiale/link_tra_alberi.png Graphic file (type png)
+<use Images/capitolo_heap_binomiale/link_tra_alberi.png>
+Package pdftex.def Info: Images/capitolo_heap_binomiale/link_tra_alberi.png  used on input line 115.
+(pdftex.def)             Requested size: 213.39568pt x 56.33789pt.
+
+
+[40]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 118.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 118.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 118.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 118.
+
+<Images/capitolo_heap_binomiale/esempio_somma_binari.png, id=774, 333.49594pt x 210.03468pt>
+File: Images/capitolo_heap_binomiale/esempio_somma_binari.png Graphic file (type png)
+<use Images/capitolo_heap_binomiale/esempio_somma_binari.png>
+Package pdftex.def Info: Images/capitolo_heap_binomiale/esempio_somma_binari.png  used on input line 122.
+(pdftex.def)             Requested size: 213.39568pt x 134.39929pt.
+
+Underfull \hbox (badness 2726) in paragraph at lines 138--139
+[] \OT1/cmr/bx/n/12 if $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 degree\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ] \OMS/cmsy/m/n/12 6\OT1/cmr/m/n/12 = \OML/cmm/m/it/12 degree\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 next[]x\OT1/cmr/m/n/12 ])$ \OT1/cmr/bx/n/12 or $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 sibling\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 next[]x\OT1/cmr/m/n/12 ] \OMS/cmsy/m/n/12 6\OT1/cmr/m/n/12 = []$ \OT1/cmr/bx/n/12 and
+ []
+
+
+
+[41 <./Images/capitolo_heap_binomiale/link_tra_alberi.png> <./Images/capitolo_heap_binomiale/esempio_somma_binari.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 161.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 161.
+
+
+
+[42]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 191.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 191.
+
+
+
+[43]
+Overfull \hbox (2.42444pt too wide) in paragraph at lines 226--226
+[]\OT1/cmr/bx/n/17.28 Analisi am-mor-tiz-za-ta di un in-se-ri-men-to in uno
+ []
+
+
+
+[44]
+Capitolo 5.
+<Images/heap_di_fibonacci/nodo_heap.png, id=803, 305.64188pt x 203.25937pt>
+File: Images/heap_di_fibonacci/nodo_heap.png Graphic file (type png)
+<use Images/heap_di_fibonacci/nodo_heap.png>
+Package pdftex.def Info: Images/heap_di_fibonacci/nodo_heap.png  used on input line 252.
+(pdftex.def)             Requested size: 213.39568pt x 141.9115pt.
+
+
+[45
+
+ <./Images/heap_di_fibonacci/nodo_heap.png>]
+<Images/heap_di_fibonacci/lista_heap_esempio.png, id=814, 528.47438pt x 222.07968pt>
+File: Images/heap_di_fibonacci/lista_heap_esempio.png Graphic file (type png)
+<use Images/heap_di_fibonacci/lista_heap_esempio.png>
+Package pdftex.def Info: Images/heap_di_fibonacci/lista_heap_esempio.png  used on input line 266.
+(pdftex.def)             Requested size: 213.39568pt x 89.67407pt.
+<Images/heap_di_fibonacci/creazione_u_k.png, id=815, 575.14874pt x 177.66376pt>
+File: Images/heap_di_fibonacci/creazione_u_k.png Graphic file (type png)
+<use Images/heap_di_fibonacci/creazione_u_k.png>
+Package pdftex.def Info: Images/heap_di_fibonacci/creazione_u_k.png  used on input line 285.
+(pdftex.def)             Requested size: 213.39568pt x 65.91618pt.
+
+
+[46 <./Images/heap_di_fibonacci/lista_heap_esempio.png>]
+
+[47 <./Images/heap_di_fibonacci/creazione_u_k.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 325.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 325.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 353.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 353.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 353.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 353.
+
+
+
+[48]
+
+[49]
+
+[50]
+
+[51]
+
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 541--543
+
+ []
+
+
+
+[53]
+<Images/heap_di_fibonacci/esercizio_fibonacci_terzo.png, id=866, 648.92438pt x 501.37312pt>
+File: Images/heap_di_fibonacci/esercizio_fibonacci_terzo.png Graphic file (type png)
+<use Images/heap_di_fibonacci/esercizio_fibonacci_terzo.png>
+Package pdftex.def Info: Images/heap_di_fibonacci/esercizio_fibonacci_terzo.png  used on input line 568.
+(pdftex.def)             Requested size: 341.43437pt x 263.80624pt.
+
+
+[54 <./Images/heap_di_fibonacci/esercizio_fibonacci_terzo.png>]
+<Images/heap_di_fibonacci/s_j+1_maggiore_sj.png, id=874, 620.3175pt x 438.8897pt>
+File: Images/heap_di_fibonacci/s_j+1_maggiore_sj.png Graphic file (type png)
+<use Images/heap_di_fibonacci/s_j+1_maggiore_sj.png>
+Package pdftex.def Info: Images/heap_di_fibonacci/s_j+1_maggiore_sj.png  used on input line 594.
+(pdftex.def)             Requested size: 341.43437pt x 241.57089pt.
+
+Overfull \hbox (47.70851pt too wide) detected at line 603
+[]
+ []
+
+
+
+[55 <./Images/heap_di_fibonacci/s_j+1_maggiore_sj.png>]) (parts/capitolo_union_find.tex
+
+[56]
+Capitolo 6.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 4.
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
+<Images/union_find/componenti_fortemente_connesse.png, id=885, 375.65344pt x 132.495pt>
+File: Images/union_find/componenti_fortemente_connesse.png Graphic file (type png)
+<use Images/union_find/componenti_fortemente_connesse.png>
+Package pdftex.def Info: Images/union_find/componenti_fortemente_connesse.png  used on input line 13.
+(pdftex.def)             Requested size: 213.39568pt x 75.26616pt.
+<Images/union_find/labirinto_1.png, id=886, 404.26031pt x 184.43906pt>
+File: Images/union_find/labirinto_1.png Graphic file (type png)
+<use Images/union_find/labirinto_1.png>
+Package pdftex.def Info: Images/union_find/labirinto_1.png  used on input line 22.
+(pdftex.def)             Requested size: 209.1301pt x 95.41353pt.
+<Images/union_find/labirinto_2.png, id=887, 490.08093pt x 265.74281pt>
+File: Images/union_find/labirinto_2.png Graphic file (type png)
+<use Images/union_find/labirinto_2.png>
+Package pdftex.def Info: Images/union_find/labirinto_2.png  used on input line 27.
+(pdftex.def)             Requested size: 209.1301pt x 113.39943pt.
+
+
+[57
+
+ <./Images/union_find/componenti_fortemente_connesse.png>]
+<Images/union_find/percolazione.png, id=894, 481.04718pt x 176.15813pt>
+File: Images/union_find/percolazione.png Graphic file (type png)
+<use Images/union_find/percolazione.png>
+Package pdftex.def Info: Images/union_find/percolazione.png  used on input line 36.
+(pdftex.def)             Requested size: 213.39568pt x 78.14685pt.
+<Images/union_find/lista_semplice.png, id=895, 278.54062pt x 203.25937pt>
+File: Images/union_find/lista_semplice.png Graphic file (type png)
+<use Images/union_find/lista_semplice.png>
+Package pdftex.def Info: Images/union_find/lista_semplice.png  used on input line 45.
+(pdftex.def)             Requested size: 170.71393pt x 124.5773pt.
+
+
+[58 <./Images/union_find/labirinto_1.png> <./Images/union_find/labirinto_2.png> <./Images/union_find/percolazione.png> <./Images/union_find/lista_semplice.png>]
+<Images/union_find/lista_2.png, id=907, 272.51813pt x 180.675pt>
+File: Images/union_find/lista_2.png Graphic file (type png)
+<use Images/union_find/lista_2.png>
+Package pdftex.def Info: Images/union_find/lista_2.png  used on input line 58.
+(pdftex.def)             Requested size: 170.71393pt x 113.18073pt.
+<Images/union_find/lista_3.png, id=908, 393.72093pt x 187.45032pt>
+File: Images/union_find/lista_3.png Graphic file (type png)
+<use Images/union_find/lista_3.png>
+Package pdftex.def Info: Images/union_find/lista_3.png  used on input line 70.
+(pdftex.def)             Requested size: 298.75264pt x 142.23488pt.
+<Images/union_find/eliminazione_head.png, id=909, 545.78906pt x 129.48375pt>
+File: Images/union_find/eliminazione_head.png Graphic file (type png)
+<use Images/union_find/eliminazione_head.png>
+Package pdftex.def Info: Images/union_find/eliminazione_head.png  used on input line 76.
+(pdftex.def)             Requested size: 298.75264pt x 70.87643pt.
+
+
+[59 <./Images/union_find/lista_2.png> <./Images/union_find/lista_3.png>]
+<Images/union_find/analisi_1_senza_euristica.png, id=918, 416.30531pt x 202.50656pt>
+File: Images/union_find/analisi_1_senza_euristica.png Graphic file (type png)
+<use Images/union_find/analisi_1_senza_euristica.png>
+Package pdftex.def Info: Images/union_find/analisi_1_senza_euristica.png  used on input line 82.
+(pdftex.def)             Requested size: 341.43437pt x 166.0935pt.
+<Images/union_find/analisi_2_con_euristica.png, id=919, 492.33937pt x 248.42813pt>
+File: Images/union_find/analisi_2_con_euristica.png Graphic file (type png)
+<use Images/union_find/analisi_2_con_euristica.png>
+Package pdftex.def Info: Images/union_find/analisi_2_con_euristica.png  used on input line 90.
+(pdftex.def)             Requested size: 384.1096pt x 193.82622pt.
+
+
+[60 <./Images/union_find/eliminazione_head.png> <./Images/union_find/analisi_1_senza_euristica.png> <./Images/union_find/analisi_2_con_euristica.png>]
+<Images/union_find/alberi_disgiunti.png, id=932, 566.86781pt x 282.30469pt>
+File: Images/union_find/alberi_disgiunti.png Graphic file (type png)
+<use Images/union_find/alberi_disgiunti.png>
+Package pdftex.def Info: Images/union_find/alberi_disgiunti.png  used on input line 99.
+(pdftex.def)             Requested size: 298.75264pt x 148.78508pt.
+<Images/union_find/find_set_alberi.png, id=933, 502.87875pt x 225.09094pt>
+File: Images/union_find/find_set_alberi.png Graphic file (type png)
+<use Images/union_find/find_set_alberi.png>
+Package pdftex.def Info: Images/union_find/find_set_alberi.png  used on input line 106.
+(pdftex.def)             Requested size: 298.75264pt x 133.72296pt.
+<Images/union_find/analisi_1_alberi.png, id=934, 502.87875pt x 251.43938pt>
+File: Images/union_find/analisi_1_alberi.png Graphic file (type png)
+<use Images/union_find/analisi_1_alberi.png>
+Package pdftex.def Info: Images/union_find/analisi_1_alberi.png  used on input line 111.
+(pdftex.def)             Requested size: 298.75264pt x 149.37616pt.
+) (parts/capitolo_alberi_minimi.tex
+
+[61 <./Images/union_find/alberi_disgiunti.png> <./Images/union_find/find_set_alberi.png>]
+
+[62 <./Images/union_find/analisi_1_alberi.png>]
+Capitolo 7.
+<Images/alberi_cammini_minimi/taglio.png, id=950, 434.37282pt x 200.24812pt>
+File: Images/alberi_cammini_minimi/taglio.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/taglio.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/taglio.png  used on input line 11.
+(pdftex.def)             Requested size: 256.07741pt x 118.05981pt.
+
+
+[63
+
+ <./Images/alberi_cammini_minimi/taglio.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 19--23
+
+ []
+
+
+
+[64]
+<Images/alberi_cammini_minimi/esempio_boruvka.png, id=963, 831.105pt x 338.76563pt>
+File: Images/alberi_cammini_minimi/esempio_boruvka.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/esempio_boruvka.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/esempio_boruvka.png  used on input line 50.
+(pdftex.def)             Requested size: 213.39568pt x 86.98112pt.
+<Images/alberi_cammini_minimi/esempio_kruskal.png, id=965, 567.62062pt x 208.52907pt>
+File: Images/alberi_cammini_minimi/esempio_kruskal.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/esempio_kruskal.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/esempio_kruskal.png  used on input line 57.
+(pdftex.def)             Requested size: 213.39568pt x 78.39548pt.
+
+
+[65 <./Images/alberi_cammini_minimi/esempio_boruvka.png> <./Images/alberi_cammini_minimi/esempio_kruskal.png>]
+<Images/alberi_cammini_minimi/complessita_kruskal.png, id=977, 553.31718pt x 345.54094pt>
+File: Images/alberi_cammini_minimi/complessita_kruskal.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/complessita_kruskal.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/complessita_kruskal.png  used on input line 68.
+(pdftex.def)             Requested size: 256.07741pt x 159.91562pt.
+<Images/alberi_cammini_minimi/esempio_prim_1.png, id=978, 592.46344pt x 314.67563pt>
+File: Images/alberi_cammini_minimi/esempio_prim_1.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/esempio_prim_1.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/esempio_prim_1.png  used on input line 83.
+(pdftex.def)             Requested size: 298.75264pt x 158.68185pt.
+<Images/alberi_cammini_minimi/esempio_prim_2.png, id=979, 573.64313pt x 269.50688pt>
+File: Images/alberi_cammini_minimi/esempio_prim_2.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/esempio_prim_2.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/esempio_prim_2.png  used on input line 87.
+(pdftex.def)             Requested size: 298.75264pt x 140.36232pt.
+
+
+[66 <./Images/alberi_cammini_minimi/complessita_kruskal.png>]
+<Images/alberi_cammini_minimi/complessita_prim.png, id=988, 567.62062pt x 332.74312pt>
+File: Images/alberi_cammini_minimi/complessita_prim.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/complessita_prim.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/complessita_prim.png  used on input line 92.
+(pdftex.def)             Requested size: 256.07741pt x 150.11888pt.
+<Images/alberi_cammini_minimi/signature_esempio.png, id=989, 584.1825pt x 120.45pt>
+File: Images/alberi_cammini_minimi/signature_esempio.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/signature_esempio.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/signature_esempio.png  used on input line 102.
+(pdftex.def)             Requested size: 256.07741pt x 52.8015pt.
+
+
+[67 <./Images/alberi_cammini_minimi/esempio_prim_1.png> <./Images/alberi_cammini_minimi/esempio_prim_2.png> <./Images/alberi_cammini_minimi/complessita_prim.png>]
+<Images/alberi_cammini_minimi/signature_mst.png, id=1000, 405.76593pt x 234.1247pt>
+File: Images/alberi_cammini_minimi/signature_mst.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/signature_mst.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/signature_mst.png  used on input line 107.
+(pdftex.def)             Requested size: 256.07741pt x 147.76012pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
+
+ []
+
+<Images/alberi_cammini_minimi/minimalita_distanza.png, id=1002, 889.82437pt x 379.4175pt>
+File: Images/alberi_cammini_minimi/minimalita_distanza.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/minimalita_distanza.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/minimalita_distanza.png  used on input line 124.
+(pdftex.def)             Requested size: 298.75264pt x 127.38498pt.
+
+
+[68 <./Images/alberi_cammini_minimi/signature_esempio.png> <./Images/alberi_cammini_minimi/signature_mst.png>]
+
+[69 <./Images/alberi_cammini_minimi/minimalita_distanza.png>]
+
+[70]
+<Images/alberi_cammini_minimi/clustering/algoritmo_kruskal.png, id=1024, 940.26282pt x 445.665pt>
+File: Images/alberi_cammini_minimi/clustering/algoritmo_kruskal.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/clustering/algoritmo_kruskal.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/clustering/algoritmo_kruskal.png  used on input line 190.
+(pdftex.def)             Requested size: 298.75264pt x 141.60246pt.
+
+
+[71 <./Images/alberi_cammini_minimi/clustering/algoritmo_kruskal.png>]
+<Images/alberi_cammini_minimi/clustering/dimostrazione_correttezza.png, id=1031, 282.30469pt x 254.45062pt>
+File: Images/alberi_cammini_minimi/clustering/dimostrazione_correttezza.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/clustering/dimostrazione_correttezza.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/clustering/dimostrazione_correttezza.png  used on input line 211.
+(pdftex.def)             Requested size: 170.71393pt x 153.87126pt.
+<Images/alberi_cammini_minimi/contrazione.png, id=1035, 496.85625pt x 270.25969pt>
+File: Images/alberi_cammini_minimi/contrazione.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/contrazione.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/contrazione.png  used on input line 223.
+(pdftex.def)             Requested size: 170.71393pt x 92.85617pt.
+
+
+[72 <./Images/alberi_cammini_minimi/clustering/dimostrazione_correttezza.png> <./Images/alberi_cammini_minimi/contrazione.png>]
+<Images/alberi_cammini_minimi/mst_reduce.png, id=1051, 685.8122pt x 595.47469pt>
+File: Images/alberi_cammini_minimi/mst_reduce.png Graphic file (type png)
+<use Images/alberi_cammini_minimi/mst_reduce.png>
+Package pdftex.def Info: Images/alberi_cammini_minimi/mst_reduce.png  used on input line 239.
+(pdftex.def)             Requested size: 384.1096pt x 333.52715pt.
+
+
+[73 <./Images/alberi_cammini_minimi/mst_reduce.png>]) (parts/capitolo_cammini_minimi.tex
+
+[74]
+Capitolo 8.
+
+
+[75
+
+]
+<Images/cammini_minimi/rappresentazione_efficiente.png, id=1076, 572.1375pt x 355.3275pt>
+File: Images/cammini_minimi/rappresentazione_efficiente.png Graphic file (type png)
+<use Images/cammini_minimi/rappresentazione_efficiente.png>
+Package pdftex.def Info: Images/cammini_minimi/rappresentazione_efficiente.png  used on input line 61.
+(pdftex.def)             Requested size: 213.39568pt x 132.53178pt.
+
+
+[76]
+<Images/cammini_minimi/mst_cammini_minimi.png, id=1083, 653.44125pt x 423.08063pt>
+File: Images/cammini_minimi/mst_cammini_minimi.png Graphic file (type png)
+<use Images/cammini_minimi/mst_cammini_minimi.png>
+Package pdftex.def Info: Images/cammini_minimi/mst_cammini_minimi.png  used on input line 67.
+(pdftex.def)             Requested size: 256.07741pt x 165.80128pt.
+
+
+[77 <./Images/cammini_minimi/rappresentazione_efficiente.png> <./Images/cammini_minimi/mst_cammini_minimi.png>]
+<Images/cammini_minimi/initialize_ss.png, id=1092, 481.04718pt x 202.50656pt>
+File: Images/cammini_minimi/initialize_ss.png Graphic file (type png)
+<use Images/cammini_minimi/initialize_ss.png>
+Package pdftex.def Info: Images/cammini_minimi/initialize_ss.png  used on input line 82.
+(pdftex.def)             Requested size: 256.07741pt x 107.8038pt.
+<Images/cammini_minimi/relax.png, id=1093, 290.58563pt x 121.20282pt>
+File: Images/cammini_minimi/relax.png Graphic file (type png)
+<use Images/cammini_minimi/relax.png>
+Package pdftex.def Info: Images/cammini_minimi/relax.png  used on input line 87.
+(pdftex.def)             Requested size: 170.71393pt x 71.20573pt.
+<Images/cammini_minimi/gsssp.png, id=1094, 529.98pt x 157.33781pt>
+File: Images/cammini_minimi/gsssp.png Graphic file (type png)
+<use Images/cammini_minimi/gsssp.png>
+Package pdftex.def Info: Images/cammini_minimi/gsssp.png  used on input line 92.
+(pdftex.def)             Requested size: 256.07741pt x 76.02304pt.
+
+
+[78 <./Images/cammini_minimi/initialize_ss.png> <./Images/cammini_minimi/relax.png> <./Images/cammini_minimi/gsssp.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
+
+ []
+
+
+
+[79]
+Overfull \hbox (9.25325pt too wide) in paragraph at lines 144--147
+\OT1/cmr/m/n/12 Consideriamo il cam-mi-no $[]$ che coin-ci-de con $[]$ pri-va-to del-l'ul-ti-mo ar-co $(\OML/cmm/m/it/12 v[]; v[]\OT1/cmr/m/n/12 )$. 
+ []
+
+
+
+[80]
+
+[81]
+
+[82]
+<Images/cammini_minimi/procedure_scan.png, id=1141, 224.33812pt x 107.65219pt>
+File: Images/cammini_minimi/procedure_scan.png Graphic file (type png)
+<use Images/cammini_minimi/procedure_scan.png>
+Package pdftex.def Info: Images/cammini_minimi/procedure_scan.png  used on input line 242.
+(pdftex.def)             Requested size: 128.0387pt x 61.44286pt.
+<Images/cammini_minimi/ogsssp.png, id=1142, 487.06969pt x 256.70906pt>
+File: Images/cammini_minimi/ogsssp.png Graphic file (type png)
+<use Images/cammini_minimi/ogsssp.png>
+Package pdftex.def Info: Images/cammini_minimi/ogsssp.png  used on input line 248.
+(pdftex.def)             Requested size: 256.07741pt x 134.9662pt.
+<Images/cammini_minimi/bellman_ford.png, id=1143, 633.86812pt x 300.3722pt>
+File: Images/cammini_minimi/bellman_ford.png Graphic file (type png)
+<use Images/cammini_minimi/bellman_ford.png>
+Package pdftex.def Info: Images/cammini_minimi/bellman_ford.png  used on input line 260.
+(pdftex.def)             Requested size: 298.75264pt x 141.57368pt.
+
+
+[83 <./Images/cammini_minimi/procedure_scan.png> <./Images/cammini_minimi/ogsssp.png>]
+<Images/cammini_minimi/dijkstra_correttezza.png, id=1153, 510.40688pt x 230.36063pt>
+File: Images/cammini_minimi/dijkstra_correttezza.png Graphic file (type png)
+<use Images/cammini_minimi/dijkstra_correttezza.png>
+Package pdftex.def Info: Images/cammini_minimi/dijkstra_correttezza.png  used on input line 282.
+(pdftex.def)             Requested size: 256.07741pt x 115.58073pt.
+
+
+[84 <./Images/cammini_minimi/bellman_ford.png>]
+<Images/cammini_minimi/dijkstra_algoritmo.png, id=1161, 488.57532pt x 226.59656pt>
+File: Images/cammini_minimi/dijkstra_algoritmo.png Graphic file (type png)
+<use Images/cammini_minimi/dijkstra_algoritmo.png>
+Package pdftex.def Info: Images/cammini_minimi/dijkstra_algoritmo.png  used on input line 307.
+(pdftex.def)             Requested size: 256.07741pt x 118.76788pt.
+<Images/cammini_minimi/coda_dijkstra.png, id=1162, 188.95593pt x 211.54031pt>
+File: Images/cammini_minimi/coda_dijkstra.png Graphic file (type png)
+<use Images/cammini_minimi/coda_dijkstra.png>
+Package pdftex.def Info: Images/cammini_minimi/coda_dijkstra.png  used on input line 312.
+(pdftex.def)             Requested size: 85.35696pt x 95.55699pt.
+
+
+[85 <./Images/cammini_minimi/dijkstra_correttezza.png> <./Images/cammini_minimi/dijkstra_algoritmo.png>]
+<Images/cammini_minimi/dag.png, id=1172, 481.8pt x 221.32687pt>
+File: Images/cammini_minimi/dag.png Graphic file (type png)
+<use Images/cammini_minimi/dag.png>
+Package pdftex.def Info: Images/cammini_minimi/dag.png  used on input line 322.
+(pdftex.def)             Requested size: 298.75264pt x 137.24149pt.
+<Images/cammini_minimi/coppie/esempio.png, id=1173, 299.61937pt x 102.3825pt>
+File: Images/cammini_minimi/coppie/esempio.png Graphic file (type png)
+<use Images/cammini_minimi/coppie/esempio.png>
+Package pdftex.def Info: Images/cammini_minimi/coppie/esempio.png  used on input line 336.
+(pdftex.def)             Requested size: 170.71393pt x 58.33519pt.
+
+
+[86 <./Images/cammini_minimi/coda_dijkstra.png> <./Images/cammini_minimi/dag.png>]
+<Images/cammini_minimi/coppie/g_relax.png, id=1183, 346.29375pt x 110.66344pt>
+File: Images/cammini_minimi/coppie/g_relax.png Graphic file (type png)
+<use Images/cammini_minimi/coppie/g_relax.png>
+Package pdftex.def Info: Images/cammini_minimi/coppie/g_relax.png  used on input line 348.
+(pdftex.def)             Requested size: 170.71393pt x 54.55481pt.
+<Images/cammini_minimi/coppie/g_inizzializzazione.png, id=1184, 304.88907pt x 313.9228pt>
+File: Images/cammini_minimi/coppie/g_inizzializzazione.png Graphic file (type png)
+<use Images/cammini_minimi/coppie/g_inizzializzazione.png>
+Package pdftex.def Info: Images/cammini_minimi/coppie/g_inizzializzazione.png  used on input line 353.
+(pdftex.def)             Requested size: 128.0387pt x 131.83708pt.
+<Images/cammini_minimi/coppie/g_bellman_ford.png, id=1185, 305.64188pt x 168.63pt>
+File: Images/cammini_minimi/coppie/g_bellman_ford.png Graphic file (type png)
+<use Images/cammini_minimi/coppie/g_bellman_ford.png>
+Package pdftex.def Info: Images/cammini_minimi/coppie/g_bellman_ford.png  used on input line 360.
+(pdftex.def)             Requested size: 128.0387pt x 70.64142pt.
+
+Overfull \hbox (48.41522pt too wide) in paragraph at lines 364--366
+\OT1/cmr/m/n/12 poi $\OML/cmm/m/it/12 g[]relax\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 v[]; v[]; v[]\OT1/cmr/m/n/12 )$, poi $\OML/cmm/m/it/12 g[]relax\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 v[]; v[]; v[]\OT1/cmr/m/n/12 )$, poi $\OML/cmm/m/it/12 g[]relax\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 v[]; v[]; v[]\OT1/cmr/m/n/12 )$ e, in-fi-ne, $\OML/cmm/m/it/12 g[]relax\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 v[]; v[]; v[]\OT1/cmr/m/n/12 )$.
+ []
+
+
+
+[87 <./Images/cammini_minimi/coppie/esempio.png> <./Images/cammini_minimi/coppie/g_relax.png> <./Images/cammini_minimi/coppie/g_inizzializzazione.png> <./Images/cammini_minimi/coppie/g_bellman_ford.png>]
+<Images/cammini_minimi/coppie/floyd_warshall.png, id=1198, 616.55344pt x 292.09125pt>
+File: Images/cammini_minimi/coppie/floyd_warshall.png Graphic file (type png)
+<use Images/cammini_minimi/coppie/floyd_warshall.png>
+Package pdftex.def Info: Images/cammini_minimi/coppie/floyd_warshall.png  used on input line 379.
+(pdftex.def)             Requested size: 256.07741pt x 121.3181pt.
+
+
+[88 <./Images/cammini_minimi/coppie/floyd_warshall.png>]
+<Images/cammini_minimi/coppie/build_cammino.png, id=1205, 520.19344pt x 224.33812pt>
+File: Images/cammini_minimi/coppie/build_cammino.png Graphic file (type png)
+<use Images/cammini_minimi/coppie/build_cammino.png>
+Package pdftex.def Info: Images/cammini_minimi/coppie/build_cammino.png  used on input line 395.
+(pdftex.def)             Requested size: 256.07741pt x 110.43326pt.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 404.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 404.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 404.
+
+<Images/cammini_minimi/coppie/dimostrazione_multiple_dij.png, id=1206, 380.92313pt x 51.19125pt>
+File: Images/cammini_minimi/coppie/dimostrazione_multiple_dij.png Graphic file (type png)
+<use Images/cammini_minimi/coppie/dimostrazione_multiple_dij.png>
+Package pdftex.def Info: Images/cammini_minimi/coppie/dimostrazione_multiple_dij.png  used on input line 413.
+(pdftex.def)             Requested size: 213.39568pt x 28.67705pt.
+
+
+[89 <./Images/cammini_minimi/coppie/build_cammino.png> <./Images/cammini_minimi/coppie/dimostrazione_multiple_dij.png>]
+<Images/cammini_minimi/coppie/dimostrazione_john.png, id=1215, 383.18156pt x 206.27063pt>
+File: Images/cammini_minimi/coppie/dimostrazione_john.png Graphic file (type png)
+<use Images/cammini_minimi/coppie/dimostrazione_john.png>
+Package pdftex.def Info: Images/cammini_minimi/coppie/dimostrazione_john.png  used on input line 429.
+(pdftex.def)             Requested size: 256.07741pt x 137.85751pt.
+<Images/cammini_minimi/coppie/dim_john.png, id=1217, 475.02469pt x 150.5625pt>
+File: Images/cammini_minimi/coppie/dim_john.png Graphic file (type png)
+<use Images/cammini_minimi/coppie/dim_john.png>
+Package pdftex.def Info: Images/cammini_minimi/coppie/dim_john.png  used on input line 440.
+(pdftex.def)             Requested size: 256.07741pt x 81.16928pt.
+
+
+[90 <./Images/cammini_minimi/coppie/dimostrazione_john.png>]
+<Images/cammini_minimi/coppie/codice_john.png, id=1225, 575.14874pt x 419.31656pt>
+File: Images/cammini_minimi/coppie/codice_john.png Graphic file (type png)
+<use Images/cammini_minimi/coppie/codice_john.png>
+Package pdftex.def Info: Images/cammini_minimi/coppie/codice_john.png  used on input line 445.
+(pdftex.def)             Requested size: 341.43437pt x 248.93019pt.
+) (parts/capitolo_reti_di_flusso.tex
+
+[91 <./Images/cammini_minimi/coppie/dim_john.png> <./Images/cammini_minimi/coppie/codice_john.png>]
+Capitolo 9.
+<Images/reti_di_flusso/esempio_di_rete.png, id=1235, 316.93407pt x 188.20313pt>
+File: Images/reti_di_flusso/esempio_di_rete.png Graphic file (type png)
+<use Images/reti_di_flusso/esempio_di_rete.png>
+Package pdftex.def Info: Images/reti_di_flusso/esempio_di_rete.png  used on input line 14.
+(pdftex.def)             Requested size: 213.39568pt x 126.72147pt.
+
+
+[92
+
+ <./Images/reti_di_flusso/esempio_di_rete.png>]
+<Images/reti_di_flusso/esempio_flusso_netto.png, id=1242, 337.26pt x 335.00156pt>
+File: Images/reti_di_flusso/esempio_flusso_netto.png Graphic file (type png)
+<use Images/reti_di_flusso/esempio_flusso_netto.png>
+Package pdftex.def Info: Images/reti_di_flusso/esempio_flusso_netto.png  used on input line 42.
+(pdftex.def)             Requested size: 213.39568pt x 211.9722pt.
+
+
+[93]
+
+[94 <./Images/reti_di_flusso/esempio_flusso_netto.png>]
+
+[95]
+<Images/reti_di_flusso/flusso_massimo.png, id=1258, 520.94624pt x 306.39468pt>
+File: Images/reti_di_flusso/flusso_massimo.png Graphic file (type png)
+<use Images/reti_di_flusso/flusso_massimo.png>
+Package pdftex.def Info: Images/reti_di_flusso/flusso_massimo.png  used on input line 132.
+(pdftex.def)             Requested size: 320.0935pt x 188.26564pt.
+
+
+[96 <./Images/reti_di_flusso/flusso_massimo.png>]
+<Images/reti_di_flusso/pozzi_multipli.png, id=1267, 417.05812pt x 244.66406pt>
+File: Images/reti_di_flusso/pozzi_multipli.png Graphic file (type png)
+<use Images/reti_di_flusso/pozzi_multipli.png>
+Package pdftex.def Info: Images/reti_di_flusso/pozzi_multipli.png  used on input line 144.
+(pdftex.def)             Requested size: 213.39568pt x 125.18767pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--173
+
+ []
+
+
+
+[97 <./Images/reti_di_flusso/pozzi_multipli.png>]
+<Images/reti_di_flusso/ford_fulkerson.png, id=1275, 297.36093pt x 144.54pt>
+File: Images/reti_di_flusso/ford_fulkerson.png Graphic file (type png)
+<use Images/reti_di_flusso/ford_fulkerson.png>
+Package pdftex.def Info: Images/reti_di_flusso/ford_fulkerson.png  used on input line 184.
+(pdftex.def)             Requested size: 213.39568pt x 103.72464pt.
+
+
+[98 <./Images/reti_di_flusso/ford_fulkerson.png>]
+Overfull \hbox (4.31839pt too wide) in paragraph at lines 216--217
+[]\OT1/cmr/bx/n/12 Antisimmetria\OT1/cmr/m/n/12 : Dob-bia-mo ve-ri-fi-ca-re che $\OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 u; v\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 f[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 v; u\OT1/cmr/m/n/12 )$ per ogni $(\OML/cmm/m/it/12 u; v\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
+ []
+
+
+Overfull \hbox (26.75272pt too wide) detected at line 252
+[]
+ []
+
+
+
+[99]
+Overfull \hbox (77.59308pt too wide) detected at line 269
+[]
+ []
+
+
+Overfull \hbox (19.78804pt too wide) detected at line 274
+[]
+ []
+
+<Images/reti_di_flusso/ff_2.png, id=1287, 476.53032pt x 338.01282pt>
+File: Images/reti_di_flusso/ff_2.png Graphic file (type png)
+<use Images/reti_di_flusso/ff_2.png>
+Package pdftex.def Info: Images/reti_di_flusso/ff_2.png  used on input line 283.
+(pdftex.def)             Requested size: 213.39568pt x 151.3668pt.
+
+
+[100]
+
+[101 <./Images/reti_di_flusso/ff_2.png>]
+
+[102]) (parts/capitolo_edge.tex
+
+[103]
+Capitolo 10.
+<Images/edge_connectivity/esempi.png, id=1318, 515.67656pt x 214.55156pt>
+File: Images/edge_connectivity/esempi.png Graphic file (type png)
+<use Images/edge_connectivity/esempi.png>
+Package pdftex.def Info: Images/edge_connectivity/esempi.png  used on input line 5.
+(pdftex.def)             Requested size: 213.39568pt x 88.78514pt.
+<Images/edge_connectivity/insieme_di_disconnessione.png, id=1319, 301.8778pt x 240.9pt>
+File: Images/edge_connectivity/insieme_di_disconnessione.png Graphic file (type png)
+<use Images/edge_connectivity/insieme_di_disconnessione.png>
+Package pdftex.def Info: Images/edge_connectivity/insieme_di_disconnessione.png  used on input line 21.
+(pdftex.def)             Requested size: 170.71393pt x 136.23004pt.
+
+
+[104
+
+ <./Images/edge_connectivity/esempi.png>]
+
+[105 <./Images/edge_connectivity/insieme_di_disconnessione.png>]
+<Images/edge_connectivity/minimum_cut.png, id=1338, 423.08063pt x 229.60782pt>
+File: Images/edge_connectivity/minimum_cut.png Graphic file (type png)
+<use Images/edge_connectivity/minimum_cut.png>
+Package pdftex.def Info: Images/edge_connectivity/minimum_cut.png  used on input line 56.
+(pdftex.def)             Requested size: 213.39568pt x 115.80913pt.
+)
+
+[106 <./Images/edge_connectivity/minimum_cut.png>] (document.aux)
+ ***********
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-09-02>
+ ***********
+Package rerunfilecheck Info: File `document.out' has not changed.
+(rerunfilecheck)             Checksum: F859A2CB9D43026F7DA06D6246C4E904;16865.
+ ) 
+Here is how much of TeX's memory you used:
+ 16437 strings out of 468080
+ 286032 string characters out of 5425767
+ 850425 words of memory out of 5000000
+ 44454 multiletter control sequences out of 15000+600000
+ 643014 words of font info for 97 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,18n,79p,1074b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\lolcr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on document.pdf (107 pages, 7257798 bytes).
+PDF statistics:
+ 1554 PDF objects out of 1728 (max. 8388607)
+ 414 named destinations out of 1000 (max. 500000)
+ 1201 words of extra memory for PDF output out of 10000 (max. 10000000)
+

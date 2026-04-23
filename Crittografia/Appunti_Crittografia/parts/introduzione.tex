@@ -1,0 +1,20 @@
+\chapter*{Introduzione}
+La crittografia è il processo di protezione delle informazioni o dei dati mediante l'uso di modelli matematici per codificarli di modo che solo le parti che hanno la chiave per decodificarli possano e accedervi.
+L'obiettivo di questo corso sarà quello di cercare di ottenere alcune proprietà di sicurezza su di un canale che di base è insicuro.
+
+Punteremo quindi ad ottenere \textbf{privacy} tra i due interlocutori, per cui nessun altro potrà capire cosa si dicono, e \textbf{autenticità e integrità}, cioè che tutto ciò che proviene da un interlocutore viene certamente da lui e non sia stato alterato nel tragitto. Alla base di ciò, vi sta l'intuizione per cui vogliamo che l'avversario non solo non possa accedere alle informazioni trasmesse, ma che non possa modificarle né spacciarle per sue e, per fare ciò, è in genere prima necessario stabilire almeno un \textbf{segreto} in comune tra i due interlocutori. Il problema è proprio che è molto difficile stabilire in pubblico un segreto senza che i due interlocutori si siano mai visti prima.
+
+Questo segreto è generalmente una chiave che può essere utile per \textbf{crittografia simmetrica} e \textbf{crittografia asimmetrica}. Una chiave simmetrica è un qualcosa che viene presa in input e trasforma un messaggio in un crittotesto. Colui che riceverà il crittotesto dovrà decifrarlo utilizzando la stessa chiave. 
+Nel contesto asimmetrico abbiamo due chiavi, una che permette di fare la cifratura detta \textbf{chiave pubblica} e l'altra che permette di fare solo la de-cifratura detta \textbf{chiave privata}. 
+
+L'obiettivo della cifratura che effettueremo sarà quello di non fornire all'avversario informazioni aggiuntive rispetto a quelle precedenti alla trasmissione del messaggio. Immaginando di essere l'avversario che deve indovinare una risposta "Si o No", avremo la probabilità del 50\% di indovinarla prima ancora che la risposta sia trasmessa sul canale. Un buon sistema crittografico non deve aumentare questa probabilità, cioè l'attaccante non deve ricevere informazioni aggiuntive vedendo trasmettere il messaggio.
+
+Quando analizzeremo i sistemi crittografici, dobbiamo avere bene in mente questi principi:
+\begin{enumerate}
+    \item Per provare che qualcosa è sicuro, dobbiamo definire in modo chiaro e rigoroso cosa è \textbf{sicuro};
+    \item Quando la sicurezza si basa su ipotesi non verificabile, questa deve essere espressa in modo chiaro;
+    \item Gli schemi crittografici dovrebbero essere corroborati da una dimostrazione di sicurezza matematicamente rigorosa.
+\end{enumerate}
+
+Come sempre, supporremo che l'attaccante possa fare qualunque cosa ma che avrà una limitata potenza di calcolo che, di solito, imponiamo come uno dei computer più potenti al mondo. Dunque, potremo dire che, se l'attaccante ha una certa potenza di calcolo, allora il nostro sistema è sicuro.
+

@@ -1,0 +1,75 @@
+\documentclass[12pt,a4paper,openany,oneside]{book}
+\usepackage{hyperref}
+\usepackage[italian]{babel}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage[a4paper, top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+%\usepackage[latin1]{inputenc} %Windows
+\usepackage[utf8x]{inputenc} %Linux
+%\usepackage[applemac]{inputenc} %Mac
+\usepackage{amsmath}     % Per \text e \neg
+\usepackage{amssymb}     % Per altri simboli matematici
+\usepackage{algorithm}   % Per l'ambiente flottante "algorithm"
+\usepackage{algpseudocode} % Per l'ambiente "algorithmic" e i comandi
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf,tableposition=top]{caption}
+
+\usepackage{listings}
+  \usepackage{courier}
+ \lstset{
+         language=C++,
+         basicstyle=\footnotesize\ttfamily,
+         numbers=left,           
+         numberstyle=\tiny,       
+         numbersep=5pt,        
+         tabsize=5,                 
+         extendedchars=true,         
+         breaklines=true,
+         keywordstyle=\textbf,           
+         stringstyle=\color{white}\ttfamily,
+         showspaces=false,       
+         showtabs=false,           
+         xleftmargin=17pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         showstringspaces=false          
+ }
+ 
+ \addto\captionsitalian{%
+ 	\renewcommand{\lstlistingname}{Codice}}
+
+\setcounter{tocdepth}{3} % fa apparire le subsubsection nell'indice
+\setcounter{secnumdepth}{3} % e le numera
+
+
+\usepackage{amsmath}
+
+
+\usepackage{framed}
+
+\begin{document}
+
+%Inserisce qui il frontespizio
+\input{parts/frontespizio} %<- richiama il file "parts/titlepage.tex" che contiene il frontespizio
+
+\bibliographystyle{unsrt}
+\title{Appunti Crittografia}
+\author{Petronio Petronio Davide}
+
+
+%Genera l'indice
+\tableofcontents
+
+\input{parts/introduzione}
+\input{parts/capitolo_1.tex}
+\input{parts/capitolo_2.tex}
+\input{parts/capitolo_3.tex}
+\input{parts/capitolo_4.tex}
+\input{parts/capitolo_5.tex}
+\input{parts/capitolo_6.tex}
+%Inserisce la bibliografia
+\newpage
+\addcontentsline{toc}{chapter}{Bibliografia}
+\bibliography{bibliography}
+\end{document}

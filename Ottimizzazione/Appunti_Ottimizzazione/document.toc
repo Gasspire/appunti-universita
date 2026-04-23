@@ -1,0 +1,69 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{\numberline {1}Programmazione lineare continua}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Problemi di pianificazione della produzione}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Risoluzione grafica}{6}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Geometria della programmazione lineare}{7}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Teorema fondamentale della programmazione lineare}{9}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Algebra della Programmazione Lineare}{9}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Metodo del Simplesso}{12}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Forma Canonica}{14}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Operazioni di Pivot}{15}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Criterio di entrata}{15}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Criterio di uscita}{15}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Criterio di Illimitatezza}{16}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Forma tabellare}{16}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Algoritmo per il metodo del simplesso}{17}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Esempio metodo del simplesso}{17}{section.2.8}%
+\contentsline {section}{\numberline {2.9}Convergenze del metodo, Unicità e Regola di Bland}{19}{section.2.9}%
+\contentsline {section}{\numberline {2.10}Complessità dell'algoritmo del simplesso}{20}{section.2.10}%
+\contentsline {section}{\numberline {2.11}Metodo delle due fasi}{20}{section.2.11}%
+\contentsline {section}{\numberline {2.12}Fase 1}{21}{section.2.12}%
+\contentsline {section}{\numberline {2.13}Fase 2}{21}{section.2.13}%
+\contentsline {section}{\numberline {2.14}Esempio Metodo a Due Fasi}{22}{section.2.14}%
+\contentsline {chapter}{\numberline {3}Dualità}{24}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Teorema di dualità debole}{26}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Teorema della dualità forte}{26}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Teorema degli scarti complementari}{27}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Calcolo della soluzione ottimale}{28}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Interpretazione della dualità}{29}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Problema dei mattoncini lego}{29}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Duale della dieta ottimale}{30}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Duale del problema del trasporto}{30}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.6}Simplesso duale}{31}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Analisi Post-Ottimale}{33}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Perturbazione dei termini noti}{33}{subsection.3.7.1}%
+\contentsline {chapter}{\numberline {4}Programmazione Lineare Intera}{36}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Problemi Ideali}{37}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Problema del Flusso di Costo Minimo}{37}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Metodo dei tagli di Gomory}{39}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Applicazione dei tagli}{39}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Metodo del Branch and Bound}{41}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Criteri di Potatura}{42}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Criteri di Visita}{42}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Tecniche di Rilassamento}{44}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Rilassamento per Eliminazione dei Vincoli}{44}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Rilassamento per Funzione Obiettivo Modificata}{45}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Rilassamento Lagrangiano}{45}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Problema dello Zaino}{46}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Metodo Greedy}{46}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Metodo Branch \& Bound}{46}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Problemi di Assegnamento e Algoritmo Ungherese}{47}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Algoritmo Ungherese}{48}{subsection.4.6.1}%
+\contentsline {section}{\numberline {4.7}Problema del Commesso Viaggiatore (TSP)}{49}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Metodo Greedy}{50}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Metodo Branch \& Bound}{50}{subsection.4.7.2}%
+\contentsline {chapter}{\numberline {5}Programmazione Non Lineare}{54}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Ottimizzazione Non Vincolata}{55}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Condizioni del Primo Ordine}{56}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Condizioni del Secondo Ordine}{56}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Ottimizzazione Vincolata}{58}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Problemi con Vincoli di Uguaglianza}{58}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Problemi con Vincoli di Uguaglianza e Minore Uguale}{59}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Algoritmi di Ottimizzazione Non Vincolata}{60}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Metodo del Gradiente}{61}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Metodo di Newton}{62}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Algoritmi per Ottimizzazione Vincolata}{63}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Metodi di Penalità}{64}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}Funzioni Barriera}{66}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Problemi di classificazione}{68}{section.5.6}%

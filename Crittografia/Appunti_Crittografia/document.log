@@ -1,0 +1,1746 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.24)  27 DEC 2025 15:48
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"c:/Users/lolcr/OneDrive - Università degli Studi di Catania/Unict/M_Primo_Anno/Crittografia/Appunti_Crittografia/document.tex"
+(c:/Users/lolcr/OneDrive - Università degli Studi di Catania/Unict/M_Primo_Anno/Crittografia/Appunti_Crittografia/document.tex
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-09-02>
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\bk12.clo
+File: bk12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@chapter=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count284
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count285
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen149
+\Hy@linkcounter=\count286
+\Hy@pagecounter=\count287
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count288
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count289
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen150
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count290
+\Field@Width=\dimen151
+\Fld@charsize=\dimen152
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count291
+\c@Item=\count292
+\c@Hfootnote=\count293
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+\Fld@listcount=\count294
+\c@bookmark@seq@number=\count295
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+)
+\Hy@SectionHShift=\skip51
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2025/10/01 v25.13 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
+\babel@savecnt=\count296
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2045.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2047.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2049.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2050.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2051.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2053.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2078.
+\U@D=\dimen153
+\l@unhyphenated=\language79
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count297
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/babel-italian\italian.ldf
+Language: italian 2024/10/10 v.1.5.01 Italian support for the babel system
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/it\babel-italian.tex
+Package babel Info: Importing font and identification data for italian
+(babel)             from babel-it.ini. Reported on input line 12.
+)
+\it@lettering=\count298
+\it@doublequoteactive=\count299
+\it@ISOcompliance=\count300
+)) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count301
+\float@exts=\toks18
+\float@box=\box53
+\@float@everytoks=\toks19
+\@floatcapt=\box54
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
+\col@sep=\dimen154
+\ar@mcellbox=\box55
+\extrarowheight=\dimen155
+\NC@list=\toks20
+\extratabsurround=\skip52
+\backup@length=\skip53
+\ar@cellbox=\box56
+)
+\TX@col@width=\dimen156
+\TX@old@table=\dimen157
+\TX@old@col=\dimen158
+\TX@target=\dimen159
+\TX@delta=\dimen160
+\TX@cols=\count302
+\TX@ftn=\toks21
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count303
+\Gm@cntv=\count304
+\c@Gm@tempcnt=\count305
+\Gm@bindingoffset=\dimen161
+\Gm@wd@mp=\dimen162
+\Gm@odd@mp=\dimen163
+\Gm@even@mp=\dimen164
+\Gm@layoutwidth=\dimen165
+\Gm@layoutheight=\dimen166
+\Gm@layouthoffset=\dimen167
+\Gm@layoutvoffset=\dimen168
+\Gm@dimlist=\toks22
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks23
+\inpenc@posthook=\toks24
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/ucs\utf8x.def
+File: utf8x.def 2023/11/09 UCS: Input encoding UTF-8
+
+
+Package ucs Info: utf8x disabled, assuming standard utf8 processing
+(ucs)             load ucs package to force utf8x processing.
+
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\utf8.def
+File: utf8.def 2022/06/07 v1.3c UTF-8 support
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\omsenc.dfu
+File: omsenc.dfu 2022/06/07 v1.3c UTF-8 support
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\ot1enc.dfu
+File: ot1enc.dfu 2022/06/07 v1.3c UTF-8 support
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+0237 (decimal 567)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+FB00 (decimal 64256)
+   defining Unicode char U+FB01 (decimal 64257)
+   defining Unicode char U+FB02 (decimal 64258)
+   defining Unicode char U+FB03 (decimal 64259)
+   defining Unicode char U+FB04 (decimal 64260)
+   defining Unicode char U+FB05 (decimal 64261)
+   defining Unicode char U+FB06 (decimal 64262)
+)
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\t1enc.dfu
+File: t1enc.dfu 2022/06/07 v1.3c UTF-8 support
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0100 (decimal 256)
+   defining Unicode char U+0101 (decimal 257)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+0108 (decimal 264)
+   defining Unicode char U+0109 (decimal 265)
+   defining Unicode char U+010A (decimal 266)
+   defining Unicode char U+010B (decimal 267)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0112 (decimal 274)
+   defining Unicode char U+0113 (decimal 275)
+   defining Unicode char U+0114 (decimal 276)
+   defining Unicode char U+0115 (decimal 277)
+   defining Unicode char U+0116 (decimal 278)
+   defining Unicode char U+0117 (decimal 279)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011C (decimal 284)
+   defining Unicode char U+011D (decimal 285)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0120 (decimal 288)
+   defining Unicode char U+0121 (decimal 289)
+   defining Unicode char U+0122 (decimal 290)
+   defining Unicode char U+0123 (decimal 291)
+   defining Unicode char U+0124 (decimal 292)
+   defining Unicode char U+0125 (decimal 293)
+   defining Unicode char U+0128 (decimal 296)
+   defining Unicode char U+0129 (decimal 297)
+   defining Unicode char U+012A (decimal 298)
+   defining Unicode char U+012B (decimal 299)
+   defining Unicode char U+012C (decimal 300)
+   defining Unicode char U+012D (decimal 301)
+   defining Unicode char U+012E (decimal 302)
+   defining Unicode char U+012F (decimal 303)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0134 (decimal 308)
+   defining Unicode char U+0135 (decimal 309)
+   defining Unicode char U+0136 (decimal 310)
+   defining Unicode char U+0137 (decimal 311)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013B (decimal 315)
+   defining Unicode char U+013C (decimal 316)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0145 (decimal 325)
+   defining Unicode char U+0146 (decimal 326)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+014C (decimal 332)
+   defining Unicode char U+014D (decimal 333)
+   defining Unicode char U+014E (decimal 334)
+   defining Unicode char U+014F (decimal 335)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0156 (decimal 342)
+   defining Unicode char U+0157 (decimal 343)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015C (decimal 348)
+   defining Unicode char U+015D (decimal 349)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+0168 (decimal 360)
+   defining Unicode char U+0169 (decimal 361)
+   defining Unicode char U+016A (decimal 362)
+   defining Unicode char U+016B (decimal 363)
+   defining Unicode char U+016C (decimal 364)
+   defining Unicode char U+016D (decimal 365)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0172 (decimal 370)
+   defining Unicode char U+0173 (decimal 371)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+01C4 (decimal 452)
+   defining Unicode char U+01C5 (decimal 453)
+   defining Unicode char U+01C6 (decimal 454)
+   defining Unicode char U+01C7 (decimal 455)
+   defining Unicode char U+01C8 (decimal 456)
+   defining Unicode char U+01C9 (decimal 457)
+   defining Unicode char U+01CA (decimal 458)
+   defining Unicode char U+01CB (decimal 459)
+   defining Unicode char U+01CC (decimal 460)
+   defining Unicode char U+01CD (decimal 461)
+   defining Unicode char U+01CE (decimal 462)
+   defining Unicode char U+01CF (decimal 463)
+   defining Unicode char U+01D0 (decimal 464)
+   defining Unicode char U+01D1 (decimal 465)
+   defining Unicode char U+01D2 (decimal 466)
+   defining Unicode char U+01D3 (decimal 467)
+   defining Unicode char U+01D4 (decimal 468)
+   defining Unicode char U+01E2 (decimal 482)
+   defining Unicode char U+01E3 (decimal 483)
+   defining Unicode char U+01E6 (decimal 486)
+   defining Unicode char U+01E7 (decimal 487)
+   defining Unicode char U+01E8 (decimal 488)
+   defining Unicode char U+01E9 (decimal 489)
+   defining Unicode char U+01EA (decimal 490)
+   defining Unicode char U+01EB (decimal 491)
+   defining Unicode char U+01F0 (decimal 496)
+   defining Unicode char U+01F4 (decimal 500)
+   defining Unicode char U+01F5 (decimal 501)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+0232 (decimal 562)
+   defining Unicode char U+0233 (decimal 563)
+   defining Unicode char U+0237 (decimal 567)
+   defining Unicode char U+02D9 (decimal 729)
+   defining Unicode char U+02DB (decimal 731)
+   defining Unicode char U+1E02 (decimal 7682)
+   defining Unicode char U+1E03 (decimal 7683)
+   defining Unicode char U+1E0D (decimal 7693)
+   defining Unicode char U+1E1E (decimal 7710)
+   defining Unicode char U+1E1F (decimal 7711)
+   defining Unicode char U+1E25 (decimal 7717)
+   defining Unicode char U+1E30 (decimal 7728)
+   defining Unicode char U+1E31 (decimal 7729)
+   defining Unicode char U+1E37 (decimal 7735)
+   defining Unicode char U+1E8E (decimal 7822)
+   defining Unicode char U+1E8F (decimal 7823)
+   defining Unicode char U+1E43 (decimal 7747)
+   defining Unicode char U+1E45 (decimal 7749)
+   defining Unicode char U+1E47 (decimal 7751)
+   defining Unicode char U+1E5B (decimal 7771)
+   defining Unicode char U+1E63 (decimal 7779)
+   defining Unicode char U+1E6D (decimal 7789)
+   defining Unicode char U+1E90 (decimal 7824)
+   defining Unicode char U+1E91 (decimal 7825)
+   defining Unicode char U+1E9E (decimal 7838)
+   defining Unicode char U+1EF2 (decimal 7922)
+   defining Unicode char U+1EF3 (decimal 7923)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2010 (decimal 8208)
+   defining Unicode char U+2011 (decimal 8209)
+   defining Unicode char U+2012 (decimal 8210)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2015 (decimal 8213)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+1E20 (decimal 7712)
+   defining Unicode char U+1E21 (decimal 7713)
+   defining Unicode char U+FB00 (decimal 64256)
+   defining Unicode char U+FB01 (decimal 64257)
+   defining Unicode char U+FB02 (decimal 64258)
+   defining Unicode char U+FB03 (decimal 64259)
+   defining Unicode char U+FB04 (decimal 64260)
+   defining Unicode char U+FB05 (decimal 64261)
+   defining Unicode char U+FB06 (decimal 64262)
+)
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1enc.dfu
+File: ts1enc.dfu 2022/06/07 v1.3c UTF-8 support
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+3008 (decimal 12296)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+3009 (decimal 12297)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+   defining Unicode char U+27E8 (decimal 10216)
+   defining Unicode char U+27E9 (decimal 10217)
+   defining Unicode char U+FEFF (decimal 65279)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+FEFF (decimal 65279)
+))) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/06/16 v2.17y AMS math features
+\@mathmargin=\skip54
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks25
+\ex@=\dimen169
+)) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen170
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count306
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count307
+\leftroot@=\count308
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count309
+\DOTSCASE@=\count310
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box57
+\strutbox@=\box58
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen171
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count311
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count312
+\dotsspace@=\muskip18
+\c@parentequation=\count313
+\dspbrk@lvl=\count314
+\tag@help=\toks26
+\row@=\count315
+\column@=\count316
+\maxfields@=\count317
+\andhelp@=\toks27
+\eqnshift@=\dimen172
+\alignsep@=\dimen173
+\tagshift@=\dimen174
+\tagwidth@=\dimen175
+\totwidth@=\dimen176
+\lineht@=\dimen177
+\@envbody=\toks28
+\multlinegap=\skip55
+\multlinetaggap=\skip56
+\mathdisplay@stack=\toks29
+LaTeX Info: Redefining \[ on input line 2949.
+LaTeX Info: Redefining \] on input line 2950.
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks30
+\c@algorithm=\count318
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algpseudocode.sty
+Package: algpseudocode 
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count319
+\c@ALG@rem=\count320
+\c@ALG@nested=\count321
+\ALG@tlm=\skip57
+\ALG@thistlm=\skip58
+\c@ALG@Lnr=\count322
+\c@ALG@blocknr=\count323
+\c@ALG@storecount=\count324
+\c@ALG@tmpcounter=\count325
+\ALG@tmplength=\skip59
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen178
+\Gin@req@width=\dimen179
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen180
+\captionmargin=\dimen181
+\caption@leftmargin=\dimen182
+\caption@rightmargin=\dimen183
+\caption@width=\dimen184
+\caption@indent=\dimen185
+\caption@parindent=\dimen186
+\caption@hangindent=\dimen187
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count326
+\c@continuedfloat=\count327
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count328
+\lst@gtempboxa=\box59
+\lst@token=\toks31
+\lst@length=\count329
+\lst@currlwidth=\dimen188
+\lst@column=\count330
+\lst@pos=\count331
+\lst@lostspace=\dimen189
+\lst@width=\dimen190
+\lst@newlines=\count332
+\lst@lineno=\count333
+\lst@maxwidth=\dimen191
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count334
+\lst@skipnumbers=\count335
+\lst@framebox=\box60
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\courier.sty
+Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip60
+\fb@frw=\dimen192
+\fb@frh=\dimen193
+\FrameRule=\dimen194
+\FrameSep=\dimen195
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count336
+) (document.aux)
+\openout1 = `document.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+Package hyperref Info: Link coloring OFF on input line 51.
+ (document.out) (document.out)
+\@outlinefile=\write3
+\openout3 = `document.out'.
+
+LaTeX Info: Redefining \it@ocap on input line 51.
+LaTeX Info: Redefining \it@ccap on input line 51.
+
+
+File italian.ldf warning: 
+italian.ldf    With OT1 encoding guillemets are poorly faked
+italian.ldf    Use T1 encoding
+italian.ldf    or specify a font with command \CaporaliFrom
+italian.ldf    See the documentation concerning the babel-italian typesetting
+italian.ldf    on input line 51.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=426.79135pt
+* \textheight=674.33032pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-18.78552pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=38.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count337
+\scratchdimen=\dimen196
+\scratchbox=\box61
+\nofMPsegments=\count338
+\nofMParguments=\count339
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count340
+\MPscratchDim=\dimen197
+\MPnumerator=\count341
+\makeMPintoPDFobject=\count342
+\everyMPtoPDFconversion=\toks33
+) (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count343
+ (parts/frontespizio.tex
+<Images/university_logo.png, id=227, 106.3975pt x 112.42pt>
+File: Images/university_logo.png Graphic file (type png)
+<use Images/university_logo.png>
+Package pdftex.def Info: Images/university_logo.png  used on input line 3.
+(pdftex.def)             Requested size: 69.2582pt x 72.98463pt.
+
+
+[1
+
+
+{C:/Users/lolcr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Images/university_logo.png>]) (document.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.35 ... {7}Primitive Asimmetriche}{46}{chapter.7}
+                                                  % [1
+
+])
+\tf@toc=\write4
+\openout4 = `document.toc'.
+
+ (parts/introduzione.tex
+
+[2]
+
+[3
+
+]) (parts/capitolo_1.tex
+
+[4]
+Capitolo 1.
+
+
+[5
+
+]
+<Images/promessi_sposi.png, id=331, 536.75531pt x 211.54031pt>
+File: Images/promessi_sposi.png Graphic file (type png)
+<use Images/promessi_sposi.png>
+Package pdftex.def Info: Images/promessi_sposi.png  used on input line 25.
+(pdftex.def)             Requested size: 213.39568pt x 84.10138pt.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 36.
+ (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 36.
+
+
+[6 <./Images/promessi_sposi.png>]
+
+[7]
+
+[8]
+Capitolo 2.
+
+
+[9
+
+]
+<Images/aes_algoritmo.png, id=369, 604.50844pt x 322.20375pt>
+File: Images/aes_algoritmo.png Graphic file (type png)
+<use Images/aes_algoritmo.png>
+Package pdftex.def Info: Images/aes_algoritmo.png  used on input line 113.
+(pdftex.def)             Requested size: 213.39568pt x 113.73662pt.
+
+
+[10 <./Images/aes_algoritmo.png>]
+<Images/s_aff.png, id=384, 557.83406pt x 206.27063pt>
+File: Images/s_aff.png Graphic file (type png)
+<use Images/s_aff.png>
+Package pdftex.def Info: Images/s_aff.png  used on input line 144.
+(pdftex.def)             Requested size: 341.43437pt x 126.25609pt.
+
+
+[11 <./Images/s_aff.png>]
+
+[12]
+Capitolo 3.
+
+
+[13
+
+]
+<Images/esperimento_random.png, id=405, 1345.025pt x 529.98pt>
+File: Images/esperimento_random.png Graphic file (type png)
+<use Images/esperimento_random.png>
+Package pdftex.def Info: Images/esperimento_random.png  used on input line 197.
+(pdftex.def)             Requested size: 341.43437pt x 134.53255pt.
+<Images/pseudo_random_esp.png, id=406, 1702.36pt x 748.7975pt>
+File: Images/pseudo_random_esp.png Graphic file (type png)
+<use Images/pseudo_random_esp.png>
+Package pdftex.def Info: Images/pseudo_random_esp.png  used on input line 205.
+(pdftex.def)             Requested size: 426.79135pt x 187.72449pt.
+
+
+[14 <./Images/esperimento_random.png>]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 209.
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--244
+
+ []
+
+<Images/attacco_key_recovery.png, id=417, 582.175pt x 352.31625pt>
+File: Images/attacco_key_recovery.png Graphic file (type png)
+<use Images/attacco_key_recovery.png>
+Package pdftex.def Info: Images/attacco_key_recovery.png  used on input line 249.
+(pdftex.def)             Requested size: 213.39568pt x 129.14001pt.
+
+
+[15 <./Images/pseudo_random_esp.png>]
+<Images/attaccante_indistinguibilita.png, id=425, 927.465pt x 532.99126pt>
+File: Images/attaccante_indistinguibilita.png Graphic file (type png)
+<use Images/attaccante_indistinguibilita.png>
+Package pdftex.def Info: Images/attaccante_indistinguibilita.png  used on input line 258.
+(pdftex.def)             Requested size: 256.07741pt x 147.16267pt.
+
+
+[16 <./Images/attacco_key_recovery.png> <./Images/attaccante_indistinguibilita.png>]
+
+[17]) (parts/capitolo_2.tex
+
+[18]
+Capitolo 4.
+<Images/cifrari_simmetrici/modo_ecb_deterministico.png, id=446, 656.4525pt x 506.6428pt>
+File: Images/cifrari_simmetrici/modo_ecb_deterministico.png Graphic file (type png)
+<use Images/cifrari_simmetrici/modo_ecb_deterministico.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/modo_ecb_deterministico.png  used on input line 14.
+(pdftex.def)             Requested size: 213.39568pt x 164.69562pt.
+
+
+[19
+
+ <./Images/cifrari_simmetrici/modo_ecb_deterministico.png>]
+<Images/cifrari_simmetrici/modo_cbc_random.png, id=454, 656.4525pt x 459.96844pt>
+File: Images/cifrari_simmetrici/modo_cbc_random.png Graphic file (type png)
+<use Images/cifrari_simmetrici/modo_cbc_random.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/modo_cbc_random.png  used on input line 25.
+(pdftex.def)             Requested size: 213.39568pt x 149.52306pt.
+<Images/cifrari_simmetrici/modo_ctr_random.png, id=455, 660.96938pt x 485.56406pt>
+File: Images/cifrari_simmetrici/modo_ctr_random.png Graphic file (type png)
+<use Images/cifrari_simmetrici/modo_ctr_random.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/modo_ctr_random.png  used on input line 34.
+(pdftex.def)             Requested size: 213.39568pt x 156.76176pt.
+
+
+[20 <./Images/cifrari_simmetrici/modo_cbc_random.png>]
+<Images/cifrari_simmetrici/modo_ctr_stati.png, id=465, 665.48625pt x 465.99094pt>
+File: Images/cifrari_simmetrici/modo_ctr_stati.png Graphic file (type png)
+<use Images/cifrari_simmetrici/modo_ctr_stati.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/modo_ctr_stati.png  used on input line 43.
+(pdftex.def)             Requested size: 213.39568pt x 149.41878pt.
+
+
+[21 <./Images/cifrari_simmetrici/modo_ctr_random.png> <./Images/cifrari_simmetrici/modo_ctr_stati.png>]
+<Images/cifrari_simmetrici/esperimento_indistinguibilita.png, id=475, 545.03625pt x 243.15843pt>
+File: Images/cifrari_simmetrici/esperimento_indistinguibilita.png Graphic file (type png)
+<use Images/cifrari_simmetrici/esperimento_indistinguibilita.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/esperimento_indistinguibilita.png  used on input line 58.
+(pdftex.def)             Requested size: 213.39568pt x 95.20242pt.
+<Images/cifrari_simmetrici/esperimento_indistinguibiltita_alternativo.png, id=476, 523.9575pt x 242.40562pt>
+File: Images/cifrari_simmetrici/esperimento_indistinguibiltita_alternativo.png Graphic file (type png)
+<use Images/cifrari_simmetrici/esperimento_indistinguibiltita_alternativo.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/esperimento_indistinguibiltita_alternativo.png  used on input line 69.
+(pdftex.def)             Requested size: 213.39568pt x 98.72485pt.
+
+
+[22 <./Images/cifrari_simmetrici/esperimento_indistinguibilita.png>]
+<Images/cifrari_simmetrici/attaccante_ecb.png, id=484, 571.38469pt x 488.57532pt>
+File: Images/cifrari_simmetrici/attaccante_ecb.png Graphic file (type png)
+<use Images/cifrari_simmetrici/attaccante_ecb.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/attaccante_ecb.png  used on input line 77.
+(pdftex.def)             Requested size: 213.39568pt x 182.46979pt.
+<Images/cifrari_simmetrici/esperimento_pr_cpa_b.png, id=485, 361.35pt x 229.60782pt>
+File: Images/cifrari_simmetrici/esperimento_pr_cpa_b.png Graphic file (type png)
+<use Images/cifrari_simmetrici/esperimento_pr_cpa_b.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/esperimento_pr_cpa_b.png  used on input line 84.
+(pdftex.def)             Requested size: 213.39568pt x 135.59706pt.
+
+
+[23 <./Images/cifrari_simmetrici/esperimento_indistinguibiltita_alternativo.png> <./Images/cifrari_simmetrici/attaccante_ecb.png> <./Images/cifrari_simmetrici/esperimento_pr_cpa_b.png>]
+<Images/cifrari_simmetrici/attacco_deterministico.png, id=497, 704.6325pt x 551.81157pt>
+File: Images/cifrari_simmetrici/attacco_deterministico.png Graphic file (type png)
+<use Images/cifrari_simmetrici/attacco_deterministico.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/attacco_deterministico.png  used on input line 92.
+(pdftex.def)             Requested size: 213.39568pt x 167.11086pt.
+<Images/cifrari_simmetrici/esperimento_ind_cpa_A.png, id=498, 663.98062pt x 346.29375pt>
+File: Images/cifrari_simmetrici/esperimento_ind_cpa_A.png Graphic file (type png)
+<use Images/cifrari_simmetrici/esperimento_ind_cpa_A.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/esperimento_ind_cpa_A.png  used on input line 99.
+(pdftex.def)             Requested size: 213.39568pt x 111.29181pt.
+<Images/cifrari_simmetrici/esperimento_predicato_B.png, id=499, 428.35031pt x 187.45032pt>
+File: Images/cifrari_simmetrici/esperimento_predicato_B.png Graphic file (type png)
+<use Images/cifrari_simmetrici/esperimento_predicato_B.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/esperimento_predicato_B.png  used on input line 111.
+(pdftex.def)             Requested size: 213.39568pt x 93.38454pt.
+
+
+[24 <./Images/cifrari_simmetrici/attacco_deterministico.png> <./Images/cifrari_simmetrici/esperimento_ind_cpa_A.png>]
+<Images/cifrari_simmetrici/esperimento_predicato_A.png, id=509, 685.05937pt x 371.13657pt>
+File: Images/cifrari_simmetrici/esperimento_predicato_A.png Graphic file (type png)
+<use Images/cifrari_simmetrici/esperimento_predicato_A.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/esperimento_predicato_A.png  used on input line 118.
+(pdftex.def)             Requested size: 213.39568pt x 115.60612pt.
+
+
+[25 <./Images/cifrari_simmetrici/esperimento_predicato_B.png> <./Images/cifrari_simmetrici/esperimento_predicato_A.png>]
+<Images/cifrari_simmetrici/ctrc_ctrrandom.png, id=521, 629.35126pt x 494.59781pt>
+File: Images/cifrari_simmetrici/ctrc_ctrrandom.png Graphic file (type png)
+<use Images/cifrari_simmetrici/ctrc_ctrrandom.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/ctrc_ctrrandom.png  used on input line 142.
+(pdftex.def)             Requested size: 298.75264pt x 234.78545pt.
+<Images/cifrari_simmetrici/attaccante_B_prf.png, id=522, 554.07pt x 361.35pt>
+File: Images/cifrari_simmetrici/attaccante_B_prf.png Graphic file (type png)
+<use Images/cifrari_simmetrici/attaccante_B_prf.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/attaccante_B_prf.png  used on input line 150.
+(pdftex.def)             Requested size: 298.75264pt x 194.83937pt.
+
+
+[26 <./Images/cifrari_simmetrici/ctrc_ctrrandom.png>]
+Overfull \hbox (56.21053pt too wide) detected at line 160
+[]
+ []
+
+
+
+[27 <./Images/cifrari_simmetrici/attaccante_B_prf.png>]
+<Images/cifrari_simmetrici/esperimento_cca_1.png, id=537, 536.0025pt x 208.52907pt>
+File: Images/cifrari_simmetrici/esperimento_cca_1.png Graphic file (type png)
+<use Images/cifrari_simmetrici/esperimento_cca_1.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/esperimento_cca_1.png  used on input line 187.
+(pdftex.def)             Requested size: 298.75264pt x 116.22818pt.
+<Images/cifrari_simmetrici/attaccante_CPA_CTR.png, id=539, 613.54219pt x 293.59688pt>
+File: Images/cifrari_simmetrici/attaccante_CPA_CTR.png Graphic file (type png)
+<use Images/cifrari_simmetrici/attaccante_CPA_CTR.png>
+Package pdftex.def Info: Images/cifrari_simmetrici/attaccante_CPA_CTR.png  used on input line 195.
+(pdftex.def)             Requested size: 213.39568pt x 102.11533pt.
+
+
+[28 <./Images/cifrari_simmetrici/esperimento_cca_1.png>]) (parts/capitolo_3.tex
+
+[29 <./Images/cifrari_simmetrici/attaccante_CPA_CTR.png>]
+Capitolo 5.
+<Images/funzioni_hash/esp_universale.png, id=559, 639.89063pt x 207.02344pt>
+File: Images/funzioni_hash/esp_universale.png Graphic file (type png)
+<use Images/funzioni_hash/esp_universale.png>
+Package pdftex.def Info: Images/funzioni_hash/esp_universale.png  used on input line 12.
+(pdftex.def)             Requested size: 213.39568pt x 69.03816pt.
+<Images/funzioni_hash/esp_universale_unidirezionale.png, id=560, 642.90187pt x 205.5178pt>
+File: Images/funzioni_hash/esp_universale_unidirezionale.png Graphic file (type png)
+<use Images/funzioni_hash/esp_universale_unidirezionale.png>
+Package pdftex.def Info: Images/funzioni_hash/esp_universale_unidirezionale.png  used on input line 19.
+(pdftex.def)             Requested size: 213.39568pt x 68.2162pt.
+
+
+[30
+
+ <./Images/funzioni_hash/esp_universale.png> <./Images/funzioni_hash/esp_universale_unidirezionale.png>]
+<Images/funzioni_hash/esp_resistente_collisioni.png, id=570, 426.09187pt x 137.01187pt>
+File: Images/funzioni_hash/esp_resistente_collisioni.png Graphic file (type png)
+<use Images/funzioni_hash/esp_resistente_collisioni.png>
+Package pdftex.def Info: Images/funzioni_hash/esp_resistente_collisioni.png  used on input line 52.
+(pdftex.def)             Requested size: 298.75264pt x 96.07072pt.
+
+
+[31 <./Images/funzioni_hash/esp_resistente_collisioni.png>]
+
+[32]
+<Images/funzioni_hash/sha_1.png, id=585, 507.39563pt x 382.42876pt>
+File: Images/funzioni_hash/sha_1.png Graphic file (type png)
+<use Images/funzioni_hash/sha_1.png>
+Package pdftex.def Info: Images/funzioni_hash/sha_1.png  used on input line 97.
+(pdftex.def)             Requested size: 298.75264pt x 225.17584pt.
+
+
+[33 <./Images/funzioni_hash/sha_1.png>]
+<Images/funzioni_hash/a_vs_compleanno.png, id=592, 506.6428pt x 262.73157pt>
+File: Images/funzioni_hash/a_vs_compleanno.png Graphic file (type png)
+<use Images/funzioni_hash/a_vs_compleanno.png>
+Package pdftex.def Info: Images/funzioni_hash/a_vs_compleanno.png  used on input line 114.
+(pdftex.def)             Requested size: 298.75264pt x 154.93008pt.
+<Images/funzioni_hash/insiemi_hash.png, id=593, 551.81157pt x 240.14719pt>
+File: Images/funzioni_hash/insiemi_hash.png Graphic file (type png)
+<use Images/funzioni_hash/insiemi_hash.png>
+Package pdftex.def Info: Images/funzioni_hash/insiemi_hash.png  used on input line 120.
+(pdftex.def)             Requested size: 298.75264pt x 130.02197pt.
+
+
+[34 <./Images/funzioni_hash/a_vs_compleanno.png> <./Images/funzioni_hash/insiemi_hash.png>]
+<Images/funzioni_hash/absorbing_stage.png, id=604, 288.3272pt x 165.61874pt>
+File: Images/funzioni_hash/absorbing_stage.png Graphic file (type png)
+<use Images/funzioni_hash/absorbing_stage.png>
+Package pdftex.def Info: Images/funzioni_hash/absorbing_stage.png  used on input line 150.
+(pdftex.def)             Requested size: 213.39568pt x 122.5812pt.
+
+
+[35]
+<Images/funzioni_hash/squeezing_stage.png, id=613, 365.11406pt x 180.675pt>
+File: Images/funzioni_hash/squeezing_stage.png Graphic file (type png)
+<use Images/funzioni_hash/squeezing_stage.png>
+Package pdftex.def Info: Images/funzioni_hash/squeezing_stage.png  used on input line 155.
+(pdftex.def)             Requested size: 298.75264pt x 147.84291pt.
+) (parts/capitolo_4.tex
+
+[36 <./Images/funzioni_hash/absorbing_stage.png> <./Images/funzioni_hash/squeezing_stage.png>]
+Capitolo 6.
+
+
+[37
+
+]
+<Images/mac/verifica.png, id=629, 860.46469pt x 145.29282pt>
+File: Images/mac/verifica.png Graphic file (type png)
+<use Images/mac/verifica.png>
+Package pdftex.def Info: Images/mac/verifica.png  used on input line 27.
+(pdftex.def)             Requested size: 298.75264pt x 50.44531pt.
+<Images/mac/esp_uf_cma.png, id=631, 821.31844pt x 407.27156pt>
+File: Images/mac/esp_uf_cma.png Graphic file (type png)
+<use Images/mac/esp_uf_cma.png>
+Package pdftex.def Info: Images/mac/esp_uf_cma.png  used on input line 39.
+(pdftex.def)             Requested size: 298.75264pt x 148.14018pt.
+
+
+[38 <./Images/mac/verifica.png>]
+File: Images/mac/esp_uf_cma.png Graphic file (type png)
+<use Images/mac/esp_uf_cma.png>
+Package pdftex.def Info: Images/mac/esp_uf_cma.png  used on input line 56.
+(pdftex.def)             Requested size: 298.75264pt x 148.14018pt.
+<Images/mac/esempio_unsec_attaccante.png, id=639, 590.205pt x 211.54031pt>
+File: Images/mac/esempio_unsec_attaccante.png Graphic file (type png)
+<use Images/mac/esempio_unsec_attaccante.png>
+Package pdftex.def Info: Images/mac/esempio_unsec_attaccante.png  used on input line 62.
+(pdftex.def)             Requested size: 298.75264pt x 107.08038pt.
+
+
+[39 <./Images/mac/esp_uf_cma.png>]
+<Images/mac/esempio_2.png, id=647, 700.86844pt x 512.66531pt>
+File: Images/mac/esempio_2.png Graphic file (type png)
+<use Images/mac/esempio_2.png>
+Package pdftex.def Info: Images/mac/esempio_2.png  used on input line 67.
+(pdftex.def)             Requested size: 298.75264pt x 218.53305pt.
+<Images/mac/esempio_3.png, id=648, 523.20468pt x 628.59843pt>
+File: Images/mac/esempio_3.png Graphic file (type png)
+<use Images/mac/esempio_3.png>
+Package pdftex.def Info: Images/mac/esempio_3.png  used on input line 72.
+(pdftex.def)             Requested size: 213.39568pt x 256.3746pt.
+<Images/mac/mac_da_prf.png, id=649, 547.2947pt x 187.45032pt>
+File: Images/mac/mac_da_prf.png Graphic file (type png)
+<use Images/mac/mac_da_prf.png>
+Package pdftex.def Info: Images/mac/mac_da_prf.png  used on input line 79.
+(pdftex.def)             Requested size: 298.75264pt x 102.32571pt.
+
+
+[40 <./Images/mac/esempio_unsec_attaccante.png> <./Images/mac/esempio_2.png> <./Images/mac/esempio_3.png>]
+<Images/mac/dimostrazione_attaccante_B_A.png, id=660, 930.47626pt x 431.36156pt>
+File: Images/mac/dimostrazione_attaccante_B_A.png Graphic file (type png)
+<use Images/mac/dimostrazione_attaccante_B_A.png>
+Package pdftex.def Info: Images/mac/dimostrazione_attaccante_B_A.png  used on input line 88.
+(pdftex.def)             Requested size: 298.75264pt x 138.49925pt.
+<Images/mac/mac_con_cbc.png, id=661, 572.1375pt x 333.49594pt>
+File: Images/mac/mac_con_cbc.png Graphic file (type png)
+<use Images/mac/mac_con_cbc.png>
+Package pdftex.def Info: Images/mac/mac_con_cbc.png  used on input line 103.
+(pdftex.def)             Requested size: 213.39568pt x 124.38895pt.
+
+
+[41 <./Images/mac/mac_da_prf.png> <./Images/mac/dimostrazione_attaccante_B_A.png>]
+<Images/mac/dimostrazione_messaggi_l_diversa.png, id=671, 871.75688pt x 451.6875pt>
+File: Images/mac/dimostrazione_messaggi_l_diversa.png Graphic file (type png)
+<use Images/mac/dimostrazione_messaggi_l_diversa.png>
+Package pdftex.def Info: Images/mac/dimostrazione_messaggi_l_diversa.png  used on input line 112.
+(pdftex.def)             Requested size: 298.75264pt x 154.79163pt.
+<Images/mac/cbc_mac_random.png, id=672, 1153.30875pt x 456.20438pt>
+File: Images/mac/cbc_mac_random.png Graphic file (type png)
+<use Images/mac/cbc_mac_random.png>
+Package pdftex.def Info: Images/mac/cbc_mac_random.png  used on input line 118.
+(pdftex.def)             Requested size: 298.75264pt x 118.17178pt.
+
+
+[42 <./Images/mac/mac_con_cbc.png> <./Images/mac/dimostrazione_messaggi_l_diversa.png>]
+<Images/mac/attacco_cbc_mac_random.png, id=683, 1129.97156pt x 476.53032pt>
+File: Images/mac/attacco_cbc_mac_random.png Graphic file (type png)
+<use Images/mac/attacco_cbc_mac_random.png>
+Package pdftex.def Info: Images/mac/attacco_cbc_mac_random.png  used on input line 123.
+(pdftex.def)             Requested size: 298.75264pt x 125.98907pt.
+
+
+[43 <./Images/mac/cbc_mac_random.png> <./Images/mac/attacco_cbc_mac_random.png>]
+<Images/mac/hmac.png, id=694, 595.47469pt x 271.76532pt>
+File: Images/mac/hmac.png Graphic file (type png)
+<use Images/mac/hmac.png>
+Package pdftex.def Info: Images/mac/hmac.png  used on input line 159.
+(pdftex.def)             Requested size: 298.75264pt x 136.34676pt.
+<Images/mac/cifratura_e_mac.png, id=695, 827.34094pt x 588.69937pt>
+File: Images/mac/cifratura_e_mac.png Graphic file (type png)
+<use Images/mac/cifratura_e_mac.png>
+Package pdftex.def Info: Images/mac/cifratura_e_mac.png  used on input line 165.
+(pdftex.def)             Requested size: 298.75264pt x 212.57837pt.
+
+
+[44 <./Images/mac/hmac.png>]) (parts/capitolo_5.tex
+
+[45 <./Images/mac/cifratura_e_mac.png>]
+Capitolo 7.
+<Images/cifrari_asimmetrici/permutazione_trapdoor.png, id=711, 566.115pt x 274.02374pt>
+File: Images/cifrari_asimmetrici/permutazione_trapdoor.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/permutazione_trapdoor.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/permutazione_trapdoor.png  used on input line 25.
+(pdftex.def)             Requested size: 213.39568pt x 103.28966pt.
+
+
+[46
+
+]
+
+[47 <./Images/cifrari_asimmetrici/permutazione_trapdoor.png>]
+<Images/cifrari_asimmetrici/algoritmo_euclide.png, id=727, 689.57625pt x 344.03531pt>
+File: Images/cifrari_asimmetrici/algoritmo_euclide.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/algoritmo_euclide.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/algoritmo_euclide.png  used on input line 52.
+(pdftex.def)             Requested size: 256.07741pt x 127.75827pt.
+
+Overfull \hbox (8.23807pt too wide) in paragraph at lines 49--53
+[]\OT1/cmr/m/n/12 Per quan-to ri-guar-da il tro-va-re il mas-si-mo co-mu-ne di-vi-so-re, si fa' uso dell'\OT1/cmr/bx/n/12 algoritmo
+ []
+
+<Images/cifrari_asimmetrici/teorema_cinese_del_resto.png, id=728, 621.07031pt x 331.2375pt>
+File: Images/cifrari_asimmetrici/teorema_cinese_del_resto.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/teorema_cinese_del_resto.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/teorema_cinese_del_resto.png  used on input line 64.
+(pdftex.def)             Requested size: 256.07741pt x 136.57144pt.
+<Images/cifrari_asimmetrici/legendre.png, id=729, 506.6428pt x 130.98938pt>
+File: Images/cifrari_asimmetrici/legendre.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/legendre.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/legendre.png  used on input line 71.
+(pdftex.def)             Requested size: 170.71393pt x 44.13605pt.
+
+
+[48 <./Images/cifrari_asimmetrici/algoritmo_euclide.png> <./Images/cifrari_asimmetrici/teorema_cinese_del_resto.png>]
+<Images/cifrari_asimmetrici/problema_dl.png, id=739, 658.71094pt x 306.39468pt>
+File: Images/cifrari_asimmetrici/problema_dl.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/problema_dl.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/problema_dl.png  used on input line 91.
+(pdftex.def)             Requested size: 213.39568pt x 99.25917pt.
+
+
+[49 <./Images/cifrari_asimmetrici/legendre.png>]
+<Images/cifrari_asimmetrici/diffie_hellman.png, id=747, 877.02657pt x 298.11375pt>
+File: Images/cifrari_asimmetrici/diffie_hellman.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/diffie_hellman.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/diffie_hellman.png  used on input line 97.
+(pdftex.def)             Requested size: 213.39568pt x 72.53586pt.
+<Images/cifrari_asimmetrici/esperimento_cdh.png, id=748, 624.83438pt x 360.59718pt>
+File: Images/cifrari_asimmetrici/esperimento_cdh.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/esperimento_cdh.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/esperimento_cdh.png  used on input line 102.
+(pdftex.def)             Requested size: 213.39568pt x 123.15164pt.
+<Images/cifrari_asimmetrici/decisional_diffie_hellman.png, id=749, 889.07156pt x 412.54124pt>
+File: Images/cifrari_asimmetrici/decisional_diffie_hellman.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/decisional_diffie_hellman.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/decisional_diffie_hellman.png  used on input line 110.
+(pdftex.def)             Requested size: 213.39568pt x 99.0182pt.
+
+
+[50 <./Images/cifrari_asimmetrici/problema_dl.png> <./Images/cifrari_asimmetrici/diffie_hellman.png> <./Images/cifrari_asimmetrici/esperimento_cdh.png>]
+<Images/cifrari_asimmetrici/cdh_minore_ddh.png, id=760, 482.55281pt x 333.49594pt>
+File: Images/cifrari_asimmetrici/cdh_minore_ddh.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/cdh_minore_ddh.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/cdh_minore_ddh.png  used on input line 117.
+(pdftex.def)             Requested size: 213.39568pt x 147.47652pt.
+<Images/cifrari_asimmetrici/attacco_legendre.png, id=761, 481.8pt x 338.01282pt>
+File: Images/cifrari_asimmetrici/attacco_legendre.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/attacco_legendre.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/attacco_legendre.png  used on input line 122.
+(pdftex.def)             Requested size: 170.71393pt x 119.76587pt.
+
+
+[51 <./Images/cifrari_asimmetrici/decisional_diffie_hellman.png> <./Images/cifrari_asimmetrici/cdh_minore_ddh.png> <./Images/cifrari_asimmetrici/attacco_legendre.png>]
+<Images/cifrari_asimmetrici/baby_step_giant_step.png, id=772, 561.59813pt x 331.99031pt>
+File: Images/cifrari_asimmetrici/baby_step_giant_step.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/baby_step_giant_step.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/baby_step_giant_step.png  used on input line 144.
+(pdftex.def)             Requested size: 170.71393pt x 100.91495pt.
+
+
+[52 <./Images/cifrari_asimmetrici/baby_step_giant_step.png>]
+<Images/cifrari_asimmetrici/pohlig_hellman/1.png, id=783, 1242.14063pt x 734.745pt>
+File: Images/cifrari_asimmetrici/pohlig_hellman/1.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/pohlig_hellman/1.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/pohlig_hellman/1.png  used on input line 155.
+(pdftex.def)             Requested size: 362.77525pt x 214.5841pt.
+<Images/cifrari_asimmetrici/pohlig_hellman/2.png, id=784, 1106.63437pt x 456.95718pt>
+File: Images/cifrari_asimmetrici/pohlig_hellman/2.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/pohlig_hellman/2.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/pohlig_hellman/2.png  used on input line 159.
+(pdftex.def)             Requested size: 362.77525pt x 149.79924pt.
+
+
+[53 <./Images/cifrari_asimmetrici/pohlig_hellman/1.png> <./Images/cifrari_asimmetrici/pohlig_hellman/2.png>]
+
+[54]
+<Images/cifrari_asimmetrici/teorema_numeri_primi.png, id=802, 889.07156pt x 319.1925pt>
+File: Images/cifrari_asimmetrici/teorema_numeri_primi.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/teorema_numeri_primi.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/teorema_numeri_primi.png  used on input line 213.
+(pdftex.def)             Requested size: 213.39568pt x 76.61263pt.
+<Images/cifrari_asimmetrici/miller-rabin.png, id=803, 749.04843pt x 445.665pt>
+File: Images/cifrari_asimmetrici/miller-rabin.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/miller-rabin.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/miller-rabin.png  used on input line 221.
+(pdftex.def)             Requested size: 213.39568pt x 126.96144pt.
+
+
+[55 <./Images/cifrari_asimmetrici/teorema_numeri_primi.png>]
+<Images/cifrari_asimmetrici/miller-rabin_2.png, id=817, 632.3625pt x 405.01312pt>
+File: Images/cifrari_asimmetrici/miller-rabin_2.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/miller-rabin_2.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/miller-rabin_2.png  used on input line 226.
+(pdftex.def)             Requested size: 213.39568pt x 136.67056pt.
+<Images/cifrari_asimmetrici/pow_1.png, id=818, 307.1475pt x 128.73094pt>
+File: Images/cifrari_asimmetrici/pow_1.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/pow_1.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/pow_1.png  used on input line 234.
+(pdftex.def)             Requested size: 213.39568pt x 89.43924pt.
+<Images/cifrari_asimmetrici/pow_2.png, id=819, 429.10312pt x 204.01219pt>
+File: Images/cifrari_asimmetrici/pow_2.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/pow_2.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/pow_2.png  used on input line 239.
+(pdftex.def)             Requested size: 213.39568pt x 101.45795pt.
+
+
+[56 <./Images/cifrari_asimmetrici/miller-rabin.png> <./Images/cifrari_asimmetrici/miller-rabin_2.png> <./Images/cifrari_asimmetrici/pow_1.png>]
+<Images/cifrari_asimmetrici/pow_3.png, id=831, 877.77937pt x 347.04657pt>
+File: Images/cifrari_asimmetrici/pow_3.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/pow_3.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/pow_3.png  used on input line 245.
+(pdftex.def)             Requested size: 213.39568pt x 84.36786pt.
+
+
+[57 <./Images/cifrari_asimmetrici/pow_2.png> <./Images/cifrari_asimmetrici/pow_3.png>]
+Capitolo 8.
+<Images/cifrari_asimmetrici/ind_cpa_asimmetrico.png, id=840, 852.93657pt x 405.01312pt>
+File: Images/cifrari_asimmetrici/ind_cpa_asimmetrico.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/ind_cpa_asimmetrico.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/ind_cpa_asimmetrico.png  used on input line 256.
+(pdftex.def)             Requested size: 213.39568pt x 101.32718pt.
+<Images/cifrari_asimmetrici/ind_cca_asimmetrico.png, id=841, 867.99281pt x 489.32813pt>
+File: Images/cifrari_asimmetrici/ind_cca_asimmetrico.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/ind_cca_asimmetrico.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/ind_cca_asimmetrico.png  used on input line 263.
+(pdftex.def)             Requested size: 213.39568pt x 120.30083pt.
+
+
+[58
+
+ <./Images/cifrari_asimmetrici/ind_cpa_asimmetrico.png>]
+<Images/cifrari_asimmetrici/malleabilita_attaccante.png, id=848, 356.0803pt x 319.94531pt>
+File: Images/cifrari_asimmetrici/malleabilita_attaccante.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/malleabilita_attaccante.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/malleabilita_attaccante.png  used on input line 275.
+(pdftex.def)             Requested size: 128.0387pt x 115.04352pt.
+
+
+[59 <./Images/cifrari_asimmetrici/ind_cca_asimmetrico.png> <./Images/cifrari_asimmetrici/malleabilita_attaccante.png>]
+<Images/cifrari_asimmetrici/hybrid_enc/encrypt.png, id=857, 275.52937pt x 204.01219pt>
+File: Images/cifrari_asimmetrici/hybrid_enc/encrypt.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/hybrid_enc/encrypt.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/hybrid_enc/encrypt.png  used on input line 298.
+(pdftex.def)             Requested size: 128.0387pt x 94.80864pt.
+<Images/cifrari_asimmetrici/hybrid_enc/decrypt.png, id=858, 280.04625pt x 155.83218pt>
+File: Images/cifrari_asimmetrici/hybrid_enc/decrypt.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/hybrid_enc/decrypt.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/hybrid_enc/decrypt.png  used on input line 303.
+(pdftex.def)             Requested size: 128.0387pt x 71.2509pt.
+
+
+[60 <./Images/cifrari_asimmetrici/hybrid_enc/encrypt.png>]
+<Images/cifrari_asimmetrici/El_gamal/correttezza.png, id=866, 449.42906pt x 210.03468pt>
+File: Images/cifrari_asimmetrici/El_gamal/correttezza.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/El_gamal/correttezza.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/El_gamal/correttezza.png  used on input line 315.
+(pdftex.def)             Requested size: 170.71393pt x 79.77875pt.
+<Images/cifrari_asimmetrici/El_gamal/A_attacco_B.png, id=867, 543.53062pt x 554.07pt>
+File: Images/cifrari_asimmetrici/El_gamal/A_attacco_B.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/El_gamal/A_attacco_B.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/El_gamal/A_attacco_B.png  used on input line 323.
+(pdftex.def)             Requested size: 170.71393pt x 174.02571pt.
+
+
+[61 <./Images/cifrari_asimmetrici/hybrid_enc/decrypt.png> <./Images/cifrari_asimmetrici/El_gamal/correttezza.png>]
+<Images/cifrari_asimmetrici/El_gamal/dim_1.png, id=876, 1325.70282pt x 394.47375pt>
+File: Images/cifrari_asimmetrici/El_gamal/dim_1.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/El_gamal/dim_1.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/El_gamal/dim_1.png  used on input line 329.
+(pdftex.def)             Requested size: 384.1096pt x 114.29213pt.
+<Images/cifrari_asimmetrici/El_gamal/dim_2.png, id=877, 1229.34282pt x 556.32843pt>
+File: Images/cifrari_asimmetrici/El_gamal/dim_2.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/El_gamal/dim_2.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/El_gamal/dim_2.png  used on input line 333.
+(pdftex.def)             Requested size: 384.1096pt x 173.82674pt.
+<Images/cifrari_asimmetrici/El_gamal/malleabile.png, id=878, 356.83313pt x 197.98969pt>
+File: Images/cifrari_asimmetrici/El_gamal/malleabile.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/El_gamal/malleabile.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/El_gamal/malleabile.png  used on input line 340.
+(pdftex.def)             Requested size: 128.0387pt x 71.04057pt.
+
+
+[62 <./Images/cifrari_asimmetrici/El_gamal/A_attacco_B.png> <./Images/cifrari_asimmetrici/El_gamal/dim_1.png> <./Images/cifrari_asimmetrici/El_gamal/dim_2.png> <./Images/cifrari_asimmetrici/El_gamal/malleabile.png>]
+<Images/cifrari_asimmetrici/El_gamal/lifted_elgamal.png, id=891, 925.20656pt x 477.28313pt>
+File: Images/cifrari_asimmetrici/El_gamal/lifted_elgamal.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/El_gamal/lifted_elgamal.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/El_gamal/lifted_elgamal.png  used on input line 348.
+(pdftex.def)             Requested size: 298.75264pt x 154.11743pt.
+<Images/cifrari_asimmetrici/El_gamal/mall_sum.png, id=892, 390.70969pt x 240.9pt>
+File: Images/cifrari_asimmetrici/El_gamal/mall_sum.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/El_gamal/mall_sum.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/El_gamal/mall_sum.png  used on input line 353.
+(pdftex.def)             Requested size: 128.0387pt x 78.94586pt.
+
+
+[63 <./Images/cifrari_asimmetrici/El_gamal/lifted_elgamal.png> <./Images/cifrari_asimmetrici/El_gamal/mall_sum.png>]
+<Images/cifrari_asimmetrici/Pailier/attacco_fattorizzazione.png, id=901, 302.63063pt x 135.50626pt>
+File: Images/cifrari_asimmetrici/Pailier/attacco_fattorizzazione.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Pailier/attacco_fattorizzazione.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Pailier/attacco_fattorizzazione.png  used on input line 390.
+(pdftex.def)             Requested size: 213.39568pt x 95.5505pt.
+
+
+[64]
+<Images/cifrari_asimmetrici/Pailier/problema_decisionale_N.png, id=906, 706.89093pt x 286.82156pt>
+File: Images/cifrari_asimmetrici/Pailier/problema_decisionale_N.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Pailier/problema_decisionale_N.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Pailier/problema_decisionale_N.png  used on input line 395.
+(pdftex.def)             Requested size: 298.75264pt x 121.22136pt.
+<Images/cifrari_asimmetrici/Pailier/encryption.png, id=907, 467.49657pt x 174.6525pt>
+File: Images/cifrari_asimmetrici/Pailier/encryption.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Pailier/encryption.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Pailier/encryption.png  used on input line 405.
+(pdftex.def)             Requested size: 170.71393pt x 63.77827pt.
+
+
+[65 <./Images/cifrari_asimmetrici/Pailier/attacco_fattorizzazione.png> <./Images/cifrari_asimmetrici/Pailier/problema_decisionale_N.png> <./Images/cifrari_asimmetrici/Pailier/encryption.png>]
+<Images/cifrari_asimmetrici/Pailier/mall_1.png, id=918, 885.3075pt x 622.57594pt>
+File: Images/cifrari_asimmetrici/Pailier/mall_1.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Pailier/mall_1.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Pailier/mall_1.png  used on input line 427.
+(pdftex.def)             Requested size: 426.79135pt x 300.13452pt.
+<Images/cifrari_asimmetrici/Pailier/mall_2.png, id=919, 1027.58907pt x 729.47531pt>
+File: Images/cifrari_asimmetrici/Pailier/mall_2.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Pailier/mall_2.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Pailier/mall_2.png  used on input line 432.
+(pdftex.def)             Requested size: 426.79135pt x 302.97148pt.
+
+
+[66 <./Images/cifrari_asimmetrici/Pailier/mall_1.png>]
+<Images/cifrari_asimmetrici/Pailier/mall_3.png, id=930, 646.66594pt x 572.89032pt>
+File: Images/cifrari_asimmetrici/Pailier/mall_3.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Pailier/mall_3.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Pailier/mall_3.png  used on input line 437.
+(pdftex.def)             Requested size: 256.07741pt x 226.86177pt.
+<Images/cifrari_asimmetrici/elezione_multi-candidato.png, id=931, 671.50874pt x 123.46124pt>
+File: Images/cifrari_asimmetrici/elezione_multi-candidato.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/elezione_multi-candidato.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/elezione_multi-candidato.png  used on input line 444.
+(pdftex.def)             Requested size: 213.39568pt x 39.23335pt.
+
+
+[67 <./Images/cifrari_asimmetrici/Pailier/mall_2.png> <./Images/cifrari_asimmetrici/Pailier/mall_3.png>]
+<Images/cifrari_asimmetrici/RSA-OAEP/encrypt.png, id=940, 563.85657pt x 293.59688pt>
+File: Images/cifrari_asimmetrici/RSA-OAEP/encrypt.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/RSA-OAEP/encrypt.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/RSA-OAEP/encrypt.png  used on input line 473.
+(pdftex.def)             Requested size: 298.75264pt x 155.56079pt.
+
+
+[68 <./Images/cifrari_asimmetrici/elezione_multi-candidato.png>]
+<Images/cifrari_asimmetrici/RSA-OAEP/decrypt.png, id=949, 486.31688pt x 291.33844pt>
+File: Images/cifrari_asimmetrici/RSA-OAEP/decrypt.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/RSA-OAEP/decrypt.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/RSA-OAEP/decrypt.png  used on input line 480.
+(pdftex.def)             Requested size: 298.75264pt x 178.97424pt.
+
+
+[69 <./Images/cifrari_asimmetrici/RSA-OAEP/encrypt.png> <./Images/cifrari_asimmetrici/RSA-OAEP/decrypt.png>]
+<Images/cifrari_asimmetrici/Boneh-Franklin/ind_id_cpa.png, id=958, 693.34032pt x 367.3725pt>
+File: Images/cifrari_asimmetrici/Boneh-Franklin/ind_id_cpa.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Boneh-Franklin/ind_id_cpa.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Boneh-Franklin/ind_id_cpa.png  used on input line 504.
+(pdftex.def)             Requested size: 298.75264pt x 158.29782pt.
+
+
+[70]
+<Images/cifrari_asimmetrici/Boneh-Franklin/enc.png, id=965, 546.54187pt x 197.23688pt>
+File: Images/cifrari_asimmetrici/Boneh-Franklin/enc.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Boneh-Franklin/enc.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Boneh-Franklin/enc.png  used on input line 523.
+(pdftex.def)             Requested size: 213.39568pt x 77.00934pt.
+<Images/cifrari_asimmetrici/Boneh-Franklin/dec.png, id=966, 572.1375pt x 112.16907pt>
+File: Images/cifrari_asimmetrici/Boneh-Franklin/dec.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Boneh-Franklin/dec.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Boneh-Franklin/dec.png  used on input line 529.
+(pdftex.def)             Requested size: 213.39568pt x 41.83736pt.
+
+
+[71 <./Images/cifrari_asimmetrici/Boneh-Franklin/ind_id_cpa.png> <./Images/cifrari_asimmetrici/Boneh-Franklin/enc.png>]
+<Images/cifrari_asimmetrici/Boneh-Franklin/correttezza.png, id=978, 1342.2647pt x 196.48407pt>
+File: Images/cifrari_asimmetrici/Boneh-Franklin/correttezza.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Boneh-Franklin/correttezza.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Boneh-Franklin/correttezza.png  used on input line 535.
+(pdftex.def)             Requested size: 298.75264pt x 43.7303pt.
+<Images/cifrari_asimmetrici/Boneh-Franklin/sicurezza.png, id=979, 598.48593pt x 151.3153pt>
+File: Images/cifrari_asimmetrici/Boneh-Franklin/sicurezza.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Boneh-Franklin/sicurezza.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Boneh-Franklin/sicurezza.png  used on input line 540.
+(pdftex.def)             Requested size: 213.39568pt x 53.95164pt.
+<Images/cifrari_asimmetrici/Boneh-Franklin/bdh_cdh.png, id=981, 1062.21844pt x 513.41812pt>
+File: Images/cifrari_asimmetrici/Boneh-Franklin/bdh_cdh.png Graphic file (type png)
+<use Images/cifrari_asimmetrici/Boneh-Franklin/bdh_cdh.png>
+Package pdftex.def Info: Images/cifrari_asimmetrici/Boneh-Franklin/bdh_cdh.png  used on input line 545.
+(pdftex.def)             Requested size: 341.43437pt x 165.03355pt.
+) (parts/capitolo_6.tex
+
+[72 <./Images/cifrari_asimmetrici/Boneh-Franklin/dec.png> <./Images/cifrari_asimmetrici/Boneh-Franklin/correttezza.png> <./Images/cifrari_asimmetrici/Boneh-Franklin/sicurezza.png> <./Images/cifrari_asimmetrici/Boneh-Franklin/bdh_cdh.png>]
+Capitolo 9.
+<Images/firma_digitale/sicurezza_ds.png, id=996, 611.28375pt x 337.26pt>
+File: Images/firma_digitale/sicurezza_ds.png Graphic file (type png)
+<use Images/firma_digitale/sicurezza_ds.png>
+Package pdftex.def Info: Images/firma_digitale/sicurezza_ds.png  used on input line 13.
+(pdftex.def)             Requested size: 256.07741pt x 141.28285pt.
+
+
+[73
+
+ <./Images/firma_digitale/sicurezza_ds.png>]
+<Images/firma_digitale/sign_ver_rsa.png, id=1003, 536.0025pt x 282.30469pt>
+File: Images/firma_digitale/sign_ver_rsa.png Graphic file (type png)
+<use Images/firma_digitale/sign_ver_rsa.png>
+Package pdftex.def Info: Images/firma_digitale/sign_ver_rsa.png  used on input line 26.
+(pdftex.def)             Requested size: 256.07741pt x 134.87148pt.
+<Images/firma_digitale/attacco_firma_rsa.png, id=1005, 1017.04968pt x 390.70969pt>
+File: Images/firma_digitale/attacco_firma_rsa.png Graphic file (type png)
+<use Images/firma_digitale/attacco_firma_rsa.png>
+Package pdftex.def Info: Images/firma_digitale/attacco_firma_rsa.png  used on input line 32.
+(pdftex.def)             Requested size: 298.75264pt x 114.76949pt.
+<Images/firma_digitale/hash_inverti.png, id=1006, 546.54187pt x 300.3722pt>
+File: Images/firma_digitale/hash_inverti.png Graphic file (type png)
+<use Images/firma_digitale/hash_inverti.png>
+Package pdftex.def Info: Images/firma_digitale/hash_inverti.png  used on input line 39.
+(pdftex.def)             Requested size: 298.75264pt x 164.19229pt.
+
+
+[74 <./Images/firma_digitale/sign_ver_rsa.png> <./Images/firma_digitale/attacco_firma_rsa.png>]
+<Images/firma_digitale/sicurezza_uf_cma_ds.png, id=1016, 548.0475pt x 306.39468pt>
+File: Images/firma_digitale/sicurezza_uf_cma_ds.png Graphic file (type png)
+<use Images/firma_digitale/sicurezza_uf_cma_ds.png>
+Package pdftex.def Info: Images/firma_digitale/sicurezza_uf_cma_ds.png  used on input line 44.
+(pdftex.def)             Requested size: 298.75264pt x 167.0262pt.
+<Images/firma_digitale/ec_dsa_key_gen.png, id=1017, 624.08156pt x 367.3725pt>
+File: Images/firma_digitale/ec_dsa_key_gen.png Graphic file (type png)
+<use Images/firma_digitale/ec_dsa_key_gen.png>
+Package pdftex.def Info: Images/firma_digitale/ec_dsa_key_gen.png  used on input line 55.
+(pdftex.def)             Requested size: 298.75264pt x 175.8659pt.
+<Images/firma_digitale/ec_dsa_sign.png, id=1018, 613.54219pt x 320.69812pt>
+File: Images/firma_digitale/ec_dsa_sign.png Graphic file (type png)
+<use Images/firma_digitale/ec_dsa_sign.png>
+Package pdftex.def Info: Images/firma_digitale/ec_dsa_sign.png  used on input line 59.
+(pdftex.def)             Requested size: 298.75264pt x 156.15987pt.
+
+
+[75 <./Images/firma_digitale/hash_inverti.png> <./Images/firma_digitale/sicurezza_uf_cma_ds.png>]
+<Images/firma_digitale/ec_dsa_ver.png, id=1027, 344.03531pt x 347.04657pt>
+File: Images/firma_digitale/ec_dsa_ver.png Graphic file (type png)
+<use Images/firma_digitale/ec_dsa_ver.png>
+Package pdftex.def Info: Images/firma_digitale/ec_dsa_ver.png  used on input line 63.
+(pdftex.def)             Requested size: 213.39568pt x 215.26196pt.
+<Images/firma_digitale/ec_dsa_correttezza.png, id=1028, 857.45343pt x 344.03531pt>
+File: Images/firma_digitale/ec_dsa_correttezza.png Graphic file (type png)
+<use Images/firma_digitale/ec_dsa_correttezza.png>
+Package pdftex.def Info: Images/firma_digitale/ec_dsa_correttezza.png  used on input line 67.
+(pdftex.def)             Requested size: 341.43437pt x 136.99223pt.
+
+
+[76 <./Images/firma_digitale/ec_dsa_key_gen.png> <./Images/firma_digitale/ec_dsa_sign.png> <./Images/firma_digitale/ec_dsa_ver.png>]
+<Images/firma_digitale/schors_signature.png, id=1039, 663.98062pt x 504.38437pt>
+File: Images/firma_digitale/schors_signature.png Graphic file (type png)
+<use Images/firma_digitale/schors_signature.png>
+Package pdftex.def Info: Images/firma_digitale/schors_signature.png  used on input line 72.
+(pdftex.def)             Requested size: 341.43437pt x 259.36449pt.
+)
+
+[77 <./Images/firma_digitale/ec_dsa_correttezza.png> <./Images/firma_digitale/schors_signature.png>]
+No file document.bbl.
+(document.aux)
+ ***********
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-09-02>
+ ***********
+Package rerunfilecheck Info: File `document.out' has not changed.
+(rerunfilecheck)             Checksum: 763F57FD4C66625525E7578F9D05457A;9672.
+ ) 
+Here is how much of TeX's memory you used:
+ 16138 strings out of 468080
+ 282496 string characters out of 5425767
+ 847573 words of memory out of 5000000
+ 44252 multiletter control sequences out of 15000+600000
+ 640678 words of font info for 88 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,18n,79p,1021b,628s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\lolcr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk> <C:\Users\lolcr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on document.pdf (78 pages, 5726664 bytes).
+PDF statistics:
+ 1218 PDF objects out of 1440 (max. 8388607)
+ 319 named destinations out of 1000 (max. 500000)
+ 954 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,6 @@
+IND-ID-CPA per cifrari basati sull'identità
+IND-CPA per cifrari asimmetrici
+Dimostrare che il cifrario asimmetrico non è sicuro in senso ind-cca/cpa
+Sicurezza per schemi di firma
+Dimostrare che lo schema di firma non è sicuro
+Avversario che risolve un problema che riesce a risolvere problema più grande

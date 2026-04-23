@@ -1,0 +1,1 @@
+{"rule":"ER_01_001","sentence":"^\\QPer rendere possibili le addizioni, abbiamo bisogno di fare alcune modifiche e scendere a compromessi.\\E$"}

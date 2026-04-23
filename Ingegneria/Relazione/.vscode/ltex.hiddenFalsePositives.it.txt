@@ -1,0 +1,2 @@
+{"rule":"ER_01_001","sentence":"^\\QeliminaUtenteAuth: Operazione che permette l'eliminazione definitiva di un utente e, a cascata, invalida tutte le sue sessioni attive per impedirne futuri accessi.\\E$"}
+{"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QPer semplificare la comunicazione con i client e nascondere la complessità interna, il server espone un unico punto di accesso tramite la classe DataHandler, la quale riceve le chiamate di rete e le smista ai vari servizi specializzati interni.\\E$"}

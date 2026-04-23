@@ -1,0 +1,36 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{\numberline {1}Design Pattern}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Proxy}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Reference Monitor}{4}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Pattern Role-Based Access Control}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Authenticator}{6}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Rate-Limiting}{8}{subsection.1.4.1}%
+\contentsline {section}{\numberline {1.5}Token}{8}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}JSON Web Token}{9}{subsection.1.5.1}%
+\contentsline {section}{\numberline {1.6}Remote Proxy}{9}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Forwarder-Receiver}{10}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Strategie di Distribuzione}{11}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}Remote Facade}{11}{subsection.1.8.1}%
+\contentsline {subsection}{\numberline {1.8.2}Data Transfer Object}{12}{subsection.1.8.2}%
+\contentsline {subsection}{\numberline {1.8.3}Remote Method Invocation}{13}{subsection.1.8.3}%
+\contentsline {section}{\numberline {1.9}Sessione}{14}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}Client Session State}{14}{subsection.1.9.1}%
+\contentsline {subsection}{\numberline {1.9.2}Server Session State}{15}{subsection.1.9.2}%
+\contentsline {subsection}{\numberline {1.9.3}Database Session State}{16}{subsection.1.9.3}%
+\contentsline {subsection}{\numberline {1.9.4}Serialized LOB}{16}{subsection.1.9.4}%
+\contentsline {section}{\numberline {1.10}Memento}{16}{section.1.10}%
+\contentsline {section}{\numberline {1.11}Idempotent Receiver}{17}{section.1.11}%
+\contentsline {section}{\numberline {1.12}Request Batch}{18}{section.1.12}%
+\contentsline {section}{\numberline {1.13}Leader And Followers}{19}{section.1.13}%
+\contentsline {subsection}{\numberline {1.13.1}Heart Beat}{19}{subsection.1.13.1}%
+\contentsline {subsection}{\numberline {1.13.2}Majority Quorum}{20}{subsection.1.13.2}%
+\contentsline {subsection}{\numberline {1.13.3}Generation Clock}{20}{subsection.1.13.3}%
+\contentsline {section}{\numberline {1.14}Request Pipeline}{20}{section.1.14}%
+\contentsline {section}{\numberline {1.15}Stabilità}{21}{section.1.15}%
+\contentsline {subsection}{\numberline {1.15.1}Timeout}{21}{subsection.1.15.1}%
+\contentsline {subsection}{\numberline {1.15.2}Circuit Breaker}{22}{subsection.1.15.2}%
+\contentsline {subsection}{\numberline {1.15.3}Bulkheads}{22}{subsection.1.15.3}%
+\contentsline {subsection}{\numberline {1.15.4}Sistemi Reattivi}{23}{subsection.1.15.4}%
+\contentsline {section}{\numberline {1.16}Future}{23}{section.1.16}%
+\contentsline {subsection}{\numberline {1.16.1}CompletableFuture}{24}{subsection.1.16.1}%

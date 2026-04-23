@@ -1,0 +1,92 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{\numberline {1}Analisi Ammortizzata}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Metodo dell'aggregazione}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Stack MultiPop}{5}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Contatore binario}{6}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Metodo dell'accantonamento}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Stack MultiPop}{7}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Contatore binario}{8}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Metodo del potenziale}{8}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Stack Multipop inizialmente vuoto}{9}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Stack Multipop non vuoto}{10}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Contatore binario inizialmente nullo}{10}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Contatore binario inizialmente non nullo}{10}{subsection.1.3.4}%
+\contentsline {section}{\numberline {1.4}Tabelle dinamiche}{11}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Analisi mediante metodo dell'aggregazione}{11}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Analisi mediante metodo degli accantonamenti}{11}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Analisi con il metodo del potenziale}{12}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}Tabelle dinamiche con cancellazione}{13}{subsection.1.4.4}%
+\contentsline {section}{\numberline {1.5}Scalare i costi}{15}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Algoritmi Online vs Algoritmi Offline}{16}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Self-adjusting list}{16}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Splay Trees}{20}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Zig, Zig-Zag, Zig-Zig}{21}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Analisi ammortizzata di Splay}{22}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Top-Down Splay Trees}{26}{section.2.3}%
+\contentsline {chapter}{\numberline {3}B-Trees}{28}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Ottimizzazione su Hard Disk}{28}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Definizione e altezza di un B-tree}{29}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Operazioni di base sui B-Tree}{31}{section.3.3}%
+\contentsline {section}{\numberline {3.4}B-Tree-Search(x,k)}{31}{section.3.4}%
+\contentsline {section}{\numberline {3.5}B-Tree-Create}{32}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Inserimento in un B-Tree}{32}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Cancellazione da un B-Tree}{35}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Heap Binomiali}{37}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Alberi binomiali}{37}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Heap binomiali}{39}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Operazioni Heap Binomiali}{39}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Make-Binomial-Heap()}{40}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Binomial-Heap-Minimum(H)}{40}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Binomial-Link(y,z)}{40}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Binomial-Heap-Union($H_1,H_2$)}{41}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Binomial-Heap-Insert($H,x$)}{42}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Binomial-Heap-Extract-min($H$)}{43}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}Binomial-Heap-Decrease-key($H,x,k$)}{43}{subsection.4.3.7}%
+\contentsline {subsection}{\numberline {4.3.8}Binomial-Heap-Delete(x)}{44}{subsection.4.3.8}%
+\contentsline {section}{\numberline {4.4}Analisi ammortizzata di un inserimento in uno heap binomiale inizialmente vuoto}{44}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Heap di Fibonacci}{45}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Funzione potenziale}{46}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Alberi binomiali non ordinati}{46}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Operazioni su Heap di Fibonacci}{47}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Make-Fibonacci-Heap()}{48}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Fib-Heap-Insert($H,x$)}{48}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Minimum(H)}{48}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Fib-Heap-Union($H_1,H_2$)}{49}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Fib-Heap-Extract-Min(H)}{49}{subsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.3.6}Decrease Key}{51}{subsection.5.3.6}%
+\contentsline {subsection}{\numberline {5.3.7}Delete}{53}{subsection.5.3.7}%
+\contentsline {section}{\numberline {5.4}Proprietà di Fibonacci}{53}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Strutture Dati per Insiemi Disgiunti}{57}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Componenti Connesse in un Grafo}{57}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Generazione di Labirinti}{57}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Percolazione}{58}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Implementazione di Insiemi Disgiunti}{58}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Insiemi Disgiunti mediante Alberi Disgiunti}{61}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Alberi ricoprenti minimi}{63}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Taglio e Colorazione}{63}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Algoritmo di Boruvka}{65}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Algoritmo di Kruskal}{65}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Algoritmo di Prim}{66}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Signature di uno Spanning Tree}{67}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Minimalità della Signature di un MST}{69}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Clustering}{70}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Algoritmo di Kruskal Clustering}{71}{subsection.7.7.1}%
+\contentsline {subsection}{\numberline {7.7.2}Minimum Spanning Tree in Grafi Sparsi}{72}{subsection.7.7.2}%
+\contentsline {chapter}{\numberline {8}Cammini Minimi in un Grafo}{75}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Algoritmi per Cammini Minimi da Una Sorgente}{77}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}GSSSP Ottimizzato}{83}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Algoritmo di Bellman-Ford}{84}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Algoritmo di Dijkstra}{84}{subsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.1.4}Algoritmo DAG}{86}{subsection.8.1.4}%
+\contentsline {section}{\numberline {8.2}Cammini Minimi tra Tutte le Coppie}{86}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Bellman-Ford per Coppie}{87}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Algoritmo Floyd-Warshall}{88}{subsection.8.2.2}%
+\contentsline {section}{\numberline {8.3}Rompere la barriera $O(V^3)$}{89}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Algoritmo di Johnson per Grafi Sparsi}{90}{subsection.8.3.1}%
+\contentsline {chapter}{\numberline {9}Reti di Flusso}{92}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Problema del Massimo Flusso}{93}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Metodo Ford-Fulkerson}{98}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Tagli in Reti di flusso}{101}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Teorema del Massimo Flusso/Minimo Taglio}{102}{section.9.4}%
+\contentsline {chapter}{\numberline {10}Edge Connectivity}{104}{chapter.10}%
