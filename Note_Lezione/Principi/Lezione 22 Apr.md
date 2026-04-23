@@ -14,7 +14,7 @@ Creazione della sezione parallela
 ```
 #pragma omp parallel{
 	int id = omp_get_thread_num();
-	#pragma single //
+	#pragma single 
 	int nthread = omp_the_num_threads();
 	#pragma barrier 
 	printf("Hello from thread!");	

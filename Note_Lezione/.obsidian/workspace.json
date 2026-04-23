@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "ecedbbba7832baf3",
+    "id": "14eb3febea728d05",
     "type": "split",
     "children": [
       {
-        "id": "38bf8cd5e3f937fb",
+        "id": "05551924cb6da634",
         "type": "tabs",
         "children": [
           {
-            "id": "7e45c336efe29203",
+            "id": "aac42e0d0d2b3505",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lezione 22 Apr.md",
+                "file": "Computer Security/Lezione 23 Aprile.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 22 Apr"
+              "title": "Lezione 23 Aprile"
             }
           }
         ]
@@ -27,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "27af4dbf992b1e59",
+    "id": "03e723fe8d09811b",
     "type": "split",
     "children": [
       {
-        "id": "18510898367104f2",
+        "id": "e26e514a83b58deb",
         "type": "tabs",
         "children": [
           {
-            "id": "ffebd50a856c8ed6",
+            "id": "043e22568da5ca91",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +48,7 @@
             }
           },
           {
-            "id": "e44fba9a8937b7ca",
+            "id": "3b3019d730e670d1",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -65,7 +65,7 @@
             }
           },
           {
-            "id": "6837c0c2292681d0",
+            "id": "72575f33fda5fd57",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -78,23 +78,24 @@
       }
     ],
     "direction": "horizontal",
-    "width": 207.5086555480957
+    "width": 300,
+    "collapsed": true
   },
   "right": {
-    "id": "f4d581c49c64c5c5",
+    "id": "a8eec85064bed8ea",
     "type": "split",
     "children": [
       {
-        "id": "ba5c08cca87bb79c",
+        "id": "6aee96100431609a",
         "type": "tabs",
         "children": [
           {
-            "id": "fdf0d6177ff0db22",
+            "id": "ca2433253856b660",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lezione 22 Apr.md",
+                "file": "Blockchain/Lezione 23 Aprile.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,24 +105,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Riferimenti a Lezione 22 Apr"
+              "title": "Riferimenti a Lezione 23 Aprile"
             }
           },
           {
-            "id": "2caa06202445217c",
+            "id": "f2815e4455421f6e",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Blockchain/Lezione 23 Aprile.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Collegamenti in uscita"
+              "title": "Collegamenti in uscita da Lezione 23 Aprile"
             }
           },
           {
-            "id": "9b35468c35261481",
+            "id": "7aa58ac4c0ad96d3",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -136,68 +138,69 @@
             }
           },
           {
-            "id": "f00ca95453d8d15a",
+            "id": "5b295d71aaa6697a",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Tutte le proprietà"
+            }
+          },
+          {
+            "id": "05cb11a9c45bd6ec",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Lezione 22 Apr.md",
+                "file": "Blockchain/Lezione 23 Aprile.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Struttura di Lezione 22 Apr"
-            }
-          },
-          {
-            "id": "77ec1daed28ec880",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "git-view"
+              "title": "Struttura di Lezione 23 Aprile"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 200,
+    "width": 300,
     "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:Crea nuova Base": false,
       "switcher:Apri selezione rapida": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
       "daily-notes:Apri nota del giorno": false,
       "templates:Inserisci modello": false,
       "command-palette:Apri riquadro comandi": false,
-      "obsidian-git:Open Git source control": false
+      "bases:Crea nuova Base": false
     }
   },
-  "active": "7e45c336efe29203",
+  "active": "aac42e0d0d2b3505",
   "lastOpenFiles": [
-    "Senza nome.base",
-    "Lezione 22 Apr.md",
-    "Excalidraw/Drawing 2026-04-22 12.31.34.excalidraw.md",
-    "Excalidraw/Drawing 2026-04-22 12.31.34_0.excalidraw.md",
-    "Excalidraw/Drawing 2026-04-22 12.30.42.excalidraw.md",
-    "Excalidraw",
-    "Senza nome 1.base",
-    "Senza nome 2.base",
-    "Excalidraw/Drawing 2026-04-22 12.29.58.excalidraw.md",
-    "Excalidraw/Drawing 2026-04-22 12.29.36.excalidraw.md",
-    "Senza nome.canvas",
-    "Senza nome 1.canvas",
-    "Welcome.md",
-    "Lezione 22 Apr.pdf",
-    "Memoria condivisa.md",
-    "2026-04-22.md",
-    "Pasted image 20260422112825.png"
+    "Blockchain/Lezione 23 Aprile.md",
+    "Computer Security/Lezione 23 Aprile.md",
+    "Blockchain/Immagini/Pasted image 20260423123943.png",
+    "Blockchain/Immagini/soundness_diffie.png",
+    "Blockchain/Immagini/Diffie-Hellman.png",
+    "Blockchain/Immagini/protocollo_zero_knowledge.png",
+    "Blockchain/Immagini/Pasted image 20260423114340.png",
+    "Blockchain/Immagini",
+    "Benvenuto.md",
+    "Principi/Welcome.md",
+    "Principi/Lezione 22 Apr.md",
+    "Principi/Immagini",
+    "Computer Security",
+    "Teoria dei Grafi",
+    "Principi",
+    "Blockchain"
   ]
 }
