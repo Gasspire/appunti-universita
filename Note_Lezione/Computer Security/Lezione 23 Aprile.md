@@ -22,4 +22,8 @@ Specifichiamo i nomi per capire a quale specifica nonce facciamo riferimento.
 
 Per quello che riguarda l'autenticazione di un agente, invece, è avere tra le precondizioni un certo gets di un messaggio dimostrando che l'agente che ha prodotto un quel messaggio è un certo X. 
 MPair(m1)(m2) = {m1,m2}
+synth è un insieme infinito ma da solo non è in grado di scomporre messaggi. Per questo scomponiamo prima tramite analz. 
 ## Dimostrazioni in Isabelle
+
+Se riusciamo a ottenere nelle premesse la derivazione, allora la derivazione è vera. 
+where H=H è l'insieme nel subgoal che si differenzia da "parts H".

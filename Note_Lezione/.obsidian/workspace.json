@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "a8eec85064bed8ea",
@@ -95,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blockchain/Lezione 23 Aprile.md",
+                "file": "Computer Security/Lezione 23 Aprile.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blockchain/Lezione 23 Aprile.md",
+                "file": "Computer Security/Lezione 23 Aprile.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -157,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blockchain/Lezione 23 Aprile.md",
+                "file": "Computer Security/Lezione 23 Aprile.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -175,13 +174,13 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Crea nuova Base": false,
       "switcher:Apri selezione rapida": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
       "daily-notes:Apri nota del giorno": false,
       "templates:Inserisci modello": false,
-      "command-palette:Apri riquadro comandi": false,
-      "bases:Crea nuova Base": false
+      "command-palette:Apri riquadro comandi": false
     }
   },
   "active": "aac42e0d0d2b3505",
