@@ -1,40 +1,45 @@
-\BOOKMARK [0][-]{chapter.1}{Funzioni Hash}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Hash Pointers e Struttura della Blockchain}{chapter.1}% 2
-\BOOKMARK [2][-]{subsection.1.1.1}{Il Merkle Tree}{section.1.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Firma digitale}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.3}{Basic Cryptocurrencies}{chapter.1}% 5
-\BOOKMARK [2][-]{subsection.1.3.1}{GoofyCoin}{section.1.3}% 6
-\BOOKMARK [2][-]{subsection.1.3.2}{ScroogeCoin}{section.1.3}% 7
-\BOOKMARK [0][-]{chapter.2}{Come Bitcoin ottiene la Decentralizzazione}{}% 8
-\BOOKMARK [1][-]{section.2.1}{Le domande fondamentali del sistema}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.2}{I tre pilastri della decentralizzazione}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.3}{Il Consenso Distribuito}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.3.1}{Incentivi e Proof of Work}{section.2.3}% 12
-\BOOKMARK [1][-]{section.2.4}{Struttura delle Transazioni e Modello UTXO}{chapter.2}% 13
-\BOOKMARK [0][-]{chapter.3}{Consenso di Nakamato}{}% 14
-\BOOKMARK [1][-]{section.3.1}{Dimostrazione Matematica dell'attacco}{chapter.3}% 15
-\BOOKMARK [2][-]{subsection.3.1.1}{La scelta della Difficolt\340 e il Network Delay}{section.3.1}% 16
-\BOOKMARK [3][-]{subsubsection.3.1.1.1}{Il Discount Rate della potenza onesta}{subsection.3.1.1}% 17
-\BOOKMARK [2][-]{subsection.3.1.2}{Vantaggi e Svantaggi}{section.3.1}% 18
-\BOOKMARK [0][-]{chapter.4}{Anonimato e Privacy}{}% 19
-\BOOKMARK [1][-]{section.4.1}{Perch\351 vogliamo l'anonimato?}{chapter.4}% 20
-\BOOKMARK [2][-]{subsection.4.1.1}{Anonymous e-cash e Blind Signatures}{section.4.1}% 21
-\BOOKMARK [2][-]{subsection.4.1.2}{Anonimato grazie a nuovi indirizzi}{section.4.1}% 22
-\BOOKMARK [0][-]{chapter.5}{Bitcoin Scripting}{}% 23
-\BOOKMARK [1][-]{section.5.1}{Il linguaggio Bitcoin Script}{chapter.5}% 24
-\BOOKMARK [2][-]{subsection.5.1.1}{Il processo di validazione: Sblocco e Blocco}{section.5.1}% 25
-\BOOKMARK [2][-]{subsection.5.1.2}{Multi Signatures con Threshold}{section.5.1}% 26
-\BOOKMARK [2][-]{subsection.5.1.3}{Proof-of-Burn}{section.5.1}% 27
-\BOOKMARK [2][-]{subsection.5.1.4}{Timestamping}{section.5.1}% 28
-\BOOKMARK [2][-]{subsection.5.1.5}{Real-life transaction con Escrow}{section.5.1}% 29
-\BOOKMARK [2][-]{subsection.5.1.6}{Micro-pagamenti e Lightning Network}{section.5.1}% 30
-\BOOKMARK [2][-]{subsection.5.1.7}{Freezing Funds}{section.5.1}% 31
-\BOOKMARK [2][-]{subsection.5.1.8}{Pay-to-Script-Hash \(P2SH\)}{section.5.1}% 32
-\BOOKMARK [0][-]{chapter.6}{La Blockchain}{}% 33
-\BOOKMARK [1][-]{section.6.1}{Il Blocco}{chapter.6}% 34
-\BOOKMARK [2][-]{subsection.6.1.1}{Merkle Tree e Proof of Membership}{section.6.1}% 35
-\BOOKMARK [2][-]{subsection.6.1.2}{Coinbase transaction}{section.6.1}% 36
-\BOOKMARK [1][-]{section.6.2}{Il Network Bitcoin}{chapter.6}% 37
-\BOOKMARK [2][-]{subsection.6.2.1}{Inserimento di una Transazione}{section.6.2}% 38
-\BOOKMARK [2][-]{subsection.6.2.2}{La Transaction Pool e i Controlli Standard}{section.6.2}% 39
-\BOOKMARK [2][-]{subsection.6.2.3}{Race Conditions e Coerenza delle Pool}{section.6.2}% 40
+\BOOKMARK [0][-]{chapter.1}{\376\377\000F\000u\000n\000z\000i\000o\000n\000i\000\040\000H\000a\000s\000h}{}% 1
+\BOOKMARK [1][-]{section.1.1}{\376\377\000H\000a\000s\000h\000\040\000P\000o\000i\000n\000t\000e\000r\000s\000\040\000e\000\040\000S\000t\000r\000u\000t\000t\000u\000r\000a\000\040\000d\000e\000l\000l\000a\000\040\000B\000l\000o\000c\000k\000c\000h\000a\000i\000n}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.1.1}{\376\377\000I\000l\000\040\000M\000e\000r\000k\000l\000e\000\040\000T\000r\000e\000e}{section.1.1}% 3
+\BOOKMARK [1][-]{section.1.2}{\376\377\000F\000i\000r\000m\000a\000\040\000d\000i\000g\000i\000t\000a\000l\000e}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{\376\377\000B\000a\000s\000i\000c\000\040\000C\000r\000y\000p\000t\000o\000c\000u\000r\000r\000e\000n\000c\000i\000e\000s}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.3.1}{\376\377\000G\000o\000o\000f\000y\000C\000o\000i\000n}{section.1.3}% 6
+\BOOKMARK [2][-]{subsection.1.3.2}{\376\377\000S\000c\000r\000o\000o\000g\000e\000C\000o\000i\000n}{section.1.3}% 7
+\BOOKMARK [0][-]{chapter.2}{\376\377\000C\000o\000m\000e\000\040\000B\000i\000t\000c\000o\000i\000n\000\040\000o\000t\000t\000i\000e\000n\000e\000\040\000l\000a\000\040\000D\000e\000c\000e\000n\000t\000r\000a\000l\000i\000z\000z\000a\000z\000i\000o\000n\000e}{}% 8
+\BOOKMARK [1][-]{section.2.1}{\376\377\000L\000e\000\040\000d\000o\000m\000a\000n\000d\000e\000\040\000f\000o\000n\000d\000a\000m\000e\000n\000t\000a\000l\000i\000\040\000d\000e\000l\000\040\000s\000i\000s\000t\000e\000m\000a}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.2}{\376\377\000I\000\040\000t\000r\000e\000\040\000p\000i\000l\000a\000s\000t\000r\000i\000\040\000d\000e\000l\000l\000a\000\040\000d\000e\000c\000e\000n\000t\000r\000a\000l\000i\000z\000z\000a\000z\000i\000o\000n\000e}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.3}{\376\377\000I\000l\000\040\000C\000o\000n\000s\000e\000n\000s\000o\000\040\000D\000i\000s\000t\000r\000i\000b\000u\000i\000t\000o}{chapter.2}% 11
+\BOOKMARK [2][-]{subsection.2.3.1}{\376\377\000I\000n\000c\000e\000n\000t\000i\000v\000i\000\040\000e\000\040\000P\000r\000o\000o\000f\000\040\000o\000f\000\040\000W\000o\000r\000k}{section.2.3}% 12
+\BOOKMARK [1][-]{section.2.4}{\376\377\000S\000t\000r\000u\000t\000t\000u\000r\000a\000\040\000d\000e\000l\000l\000e\000\040\000T\000r\000a\000n\000s\000a\000z\000i\000o\000n\000i\000\040\000e\000\040\000M\000o\000d\000e\000l\000l\000o\000\040\000U\000T\000X\000O}{chapter.2}% 13
+\BOOKMARK [0][-]{chapter.3}{\376\377\000C\000o\000n\000s\000e\000n\000s\000o\000\040\000d\000i\000\040\000N\000a\000k\000a\000m\000a\000t\000o}{}% 14
+\BOOKMARK [1][-]{section.3.1}{\376\377\000D\000i\000m\000o\000s\000t\000r\000a\000z\000i\000o\000n\000e\000\040\000M\000a\000t\000e\000m\000a\000t\000i\000c\000a\000\040\000d\000e\000l\000l\000'\000a\000t\000t\000a\000c\000c\000o}{chapter.3}% 15
+\BOOKMARK [2][-]{subsection.3.1.1}{\376\377\000L\000a\000\040\000s\000c\000e\000l\000t\000a\000\040\000d\000e\000l\000l\000a\000\040\000D\000i\000f\000f\000i\000c\000o\000l\000t\000\340\000\040\000e\000\040\000i\000l\000\040\000N\000e\000t\000w\000o\000r\000k\000\040\000D\000e\000l\000a\000y}{section.3.1}% 16
+\BOOKMARK [3][-]{subsubsection.3.1.1.1}{\376\377\000I\000l\000\040\000D\000i\000s\000c\000o\000u\000n\000t\000\040\000R\000a\000t\000e\000\040\000d\000e\000l\000l\000a\000\040\000p\000o\000t\000e\000n\000z\000a\000\040\000o\000n\000e\000s\000t\000a}{subsection.3.1.1}% 17
+\BOOKMARK [2][-]{subsection.3.1.2}{\376\377\000V\000a\000n\000t\000a\000g\000g\000i\000\040\000e\000\040\000S\000v\000a\000n\000t\000a\000g\000g\000i}{section.3.1}% 18
+\BOOKMARK [0][-]{chapter.4}{\376\377\000A\000n\000o\000n\000i\000m\000a\000t\000o\000\040\000e\000\040\000P\000r\000i\000v\000a\000c\000y}{}% 19
+\BOOKMARK [1][-]{section.4.1}{\376\377\000P\000e\000r\000c\000h\000\351\000\040\000v\000o\000g\000l\000i\000a\000m\000o\000\040\000l\000'\000a\000n\000o\000n\000i\000m\000a\000t\000o\000?}{chapter.4}% 20
+\BOOKMARK [2][-]{subsection.4.1.1}{\376\377\000A\000n\000o\000n\000y\000m\000o\000u\000s\000\040\000e\000-\000c\000a\000s\000h\000\040\000e\000\040\000B\000l\000i\000n\000d\000\040\000S\000i\000g\000n\000a\000t\000u\000r\000e\000s}{section.4.1}% 21
+\BOOKMARK [2][-]{subsection.4.1.2}{\376\377\000A\000n\000o\000n\000i\000m\000a\000t\000o\000\040\000g\000r\000a\000z\000i\000e\000\040\000a\000\040\000n\000u\000o\000v\000i\000\040\000i\000n\000d\000i\000r\000i\000z\000z\000i}{section.4.1}% 22
+\BOOKMARK [1][-]{section.4.2}{\376\377\000D\000e\000-\000a\000n\000o\000n\000i\000m\000i\000z\000z\000a\000z\000i\000o\000n\000e\000\040\000a\000\040\000l\000i\000v\000e\000l\000l\000o\000\040\000N\000e\000t\000w\000o\000r\000k}{chapter.4}% 23
+\BOOKMARK [2][-]{subsection.4.2.1}{\376\377\000R\000e\000t\000e\000\040\000T\000o\000r}{section.4.2}% 24
+\BOOKMARK [1][-]{section.4.3}{\376\377\000M\000i\000x\000i\000n\000g\000\040\000e\000\040\000A\000n\000o\000n\000i\000m\000a\000t\000o\000\040\000n\000e\000l\000l\000e\000\040\000C\000r\000i\000p\000t\000o\000v\000a\000l\000u\000t\000e}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.3.1}{\376\377\000O\000n\000l\000i\000n\000e\000\040\000W\000a\000l\000l\000e\000t}{section.4.3}% 26
+\BOOKMARK [2][-]{subsection.4.3.2}{\376\377\000P\000r\000i\000n\000c\000i\000p\000i\000\040\000d\000i\000\040\000M\000i\000x\000i\000n\000g}{section.4.3}% 27
+\BOOKMARK [0][-]{chapter.5}{\376\377\000B\000i\000t\000c\000o\000i\000n\000\040\000S\000c\000r\000i\000p\000t\000i\000n\000g}{}% 28
+\BOOKMARK [1][-]{section.5.1}{\376\377\000I\000l\000\040\000l\000i\000n\000g\000u\000a\000g\000g\000i\000o\000\040\000B\000i\000t\000c\000o\000i\000n\000\040\000S\000c\000r\000i\000p\000t}{chapter.5}% 29
+\BOOKMARK [2][-]{subsection.5.1.1}{\376\377\000I\000l\000\040\000p\000r\000o\000c\000e\000s\000s\000o\000\040\000d\000i\000\040\000v\000a\000l\000i\000d\000a\000z\000i\000o\000n\000e\000:\000\040\000S\000b\000l\000o\000c\000c\000o\000\040\000e\000\040\000B\000l\000o\000c\000c\000o}{section.5.1}% 30
+\BOOKMARK [2][-]{subsection.5.1.2}{\376\377\000M\000u\000l\000t\000i\000\040\000S\000i\000g\000n\000a\000t\000u\000r\000e\000s\000\040\000c\000o\000n\000\040\000T\000h\000r\000e\000s\000h\000o\000l\000d}{section.5.1}% 31
+\BOOKMARK [2][-]{subsection.5.1.3}{\376\377\000P\000r\000o\000o\000f\000-\000o\000f\000-\000B\000u\000r\000n}{section.5.1}% 32
+\BOOKMARK [2][-]{subsection.5.1.4}{\376\377\000T\000i\000m\000e\000s\000t\000a\000m\000p\000i\000n\000g}{section.5.1}% 33
+\BOOKMARK [2][-]{subsection.5.1.5}{\376\377\000R\000e\000a\000l\000-\000l\000i\000f\000e\000\040\000t\000r\000a\000n\000s\000a\000c\000t\000i\000o\000n\000\040\000c\000o\000n\000\040\000E\000s\000c\000r\000o\000w}{section.5.1}% 34
+\BOOKMARK [2][-]{subsection.5.1.6}{\376\377\000M\000i\000c\000r\000o\000-\000p\000a\000g\000a\000m\000e\000n\000t\000i\000\040\000e\000\040\000L\000i\000g\000h\000t\000n\000i\000n\000g\000\040\000N\000e\000t\000w\000o\000r\000k}{section.5.1}% 35
+\BOOKMARK [2][-]{subsection.5.1.7}{\376\377\000F\000r\000e\000e\000z\000i\000n\000g\000\040\000F\000u\000n\000d\000s}{section.5.1}% 36
+\BOOKMARK [2][-]{subsection.5.1.8}{\376\377\000P\000a\000y\000-\000t\000o\000-\000S\000c\000r\000i\000p\000t\000-\000H\000a\000s\000h\000\040\000\050\000P\0002\000S\000H\000\051}{section.5.1}% 37
+\BOOKMARK [0][-]{chapter.6}{\376\377\000L\000a\000\040\000B\000l\000o\000c\000k\000c\000h\000a\000i\000n}{}% 38
+\BOOKMARK [1][-]{section.6.1}{\376\377\000I\000l\000\040\000B\000l\000o\000c\000c\000o}{chapter.6}% 39
+\BOOKMARK [2][-]{subsection.6.1.1}{\376\377\000M\000e\000r\000k\000l\000e\000\040\000T\000r\000e\000e\000\040\000e\000\040\000P\000r\000o\000o\000f\000\040\000o\000f\000\040\000M\000e\000m\000b\000e\000r\000s\000h\000i\000p}{section.6.1}% 40
+\BOOKMARK [2][-]{subsection.6.1.2}{\376\377\000C\000o\000i\000n\000b\000a\000s\000e\000\040\000t\000r\000a\000n\000s\000a\000c\000t\000i\000o\000n}{section.6.1}% 41
+\BOOKMARK [1][-]{section.6.2}{\376\377\000I\000l\000\040\000N\000e\000t\000w\000o\000r\000k\000\040\000B\000i\000t\000c\000o\000i\000n}{chapter.6}% 42
+\BOOKMARK [2][-]{subsection.6.2.1}{\376\377\000I\000n\000s\000e\000r\000i\000m\000e\000n\000t\000o\000\040\000d\000i\000\040\000u\000n\000a\000\040\000T\000r\000a\000n\000s\000a\000z\000i\000o\000n\000e}{section.6.2}% 43
+\BOOKMARK [2][-]{subsection.6.2.2}{\376\377\000L\000a\000\040\000T\000r\000a\000n\000s\000a\000c\000t\000i\000o\000n\000\040\000P\000o\000o\000l\000\040\000e\000\040\000i\000\040\000C\000o\000n\000t\000r\000o\000l\000l\000i\000\040\000S\000t\000a\000n\000d\000a\000r\000d}{section.6.2}% 44
+\BOOKMARK [2][-]{subsection.6.2.3}{\376\377\000R\000a\000c\000e\000\040\000C\000o\000n\000d\000i\000t\000i\000o\000n\000s\000\040\000e\000\040\000C\000o\000e\000r\000e\000n\000z\000a\000\040\000d\000e\000l\000l\000e\000\040\000P\000o\000o\000l}{section.6.2}% 45

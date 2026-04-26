@@ -74,3 +74,71 @@ Siamo a tutti gli effetti riusciti a capire come individuare le grossi autorità
     \item \textbf{Careless:} La gente può deanonimizzarsi da sola pubblicando l'indirizzo online per ricevere donazioni ecc.
     \item \textbf{Attacchi retroattivi:} Poiché vengono scoperte algoritmi sempre più efficaci per raggruppare indirizzi e dato che la blockchain è immutabile, è possibile che in futuro venga scoperto un modo ancora più forte per deanonimizzare qualcuno.
 \end{itemize}
+
+\section{De-anonimizzazione a livello Network}
+Un altro problema è che pur evitando di pubblicare il proprio indirizzo online, la comunicazione a livello di rete potrebbe fare in modo che qualcuno riesca a deanonimizzarci attraverso l'indirizzo IP. 
+
+Una regola generale è \textit{"Il primo nodo che informa qualcuno di una transazione, è probabile che sia la sua fonte"}. 
+
+\subsection{Rete Tor}
+Per evitare questo problema, la soluzione è l'uso della rete \textbf{Tor} un protocollo di rete che si pone come obiettivo quello di garantire l'anonimato a livello di rete.
+
+Quello che vogliamo è una comunicazione di questo tipo:
+\begin{itemize}
+    \item \textbf{Senders}: Questi invieranno i messaggi all'interno della rete di comunicazione.
+    \item \textbf{Communication Network}: Qui arriveranno i messaggi e lì non è ben chiaro il mittente e il destinatario. Questo a patto che questo sistema sia usato da un certo numero di persone poiché altrimenti sarebbe banale il collegamento.
+    \item \textbf{Recipients}: Questi riceveranno i messaggi attraverso la rete in maniera del tutto anonima. Cioè, il recipients non saprà nemmeno chi gli ha inviato il messaggio. Per quanto possa sembrare assurdo, questo è appropriato dato che Tor è progettato per la navigazione sul web.
+\end{itemize}
+
+Per fare questo, Tor opera secondo un modello di \textbf{cifratura a strati}. Questo sistema è considerato sicuro se \textbf{almeno uno dei router è onesto}. 
+
+Quando Alice deve comunicare con Bob utilizzerà delle chiavi di cifratura valide per la sessione corrente per \textbf{cifrare un messaggio n volte, dove n è il numero di macchine intermedie per cui passa il messaggio}. Ogni macchina intermedia applica una chiave di cifratura per togliere uno strato di cifratura al messaggio fino all’ultima macchina del path prestabilito da Alice. A quel punto il messaggio, ormai in chiaro passa dall’ultima macchina ad Alice.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/capitolo_4/cifratura_tor.png}
+\end{figure}
+Questo sistema è sicuro nel caso in cui ci sia almeno uno nodo onesto. 
+Guardiamo i vari casi:
+\begin{itemize}
+    \item \textbf{Se R2 e R3 sono malevoli}: R1 è onesto e sa da chi viene il messaggio. Tuttavia, poiché onesto questa informazione non verrà trasmessa e, dunque, R2 e R3 possono conoscere B ma non A.
+    \item \textbf{Se R1 e R3 sono malevoli}: In questo caso, R2 riceverà l'identità di A inoltrata da R1, tuttavia poiché onesto ignorerà tutte le identità inoltrate e garantirà l'anonimato di A.
+    \item \textbf{Se R1 e R2 sono malevoli}: In quest'ultimo caso R3 non invierà comunque le identità ricevute da R2 garantendo l'anonimato di A. 
+\end{itemize}
+Statisticamente, più server ci sono più il sistema è probabile che sia sicuro poiché è più probabile che ci siano server router onesti. Al tempo stesso, più server ci sono maggiore è la latenza.
+
+\section{Mixing e Anonimato nelle Criptovalute}
+Un'idea utile per ottenere anonimato nelle criptovalute è quello di usare degli intermediari che fanno da \textbf{mixing network}.
+
+Questo può essere utilizzato per ottenere anonimato nelle transazioni di criptovalute operando come meccanismo di dissociazione tra indirizzi di input e indirizzi di output per evitare il linking visto precedentemente. L'idea è quella di avere un intermediario per noi a cui mandiamo i messaggi e che poi li manda per noi attraverso dei \textbf{chunk}.
+
+\subsection{Online Wallet}
+I wallet online rappresentano una prima forma di mixing, sebbene questo non sia generalmente il loro scopo primario. Questi servizi gestiscono collettivamente i fondi di numerosi utenti, facilitando implicitamente un certo grado di commistione tra i depositi. 
+
+Quando un utente trasferisce Bitcoin a un wallet online e successivamente li preleva, tipicamente riceve unità di valuta diverse da quelle originariamente depositate. Questo processo introduce un elemento di dissociazione che rende più complessa l’analisi della provenienza dei fondi.
+
+Questi, però, presentano diverse limitazioni:
+\begin{enumerate}
+    \item \textbf{Assenza di garanzie:}  La maggior parte dei wallet online non si impegna formalmente a implementare pratiche di mixing robuste. L’effetto di mixing deriva principalmente da procedure operative interne finalizzate all’ottimizzazione della gestione dei fondi, piuttosto che da un impegno esplicito verso la tutela della privacy degli utenti. 
+    \item \textbf{Conservazione dei registri:} Anche ipotizzando un efficace processo di mixing interno, i wallet online generalmente mantengono registri dettagliati delle transazioni effettuate dagli utenti. Questa pratica è adottata sia per ragioni di convenienza operativa, facilitando la risoluzione di controversie e la gestione del servizio, sia per ottemperare a requisiti normativi sempre più stringenti in materia di antiriciclaggio e contrasto al finanziamento del terrorismo.
+    \item \textbf{Requisiti di Identificazione:} I wallet online sono sottoposti a regolamentazioni e richiedono la verifica degli utenti.
+\end{enumerate}
+
+Quello che vorremmo in realtà sono due caratteristiche fondamentali:
+\begin{itemize}
+    \item \textbf{Impegno a non conservare registri:} I servizi di mixing dedicati dichiarano esplicitamente di non mantenere archivi delle transazioni processate, eliminando teoricamente la possibilità di ricostruire i collegamenti tra indirizzi di input e output.
+    \item \textbf{Assenza di requisiti di Identificazione: } A differenza dei wallet regolamentati, i mixing service non richiedono la verifica dell’identità degli utenti, preservando l’anonimato anche rispetto al provider del servizio stesso
+\end{itemize}
+
+\subsection{Principi di Mixing}
+Sono stati ideati dei principi fondamentali per ottenere anonimato attraverso sistemi di mixing:
+\begin{enumerate}
+    \item \textbf{Serie di Mixer}: L'idea è quella di implementare una sequenza di operazioni di mixing successive piuttosto che affidarsi a un singolo intermediario. Questo ha diversi vantaggi:
+        \begin{itemize}
+            \item \textbf{Riduzione del rischio di compromissione}: L'utilizzo di molteplici mix riduce drasticamente la vulnerabilità del sistema poiché per eliminare l'anonimato bisognerebbe compromettere tutti i mixer contemporaneamente. 
+            \item \textbf{Incremento dell'Anonymity set:} Ogni passaggio attraverso un mix diverso espande l’insieme delle transazioni con cui i fondi dell’utente vengono mescolati, aumentando progressivamente la complessità dell’analisi necessaria per deanonimizzare le transazioni.
+        \end{itemize}
+    \item \textbf{Uniformità delle Transazioni}: Per evitare il link delle transazioni attraverso l'analisi degli importi, è opportuno che i servizi di mixing paghino attraverso transazioni con pagamenti standard detti \textbf{chunk}. Così facendo, poiché tutti spendono/ricevono la stessa quantità di monete in una transazione, non è possibile ricollegare l'origine della moneta alla sua destinazione. Vanno bene anche \textbf{diverse taglie di chunk}.
+    \item \textbf{Automatizzazione Lato Client}: Per evitare problemi legati all'elevata complessità della gestione di questo tipo di sistema e, dunque, il possibile errore umano, avrebbe senso far sì che sia lo stesso wallet a gestire questo tipo di meccanismi lato Client in maniera del tutto nascosta al client.
+    \item \textbf{Commissioni con All-or-Nothing}: Poiché questo è un servizio di un qualche tipo, è necessario chiaramente pagarlo. Dunque, per garantire l'anonimato anche del servizio stesso, è necessario adottare un meccanismo \textbf{All-or-Nothing} in cui la commissione non è una percentuale della transazione stessa, bensì l'intero importo della transazione che va al servizio con una probabilità ad esempio del $0,01\%$. Questo preserverebbe l'uniformità delle transazioni e proteggerebbe l'anonimato del servizio stesso.
+\end{enumerate}
+Allo stato attuale delle cose, nessuno adotta realmente questo tipo di mixing per vari motivi tra cui la legge stessa ma anche perché, volendo i servizi lavorare in anonimo, è chiaro che non sarebbe possibile imputarli in alcun modo e, dunque, nessuno avrebbe fiducia in un sistema del genere.

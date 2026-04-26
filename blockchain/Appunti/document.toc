@@ -1,5 +1,5 @@
-\babel@toc {italian}{}
-\babel@toc {italian}{}
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
 \contentsline {chapter}{\numberline {1}Funzioni Hash}{5}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Hash Pointers e Struttura della Blockchain}{6}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Il Merkle Tree}{7}{subsection.1.1.1}%
@@ -22,21 +22,26 @@
 \contentsline {section}{\numberline {4.1}Perch\IeC {\'e} vogliamo l'anonimato?}{30}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Anonymous e-cash e Blind Signatures}{31}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Anonimato grazie a nuovi indirizzi}{32}{subsection.4.1.2}%
-\contentsline {chapter}{\numberline {5}Bitcoin Scripting}{34}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Il linguaggio Bitcoin Script}{36}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Il processo di validazione: Sblocco e Blocco}{36}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Multi Signatures con Threshold}{37}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Proof-of-Burn}{38}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}Timestamping}{38}{subsection.5.1.4}%
-\contentsline {subsection}{\numberline {5.1.5}Real-life transaction con Escrow}{39}{subsection.5.1.5}%
-\contentsline {subsection}{\numberline {5.1.6}Micro-pagamenti e Lightning Network}{39}{subsection.5.1.6}%
-\contentsline {subsection}{\numberline {5.1.7}Freezing Funds}{40}{subsection.5.1.7}%
-\contentsline {subsection}{\numberline {5.1.8}Pay-to-Script-Hash (P2SH)}{41}{subsection.5.1.8}%
-\contentsline {chapter}{\numberline {6}La Blockchain}{42}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Il Blocco}{42}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Merkle Tree e Proof of Membership}{42}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Coinbase transaction}{43}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}Il Network Bitcoin}{44}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Inserimento di una Transazione}{45}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}La Transaction Pool e i Controlli Standard}{45}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Race Conditions e Coerenza delle Pool}{46}{subsection.6.2.3}%
+\contentsline {section}{\numberline {4.2}De-anonimizzazione a livello Network}{34}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Rete Tor}{34}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Mixing e Anonimato nelle Criptovalute}{35}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Online Wallet}{36}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Principi di Mixing}{37}{subsection.4.3.2}%
+\contentsline {chapter}{\numberline {5}Bitcoin Scripting}{39}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Il linguaggio Bitcoin Script}{41}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Il processo di validazione: Sblocco e Blocco}{41}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Multi Signatures con Threshold}{42}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Proof-of-Burn}{43}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Timestamping}{43}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}Real-life transaction con Escrow}{44}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Micro-pagamenti e Lightning Network}{44}{subsection.5.1.6}%
+\contentsline {subsection}{\numberline {5.1.7}Freezing Funds}{45}{subsection.5.1.7}%
+\contentsline {subsection}{\numberline {5.1.8}Pay-to-Script-Hash (P2SH)}{46}{subsection.5.1.8}%
+\contentsline {chapter}{\numberline {6}La Blockchain}{47}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Il Blocco}{47}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Merkle Tree e Proof of Membership}{47}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Coinbase transaction}{48}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}Il Network Bitcoin}{49}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Inserimento di una Transazione}{50}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}La Transaction Pool e i Controlli Standard}{50}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Race Conditions e Coerenza delle Pool}{51}{subsection.6.2.3}%
