@@ -1,0 +1,130 @@
+\chapter{Zero Knowledge Proofs}
+Un tipico scenario in crittografia è quello in cui due parti che non si fidano l'un l'altra devono rivelare qualche informazione segreta in maniera sicura \textbf{senza che queste rivelino ulteriori informazioni che non vorremmo diffondere}.
+
+Nello specifico, nel nostro caso vogliamo dimostrare di possedere determinati requisiti senza rivelare troppe informazioni.
+
+Definiamo una \textbf{dimostrazione} come un qualcosa che convince della validità di un certo asserto. In matematica questa cosa è intesa in senso statico ma per il nostro caso sarà un concetto dinamico effettuato attraverso un sistema interattivo. 
+
+Distingueremo tra Prover P cioè colui che vuole dimostrare la validità dell'asserto e verifier V ha il compito di verificare la prova fornita dal prover.
+
+In genere, è più facile verificare che dimostrare o meglio provare e, questo concetto, è rappresentato perfettamente dai problemi NP. Questi sono dei particolari problemi la cui risoluzione è complessa ma che, una volta fornita la soluzione, questa è facile da verificare. 
+
+Poiché vogliamo che non venga rivelata alcuna informazione in termini di conoscenza, è necessario definire cosa si intende per conoscenza. In un tipico scenario di comunicazione tra A e B, diremo che B ha un \textbf{guadagno in termini di conoscenza se la sua capacità computazionale è arricchita dalla conversazione.}
+\section{Prove Interattive}
+Come già accennato, effettueremo dimostrazioni secondo prove interattive. Queste rispecchiano due proprietà specifiche:
+\begin{itemize}
+    \item \textbf{Completness}: P dovrebbe essere in grado di convincere V della validità di asserti veri.
+    \[\forall x \in L \quad Pr[\langle P, V\rangle(x)=1] \geq 2/3\]
+    \item \textbf{Soundness}: Un P disonesto non dovrebbe essere in grado di convincere V della validità di un asserto falso.
+    \[\forall x \notin L, \forall B \quad Pr[\langle B, V\rangle(x)=1] \geq 1/3\]
+\end{itemize}
+Informalmente, un sistema di prove interattive per un linguaggio L è detto \textbf{zero knowledge} se qualsiasi cosa è calcolabile interagendo con P su input $x \in L$ è calcolabile a partire da $x$ soltanto.
+
+Cioè, il Verificatore ($V$) non impara nulla di nuovo dall'interazione con il Prover ($P$) perché, se avesse voluto, avrebbe potuto simulare l'intera conversazione da solo, senza parlare con nessuno.
+
+Supponiamo che un'entità A possa sapere con certezza il risultato di una determinata operazione e che un'entità B voglia verificare questa sua abilità. Dunque B sceglie a caso un'operazione e poi A darà la sua risposta. Se indovina, potrebbe avere avuto fortuna e lo potremmo accettare o fare di nuovo il test, altrimenti lo rigettiamo. Via via che facciamo altre prove, la probabilità che lui abbia solo avuto fortuna va scemando. 
+
+Sia \textit{view} la variabile aleatoria che denota ciò che vede V durante l'esecuzione di $(P,V)(x)$ che, nel nostro caso, saranno i messaggi scambiati tra P e V. Diciamo che $(P,V)$ è un interactive proof system che fornisce \textbf{Perfect Zero Knowledge} per il linguaggio L se $\exists M \quad PPTM:\forall x \in L, a > 0, \forall h: |h| < |x|^a \quad M(x,h)$\footnote{h rappresenta la conoscenza pregressa di un verificatore malevolo che vuole rubare delle informazioni. Mentre x rappresenta l'input comune tra prover e verifier.} sono distribuite in modo identico. 
+
+Cioè quello che riesce a produrre la macchina a stati finiti M è del tutto indistinguibile dall'esecuzione reale del protocollo.    
+
+\subsection{Isomorfismo tra Grafi}
+Due grafi si definiscono \textbf{isomorfi} se esiste un'applicazione biunivoca tale che ogni nodo di $G_1$ può essere mappato in un nodo di $G_2$ preservando il grado.  
+
+Questo problema non è risolvibile tramite un algoritmo polinomiale e questo lo rende perfetto per il nostro scopo di avere una \textbf{Zero Knowledge proof}.
+
+
+Costruiamo il nostro schema come segue:
+\begin{itemize}
+    \item Il Prover possiede due grafi, $G_1$ e $G_2$, che sono isomorfi. Conosce cioè una funzione (una permutazione $\rho$) tale che $G_2 = \rho(G_1)$. Questo $\rho$ è il \textbf{segreto} che il Prover non vuole rivelare.
+    \item Il Prover sceglie una permutazione casuale $\pi$: 
+    \begin{itemize}
+        \item Crea un nuovo grafo $H$, che è l'immagine di $G_1$ tramite $\pi$ ($H = \pi(G_1)$).
+        \item Invia il grafo $H$ al Verifier.
+    \end{itemize}
+    Poiché $H$ è "coperto" dalla casualità di $\pi$ il Verifier non può capire come $H$ sia collegato a $G_1$ o $G_2$ solo guardandolo.
+    \item Il Verifier invia una sfida casuale $c$. Può scegliere solo tra due valori:1 o 2.
+        \begin{itemize}
+            \item Se $c=1$, sta chiedendo: "Dimostrami che $H$ è isomorfo a $G_1$".
+            \item Se $c=2$, sta chiedendo: "Dimostrami che $H$ è isomorfo a $G_2$".
+        \end{itemize}
+    \item Il Prover calcola la risposta $\sigma$ in base alla sfida:
+    \begin{itemize}
+        \item Se $c=1$ Il Prover rivela $\sigma = \pi$. Infatti, $H$ era stato costruito proprio come $\pi(G_1)$.
+        \item Se $c=2$: Il Prover deve mostrare la relazione tra $G_2$ e $H$. Poiché conosce sia il segreto $\rho$ (che collega $G_1$ a $G_2$) sia $\pi$ (che collega $G_1$ a $H$), può calcolare la composizione $\sigma = \pi \circ \rho^{-1}$.
+    \end{itemize}
+    \item In fine, il Verifier riceve $\sigma$ e controlla se $H = \sigma(G_c)$ se l'uguaglianza è verificata, se è così, allora il prover passa il turno, altrimenti viene rigettato.
+\end{itemize}
+\subsubsection*{Dimostriamo le proprietà}
+\begin{itemize}
+    \item \textbf{Completness:} La proprietà di completezza è verificata banalmente. Se il Prover è onesto e possiede effettivamente l'isomorfismo $\rho$ tale che $G_2 = \rho(G_1)$, allora:
+    \begin{itemize}
+        \item Se $c=1$, può sempre fornire $\sigma = \pi$, poiché per costruzione $H = \pi(G_1)$.
+        \item Se $c=2$, può sempre fornire $\sigma = \pi \circ \rho^{-1}$. Infatti:$$\sigma(G_2) = (\pi \circ \rho^{-1})(G_2) = \pi(\rho^{-1}(G_2)) = \pi(G_1) = H$$In entrambi i casi, il Verifier accetterà la prova con probabilità $1$.
+    \end{itemize}
+    \item \textbf{Soundness:} La soundness garantisce che un Prover disonesto non possa ingannare il Verifier. Se $G_1$ e $G_2$ non sono isomorfi, il Prover non può generare un grafo $H$ che sia contemporaneamente isomorfo a entrambi. Egli deve quindi "scommettere" sulla sfida del Verifier: Può generare $H$ isomorfo a $G_1$ (sperando che esca $c=1$).Può generare $H$ isomorfo a $G_2$ (sperando che esca $c=2$).In ogni round, la probabilità di successo dell'attaccante è esattamente $1/2$. Iterando il protocollo per $n$ round indipendenti, la probabilità che un baro riesca a convincere il Verifier scende esponenzialmente a $(1/2)^n$. Per $n=100$, tale probabilità è talmente piccola da essere considerata trascurabile.
+    \item \textbf{Perfect Zero Knowledge (PZK)}: dobbiamo dimostrare che il Verifier non riceve alcuna informazione sul segreto $\rho$.
+    Costruiamo una macchina $M$ (il Simulatore) che non conosce $\rho$ ma che è in grado di produrre una trascrizione (una \textit{view}) indistinguibile da quella reale. Il Simulatore $M$ opera nel seguente modo:
+    \begin{enumerate}
+        \item Sceglie a caso una sfida "prevista" $c^* \in \{1, 2\}$.
+        \item Sceglie una permutazione casuale $\sigma^*$.
+        \item Calcola il grafo $H^* = \sigma^*(G_{c^*})$.
+        \item Produce la tripla $(H^*, c^*, \sigma^*)$.
+    \end{enumerate}
+    Notiamo che nella realtà il Verifier riceve prima $H$, poi sceglie $c$, e infine riceve $\sigma$. Il Simulatore, invece, costruisce la risposta a ritroso: sceglie prima la sfida e poi "aggiusta" il grafo $H$ di conseguenza. Poiché in un protocollo PZK le distribuzioni sono identiche, un osservatore che guarda il log della comunicazione non potrà distinguere se $H$ sia stato inviato prima o dopo la scelta di $c$. Dato che $M$ è riuscito a generare una \textit{view} valida senza conoscere $\rho$, concludiamo che la \textit{view} reale non contiene alcuna traccia di $\rho$. Il guadagno di conoscenza del Verifier è quindi pari a zero
+\end{itemize}
+\section{Diffie-Hellman Zero-Knowledge}
+Parliamo adesso di un altro protocollo, il protocollo \textbf{Diffie-Hellman}. 
+Siano $G,g,m$ i parametri pubblici:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/capitolo_5/diffie_hellman.png}
+\end{figure}
+Questo rappresenta un protocollo standard di distribuzione di chiave crittografica simmetrica. Nel nostro caso vorremo provare che $(g,g^x,g^y,g^{xy})$ è una \textbf{quadrupla Diffie-Hellman} valida, cioè che:
+\[DL_g(g^{y})=DL_{g^x}(g^{xy})\]
+Vediamo come funziona la prova Zero Knowledge. Siano $g^x = X, g^y = Y, g^{xy} = W$:
+\begin{enumerate}
+    \item Il Prover sceglierà un valore random $r \xleftarrow{R} \{1, \dots, m\}$ e porrà $u \leftarrow g^r, v \leftarrow X^r$ inviandoli al verifier.
+    \item Il verifier sceglierà $c \xleftarrow{R} \{1,\dots,m\}$ e lo invierà al prover.
+    \item Il Prover calcolerà $z=r+cy \mod m$ e lo invierà al verifier.
+    \item A questo punto il verifier verificherà se:
+        \begin{itemize}
+            \item $g^z = u \cdot Y^c$
+            \item $X^z = v \cdot W^c$
+        \end{itemize}
+\end{enumerate}
+\subsubsection*{Dimostriamo le proprietà}
+\begin{itemize}
+    \item \textbf{Completness:} Se la quadrupla è valida, allora avremo che:
+        \begin{itemize}
+            \item $g^z = g^{r+cy} = g^r \cdot (g^y)^c$.
+            \item $X^z = (g^x)^{r+cy} = g^{xr} \cdot (g^{xy})^c = v \cdot W^c$.
+        \end{itemize}
+    \item \textbf{Soundness:} Supponiamo che un attaccante voglia convincere il Verifier che $(g, X, Y, W)$ sia una quadrupla di Diffie-Hellman valida, quando in realtà non lo è. 
+    Poniamo quindi $W = g^s$ con $s \neq xy$. Per superare il controllo, l'attaccante deve scegliere i valori di impegno $u$ e $v$. Siano questi $u = g^\alpha$ e $v = g^\beta$ per qualche $\alpha, \beta$ scelti dall'attaccante. 
+    Al passo 4, il Verifier accetterà la prova solo se l'attaccante è in grado di fornire un valore $z$ che soddisfi contemporaneamente le due equazioni di verifica:
+    \begin{enumerate}
+        \item $g^z = u \cdot Y^c \implies g^z = g^\alpha \cdot g^{yc} = g^{\alpha + yc}$
+        \item $X^z = v \cdot W^c \implies (g^x)^z = g^\beta \cdot (g^s)^c \implies g^{xz} = g^{\beta + sc}$
+    \end{enumerate}
+    Dalla prima equazione ricaviamo che deve essere $z \equiv \alpha + yc \pmod m$. Sostituendo questo valore di $z$ nella seconda equazione (espressa in termini di esponenti), otteniamo:
+    \begin{align*}
+        &x(\alpha + yc) \equiv \beta + sc \pmod m\\
+        &x\alpha + xyc \equiv \beta + sc \pmod m
+    \end{align*}
+    Raggruppando i termini che dipendono dalla sfida $c$, l'equazione diventa:
+    \[c(xy - s) \equiv \beta - x\alpha \pmod m\]
+    Poiché per ipotesi la quadrupla è falsa il termine $(xy - s)$ è diverso da zero. In un gruppo di ordine primo $m$, questo termine ammette un inverso moltiplicativo. 
+    Di conseguenza, esiste un unico valore di $c$ che soddisfa l'uguaglianza:
+    \[c \equiv (\beta - x\alpha)(xy - s)^{-1} \pmod m\]
+    Tuttavia, l'attaccante deve inviare $u$ e $v$ (e quindi fissare $\alpha$ e $\beta$) al passo 1, prima che il Verifier scelga $c$ al passo 2. Poiché $c$ è scelto uniformemente a caso tra $m$ valori possibili, la probabilità che l'attaccante abbia scelto i valori di impegno corretti per "indovinare" l'unica sfida possibile è esattamente:
+    \[Pr[\text{Successo dell'attaccante}] = \frac{1}{m}\]
+    Dato che $m$ è un numero estremamente grande, questa probabilità è trascurabile, garantendo così la proprietà di Soundness.
+    \item \textbf{Zero-Knowledge:} Cerchiamo innanzitutto di capire la view: (u,v), c, z 
+    Vediamo come costruire una tripletta a posteriori:
+    \begin{enumerate}
+        \item Scegliamo c random tra $1, ..., m$
+        \item Scegliamo z random tra $0, ... m$
+        \item Calcoliamo $u = g^z/ y^c$ e $v = X^z/W^c$ In questo modo, quando il Verificatore andrà a controllare se $X^z = v \cdot W^c$, l'uguaglianza sarà vera per costruzione, anche se il simulatore non sa assolutamente nulla di $x$ o $y$.
+    \end{enumerate}
+\end{itemize}

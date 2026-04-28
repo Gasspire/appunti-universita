@@ -808,6 +808,18 @@ INPUT ./Images/capitolo_4/cifratura_tor.png
 INPUT Images/capitolo_4/cifratura_tor.png
 INPUT ./Images/capitolo_4/cifratura_tor.png
 INPUT ./Images/capitolo_4/cifratura_tor.png
+INPUT ./parts/capitolo_5.tex
+INPUT ./parts/capitolo_5.tex
+INPUT ./parts/capitolo_5.tex
+INPUT parts/capitolo_5.tex
+INPUT ./parts/capitolo_5.tex
+INPUT ./parts/capitolo_5.tex
+INPUT parts/capitolo_5.tex
+INPUT ./Images/capitolo_5/diffie_hellman.png
+INPUT ./Images/capitolo_5/diffie_hellman.png
+INPUT Images/capitolo_5/diffie_hellman.png
+INPUT ./Images/capitolo_5/diffie_hellman.png
+INPUT ./Images/capitolo_5/diffie_hellman.png
 INPUT ./parts/capitolo_mdr_1.tex
 INPUT parts/capitolo_mdr_1.tex
 INPUT ./parts/capitolo_mdr_1.tex
@@ -852,6 +864,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
@@ -860,6 +873,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb

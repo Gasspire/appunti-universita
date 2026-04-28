@@ -142,3 +142,29 @@ Sono stati ideati dei principi fondamentali per ottenere anonimato attraverso si
     \item \textbf{Commissioni con All-or-Nothing}: Poiché questo è un servizio di un qualche tipo, è necessario chiaramente pagarlo. Dunque, per garantire l'anonimato anche del servizio stesso, è necessario adottare un meccanismo \textbf{All-or-Nothing} in cui la commissione non è una percentuale della transazione stessa, bensì l'intero importo della transazione che va al servizio con una probabilità ad esempio del $0,01\%$. Questo preserverebbe l'uniformità delle transazioni e proteggerebbe l'anonimato del servizio stesso.
 \end{enumerate}
 Allo stato attuale delle cose, nessuno adotta realmente questo tipo di mixing per vari motivi tra cui la legge stessa ma anche perché, volendo i servizi lavorare in anonimo, è chiaro che non sarebbe possibile imputarli in alcun modo e, dunque, nessuno avrebbe fiducia in un sistema del genere.
+
+\section{Coinjoin}
+Poiché i sistemi di mixing centralizzati hanno dei vincoli imposti dalla centralizzazione stessa, si è cercato di passare a un sistema di \textbf{mixing decentralizzato} così ché non ci sia la necessità di un ente a cui affidarsi e che sia l'utente stesso a gestire i suoi fondi all'interno del processo di mixing.
+
+Qui nasce \textbf{CoinJoin} proposto da \textit{Greg Maxwell}. Questo è un protocollo di mixing decentralizzato che sfrutta una proprietà fondamentale delle transazioni di Bitcoin ossia il sistema di \textbf{firme aggregate} in un'unica transazione. Vedremo nei capitoli successivi i dettagli di questa implementazione. Per fare capire come funziona, l'idea è che per firmare una transazione facciamo in modo che la firma sia generata da tutti coloro che partecipano a questo meccanismo generando firme indipendenti che singolarmente non sono valide ma che aggregate assieme lo sono. 
+
+L'algoritmo procede come segue:
+\begin{enumerate}
+    \item \textbf{Individuazione dei Peer}: I partecipanti interessati a un round di mixing per un importo specifico devono trovarsi. Comunemente, ciò avviene tramite un server di coordinamento a cui ci si connette, spesso via Tor, per preservare l’anonimato dell’indirizzo IP. I partecipanti si registrano per un round specifico, indicando l’intenzione di mixare un determinato importo, senza ancora rivelare gli UTXO specifici.
+    \item \textbf{Fornitura Input/Ouput}: Ogni utente invia al coordinatore l'UTXO che vuole mixare e fornisce una prova di possesso (firma). In questa fase, il coordinatore sa che l'indirizzo $A$ appartiene all'utente 1. L'utente deve fornire l'indirizzo di "uscita" dove riceverà i fondi puliti. 
+    Per evitare che il coordinatore colleghi l'input all'output, l'utente invia l'indirizzo di output tramite una nuova connessione Tor e utilizza una firma cieca.
+    \item \textbf{Costruzione della Firma}: Il coordinatore invia la transazione completa a tutti i partecipanti.
+    Ogni utente controlla la transazione. Firma solo se vede che tra gli output è presente il suo indirizzo con la cifra corretta.
+    Se il coordinatore provasse a rubare i soldi o a cambiare un indirizzo, l'utente non firmerebbe e la transazione fallirebbe. Non c'è rischio di furto.
+    \item \textbf{Verifica della Firma}: Quando il coordinatore raccoglie le firme di tutti i partecipanti (o della soglia minima richiesta), la transazione diventa valida secondo le regole del protocollo Bitcoin.
+    Il coordinatore verifica che tutte le firme siano valide e che la transazione non violi alcuna regola. La transazione viene inviata alla rete Bitcoin. Sulla blockchain apparirà un unico evento in cui 100 persone hanno mescolato i loro soldi, rendendo impossibile per un osservatore esterno sapere chi ha ricevuto cosa.
+\end{enumerate}
+
+Questo sistema presenta però alcuni problemi:
+\begin{itemize}
+    \item \textbf{Individuazione dei Peer}: Un primo ostacolo significativo consiste nell’identificazione di altri utenti interessati al mixing, mantenendo contemporaneamente l’anonimato.
+    \item \textbf{Denial of Service}: Partecipanti malevoli potrebbero compromettere l’efficacia del protocollo rifiutandosi di firmare la transazione nelle fasi finali, causando un fallimento del processo di mixing dopo che gli altri utenti hanno già investito tempo e risorse.
+\end{itemize}
+Per quanto riguarda l'individuazione dei Peer abbiamo già parlato di come le rete Tor sia una soluzione a questo problema creando delle lobby in cui effettuare la ricerca. 
+Per quanto riguarda, invece, il Denial of Service, possiamo applicare lo stesso meccanismo che adottiamo su Bitcoin cioè il \textbf{proof of work} o il \textbf{proof of burn}.
+

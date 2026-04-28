@@ -47,7 +47,7 @@ Il Prover calcola la risposta $\sigma$ in base alla sfida:
 - **Se $c=2$:** Il Prover deve mostrare la relazione tra $G_2$ e $H$. Poiché conosce sia il segreto $\rho$ (che collega $G_1$ a $G_2$) sia $\pi$ (che collega $G_1$ a $H$), può calcolare la composizione $\sigma = \pi \circ \rho^{-1}$ (nell'appunto è scritto semplicemente $\pi \circ \rho$, la logica è la stessa: combinare le due permutazioni).
 ### 5. Verifica
 
-Il Verifier riceve $\sigma$ e controlla se:
+	Il Verifier riceve $\sigma$ e controlla se:
 
 $$H = \sigma(G_c)$$
 
@@ -76,7 +76,6 @@ Solito protocollo Diffie-Hellman
 Sfruttiamo questa idea come segue:
 Vogliamo provare che $(g, g^x, g^y, g^{xy})$ sia una quadrupla Diffie-Hellman tale che:
 $$DL_{g}(g^{y}) = DL_{g^x}(g^{xy})$$
-
 Il prover sceglierà dei valori a caso che sono $u = g^r,v = X^r$ che  vengono mandati al verificatore. Il verificatore sceglie $C \xleftarrow{R} \{1,\dots,m\}$ e lo manda al prover. Il prover risponderà con $Z = r+ cy  \mod m$ . Alla fine la verificherà sarà:
 1. $g^z =? u \cdot Y^c$ 
 2. $x^Z =? v \cdot W^c$
