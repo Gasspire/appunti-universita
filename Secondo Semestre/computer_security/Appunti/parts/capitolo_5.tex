@@ -57,6 +57,26 @@ Infatti, la Higher order logics deriva proprio da queste con l'aggiunta dei quan
 
 Adottando questi metodi, superiamo di gran lunga il semplice model checking passando, così, da un insieme finito ad un insieme infinito permettendoci dunque di dimostrare la sicurezza di un protocollo.
 
+\subsection{Object Level vs Meta Level}
+
+Nell'analisi formale dei protocolli, è fondamentale distinguere tra il livello della specifica e il livello del ragionamento logico applicato ad essa.
+
+\begin{itemize}
+    \item \textbf{Object Level}: Rappresenta il livello del linguaggio di specifica vero e proprio (nel nostro caso, \textit{Higher Order Logic} - HOL), chiamato anche \textit{logica dell'oggetto}. Qui vengono definiti i messaggi, gli agenti e le regole del protocollo.
+    \item \textbf{Meta Level}: Rappresenta il livello del ragionamento astratto. È il piano in cui "ragioniamo sulla logica" per dimostrare se una proprietà è soddisfatta o meno.
+\end{itemize}
+
+Questa distinzione si riflette nell'uso di due diversi simboli per l'implicazione:
+
+\begin{description}
+    \item[Implicazione a livello oggetto ($\rightarrow$):] Utilizzata all'interno delle formule della specifica HOL (freccia singola).
+    \item[Implicazione a meta-livello ($\Longrightarrow$):] Utilizzata per denotare una deduzione logica nel processo di dimostrazione (freccia doppia).
+\end{description}
+
+\paragraph{Esempio di ragionamento combinato}
+Se vogliamo esprimere che, sapendo che $P(X) \rightarrow Q(X)$ è vero (livello oggetto) e che $P(X)$ è verificato, allora possiamo dedurre $Q(X)$ (ragionamento meta), scriveremo:
+\[ ((P(X) \rightarrow Q(X)) \wedge P(X)) \Longrightarrow Q(X) \]
+
 \section{Isabelle}
 Isabelle è un proof assistant che fa uso di Higher Order Logic automatizzando e semplificando di molto la costruzione e la verifica di dimostrazioni formali.
 
@@ -85,8 +105,8 @@ Per modellare un attaccante attivo secondo il modello di Dolev-Yao, Isabelle uti
     \item \textbf{parts}: Estrae ricorsivamente tutti i componenti di un messaggio, inclusi i contenuti dei crittotesti come se fossero "aperti". Viene usato per definire proprietà astratte, ma non rappresenta la capacità reale dell'attaccante.
     \item \textbf{analz}: Rappresenta la capacità di analisi realistica. Estrae i componenti di un messaggio ma può "aprire" un crittotesto solo se la chiave necessaria è già presente nell'insieme di conoscenza.
     \item \textbf{synth}: Rappresenta la capacità di sintesi. Permette all'attaccante di creare nuovi messaggi concatenando elementi noti, generando hash o cifrando dati con chiavi di cui è già in possesso.
-    \item \textbf{used}: L'operatore used comprende tutto ciò che è stato detto tramite l'operatore says e notes. 
-    \item \textbf{knows}: Questo operatore funziona allo stesso modo di used ed esprime la conoscenza di un agente sulla traccia. Questo operatore distingue tra il caso spy e non così da poter modellare al meglio l'attaccante. Infatti, la spia può conoscere non solo tutti i messaggi ma anche tutto ciò che conoscono coloro che sono descritti come \textbf{bad} che, in qualche modo, sono stati compromessi.\footnote{Un TTP non può mai essere Bad poiché, per definizione, è un'entità fidata.} Tutti gli altri, invece, conoscono solo quello che inviano/ricevono.
+    \item \textbf{used}: L'operatore used comprende tutto ciò che è stato detto tramite l'operatore says e notes. Used skippa le gets poiché prima di queste deve esserci obbligatoriamente una Says.
+    \item \textbf{knows}: Questo operatore funziona allo stesso modo di used ed esprime la conoscenza di un agente sulla traccia. Questo operatore distingue tra il caso spy e non, così da poter modellare al meglio l'attaccante. Infatti, la spia può conoscere non solo tutti i messaggi ma anche tutto ciò che conoscono coloro che sono descritti come \textbf{bad} che, in qualche modo, sono stati compromessi.\footnote{Un TTP non può mai essere Bad poiché, per definizione, è un'entità fidata.} Tutti gli altri, invece, conoscono solo quello che inviano/ricevono.
 \end{itemize}
 
 \subsection{Definizione Induttiva del Protocollo}
@@ -96,7 +116,7 @@ Il protocollo (nel nostro esempio denominato \texttt{flp}) è definito come l'in
 
 \begin{itemize}
     \item \textbf{Nil}: Il caso base che stabilisce che la traccia vuota (\texttt{[]}) appartiene sempre al protocollo..
-    \item \textbf{Fake}: Modella l'intruso. Se \texttt{evsf} è una traccia valida, lo \textit{Spy} può inviare a chiunque un messaggio \texttt{X} generato tramite \texttt{synth(analz(knows Spy evsf))}.
+    \item \textbf{Fake}: Modella l'intruso. Se \texttt{evsf} è una traccia valida, lo \textit{Spy} può inviare a chiunque un messaggio \texttt{X} generato tramite \texttt{synth(analz(knows Spy evsf))}.\footnote{Con knows Spy intendiamo generalmente l'insieme di tutti i messaggi inviati.}
     \item \textbf{FLP1}: Regola di inizializzazione. Se \texttt{Na} è una \textit{nonce} fresca (non presente in \texttt{used evs1}), l'agente \texttt{A} può inviare a \texttt{B} il primo messaggio \texttt{\{|Agent A, Nonce Na|\}}. Colui che invia il messaggio deve essere lo stesso dichiarato all'interno.
     \item \textbf{FLP2}: Regola di risposta. Se \texttt{B} riceve (\textit{Gets}) il messaggio di \texttt{A}, può rispondere inviando la \textit{nonce} \texttt{Na} cifrata con la propria chiave privata (\texttt{priSK B}).
     \item \textbf{Recp}: Modella il mezzo di comunicazione inaffidabile. Se un messaggio è stato inviato (\textit{Says}), la regola permette di estendere la traccia con l'evento di ricezione (\textit{Gets}) da parte del destinatario.

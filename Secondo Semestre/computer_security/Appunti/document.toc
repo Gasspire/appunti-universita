@@ -26,7 +26,9 @@
 \contentsline {chapter}{\numberline {5}Analisi Formale}{36}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Model Checking}{37}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Theorem Proving}{38}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Object Level vs Meta Level}{40}{subsection.5.2.1}%
+\contentsline {paragraph}{Esempio di ragionamento combinato}{40}{section*.17}%
 \contentsline {section}{\numberline {5.3}Isabelle}{40}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}I Tipi Fondamentali (Datatypes)}{40}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.1}I Tipi Fondamentali (Datatypes)}{41}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}Operatori di Conoscenza}{41}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Definizione Induttiva del Protocollo}{41}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.3}Definizione Induttiva del Protocollo}{42}{subsection.5.3.3}%
