@@ -11,14 +11,10 @@
             "id": "634239f5ce72e968",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Computer Security/Prima e Seconda Lezione GDPR.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Prima e Seconda Lezione GDPR"
+              "title": "Nuova scheda"
             }
           }
         ]
@@ -78,8 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "a8eec85064bed8ea",
@@ -184,8 +179,10 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "634239f5ce72e968",
+  "active": "043e22568da5ca91",
   "lastOpenFiles": [
+    "Senza nome.base",
+    "Senza nome 1.base",
     "Computer Security/Prima e Seconda Lezione GDPR.md",
     "Computer Security/Lezione 23 Aprile.md",
     "Blockchain/Lezione 23 Aprile.md",
