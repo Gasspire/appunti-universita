@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "05551924cb6da634",
+        "id": "82df4036940a412e",
         "type": "tabs",
         "children": [
           {
-            "id": "aac42e0d0d2b3505",
+            "id": "634239f5ce72e968",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Security/Lezione 23 Aprile.md",
+                "file": "Computer Security/Prima e Seconda Lezione GDPR.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 23 Aprile"
+              "title": "Prima e Seconda Lezione GDPR"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "a8eec85064bed8ea",
@@ -94,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Computer Security/Lezione 23 Aprile.md",
+                "file": "Computer Security/Prima e Seconda Lezione GDPR.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Riferimenti a Lezione 23 Aprile"
+              "title": "Riferimenti a Prima e Seconda Lezione GDPR"
             }
           },
           {
@@ -183,10 +184,11 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "aac42e0d0d2b3505",
+  "active": "634239f5ce72e968",
   "lastOpenFiles": [
-    "Blockchain/Lezione 23 Aprile.md",
+    "Computer Security/Prima e Seconda Lezione GDPR.md",
     "Computer Security/Lezione 23 Aprile.md",
+    "Blockchain/Lezione 23 Aprile.md",
     "Blockchain/Immagini/Pasted image 20260423123943.png",
     "Blockchain/Immagini/soundness_diffie.png",
     "Blockchain/Immagini/Diffie-Hellman.png",
