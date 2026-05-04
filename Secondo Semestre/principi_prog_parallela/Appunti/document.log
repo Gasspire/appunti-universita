@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.27)  13 APR 2026 17:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.27)  4 MAY 2026 12:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/lolcr/OneDrive - Università degli Studi di Catania/Unict/M_Primo_Anno/Principi/Appunti/document.tex"
-(c:/Users/lolcr/OneDrive - Università degli Studi di Catania/Unict/M_Primo_Anno/Principi/Appunti/document.tex
+**"c:/Users/lolcr/OneDrive/Documents/GitHub/appunti-universita/Secondo Semestre/principi_prog_parallela/Appunti/document.tex"
+(c:/Users/lolcr/OneDrive/Documents/GitHub/appunti-universita/Secondo Semestre/principi_prog_parallela/Appunti/document.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-10-09>
 (C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
@@ -838,7 +838,7 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count332
  (parts/frontespizio.tex
-<Images/university_logo.png, id=227, 106.3975pt x 112.42pt>
+<Images/university_logo.png, id=247, 106.3975pt x 112.42pt>
 File: Images/university_logo.png Graphic file (type png)
 <use Images/university_logo.png>
 Package pdftex.def Info: Images/university_logo.png  used on input line 3.
@@ -869,7 +869,7 @@ Overfull \hbox (13.55284pt too wide) in paragraph at lines 55--55
  (parts/capitolo_0.tex
 
 [2]
-<Images/intro/metodo_sperimentale.png, id=308, 700.11563pt x 233.37187pt>
+<Images/intro/metodo_sperimentale.png, id=333, 700.11563pt x 233.37187pt>
 File: Images/intro/metodo_sperimentale.png Graphic file (type png)
 <use Images/intro/metodo_sperimentale.png>
 Package pdftex.def Info: Images/intro/metodo_sperimentale.png  used on input line 9.
@@ -879,7 +879,7 @@ Package pdftex.def Info: Images/intro/metodo_sperimentale.png  used on input lin
 [3
 
  <./Images/intro/metodo_sperimentale.png>]
-<Images/intro/performance_engineering.png, id=318, 1248.16313pt x 557.83406pt>
+<Images/intro/performance_engineering.png, id=343, 1248.16313pt x 557.83406pt>
 File: Images/intro/performance_engineering.png Graphic file (type png)
 <use Images/intro/performance_engineering.png>
 Package pdftex.def Info: Images/intro/performance_engineering.png  used on input line 41.
@@ -892,7 +892,7 @@ Package pdftex.def Info: Images/intro/performance_engineering.png  used on input
 
 [6]
 Capitolo 1.
-<Images/cap_1/modelli_vs_real.png, id=341, 841.64438pt x 390.70969pt>
+<Images/cap_1/modelli_vs_real.png, id=366, 841.64438pt x 390.70969pt>
 File: Images/cap_1/modelli_vs_real.png Graphic file (type png)
 <use Images/cap_1/modelli_vs_real.png>
 Package pdftex.def Info: Images/cap_1/modelli_vs_real.png  used on input line 12.
@@ -902,7 +902,7 @@ Package pdftex.def Info: Images/cap_1/modelli_vs_real.png  used on input line 12
 [7
 
  <./Images/cap_1/modelli_vs_real.png>]
-<Images/cap_1/gerarchia_di_memoria.png, id=348, 715.67375pt x 465.74pt>
+<Images/cap_1/gerarchia_di_memoria.png, id=373, 715.67375pt x 465.74pt>
 File: Images/cap_1/gerarchia_di_memoria.png Graphic file (type png)
 <use Images/cap_1/gerarchia_di_memoria.png>
 Package pdftex.def Info: Images/cap_1/gerarchia_di_memoria.png  used on input line 33.
@@ -910,7 +910,7 @@ Package pdftex.def Info: Images/cap_1/gerarchia_di_memoria.png  used on input li
 
 
 [8 <./Images/cap_1/gerarchia_di_memoria.png (PNG copy)>]
-<Images/cap_1/accesso_indiretto.png, id=354, 587.19376pt x 156.585pt>
+<Images/cap_1/accesso_indiretto.png, id=379, 587.19376pt x 156.585pt>
 File: Images/cap_1/accesso_indiretto.png Graphic file (type png)
 <use Images/cap_1/accesso_indiretto.png>
 Package pdftex.def Info: Images/cap_1/accesso_indiretto.png  used on input line 43.
@@ -920,7 +920,7 @@ Package pdftex.def Info: Images/cap_1/accesso_indiretto.png  used on input line 
 [9 <./Images/cap_1/accesso_indiretto.png>]
 
 [10]
-<Images/cap_1/multicore.png, id=365, 536.75531pt x 264.99pt>
+<Images/cap_1/multicore.png, id=390, 536.75531pt x 264.99pt>
 File: Images/cap_1/multicore.png Graphic file (type png)
 <use Images/cap_1/multicore.png>
 Package pdftex.def Info: Images/cap_1/multicore.png  used on input line 91.
@@ -935,7 +935,7 @@ Package pdftex.def Info: Images/cap_1/multicore.png  used on input line 91.
 
 [14]
 Capitolo 2.
-<Images/cap_1/stack_HPC.png, id=385, 499.8675pt x 231.86626pt>
+<Images/cap_1/stack_HPC.png, id=410, 499.8675pt x 231.86626pt>
 File: Images/cap_1/stack_HPC.png Graphic file (type png)
 <use Images/cap_1/stack_HPC.png>
 Package pdftex.def Info: Images/cap_1/stack_HPC.png  used on input line 20.
@@ -947,7 +947,7 @@ Package pdftex.def Info: Images/cap_1/stack_HPC.png  used on input line 20.
 ]
 
 [16 <./Images/cap_1/stack_HPC.png>]
-<Images/cap_1/login_vs_compute.png, id=396, 529.98pt x 233.37187pt>
+<Images/cap_1/login_vs_compute.png, id=421, 529.98pt x 233.37187pt>
 File: Images/cap_1/login_vs_compute.png Graphic file (type png)
 <use Images/cap_1/login_vs_compute.png>
 Package pdftex.def Info: Images/cap_1/login_vs_compute.png  used on input line 42.
@@ -978,7 +978,7 @@ Capitolo 3.
 [23
 
 ]
-<Images/cap_3/clock_time.png, id=436, 1070.49937pt x 353.82187pt>
+<Images/cap_3/clock_time.png, id=461, 1070.49937pt x 353.82187pt>
 File: Images/cap_3/clock_time.png Graphic file (type png)
 <use Images/cap_3/clock_time.png>
 Package pdftex.def Info: Images/cap_3/clock_time.png  used on input line 28.
@@ -996,7 +996,7 @@ Overfull \hbox (5.15884pt too wide) in paragraph at lines 102--103
 \OT1/cmr/m/n/12 Esistono an-che di-ver-si mo-del-li ti-pi-ci di com-pi-la-zio-ne co-me, ad esem-pio \OT1/cmr/bx/n/12 fbrach-
  []
 
-<Images/cap_3/aliasing.png, id=463, 435.12563pt x 167.87718pt>
+<Images/cap_3/aliasing.png, id=488, 435.12563pt x 167.87718pt>
 File: Images/cap_3/aliasing.png Graphic file (type png)
 <use Images/cap_3/aliasing.png>
 Package pdftex.def Info: Images/cap_3/aliasing.png  used on input line 122.
@@ -1014,7 +1014,7 @@ Capitolo 4.
 ]
 
 [31]
-<Images/cap_4/cpu_superscalari.png, id=496, 1132.23pt x 574.39594pt>
+<Images/cap_4/cpu_superscalari.png, id=521, 1132.23pt x 574.39594pt>
 File: Images/cap_4/cpu_superscalari.png Graphic file (type png)
 <use Images/cap_4/cpu_superscalari.png>
 Package pdftex.def Info: Images/cap_4/cpu_superscalari.png  used on input line 47.
@@ -1022,7 +1022,7 @@ Package pdftex.def Info: Images/cap_4/cpu_superscalari.png  used on input line 4
 
 
 [32 <./Images/cap_4/cpu_superscalari.png>]
-<Images/cap_4/pipeline_multiple.png, id=503, 1001.24063pt x 439.6425pt>
+<Images/cap_4/pipeline_multiple.png, id=528, 1001.24063pt x 439.6425pt>
 File: Images/cap_4/pipeline_multiple.png Graphic file (type png)
 <use Images/cap_4/pipeline_multiple.png>
 Package pdftex.def Info: Images/cap_4/pipeline_multiple.png  used on input line 66.
@@ -1052,7 +1052,7 @@ Overfull \hbox (0.79999pt too wide) in paragraph at lines 190--190
 [38]
 
 [39]
-<Images/cap_4/cache_vs_ram.png, id=538, 1382.16376pt x 465.23813pt>
+<Images/cap_4/cache_vs_ram.png, id=563, 1382.16376pt x 465.23813pt>
 File: Images/cap_4/cache_vs_ram.png Graphic file (type png)
 <use Images/cap_4/cache_vs_ram.png>
 Package pdftex.def Info: Images/cap_4/cache_vs_ram.png  used on input line 284.
@@ -1062,12 +1062,12 @@ Package pdftex.def Info: Images/cap_4/cache_vs_ram.png  used on input line 284.
 [40 <./Images/cap_4/cache_vs_ram.png>]
 
 [41]
-<Images/cap_4/matrice_in_memo.png, id=553, 1355.8153pt x 481.04718pt>
+<Images/cap_4/matrice_in_memo.png, id=578, 1355.8153pt x 481.04718pt>
 File: Images/cap_4/matrice_in_memo.png Graphic file (type png)
 <use Images/cap_4/matrice_in_memo.png>
 Package pdftex.def Info: Images/cap_4/matrice_in_memo.png  used on input line 341.
 (pdftex.def)             Requested size: 272.99881pt x 96.86101pt.
-<Images/cap_4/lettura_colonne.png, id=554, 1225.57875pt x 153.57375pt>
+<Images/cap_4/lettura_colonne.png, id=579, 1225.57875pt x 153.57375pt>
 File: Images/cap_4/lettura_colonne.png Graphic file (type png)
 <use Images/cap_4/lettura_colonne.png>
 Package pdftex.def Info: Images/cap_4/lettura_colonne.png  used on input line 346.
@@ -1075,7 +1075,7 @@ Package pdftex.def Info: Images/cap_4/lettura_colonne.png  used on input line 34
 
 
 [42 <./Images/cap_4/matrice_in_memo.png> <./Images/cap_4/lettura_colonne.png>]
-<Images/cap_4/lettura_blocchi.png, id=564, 307.90031pt x 280.04625pt>
+<Images/cap_4/lettura_blocchi.png, id=589, 307.90031pt x 280.04625pt>
 File: Images/cap_4/lettura_blocchi.png Graphic file (type png)
 <use Images/cap_4/lettura_blocchi.png>
 Package pdftex.def Info: Images/cap_4/lettura_blocchi.png  used on input line 384.
@@ -1164,9 +1164,49 @@ Capitolo 5.
 
 [56]
 
-[57])
+[57]) (parts/capitolo_6.tex
 
 [58]
+Capitolo 6.
+<Images/cap_6/processo.png, id=679, 304.13625pt x 170.88844pt>
+File: Images/cap_6/processo.png Graphic file (type png)
+<use Images/cap_6/processo.png>
+Package pdftex.def Info: Images/cap_6/processo.png  used on input line 8.
+(pdftex.def)             Requested size: 195.0pt x 109.569pt.
+<Images/cap_6/processo_thread.png, id=680, 332.74312pt x 278.54062pt>
+File: Images/cap_6/processo_thread.png Graphic file (type png)
+<use Images/cap_6/processo_thread.png>
+Package pdftex.def Info: Images/cap_6/processo_thread.png  used on input line 14.
+(pdftex.def)             Requested size: 195.0pt x 163.23674pt.
+
+
+[59
+
+ <./Images/cap_6/processo.png>]
+Overfull \hbox (12.86453pt too wide) in paragraph at lines 33--34
+[]\OT1/cmr/bx/n/12 Direttive del Com-pi-la-to-re\OT1/cmr/m/n/12 : In C/C++ as-su-mo-no la for-ma di \OT1/pcr/m/n/12 #pragma
+ []
+
+
+
+[60 <./Images/cap_6/processo_thread.png>]
+
+[61]
+Overfull \hbox (56.39981pt too wide) in paragraph at lines 69--69
+[]    \OT1/pcr/m/n/12 // Codice eseguito in parallelo da tutti i thread del team[] 
+ []
+
+
+
+[62]
+<Images/cap_6/omp_toolbox.png, id=705, 584.1825pt x 307.1475pt>
+File: Images/cap_6/omp_toolbox.png Graphic file (type png)
+<use Images/cap_6/omp_toolbox.png>
+Package pdftex.def Info: Images/cap_6/omp_toolbox.png  used on input line 90.
+(pdftex.def)             Requested size: 234.00238pt x 123.03023pt.
+)
+
+[63 <./Images/cap_6/omp_toolbox.png>]
 No file document.bbl.
 (document.aux)
  ***********
@@ -1174,20 +1214,20 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-10-09>
  ***********
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 16E4B2946424A12C7BED31638F793B83;10913.
+(rerunfilecheck)             Checksum: C9C5E96093609D428BBD37DFBF15221C;11509.
  ) 
 Here is how much of TeX's memory you used:
- 13827 strings out of 468080
- 226355 string characters out of 5425771
+ 13879 strings out of 468080
+ 227900 string characters out of 5425771
  813017 words of memory out of 5000000
- 42108 multiletter control sequences out of 15000+600000
+ 42141 multiletter control sequences out of 15000+600000
  638869 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,79p,1025b,628s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,79p,1037b,628s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\lolcr\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/lolcr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on document.pdf (59 pages, 3983118 bytes).
+Output written on document.pdf (64 pages, 4162099 bytes).
 PDF statistics:
- 772 PDF objects out of 1000 (max. 8388607)
- 187 named destinations out of 1000 (max. 500000)
- 534 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 832 PDF objects out of 1000 (max. 8388607)
+ 203 named destinations out of 1000 (max. 500000)
+ 589 words of extra memory for PDF output out of 10000 (max. 10000000)
 

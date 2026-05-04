@@ -11,10 +11,14 @@
             "id": "634239f5ce72e968",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Computer Security/Prima e Seconda Lezione GDPR.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nuova scheda"
+              "title": "Prima e Seconda Lezione GDPR"
             }
           }
         ]
@@ -179,7 +183,7 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "043e22568da5ca91",
+  "active": "634239f5ce72e968",
   "lastOpenFiles": [
     "Senza nome.base",
     "Senza nome 1.base",

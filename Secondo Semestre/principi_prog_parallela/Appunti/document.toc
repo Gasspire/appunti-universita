@@ -56,3 +56,8 @@
 \contentsline {chapter}{\numberline {5}Parallelismo e Scalabilità}{54}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Modelli di parallelismo}{54}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Scalabilità}{56}{section.5.2}%
+\contentsline {chapter}{\numberline {6}OpenMP}{59}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Cosa è OpenMP}{60}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Modello Fork-Join}{61}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Direttive}{62}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}Regioni Parallele}{63}{section.6.3}%

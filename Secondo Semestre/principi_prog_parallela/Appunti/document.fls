@@ -1,6 +1,6 @@
-PWD c:\Users\lolcr\OneDrive - Università degli Studi di Catania\Unict\M_Primo_Anno\Principi\Appunti
+PWD c:\Users\lolcr\OneDrive\Documents\GitHub\appunti-universita\Secondo Semestre\principi_prog_parallela\Appunti
 INPUT C:\Users\lolcr\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\lolcr\OneDrive - Università degli Studi di Catania\Unict\M_Primo_Anno\Principi\Appunti\document.tex
+INPUT c:\Users\lolcr\OneDrive\Documents\GitHub\appunti-universita\Secondo Semestre\principi_prog_parallela\Appunti\document.tex
 OUTPUT document.log
 INPUT C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex\latex\base\book.cls
 INPUT C:\Users\lolcr\AppData\Local\Programs\MiKTeX\tex\latex\base\book.cls
@@ -376,6 +376,32 @@ INPUT .\parts\capitolo_5.tex
 INPUT .\parts\capitolo_5.tex
 INPUT .\parts\capitolo_5.tex
 INPUT parts\capitolo_5.tex
+INPUT .\parts\capitolo_6.tex
+INPUT .\parts\capitolo_6.tex
+INPUT .\parts\capitolo_6.tex
+INPUT .\parts\capitolo_6.tex
+INPUT parts\capitolo_6.tex
+INPUT .\Images\cap_6\processo.png
+INPUT .\Images\cap_6\processo.png
+INPUT .\Images\cap_6\processo.png
+INPUT .\Images\cap_6\processo.png
+INPUT .\Images\cap_6\processo.png
+INPUT .\Images\cap_6\processo.png
+INPUT .\Images\cap_6\processo.png
+INPUT .\Images\cap_6\processo_thread.png
+INPUT .\Images\cap_6\processo_thread.png
+INPUT .\Images\cap_6\processo_thread.png
+INPUT .\Images\cap_6\processo_thread.png
+INPUT .\Images\cap_6\processo_thread.png
+INPUT .\Images\cap_6\processo_thread.png
+INPUT .\Images\cap_6\processo_thread.png
+INPUT .\Images\cap_6\omp_toolbox.png
+INPUT .\Images\cap_6\omp_toolbox.png
+INPUT .\Images\cap_6\omp_toolbox.png
+INPUT .\Images\cap_6\omp_toolbox.png
+INPUT .\Images\cap_6\omp_toolbox.png
+INPUT .\Images\cap_6\omp_toolbox.png
+INPUT .\Images\cap_6\omp_toolbox.png
 INPUT document.aux
 INPUT .\document.out
 INPUT .\document.out
