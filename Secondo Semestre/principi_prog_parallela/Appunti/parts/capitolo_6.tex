@@ -94,10 +94,84 @@ Quando al compilatore viene passata l'istruzione di attivare OpenMP (es. tramite
 Come abbiamo visto, OpenMP utilizza il modello fork-join. Il lavoro parallelo si svolge all'interno di \textbf{regioni parallele}, che in C/C++ vengono definite applicando una direttiva a un blocco di codice strutturato.
 
 
-Quando il compilatore incontra la direttiva \texttt{\#pragma omp parallel}, crea un pool di thread. Ognuno di essi riceve un ID univoco (da $0$ a $N-1$): \textbf{ogni thread riceve un proprio Stack privato e un proprio Instruction Pointer (IP)} separati da quelli del processo padre.
-
+Quando il compilatore incontra la direttiva \texttt{\#pragma omp parallel}, crea un pool di thread. Ognuno di essi riceve un ID univoco (da $0$ a $N-1$): \textbf{ogni thread riceve un proprio Stack privato e un proprio Instruction Pointer (IP)} separati da quelli del processo padre. Avranno tutti lo stesso \textbf{process id (PID)} ma diverso \textbf{Thread ID (TID)}. 
 Le direttive in generale in C/C++ sono di questo tipo:
 \begin{center}
     \texttt{\#pragma omp <directive> [<clause> [ <clause> [...]]]}
 \end{center}
 
+Ci sono tanti tipi di costrutti omp, tra cui:
+\begin{itemize}
+    \item \texttt{\#pragma omp parallel \_some\_clauses\_here\_} : Una regione parallela può essere una linea singola.
+    \item \texttt{\#pragma omp parallel \_some\_clauses\_here\_ \{ ... \}} : Nessun limite sulla dimensione del codice compreso tra \texttt{\{..\}}.
+    \item \texttt{\#pragma omp parallel for \_some\_clauses\_here\_ \{ ... \}} : Un costruttore specifico per i cicli \texttt{for}.
+    \item \texttt{\#pragma omp sections \_some\_clauses\_here\_ \{ ... \}} : Un costrutto più generale per il \textit{work-sharing}.
+    \item \texttt{\#pragma omp task \_some\_clauses\_here\_ \{ ... \}} : Questo permette un parallelismo basato sui task.
+\end{itemize}
+
+Questi li vedremo più avanti nel dettaglio.
+
+La creazione dello stack per ogni thread non è "gratuita". L'hardware deve allocare fisicamente porzioni di memoria virtuale per ospitare i dati privati di ciascun thread. La dimensione predefinita di questo stack varia a seconda del compilatore (es. $\sim 4$ MB con GCC, fino a 132 MB con Clang). 
+
+Questo genera due scenari di rischio architetturale:
+\begin{itemize}
+    \item \textbf{Out of Memory (OOM)}: Se generi troppi thread o se la dimensione dello stack è troppo grande, potresti esaurire la memoria fisica disponibile nel sistema.
+    \item \textbf{Segmentation Fault}: Al contrario, se lo stack predefinito è troppo piccolo e il tuo thread tenta di allocare grossi array locali, sfonderà il limite dello stack causando un errore di segmentazione.
+\end{itemize}
+\textit{Soluzione operativa}: L'utente può controllare esplicitamente questa dimensione esportando la variabile d'ambiente \texttt{OMP\_STACKSIZE} (es. \texttt{export OMP\_STACKSIZE=1M}) prima di eseguire il codice.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_6/thread_space.png}
+\end{figure}
+Di norma, inoltre, il numero di thread che possono essere generati da un processo è limitato dal sistema. Ad esempio, Linux imposta che il numero massimo di thread è la quantità di memoria fisica divisa per la quantità di memoria necessaria per descrivere ed eseguire un thread per un fattore che impedisce che la memoria sia tutta usata per rendere attivi i thread.
+
+Entro questo limite, possiamo modificare il comportamento di OpenMP con \texttt{OMP\_THREAD\_LIMIT}.
+
+\subsection{Gestione della Regione Parallela}
+Innanzitutto, vediamo come si costruisce una classica regione parallela:
+\begin{verbatim}
+#pragma omp parallel
+{
+    int id = omp_get_thread_num();
+
+    #pragma omp single
+    {
+        int nthreads = omp_get_num_threads();
+    }
+
+    #pragma omp barrier //forza tutti i thread ad arrivare allo stesso punto 
+    //il rischio è causare rallentamenti per attendere la fine di tutti i thread
+    printf("Hello from thread!");    
+}
+\end{verbatim}
+
+Possiamo ottenere diversi comportamenti con alcune aggiunte dopo la parola chiave \textit{parallel}:
+\begin{itemize}
+    \item \textbf{if(condizione)}: questo if permette di aprire la regione parallela solo se la condizione è vera. Utile per evitare l'overhead dovuto alla creazione di troppi thread anche nei casi di in cui vi siano pochi dati. La sezione di codice viene seguita a prescindere ma, nel caso in cui la condizione sia falsa, allora non verrebbero creati thread.
+    \item \textbf{num\_threads(n)}: questa condizione forza il processo a creare esattamente n thread ignorando le eventuali variabili di ambiente impostate.
+    \item \textbf{proc\_bind}: Serve a dare direttive sul dove far lavorare il thread in termini di core fisici. Senza questa direttiva il sistema operativo potrebbe decidere di spostarli come più gli aggrada, creando un overhead causato dallo spreco di cache. 
+\end{itemize}
+\subsubsection*{Variabili Condivise o Private}
+Il cuore di OpenMP è definire correttamente quali variabili risiedono nell'Heap condiviso e quali negli Stack privati.
+
+Possiamo trovare, quindi due tipi di variabili:
+\begin{itemize}
+    \item \textbf{Shared:} È \textbf{tutto ciò che è definito nella regione seriale che viene ereditato come condiviso} all'interno della regione parallela. Tutti i thread possono dunque leggerle e scriverle.
+    \item \textbf{Private: } La clausola \texttt{private(x)} ordina al compilatore di allocare un \textit{nuovo blocco di memoria \textbf{non inizializzato}} nello stack di ogni thread. Sebbene si chiami \texttt{x} come la variabile originale, punta a un indirizzo fisico completamente diverso e all'inizio non è inizializzata, rischiando dunque di generare errori nel caso non vengano inizializzate. In realtà, l'utilizzo di private, proprio a causa di questi problemi è \textbf{fortemente sconsigliata} e si predilige la dichiarazione all'interno della regione condivisa stessa così da rendere la cosa più chiara ed evitando errori di distrazione.
+\end{itemize}
+Un esempio può essere questo:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_6/esempio_private.png}
+\end{figure}
+Visto che le variabili \texttt{private} "nascono vuote" (non inizializzate), OpenMP fornisce strumenti per copiare i valori da e verso l'esterno:
+\begin{itemize}
+    \item \textbf{\texttt{firstprivate(x)}}: La variabile è privata (ogni thread ha la sua copia in stack), ma il suo valore di partenza non è casuale: viene \textbf{inizializzato al valore che la variabile \texttt{x} originale aveva} prima di entrare nella regione parallela.
+    \item \textbf{\texttt{lastprivate(x)}}: Ha senso solo nei cicli \texttt{for} parallelizzati. La variabile originale (nello stack del thread master) prenderà il valore che la sua copia privata ha calcolato durante \textbf{l'ultima iterazione logica} del ciclo.
+\end{itemize}
+Per loro natura, le variabili private nascono e muoiono all'interno di una regione condivisa. Tuttavia, potrebbe capitare di volere che queste variabili in un qualche modo rimangano e, dunque, esistono dei costrutti anche per fare questo:
+\begin{itemize}
+    \item \textbf{\texttt{threadprivate(var)}}: Rende una variabile globale privata per ogni thread. A differenza del normale \texttt{private}, questa variabile \textbf{sopravvive tra diverse regioni parallele} consecutive (il thread non perde il dato). Nota: non si può usare se il numero di thread cambia dinamicamente.
+    \item \textbf{\texttt{copyin(var)}}: Usata insieme a \texttt{threadprivate}. Serve per far sì che, all'ingresso di una regione parallela, il thread master copi il valore della sua variabile \texttt{threadprivate} dentro le copie di tutti gli altri thread.
+    \item \textbf{\texttt{copyprivate(var)}}: Si applica ai costrutti eseguiti da un singolo thread (es. direttiva \texttt{single}). Propaga il risultato calcolato da quel singolo thread verso le copie private di tutti gli altri thread del team, prima che attraversino la barriera finale.
+\end{itemize}
