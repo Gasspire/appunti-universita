@@ -28,6 +28,7 @@ Questo repository è una raccolta di appunti personali presi durante le ore di l
 *Creato e mantenuto da [Gasspire](https://github.com/Gasspire)*
 
 *Readme scritto da gemini causa pigrizia dell'autore (cioè me che sto scrivendo unicamente questa riga). 
-State attenti a tutto quello che trovate qui dentro poiché **NON TUTTO IL MATERIALE E' CORRETTO E POTREBBE ESSERE POTENZIALMENTE ERRATO**. Inoltre, **NON TUTTI I FILE SONO MIEI** dunque ringraziate coloro che li hanno fatto in principio (tendenzialmente è scritto a chi appartengono)*
+State attenti a tutto quello che trovate qui dentro poiché **NON TUTTO IL MATERIALE E' CORRETTO E POTREBBE ESSERE POTENZIALMENTE ERRATO**. Inoltre, **NON TUTTI I FILE SONO MIEI** dunque ringraziate coloro che li hanno fatti in principio (tendenzialmente è scritto a chi appartengono)*
+Altra piccola cosa, tendenzialmente gli appunti sono fatti usando molteplici fonti tra pubbliche e non. Se trovate somiglianze con altri appunti è perché sono probabilmente la fonte originale.
 
 *Ossequi*

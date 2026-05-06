@@ -44,10 +44,10 @@ La rete Bitcoin presenta alcune proprietà fondamentali che ne garantiscono la r
     \includegraphics[width=0.7\linewidth]{Images/capitolo_mdr_2/nuovo_nodo.png}
 \end{figure}
 
-\subsection{Inserimento di una Transazione}
+\subsection{Gossip Protocol}
 Quando un utente $A$ crea una transazione per pagare $B$, questa non finisce immediatamente nella blockchain. Deve prima essere propagata a tutti i nodi della rete tramite un \textbf{Gossip Protocol} (o \textit{Flooding}).
-Il funzionamento è simile al diffondersi di un pettegolezzo: $A$ invia la transazione ai propri vicini; questi la verificano e, se valida, la inviano ai propri vicini, e così via fino a coprire l'intera rete in pochi secondi.
-\subsection{La Transaction Pool e i Controlli Standard}
+Il funzionamento è simile al diffondersi di un pettegolezzo: $A$ invia la transazione ai propri vicini, questi la verificano e, se valida, la inviano ai propri vicini, e così via fino a coprire l'intera rete in pochi secondi.
+\subsection*{La Transaction Pool e i Controlli Standard}
 Ogni singolo nodo mantiene in memoria una "vasca" temporanea chiamata \textbf{Transaction Pool} (o \textit{Mempool}), dove conserva le transazioni ricevute che sono in attesa di essere inserite in un blocco dai miner. Prima di accettare una transazione nella propria pool e inoltrarla agli altri, ogni nodo effettua dei \textbf{controlli standard}:
 \begin{enumerate}
     \item \textbf{Validità:} La transazione deve avere firme corrette e formattazione valida.
@@ -56,6 +56,93 @@ Ogni singolo nodo mantiene in memoria una "vasca" temporanea chiamata \textbf{Tr
     \item \textbf{Assenza di conflitti:} La transazione non deve tentare di spendere UTXO già impegnati da altre transazioni presenti nella pool (evitando il double spending immediato).
 \end{enumerate}
 
-\subsection{Race Conditions e Coerenza delle Pool}
-Poiché la rete è distribuita e la propagazione richiede tempo, le Mempool dei vari nodi non sono sempre identiche (\textit{out-of-sync}). Se due transazioni in conflitto (ad esempio $A$ prova a mandare gli stessi soldi sia a $C$ che a $B$ contemporaneamente) si diffondono nella rete, si crea una \textbf{Race Condition}. 
+Poiché la rete è distribuita e la propagazione richiede tempo, le Mempool dei vari nodi non sono sempre identiche (\textit{out-of-sync}). 
+Se due transazioni in conflitto (ad esempio $A$ prova a mandare gli stessi soldi sia a $C$ che a $B$ contemporaneamente) si diffondono nella rete, si crea una \textbf{Race Condition}. 
 In questo caso vale la regola del \textbf{"the first win!"}: ogni nodo terrà in memoria solo la prima transazione che riceve e scarterà la seconda. Sarà poi il miner, scegliendo quale includere nel prossimo blocco, a decretare quale delle due transazioni diventerà definitiva. Esiste però un'eccezione chiamata \textbf{Replace-By-Fee (RBF)}, che permette a un utente di "sovrascrivere" una propria transazione in attesa con una nuova che offra una mancia (\textit{fee}) più alta ai miner.
+
+\subsection{Propagazione dei Blocchi}
+Allo stesso modo di come funziona la diffusione di nuove transazioni, avviene la propagazione dei nuovi blocchi.
+
+QUi i controlli sono di diverso tipo, un blocco viene inoltrato solo se:
+\begin{itemize}
+    \item È stato risolto il \textbf{puzzle crittografico}.
+    \item Contiene solo \textbf{transazioni valide}.
+    \item È costruito sulla \textbf{catena più lunga} evitando, così, fork.
+\end{itemize}
+
+Quando un miner scopre un nuovo blocco valido, lo trasmette immediatamente ai suoi peer. Ogni nodo che lo riceve verifica la sua validità e, se soddisfa tutti i requisiti, lo inoltra ai propri peer e lo aggiunge alla propria copia locale della blockchain. Questo meccanismo di propagazione a cascata garantisce che i blocchi validi si diffondano rapidamente attraverso l'intera rete.
+
+Questi controlli assicurano che solo blocchi legittimi vengano incorporati nella blockchain, prevenendo attacchi e divergenze non intenzionali.
+
+\subsection{Tipologie di Nodi}
+Come già accennato precedentemente esistono due tipi di nodi:
+\begin{itemize}
+    \item I \textbf{Full Nodes};
+    \item I \textbf{Lightweight Node};
+\end{itemize}
+
+Per quanto riguarda i full node, questi possiedono le seguenti caratteristiche:
+\begin{itemize}
+    \item \textbf{Connettività permanente}: Mantengono una presenza costante nella rete per massimizzare la resilienza del sistema.
+    \item \textbf{Archiviazione completa}: Conservano l'intera blockchain, comprensiva di tutte le transazioni dalla genesi (circa 460 GB nel 2023).
+    \item \textbf{Verifica esaustiva}: Validano indipendentemente ogni transazione e blocco secondo tutte le regole di consenso.
+    \item \textbf{Ottimizzazione UTXO}: Mantengono una cache del set UTXO in memoria RAM per accelerare le verifiche delle transazioni.
+\end{itemize}
+
+Questi nodi forniscono il livello mas\begin{itemize}
+    \item \textbf{Archiviazione selettiva}: Memorizzano solo gli header dei blocchi (circa 460 MB vs. 460 GB), riducendo drasticamente i requisiti di storage.
+    \item \textbf{Verifica mirata}: Verificano solo le transazioni di diretto interesse per l'utente, anziché l'intera blockchain.
+    \item \textbf{Dipendenza dai full node}: Richiedono la connessione a full node per ottenere dati sulle transazioni specifiche e le relative prove di inclusione.
+    \item \textbf{Verifica basata su Merkle proof}: Utilizzano prove crittografiche compatte basate sull’albero di Merkle per confermare l’inclusione di transazioni in blocchi validi.
+\end{itemize}
+
+I nodi SPV offrono un equilibrio tra efficienza e sicurezza, permettendo la partecipazione alla rete con risorse limitate, ma accettando un modello di fiducia delegata verso i full node per alcune verifiche.simo di sicurezza e indipendenza, in quanto non necessitano di fidarsi di terze parti per la validazione delle transazioni che li riguardano. Rappresentano la manifestazione concreta del principio \textbf{don't trust, verify} fondamentale in Bitcoin.
+
+La distribuzione geografica e numerica dei full node ha implicazioni significative per la resilienza della rete. Una rete con molti nodi completi distribuiti globalmente offre maggiore resistenza a censura, interruzioni localizzate e tentativi di manipolazione.
+
+I Lightweight node, invece offrono un'alternativa più leggera rispetto ai full node così da rendere possibile la connessione a dispositivi come smartphone o computer con potenza limitata. Possiedono le seguenti caratteristiche:
+\begin{itemize}
+    \item \textbf{Archiviazione selettiva}: Memorizzano solo gli header dei blocchi (circa 460 MB vs. 460 GB), riducendo drasticamente i requisiti di storage.
+    \item \textbf{Verifica mirata}: Verificano solo le transazioni di diretto interesse per l'utente, anziché l'intera blockchain.
+    \item \textbf{Dipendenza dai full node}: Richiedono la connessione a full node per ottenere dati sulle transazioni specifiche e le relative prove di inclusione.
+    \item \textbf{Verifica basata su Merkle proof}: Utilizzano prove crittografiche compatte basate sull’albero di Merkle per confermare l’inclusione di transazioni in blocchi validi.
+\end{itemize}
+
+I nodi SPV offrono un equilibrio tra efficienza e sicurezza, permettendo la partecipazione alla rete con risorse limitate, ma accettando un modello di fiducia delegata verso i full node per alcune verifiche.
+
+\section{Limiti Strutturali di Bitcoin}
+
+L'architettura di Bitcoin impone dei vincoli intrinseci, derivanti dalle scelte progettuali originarie, che ne definiscono il perimetro operativo e la sicurezza, ma ne limitano al contempo la flessibilità e la scalabilità. I principali parametri che determinano questi limiti sono:
+
+\begin{itemize}
+    \item \textbf{Intervallo tra blocchi}: Il protocollo è calibrato per generare un nuovo blocco mediamente ogni 10 minuti. Questo equilibrio è mantenuto attraverso l'aggiustamento dinamico della difficoltà di mining, necessario per garantire una propagazione sicura dei blocchi ed evitare un eccesso di blocchi orfani.
+    
+    \item \textbf{Dimensione dei blocchi}: Storicamente limitata a 1 MB per prevenire attacchi di tipo DoS e mantenere bassi i requisiti per i full node. Sebbene aggiornamenti come SegWit abbiano introdotto il concetto di \textit{block weight}, aumentando la capacità effettiva, lo spazio rimane una risorsa scarsa e contesa.
+    
+    \item \textbf{Limite alle operazioni crittografiche}: Esiste un tetto massimo di circa 20.000 verifiche di firma (\textit{sigops}) per singolo blocco. Questo parametro funge da limite pratico alla complessità computazionale richiesta per validare un blocco, proteggendo la rete da transazioni eccessivamente onerose.
+    
+    \item \textbf{Politica Monetaria}: L'offerta è rigidamente fissata a un massimo di 21 milioni di bitcoin. L'emissione è regolata da uno schema di ricompensa predeterminato che prevede il dimezzamento del sussidio (\textit{halving}) circa ogni quattro anni.
+\end{itemize}
+
+La combinazione di questi vincoli si traduce in un \textit{throughput} massimo teorico di circa 7 transazioni al secondo (TPS). Tale valore appare estremamente ridotto se confrontato con i circuiti di pagamento centralizzati come Visa o Mastercard, capaci di gestire decine di migliaia di transazioni nello stesso intervallo temporale.
+
+Un ulteriore limite è rappresentato dalla \textbf{rigidità delle primitive crittografiche}. Bitcoin si affida a standard consolidati come \textbf{ECDSA} (per le firme) e \textbf{SHA-256} (per l'hashing). Sebbene attualmente sicuri, la loro eventuale sostituzione — necessaria, ad esempio, in uno scenario di minaccia quantistica — richiederebbe modifiche strutturali al protocollo. Tali aggiornamenti, data la natura decentralizzata della rete, comporterebbero il rischio di \textit{hard fork} o \textit{soft fork} complessi, evidenziando la difficoltà di far evolvere un sistema che privilegia la stabilità sopra ogni altra caratteristica.
+
+\subsection{Evoluzione del Protocollo: Hard Fork e Soft Fork}
+Nonostante questi vincoli strutturali, Bitcoin dispone di meccanismi che permettono l'evoluzione del protocollo bilanciando l'esigenza di stabilità con l'esigenza di adattamento e miglioramento.
+
+Queste modifiche possono essere implementate principalmente in due modi:
+\begin{itemize}
+    \item \textbf{Hard Fork:} Rappresenta un cambiamento non retro compatibile che richiede l’aggiornamento di tutti i nodi. Questo comporterà il fatto che i vecchi blocchi \textbf{non accetteranno i nuovi blocchi} creando, dunque, un partizionamento tra i nodi che li accettano e i nodi che non li accettano.
+    \item \textbf{Soft Fork:} Implementa modifiche retrocompatibili che restringono o precisano regole già esistenti. I blocchi saranno, dunque, \textbf{validi anche per nodi non aggiornati}. Il rischio qui è che i vecchi nodi producano ancora blocchi non conformi
+\end{itemize}
+La comunità Bitcoin ha storicamente privilegiato soft fork per minimizzare i rischi di frammentazione, utilizzando tecniche di progettazione che permettono significative innovazioni mantenendo la retro compatibilità.
+
+\section{Conservare Bitcoin}
+Come sappiamo, Bitcoin è implementato attraverso un sistema di \textbf{Crittografia Asimmetrica} in cui abbiamo:
+\begin{itemize}
+    \item \textbf{Chiave privata:} Sequenza numerica segreta che permette di generare firme digitali valide per autorizzare transazioni. Rappresenta di fatto il pieno controllo sui fondi.
+    \item \textbf{Chiave pubblica:} Derivata matematicamente dalla chiave privata attraverso operazioni sulla curva ellittica secp256k1.
+    \item \textbf{Indirizzo Bitcoin:} Hash della chiave pubblica, utilizzato come "destinatario" nelle transazioni per ragioni di compattezza e sicurezza aggiuntiva.
+\end{itemize}
+Per possedere dei Bitcoin è necessario dimostrare di possedere la chiave privata associata a degli specifici \textbf{uTXO}. Quello che avremo dunque bisogno di conservare è proprio questa chiave privata.

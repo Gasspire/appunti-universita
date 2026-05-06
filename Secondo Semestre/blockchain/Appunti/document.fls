@@ -699,6 +699,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 OUTPUT document.toc
 INPUT ./parts/capitolo_1.tex
 INPUT ./parts/capitolo_1.tex
@@ -707,7 +708,6 @@ INPUT parts/capitolo_1.tex
 INPUT ./parts/capitolo_1.tex
 INPUT ./parts/capitolo_1.tex
 INPUT parts/capitolo_1.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
@@ -832,6 +832,13 @@ INPUT ./Images/capitolo_5/lv_anonimato.png
 INPUT Images/capitolo_5/lv_anonimato.png
 INPUT ./Images/capitolo_5/lv_anonimato.png
 INPUT ./Images/capitolo_5/lv_anonimato.png
+INPUT ./parts/capitolo_7.tex
+INPUT ./parts/capitolo_7.tex
+INPUT ./parts/capitolo_7.tex
+INPUT parts/capitolo_7.tex
+INPUT ./parts/capitolo_7.tex
+INPUT ./parts/capitolo_7.tex
+INPUT parts/capitolo_7.tex
 INPUT ./parts/capitolo_mdr_1.tex
 INPUT parts/capitolo_mdr_1.tex
 INPUT ./parts/capitolo_mdr_1.tex

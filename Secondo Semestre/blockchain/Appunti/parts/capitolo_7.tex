@@ -1,0 +1,153 @@
+\chapter{Alternative Mining Puzzles}
+I puzzle crittografici costituiscono il nucleo fondamentale del sistema Bitcoin, rappresentando non solo un meccanismo di sicurezza, ma anche il principio cardine del sistema di incentivi che guida il comportamento dei partecipanti alla rete. Il sistema di mining di Bitcoin si basa su un delicato equilibrio: da un lato, il puzzle deve essere sufficientemente complesso da rendere \textbf{costosi eventuali tentativi di attacco, garantendo così la sicurezza della rete; dall'altro, deve mantenere un livello di difficoltà tale da assicurare che i miner onesti ricevano compensi adeguati per il loro contributo}. Questo equilibrio è essenziale per la sostenibilità a lungo termine dell'ecosistema Bitcoin.
+
+Il design di questi puzzle crittografici non è tuttavia limitato alla configurazione attualmente implementata in Bitcoin. Esistono infatti numerose proposte alternative che perseguono obiettivi diversi, come la \textbf{resistenza agli ASIC (Application-Specific Integrated Circuits), la resistenza ai mining pool e la generazione di benefici intrinseci oltre alla sicurezza della blockchain}. Questo capitolo analizza tali alternative, esaminandone le caratteristiche, i vantaggi potenziali e le sfide implementative.
+
+\section{Requisiti dei Mining Puzzles}
+Indipendentemente dalle specifiche implementazioni, qualsiasi puzzle crittografico adeguato all’utilizzo in un sistema di criptovalute deve soddisfare alcuni requisiti fondamentali. Questi criteri rappresentano il minimo necessario affinché il meccanismo possa garantire la sicurezza, la stabilità e l’equità del sistema.
+
+I requisiti principali sono:
+\begin{itemize}
+    \item \textbf{Verifica Economica (Efficienza di Verifica)}: Un requisito imprescindibile è l'asimmetria computazionale: sebbene la ricerca della soluzione debba essere estremamente onerosa, la sua verifica deve essere immediata e computazionalmente economica. Questo aspetto è cruciale poiché, mentre il mining è un’attività svolta da un sottoinsieme di nodi, la verifica delle soluzioni deve essere eseguita da \textit{tutti} i partecipanti per convalidare la blockchain. Un processo di verifica oneroso comprometterebbe la scalabilità e la decentralizzazione, aumentando eccessivamente i requisiti hardware.
+    
+    \item \textbf{Difficoltà Adattiva}: Il puzzle deve consentire un aggiustamento parametrico della difficoltà di risoluzione. Questa caratteristica è essenziale per mantenere costante il tempo medio di emissione dei blocchi, indipendentemente dalle fluttuazioni della potenza di calcolo totale della rete (\textit{hashrate}). In Bitcoin, ad esempio, la difficoltà viene ricalibrata ogni 2016 blocchi (circa due settimane) per mantenere un tempo medio di inter-arrivo di 10 minuti.
+    
+    \item \textbf{Proporzionalità alle Risorse}: In un sistema equo, la probabilità di trovare una soluzione valida deve essere direttamente proporzionale alla potenza di calcolo impiegata. Questo principio garantisce che i partecipanti ricevano ricompense commisurate al loro contributo effettivo, prevenendo distorsioni che potrebbero favorire arbitrariamente determinati attori.
+    
+    \item \textbf{Assenza di Progresso (Progress-Free)}: Il puzzle deve essere progettato in modo che ogni tentativo di risoluzione sia indipendente dai precedenti (proprietà \textit{memoryless}). Questo garantisce che gli operatori di grandi dimensioni non ottengano un vantaggio spropositato dovuto all'accumulo di lavoro: la probabilità di minare il blocco successivo dipende solo dalla frazione di potenza di calcolo posseduta nel presente, non dal tempo trascorso a tentare la risoluzione.
+    
+    \item \textbf{Accessibilità e Decentralizzazione}: Complementarmente alla proporzionalità, è necessario che anche gli operatori con risorse limitate ricevano compensi che, nel lungo periodo, siano proporzionali al loro contributo. Questo previene una centralizzazione eccessiva e assicura che il sistema rimanga aperto alla partecipazione di una vasta base di utenti.
+\end{itemize}
+\subsection{Il Problema dei Puzzle Sequenziali (Bad Puzzle)}
+
+Per comprendere meglio le proprietà necessarie a un mining puzzle, è utile analizzare l'inefficacia di un approccio puramente sequenziale. Immaginiamo un puzzle che richieda l'esecuzione di $n$ passaggi computazionali strettamente dipendenti, dove l'operazione $i+1$ necessita obbligatoriamente dell'output del passaggio $i$. 
+
+A prima vista, un simile meccanismo potrebbe sembrare equo: chiunque, completando gli $n$ passi, può giungere alla soluzione. Tuttavia, in un contesto reale caratterizzato da un'elevata \textbf{eterogeneità dell'hardware}, questo design introduce una distorsione fatale per la decentralizzazione:
+
+\begin{itemize}
+    \item \textbf{Monopolio del più veloce (Winner-Takes-All)}: In un puzzle sequenziale, la competizione non è una lotteria, ma una gara di velocità pura. Se un miner possiede un'architettura hardware (es. un chip con frequenza di clock superiore) anche solo marginalmente più veloce degli altri, egli completerà gli $n$ passi \textit{sempre} prima di chiunque altro.
+    \item \textbf{Erosione della Proporzionalità}: A differenza del Proof-of-Work di Bitcoin, dove un miner con l'1\% della potenza di calcolo ha comunque l'1\% di probabilità di vincere, in un puzzle sequenziale quel miner avrebbe lo \textbf{0\% di probabilità} di successo. Il sistema degenererebbe istantaneamente in un monopolio assoluto controllato dall'attore con la latenza computazionale più bassa.
+    \item \textbf{Sensibilità all'Architettura}: La "parità di architettura" è un'ipotesi teorica irrealizzabile. Lo sviluppo di circuiti integrati specifici (\textit{Application-Specific Integrated Circuits}, ASIC) ottimizzati per quella specifica sequenza renderebbe obsoleto qualsiasi altro hardware general-purpose, centralizzando l'emissione di moneta nelle mani di chi controlla la produzione di tali chip.
+\end{itemize}
+
+In sintesi, un mining puzzle efficace deve essere \textbf{probabilistico} (basato su tentativi indipendenti) e non deterministico/sequenziale, per garantire che la competizione rimanga aperta e che le ricompense siano distribuite in modo equo su tutta la rete.
+
+\subsection{Good Puzzle: Campionamento Pesato e Proprietà Progress-Free}
+
+Al contrario dei modelli sequenziali, un puzzle crittografico efficace deve basarsi su tentativi indipendenti e privi di memoria (\textit{memoryless}). In questo scenario, la risoluzione del puzzle non è vista come un percorso lineare, ma come una serie di esperimenti casuali (Bernoulli trials).
+
+Le caratteristiche principali di questo modello sono:
+
+\begin{itemize}
+    \item \textbf{Indipendenza dei Tentativi}: Ogni tentativo di risoluzione (ad esempio, il calcolo di un hash SHA-256 con un diverso \textit{nonce}) ha la stessa probabilità di successo e non dipende dai risultati dei tentativi precedenti. Non esiste, quindi, un concetto di "avvicinamento" alla soluzione.
+    
+    \item \textbf{Equità Probabilistica}: Quello che si ottiene è un campionamento pesato della potenza di calcolo. Se un partecipante possiede il 10\% della potenza di calcolo totale della rete (e quindi effettua il 10\% dei tentativi globali), egli avrà euristicamente il 10\% di probabilità di trovare la soluzione per primo. Anche contro un avversario che possiede il restante 90\%, il miner più piccolo mantiene una probabilità di vittoria non nulla, proporzionale al suo sforzo.
+    
+    \item \textbf{Vantaggio del Throughput sulla Latenza}: In questo sistema, non vince necessariamente chi ha il processore più veloce in assoluto, ma chi riesce a generare il maggior numero di tentativi nel tempo. Questo permette a più macchine meno performanti di aggregarsi (come nei \textit{mining pool}) per competere efficacemente contro hardware estremamente specializzato.
+\end{itemize}
+Questo design garantisce la stabilità del sistema: la sicurezza della rete non dipende dalla velocità del singolo, ma dalla potenza collettiva, rendendo il costo di un attacco (il superamento del 50\% della potenza totale) estremamente elevato e prevedibile.
+
+\section{Puzzle Resistenti agli ASIC}
+
+L'evoluzione del mining di Bitcoin ha portato al passaggio dall'hardware \textit{general-purpose} (CPU, GPU) ai circuiti integrati dedicati (\textbf{ASIC}), estremamente più efficienti nell'eseguire SHA-256. Questa transizione ha sollevato dubbi sulla decentralizzazione, spingendo la ricerca verso puzzle resistenti agli ASIC per due obiettivi principali:
+
+\begin{itemize}
+    \item \textbf{Democratizzazione del Mining}: Ridurre il divario prestazionale tra hardware \textit{commodity} (PC, laptop) e dispositivi specializzati. L'obiettivo è abbassare le barriere d'ingresso, permettendo a un numero maggiore di utenti di partecipare alla sicurezza del network.
+    
+    \item \textbf{Prevenzione della Dominanza Manifatturiera}: Impedire che pochi produttori controllino l'ecosistema. Attualmente, i leader di mercato godono di vantaggi competitivi critici:
+    \begin{itemize}
+        \item \textit{Vantaggio da rodaggio (burn-in)}: Possibilità di utilizzare i chip più efficienti per il mining proprio prima di immetterli sul mercato.
+        \item \textit{Progettazione interna}: Accesso esclusivo a tecnologie di ottimizzazione non disponibili ai concorrenti minori o agli utenti finali.
+    \end{itemize}
+\end{itemize}
+
+In sintesi, l'approccio mira a minimizzare il gap tecnologico tra le ultime innovazioni e l'hardware già disponibile sul mercato, rendendo meno profittevole lo sviluppo di chip ultra-specializzati.
+
+\subsection{Scrypt e i Memory-Hard Puzzles}
+I \textbf{Memory-Hard Puzzles} sono una classe di algoritmi progettati per rendere il costo della computazione dipendente non solo dalla velocità della CPU, ma anche dalla memoria RAM disponibile. In sintesi, possono essere risolti in due modalità:
+\begin{itemize}
+    \item \textbf{Approccio con Memoria}: Sfruttando lo spazio di archiviazione per efficientare il calcolo, ottenendo un tempo di esecuzione lineare $O(N)$.
+    \item \textbf{Approccio "Brute-Force"}: Tentando di risolvere il puzzle senza bufferizzazione, il che costringe a ricalcolare i dati intermedi, portando la complessità a un tempo quadratico $O(N^2)$, proibitivo per valori di $N$ elevati.
+\end{itemize}
+Sviluppato nel 2009, \textbf{Scrypt} è stato il primo protocollo di questo tipo adottato su larga scala per contrastare il dominio degli ASIC. Il suo funzionamento si divide in due fasi principali:
+\subsubsection*{1. Write Stage (Riempimento)}
+In questa fase si costruisce una struttura dati (vettore $V$) riempiendola in maniera iterativa con valori pseudocasuali derivati dall'input $x$:
+\[V_0 = H(x), \quad V_1 = H(V_0), \quad \dots, \quad V_{N-1} = H(V_{N-2})\]
+L'obiettivo è occupare una quantità significativa di memoria RAM che sia difficile da replicare in piccoli chip specializzati.
+\subsubsection*{2. Read Stage (Accesso Casuale)}
+La fase di lettura introduce la dipendenza dai dati salvati:
+\begin{enumerate}
+    \item Si inizializza un accumulatore $A = H(V_{N-1})$.
+    \item Per ogni passo $k$ da $0$ a $N-1$:
+    \begin{itemize}
+        \item Si determina un indice pseudocasuale $i = A \pmod N$.
+        \item Si aggiorna l'accumulatore: $A = H(A \oplus V_i)$.
+    \end{itemize}
+    \item Il valore finale di $A$ costituisce l'output.
+\end{enumerate}
+\subsubsection*{Analisi del Time-Memory Trade-off (TMTO)}
+Senza l'utilizzo di un buffer (memoria), il miner dovrebbe ricalcolare ogni $V_i$ partendo da $V_0$ ogni volta che l'indice $i$ viene richiamato. Poiché calcolare $V_i$ richiede mediamente $N/2$ operazioni di hashing, l'intero ciclo di lettura passerebbe da $N$ operazioni a circa $N \cdot \frac{N}{2} \approx \frac{N^2}{2}$.
+
+È possibile implementare dei compromessi: memorizzando solo metà degli elementi, il tempo di calcolo aumenta solo leggermente (da $2N$ a circa $2.5N$), mantenendo comunque una crescita lineare. 
+Tuttavia, Scrypt presenta lo svantaggio che la verifica è costosa quanto il mining, poiché il verificatore deve possedere la stessa quantità di memoria del prover.Nonostante le premesse, la resistenza agli ASIC di Scrypt è stata superata dalla creazione di hardware dedicato (come il miner \textit{Zeus}), dimostrando come la corsa agli armamenti tecnologici sia difficilmente arrestabile se gli incentivi economici sono sufficientemente alti..
+
+\subsection{Approcci Alternativi alla Resistenza agli ASIC}
+Oltre all'utilizzo intensivo della memoria, sono state proposte altre strategie per mitigare la centralizzazione del mining:
+
+\subsubsection*{Funzioni di Hash Complesse}
+Questa strategia prevede l'utilizzo di una catena di diversi algoritmi di hash. Un esempio celebre è l'algoritmo X11, utilizzato inizialmente da Darkcoin (oggi DASH), che concatena ben 11 diverse funzioni di hash. L'idea alla base è che progettare un ASIC capace di ottimizzare simultaneamente 11 algoritmi differenti sia tecnicamente più impegnativo e molto più costoso rispetto a un singolo chip SHA-256.
+
+\subsubsection*{Target Mobile}
+Un approccio più radicale consiste nel modificare periodicamente l'algoritmo del puzzle stesso. Cambiando le regole del gioco, gli ASIC esistenti diventano istantaneamente obsoleti. Sebbene efficace sulla carta, questa strategia presenta notevoli sfide implementative, tra cui il rischio di fork della blockchain e la necessità di aggiornamenti software estremamente frequenti per tutti i nodi della rete.
+
+\subsubsection*{SHA-256}
+È interessante notare che esiste una corrente di pensiero che sostiene che l'algoritmo SHA-256 di Bitcoin sia già sufficientemente adeguato. Questa posizione si basa sull'osservazione che l'evoluzione degli ASIC per Bitcoin sta rallentando, con miglioramenti marginali tra generazioni successive. In questa prospettiva, i grandi ASIC più costosi offrono vantaggi prestazionali sempre più ridotti rispetto ai modelli più economici:
+
+Un ASIC economico contiene un numero inferiore di circuiti SHA-256 standard rispetto a un ASIC costoso, ma l'architettura fondamentale rimane la stessa. Questa standardizzazione limita il vantaggio derivante da economie di scala o da progetti proprietari avanzati, potenzialmente stabilizzando l'ecosistema del mining nel lungo periodo.
+
+\section{Proof-of-Useful Work}
+Una critica frequentemente rivolta a Bitcoin riguarda lo "spreco" di energia  elettrica per il mining. Con un consumo energetico stimato tra 150 MW e 900 MW (a metà del 2014), e significativamente aumentato negli anni successivi, sorge spontanea la domanda: "è possibile riciclare questa potenza computazionale per scopi utili?"
+
+Tra le applicazioni potenzialmente adatte a questo approccio vi sono problemi del tipo ``ago nel pagliaio'', che richiedono l'esplorazione di vasti spazi di ricerca. Esempi promettenti includono:
+
+\begin{itemize}
+    \item \textbf{Folding proteico}: La ricerca di configurazioni a bassa energia per proteine, con applicazioni in biologia e medicina.
+    \item \textbf{Ricerca di segnali extraterrestri}: L'analisi di regioni anomale in segnali astronomici, utilizzata nella ricerca di intelligenze extraterrestri.
+\end{itemize}
+
+Questi problemi hanno dimostrato di essere adatti a progetti di calcolo distribuito come i progetti $@Home$, suggerendo una potenziale compatibilità con un sistema di mining distribuito.
+
+\subsection*{Sfide Implementative}
+L'implementazione di \textit{proof-of-useful-work} deve affrontare diverse sfide:
+
+\begin{itemize}
+    \item \textbf{Difficoltà controllata}: Le istanze del problema scelte casualmente devono mantenere un livello di difficoltà prevedibile.
+    \item \textbf{Selezione imparziale}: Si pone il problema di chi debba scegliere i problemi da risolvere, con il rischio di introdurre centralizzazione o bias.
+\end{itemize}
+\subsection{Primecoin e le Catene di Cunningham}
+
+Un esempio concreto di \textit{proof-of-useful-work} è \textbf{Primecoin}, una criptovaluta lanciata da Sunny King nel 2013. Primecoin sostituisce il tradizionale puzzle basato su SHA-256 con la ricerca di sequenze matematiche di valore scientifico, specificamente le \textbf{catene di Cunningham}.
+
+Una catena di Cunningham di prima specie è una sequenza di numeri primi $p_1, p_2, \dots, p_n$ tale che ogni elemento sia legato al precedente dalla relazione:
+\[p_i = 2p_{i-1} + 1\]
+ovvero ogni numero della sequenza è pari al doppio del precedente più uno. 
+
+Per garantire che il mining sia sicuro e legato al consenso della rete, il puzzle viene parametrizzato nel seguente modo:
+\begin{itemize}
+    \item \textbf{Precisione ($n$)}: Rappresenta la dimensione in bit dei numeri primi ricercati, definendo la complessità computazionale del test di primalità.
+    \item \textbf{Binding ($m$)}: Un numero stabilito di bit significativi (MSB) del primo numero della catena ($p_1$) deve coincidere con l'hash del corpo del blocco (\textit{block header}). Questo vincolo è fondamentale poiché impedisce ai miner di riutilizzare catene scoperte in precedenza o di "pre-minare" soluzioni.
+    \item \textbf{Lunghezza ($k$)}: Indica il numero di elementi primi che compongono la catena. Poiché la probabilità di trovare catene lunghe decresce esponenzialmente, $k$ funge da parametro principale per la difficoltà adattiva.
+\end{itemize}
+
+Sebbene molte delle più grandi catene di Cunningham attualmente note siano state scoperte proprio dai miner di Primecoin, il dibattito sulla reale utilità di tali scoperte rimane aperto. Se da un lato esse contribuiscono alla teoria dei numeri, dall'altro l'utilità pratica al di fuori dell'ecosistema della moneta è considerata da molti ricercatori come marginale rispetto all'enorme dispendio energetico richiesto.
+\subsection{Virtual Mining: Proof of Stake e Proof of Deposit}
+Il concetto di \textbf{Virtual Mining} rappresenta un cambio di paradigma volto a superare le inefficienze energetiche e i costi hardware della Proof of Work. In questo modello, la sicurezza della rete non è garantita dal consumo di elettricità, ma dall'impiego di risorse finanziarie interne al sistema. L'attività di mining viene "virtualizzata" attraverso due approcci principali:
+
+\begin{itemize}
+    \item \textbf{Proof of Stake (PoS)}: Il diritto di validare nuovi blocchi e ricevere le relative ricompense è proporzionale alla quantità di moneta posseduta e "messa in gioco" (\textit{staked}) dai partecipanti.
+    \item \textbf{Proof of Deposit (PoD)}: Simile alla PoS, richiede che i fondi vengano bloccati in un deposito vincolato per un determinato periodo, fungendo da garanzia collaterale per il comportamento onesto del nodo.
+\end{itemize}
+
+L'argomentazione a favore della sicurezza di questi sistemi si basa sulla \textbf{convergenza degli incentivi}: un attacco del 51% in un sistema PoS richiederebbe l'acquisto della maggioranza della valuta circolante. Un simile acquisto non solo farebbe lievitare enormemente il prezzo di mercato per effetto della domanda, ma renderebbe l'attacco controproducente: se l'attaccante riuscisse a compromettere la rete, il valore della massiccia quantità di monete in suo possesso crollerebbe istantaneamente.
+
+Tuttavia, l'assenza di un costo fisico esterno (il cosiddetto "lavoro" termodinamico) solleva questioni critiche, come il problema del \textbf{Nothing at Stake}, dove i validatori non hanno un costo reale nel supportare più rami di una fork, e la tendenza alla centralizzazione della ricchezza ("chi più ha, più ottiene"). La sfida per i sistemi post-PoW rimane quindi dimostrare che il rigore matematico e gli incentivi economici possano sostituire interamente la sicurezza garantita dalla spesa energetica.
