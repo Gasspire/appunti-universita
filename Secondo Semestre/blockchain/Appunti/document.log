@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  27 APR 2026 18:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  6 MAY 2026 13:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/dave/appunti-universita/blockchain/Appunti/document.tex
-(/home/dave/appunti-universita/blockchain/Appunti/document.tex
+**"/home/dave/appunti-universita/Secondo Semestre/blockchain/Appunti/document.tex"
+(/home/dave/appunti-universita/Secondo Semestre/blockchain/Appunti/document.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
@@ -390,7 +390,7 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count309
  (./parts/frontespizio.tex
-<Images/university_logo.png, id=205, 106.3975pt x 112.42pt>
+<Images/university_logo.png, id=269, 106.3975pt x 112.42pt>
 File: Images/university_logo.png Graphic file (type png)
 <use Images/university_logo.png>
 Package pdftex.def Info: Images/university_logo.png  used on input line 3.
@@ -417,13 +417,13 @@ Capitolo 1.
 [5
 
 ]
-<Images/capitolo_1/tampering_block.png, id=293, 560.8453pt x 307.90031pt>
+<Images/capitolo_1/tampering_block.png, id=374, 560.8453pt x 307.90031pt>
 File: Images/capitolo_1/tampering_block.png Graphic file (type png)
 <use Images/capitolo_1/tampering_block.png>
 Package pdftex.def Info: Images/capitolo_1/tampering_block.png  used on input line 45.
 (pdftex.def)             Requested size: 195.0pt x 107.0526pt.
  [6]
-<Images/capitolo_1/Merkle_tree.png, id=304, 573.64313pt x 297.36093pt>
+<Images/capitolo_1/Merkle_tree.png, id=385, 573.64313pt x 297.36093pt>
 File: Images/capitolo_1/Merkle_tree.png Graphic file (type png)
 <use Images/capitolo_1/Merkle_tree.png>
 Package pdftex.def Info: Images/capitolo_1/Merkle_tree.png  used on input line 62.
@@ -431,18 +431,18 @@ Package pdftex.def Info: Images/capitolo_1/Merkle_tree.png  used on input line 6
  [7 <./Images/capitolo_1/tampering_block.png> <./Images/capitolo_1/Merkle_tree.png>] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
-<Images/capitolo_1/ecdsa.png, id=314, 832.61063pt x 658.71094pt>
+<Images/capitolo_1/ecdsa.png, id=395, 832.61063pt x 658.71094pt>
 File: Images/capitolo_1/ecdsa.png Graphic file (type png)
 <use Images/capitolo_1/ecdsa.png>
 Package pdftex.def Info: Images/capitolo_1/ecdsa.png  used on input line 92.
 (pdftex.def)             Requested size: 272.99881pt x 215.97816pt.
  [8] [9 <./Images/capitolo_1/ecdsa.png>]
-<Images/capitolo_1/double_spending.png, id=334, 575.14874pt x 324.46219pt>
+<Images/capitolo_1/double_spending.png, id=414, 575.14874pt x 324.46219pt>
 File: Images/capitolo_1/double_spending.png Graphic file (type png)
 <use Images/capitolo_1/double_spending.png>
 Package pdftex.def Info: Images/capitolo_1/double_spending.png  used on input line 108.
 (pdftex.def)             Requested size: 272.99881pt x 154.0122pt.
-<Images/capitolo_1/scrooge_coin.png, id=335, 496.10344pt x 283.81032pt>
+<Images/capitolo_1/scrooge_coin.png, id=415, 496.10344pt x 283.81032pt>
 File: Images/capitolo_1/scrooge_coin.png Graphic file (type png)
 <use Images/capitolo_1/scrooge_coin.png>
 Package pdftex.def Info: Images/capitolo_1/scrooge_coin.png  used on input line 119.
@@ -467,7 +467,7 @@ Overfull \hbox (14.67776pt too wide) has occurred while \output is active
  []
 
 [15]
-<Images/capitolo_2/double_spending_bc.png, id=378, 1107.38719pt x 427.5975pt>
+<Images/capitolo_2/double_spending_bc.png, id=458, 1107.38719pt x 427.5975pt>
 File: Images/capitolo_2/double_spending_bc.png Graphic file (type png)
 <use Images/capitolo_2/double_spending_bc.png>
 Package pdftex.def Info: Images/capitolo_2/double_spending_bc.png  used on input line 73.
@@ -498,12 +498,12 @@ Overfull \hbox (14.67776pt too wide) has occurred while \output is active
  []
 
 [19]
-<Images/capitolo_2/account_ledger.png, id=406, 1096.84781pt x 441.90094pt>
+<Images/capitolo_2/account_ledger.png, id=487, 1096.84781pt x 441.90094pt>
 File: Images/capitolo_2/account_ledger.png Graphic file (type png)
 <use Images/capitolo_2/account_ledger.png>
 Package pdftex.def Info: Images/capitolo_2/account_ledger.png  used on input line 128.
 (pdftex.def)             Requested size: 272.99881pt x 109.98273pt.
-<Images/capitolo_2/input_out.png, id=407, 773.89125pt x 513.41812pt>
+<Images/capitolo_2/input_out.png, id=488, 773.89125pt x 513.41812pt>
 File: Images/capitolo_2/input_out.png Graphic file (type png)
 <use Images/capitolo_2/input_out.png>
 Package pdftex.def Info: Images/capitolo_2/input_out.png  used on input line 136.
@@ -523,7 +523,7 @@ Capitolo 3.
 [22
 
 ]
-<Images/capitolo_3/tentativo_ds.png, id=424, 397.485pt x 124.21407pt>
+<Images/capitolo_3/tentativo_ds.png, id=505, 397.485pt x 124.21407pt>
 File: Images/capitolo_3/tentativo_ds.png Graphic file (type png)
 <use Images/capitolo_3/tentativo_ds.png>
 Package pdftex.def Info: Images/capitolo_3/tentativo_ds.png  used on input line 23.
@@ -533,24 +533,24 @@ Capitolo 4.
 [29
 
 ] [30]
-<Images/capitolo_4/transazione_blind.png, id=466, 642.14906pt x 211.54031pt>
+<Images/capitolo_4/transazione_blind.png, id=546, 642.14906pt x 211.54031pt>
 File: Images/capitolo_4/transazione_blind.png Graphic file (type png)
 <use Images/capitolo_4/transazione_blind.png>
 Package pdftex.def Info: Images/capitolo_4/transazione_blind.png  used on input line 48.
 (pdftex.def)             Requested size: 350.99762pt x 115.63094pt.
  [31]
-<Images/capitolo_4/tegliera.png, id=472, 483.30562pt x 212.29312pt>
+<Images/capitolo_4/tegliera.png, id=552, 483.30562pt x 212.29312pt>
 File: Images/capitolo_4/tegliera.png Graphic file (type png)
 <use Images/capitolo_4/tegliera.png>
 Package pdftex.def Info: Images/capitolo_4/tegliera.png  used on input line 60.
 (pdftex.def)             Requested size: 234.00238pt x 102.78711pt.
-<Images/capitolo_4/grafo_conoscenza.png, id=474, 735.49782pt x 605.26125pt>
+<Images/capitolo_4/grafo_conoscenza.png, id=554, 735.49782pt x 605.26125pt>
 File: Images/capitolo_4/grafo_conoscenza.png Graphic file (type png)
 <use Images/capitolo_4/grafo_conoscenza.png>
 Package pdftex.def Info: Images/capitolo_4/grafo_conoscenza.png  used on input line 67.
 (pdftex.def)             Requested size: 234.00238pt x 192.5608pt.
  [32 <./Images/capitolo_4/transazione_blind.png> <./Images/capitolo_4/tegliera.png>] [33 <./Images/capitolo_4/grafo_conoscenza.png>]
-<Images/capitolo_4/cifratura_tor.png, id=490, 634.37pt x 365.365pt>
+<Images/capitolo_4/cifratura_tor.png, id=570, 634.37pt x 365.365pt>
 File: Images/capitolo_4/cifratura_tor.png Graphic file (type png)
 <use Images/capitolo_4/cifratura_tor.png>
 Package pdftex.def Info: Images/capitolo_4/cifratura_tor.png  used on input line 98.
@@ -560,61 +560,71 @@ Capitolo 5.
 [40
 
 ] [41] [42]
-<Images/capitolo_5/diffie_hellman.png, id=545, 613.29124pt x 229.85875pt>
+<Images/capitolo_5/diffie_hellman.png, id=626, 613.29124pt x 229.85875pt>
 File: Images/capitolo_5/diffie_hellman.png Graphic file (type png)
 <use Images/capitolo_5/diffie_hellman.png>
-Package pdftex.def Info: Images/capitolo_5/diffie_hellman.png  used on input line 81.
+Package pdftex.def Info: Images/capitolo_5/diffie_hellman.png  used on input line 83.
 (pdftex.def)             Requested size: 272.99881pt x 102.31662pt.
- [43] [44 <./Images/capitolo_5/diffie_hellman.png>]) (./parts/capitolo_mdr_1.tex [45]
+ [43] [44 <./Images/capitolo_5/diffie_hellman.png>] [45] [46] [47]) (./parts/capitolo_6.tex [48]
 Capitolo 6.
-<Images/capitolo_2/trans_real.png, id=577, 1160.08406pt x 612.78937pt>
+[49
+
+] [50] [51] [52] [53] [54] [55]
+<Images/capitolo_5/lv_anonimato.png, id=718, 1182.4175pt x 629.35126pt>
+File: Images/capitolo_5/lv_anonimato.png Graphic file (type png)
+<use Images/capitolo_5/lv_anonimato.png>
+Package pdftex.def Info: Images/capitolo_5/lv_anonimato.png  used on input line 154.
+(pdftex.def)             Requested size: 234.00238pt x 124.54279pt.
+) (./parts/capitolo_mdr_1.tex [56 <./Images/capitolo_5/lv_anonimato.png>]
+Capitolo 7.
+<Images/capitolo_2/trans_real.png, id=725, 1160.08406pt x 612.78937pt>
 File: Images/capitolo_2/trans_real.png Graphic file (type png)
 <use Images/capitolo_2/trans_real.png>
 Package pdftex.def Info: Images/capitolo_2/trans_real.png  used on input line 7.
 (pdftex.def)             Requested size: 390.0pt x 206.00803pt.
-[46
+[57
 
  <./Images/capitolo_2/trans_real.png>]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 35.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [47]
-<Images/capitolo_2/verifica_firma.png, id=593, 1258.7025pt x 200.24812pt>
+) [58]
+<Images/capitolo_2/verifica_firma.png, id=741, 1258.7025pt x 200.24812pt>
 File: Images/capitolo_2/verifica_firma.png Graphic file (type png)
 <use Images/capitolo_2/verifica_firma.png>
 Package pdftex.def Info: Images/capitolo_2/verifica_firma.png  used on input line 55.
 (pdftex.def)             Requested size: 390.0pt x 62.04572pt.
- [48 <./Images/capitolo_2/verifica_firma.png>] [49] [50] [51] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def
+ [59 <./Images/capitolo_2/verifica_firma.png>] [60] [61] [62] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def
 File: uni-33.def 2013/05/13 UCS: Unicode data U+2100..U+21FF
-) [52]) (./parts/capitolo_mdr_2.tex [53]
-Capitolo 7.
-[54
+) [63]) (./parts/capitolo_mdr_2.tex [64]
+Capitolo 8.
+[65
 
-] [55]
-<Images/capitolo_mdr_2/nuovo_nodo.png, id=637, 620.3175pt x 426.09187pt>
+] [66]
+<Images/capitolo_mdr_2/nuovo_nodo.png, id=785, 620.3175pt x 426.09187pt>
 File: Images/capitolo_mdr_2/nuovo_nodo.png Graphic file (type png)
 <use Images/capitolo_mdr_2/nuovo_nodo.png>
 Package pdftex.def Info: Images/capitolo_mdr_2/nuovo_nodo.png  used on input line 44.
 (pdftex.def)             Requested size: 272.99881pt x 187.52pt.
- [56]) [57 <./Images/capitolo_mdr_2/nuovo_nodo.png>] [58]
+ [67]) [68 <./Images/capitolo_mdr_2/nuovo_nodo.png>] [69]
 No file document.bbl.
 (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 878005CFD370FA67A176B02F7C573E43;9573.
+(rerunfilecheck)             Checksum: 218320D34FCBB89AAEF3EFF926C9CCEC;12411.
  ) 
 Here is how much of TeX's memory you used:
- 14754 strings out of 480163
- 233610 string characters out of 5894093
- 702433 words of memory out of 5000000
- 32260 multiletter control sequences out of 15000+600000
+ 14828 strings out of 480163
+ 234774 string characters out of 5894093
+ 704433 words of memory out of 5000000
+ 32285 multiletter control sequences out of 15000+600000
  478106 words of font info for 58 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 60i,12n,63p,931b,502s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on document.pdf (59 pages, 1856402 bytes).
+ 60i,12n,63p,950b,502s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on document.pdf (70 pages, 1983253 bytes).
 PDF statistics:
- 786 PDF objects out of 1000 (max. 8388607)
- 645 compressed objects within 7 object streams
- 205 named destinations out of 1000 (max. 500000)
- 491 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 948 PDF objects out of 1000 (max. 8388607)
+ 791 compressed objects within 8 object streams
+ 250 named destinations out of 1000 (max. 500000)
+ 624 words of extra memory for PDF output out of 10000 (max. 10000000)
 

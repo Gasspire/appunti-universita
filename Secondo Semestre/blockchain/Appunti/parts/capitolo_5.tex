@@ -28,6 +28,8 @@ Sia \textit{view} la variabile aleatoria che denota ciò che vede V durante l'es
 
 Cioè quello che riesce a produrre la macchina a stati finiti M è del tutto indistinguibile dall'esecuzione reale del protocollo.    
 
+In generale, per dimostrare la proprietà di Zero knowledge, guardiamo alla View e cerchiamo di ricostruire i parametri a ritroso poiché l'importante qui è proprio l'ordine in cui avvengono le cose, senza di questo, la conversazione sarebbe banale.
+
 \subsection{Isomorfismo tra Grafi}
 Due grafi si definiscono \textbf{isomorfi} se esiste un'applicazione biunivoca tale che ogni nodo di $G_1$ può essere mappato in un nodo di $G_2$ preservando il grado.  
 
@@ -128,3 +130,50 @@ Vediamo come funziona la prova Zero Knowledge. Siano $g^x = X, g^y = Y, g^{xy} =
         \item Calcoliamo $u = g^z/ y^c$ e $v = X^z/W^c$ In questo modo, quando il Verificatore andrà a controllare se $X^z = v \cdot W^c$, l'uguaglianza sarà vera per costruzione, anche se il simulatore non sa assolutamente nulla di $x$ o $y$.
     \end{enumerate}
 \end{itemize}
+
+\subsection*{Teorema Fondamentale sulla Zero Knowledge}
+Se esistono funzioni unidirezionali, allora ogni linguaggio in NP ammette una \textbf{zero knowledge proof}. 
+
+\section{Prove di Conoscenza}
+Le prove che abbiamo visto, sono \textbf{prove di appartenenza} in cui noi dimostriamo che una certa quadrupla nel caso Diffie-Hellman appartiene a un certo linguaggio NP formato da tutte le quadruple Diffie-Hellman. 
+
+Potremmo non solo voler dimostrare l'appartenenza ad un certo linguaggio, ma potremmo voler anche mostrare come questo vi appartenga. Per intenderci, non solo voglio dimostrare che il grafo possiede un ciclo Hamiltoniano, ma voglio anche \textbf{mostrare di conoscere} questo cammino. Queste sono dette \textbf{prove di conoscenza} in cui vogliamo dimostrare di conoscere qualcosa senza che questa conoscenza venga trasferita. 
+
+\subsection{Formalizzazione di Conoscenza}
+Consideriamo relazioni in NP, ovvero linguaggi L che ammettono una funzione (o relazione) polinomiale $\rho$ tale che, per ogni $x \in L$, esiste y detto \textbf{testimone} tale che soddisfa $\rho(x,y) = 1$.
+
+Se voglio dimostrare che un grafo è Hamiltoniano, $y$ sarebbe proprio il cammino vero e proprio.
+
+Una prova di conoscenza vorremmo che sia un qualcosa che dimostri che noi possediamo questo tipo di conoscenza senza che, però, la mostri al verificatore.
+
+Per fare una cosa di questo tipo, richiediamo l'esistenza di un algoritmo \textbf{estrattore E} che, interagendo con il prover, estrarrà l'informazione in questione.
+
+\subsection*{Esempio di Prova di conoscenza}
+Supponiamo di avere $h,g$ con $h= g^x$ con $x$ segreto e g e h scelti opportunamente e con l'insieme degli esponenti del tipo $\{1, \dots, m\}$. Facciamo la prova di conoscenza in questo modo:
+\begin{enumerate}
+    \item Il prover sceglie $R = g^r$ con r la randomness e manda $R$ al verificatore.
+    \item Il verificatore sceglie $c \in \{1,\dots, m\}$. 
+    \item Il prover calcola $s = r+cx \mod m$ e lo manda
+    \item Il verificatore verifica che $g^s = R \cdot h^c$.
+\end{enumerate}
+Se il prover conosce $x$, allora non è un problema rispondere due volte alla challenge con lo stesso $R$. Per cui, supponiamo di avere queste due risposte:
+\begin{align*}
+    &g^S_{1} = R \cdot h^C_{1}\\
+    &g^S_{2} = R \cdot h^C_{2}\\
+\end{align*}
+Avendo questi due, possiamo calcolare:
+\[g^{S_1-S_2} = h^{C_1-C_2}\]
+Siano $S_1-S_2 = \Delta S$ e $C_1-C_2 = \Delta C$, allora avremo che $x=\frac{\Delta S}{\Delta C}$ e, dunque, $h = g^{\frac{\Delta S}{\Delta C}}$.
+
+Nella pratica, un prover onesto non risponderà mai a due sfide diverse utilizzando la stessa componente casuale ($R$), poiché tale negligenza permetterebbe a chiunque di estrarre immediatamente la sua chiave privata. Tuttavia, la validità della Proof of Knowledge risiede proprio in questa possibilità teorica: la proprietà di Knowledge Soundness garantisce infatti che, se un'entità (l'estrattore) fosse in grado di ottenere due risposte diverse per lo stesso impegno, il segreto estratto sarebbe univocamente quello corretto. Questo 'esperimento mentale' ci assicura matematicamente che il prover non sta fornendo risposte casuali per pura fortuna, ma che deve necessariamente essere in possesso della conoscenza che dichiara di avere.
+
+\subsection{ZeroKnowledge Proof Non Interattiva}
+Nello scenario delle blockchain, l'interazione diretta tra Prover e Verifier risulta spesso impraticabile poiché richiederebbe che entrambe le parti siano online simultaneamente per scambiarsi messaggi in tempo reale. 
+
+Per ovviare a questo limite, si ricorre alle Non-Interactive Zero-Knowledge Proofs (NIZK). Una prova si definisce non interattiva quando il Prover può generare e inviare un singolo messaggio (la prova) che chiunque può verificare in modo asincrono, senza ulteriori comunicazioni.L'integrazione di queste prove in sistemi distribuiti è fondamentale per garantire la scalabilità e la verificabilità pubblica: un miner o un nodo deve poter validare una transazione privata anche ore o giorni dopo la sua creazione. Il metodo standard per trasformare un protocollo interattivo (come quello di Schnorr) in uno non interattivo è l'euristica di Fiat-Shamir. 
+
+Tale tecnica consiste nel sostituire la sfida casuale $c$ del Verifier con il risultato di una funzione hash crittografica applicata ai dati pubblici e all'impegno iniziale del Prover:
+\[c = H(x, R)\]
+Dove $x$ rappresenta l'istante pubblico e $R$ il commitment iniziale. 
+Poiché l'output di una funzione hash è imprevedibile, il Prover non può conoscere la sfida prima di aver fissato il proprio impegno, rendendo matematicamente impossibile barare. In questo modo, la sequenza di messaggi viene "compressa" in un unico oggetto statico, garantendo che la sicurezza del protocollo rimanga integra pur eliminando la necessità di un dialogo diretto.
+

@@ -1,9 +1,9 @@
-PWD /home/dave/appunti-universita/blockchain/Appunti
+PWD /home/dave/appunti-universita/Secondo Semestre/blockchain/Appunti
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/dave/appunti-universita/blockchain/Appunti/document.tex
+INPUT /home/dave/appunti-universita/Secondo Semestre/blockchain/Appunti/document.tex
 OUTPUT document.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/book.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/book.cls
@@ -820,6 +820,18 @@ INPUT ./Images/capitolo_5/diffie_hellman.png
 INPUT Images/capitolo_5/diffie_hellman.png
 INPUT ./Images/capitolo_5/diffie_hellman.png
 INPUT ./Images/capitolo_5/diffie_hellman.png
+INPUT ./parts/capitolo_6.tex
+INPUT ./parts/capitolo_6.tex
+INPUT ./parts/capitolo_6.tex
+INPUT parts/capitolo_6.tex
+INPUT ./parts/capitolo_6.tex
+INPUT ./parts/capitolo_6.tex
+INPUT parts/capitolo_6.tex
+INPUT ./Images/capitolo_5/lv_anonimato.png
+INPUT ./Images/capitolo_5/lv_anonimato.png
+INPUT Images/capitolo_5/lv_anonimato.png
+INPUT ./Images/capitolo_5/lv_anonimato.png
+INPUT ./Images/capitolo_5/lv_anonimato.png
 INPUT ./parts/capitolo_mdr_1.tex
 INPUT parts/capitolo_mdr_1.tex
 INPUT ./parts/capitolo_mdr_1.tex
@@ -869,6 +881,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb
