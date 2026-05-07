@@ -148,3 +148,215 @@ Come sappiamo, Bitcoin è implementato attraverso un sistema di \textbf{Crittogr
 Per possedere dei Bitcoin è necessario dimostrare di possedere la chiave privata associata a degli specifici \textbf{uTXO}. Quello che avremo dunque bisogno di conservare è proprio questa chiave privata.
 
 \subsection{Wallet}
+I wallet Bitcoin sono software o dispositivi hardware progettati per la gestione delle chiavi private e la facilitazione delle operazioni crittografiche necessarie alla rete. 
+È fondamentale sottolineare che un wallet \textbf{non "contiene" fisicamente i bitcoin} i quali esistono esclusivamente come registrazioni contabili sulla blockchain ma funge da custode delle credenziali digitali indispensabili per disporne. Un wallet completo integra diverse funzionalità core e gestisce il paradigma della pseudonimia attraverso gli indirizzi.
+
+L'operatività di un wallet si articola su diversi pilastri tecnici e metodologie di gestione della privacy:
+
+\begin{itemize}
+    \item \textbf{Gestione Crittografica e Firme}: Il wallet archivia in modo sicuro le chiavi private e le utilizza per la \textbf{firma delle transazioni}, l'unico meccanismo che autorizza il trasferimento di fondi verso altri indirizzi.
+    \item \textbf{Generazione e Formato degli Indirizzi}: Il software crea nuovi indirizzi Bitcoin, solitamente presentati in formato \textbf{base58} con l'inclusione di un \textit{checksum} per prevenire errori di trascrizione. Per scopi estetici o identificativi, è possibile generare \textbf{indirizzi vanity}, ovvero indirizzi personalizzati che iniziano con una sequenza di caratteri specifica (es. \texttt{10DaVePP20...}), ottenuti tramite ricerca esaustiva.
+    \item \textbf{Monitoraggio degli UTXO}: Attraverso l'interrogazione costante della blockchain, il wallet tiene traccia degli \textbf{Unspent Transaction Outputs} (UTXO) disponibili, permettendo all'utente di conoscere in tempo reale il proprio saldo spendibile.
+    \item \textbf{Ottimizzazione delle Commissioni}: Il wallet stima e suggerisce le commissioni (\textit{fees}) più appropriate in base alla congestione attuale della rete, bilanciando velocità di conferma e costo.
+    \item \textbf{Privacy e Pseudonimia}: Gli indirizzi svolgono un ruolo chiave nella protezione dell'identità. L'\textbf{uso multiplo}, ovvero la pratica di generare un nuovo indirizzo per ogni transazione ricevuta, rafforza significativamente la pseudonimia del sistema, rendendo estremamente complessa l'analisi dei flussi finanziari e il tracciamento delle connessioni tra i diversi attori.
+\end{itemize}
+\subsection{Strategie di Conservazione: Hot Storage e Cold Storage}
+
+Nella gestione delle criptovalute, la dicotomia tra accessibilità e sicurezza viene risolta attraverso l'adozione di due paradigmi complementari: l'\textbf{hot storage} e il \textbf{cold storage}. Questa strategia riproduce metaforicamente la distinzione tra un conto corrente bancario, destinato alla conservazione del patrimonio, e un portafoglio fisico, utilizzato per le transazioni quotidiane.
+
+\subsubsection*{Hot Storage}
+L'hot storage identifica sistemi di conservazione le cui chiavi private risiedono in ambienti costantemente \textbf{connessi alla rete}, come smartphone, computer desktop o servizi di wallet online. 
+\begin{itemize}
+    \item \textbf{Vantaggi}: Estrema facilità d'uso e immediatezza nell'esecuzione di pagamenti e scambi.
+    \item \textbf{Rischi}: Elevata esposizione ad attacchi informatici, malware, phishing e vulnerabilità del software di sistema. È consigliabile mantenere in hot storage solo frazioni limitate di capitale necessarie all'operatività corrente.
+\end{itemize}
+
+\subsubsection*{Cold Storage}
+Il cold storage è progettato per la conservazione a lungo termine di ingenti capitali, minimizzando la superficie di attacco attraverso l'\textbf{isolamento fisico} dalla rete (\textit{Air-gapping}). Oltre ai dispositivi offline già citati, la gestione del cold storage può avvalersi di diversi supporti e tecniche di derivazione:
+
+\begin{itemize}
+    \item \textbf{Hardware e Tamper-proof Wallet}: Dispositivi fisici specializzati (come smart card o moduli HSM) dotati di chip resistenti alla manomissione (\textit{tamper-proof}). Questi generano e conservano le chiavi in un elemento sicuro (\textit{Secure Element}), impedendo l'esportazione della chiave privata anche in caso di accesso fisico forzato.
+    \item \textbf{Paper Wallet e Supporti Esterni}: La stampa fisica delle chiavi su carta/metallo o l'archiviazione in \textbf{memorie USB isolate}. Questi supporti sono immuni agli attacchi remoti ma vulnerabili al deterioramento fisico o al furto.
+    \item \textbf{Brain Wallet}: Una metodologia in cui la chiave privata non viene memorizzata su un supporto fisico, ma derivata da una password (\textit{passphrase}) memorizzata esclusivamente nella mente dell'utente. 
+\end{itemize}
+
+\paragraph{Generazione e Sicurezza delle Chiavi}
+Partendo da una password (\textit{pwd}), la chiave privata $x$ viene ottenuta tramite una funzione di hash, mentre la chiave pubblica $y$ è il punto sulla curva ellittica:
+\[ x = \text{hash}(pwd) \implies y = G^x \]
+
+Poiché il nostro cervello non è in grado di generare informazioni con molta entropia, questo approccio introduce un rischio critico di \textbf{Password Cracking}. 
+Un attaccante può eseguire attacchi \textit{offline} massivi (global attacks) testando milioni di password comuni per vedere se corrispondono a indirizzi con fondi sulla blockchain. \footnote{Si usano i classici attacchi brute force o a dizionario.}
+
+Per mitigare questa vulnerabilità, si utilizzano due tecniche fondamentali:
+
+\begin{itemize}
+    \item \textbf{Key Sequence Generation}: La generazione deterministica di una sequenza di chiavi (come visto negli HD Wallet) per evitare il riutilizzo degli indirizzi.
+    \item \textbf{Key Stretching}: L'applicazione iterativa di funzioni di hash o l'uso di algoritmi \textit{memory-hard} (come PBKDF2 o Argon2). Questa tecnica "allunga" il tempo computazionale necessario per ogni singolo tentativo di hash, rendendo gli attacchi di brute-force economicamente e temporalmente insostenibili per l'attaccante.
+\end{itemize}
+
+
+\subsubsection*{Il processo di firma Air-gapped}
+Per massimizzare la sicurezza senza rinunciare alla funzionalità, si adotta spesso un protocollo di firma in tre fasi che garantisce che la chiave privata non entri mai in contatto con un ambiente online:
+\begin{enumerate}
+    \item \textbf{Preparazione}: La transazione viene creata su un dispositivo online (che osserva la blockchain ma non possiede le chiavi).
+    \item \textbf{Firma Offline}: La transazione non firmata viene trasferita al dispositivo in \textit{cold storage} (tramite USB, scheda SD o QR code). Qui viene apposta la firma digitale in un ambiente isolato.
+    \item \textbf{Trasmissione}: La transazione firmata viene riportata sul dispositivo online e trasmessa (\textit{broadcasted}) alla rete Bitcoin.
+\end{enumerate}
+
+\subsubsection*{Hierarchical Deterministic (HD) Wallet}
+
+Una delle migliori prassi nel protocollo Bitcoin è l'\textbf{evitare il riutilizzo degli indirizzi} (\textit{address reuse}). Se un utente inviasse tutti i propri risparmi a un unico indirizzo di \textit{cold storage}, un osservatore della blockchain potrebbe facilmente raggruppare (\textit{clustering}) tutte le transazioni in entrata, riconducendole a un'unica entità e compromettendo la privacy del patrimonio complessivo.
+
+Per risolvere questo problema senza costringere l'utente a gestire migliaia di backup diversi, si utilizzano i \textbf{Wallet Gerarchici Deterministici (HD Wallet)}. L'idea alla base è la generazione di un intero albero di chiavi a partire da un unico segreto primario, il \textbf{Master Seed} (solitamente rappresentato da una sequenza di 12 o 24 parole mnemoniche).
+
+\paragraph{Meccanismo di Derivazione}
+Il sistema utilizza una funzione di derivazione che combina una chiave e un valore denominato \textbf{Chain Code} ($k$), il quale funge da ulteriore entropia. Il processo permette di separare la generazione delle chiavi private da quella degli indirizzi pubblici:
+
+\begin{itemize}
+    \item \textbf{Derivazione delle Chiavi Private}: Permette di generare la $i$-esima chiave figlia partendo dalla chiave privata master.
+    \item \textbf{Derivazione delle Chiavi Pubbliche}: Permette di generare l'$i$-esimo indirizzo pubblico partendo solo dalla chiave pubblica master (senza mai esporre la chiave privata).
+\end{itemize}
+
+\paragraph{Modello Matematico (ECDSA)}
+In un sistema basato su curve ellittiche, la derivazione di una chiave figlia $x_i$ e della relativa chiave pubblica $P_i$ a partire dai parametri master $(y, G^y)$ e dal chain code $k$ avviene come segue:
+
+\begin{itemize}
+    \item \textbf{Chiave privata $i$-esima}: $x_i = (y + \text{hash}(k \parallel i)) \pmod n$
+    \item \textbf{Chiave pubblica $i$-esima}: $P_i = G^{x_i} = G^y + G^{\text{hash}(k \parallel i)}$
+    \item \textbf{Indirizzo $i$-esimo}: $A_i = \text{hash}(P_i)$
+\end{itemize}
+
+\paragraph{Sicurezza e Gerarchia}
+Questo schema offre vantaggi cruciali in termini di resilienza e gestione del rischio:
+\begin{itemize}
+    \item \textbf{Isolamento delle chiavi}: La compromissione della chiave privata di un singolo indirizzo figlio non compromette la chiave master né le chiavi "sorelle".
+    \item \textbf{Backup unico}: È sufficiente conservare il \textit{Master Seed} per poter rigenerare l'intero albero di chiavi in caso di smarrimento del dispositivo.
+    \item \textbf{Gerarchia di accesso}: È possibile fornire a un terzo (es. un consulente o un software di monitoraggio) la sola chiave pubblica master (\textit{Extended Public Key} o \texttt{xpub}). Questo permette di generare tutti gli indirizzi pubblici per monitorare il saldo senza che il terzo possa mai spendere i fondi, poiché non possiede la chiave privata master.
+\end{itemize}
+
+Tuttavia, la perdita della \textbf{Master Private Key} comporta la perdita totale e irreversibile di tutti i fondi contenuti nell'intera struttura gerarchica.
+
+\paragraph{Derivazione Indurita e Sicurezza}
+Un aspetto cruciale della specifica BIP-32 è la distinzione tra derivazione normale e \textbf{indurita (hardened)}. Se un attaccante compromettesse una chiave pubblica estesa (xpub) e una chiave privata figlia derivata normalmente, potrebbe ricostruire la chiave privata master. Per prevenire questo scenario, si utilizza la derivazione indurita (per indici $i \ge 2^{31}$), che utilizza la chiave privata del genitore come input per la funzione HMAC-SHA512, interrompendo la relazione matematica tra le chiavi pubbliche e garantendo che la compromissione di un ramo non risalga mai alla radice.
+
+\section{Algoritmo di Firma Digitale ECDSA}
+
+ECDSA rappresenta l'algoritmo di firma digitale utilizzato in Bitcoin per autenticare le transazioni. Esso garantisce che solo il legittimo proprietario di una chiave privata possa autorizzare il movimento dei fondi, assicurando l'integrità e l'originalità del messaggio (transazione).
+
+L'implementazione di ECDSA nel protocollo Bitcoin si basa sulla specifica curva ellittica \textbf{secp256k1}. I componenti fondamentali sono:
+
+\begin{itemize}
+    \item \textbf{Parametri Pubblici}: Includono il punto generatore $G$ della curva e l'ordine $q$ del gruppo.
+    \item \textbf{Chiave Privata}: Un intero $x$ scelto casualmente nell'intervallo $\{1, \dots, q-1\}$. Deve rimanere segreto.
+    \item \textbf{Chiave Pubblica}: Il punto $Y = G^x$ sulla curva ellittica, ottenuto attraverso la moltiplicazione scalare del generatore per la chiave privata.
+\end{itemize}
+
+\subsection{Processo di Firma}
+La generazione di una firma per un messaggio (o hash di una transazione) $m$ segue i seguenti passaggi:
+
+\begin{enumerate}
+    \item \textbf{Selezione della randomness}: Si sceglie un numero casuale $k$ (denominato \textit{nonce}) nell'intervallo $\{1, \dots, q-1\}$.
+    \item \textbf{Calcolo del punto di impegno}: Si calcola il punto $R = G^k$ sulla curva.
+    \item \textbf{Estrazione di $r$}: Si estrae l'ascissa $r$ del punto $R$. Questo rappresenta la prima componente della firma.
+    \item \textbf{Calcolo di $s$}: Si calcola la seconda componente come:
+    \[ s = k^{-1}(m + r \cdot x) \pmod q \]
+    \item \textbf{Output}: La firma completa è la coppia $(r, s)$.
+\end{enumerate}
+
+\subsubsection*{Importanza del parametro $k$}
+La sicurezza di ECDSA dipende criticamente dalla gestione del valore casuale $k$. Esso deve essere:
+\begin{itemize}
+    \item Generato con \textbf{elevata entropia} (imprevedibile).
+    \item \textbf{Utilizzato una sola volta} (\textit{never reused}).
+    \item Mantenuto \textbf{segreto}.
+\end{itemize}
+\textbf{Nota storica:} La riutilizzazione o la prevedibilità di $k$ ha portato a fallimenti catastrofici in passato (come nei casi di PlayStation 3 e di alcune vulnerabilità Android), permettendo ad attaccanti di derivare la chiave privata $x$ con semplici operazioni algebriche.
+
+\subsection*{Processo di Verifica}
+Qualsiasi nodo della rete può verificare la validità di una firma $(r, s)$ rispetto a un messaggio $m$ e alla chiave pubblica $Y$:
+
+\begin{enumerate}
+    \item Si calcola l'hash $m$ del messaggio originale.
+    \item Si calcolano i coefficienti:
+    \[ u_1 = m \cdot s^{-1} \pmod q \quad \text{e} \quad u_2 = r \cdot s^{-1} \pmod q \]
+    \item Si ricostruisce il punto $R$ sulla curva:
+    \[ R = G^{u_1} + Y^{u_2} \]
+    \item Si verifica che l'ascissa del punto $R$ così ottenuto sia congruente a $r \pmod q$.
+\end{enumerate}
+
+Se la condizione è soddisfatta, la firma è valida. Poiché questo processo richiede solo informazioni pubbliche ($Y, m, r, s$), la verifica è un'operazione completamente decentralizzata che chiunque può eseguire autonomamente.
+
+\subsection{Secret Sharing e Threshold Cryptography}
+
+La gestione sicura delle chiavi private può beneficiare di tecniche di condivisione del segreto, che permettono di distribuire il rischio tra più componenti, evitando che la compromissione di un singolo elemento esponga l'intero sistema.
+
+\subsection{Principi del Secret Sharing}
+Il \textit{secret sharing} è una tecnica crittografica che permette di dividere un segreto $S$ (come una chiave privata) in $n$ parti, dette \textbf{shares}, in modo che:
+\begin{itemize}
+    \item Il segreto originale possa essere ricostruito solo combinando un numero sufficiente di shares.
+    \item Nessuna informazione sul segreto sia rivelata analizzando un numero insufficiente di esse.
+\end{itemize}
+
+Le implementazioni elementari includono:
+\begin{itemize}
+    \item \textbf{XOR sharing}: $S = S_1 \oplus S_2$. Il segreto è diviso in due parti; entrambe sono necessarie per riprodurre $S$ tramite l'operazione XOR.
+    \item \textbf{Additive sharing}: $S = S_1 + S_2 + \dots + S_n \pmod p$. Il segreto è la somma modulo $p$ di tutte le $n$ componenti.
+\end{itemize}
+
+\subsection{Threshold Secret Sharing (Shamir's Scheme)}
+Lo schema di Shamir ($t$-out-of-$n$) rappresenta un'evoluzione che permette di specificare un \textbf{numero minimo $t$ (soglia)} di shares necessario per la ricostruzione.
+
+Il meccanismo si basa sulle proprietà dei polinomi:
+\begin{itemize}
+    \item \textbf{Costruzione}: Il segreto $S$ viene incorporato come termine costante di un polinomio di grado $t-1$:
+    \[ P_S(x) = S + a_1x + a_2x^2 + \dots + a_{t-1}x^{t-1} \pmod p \]
+    dove i coefficienti $a_i$ sono scelti casualmente.
+    \item \textbf{Distribuzione}: Vengono generate $n$ chiavi come coppie $(i, s_i = P_S(i))$ per $i \in [1, n]$.
+    \item \textbf{Ricostruzione}: Il segreto può essere recuperato attraverso l'\textbf{interpolazione polinomiale di Lagrange} usando almeno $t$ shares:
+    \[ S = P_S(0) = \sum_{j=1}^{t} \lambda_j s_j \pmod p \]
+\end{itemize}
+
+La sicurezza deriva dal fatto che, matematicamente, per $t-1$ punti passano infiniti polinomi di grado $t-1$, ciascuno con un termine costante differente. Ciò rende il segreto perfettamente sicuro finché non si raggiunge la soglia critica $t$.
+
+\subsection{Threshold Signatures}
+Le firme a soglia estendono il concetto di \textit{secret sharing} al processo di firma digitale, permettendo a un gruppo di partecipanti di autorizzare una transazione senza che nessuno di essi possieda l'intera chiave privata.
+
+\begin{itemize}
+    \item La chiave privata $x$ viene condivisa tra $n$ partecipanti tramite \textit{threshold secret sharing}.
+    \item Una firma valida può essere generata solo con la collaborazione di almeno $t$ partecipanti.
+    \item \textbf{Sicurezza avanzata}: La chiave privata non viene mai ricostruita integralmente durante il processo di firma poiché i partecipanti generano "firme parziali" che vengono poi aggregate. Questo riduce drasticamente il rischio di esposizione.
+\end{itemize}
+
+L'integrazione con Bitcoin rappresenta una sfida specialmente per ECDSA che non è nativamente lineare. Tuttavia, l'introduzione di \textbf{Schnorr Signatures} con l'aggiornamento \textit{Taproot} offre proprietà matematiche molto più favorevoli, permettendo implementazioni di firme a soglia estremamente efficienti e indistinguibili da firme standard sulla blockchain.
+
+\subsection*{Le Firme di Schnorr}
+L'algoritmo di firma di Schnorr è molto utile grazie alla sua proprietà di \textbf{linearità}. Mentre in ECDSA il processo di firma distribuita richiede protocolli complessi e pesanti, in Schnorr è possibile aggregare firme parziali con semplici operazioni aritmetiche.
+
+Prima di analizzare il caso a soglia, vediamo come si compone una firma di Schnorr singola per un messaggio \textit{msg}:
+\begin{enumerate}
+    \item \textbf{Generazione del Nonce}: Si sceglie un valore casuale $k$ e si calcola l'impegno pubblico $R = G^k$.
+    \item \textbf{Sfida (Challenge)}: Si calcola l'hash che lega il messaggio all'impegno: $e = \text{hash}(msg \parallel R)$.
+    \item \textbf{Risposta (Response)}: Si calcola $z = k + e \cdot x \pmod q$, dove $x$ è la chiave privata.
+    \item \textbf{Verifica}: La firma $(R, z)$ è valida se $G^z = R \cdot Y^e$ (dove $Y$ è la chiave pubblica).
+\end{enumerate}
+
+\paragraph{Schema a Soglia $(t, n)$}
+Nel caso di una firma a soglia, la chiave privata $x$ è divisa in share $x_i$ tra $n$ server. Per generare una firma valida, una sottoclasse di almeno $t$ server deve collaborare attraverso tre fasi:
+
+
+\begin{itemize}
+    \item \textbf{Fase 1 (Commitment Distribuito)}: 
+    Ogni server $S_i$ sceglie un nonce locale $k_i$, calcola $R_i = G^{k_i}$ e lo trasmette agli altri. Al termine della fase, tutti i partecipanti calcolano l'impegno globale come somma dei singoli impegni:
+    \[ R = \sum R_i = G^{\sum k_i} \]
+    
+    \item \textbf{Fase 2 (Firma Parziale)}: 
+    Ogni server calcola la sfida comune $e = \text{hash}(msg \parallel R)$ e produce una firma parziale $z_i$:
+    \[ z_i = k_i + e \cdot \lambda_i \cdot x_i \pmod q \]
+    Dove $\lambda_i$ è il coefficiente di Lagrange necessario per ricostruire il segreto dal subset di partecipanti.
+    
+    \item \textbf{Fase 3 (Aggregazione)}: 
+    Le firme parziali vengono sommate per ottenere la componente $z$ finale della firma standard:
+    \[ z = \sum z_i \]
+\end{itemize}
+
+Il risultato finale $(R, z)$ è una firma di Schnorr perfettamente valida rispetto alla chiave pubblica totale $Y$. L'aspetto rivoluzionario è che, sulla blockchain, questa firma \textbf{appare identica} a una firma singola. Non vi è alcun modo per un osservatore esterno di capire se la firma sia stata generata da un singolo individuo o da un gruppo di $t$ server, garantendo massima privacy ed efficienza (occupa sempre lo stesso spazio).

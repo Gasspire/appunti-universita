@@ -80,3 +80,16 @@
 \contentsline {subsection}{\numberline {9.3.1}Evoluzione del Protocollo: Hard Fork e Soft Fork}{82}{subsection.9.3.1}%
 \contentsline {section}{\numberline {9.4}Conservare Bitcoin}{82}{section.9.4}%
 \contentsline {subsection}{\numberline {9.4.1}Wallet}{83}{subsection.9.4.1}%
+\contentsline {subsection}{\numberline {9.4.2}Strategie di Conservazione: Hot Storage e Cold Storage}{84}{subsection.9.4.2}%
+\contentsline {paragraph}{Generazione e Sicurezza delle Chiavi}{85}{section*.45}%
+\contentsline {paragraph}{Meccanismo di Derivazione}{86}{section*.48}%
+\contentsline {paragraph}{Modello Matematico (ECDSA)}{87}{section*.49}%
+\contentsline {paragraph}{Sicurezza e Gerarchia}{87}{section*.50}%
+\contentsline {paragraph}{Derivazione Indurita e Sicurezza}{87}{section*.51}%
+\contentsline {section}{\numberline {9.5}Algoritmo di Firma Digitale ECDSA}{88}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Processo di Firma}{88}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Secret Sharing e Threshold Cryptography}{89}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Principi del Secret Sharing}{90}{subsection.9.5.3}%
+\contentsline {subsection}{\numberline {9.5.4}Threshold Secret Sharing (Shamir's Scheme)}{90}{subsection.9.5.4}%
+\contentsline {subsection}{\numberline {9.5.5}Threshold Signatures}{91}{subsection.9.5.5}%
+\contentsline {paragraph}{Schema a Soglia $(t, n)$}{92}{section*.55}%

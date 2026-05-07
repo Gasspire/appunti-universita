@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Security/Last lesson speed run any %.md",
+                "file": "Teoria dei Grafi/Rettangoli Latini.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Last lesson speed run any %"
+              "title": "Rettangoli Latini"
             }
           }
         ]
@@ -185,8 +185,9 @@
   },
   "active": "634239f5ce72e968",
   "lastOpenFiles": [
-    "Computer Security/Prima e Seconda Lezione GDPR.md",
     "Computer Security/Last lesson speed run any %.md",
+    "Teoria dei Grafi/Rettangoli Latini.md",
+    "Computer Security/Prima e Seconda Lezione GDPR.md",
     "Principi/Lezione 22 Apr.md",
     "Principi/Welcome.md",
     "Senza nome.base",
