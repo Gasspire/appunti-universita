@@ -79,3 +79,4 @@
 \contentsline {section}{\numberline {9.3}Limiti Strutturali di Bitcoin}{81}{section.9.3}%
 \contentsline {subsection}{\numberline {9.3.1}Evoluzione del Protocollo: Hard Fork e Soft Fork}{82}{subsection.9.3.1}%
 \contentsline {section}{\numberline {9.4}Conservare Bitcoin}{82}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}Wallet}{83}{subsection.9.4.1}%
