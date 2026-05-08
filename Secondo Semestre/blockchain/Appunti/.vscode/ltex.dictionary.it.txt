@@ -6,3 +6,5 @@ Hamiltoniano
 commitment
 Zerocoin
 Knowledge
+mining
+Mining

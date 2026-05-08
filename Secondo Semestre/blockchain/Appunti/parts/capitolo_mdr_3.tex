@@ -1,1 +1,73 @@
-\chapter{}
+\chapter{Smart Contract ed Ethereum}
+
+L'idea fondamentale degli \textbf{smart contract} (concetto introdotto da Nick Szabo negli anni '90) nasce dalla volontà di superare i limiti strutturali dei contratti tradizionali, spesso definiti in modo provocatorio \textit{dumb contracts}. A differenza di un contratto legale che richiede la redazione di un avvocato, dipende dalla giurisdizione statale e necessita di interpretazione umana, uno smart contract è un protocollo informatico. 
+
+Esso presenta tre caratteristiche distintive:
+\begin{itemize}
+    \item \textbf{Assenza di ambiguità}: Essendo scritto in codice deterministico, il contratto esegue esattamente ciò che è stato programmato, riducendo i margini di interpretazione.
+    \item \textbf{Auto-esecuzione}: Non necessita di intermediari (come giudici o notai) per essere applicato; la piattaforma di esecuzione ne garantisce l'adempimento forzoso.
+    \item \textbf{Trasparenza}: Il codice è pubblico, verificabile da chiunque e memorizzato in modo immutabile sulla blockchain.
+\end{itemize}
+
+\section{Limitazioni di Bitcoin Script}
+Bitcoin possiede un linguaggio di scripting interno (\textbf{Script}), progettato però per essere intenzionalmente limitato per ragioni di sicurezza. I suoi principali vincoli sono:
+\begin{itemize}
+    \item \textbf{Logica limitata}: Script non è \textit{Turing-complete}. Supporta principalmente operazioni di accettazione o rifiuto di transazioni (\textit{stateless logic}).
+    \item \textbf{Assenza di loop}: Per evitare attacchi \textit{Denial of Service} (DoS) basati su cicli infiniti, non sono ammesse istruzioni di iterazione.
+    \item \textbf{Mancanza di stato}: Lo script non ha memoria persistente se non lo stack temporaneo di esecuzione; non può "ricordare" dati tra una transazione e l'altra.
+    \item \textbf{Blockchain Blindness}: Lo script è ``cieco'' rispetto ai dati ambientali della blockchain (come timestamp o difficoltà), limitandosi a verificare le condizioni di sblocco degli UTXO.
+\end{itemize}
+Queste restrizioni, insieme all'uso di una \textbf{whitelist} di script standard accettati dai miner, rendono Bitcoin un sistema eccellente per il trasferimento di valore, ma inadatto a eseguire programmi complessi.
+
+\subsection{Il Caso Namecoin: Limiti della Logica di Bitcoin}
+
+Per comprendere appieno le limitazioni di Bitcoin Script, è utile analizzare il caso di \textbf{Namecoin}, il primo progetto che ha tentato di implementare un sistema DNS (Domain Name System) decentralizzato sulla blockchain. L'obiettivo era creare un mapping immutabile del tipo:
+\[ \text{Domain Name} \longrightarrow \text{IP Address} \]
+
+Un sistema di questo tipo richiederebbe il supporto per tre operazioni fondamentali:
+\begin{itemize}
+    \item \texttt{NameCoin.register(ownerAddr, domainName, initialVal)}: operazione per la registrazione iniziale di un dominio non ancora censito.
+    \item \texttt{NameCoin.update(domainName, newVal, newOwner, ownerSig)}: operazione per aggiornare l'indirizzo IP associato o trasferire la proprietà del dominio. Quest'ultima richiede necessariamente la firma crittografica del proprietario attuale (\textit{ownerSig}).
+    \item \texttt{NameCoin.lookup(domainName)}: funzione di sola lettura, accessibile a chiunque, per risolvere il nome di dominio nel rispettivo indirizzo IP.
+\end{itemize}
+
+In linea teorica, si potrebbe tentare di implementare questa logica in Bitcoin estendendo la \textbf{ScriptPubKey} con nuovi comandi, salvando all'interno dell'UTXO la coppia (dominio, IP) e vincolando la spesa alla verifica della chiave pubblica del proprietario.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{Images/capitolo_mdr_3/namecoin_script.png}
+\end{figure}
+Tuttavia, emerge un limite tecnico insormontabile: \textbf{Bitcoin Script non può verificare se un dominio sia già stato registrato}. Poiché ogni script viene eseguito in isolamento e ha accesso solo ai dati della transazione corrente (proprietà \textit{stateless}), non può interrogare l'intero set di UTXO per convalidare la policy di unicità del nome (fondamentale per un DNS). 
+
+
+A causa di questa incapacità di gestire uno stato globale condiviso, l'idea non ha potuto trovare spazio nel protocollo Bitcoin originale. Namecoin è stato quindi costretto a implementare un \textbf{hard fork}, dando vita a una nuova criptovaluta indipendente. Questo ha comportato la necessità di un nuovo processo di \textit{bootstrap} per creare una community e attirare potenza di calcolo dedicata, frammentando di fatto l'ecosistema invece di integrarsi in esso.
+
+\section{La Piattaforma Ethereum}
+Ethereum nasce con l'obiettivo di superare queste barriere, fornendo uno strato computazionale universale sopra la blockchain. Questo ha permesso la nascita di ecosistemi complessi come gli \textbf{NFT}, la finanza decentralizzata (\textbf{DeFi}), il \textbf{gaming on-chain} e le organizzazioni autonome (\textbf{DAO}).
+
+A differenza di Bitcoin, basato sul modello UTXO (un insieme di "monete" non spese), Ethereum utilizza un \textbf{Account-based model}. La blockchain non è solo una lista di transazioni, ma una \textbf{transizione di stati} che modifica costantemente il \textbf{World State} (lo stato globale del network).
+
+\subsection{Tipologie di Account}
+In Ethereum esistono due tipi di account, entrambi identificati da un indirizzo e dotati di un bilancio in Ether:
+\begin{itemize}
+    \item \textbf{Externally Owned Accounts (EOA)}: Controllati da utenti umani tramite chiavi private e firme ECDSA. Possono inviare transazioni per trasferire ETH o interagire con i contratti.
+    \item \textbf{Contract Accounts}: Account governati esclusivamente dal loro codice (\textbf{EVM Bytecode}). Non possiedono chiavi private e le loro azioni sono innescate solo se ricevono una transazione da un EOA o da un altro contratto. Il codice di un contratto è \textbf{immutabile}; per aggiornarlo, gli sviluppatori utilizzano spesso il pattern \textit{Proxy}, che permette di puntare l'indirizzo del contratto a una nuova logica in modo trasparente.
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/capitolo_mdr_3/contract_account_vs_eoa.png}
+\end{figure}
+
+\subsection{L'unità monetaria: Ether}
+Il valore all'interno della rete è denominato in \textbf{Ether} (ETH). Sebbene l'utente medio ragioni in ETH, internamente il sistema opera esclusivamente in \textbf{Wei}, la minima unità divisibile:
+\begin{itemize}
+    \item 1 Ether = $10^{18}$ Wei
+    \item 1 Finney = $10^{15}$ Wei ($10^{-3}$ ETH)
+    \item 1 Szabo = $10^{12}$ Wei ($10^{-6}$ ETH)
+\end{itemize}
+
+\subsection{Consenso: dal PoW al Proof of Stake}
+Dalla genesi fino a settembre 2022 (evento noto come \textbf{The Merge}), Ethereum ha utilizzato la Proof of Work (basata sull'algoritmo \textit{Ethash}). Per prevenire il dominio degli ASIC, l'algoritmo era stato progettato per essere \textit{memory-hard}, favorendo il mining tramite GPU.
+
+Il passaggio alla \textbf{Proof of Stake} era previsto fin dal design iniziale. Per forzare la migrazione e disincentivare i miner a restare sulla vecchia catena, è stata introdotta la \textbf{Difficulty Bomb} un meccanismo che aumenta esponenzialmente la difficoltà del puzzle crittografico fino a rendere impossibile la produzione di blocchi, rendendo la rete PoW di fatto inutilizzabile e accelerando la transizione verso il nuovo modello basato sullo \textit{staking}.
+
+A differenza di Bitcoin, dove il tempo tra i blocchi è di 10 minuti, Ethereum produce un blocco (o \textit{slot}) ogni 12 secondi, garantendo una finalità delle transazioni molto più rapida. Inoltre, l'emissione di ETH non ha un tetto massimo fisso di 21 milioni, ma è regolata da meccanismi di \textit{burn} e ricompense per i validatori che bilanciano inflazione e deflazione.

@@ -360,3 +360,38 @@ Nel caso di una firma a soglia, la chiave privata $x$ è divisa in share $x_i$ t
 \end{itemize}
 
 Il risultato finale $(R, z)$ è una firma di Schnorr perfettamente valida rispetto alla chiave pubblica totale $Y$. L'aspetto rivoluzionario è che, sulla blockchain, questa firma \textbf{appare identica} a una firma singola. Non vi è alcun modo per un osservatore esterno di capire se la firma sia stata generata da un singolo individuo o da un gruppo di $t$ server, garantendo massima privacy ed efficienza (occupa sempre lo stesso spazio).
+
+
+\subsection{Tecniche di Mining}
+Il mining è un processo di ricerca esaustiva (\textbf{brute force}) di tipo stocastico. Grazie alle proprietà delle funzioni hash crittografiche (pseudo-casualità e resistenza alle pre-immagini), ogni tentativo è statisticamente indipendente dai precedenti. Questa caratteristica, definita \textit{progress-free}, garantisce che un miner con l'1\% della potenza di calcolo globale abbia sempre l'1\% di probabilità di trovare il blocco successivo, indipendentemente da quanto tempo stia lavorando.
+
+
+Tuttavia, il campo \texttt{nonce} nell'header del blocco è limitato a \textbf{32 bit} (circa 4,2 miliardi di combinazioni). Con gli attuali \textit{hashrate}, un moderno ASIC esaurisce questo spazio in una frazione di secondo. Per continuare la ricerca senza attendere un nuovo blocco, i miner utilizzano la transazione \textbf{coinbase}:
+\begin{itemize}
+    \item Modificando un campo arbitrario nella coinbase (chiamato \textit{extraNonce}), cambia l'hash della transazione stessa.
+    \item Questo cambiamento si propaga lungo l'albero di Merkle, modificando la \textbf{Merkle Root} nell'header del blocco.
+    \item Una nuova Merkle Root genera un puzzle intrinsecamente diverso, fornendo altri 4,2 miliardi di nonce da testare.
+\end{itemize}
+
+\subsubsection{Evoluzione dell'Hardware}
+
+L'architettura hardware è passata da soluzioni generiche a circuiti ultra-specializzati:
+\begin{itemize}
+    \item \textbf{Mining con CPU}: L'approccio iniziale basato su processori \textit{general-purpose}. Ormai obsoleto, poiché le CPU sono ottimizzate per istruzioni complesse e bassa latenza, non per l'esecuzione massiva di hash in parallelo.
+    \item \textbf{Mining con GPU}: Le schede grafiche offrono migliaia di \textit{Arithmetic Logic Units} (ALU) in parallelo. Questo passaggio ha permesso di aumentare il \textit{throughput} da circa 20 MH/s a oltre 200 MH/s, essendo l'algoritmo SHA-256 facilmente parallelizzabile.
+    \item \textbf{Mining con ASIC}: Gli \textit{Application-Specific Integrated Circuits} sono chip progettati esclusivamente per calcolare hash SHA-256. Un singolo miner ASIC moderno può raggiungere i 100 TH/s (Tera-hash al secondo), con un'efficienza energetica (Watt/Terahash) irraggiungibile da qualsiasi hardware generico.
+\end{itemize}
+
+\subsection{Mining Pool}
+
+Dato l'altissimo valore della difficoltà, la probabilità per un singolo miner (anche dotato di vari ASIC) di trovare un blocco è estremamente bassa, portando a una varianza dei guadagni insostenibile. Per risolvere questo problema, i miner si aggregano in \textbf{Mining Pool}, coordinati da un \textit{Pool Operator}.
+
+
+
+Il funzionamento si basa sui seguenti pilastri:
+\begin{itemize}
+    \item \textbf{Riduzione della Varianza}: Combinando la potenza di calcolo, la pool trova blocchi con frequenza regolare, garantendo entrate costanti ai partecipanti.
+    \item \textbf{Lavoro Distribuito}: Il server della pool assegna a ciascun partecipante un template di blocco con una transazione \textit{coinbase} unica (legata all'indirizzo del miner o della pool) e uno specifico intervallo di \textit{nonce} da esplorare. Ciò assicura che i partecipanti non sovrappongano il proprio lavoro.
+    \item \textbf{Shares (Near-misses)}: Per dimostrare il proprio lavoro (\textit{Proof of Publication}), i miner inviano alla pool delle \textbf{shares}. Una share è una soluzione del puzzle che non soddisfa la difficoltà della rete, ma soddisfa una \textbf{difficoltà ridotta} stabilita dalla pool.
+    \item \textbf{Schema di Ricompensa}: Quando la pool trova un blocco valido, il premio viene distribuito proporzionalmente al numero di shares inviate. I modelli comuni includono il \textit{Pay Per Share} (PPS) o il \textit{Pay Per Last N Shares} (PPLNS), detraendo una piccola commissione per l'operatore.
+\end{itemize}
