@@ -286,6 +286,8 @@ L'ultima parte è totalmente rossa, ci dice che per accedere bisogna chiedere. T
 
 Abbiamo già notato come la legge 196 faccia riferimento sempre all'idoneità ecc.  il GDPR ci dice che devono essere **CONFORMI ALLO STATO DELL'ARTE**. Qui ci sta un enorme salto di qualità.
 
+
+
 Definizioni:
 ```
 dato personale: qualsiasi informazione riguardante una persona fisica identificata o identificabile («interessato»); si considera identificabile la persona fisica che può essere identificata, direttamente o indirettamente, con particolare riferimento a un identificativo come il nome, un numero di identificazione, dati relativi all'ubicazione, un identificativo online o a uno o più elementi caratteristici della sua identità fisica, fisiologica, genetica, psichica, economica, culturale o sociale;
@@ -309,3 +311,7 @@ Qualunque tipo di operazione, anche la cancellazione e la distruzione.
 Analisi dei dati e fare previsioni sul comportamento della persona.
 
 Uso dei dati per calcolare per esempio il rendimento di uno studente, quanto è veloce a fare qualcosa ecc.
+
+```
+5) «pseudonimizzazione»: il trattamento dei dati personali in modo tale che i dati personali non possano più essere attribuiti a un interessato specifico senza l'utilizzo di informazioni aggiuntive, a condizione che tali informazioni aggiuntive siano conservate separatamente e soggette a misure tecniche e organizzative intese a garantire che tali dati personali non siano attribuiti a una persona fisica identificata o identificabile;
+```

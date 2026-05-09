@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "9ab31f92cc27ad4e",
+        "id": "938514e46a8c365c",
         "type": "tabs",
         "children": [
           {
-            "id": "2f7dbb04d53e2180",
+            "id": "31b2b870ce01453e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoria dei Grafi/Lezione 8 Maggio.md",
+                "file": "Computer Security/Last lesson speed run any %.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 8 Maggio"
+              "title": "Last lesson speed run any %"
             }
           }
         ]
@@ -183,24 +183,25 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "2f7dbb04d53e2180",
+  "active": "31b2b870ce01453e",
   "lastOpenFiles": [
-    "Teoria dei Grafi/Immagini/cocicli.png",
+    "Computer Security/Prima e Seconda Lezione GDPR.md",
+    "Computer Security/Ultima lezione GDPR.md",
+    "Computer Security/Lezione 23 Aprile.md",
+    "Computer Security/Metasploit.md",
+    "Computer Security/Last lesson speed run any %.md",
     "Teoria dei Grafi/Lezione 8 Maggio.md",
+    "Teoria dei Grafi/Immagini/cocicli.png",
     "Teoria dei Grafi/Immagini/cicli elementari.png",
     "Teoria dei Grafi/Rettangoli Latini.md",
     "Blockchain/Immagini/Pasted image 20260423123943.png",
     "Blockchain/Lezione 1. Eth.md",
     "Teoria dei Grafi/Immagini",
     "Blockchain/Immagini/namecoin_script.png",
-    "Computer Security/Metasploit.md",
-    "Computer Security/Last lesson speed run any %.md",
-    "Computer Security/Prima e Seconda Lezione GDPR.md",
     "Principi/Lezione 22 Apr.md",
     "Principi/Welcome.md",
     "Senza nome.base",
     "Senza nome 1.base",
-    "Computer Security/Lezione 23 Aprile.md",
     "Blockchain/Lezione 23 Aprile.md",
     "Blockchain/Immagini/soundness_diffie.png",
     "Blockchain/Immagini/Diffie-Hellman.png",

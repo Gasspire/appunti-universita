@@ -84,3 +84,7 @@ $x R y \leftrightarrow \exists$ un cammino orientato da x verso y e da y verso x
 Essendo una classe di equivalenza valgono le proprietà **riflessiva, transitiva e simmetrica**.
 
 Nasce la classe $A(x_0) = \{x\in X: x R x_0\}$ formano una partizione di $G$ e le classi si chiamano **componenti fortemente connesse**. Quando abbiamo una sola componente fortemente connessa, allora diciamo che il grafo è **fortemente connesso.**
+
+Definizione di fortemente connesso fatta sulla base di classe di equivalenza. 
+
+Teorema che cominciava con Sia G un grafo fortemente connesso.
