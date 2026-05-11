@@ -419,6 +419,361 @@ Le ICV sono variabili concettuali utilizzate per configurare il runtime di OpenM
     \item \textbf{Ambito del Task:} La maggior parte delle ICV è locale al task. Alla creazione di un nuovo task, le ICV vengono ereditate dal genitore; eventuali modifiche effettuate dal task figlio hanno effetto solo sulla sua durata e non si propagano al task chiamante.
 \end{itemize}
 
+\section{Basi della Parallelizzazione dei Cicli con OpenMP}
+
+Il costrutto principale per parallelizzare i cicli in C/C++ è la direttiva \texttt{\#pragma omp parallel for}. Questa istruzione indica al compilatore di suddividere le iterazioni del ciclo tra i thread disponibili.
+
+\vspace{0.3cm}
+\noindent
+Durante la parallelizzazione, è fondamentale definire l'ambito (\textit{scope}) delle variabili per evitare conflitti di memoria:
+
+\begin{itemize}
+    \item \textbf{\texttt{shared(...)}}: Le variabili elencate sono condivise tra tutti i thread. Ogni thread accede alla stessa locazione di memoria.
+    \item \textbf{\texttt{private(...)}}: Ogni thread riceve una copia locale e privata della variabile. Queste copie hanno locazioni di memoria distinte e "muoiono" al termine della regione parallela.
+\end{itemize}
+
+\vspace{0.3cm}
+\noindent
+\texttt{implicit(none)} (o \texttt{default(none)}) è una direttiva di sicurezza caldamente raccomandata: disabilita le ipotesi implicite del compilatore sull'ambito delle variabili e obbliga il programmatore a dichiarare esplicitamente ogni variabile come \texttt{shared} o \texttt{private}, aiutando a individuare errori di logica prima dell'esecuzione.
+
+\subsection*{Note sui Contatori del Ciclo}
+Per impostazione predefinita, il contatore di un ciclo \texttt{for} parallelizzato (es. la variabile \texttt{i}) è considerato \textbf{privato} anche se dichiarato esternamente. Tuttavia, per chiarezza e portabilità (standard C99), è preferibile dichiarare il contatore direttamente nell'intestazione del ciclo: \texttt{for (int i = 0; ...)}.
+
+\subsection*{Prevenzione dei Data Race}
+Quando più thread tentano di aggiornare una variabile condivisa contemporaneamente (es. una somma globale), si verifica un \textit{data race}. Per risolvere il problema mantenendo la correttezza del risultato, OpenMP offre strumenti come \textbf{\texttt{\#pragma omp atomic}}, che protegge una singola operazione di aggiornamento della memoria.
+
+\begin{verbatim}
+            #pragma omp parallel for
+            for ( int i = 0; i < N; i++ )
+                #pragma omp atomic
+                sum += a[i];
+\end{verbatim}
+
+
+\section{Assegnazione del Lavoro}
+
+In OpenMP, la clausola \texttt{schedule} specifica come le iterazioni di un ciclo \texttt{for} parallelo vengono distribuite tra i thread del pool. La sintassi generale è \texttt{schedule(tipo, chunk-size)}. 
+
+Le tipologie di scheduling sono:
+
+\begin{itemize}
+    \item \textbf{\texttt{static}}: L'iterazione è suddivisa in blocchi di dimensione \texttt{chunk-size} distribuiti ai thread in ordine \textit{round-robin} rigido. Se non specificato, i blocchi sono di dimensioni uguali. È basato su pura aritmetica e ha l'overhead minimo.
+    \item \textbf{\texttt{dynamic}}: Le iterazioni sono suddivise in blocchi (\texttt{chunk-size} predefinito a 1) e distribuite ai thread che ne fanno richiesta. Segue il principio "chi prima arriva, prima viene servito". È utile per bilanciare il carico quando le iterazioni hanno costi computazionali diversi, ma introduce overhead di gestione.
+    \item \textbf{\texttt{guided}}: Simile al dinamico, ma la dimensione del blocco iniziale è proporzionale al numero di iterazioni rimanenti divise per il numero di thread. La dimensione decresce progressivamente fino al valore \texttt{chunk-size}.
+    \item \textbf{\texttt{runtime}}: La politica viene decisa a tempo di esecuzione tramite la variabile d'ambiente \texttt{OMP\_SCHEDULE}.
+\end{itemize}
+
+\subsection{Guida alla Scelta dello Scheduler}
+
+La scelta dello scheduling corretto è fondamentale per la scalabilità del codice.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Carico di Lavoro} & \textbf{Costo per Iterazione} & \textbf{Strategia Ideale} \\ \hline
+Costante & Sempre uguale & \texttt{static} (overhead minimo) \\ \hline
+Crescente / Decrescente & Varia con l'indice $i$ & \texttt{dynamic} o \texttt{guided} \\ \hline
+Casuale / Random & Imprevedibile & \texttt{dynamic} o \texttt{guided} \\ \hline
+\end{tabular}
+\caption{Confronto tra le politiche di scheduling.}
+\end{table}
+
+\noindent
+\textbf{Regola pratica:} Lo scheduling \texttt{static} è preferibile quando il lavoro computazionale è prevedibile e uniforme, poiché riduce al minimo i tempi di sincronizzazione. Lo scheduling \texttt{dynamic} è più efficace quando il tempo richiesto da ogni iterazione è incostante o imprevedibile.
+
+\section{Clausole Avanzate nei For Paralleli}
+
+\subsection*{\texttt{firstprivate} e \texttt{lastprivate}}
+
+La clausola \texttt{private} standard non inizializza le variabili e non ne salva il valore alla fine. Per ovviare a questo, si utilizzano:
+
+\begin{itemize}
+    \item \textbf{\texttt{firstprivate(list)}}: Le variabili elencate sono private, ma vengono inizializzate con il valore che avevano immediatamente prima di entrare nella regione parallela.
+\begin{verbatim}
+int offset = 10;
+// Ogni thread inizia con una copia privata di "offset" pari a 10
+#pragma omp parallel for firstprivate(offset)
+for(int i = 0; i < N; i++) {
+    a[i] = i + offset; 
+}
+\end{verbatim}
+
+    \item \textbf{\texttt{lastprivate(list)}}: Le variabili condivise originali prenderanno il valore calcolato dall'ultimo thread che completa l'iterazione logicamente finale del ciclo.
+\begin{verbatim}
+int final_mark;
+// "final_mark" manterra' il valore assegnato durante l'ultima iterazione
+#pragma omp parallel for lastprivate(final_mark)
+for(int i = 0; i < N; i++) {
+    final_mark = compute_mark(i);
+}
+// Qui final_mark ha il valore dell'iterazione i = N-1
+\end{verbatim}
+\end{itemize}
+
+\subsection{La clausola \texttt{reduction}}
+Utilizzata per risolvere in modo sicuro e scalabile le operazioni di riduzione (come calcolare una somma totale) evitando \textit{data race}. Ad ogni thread viene assegnata una copia privata temporanea inizializzata con un valore logico neutro (es. 0 per la somma, 1 per la moltiplicazione). Al termine del costrutto, OpenMP combina tutti i risultati parziali nella variabile globale. Operatori supportati includono \texttt{+, *, -, max, min, \&, |, \^{}}.
+
+\begin{verbatim}
+double sum = 0.0;
+// Somma sicura senza bisogno di direttive "atomic"
+#pragma omp parallel for reduction(+: sum)
+for (int i = 0; i < N; i++) {
+    sum += a[i];
+}
+\end{verbatim}
+
+\subsection{La clausola \texttt{collapse}}
+Abilita la parallelizzazione su più livelli di ciclo. Questo fonde $n$ cicli for in un unico grande spazio di iterazioni da distribuire ai thread. I cicli devono essere "perfettamente annidati", ovvero senza altre istruzioni intermedie tra di essi.
+
+\begin{verbatim}
+// Fonde i due cicli for per esporre un maggiore livello di parallelismo
+#pragma omp parallel for collapse(2)
+for (int ii = 0; ii < Nrows; ii++) {
+    for (int jj = 0; jj < Ncol; jj++) {
+        C[ii][jj] = A[ii][jj] + B[ii][jj]; 
+    }
+}
+\end{verbatim}
+
+\subsection{La clausola \texttt{nowait}}
+Di default, OpenMP inserisce una barriera di sincronizzazione implicita alla fine di un costrutto di condivisione del lavoro (come un ciclo \texttt{for}). La clausola \texttt{nowait} ignora questa barriera, permettendo ai thread che hanno terminato le loro iterazioni di proseguire immediatamente con le istruzioni successive.
+
+\begin{verbatim}
+#pragma omp parallel
+{
+    // I thread che finiscono questo ciclo passano subito al successivo
+    #pragma omp for nowait
+    for(int i = 0; i < N; i++) { 
+        a[i] = elabora(i); 
+    }
+
+    #pragma omp for
+    for(int i = 0; i < N; i++) { 
+        b[i] = elabora_ancora(i); 
+    }
+}
+\end{verbatim}
+
+\section{Anatomia di un Data Race}
+
+Un \textit{data race} è uno degli errori più comuni e insidiosi nella programmazione concorrente. Genera un comportamento non deterministico, portando a risultati errati che cambiano da un'esecuzione all'altra. Si verifica quando:
+\begin{itemize}
+    \item Due o più thread accedono simultaneamente alla stessa locazione di memoria.
+    \item Almeno uno di questi accessi è un'operazione di scrittura (modifica).
+    \item Gli accessi non sono protetti da meccanismi di sincronizzazione (come lock, barriere o direttive \texttt{atomic}/\texttt{critical}).
+\end{itemize}
+Spesso, i data race sono causati dalla dimenticanza di clausole \texttt{private} o \texttt{reduction} nei cicli paralleli.
+
+\subsection{Il Problema del Livello Macchina (Read-Modify-Write)}
+Un'istruzione C che appare come una singola operazione atomica (es. \texttt{sum += a[i];}) viene in realtà tradotta dal compilatore in più istruzioni macchina:
+\begin{enumerate}
+    \item \textbf{Fetch}: Lettura del valore dalla memoria in un registro della CPU.
+    \item \textbf{Add}: Esecuzione dell'operazione matematica nel registro.
+    \item \textbf{Store}: Scrittura del risultato dal registro alla memoria.
+\end{enumerate}
+
+Se il \textit{Thread 0} e il \textit{Thread 1} eseguono il \textbf{Fetch} contemporaneamente, leggeranno lo stesso valore iniziale. Entrambi calcoleranno un risultato parziale e lo sovrascriveranno in memoria (\textbf{Store}), ignorando l'aggiornamento dell'altro thread (problema dell'\textit{aggiornamento perso}).
+
+\subsection{Sincronizzazione vs Scalabilità}
+\begin{verbatim}
+#pragma omp parallel for
+for (int i = 0; i < N; i++) {
+    // Soluzione ingenua per evitare il data race
+    #pragma omp critical
+    sum += a[i];
+}
+\end{verbatim}
+
+
+\noindent
+Proteggere l'accesso alla variabile condivisa con costrutti come \texttt{\#pragma omp critical} o \texttt{atomic} risolve il data race, ma \textbf{distrugge la scalabilità} del programma. Questi costrutti introducono punti di sincronizzazione che costringono i thread ad attendersi a vicenda, creando colli di bottiglia (\textit{overhead}). Per operazioni di somma globale, la soluzione efficiente e corretta è sempre l'uso della clausola \texttt{reduction}.
+
+\begin{verbatim}
+double *a,
+sum = 0;
+int N;
+#pragma omp parallel for reduction(+: sum)
+for ( int i = 0; i < N; i++ )
+sum += a[i];
+\end{verbatim}
+
+\section{Il Problema del False Sharing}
+
+Un tentativo comune per evitare i data race senza usare lock o \texttt{reduction} è fornire a ogni thread un indice dedicato in un array condiviso.
+
+\begin{verbatim}
+int nthreads = omp_get_num_threads();
+double sum[nthreads]; // Array: un elemento per thread
+
+#pragma omp parallel for
+for (int i = 0; i < N; i++) {
+    int me = omp_get_thread_num();
+    sum[me] += a[i]; // No data race, ma genera false sharing!
+}
+\end{verbatim}
+
+\noindent
+Questa scalabilità non è possibile perché i valori di sum[nthreads] risiedono nelle stesse righe della cache; quindi, quando un thread accede e modifica la sua posizione, per mantenere la coerenza la cache
+deve scrivere e ripulire ogni volta. Questo è chiamato false sharing.
+
+\vspace{0.3cm}
+\noindent
+Si tratta di un problema relativo alla condivisione della memoria (si condivide esplicitamente e intenzionalmente una regione di
+memoria tra i thread). 
+Il \textit{False Sharing} è un degrado delle prestazioni che si verifica quando due o più thread modificano variabili indipendenti (diverse
+da qualsiasi altro thread nel pool parallelo) che risiedono fisicamente nella stessa \textit{cache line}. A differenza del data race, il false sharing non altera la correttezza del risultato, ma compromette gravemente la scalabilità. 
+Il false sharing è un problema quando si verifica un gran numero di volte: thread che accedono a elementi indipendenti nella stessa linea di cache solo una volta ogni tanto è qualcosa di molto comune e non un problema (è lo scopo della memoria condivisa).
+
+\vspace{0.3cm}
+\noindent
+I processori caricano i dati dalla memoria RAM alle cache L1/L2 in blocchi chiamati \textbf{cache lines} (tipicamente 64 byte). Poiché gli elementi di un array (\texttt{sum[0]}, \texttt{sum[1]}, ecc.) sono contigui in memoria, vengono caricati tutti nella stessa cache line.
+\begin{itemize}
+    \item Supponiamo che entrambi i thread leggano la loro posizione di memoria di destinazione: l'intera riga viene caricata nella cache di entrambi i core e la riga è contrassegnata come "S" (condivisa).
+    \item Se il Core 0 modifica \texttt{sum[0]}, il protocollo di coerenza della cache (es. MESI) segna l'intera cache line come (\texttt{Modified}) e invalida (\texttt{Invalid}) le copie presenti nelle cache degli altri core.
+    \item Se il Core 1 deve poi modificare \texttt{sum[1]}, deve ricaricare l'intera cache line dalla memoria, invalidando a sua volta la copia del Core 0.
+    \item Se il Core 0 deve modificare nuovamente \texttt{sum[0]}, deve anch'esso ricaricare l'intera cache line dalla memoria, invalidando a sua volta la copia del Core 1. E così via.
+\end{itemize}
+
+\subsection{Risoluzione Tramite Padding}
+Una tecnica per mitigare il false sharing è il \textbf{padding}: distanziare artificialmente le variabili in memoria affinché finiscano su cache lines separate.
+
+\begin{verbatim}
+// Creiamo spazio vuoto tra gli elementi (es. fattore 8)
+double sum[nthreads * 8]; 
+
+#pragma omp parallel for
+for (int i = 0; i < N; i++) {
+    int me = omp_get_thread_num();
+    // Ora sum[0] e sum[8] sono su cache lines differenti
+    sum[me * 8] += a[i]; 
+}
+\end{verbatim}
+
+
+Sebbene il padding risolva il collo di bottiglia hardware, è considerato una \textbf{cattiva pratica} perché:
+\begin{enumerate}
+    \item Consuma memoria inutilmente.
+    \item Si basa su "numeri magici" (come il fattore 8) che dipendono dalla dimensione specifica della cache line di una determinata CPU, rendendo il codice non portabile.
+    \item La soluzione standard, sicura e portatile per queste operazioni rimane l'uso della clausola \texttt{reduction}.
+\end{enumerate}
+
+\section{Direttive Annidate: Un Dettaglio Importante}
+
+Quando si dichiara la parallelizzazione di un ciclo all'interno di una regione parallela preesistente, la scelta tra \texttt{\#pragma omp for} e \texttt{\#pragma omp parallel for} altera drasticamente il comportamento del programma.
+
+\subsection{Caso A: Condivisione del Lavoro (\texttt{omp for})}
+
+\begin{verbatim}
+#pragma omp parallel
+{
+    int me = omp_get_thread_num();
+    // Corretto: divide il ciclo tra i thread gia' esistenti
+    #pragma omp for
+    for (int i = 0; i < N; i++) {
+        sum[me] += a[i];
+    }
+}
+\end{verbatim}
+
+In questo scenario, la direttiva \texttt{\#pragma omp for} prende i thread che formano il pool della regione parallela esterna e distribuisce loro le iterazioni del ciclo. Il ciclo \texttt{for} globale viene eseguito una sola volta, diviso tra i thread.
+
+\subsection{Caso B: Creazione di Nuove Regioni (\texttt{omp parallel for})}
+
+\begin{verbatim}
+#pragma omp parallel
+{
+    int me = omp_get_thread_num();
+    // Errato/Pericoloso: ogni thread tenta di creare un nuovo pool
+    #pragma omp parallel for
+    for (int i = 0; i < N; i++) {
+        sum[me] += a[i];
+    }
+}  
+\end{verbatim}
+
+
+Inserire la parola chiave \texttt{parallel} obbliga ogni thread del pool originario a tentare di generare una nuova regione parallela annidata.
+\begin{itemize}
+    \item \textbf{Se l'annidamento è attivo:} Vengono generati $n$ nuovi pool di thread, e l'intero ciclo \texttt{for} viene eseguito $n$ volte (una per ogni thread esterno).
+    \item \textbf{Se l'annidamento è inattivo (default):} Ogni thread entra nella nuova regione parallela da solo, eseguendola in modo sequenziale. Anche in questo caso, ogni singolo thread esterno eseguirà la totalità del ciclo \texttt{for}, azzerando i benefici della parallelizzazione del loop.
+\end{itemize}
+\textbf{Regola pratica:} Utilizzare \texttt{omp for} all'interno di regioni \texttt{parallel} attive, e riservare \texttt{omp parallel for} ai blocchi di codice sequenziale.
+
+
+\section{Caso di Studio: Calcolo del Pi-greco}
+
+L'algoritmo si basa sul calcolo dell'area sottesa alla curva $f(x) = \frac{4}{1+x^2}$ nell'intervallo $[0, 1]$ suddividendola in $n$ rettangoli (regola del punto medio).
+
+\subsection{L'Algoritmo Sequenziale di Base}
+\begin{verbatim}
+double fSum = 0.0;
+double fH = 1.0 / (double)n; // Base dei rettangoli
+double fX;
+int i;
+
+for (i = 0; i < n; i++) {
+    fX = fH * ((double)i + 0.5); // Punto medio sull'asse x
+    fSum += (4.0 / (1.0 + fX * fX)); // Somma delle altezze
+}
+double pi = fH * fSum; // Area totale = base * somma_altezze    
+\end{verbatim}
+
+
+\subsection{Tentativi di Parallelizzazione ed Errori Comuni}
+
+Nel parallelizzare il ciclo \texttt{for}, la gestione dell'accumulatore \texttt{fSum} determina il successo o il fallimento del codice.
+
+\subsubsection{Errore 1: Il Data Race (Variabile Condivisa)}
+Se ci dimentichiamo di gestire esplicitamente \texttt{fSum}, la regola di scoping implicito di OpenMP la rende condivisa (poiché dichiarata prima del costrutto parallelo).
+\begin{verbatim}
+// ERRORE: Data race su fSum
+#pragma omp parallel for private(fX, i)
+\end{verbatim}
+
+\textbf{Effetto:} Più thread tentano di sommare contemporaneamente alla stessa variabile globale. Molti aggiornamenti vanno persi. Il risultato è imprevedibile, errato e non deterministico (varia ad ogni esecuzione).
+
+\subsubsection{Errore 2: L'Oblio (Variabile Privata)}
+Cercando di evitare il data race, potremmo cadere nell'estremo opposto rendendo \texttt{fSum} privata.
+\begin{verbatim}
+// ERRORE: Il lavoro viene perso
+#pragma omp parallel for private(fX, i, fSum)
+\end{verbatim}
+
+\textbf{Effetto:} Ogni thread calcola un pezzo di area su una copia privata (non inizializzata per giunta). Al termine del ciclo, le copie private vengono distrutte. La variabile globale \texttt{fSum} rimane intoccata al suo valore iniziale (\texttt{0.0}). Il risultato calcolato sarà sempre $0$.
+
+\subsubsection{Errore 3: Il Furto (Variabile Lastprivate)}
+Potremmo pensare di recuperare il valore usando \texttt{lastprivate}.
+\begin{verbatim}
+// ERRORE: Solo l'ultimo thread salva il risultato
+#pragma omp parallel for private(fX, i) lastprivate(fSum)
+\end{verbatim}
+
+\textbf{Effetto:} OpenMP copia nella variabile globale solo la somma parziale calcolata dal thread che ha gestito l'ultima iterazione logica ($i = n-1$). Il lavoro di tutti gli altri thread viene scartato. Il risultato corrisponderà solo all'area dell'ultima fetta della curva.
+
+\subsection{La Soluzione Ottimale: Reduction}
+La clausola \texttt{reduction} è lo strumento corretto per le operazioni di accumulo globale.
+\begin{verbatim}
+// SOLUZIONE CORRETTA E SCALABILE
+#pragma omp parallel for private(fX, i) reduction(+:fSum)
+for (i = 0; i < n; i++) {
+    fX = fH * ((double)i + 0.5);
+    fSum += (4.0 / (1.0 + fX * fX));
+}
+\end{verbatim}
+
+\textbf{Effetto:} 
+\begin{enumerate}
+    \item Ogni thread riceve una copia privata ombra di \texttt{fSum} inizializzata a \texttt{0.0}.
+    \item I thread calcolano le somme parziali in totale isolamento (massima scalabilità, nessun data race).
+    \item Al termine, OpenMP somma in modo sicuro tutti i risultati parziali nella variabile globale \texttt{fSum}.
+\end{enumerate}
+
+
+
+
+
+
 \section{NUMA Awareness}
 Abbiamo già discusso di come un'unica memoria centrale con una larghezza di banda fissa rappresenti un collo di bottiglia per le prestazioni in sistemi con molti core. Per superare questo problema, i moderni sistemi multiprocessore adottano un'architettura NUMA (Non-Uniform Memory Access), in cui la memoria è divisa fisicamente in nodi locali associati a ciascun processore o gruppo di processori in modo che ogni nodo abbia una memoria locale con accesso più veloce rispetto all'accesso alla memoria remota di altri nodi.
 In questo modo, la larghezza di banda aggregata risultante scala all'aumentare del numero di socket anche se, come sappiamo, la coerenza della cache diventa il nuovo fattore limitante. Chiaramente, abbiamo lo svantaggio che l'accesso alla memoria non è più uniforme: se un thread accede alla memoria locale del suo nodo, ottiene prestazioni migliori rispetto a quando accede alla memoria remota di un altro nodo e questo potrebbe avere delle conseguenze sul modo in cui scriviamo il nostro codice parallelo.
@@ -562,3 +917,89 @@ Possiamo, inoltre, specificare il binding a livello di regione parallela tramite
     // codice parallelo
 }
 \end{verbatim}
+
+Sono inoltre disponibili anche altri comandi:
+\begin{itemize}
+    \item \textbf{Ispezione dei PLACES}:
+    \begin{itemize}
+        \item \texttt{omp\_get\_num\_places()}: Restituisce il numero totale di \textit{places} definiti nel sistema.
+        \item \texttt{omp\_get\_place\_num()}: Restituisce l'ID del \textit{place} a cui è assegnato il thread chiamante.
+        \item \texttt{omp\_get\_place\_num\_procs(int place\_num)}: Restituisce il numero di processori logici contenuti in un determinato \textit{place}.
+        \item \texttt{omp\_get\_place\_proc\_ids(int place\_num, int *ids)}: Riempie un array con gli ID dei processori associati a un specifico \textit{place}.
+    \end{itemize}
+    \item \textbf{Reporting e Debug dell'Affinità}:
+    \begin{itemize}
+        \item \texttt{omp\_display\_affinity(const char *format)}: Stampa a video le informazioni di affinità per i thread correnti.    \begin{itemize}
+        \item \texttt{omp\_get\_num\_places()}: Restituisce il numero totale di \textit{places} definiti nel sistema.
+        \item \texttt{omp\_get\_place\_num()}: Restituisce l'ID del \textit{place} a cui è assegnato il thread chiamante.
+        \item \texttt{omp\_get\_place\_num\_procs(int place\_num)}: Restituisce il numero di processori logici contenuti in un determinato \textit{place}.
+        \item \texttt{omp\_get\_place\_proc\_ids(int place\_num, int *ids)}: Riempie un array con gli ID dei processori associati a un specifico \textit{place}.
+    \end{itemize}
+        \item \texttt{omp\_capture\_affinity(char *buffer, size\_t size, const char *format)}: Cattura le informazioni di affinità in una stringa di testo.
+        \item \texttt{omp\_set\_affinity\_format(const char *format)} / \texttt{omp\_get\_affinity\_format()}: Impostano o leggono il formato utilizzato per la visualizzazione delle informazioni di affinità.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Policy di Allocazione della Memoria}
+Oltre a controllare dove vengono eseguiti i thread, è fondamentale gestire anche dove vengono allocati i dati in memoria, soprattutto in un sistema NUMA. Troviamo diverse politiche di allocazione della memoria.
+\subsubsection*{Policy "touch-first"}
+Supponiamo di operare su un sistema SMP in cui abbiamo che ogni socket è fisicamente connesso a un banco di RAM e poi fisicamente connesso a un altro socket. In questo modo, l'accesso alla memoria non è uniforme: la larghezza di banda necessaria a un core per accedere a un banco di memoria non fisicamente connesso ad esso è probabilmente significativamente inferiore a quella necessaria per accedere al banco più vicino.
+
+Quando andiamo ad allocare un blocco di memoria, possiamo farlo attraverso due operazioni principalmente:
+\begin{itemize}
+    \item \textbf{Malloc}: Qui segnaliamo che verrà utilizzata una certa quantità di memoria così che l'occupazione di memoria del processo aumenti. Tuttavia, la mappatura non avviene realmente fino a quando non accediamo a quella memoria per la prima volta. Cioè, fino a quando non la \textbf{tocchiamo}.
+    \item \textbf{Calloc}: Qui segnaliamo che verrà utilizzata una certa quantità di memoria così che l'occupazione di memoria del processo aumenti. A differenza di \texttt{malloc}, \texttt{calloc} inizializza i byte allocati a zero di fatto toccandoli mappandoli immediatamente. Inoltre, per quanto riguarda la calloc, questa funzione ci assicura che la memoria allocata sia contigua, mentre con malloc non è garantito che la memoria allocata sia contigua.\footnote{La contiguità è data dal fatto che i dati si trovano tutti nella stessa memoria}
+\end{itemize}
+Vediamo adesso il seguente esempio:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_6/esempio_calloc.png}
+\end{figure}
+Qui, abbiamo che la prima cosa che viene fatta è una chiamata a \texttt{calloc} per allocare un blocco di memoria. Poiché \texttt{calloc} inizializza i byte allocati a zero, questa operazione comporta un accesso alla memoria che mappa immediatamente il blocco di memoria allocato al nodo NUMA del thread che ha effettuato la chiamata. In questo caso, se il thread che ha effettuato la chiamata a \texttt{calloc} è posizionato su un socket specifico, il blocco di memoria allocato sarà mappato al nodo NUMA associato a quel socket, garantendo così un accesso più veloce alla memoria locale per quel thread.
+Tuttavia, analizziamo adesso il ciclo for che viene parallelizzato e analizzato dal core 1 e dal core 2. Poiché i dati si trovano nella memoria del core 1, otteniamo che questi vengono effettivamente elaborati molto in fretta da quest'ultimo, tuttavia, quando il core 2 tenta di accedere a quei dati, deve accedere alla memoria remota del core 1, subendo una penalizzazione in termini di prestazioni a causa della latenza più elevata e della larghezza di banda inferiore associata all'accesso alla memoria remota.
+
+Questa è dunque la politica \textbf{Touch-First} per cui la memoria viene allocata sul nodo NUMA del thread che effettua la chiamata di allocazione. Se i dati vengono elaborati principalmente da quel thread, questa politica può offrire prestazioni ottimali. Tuttavia, se i dati devono essere condivisi tra più thread su nodi NUMA diversi, questa politica può portare a prestazioni degradate a causa dell'accesso alla memoria remota. In questi casi, potrebbe essere necessario considerare altre politiche di allocazione della memoria o strategie di affinità dei thread per ottimizzare le prestazioni complessive del programma.
+\subsubsection*{Policy "Touch-By-All"}
+Supponiamo di essere ancora una volta nella stessa situazione di prima ma, anziché usare la calloc usiamo la malloc.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_6/esempio_malloc.png}
+\end{figure}
+In questo caso, la chiamata a \texttt{malloc} riserva un set di indirizzi virtuali, ma non impegna memoria fisica. La mappatura avviene a livello di singole pagine (granularità di 4 KB) solo quando i thread effettuano il primo accesso (\textbf{First-Touch}). Grazie all'inizializzazione parallela, le pagine toccate dal Core 1 verranno allocate nel suo nodo NUMA locale, mentre quelle toccate dal Core 2 finiranno nel proprio. Questo distribuisce i dati fisicamente, abbattendo la latenza e sfruttando la larghezza di banda di entrambi i controller di memoria.
+
+Quindi, quando il core 1 accede per la prima volta a quel blocco di memoria, esso viene mappato al nodo NUMA del core 1. Allo stesso modo, quando il core 2 accede per la prima volta a quel blocco di memoria, esso viene mappato al nodo NUMA del core 2. In questo modo, entrambi i core hanno accesso alla memoria locale, riducendo così la latenza e aumentando la larghezza di banda disponibile per entrambi i thread.
+
+Questa è dunque la politica \textbf{Touch-By-All} per cui la memoria viene allocata senza essere mappata a nessun nodo NUMA specifico, e viene mappata al nodo NUMA del thread che accede per primo a quella memoria. Questa politica può essere vantaggiosa quando i dati devono essere condivisi tra più thread su nodi NUMA diversi, poiché consente a ciascun thread di accedere alla memoria locale, migliorando così le prestazioni complessive del programma. Tuttavia, se i dati vengono elaborati principalmente da un singolo thread, questa politica potrebbe non offrire prestazioni ottimali a causa della latenza associata all'accesso alla memoria remota per gli altri thread.
+
+\subsection{Strumenti per l'Analisi della Topologia e il Pinning}
+Per ottimizzare l'affinità è fondamentale conoscere la gerarchia hardware del sistema. Gli strumenti principali si dividono in due categorie:
+
+\subsubsection*{1. Scoperta della Topologia}
+\begin{itemize}
+    \item \textbf{lscpu / /proc/cpuinfo}: Forniscono informazioni generali sull'architettura (numero di core, socket, thread SMT).
+    \item \textbf{lstopo (hwloc)}: Fornisce una rappresentazione grafica o testuale dettagliata della gerarchia delle cache, dei core e dei nodi NUMA.
+    \item \textbf{numactl --hardware}: Mostra l'inventario dei nodi NUMA disponibili e la "distanza" (latenza) tra di essi.
+    \item \textbf{likwid-topology}: Uno strumento avanzato per visualizzare la topologia dei thread e le relazioni con le cache.
+\end{itemize}
+
+\subsubsection*{2. Gestione dell'Affinità (Pinning)}
+Questi tool permettono di gestire l'affinità dall'esterno, senza modificare il codice:
+\begin{itemize}
+    \item \textbf{taskset}: Permette di impostare la maschera di affinità di un processo tramite una maschera esadecimale o una lista di CPU (\texttt{--cpu-list 0,2,4-8}).
+    \item \textbf{numactl}:
+    \begin{itemize}
+        \item \texttt{--cpunodebind=n}: Forza l'esecuzione sui core del nodo NUMA $n$.
+        \item \texttt{--membind=n}: Forza l'allocazione della memoria esclusivamente sui banchi del nodo NUMA $n$.
+    \end{itemize}
+    \item \textbf{likwid-pin}: Uno strumento molto potente per il pinning di applicazioni multithread, capace di gestire gruppi di core basandosi sulla topologia (es. "pinnami un thread per ogni socket").
+\end{itemize}
+\subsection{Workflow per la NUMA-awareness}
+Per rendere un'applicazione multithread efficiente su architetture NUMA, è possibile seguire una metodologia strutturata in cinque fasi:
+
+\begin{enumerate}
+    \item \textbf{Esplorazione della topologia}: Utilizzo di strumenti come \texttt{lstopo} o \texttt{numactl -H} per identificare la gerarchia dei core e dei nodi di memoria.
+    \item \textbf{Definizione di Places e Binding}: Configurazione delle variabili \texttt{OMP\_PLACES} (es. \textit{cores}) e \texttt{OMP\_PROC\_BIND} (es. \textit{spread}) in base alle necessità di condivisione dati dell'algoritmo.
+    \item \textbf{Implementazione della politica di First-Touch}: Sostituzione di allocazioni seriali (\texttt{calloc}) con allocazioni tramite \texttt{malloc} seguite da una \textbf{inizializzazione parallela}. Questo assicura che ogni pagina di memoria sia mappata nel nodo NUMA locale al thread che la elaborerà (concetto di \textit{touch-by-all}).
+    \item \textbf{Validazione del binding}: Verifica sperimentale del posizionamento dei thread tramite funzioni di runtime come \texttt{omp\_display\_affinity()} o strumenti esterni come \texttt{likwid-pin}.
+    \item \textbf{Analisi delle prestazioni}: Misurazione dello speedup scalando il numero di thread e confronto tra la versione ottimizzata e quella \textit{non-aware} per quantificare il guadagno ottenuto eliminando gli accessi alla memoria remota.
+\end{enumerate}

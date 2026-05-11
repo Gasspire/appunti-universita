@@ -99,9 +99,35 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}Sincronizzazione dell'Esecuzione}{69}{subsection.6.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.4}Ordinamento dei Thread}{73}{subsection.6.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.5}Assegnazione del lavoro}{75}{subsection.6.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}NUMA Awareness}{77}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Affinit\IeC {\`a} dei Thread}{78}{subsection.6.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}Placecs}{80}{subsection.6.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}Binding}{83}{subsection.6.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Basi della Parallelizzazione dei Cicli con OpenMP}{77}{section.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}Assegnazione del Lavoro}{78}{section.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.1}Guida alla Scelta dello Scheduler}{79}{subsection.6.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Confronto tra le politiche di scheduling.\relax }}{79}{table.caption.44}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.6}Clausole Avanzate nei For Paralleli}{79}{section.6.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6.1}La clausola \texttt  {reduction}}{80}{subsection.6.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6.2}La clausola \texttt  {collapse}}{81}{subsection.6.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6.3}La clausola \texttt  {nowait}}{81}{subsection.6.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.7}Anatomia di un Data Race}{81}{section.6.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7.1}Il Problema del Livello Macchina (Read-Modify-Write)}{82}{subsection.6.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7.2}Sincronizzazione vs Scalabilit\IeC {\`a}}{82}{subsection.6.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.8}Il Problema del False Sharing}{83}{section.6.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.8.1}Risoluzione Tramite Padding}{84}{subsection.6.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.9}Direttive Annidate: Un Dettaglio Importante}{85}{section.6.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.9.1}Caso A: Condivisione del Lavoro (\texttt  {omp for})}{85}{subsection.6.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.9.2}Caso B: Creazione di Nuove Regioni (\texttt  {omp parallel for})}{85}{subsection.6.9.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.10}Caso di Studio: Calcolo del Pi-greco}{86}{section.6.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.10.1}L'Algoritmo Sequenziale di Base}{86}{subsection.6.10.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.10.2}Tentativi di Parallelizzazione ed Errori Comuni}{86}{subsection.6.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.10.2.1}Errore 1: Il Data Race (Variabile Condivisa)}{86}{subsubsection.6.10.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.10.2.2}Errore 2: L'Oblio (Variabile Privata)}{87}{subsubsection.6.10.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.10.2.3}Errore 3: Il Furto (Variabile Lastprivate)}{87}{subsubsection.6.10.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.10.3}La Soluzione Ottimale: Reduction}{87}{subsection.6.10.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.11}NUMA Awareness}{88}{section.6.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.11.1}Affinit\IeC {\`a} dei Thread}{88}{subsection.6.11.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.11.2}Placecs}{90}{subsection.6.11.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.11.3}Binding}{93}{subsection.6.11.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.11.4}Policy di Allocazione della Memoria}{96}{subsection.6.11.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.11.5}Strumenti per l'Analisi della Topologia e il Pinning}{98}{subsection.6.11.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.11.6}Workflow per la NUMA-awareness}{99}{subsection.6.11.6}\protected@file@percent }
 \bibdata{bibliography}
-\gdef \@abspage@last{86}
+\gdef \@abspage@last{101}
