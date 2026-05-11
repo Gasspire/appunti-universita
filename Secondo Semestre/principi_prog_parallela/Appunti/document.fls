@@ -912,6 +912,13 @@ INPUT ./Images/cap_6/socket_distrib.png
 INPUT Images/cap_6/socket_distrib.png
 INPUT ./Images/cap_6/socket_distrib.png
 INPUT ./Images/cap_6/socket_distrib.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm
+INPUT ./Images/cap_6/bind_place.png
+INPUT ./Images/cap_6/bind_place.png
+INPUT Images/cap_6/bind_place.png
+INPUT ./Images/cap_6/bind_place.png
+INPUT ./Images/cap_6/bind_place.png
 INPUT document.aux
 INPUT ./document.out
 INPUT ./document.out

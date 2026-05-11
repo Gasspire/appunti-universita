@@ -472,10 +472,10 @@ Posizionare i thread vicini (es. sullo stesso core tramite SMT o sullo stesso so
 
 OpenMP offre 2 concetti di base per gestire l'affinità dei thread:
 \begin{itemize}
-    \item \textbf{Places}: ovver a quali entità fisiche ci riferiamo con la nostra richiesta di affinità, cioè dove vengono eseguiti i thread.
+    \item \textbf{Places}: ovver a quali entità fisiche ci riferiamo con la nostra richiesta di affinità, cioè dove vengono eseguiti i thread software.
     \item \textbf{Binding}: ovvero se esiste una relazione tra thread e places, e se sì, quale tipo di relazione.
 \end{itemize}
-\subsection*{Placecs}
+\subsection{Placecs}
 OpenMP fornisce diverse modalità di affinità dei thread, che possono essere specificate
 I places rappresentano il dove vengono eseguiti gli \textbf{swthread}. 
 I nomi dei places sono:
@@ -512,9 +512,53 @@ Vale che se ci sono nsocket con ncore\_per\_socket, allora abbiamo un totale di:
 \[nore = nsocket \times ncore\_per\_socket\]
 E possiamo gestire un numero di thread pari a:
 \[nthread = nsocket \times nthread_SMT\]
-Per dare a OpenMP indicazioni sull'affinità dei thread, possiamo usare la variabile d'ambiente \texttt{OMP\_PLACES = \{sockets | cores | threads\}} con, rispettivatemente, le seguenti interpretazioni:
+Per dare a OpenMP indicazioni sull'affinità dei thread, possiamo usare la variabile d'ambiente \texttt{OMP\_PLACES = \{sockets | cores | threads\}} con, rispettivamente, le seguenti interpretazioni:
 \begin{itemize}
-    \item \textbf{Sockets} :si riferisce ai core logici, ovvero tiene conto dei thread smt
-    \item \textbf{Cores}:
-    \item \textbf{Threads}:
+    \item \textbf{Threads}: si riferisce ai core logici, ovvero tiene conto dei thread SMT come posti distinti.;
+    \item \textbf{Cores}: si riferisce ai core fisici, ovvero tiene conto solo dei core fisici considerando nell'esempio i core 0,48 come lo stesso posto. Il thread che sarà assegnato a questo posto potrà essere eseguito su uno qualsiasi dei due core fisici.
+    \item \textbf{Sockets}: si riferisce ai socket fisici.
 \end{itemize}   
+È possibile specificare anche una mappatura personalizzata dei places tramite la sintassi \texttt{OMP\_PLACES = \{list\}} dove list è una lista di intervalli di CPU (core o hwthread) che definiscono i places. Ad esempio:
+\begin{itemize}
+    \item $OMP\_PLACES = \{0,1\}$ definisce una posizione composta dal hwthread 0 della core 0 e dal hwthread 1 del core 1;
+    \item $OMP\_PLACES = \{0,48\}$ definisce una posizione composta dal hwthread 0 e dal hwthread 48 dello stesso core 0 dove 48 è quello attivato tramite SMT.
+    \item $OMP\_PLACES = \{0:2:48\}$ definiscono una posizione composta da 2 core che sono 0 e 48. La sintassi qui è \texttt{inizio:contatore:passo} dove inizio è il primo core della posizione, contatore è il numero di core da includere nella posizione e passo è la distanza tra i core inclusi. In questo caso, la posizione include i core 0 e 48, saltando i core intermedi.
+    \item $OMP\_PLACES = \{0:4:1\}:4:12$ è un esempio più complesso che definisce 4 posizioni, ognuna composta da 4 core consecutivi. La prima posizione include i core da 0 a 3, la seconda posizione include i core da 12 a 15, la terza posizione include i core da 24 a 27 e la quarta posizione include i core da 36 a 39. Questo perché la prima parentesi ci dice di prendere 4 core consecutivi a partire da 0, poi fuori ci viene detto di creare 4 posizioni con un passo di 12 core tra una posizione e l'altra.
+\end{itemize}
+Queste posizioni sono statiche e non possono cambiare durante l'esecuzione del programma. Se un thread viene assegnato a una posizione, rimarrà in quella posizione per tutta la durata del programma.
+
+Adesso quello che ci rimane da capire è come vengono posizionati gli swthread sui places. Vedremo che questo dipende dalle politiche di binding, ovvero dalle regole che governano l'associazione tra thread e places. 
+\subsection{Binding}
+Il binding definisce come i \textbf{swthread} vengono mappati ai \textbf{places}. Esistono diverse politiche di binding che possono essere specificate tramite la variabile d'ambiente \texttt{OMP\_PROC\_BIND}:
+\begin{itemize}
+    \item \textbf{FALSE}: Il posizionamento dei thread è completamente affidato al sistema operativo e non è garantito che un thread rimanga nello stesso place durante l'esecuzione. Questa è la politica predefinita se non viene specificata alcuna politica di binding. 
+    \item \textbf{TRUE}: I thread vengono posizionati sui places dal sistema operativo in modo deterministico e non possono migrare durante l'esecuzione. In questo modo, ogni thread rimane sempre nello stesso place per tutta la durata del programma, garantendo una maggiore prevedibilità delle prestazioni.
+    \item \textbf{CLOSE}: Gli swthread vengono posizionati in posizioni il più vicino possibile tra loro, cercando di minimizzare la distanza tra i thread. Ad esempio, se abbiamo 4 thread e 4 core, i thread saranno posizionati sui core 0, 1, 2 e 3. Anche nel caso in cui vi siano più hwthread per core, i thread saranno posizionati sui core più vicini possibile, cercando di sfruttare prima i core fisici e poi gli hwthread attivati tramite SMT.
+    \begin{itemize}
+        \item \textbf{Se $T \le P$}: Ogni thread viene assegnato a un place univoco in modo consecutivo. Il thread $k$ viene mappato al place $(m+k) \pmod P$, dove $m$ è la posizione del thread master.
+        \item \textbf{Se $T > P$}: Poiché i posti non bastano, OpenMP distribuisce i thread in sottoinsiemi $S_i$. Ogni place riceve un numero di thread compreso tra $\lfloor T/P \rfloor$ e $\lceil T/P \rceil$. In questo modo, i thread "eccedenti" vengono ammucchiati sugli stessi posti, partendo da quello del master.
+    \end{itemize}
+    \item \textbf{SPREAD}: Gli swthread vengono posizionati in posizioni il più uniformemente possibile, cercando di massimizzare la distanza tra i thread. Ad esempio, se abbiamo 4 thread e 4 core, i thread saranno posizionati sui core 0, 12, 24 e 36.
+    \begin{itemize}
+        \item \textbf{Se $T \le P$}: L'elenco dei places viene diviso in $T$ sotto-partizioni. Ogni sotto-partizione contiene circa $P/T$ posti consecutivi. Ogni thread viene assegnato al \textbf{primo posto} della propria sotto-partizione. Questo garantisce che i thread siano fisicamente il più lontano possibile (ad esempio, uno per ogni socket).
+        \item \textbf{Se $T > P$}: L'elenco dei places viene diviso in $P$ sotto-partizioni (una per ogni posto reale). Ogni place ospiterà più thread con ID consecutivi, in numero pari a $\lfloor T/P \rfloor$ o $\lceil T/P \rceil$. Anche in questo caso di "sovraccarico", OpenMP cerca di mantenere una distribuzione bilanciata su tutta la macchina.
+    \end{itemize}
+    \item \textbf{MASTER/PRIMARY}: Tutti i swthread vengono posizionati sulla stessa posizione del thread master (thread 0). Ad esempio, se il thread master è posizionato su un intero socket, tutti gli swthread saranno posizionati sullo stesso socket, condividendo la cache e la memoria locale di quel socket.
+    \begin{itemize}
+        \item \textbf{OMP\_PLACES=threads}: Tutti i thread software vengono forzati sullo stesso singolo hwthread. Si verifica una condizione di \textbf{over-subscription} estrema (tutti i thread lottano per lo stesso processore logico); è una configurazione usata quasi esclusivamente per test di contesa.
+        \item \textbf{OMP\_PLACES=cores}: Tutti i thread vengono assegnati allo stesso core fisico. Se il core supporta SMT, i thread si distribuiranno sui diversi hwthread di quel core prima di andare in over-subscription.
+        \item \textbf{OMP\_PLACES=sockets}: Tutti i thread vengono confinati all'interno dello stesso socket fisico. In questo caso, OpenMP ha la libertà di distribuire i thread sui vari core disponibili all'interno di quel socket, garantendo comunque che tutti condividano la memoria locale e la cache L3 del processore.
+    \end{itemize}
+\end{itemize}
+Per assegnare questi valori, scriviamo banalmente:
+\[\texttt{export OMP\_PROC\_BIND = \{value\}}\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_6/bind_place.png}
+\end{figure}
+Possiamo, inoltre, specificare il binding a livello di regione parallela tramite la clausola \texttt{proc\_bind} associata alla direttiva \texttt{omp parallel}:
+\begin{verbatim}
+#pragma omp parallel proc_bind( {value} ) {
+    // codice parallelo
+}
+\end{verbatim}

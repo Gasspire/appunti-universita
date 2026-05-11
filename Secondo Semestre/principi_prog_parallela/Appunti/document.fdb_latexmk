@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex document"] 1778430769 "document.aux" "document.bbl" "document" 1778430773
+["bibtex document"] 1778493194 "document.aux" "document.bbl" "document" 1778493194
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
   "bibliography.bib" 0 -1 0 ""
-  "document.aux" 1778430772 10310 1db629e35d2e303bbedd71d4e60c686e "pdflatex"
+  "document.aux" 1778493188 10548 901256a305a3f7d0e13ef8a719b7cede "pdflatex"
   (generated)
   "document.bbl"
   "document.blg"
-["pdflatex"] 1778430769 "/home/dave/appunti-universita/Secondo Semestre/principi_prog_parallela/Appunti/document.tex" "document.pdf" "document" 1778430773
+["pdflatex"] 1778493186 "/home/dave/appunti-universita/Secondo Semestre/principi_prog_parallela/Appunti/document.tex" "document.pdf" "document" 1778493194
   "/etc/texmf/web2c/texmf.cnf" 1777125874 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1777185002 14040 d559b8242501fdc226295c13e27858a2 ""
   "/home/dave/appunti-universita/Secondo Semestre/principi_prog_parallela/Appunti/document.tex" 1778406637 1791 52893e7790d1edf807e4277ecf30009b ""
@@ -149,6 +149,7 @@
   "Images/cap_4/lettura_colonne.png" 1776833700 242289 c44a926b34900ef3da584aa560e28b4b ""
   "Images/cap_4/matrice_in_memo.png" 1776833700 233481 0dd2ffe060dc94d8cd679d941d55e9d6 ""
   "Images/cap_4/pipeline_multiple.png" 1776833700 75480 5eec6a9b7857e86ca68ba67608be4daa ""
+  "Images/cap_6/bind_place.png" 1778493067 184080 53076ebb86c88fb760d2d0ba1b4bc2e5 ""
   "Images/cap_6/distribuzione_core.png" 1778423620 557774 cd60037d2308e0006f36890e39cea8d3 ""
   "Images/cap_6/esempio_private.png" 1778055931 127633 e6b7be28ef4f99a5b03461dac59c1deb ""
   "Images/cap_6/omp_toolbox.png" 1778055931 126945 b3ec671b079ef3a440a1ed4b45f0d65a ""
@@ -160,18 +161,18 @@
   "Images/intro/metodo_sperimentale.png" 1776833700 105205 b350348009415fea8ec6f80235a349ae ""
   "Images/intro/performance_engineering.png" 1776833700 466856 673f95310d40b9af5b2024cc5cca12d3 ""
   "Images/university_logo.png" 1776833700 5102 ae18fdab7c5af961bf5f27a3bf5fc7bd ""
-  "document.aux" 1778430772 10310 1db629e35d2e303bbedd71d4e60c686e "pdflatex"
+  "document.aux" 1778493188 10548 901256a305a3f7d0e13ef8a719b7cede "pdflatex"
   "document.bbl" 0 -1 0 "bibtex document"
-  "document.out" 1778430772 12844 6f01e0ec6630744aa661847b28d92593 "pdflatex"
+  "document.out" 1778493188 13038 078f4be73de47b91a26aaf6e0497a51e "pdflatex"
   "document.tex" 1778406637 1791 52893e7790d1edf807e4277ecf30009b ""
-  "document.toc" 1778430772 6297 56f629bc2568470213c59213d82e90f8 "pdflatex"
+  "document.toc" 1778493188 6453 8a303160d35ea598375ec1c2e6023e23 "pdflatex"
   "parts/capitolo_0.tex" 1776833700 7161 5c4cd09a89ca0e58b26660fa6d0cf0af ""
   "parts/capitolo_1.tex" 1778406761 12511 0c4cf5504b4c247a61980dfb13dade74 ""
   "parts/capitolo_2.tex" 1776833700 15558 0980aa933db487be9f6b8bbeac6872fe ""
   "parts/capitolo_3.tex" 1776833700 13789 8cc61c27cdb9af4b7c25722ed5ecc817 ""
   "parts/capitolo_4.tex" 1776833700 43762 811caf350ceefd906e3b1269faf1317a ""
   "parts/capitolo_5.tex" 1776833700 7744 ec7e11d73dac236886debeba7711de19 ""
-  "parts/capitolo_6.tex" 1778430769 43559 65fb4af461426c11779a729030b6de07 ""
+  "parts/capitolo_6.tex" 1778493194 50226 46e6cfe21a252344bd2f5e1684dec7f5 ""
   "parts/frontespizio.tex" 1776833700 1005 420f5b96419da662bc463616306fb98e ""
   (generated)
   "document.aux"

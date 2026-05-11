@@ -6,3 +6,17 @@ predittore
 predittori
 Branch
 flush% Dummy26 
+hwthread
+swthread
+thread
+socket
+place
+places
+binding
+Binding
+Sockets
+Cores
+list
+sockets
+cores
+threads
