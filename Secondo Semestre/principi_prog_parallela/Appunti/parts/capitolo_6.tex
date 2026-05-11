@@ -139,8 +139,10 @@ Innanzitutto, vediamo come si costruisce una classica regione parallela:
         int nthreads = omp_get_num_threads();
     }
 
-    #pragma omp barrier //forza tutti i thread ad arrivare allo stesso punto 
-    //il rischio è causare rallentamenti per attendere la fine di tutti i thread
+    #pragma omp barrier
+    //forza tutti i thread ad arrivare allo stesso punto 
+    //il rischio è causare rallentamenti 
+    //per attendere la fine dei thread
     printf("Hello from thread!");    
 }
 \end{verbatim}
@@ -175,3 +177,344 @@ Per loro natura, le variabili private nascono e muoiono all'interno di una regio
     \item \textbf{\texttt{copyin(var)}}: Usata insieme a \texttt{threadprivate}. Serve per far sì che, all'ingresso di una regione parallela, il thread master copi il valore della sua variabile \texttt{threadprivate} dentro le copie di tutti gli altri thread.
     \item \textbf{\texttt{copyprivate(var)}}: Si applica ai costrutti eseguiti da un singolo thread (es. direttiva \texttt{single}). Propaga il risultato calcolato da quel singolo thread verso le copie private di tutti gli altri thread del team, prima che attraversino la barriera finale.
 \end{itemize}
+
+\subsection{Controllo del Numero di Thread}
+Per impostazione predefinita, il numero di thread generati in una regione parallela corrisponde al numero di core disponibili. Tuttavia, è possibile sovrascrivere questo comportamento in tre modi:
+\begin{enumerate}
+    \item \textbf{Variabile di ambiente}: \texttt{export OMP\_NUM\_THREADS=n}
+    \item \textbf{Funzione a runtime}: \texttt{omp\_set\_num\_threads(n)}
+    \item \textbf{Clausola della direttiva}: \texttt{\#pragma omp parallel num\_threads(n)}
+\end{enumerate}
+
+La variabile d'ambiente \texttt{OMP\_DYNAMIC} può comportarsi in due modi:
+\begin{itemize}
+    \item \textbf{TRUE}: Se la variabile è impostata a True noi diamo le direttive al sistema operativo, tuttavia, potrebbe scegliere di testa sua se darci un numero $n$ di thread o inferiore. Questo permette a noi di dare delle direttive ma ci evita problemi nel caso in cui non sia possibile ottenere quel numero di thread evitando crash.
+    \item \textbf{FALSE}: Se questa variabile è impostata a False, le direttive che diamo saranno \textbf{assolute} e il nostro sistema operativo creerà gli $n$ thread che abbiamo questo. Questo ci dà il vantaggio di avere un totale controllo sul numero di thread che vengono creati, tuttavia, il sistema operativo non interverrà nemmeno quando, in realtà, l'uso di $n$ thread rallenta solo l'esecuzione del programma a causa della mancanza di risorse hardware.
+\end{itemize}
+Questa opzione si può modificare a runtime con \texttt{omp\_set\_dynamic(true)}.
+
+\subsection{Sincronizzazione dell'Esecuzione}
+In una regione parallela, potremmo trovarci in varie situazioni. Potremmo volere che alcuni blocchi di codice devono essere \textbf{eseguiti da un solo thread alla volta} in quanto intrinsecamente seriali o potremmo volere che sia eseguito \textbf{da un solo thread in assoluto} perché intrinsecamente univoci. 
+
+OpenMP gestisce queste casistiche con costrutti specifici, che differiscono per l'uso delle \textbf{barriere implicite} e per l'overhead. Per comprendere a fondo il comportamento dei costrutti di sincronizzazione, è essenziale porsi due domande chiave per ciascuno di essi:
+\begin{itemize}
+    \item \textbf{Chi esegue il blocco di codice?}
+    \item \textbf{Gli altri thread lo aspettano alla fine?}
+\end{itemize}
+Vediamoli adesso uno per uno:
+
+\begin{itemize}
+    \item \textbf{\texttt{\#pragma omp critical}}
+    \begin{itemize}
+        \item \textit{Chi esegue il codice?} \textbf{Tutti i thread}, ma rigorosamente \textbf{uno alla volta}.
+        \item \textit{Ingresso (Coda):} Nel punto di ingresso è presente una "barriera sotto forma di coda". Se un thread è già all'interno, gli altri trovano un blocco e devono attendere il proprio turno.
+        \item \textit{Uscita (Via libera):} \textbf{Nessuna barriera}. Quando un thread termina il blocco, esce e prosegue immediatamente l'esecuzione del codice successivo, liberando il posto per il prossimo thread in coda.
+    \end{itemize}
+
+    \item \textbf{\texttt{\#pragma omp atomic}}
+    \begin{itemize}
+        \item \textit{Chi esegue il codice?} Tutti i thread, uno alla volta.
+        \item \textit{Comportamento:} La logica di sincronizzazione è identica a \texttt{critical}. Tuttavia, applicandosi a una singola istruzione hardware di aggiornamento in memoria, l'attesa in coda è quasi istantanea.
+    \end{itemize}
+
+    \item \textbf{\texttt{\#pragma omp single}}
+    \begin{itemize}
+        \item \textit{Chi esegue il codice?} \textbf{Un solo thread} (il primo che raggiunge la direttiva).
+        \item \textit{Ingresso (Salto):} Gli altri thread ignorano completamente il blocco di codice.
+        \item \textit{Uscita (Barriera Implicita):} I thread che hanno saltato il blocco \textbf{devono aspettare} alla fine della regione finché il thread lavoratore non ha completato l'operazione. Solo allora ripartono tutti insieme.
+    \end{itemize}
+
+    \item \textbf{\texttt{\#pragma omp master} / \texttt{masked}}
+    \begin{itemize}
+        \item \textit{Chi esegue il codice?} Esclusivamente il \textbf{thread 0}.
+        \item \textit{Ingresso (Salto):} Gli altri thread ignorano il blocco.
+        \item \textit{Uscita (Nessuna barriera):} A differenza di \texttt{single}, \textbf{non vi è alcuna sincronizzazione esplicita}. Mentre il master esegue il blocco, gli altri proseguono immediatamente, potendosi trovare ovunque nell'esecuzione del codice successivo.
+    \end{itemize}
+\end{itemize}
+\subsubsection*{La direttiva \texttt{atomic}}
+Quando più thread lavorano su variabili condivise, è fondamentale garantire la \textbf{correttezza semantica} del codice. Si consideri una semplice assegnazione come \texttt{a += b} dove \texttt{a} è una variabile condivisa e b è 1. 
+
+Sebbene in C/C++ questa sembri un'unica istruzione, a livello di processore viene tradotta in \textbf{diverse istruzioni Assembly}:
+\begin{enumerate}
+    \item \textbf{Load}: Il processore legge il valore attuale di \texttt{a} dalla RAM e lo porta in un registro.
+    \item \textbf{Add}: Somma il valore di \texttt{b} al registro.
+    \item \textbf{Store}: Scrive il nuovo valore dal registro di nuovo nella RAM (nella cella di \texttt{a}).
+\end{enumerate}
+
+\noindent
+Sebbene una singola istruzione Assembly non possa essere interrotta, un thread potrebbe essere interrotto \textit{tra} la fase di Load e la fase di Store. Se il Thread 1 e il Thread 2 leggono contemporaneamente \texttt{a = 5}, entrambi calcolano \texttt{5 + 1 = 6} e scrivono \texttt{6}. Il risultato finale sarà \texttt{6} invece del corretto \texttt{7}. Un aggiornamento è andato perso!
+
+La direttiva \texttt{\#pragma omp atomic} "protegge" la variabile condivisa, garantendo che l'intero ciclo di lettura-modifica-scrittura avvenga senza interruzioni da parte di altri thread. Questa direttiva ha un \textbf{overhead molto inferiore} rispetto a una generica regione \texttt{critical} poiché sfrutta istruzioni hardware del processore e blocca solo la specifica area di memoria, non il codice. Dunque, deve essere sempre preferita per le operazioni matematiche di base rispetto alla direttiva \texttt{\#pragma omp critical}.
+
+Per fornire un controllo granulare, OpenMP permette di specificare \textit{che tipo} di operazione atomica si sta eseguendo tramite delle clausole:
+
+\begin{itemize}
+    \item \textbf{\texttt{read}}: Forza una lettura atomica della variabile in memoria.
+    \begin{verbatim}
+#pragma omp atomic read
+var = mem;
+    \end{verbatim}
+    
+    \item \textbf{\texttt{write}}: Forza una scrittura atomica in una locazione di memoria.
+    \begin{verbatim}
+#pragma omp atomic write
+mem = var;
+    \end{verbatim}
+    
+    \item \textbf{\texttt{update}} \textit{(comportamento di default se omesso)}: Esegue un aggiornamento atomico leggendo, modificando e riscrivendo il dato.
+    \begin{verbatim}
+#pragma omp atomic update
+mem++; // oppure mem += expr;
+    \end{verbatim}
+
+    \item \textbf{\texttt{capture}}: Esegue l'aggiornamento atomico (\texttt{update}) e contemporaneamente "cattura" in una variabile privata il valore originale (prima della modifica) o il valore finale (dopo la modifica), garantendo che la lettura e l'aggiornamento avvengano nello stesso istante indivisibile.
+    \begin{verbatim}
+#pragma omp atomic capture
+// val ottiene il valore VECCHIO, mem viene incrementato
+val = mem++; 
+
+#pragma omp atomic capture
+// val ottiene il valore NUOVO, mem viene incrementato  
+val = ++mem; 
+    \end{verbatim}
+    Questa funzione risulta utile quando si vuole fare un aggiornamento atomico ma si ha anche bisogno di conoscere il valore prima o dopo l'aggiornamento, evitando così la necessità di una regione \texttt{critical} più pesante.
+\end{itemize}
+
+
+\subsubsection*{Ottimizzazione Avanzata dei Costrutti di Sincronizzazione}
+
+\begin{itemize}
+    \item \textbf{Il problema del Lock Globale in \texttt{critical}}: Quando scriviamo semplicemente pragma omp critical, il compilatore associa a quel blocco di codice un "lucchetto" (lock) globale predefinito. 
+    Supponendo di avere due diverse regioni critiche nel codice, entrambe useranno lo stesso lock globale. Se un thread è all'interno di una regione critica, tutti gli altri thread che vogliono entrare in qualsiasi regione critica (anche se sono regioni diverse) devono aspettare.
+    Questo causa una serializzazione inutile del codice che limitano le prestazioni del sistema. La soluzione è dare un nome alla regione tramite \texttt{pragma omp critical (nome)}. In questo modo OpenMP crea lock indipendenti.
+
+    \item \textbf{Interazione tra \texttt{critical} e \texttt{atomic}}: atomic e critical operano su livelli di astrazione completamente diversi: critical protegge una regione di codice (impedisce che due thread leggano contemporaneamente le stesse righe di codice) mentre Atomic protegge una locazione di memoria fisica (impedisce che due thread scrivano nello stesso indirizzo RAM contemporaneamente). Queste due strutture non sono mutualmente esclusive, immaginiamo di avere due regioni critiche diverse che accedono alla stessa variabile. Poiché la variabile a cui accedono è la stessa, pur essendo in regioni diverse, si rischiano delle race condition. In questo caso, è necessario proteggere la variabile condivisa con una direttiva \texttt{atomic} all'interno di entrambe le regioni critiche. In questo modo, anche se i thread accedono a regioni critiche diverse, la variabile condivisa sarà comunque protetta da accessi concorrenti.
+
+    \item \textbf{Scelta prestazionale: \texttt{single} vs \texttt{master}}: Entrambi i costrutti fanno eseguire un blocco di codice a un solo thread.Tuttavia, l'impatto sulle prestazioni (overhead) è molto diverso:
+    \begin{itemize}
+        \item \textbf{Master}: Il thread master (thread 0) esegue il blocco, mentre gli altri thread ignorano completamente il blocco e proseguono immediatamente. Non c'è alcuna barriera implicita alla fine del blocco, quindi gli altri thread non devono aspettare. L'overhead è quasi zero, poiché basta un semplice controllo if (thread\_id == 0) per far eseguire il blocco solo al thread master.
+        \item \textbf{Single}: Il primo thread che raggiunge la direttiva esegue il blocco, mentre gli altri thread ignorano il blocco o devono aspettare alla fine della regione parallela. L'overhead è maggiore poiché la logica di coordinamento per determinare quale thread arriva per primo e gestire la sincronizzazione alla fine del blocco introduce un overhead significativo, soprattutto se i thread arrivano in momenti diversi.
+    \end{itemize}
+    La scelta dipende dal Load Balancing del codice che precede questa direttiva. Se i calcoli precedenti sono sbilanciati (alcuni thread finiscono molto prima di altri), conviene usare single. In questo modo, il primo thread che si libera esegue subito il blocco, senza dover per forza aspettare il thread 0 (che magari è in ritardo perché bloccato su un calcolo pesante). Se invece il carico è perfettamente bilanciato, tutti i thread arrivano assieme, quindi è meglio usare master per risparmiare sull'overhead del coordinamento.
+\end{itemize}
+
+\subsection{Ordinamento dei Thread}
+Di default, l'ordine di esecuzione dei thread in OpenMP è \textbf{non deterministico}. Tentare di imporre un ordine temporale rigoroso richiede particolare attenzione, poiché l'uso improprio dei costrutti di sincronizzazione può portare a stalli, codice ignorato o errori di compilazione degradando significativamente le prestazioni.
+
+Supponiamo di avere questo pezzo di codice:
+\begin{verbatim}
+    int order = 0;
+    #pragma omp parallel{
+        int myid = omp_get_thread_num();
+        printf( "greetings from thread num %d\n", my_thread_id );
+    }
+\end{verbatim}
+Chiaramente, non possiamo garantire l'ordine di stampa dei messaggi. 
+\subsubsection*{Tentativo 1: Variabile Order}
+Se volessimo forzare un ordine di esecuzione, potremmo pensare di usare una variabile condivisa \texttt{order} e far sì che ogni thread aspetti il proprio turno:
+\begin{verbatim}
+    int order = 0;
+    #pragma omp parallel{
+        int myid = omp_get_thread_num();
+        #pragma omp critical if ( order == myid ) {
+            printf( "greetings from thread num %d\n", my_thread_id );
+            order++; }
+    }
+\end{verbatim}
+Tuttavia,  la direttiva \texttt{CRITICAL} definisce una regione che viene eseguita da tutti i thread, ma da un singolo thread alla volta. Il che potrebbe sembrare un "ordinamento", tuttavia, sebbene i thread si accodino all'inizio della regione, non viene imposto alcun ordine particolare a tale coda. Di conseguenza, il risultato è imprevedibile a parte il fatto che il thread 0 stamperà il messaggio e aumenterà l'ordine. 
+Se il thread 2 viene messo in coda subito dopo, eseguirà la valutazione if, che fallirà (l'ordine sarebbe uguale a 1) e il thread 2 non stamperà affatto il messaggio.
+\subsubsection*{Tentativo 2: Ciclo While con Order}
+Un altro tentativo potrebbe essere il seguente:
+\begin{verbatim}
+    int order = 0;
+    #pragma omp parallel{
+        int myid = omp_get_thread_num(); int done = 0
+        while (!done) {
+            #pragma omp critical if (order == myid ) {
+                printf( "greetings from thread num %d\n", my_thread_id);
+                order++; done=1;
+            }
+        }
+    }
+\end{verbatim}
+
+In questo caso, ogni thread entra in un ciclo infinito in cui tenta di acquisire la regione critica. Se il thread riesce ad acquisire la regione critica e l'ordine è uguale al suo ID, stampa il messaggio, incrementa l'ordine e imposta \texttt{done = 1} per uscire dal ciclo. 
+Tuttavia, se un thread non riesce ad acquisire la regione critica o se l'ordine non corrisponde al suo ID, continua a tentare indefinitamente. 
+Questo può portare a stalli (deadlock) se i thread si bloccano reciprocamente aspettando che gli altri rilascino la regione critica, o a un consumo eccessivo di CPU se i thread continuano a tentare di acquisire la regione critica senza successo. 
+Inoltre, se il numero di thread è elevato, potrebbe verificarsi una situazione in cui alcuni thread non riescono mai ad acquisire la regione critica, causando un comportamento imprevedibile e potenzialmente degradante per le prestazioni del sistema.
+
+\subsubsection*{Tentativo 3: Costrutti nativi}
+La via corretta per forzare l'ordinamento in OpenMP è utilizzare i costrutti nativi pensati per questo scopo: associare una direttiva \texttt{ordered} a un ciclo \texttt{for} parallelizzato.
+
+\begin{verbatim}
+int nthreads = 1;
+#pragma omp parallel{
+    int myid = omp_get_thread_num();
+    #pragma omp master
+        int nthreads = omp_get_num_threads();
+    #pragma omp barrier
+    
+    #pragma omp for ordered
+    for ( int i = 0; i < nthreads; i++ )
+    #pragma omp ordered
+        printf( "greetings from thread num %d\n", my_thread_id );
+}
+\end{verbatim}
+Senza la direttiva barrier, potrebbe succedere che alcuni thread (potenzialmente tutti) arrivino al costrutto di condivisione del lavoro con un valore errato di nthreads.
+Per quanto riguarda la sintassi, la direttiva \texttt{omp for} dice a OpenMP di parallelizzare il ciclo for (l'ordine è solitamente dato con i-esima iterazione eseguita dall'i-esimo thread), mentre la clausola \texttt{ordered} associata al ciclo for indica che le iterazioni del ciclo devono essere eseguite in un ordine specifico che sarà meglio specificato dentro il blocco di codice. Infatti, all'interno del ciclo for, la direttiva \texttt{omp ordered} indica che il blocco di codice associato a questa direttiva deve essere eseguito in un ordine specifico (in questo caso, l'ordine dei thread).
+
+\subsection{Assegnazione del lavoro} 
+Quello che vogliamo fare adesso, è assegnare compiti diversi a thread diversi. Il più delle volte vogliamo che:
+\begin{itemize}
+    \item \textbf{Tutti i thread eseguano lo stesso codice} ma con dati diversi (data parallelism).
+    \item \textbf{Tutti i thread eseguano codice diverso} sugli stessi dati (task parallelism).
+\end{itemize}
+
+Banalmente, quello che potremmo fare è scrivere un blocco di codice assegnando manualmente a ogni thread un compito diverso tramite un controllo if sul thread ID. 
+\begin{verbatim}
+#pragma omp parallel{
+    if( myid % 3 == 0)
+        result = heavy_work_0( );
+    else if ( myid % 3 == 1 )
+        result = heavy_work_1( );
+    else if ( myid % 3 == 2 )
+        result = heavy_work_2( );
+
+    if ( myid < 3 )
+        results[myid] = result;
+}
+\end{verbatim}
+Tuttavia, questo approccio è poco scalabile e non sfrutta appieno le potenzialità di OpenMP. È anche possibile usare regioni parallele solo al verificarsi di certe condizioni tramite la clausola \texttt{if}: 
+\begin{verbatim}
+#pragma omp parallel if(amount_of_work > threshold){
+    if( myid % 3 == 0)
+        result = heavy_work_0( );
+    else if ( myid % 3 == 1 )
+        result = heavy_work_1( );
+    else if ( myid % 3 == 2 )
+        result = heavy_work_2( );
+
+    if ( myid < 3 )
+        results[myid] = result;
+}
+\end{verbatim}
+In questo modo, se la quantità di lavoro è inferiore a una certa soglia, il codice verrà eseguito in modalità seriale, evitando l'overhead della creazione dei thread e della sincronizzazione. Se invece la quantità di lavoro supera la soglia, il codice verrà eseguito in modalità parallela, sfruttando le potenzialità di OpenMP per migliorare le prestazioni. 
+Naturalmente, questo approccio è più flessibile e permette di adattare dinamicamente l'esecuzione del codice in base alla quantità di lavoro da svolgere, ottimizzando così le prestazioni complessive del programma a patto che la soglia sia scelta in maniera tale che il beneficio della parallelizzazione superi l'overhead dovuto alla creazione dei thread.
+
+È anche possibile effettuare parallelismo annidato, ovvero creare regioni parallele all'interno di altre regioni parallele. In questo modo, è possibile sfruttare ulteriormente le potenzialità di OpenMP per migliorare le prestazioni del programma. Tuttavia, è importante tenere presente che il parallelismo annidato può introdurre un overhead significativo a causa della creazione di thread aggiuntivi e della sincronizzazione necessaria tra i thread, quindi è consigliabile utilizzarlo solo quando si è certi che porterà a un miglioramento delle prestazioni complessive del programma. 
+
+A seguire, vediamo alcune funzioni di runtime che permettono di ottenere informazioni sui thread e di controllare il comportamento del sistema:
+\begin{itemize}
+    \item \textbf{\texttt{int omp\_get\_num\_threads()}}: Ottiene il numero di thread nella regione parallela da cui viene chiamato.
+    \item \textbf{\texttt{int omp\_get\_thread\_num()}}: Ottiene l'ID del thread chiamante.
+    \item \textbf{\texttt{void omp\_set\_num\_threads(int)}}: Imposta il numero di thread da quel punto in poi.
+    \item \textbf{\texttt{int omp\_get\_max\_threads()}}: Ottiene il numero massimo di thread nella regione parallela successiva, senza una clausola \texttt{num\_threads}.
+    \item \textbf{\texttt{double omp\_get\_wtime()}}: Ottiene il tempo in secondi trascorso da un punto nel passato (non sincronizzato tra i thread).
+\end{itemize}
+Le ICV sono variabili concettuali utilizzate per configurare il runtime di OpenMP. Esse operano su tre livelli di ambito:
+
+\begin{itemize}
+    \item \textbf{Ambito Globale:} Si applica all'intero programma ed è configurato una sola volta all'avvio.
+    \item \textbf{Ambito del Dispositivo:} Gestisce le differenze di configurazione su piattaforme eterogenee (CPU, GPU, coprocessori) a partire da OpenMP 4.0.
+    \item \textbf{Ambito del Task:} La maggior parte delle ICV è locale al task. Alla creazione di un nuovo task, le ICV vengono ereditate dal genitore; eventuali modifiche effettuate dal task figlio hanno effetto solo sulla sua durata e non si propagano al task chiamante.
+\end{itemize}
+
+\section{NUMA Awareness}
+Abbiamo già discusso di come un'unica memoria centrale con una larghezza di banda fissa rappresenti un collo di bottiglia per le prestazioni in sistemi con molti core. Per superare questo problema, i moderni sistemi multiprocessore adottano un'architettura NUMA (Non-Uniform Memory Access), in cui la memoria è divisa fisicamente in nodi locali associati a ciascun processore o gruppo di processori in modo che ogni nodo abbia una memoria locale con accesso più veloce rispetto all'accesso alla memoria remota di altri nodi.
+In questo modo, la larghezza di banda aggregata risultante scala all'aumentare del numero di socket anche se, come sappiamo, la coerenza della cache diventa il nuovo fattore limitante. Chiaramente, abbiamo lo svantaggio che l'accesso alla memoria non è più uniforme: se un thread accede alla memoria locale del suo nodo, ottiene prestazioni migliori rispetto a quando accede alla memoria remota di un altro nodo e questo potrebbe avere delle conseguenze sul modo in cui scriviamo il nostro codice parallelo.
+
+OpenMP fornisce strumenti per gestire la consapevolezza NUMA, consentendo agli sviluppatori di ottimizzare l'allocazione della memoria e l'affinità dei thread per migliorare le prestazioni in ambienti NUMA. OpenMP permette, infatti, di decidere dove eseguire ciascun thread e dove allocare la memoria, in modo da massimizzare l'accesso alla memoria locale e minimizzare l'accesso alla memoria remota.
+
+Abbiamo già discusso, inoltre, la capacità di eseguire più thread su uno stesso core e abbiamo chiamato questo fenomeno \textbf{Simultaneous Multithreading (SMT)}. Chiameremo \textbf{strand} i diversi thread che condividono lo stesso core e \textbf{swthread} i thread software che vengono gestiti da OpenMP. Il posizionamento sui core dei thread è chiamato \textbf{affinità dei thread}.
+
+\subsection{Affinità dei Thread}
+L'affinità dei thread si riferisce alla capacità di controllare su quali core fisici vengono eseguiti i thread in un sistema multiprocessore. L'obiettivo è quello di massimizzare l'efficienza del sistema minimizzando l'accesso alla memoria remota e sfruttando al meglio la cache locale. Ad esempio, se $n$ thread lavorano su dati condivisi, sarebbe bene che condividessero la chache L2 e, di conseguenza, che lavorino sullo stesso socket. Se invece $n$ thread lavorano su dati completamente indipendenti, sarebbe meglio distribuirli su socket diversi per sfruttare la larghezza di banda aggregata.
+
+Per minimizzare il numero di accessi in memoria, dobbiamo dunque tenere in considerazione:
+\begin{itemize}
+    \item \textbf{Dove}: ovvero in quale banca di memoria si trovano i dati.    
+    \item \textbf{Chi}: ovvero quale thread sta accedendo a quei dati e come sono distribuiti i dati sui core.
+    \item \textbf{Cosa}: come è distribuito il lavoro tra i thread e se è possibile sfruttare la cache locale.
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_6/distribuzione_core.png}
+\end{figure}
+
+L'obiettivo primario nella gestione di un sistema NUMA è la distribuzione ottimale del carico di lavoro per eliminare la \textbf{contesa delle risorse} in termini di potenza di calcolo, cache e memoria. Per massimizzare le prestazioni, ogni \texttt{swthread} OpenMP dovrebbe avere una risorsa di calcolo dedicata e l'accesso più rapido possibile ai propri dati.
+
+Per ottenere ciò, è necessario intervenire su quattro fronti:
+\begin{itemize}
+    \item \textbf{Mappatura esplicita}: associare i thread ai core fisici (\texttt{hwthread}).
+    \item \textbf{Allocazione mirata}: posizionare i dati nella memoria fisica più "vicina" al core che li elabora.
+    \item \textbf{Località dei dati}: minimizzare i tempi di latenza riducendo l'accesso alla memoria remota.
+    \item \textbf{Migrazione dinamica}: se necessario, spostare memoria o thread tra i nodi NUMA per ristabilire l'equilibrio durante l'esecuzione.
+\end{itemize}
+
+Il posizionamento ottimale dei thread non è universale, ma dipende strettamente dalla natura dell'algoritmo e dalla condivisione dei dati.
+
+\subsubsection*{Thread "Distanti" (Spread)}
+Posizionare i thread su unità di calcolo lontane (es. socket diversi) offre vantaggi e svantaggi specifici:
+\begin{itemize}
+    \item \textbf{PRO}: Aumenta la \textbf{larghezza di banda aggregata}, poiché ogni thread può sfruttare i canali di memoria di nodi diversi.
+    \item \textbf{PRO}: Migliora l'uso della \textbf{cache locale}, riservando l'intera cache di un core/socket ai dati di un singolo thread.
+    \item \textbf{CONTRO}: Peggiora le prestazioni dei \textbf{costrutti di sincronizzazione} (es. barriere) a causa della latenza di comunicazione tra socket.
+    \item \textbf{CONTRO}: Vanifica i vantaggi della cache se i thread devono leggere frequentemente gli stessi dati.
+\end{itemize}
+
+\subsubsection*{Thread "Vicini" (Close)}
+Posizionare i thread vicini (es. sullo stesso core tramite SMT o sullo stesso socket) cambia radicalmente il profilo prestazionale:
+\begin{itemize}
+    \item \textbf{PRO}: Riduce drasticamente la \textbf{latenza di sincronizzazione}.
+    \item \textbf{CONTRO}: Riduce la \textbf{larghezza di banda totale} disponibile, poiché più thread competono per lo stesso canale di memoria.
+    \item \textbf{Variabile}: L'impatto sulla cache può essere positivo (se condividono dati) o negativo (se si "sfrattano" a vicenda i dati dalla cache - \textit{cache thrashing}).
+\end{itemize}
+
+OpenMP offre 2 concetti di base per gestire l'affinità dei thread:
+\begin{itemize}
+    \item \textbf{Places}: ovver a quali entità fisiche ci riferiamo con la nostra richiesta di affinità, cioè dove vengono eseguiti i thread.
+    \item \textbf{Binding}: ovvero se esiste una relazione tra thread e places, e se sì, quale tipo di relazione.
+\end{itemize}
+\subsection*{Placecs}
+OpenMP fornisce diverse modalità di affinità dei thread, che possono essere specificate
+I places rappresentano il dove vengono eseguiti gli \textbf{swthread}. 
+I nomi dei places sono:
+\begin{itemize}
+    \item \textbf{Threads}: ogni posizione corrisponde a un hwthread o strand sui core.
+    \item \textbf{Cores}: ogni posizione corrisponde a un core fisico (con tutti i suoi hwthread).
+    \item \textbf{Sockets}: ogni posizione corrisponde a un socket fisico (con tutti i suoi core).
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_6/socket_core_thread.png}
+\end{figure}
+\subsubsection*{Esempio socket}
+Immaginiamo di avere la seguente configurazione hardware:
+\begin{itemize}
+    \item 4 sockets;
+    \item 12 core per socket;
+    \item 2 hwthread per core.
+    \item Ogni socket corrisponde a un nodo NUMA.
+\end{itemize}
+Per i nodi NUMA varrà la seguente configurazione:
+\begin{itemize}
+    \item NUMA node0 CPU: 0-11, 48-59;
+    \item NUMA node1 CPU: 12-23, 60-71;
+    \item NUMA node2 CPU: 24-35, 72-83;
+    \item NUMA node3 CPU: 36-47, 84-95.
+\end{itemize}
+I primi valori (0-47) rappresentano i core fisici, mentre i secondi (48-95) rappresentano gli hwthread, cioè quelli che vengono attivati solo in caso di SMT. Se volessimo massimizzare le prestazioni, potremmo scegliere di posizionare i thread solo sui core fisici (0-47) evitando di attivare gli hwthread (48-95) così da assegnare un core a ogni thread. Se invece volessimo massimizzare il numero di thread, potremmo scegliere di attivare anche gli hwthread (48-95) così da raddoppiare il numero di thread disponibili, ma a scapito delle prestazioni a causa della contesa per le risorse del core. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_6/socket_distrib.png}
+\end{figure}
+Vale che se ci sono nsocket con ncore\_per\_socket, allora abbiamo un totale di: 
+\[nore = nsocket \times ncore\_per\_socket\]
+E possiamo gestire un numero di thread pari a:
+\[nthread = nsocket \times nthread_SMT\]
+Per dare a OpenMP indicazioni sull'affinità dei thread, possiamo usare la variabile d'ambiente \texttt{OMP\_PLACES = \{sockets | cores | threads\}} con, rispettivatemente, le seguenti interpretazioni:
+\begin{itemize}
+    \item \textbf{Sockets} :si riferisce ai core logici, ovvero tiene conto dei thread smt
+    \item \textbf{Cores}:
+    \item \textbf{Threads}:
+\end{itemize}   
