@@ -39,7 +39,7 @@ Questi sono ruoli introdotti già nella legge 196 ma il GDPR ne delinea nuove re
 
 L'Allegato B della Legge 196 del 2003 parlava di **'misure minime di sicurezza'**, che includevano 29 requisiti. Queste misure erano l'archetipo della sicurezza e sono ancora rilevanti oggi, sebbene la loro incarnazione tecnica sia superata a causa dell'evoluzione tecnologica che, di base, non prevedeva il cloud o lo smart working moderno. 
 
-Il GDPR, pur menzionando la sicurezza (articoli 32, 33, 34, **si concentra principalmente sugli aspetti funzionali e sui diritti dell'interessato** cioè colui a cui si fa riferimento nei dati. È fondamentale comprendere che la protezione dei dati non è solo una questione tecnologica, ma anche **legale e organizzativa**. La sicurezza informatica deve essere integrata con la protezione dei dati per garantire un controllo completo e la conformità normativa.
+Il GDPR, pur menzionando la sicurezza (articoli 32, 33, 34), **si concentra principalmente sugli aspetti funzionali e sui diritti dell'interessato** cioè colui a cui si fa riferimento nei dati. È fondamentale comprendere che la protezione dei dati non è solo una questione tecnologica, ma anche **legale e organizzativa**. La sicurezza informatica deve essere integrata con la protezione dei dati per garantire un controllo completo e la conformità normativa.
 
 Il GDPR non ci dà delle indicazioni fisse sul cosa implementare in termini di sicurezza, bensì ci dice di applicare le giuste misure secondo lo **stato dell'arte** (Art. 32 del GDPR) e secondo il contesto e le finalità del trattamento. Questo non lega i titolari a specifiche implementazioni che potrebbero, un domani, risultare obsolete. Dunque, molte aziende fanno riferimento a standard internazionali come la **ISO 27001**.
 
@@ -107,7 +107,7 @@ La gestione del cambiamento (change management) è fondamentale e qualsiasi camb
 
 Un mese potrebbe essere un periodo più appropriato per la disattivazione, specialmente per assenze prolungate come il 'sabbatico', e che dovrebbero essere richieste autorizzazioni speciali per periodi più lunghi. 
 
-Si solleva la questione delle credenziali 'mai utilizzate', che potrebbero rimanere attive e rappresentare una vulnerabilità se non gestite correttamente nell'offboarding. Il relatore propone di differenziare la gestione delle credenziali a seconda che siano state utilizzate o meno. 
+Si solleva la questione delle credenziali 'mai utilizzate', che potrebbero rimanere attive e rappresentare una vulnerabilità se non gestite correttamente nell'offboarding. Si propone di differenziare la gestione delle credenziali a seconda che siano state utilizzate o meno. 
 
 La 8 ci indica, invece, che è chiaramente necessario disattivare le credenziali qualora si perdesse la possibilità di trattare i dati.
 

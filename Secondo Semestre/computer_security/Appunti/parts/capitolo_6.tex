@@ -1,14 +1,295 @@
 \chapter{Data Protection e GDPR}
 
-\section{Legge 196/03}
-La \textbf{Legge 196 del 2003} nota come \textbf{Codice della Privacy} o Codice in materia di protezione dei dati personali, è la normativa italiana fondamentale che regola la raccolta, il trattamento e la circolazione dei dati personali, garantendo il rispetto dei diritti fondamentali della persona.
+\section{Il Codice della Privacy (Legge 196/03)}
 
-La sua prima versione risale dunque al 2003 fino a cambiare, successivamente nel 2018 con l'entrata in vigore del General Data Protection Regulation per adattarsi proprio a quest'ultimo.
+La \textbf{Legge 196 del 2003}, nota comunemente come \textbf{Codice della Privacy} (o \textit{Codice in materia di protezione dei dati personali}), rappresenta la normativa italiana fondamentale per la regolamentazione, la raccolta e il trattamento dei dati personali, con l'obiettivo primario di tutelare i diritti e le libertà fondamentali degli individui.
 
-Analizzeremo in particolare l'allegato B che per i suoi 15 anni di attività, imponeva quelli che erano i \textbf{requisiti minimi di sicurezza} che, se adottati, rendevano a norma l'azienda a livello legale. 
+Originariamente promulgato nel 2003, il Codice ha subito una profonda revisione nel 2018. Questa trasformazione si è resa necessaria per armonizzare la legislazione nazionale con le nuove direttive europee introdotte dal \textbf{General Data Protection Regulation (GDPR)}.
 
-Questo codice fa una distinzione tra:
+Nel corso di questo capitolo analizzeremo, in particolare, lo storico \textbf{Allegato B}. Per quindici anni, questo documento ha dettato i \textbf{requisiti minimi di sicurezza}: un insieme di misure tecniche e organizzative che, se correttamente adottate, garantivano la conformità legale dell'azienda nella gestione dei dati. Attenzione che, però, queste rappresentavano solo il punto di partenza, non l'obiettivo finale. Il GDPR, infatti, ha introdotto un approccio più dinamico e proattivo alla protezione dei dati, spostando l'attenzione dalla mera conformità a una vera e propria cultura della sicurezza e della privacy.
+
+\subsection*{Le definizioni fondamentali}
+
+Per comprendere appieno la normativa, è essenziale padroneggiare la classificazione dei dati:
+
+\begin{description}
+    \item[Dati Personali:] Qualsiasi informazione relativa a una persona fisica identificata o identificabile. Possono essere \textbf{diretti} (come nome e cognome) o \textbf{indiretti} (come indirizzi IP, cookie o numeri di targa).
+    \item[Dati Sensibili (o Particolari):] Secondo la classificazione del GDPR, si tratta di una categoria speciale di dati personali che rivelano informazioni intime o riservate, quali l'origine razziale o etnica, le opinioni politiche, le convinzioni religiose, l'orientamento sessuale o i dati relativi alla salute.
+\end{description}
+
+\subsection*{Privacy vs Data Protection}
+
+Nel linguaggio comune i due termini vengono spesso confusi, ma in ambito giuridico indicano due concetti distinti e complementari, entrambi tutelati dalla \textit{Carta dei diritti fondamentali dell'Unione Europea}:
+
+\begin{description}
+    \item[Privacy:] È il diritto inalienabile di ogni individuo di controllare le proprie informazioni e di decidere come e quando condividerle. Sancito dall'Articolo 7, esso stabilisce testualmente che:
+    \begin{quote}
+        \textit{«Ogni persona ha diritto al rispetto della propria vita privata e familiare, del proprio domicilio e delle proprie comunicazioni.»}
+    \end{quote}
+
+    \item[Data Protection:] Rappresenta il mezzo pratico per mezzo di cui si realizza la privacy, ovvero l'insieme delle regole e delle tutele applicate al trattamento dei dati. L'Articolo 8 ne definisce i contorni in modo preciso:
+    \begin{quote}
+        \begin{enumerate}
+            \item \textit{Ogni persona ha diritto alla protezione dei dati di carattere personale che la riguardano.}
+            \item \textit{Tali dati devono essere trattati secondo il principio di lealtà, per finalità determinate e in base al consenso della persona interessata o a un altro fondamento legittimo previsto dalla legge. Ogni persona ha il diritto di accedere ai dati raccolti che la riguardano e di ottenerne la rettifica.}
+            \item \textit{Il rispetto di queste regole è soggetto al controllo di un'autorità indipendente.}           
+        \end{enumerate}
+    \end{quote}
+\end{description}
+
+Questi articoli evidenziano non solo l'importanza della protezione tecnica del dato, ma pongono al centro dell'attenzione il \textbf{consenso esplicito} al trattamento e il \textbf{potere di controllo} che l'interessato mantiene sulle proprie informazioni che, come vedremo anche nel GDPR, rappresenta un pilastro fondamentale della normativa.
+
+\subsection*{I Ruoli del Trattamento}
+
+Infine, la Legge 196/03 individua con chiarezza i soggetti coinvolti nel ciclo di vita del trattamento dei dati:
+
+\begin{description}
+    \item[Titolare del trattamento:] È la persona (fisica o giuridica) che decide le finalità e i mezzi del trattamento dei dati. Essendo il decisore principale, è il primo soggetto a risponderne legalmente in caso di violazione (\textit{data breach}).
+    \item[Responsabile del trattamento:] È un soggetto esterno, delegato dal Titolare, per la gestione operativa dei dati. Un esempio classico è un provider di servizi cloud che ospita il database di un sito web: se omette di mettere in sicurezza i propri server, risponde direttamente delle eventuali violazioni.
+    \item[Incaricato (o Persona Autorizzata):] Rappresenta il personale operativo (es. i dipendenti di un'azienda) autorizzato a compiere materialmente le operazioni sui dati, attenendosi strettamente alle istruzioni ricevute dal Titolare o dal Responsabile.
+    \item[Interessato:] È la persona fisica alla quale si riferiscono i dati personali. La legge gli garantisce ampi diritti, tra cui la possibilità di accedere alle proprie informazioni, richiederne la modifica o la cancellazione (comunemente noto come \textbf{diritto all'oblio}) e opporsi in qualsiasi momento al loro trattamento.
+\end{description}
+
+Questa chiara distinzione dei ruoli è fondamentale per comprendere le responsabilità e le dinamiche che regolano il trattamento dei dati personali, nonché per garantire una corretta applicazione delle misure di sicurezza e delle procedure di conformità previste dalla legge.
+
+\subsection{L'Allegato B e le Misure Minime di Sicurezza}
+
+L'Allegato B della Legge 196/03 stabiliva il quadro normativo delle \textbf{misure minime di sicurezza}, articolato in 29 requisiti specifici. Queste prescrizioni hanno rappresentato per anni l'archetipo della sicurezza dei dati in Italia: i loro princìpi fondanti rimangono assolutamente rilevanti tutt'oggi, sebbene le specifiche declinazioni tecniche risultino inevitabilmente anacronistiche a causa della rapida evoluzione informatica.
+
+Questo approccio "a lista di controllo" si discosta nettamente dalla filosofia adottata dal legislatore europeo. Come vedremo in dettaglio nei prossimi capitoli, il GDPR non impone un elenco rigido e chiuso di tecnologie da implementare. Al contrario, richiede l'adozione di misure tecniche e organizzative adeguate valutando i rischi e tenendo conto dello \textbf{stato dell'arte} (come sancito dall'Art. 32 del GDPR), nonché del contesto e delle finalità del trattamento. 
+
+\vspace{0.5cm} 
+Di seguito analizzeremo nel dettaglio i 29 requisiti originali, evidenziando quali concetti costituiscano ancora una solida base per la \textit{data protection} moderna e quali, invece, siano stati superati dal tempo.
+
+
+\section{Requisiti di Sicurezza Minimi Legge 196/03}
+\subsection{Sistema di autenticazione informatica}
+\subsubsection*{Regola 1}
+\begin{quote}
+    \textit{«Il trattamento di dati personali con strumenti elettronici è consentito agli incaricati dotati di credenziali di autenticazione che consentano il superamento di una procedura di autenticazione relativa a uno specifico trattamento o a un insieme di trattamenti.»}
+\end{quote}
+
+Questa norma stabilisce dunque che l'accesso ai dati personali deve essere \textbf{limitato a persone autorizzate, identificabili attraverso credenziali di autenticazione}. Inoltre, la norma specifica che tali credenziali devono essere legate a uno specifico trattamento o a un insieme di trattamenti, garantendo così un controllo più granulare e mirato sull'accesso ai dati.
+
+È importante sottolineare che questa disposizione rimane molto sul generico, riferendosi proprio a \textbf{tutti quelli che trattano i dati} e questo indica tutti che essi siano dipendenti interni o esterni, come ad esempio i fornitori di servizi cloud. Ciò impone l'autenticazione in pratica su tutti gli strumenti elettronici utilizzati per il trattamento dei dati personali, come computer, server, dispositivi mobili e applicazioni software.
+
+La responsabilità della compliance sta al Titolare del trattamento o, nel caso del responsabile, a quest'ultimo. In entrambi i casi, è fondamentale implementare misure di sicurezza adeguate per garantire che solo le persone autorizzate abbiano accesso ai dati personali, proteggendo così la privacy degli interessati e prevenendo potenziali violazioni dei dati.
+\subsubsection*{Regola 2}
+\begin{quote}
+    \textit{«Le credenziali di autenticazione consistono in un codice per l'identificazione dell'incaricato associato a una parola chiave riservata conosciuta solamente dal medesimo oppure in un dispositivo di autenticazione in possesso e uso esclusivo dell'incaricato, eventualmente associato a un codice identificativo o a una parola chiave, oppure in una caratteristica biometrica dell'incaricato, eventualmente associata a un codice identificativo o a una parola chiave.»}
+\end{quote}
+Questa norma definisce in modo più dettagliato cosa si intende per "credenziali di autenticazione". In particolare, ci dice che l'autenticazione può essere realizzata attraverso i classici metodi di \textbf{conoscenza, possesso o biometria}. Non c'è molto da dire, descrive banalmente come avviene l'autenticazione al giorno d'oggi e rimane un requisito assolutamente valido e attuale. 
+
+\subsubsection*{Regola 3}
+\begin{quote}
+    \textit{«Ad ogni incaricato sono assegnate o associate individualmente una o più credenziali per l'autenticazione.»}
+\end{quote}
+Questa norma sottolinea che le credenziali devono essere assegnate o associate individualmente a ciascun incaricato. Ciò significa che ogni persona autorizzata a trattare i dati personali deve avere credenziali uniche e personali, che \textbf{non devono essere condivise con altri}. Questo è fondamentale per garantire la tracciabilità delle attività di trattamento e per identificare eventuali responsabilità in caso di violazione dei dati.
+Inoltre, si riferisce all'assegnazione di una o più credenziali, il che implica che un incaricato potrebbe avere accesso a diversi sistemi o trattamenti, ognuno dei quali richiede credenziali specifiche. Questo approccio consente di implementare un controllo più granulare sull'accesso ai dati, limitando le autorizzazioni in base alle esigenze specifiche di ciascun trattamento. 
+Un esempio comune di questo approccio è quello adottato per gli \textbf{amministratori di sistema}, che spesso hanno credenziali separate per le operazioni di routine e per quelle di manutenzione.
+\subsubsection*{Regola 4}
+\begin{quote}
+    \textit{«Con le istruzioni impartite agli incaricati è prescritto di adottare le necessarie cautele per assicurare la segretezza della componente riservata della credenziale e la diligente custodia dei dispositivi in possesso ed uso esclusivo dell'incaricato.»}
+\end{quote}
+Questa norma stabilisce che le credenziali di autenticazione devono essere custodite in modo da garantire la loro riservatezza e integrità. Questa norma sposta la responsabilità della custodia delle credenziali sugli incaricati, che devono adottare le necessarie cautele per assicurare la segretezza della componente riservata della credenziale. 
+\subsubsection*{Regola 5}
+\begin{quote}
+    \textit{La parola chiave, quando è prevista dal sistema di autenticazione, è composta da almeno otto caratteri oppure, nel caso in cui lo strumento elettronico non lo permetta, da un numero di caratteri pari al massimo consentito; essa non contiene riferimenti agevolmente riconducibili all'incaricato ed è modificata da quest'ultimo al primo utilizzo e, successivamente, almeno ogni sei mesi. In caso di trattamento di dati sensibili e di dati giudiziari la parola chiave è modificata almeno ogni tre mesi.}
+\end{quote}
+Questa norma è probabilmente l'elemento dell'Allegato B che sente maggiormente il peso degli anni. Sebbene l'intento originale fosse quello di imporre un'igiene digitale minima, oggi risulta non solo incompleta, ma in certi casi controproducente:
+
 \begin{itemize}
-    \item \textbf{Dati Personali:} Sono qualsiasi informazione riferita a una persona fisica identificata o identificabile (nome, email, IP, foto, dati bancari). Possono essere \textbf{diretti} (nome/cognome) o \textbf{indiretti (cookie, targhe)}.
-    \item \textbf{Dati Sensibili:} Sono, secondo il GDPR, \textbf{particolari tipi di dati personali} che racchiudono opinioni politiche, orientamento sessuale, dati relativi alla salute ecc. 
+    \item \textbf{Lunghezza vs Complessità:} La norma richiede una lunghezza minima di 8 caratteri, ma ignora totalmente la \textbf{complessità} (uso di caratteri speciali, numeri, alternanza maiuscole/minuscole). Come evidenziato, una password come \texttt{12345678} risulterebbe formalmente a norma, nonostante sia vulnerabile a un attacco \textit{brute force} in pochi millisecondi.
+    
+    \item \textbf{Il paradosso della rotazione forzata:} L'obbligo di cambiare password ogni 90 o 180 giorni è oggi considerato una pratica sconsigliata dai principali standard internazionali (come le linee guida \textbf{NIST SP 800-63B}). La "password fatigue" spinge gli utenti a utilizzare schemi iterativi (es. \texttt{Password01!}, \texttt{Password02!}), rendendo il lavoro degli attaccanti estremamente prevedibile.
+    
+    \item \textbf{Differenziazione dei rischi:} La distinzione tra dati comuni e sensibili nel tempo di rotazione (6 mesi vs 3 mesi) appare oggi arbitraria. Un accesso non autorizzato a un sistema è una violazione grave a prescindere dalla categoria del dato, e la sicurezza dovrebbe basarsi sull'analisi del rischio complessivo anziché su scadenze temporali fisse.
+
+    \item \textbf{Assenza di MFA:} Il limite più grande della Regola 5 è il totale silenzio sull'\textbf{Autenticazione a più fattori (MFA)}. In un contesto moderno, basare la sicurezza esclusivamente su una "conoscenza" (la password) è considerato insufficiente; l'integrazione di un "possesso" (token, smartphone) o di una "caratteristica" (biometria) è ormai il requisito minimo dello \textit{stato dell'arte}.
 \end{itemize}
+
+\subsubsection*{Regole 6, 7, 8 e 9: Gestione dell'Identità e della Sessione}
+
+\begin{quote}
+    \begin{itemize}
+        \item \textit{6. Il codice per l'identificazione, laddove utilizzato, non può essere assegnato ad altri incaricati, neppure in tempi diversi.}
+        \item \textit{7. Le credenziali di autenticazione non utilizzate da almeno sei mesi sono disattivate, salvo quelle preventivamente autorizzate per soli scopi di gestione tecnica.}
+        \item \textit{8. Le credenziali sono disattivate anche in caso di perdita della qualità che consente all'incaricato l'accesso ai dati personali.}
+        \item \textit{9. Sono impartite istruzioni agli incaricati per non lasciare incustodito e accessibile lo strumento elettronico durante una sessione di trattamento.}
+    \end{itemize}
+\end{quote}
+La sesta regola stabilisce il principio di \textbf{non trasferibilità} dell'identità digitale, fondamentale per garantire l'imputabilità delle azioni. Impedendo il riutilizzo dei codici identificativi, la norma assicura che ogni operazione sia riconducibile univocamente a una specifica persona fisica, scongiurando il rischio che un nuovo incaricato possa ereditare, anche solo simbolicamente, la "storia digitale" o i privilegi di un predecessore. Questo approccio previene attacchi basati su informazioni pregresse e risolve ambiguità in fase di audit, specialmente in presenza di omonimie o successioni di ruolo.
+
+L'efficacia di questa visione, tuttavia, dipende dalla procedura di \textbf{offboarding}. La gestione dei cambiamenti richiede protocolli specifici per la revoca immediata degli accessi e la bonifica degli spazi di lavoro. Un corretta procedura di offboarding dovrebbe prevenire questo tipo di problemi anche nel caso in cui si volessero riutilizzare codici identificativi. 
+
+In tal senso, la Regola 8 imponeno la disattivazione istantanea delle credenziali non appena viene meno il titolo autorizzativo, evitando il fenomeno degli "account ombra" o dormienti che rimangono attivi dopo che il rapporto di collaborazione è cessato. 
+
+Per quanto riguarda la Regola 7, il termine di sei mesi per la disattivazione per inattività appare oggi eccessivamente permissivo rispetto agli standard di sicurezza moderni. In un'ottica di riduzione della superficie di attacco, un periodo di trenta giorni risulterebbe molto più appropriato, specialmente per prevenire lo sfruttamento di credenziali create e mai utilizzate. 
+
+Queste ultime rappresentano una vulnerabilità critica poiché, non essendo monitorate dall'utente, possono essere compromesse senza che nessuno se ne accorga. Eventuali deroghe per assenze prolungate, come periodi sabbatici o aspettative, dovrebbero essere gestite tramite autorizzazioni temporanee e una gestione differenziata tra utenze operative e utenze tecniche.
+
+Infine, la Regola 9 si sposta sul piano del comportamento operativo e della sicurezza fisica. Essa impone l'adozione di \textbf{policy di sessione} rigide, istruendo l'incaricato a non lasciare mai la propria postazione incustodita senza aver preventivamente bloccato lo strumento elettronico. Questo principio è l'antenato normativo delle moderne politiche di \textit{Auto-lock} e \textit{Clean Desk}, necessarie per impedire che terzi non autorizzati possano accedere a dati sensibili approfittando di una sessione di lavoro ancora aperta e autenticata.
+
+\subsubsection*{Regole 10 e 11}
+\begin{quote}
+    \begin{itemize}
+        \item \textit{10. Quando l'accesso [...] è consentito esclusivamente mediante uso della componente riservata della credenziale [...] sono impartite idonee e preventive disposizioni scritte volte a individuare chiaramente le modalità con le quali il titolare può assicurare la disponibilità di dati [...] in caso di prolungata assenza o impedimento dell'incaricato [...]. In tal caso la custodia delle copie delle credenziali è organizzata garantendo la relativa segretezza [...].}
+        \item \textit{11. Le disposizioni sul sistema di autenticazione [...] non si applicano ai trattamenti dei dati personali destinati alla diffusione.}
+    \end{itemize}
+\end{quote}
+
+\textbf{Analisi della continuità e delle eccezioni:}
+
+La Regola 10 affronta il delicato tema della \textbf{Business Continuity} in scenari di emergenza. La norma nasce per evitare che l'assenza improvvisa o prolungata di un lavoratore possa paralizzare l'operatività aziendale, specialmente quando l'accesso a informazioni critiche è protetto da credenziali note solo all'interessato. Storicamente, questo ha portato alla creazione di procedure quasi "analogiche", come la custodia di copie delle password in buste sigillate o casseforti, affidate a un \textbf{soggetto fiduciario} preventivamente individuato per iscritto. Tale figura aveva il compito di intervenire solo in casi di indifferibile necessità, con l'obbligo di notificare tempestivamente l'incaricato originale dell'avvenuto accesso.
+
+Tuttavia, nell'ecosistema digitale moderno, questa pratica è considerata un vero e proprio "anti-pattern" di sicurezza. La creazione di copie fisiche o digitali di credenziali personali introduce infatti un punto di vulnerabilità critico, poiché ne compromette la segretezza e rende incerta la tracciabilità delle azioni. 
+Oggi, il problema della disponibilità del dato viene risolto preferendo l'uso di \textbf{risorse condivise} (come cartelle di rete o caselle mail di gruppo) accessibili tramite credenziali individuali distinte. In questo modo, se un dipendente è assente, i colleghi autorizzati possono accedere alle stesse informazioni senza mai conoscere la password altrui, garantendo che ogni operazione resti riconducibile a chi l'ha effettivamente compiuta.
+
+Per quanto riguarda la Regola 11, essa stabilisce un'esenzione che oggi appare quantomeno rischiosa. Escludendo l'obbligo di sistemi di autenticazione e autorizzazione per i dati destinati alla \textbf{diffusione pubblica}, la norma si concentra esclusivamente sul pilastro della riservatezza, trascurando quelli dell'integrità e della disponibilità. Sebbene un dato pubblico non richieda protezione contro la lettura, il sistema che lo ospita deve essere comunque protetto con misure di sicurezza universali. Un attaccante, infatti, potrebbe non mirare alla sottrazione del dato (già pubblico), ma puntare alla compromissione del sistema per scopi malevoli, come l'iniezione di malware, il \textit{defacement} del sito o l'utilizzo del server come testa di ponte per movimenti laterali verso zone più protette della rete aziendale. 
+
+La sicurezza, dunque, non deve essere modulata solo sulla natura del dato, ma sulla robustezza dell'intera infrastruttura.
+
+\subsection{Sistemi di Autorizzazioni}
+\subsubsection*{Regola 12}
+\begin{quote}
+    \item \textit{Quando per gli incaricati sono individuati profili di autorizzazione di ambito diverso è utilizzato un sistema di autorizzazione.}
+\end{quote}
+
+Tradotto se ci sono diversi profili di autorizzazione, allora serve un sistema di autorizzazione per distinguerli. 
+
+Questa è una regola universale in realtà poiché "quando" in realtà si traduce in sempre. Questa regola è chiaramente troppo ovvia dato che, senza questa, non avrebbe senso parlare di profili di autorizzazione. 
+
+\subsubsection*{Regola 13}
+\begin{quote}
+    \textit{I profili di autorizzazione, per ciascun incaricato o per classi omogenee di incaricati, sono individuati e configurati anteriormente all'inizio del trattamento, in modo da limitare l'accesso ai soli dati necessari per effettuare le operazioni di trattamento.}
+\end{quote}
+I profili non possono essere definiti a posteriori del trattamento in modo da limitare l'accesso ai soli dati necessari per le operazioni di trattamento. Così da minimizzare ciò che vede il profilo.
+
+Anche qui la regola risulta essere un po' troppo ovvia, ma è importante sottolineare che la definizione dei profili di autorizzazione deve avvenire in modo proattivo e preventivo, prima che il trattamento dei dati abbia inizio. 
+
+Questo principio è fondamentale per garantire che l'accesso ai dati sia limitato solo a coloro che ne hanno effettivamente bisogno per svolgere le loro funzioni lavorative, riducendo così il rischio di accessi non autorizzati o di abuso dei privilegi.
+
+\subsubsection*{Regola 14}
+\begin{quote}
+    \textit{ Periodicamente, e comunque almeno annualmente, è verificata la sussistenza delle condizioni per la conservazione dei profili di autorizzazione.}
+\end{quote}
+Questa regola impone una revisione periodica dei profili di autorizzazione, almeno una volta all'anno, per assicurarsi che le condizioni che giustificano la loro conservazione siano ancora valide. 
+
+Tuttavia, anche qui, una corretta gestione dei cambiamenti e una procedura di offboarding efficace dovrebbero prevenire la necessità di revisioni.
+\subsection{Altre Misure di Sicurezza}
+\subsubsection*{Regola 15}
+\begin{quote}
+    \textit{Nell'ambito dell'aggiornamento periodico con cadenza almeno annuale dell'individuazione dell'ambito del trattamento consentito ai singoli incaricati e addetti alla gestione o alla manutenzione degli strumenti elettronici, la lista degli incaricati può essere redatta anche per classi omogenee di incarico e dei relativi profili di autorizzazione}
+\end{quote}
+
+Questa regola sembra essere una sorta di "deroga" alla Regola 14, consentendo la redazione di liste di incaricati per classi omogenee di incarico e dei relativi profili di autorizzazione. Anche questa regola però impone un vincolo "almeno annuale" per l'aggiornamento periodico dell'individuazione dell'ambito del trattamento consentito ai singoli incaricati e addetti alla gestione o alla manutenzione degli strumenti elettronici.
+
+Quando, in realtà, abbiamo la necessità che gli aggiornamenti siano continui.
+
+\subsubsection*{Regola 16}
+\begin{quote}
+    \textit{I dati personali sono protetti contro il rischio di intrusione e dell'azione di programmi di cui all'art. 615-quinquies del codice penale, mediante l'attivazione di idonei strumenti elettronici da aggiornare con cadenza almeno semestrale.}
+\end{quote}
+
+Questa regola è effettivamente corretta, tuttavia, è importante sottolineare che la protezione contro il rischio di intrusione e l'azione di programmi malevoli (come malware, virus, ransomware) richiede un approccio più dinamico e proattivo rispetto a un semplice aggiornamento semestrale degli strumenti elettronici.
+
+\subsubsection*{Regola 17}
+\begin{quote}
+    \textit{Gli aggiornamenti periodici dei programmi per elaboratore volti a prevenire la vulnerabilità di strumenti elettronici e a correggerne difetti sono effettuati almeno annualmente. In caso di trattamento di dati sensibili o giudiziari l'aggiornamento è almeno semestrale.}
+\end{quote}
+
+Anche qui, noi vogliamo \textbf{aggiornamenti continui} e non periodici e non vogliamo differenza tra accesso a dati sensibili o giudiziari e accesso a dati comuni.
+\subsubsection*{Regola 18}
+\begin{quote}
+    \textit{Sono impartite istruzioni organizzative e tecniche che prevedono il salvataggio dei dati con frequenza almeno settimanale.}
+\end{quote}
+Perché almeno settimanale?  Chiaramente la risposta qui è "dipende" poiché dipende dall'organizzazione:
+\begin{itemize}
+    \item RTO dice Quanto velocemente dobbiamo tornare operativi?
+    \item RPO dice "Quanti dati possiamo permetterci di perdere?". Un RPO di 1 ora significa che, in caso di guasto, i backup devono garantire il recupero dei dati fino a 1 ora prima dell'evento.
+\end{itemize}
+Chiaramente vorremmo un RTO di 1 secondo e un RPO di un minuto.
+
+Questa regola è troppo limitante e chiaramente troppo semplicistica rispetto a quella che è la realtà moderna, dove i backup devono essere eseguiti in modo continuo o quasi continuo, e non solo su base settimanale.
+
+\subsection{Il Documento Programmatico sulla Sicurezza (DPS)}
+
+Il \textbf{Documento Programmatico sulla Sicurezza (DPS)} rappresentava, fino alla sua abrogazione nel 2012, il fulcro burocratico e organizzativo dell'Allegato B. Non era un semplice adempimento formale, ma una vera e propria "fotografia" annuale dello stato della sicurezza aziendale, che il Titolare era tenuto a redigere e aggiornare entro il 31 marzo di ogni anno.
+
+L'idea alla base del DPS era quella di creare un manuale operativo che contenesse:
+\begin{itemize}
+    \item \textbf{L'inventario dei trattamenti:} Una mappatura chiara di quali dati venissero trattati, con quali strumenti e per quali finalità.
+    \item \textbf{L'analisi dei rischi:} Una valutazione delle minacce (fisiche, logiche e umane) che potevano compromettere l'integrità o la riservatezza dei dati.
+    \item \textbf{L'organigramma della sicurezza:} La definizione precisa dei ruoli (Responsabili, Incaricati, Amministratori di Sistema) e delle relative responsabilità.
+    \item \textbf{La pianificazione delle misure:} Un elenco delle barriere tecnologiche (firewall, backup, antivirus) e delle attività di formazione previste per il personale.
+\end{itemize}
+
+Sebbene oggi non sia più obbligatorio sotto questo nome, il DPS ha introdotto nella cultura giuridica italiana il concetto di \textbf{Accountability} (responsabilizzazione) che è oggi il cuore del GDPR. Esso ha insegnato alle organizzazioni che la sicurezza non è un prodotto statico da acquistare, ma un processo documentato che richiede monitoraggio e revisione continua.
+
+\subsection{Ulteriori misure in caso di dati sensibili o giudiziari}
+\subsubsection*{Regola 20}
+\begin{quote}
+    \textit{I dati sensibili o giudiziari sono protetti contro l'accesso abusivo, di cui all'art. 615-ter del codice penale, mediante l'utilizzo di idonei strumenti elettronici.}
+\end{quote}
+Questa regola è chiaramente corretta, ma è importante sottolineare che la protezione contro l'accesso abusivo deve essere garantita non solo per i dati sensibili o giudiziari, ma per tutti i dati personali.
+
+Questa regola, se vogliamo, è un'estensione della regola 16 che imponeva la protezione sui dati personali. 
+
+A livello pratico, questa regola veniva interpretata come l'uso di \textbf{encryption at rest}
+
+Come già dicevamo, queste regole devono essere universali e applicate a qualunque tipo di dato personale, indipendentemente dalla sua classificazione.
+
+\subsubsection*{Regola 21}
+\begin{quote}
+    \textit{Sono impartite istruzioni organizzative e tecniche per la custodia e l'uso dei supporti rimovibili su cui sono memorizzati i dati al fine di evitare accessi non autorizzati e trattamenti non consentiti.}
+\end{quote}
+
+Qui si fa chiaramente riferimento a USB o hard disk esterni, ma oggi, con l'evoluzione tecnologica, questa regola dovrebbe essere estesa a qualsiasi dispositivo di memorizzazione rimovibile, inclusi smartphone, e tablet.
+
+Inoltre, potremmo anche del tutto sostituire dispositivi rimovibili dato che, al giorno d'oggi, la maggior parte dei dati viene memorizzata su cloud o su server interni, riducendo così la necessità di supporti fisici rimovibili.
+
+\subsubsection*{Regola 22}
+\begin{quote}
+    \textit{I supporti rimovibili contenenti dati sensibili o giudiziari se non utilizzati sono distrutti o resi inutilizzabili, ovvero possono essere riutilizzati da altri incaricati, non autorizzati al trattamento degli stessi dati, se le informazioni precedentemente in essi contenute non sono intelligibili e tecnicamente in alcun modo ricostruibili.}     
+\end{quote}
+Questa procedura di distruzione o di sanificazione dei supporti rimovibili è fondamentale per prevenire il rischio di accessi non autorizzati a dati sensibili o giudiziari.  
+Una corretta procedura di sanitizzazione è molto imporatnte, poiché, se non eseguita correttamente, potrebbe lasciare tracce dei dati precedentemente memorizzati, rendendoli potenzialmente accessibili a persone non autorizzate. Tuttavia, spesso accade che sanitizzare costi più che ricomprare un nuovo supporto, e questo è uno dei motivi per cui molte organizzazioni preferiscono semplicemente distruggere i supporti rimovibili una volta che non sono più necessari, piuttosto che rischiare di lasciare dati sensibili accessibili.
+
+\subsubsection*{Regola 23}
+\begin{quote}
+    \textit{Sono adottate idonee misure per garantire il ripristino dell'accesso ai dati in caso di danneggiamento degli stessi o degli strumenti elettronici, in tempi certi compatibili con i diritti degli interessati e non superiori a sette giorni.}
+\end{quote}
+Anche qui, la regola è corretta, ma è importante sottolineare che il ripristino dell'accesso ai dati in caso di danneggiamento dovrebbe essere garantito non solo per i dati sensibili o giudiziari, ma per tutti i dati personali. E, inoltre, il periodo di sette giorni non è adeguato.
+
+\subsubsection*{Regola 24}
+\begin{quote}
+    \textit{Gli organismi sanitari e gli esercenti le professioni sanitarie effettuano il trattamento dei dati idonei a rivelare lo stato di salute e la vita sessuale contenuti in elenchi, registri o banche di dati con le modalità di cui all'articolo 22, comma 6, del codice, anche al fine di consentire il trattamento disgiunto dei medesimi dati dagli altri dati personali che permettono di identificare direttamente gli interessati. I dati relativi all'identità genetica sono trattati esclusivamente all'interno di locali protetti accessibili ai soli incaricati dei trattamenti ed ai soggetti specificatamente autorizzati ad accedervi; il trasporto dei dati all'esterno dei locali riservati al loro trattamento deve avvenire in contenitori muniti di serratura o dispositivi equipollenti; il trasferimento dei dati in formato elettronico è cifrato.}
+\end{quote}
+
+Quindi, vogliamo che i dati sensibili vengano trattati in maniera disgiunta rispetto agli altri dati personali tramite pseudoanonimizzazione/anonimizzazione.
+
+Anche qui, vorremmo che questa regola fosse estesa a tutti i dati personali, non solo a quelli idonei a rivelare lo stato di salute e la vita sessuale.
+\subsection{Misure di tutela e garanzia}
+\subsubsection*{Regola 25}
+\begin{quote}
+    \textit{Il titolare che adotta misure minime di sicurezza avvalendosi di soggetti esterni alla propria struttura, per provvedere alla esecuzione riceve dall'installatore una descrizione scritta dell'intervento effettuato che ne attesta la conformità alle disposizioni del presente disciplinare tecnico.}
+\end{quote}
+
+Si riferisce ai casi in cui la misura viene fatta da enti terzi fatta da una descrizione scritta dell'intervento effettuato che ne attesta la conformità alle disposizioni del presente disciplinare tecnico.
+
+La sicurezza è ricorsiva e dobbiamo assicurarci che tutti coloro che trattano i dati che essi siano interni o esterni, siano compliance. 
+
+\subsection{Trattamenti senza l'ausilio di strumenti elettronici}
+Qui abbiamo alcune regole che si applicano ai trattamenti senza l'ausilio di strumenti elettronici, come ad esempio i registri cartacei o i documenti fisici. Vediamoli velocemente:
+\begin{quote}
+    \begin{itemize}
+        \item \textit{27. Agli incaricati sono impartite istruzioni scritte finalizzate al controllo ed alla custodia, per l'intero ciclo necessario allo svolgimento delle operazioni di trattamento, degli atti e dei documenti contenenti dati personali. Nell'ambito dell'aggiornamento periodico con cadenza almeno annuale dell'individuazione dell'ambito del trattamento consentito ai singoli incaricati, la lista degli incaricati può essere redatta anche per classi omogenee di incarico e dei relativi profili di autorizzazione.}
+        \item \textit{28. Quando gli atti e i documenti contenenti dati personali sensibili o giudiziari sono affidati agli incaricati del trattamento per lo svolgimento dei relativi compiti, i medesimi atti e documenti sono controllati e custoditi dagli incaricati fino alla restituzione in maniera che ad essi non accedano persone prive di autorizzazione, e sono restituiti al termine delle operazioni affidate.}
+        \item \textit{29. L'accesso agli archivi contenenti dati sensibili o giudiziari è controllato. Le persone ammesse, a qualunque titolo, dopo l'orario di chiusura, sono identificate e registrate. Quando gli archivi non sono dotati di strumenti elettronici per il controllo degli accessi o di incaricati della vigilanza, le persone che vi accedono sono preventivamente autorizzate}
+    \end{itemize}
+\end{quote}
+Per quanto riguarda 27 qui si dice che devono essere impartite istruzioni senza andare nel dettaglio di che tipo o con che limitazioni. Inoltre, anche qui, si parla di aggiornamento periodico con cadenza almeno annuale, ma vorremmo che fosse continuo.
+
+Per quanto riguarda 28, qui si parla di controllo e custodia degli atti e dei documenti contenenti dati personali sensibili o giudiziari, ma vorremmo che questa regola fosse estesa a tutti i dati personali.
+
+E, infine, la 29 si riferisce al controllo degli accessi agli archivi contenenti dati sensibili o giudiziari, ma anche qui vorremmo che questa regola fosse estesa a tutti i dati personali e, inoltre, ci dice che il log debba esserci solo dopo l'orario di chiusura, ma vorremmo che ci fosse sempre e che in caso di assenza di strumenti elettronici per il controllo degli accessi o di incaricati della vigilanza, le persone che vi accedono siano preventivamente autorizzate, ma vorremmo che ci fosse sempre un sistema di controllo degli accessi, anche manuale, che garantisca l'accesso agli archivi contenenti dati personali solo da parte di persone autorizzate.

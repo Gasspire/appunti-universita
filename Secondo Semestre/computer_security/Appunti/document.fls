@@ -820,6 +820,13 @@ INPUT ./Images/capitolo_5/esempio_teorema.png
 INPUT Images/capitolo_5/esempio_teorema.png
 INPUT ./Images/capitolo_5/esempio_teorema.png
 INPUT ./Images/capitolo_5/esempio_teorema.png
+INPUT ./parts/capitolo_6.tex
+INPUT ./parts/capitolo_6.tex
+INPUT ./parts/capitolo_6.tex
+INPUT parts/capitolo_6.tex
+INPUT ./parts/capitolo_6.tex
+INPUT ./parts/capitolo_6.tex
+INPUT parts/capitolo_6.tex
 INPUT document.aux
 INPUT ./document.out
 INPUT ./document.out
@@ -838,6 +845,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb

@@ -32,3 +32,14 @@
 \contentsline {subsection}{\numberline {5.3.1}I Tipi Fondamentali (Datatypes)}{41}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}Operatori di Conoscenza}{41}{subsection.5.3.2}%
 \contentsline {subsection}{\numberline {5.3.3}Definizione Induttiva del Protocollo}{42}{subsection.5.3.3}%
+\contentsline {chapter}{\numberline {6}Data Protection e GDPR}{44}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Il Codice della Privacy (Legge 196/03)}{44}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}L'Allegato B e le Misure Minime di Sicurezza}{46}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}Requisiti di Sicurezza Minimi Legge 196/03}{47}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Sistema di autenticazione informatica}{47}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Sistemi di Autorizzazioni}{52}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Altre Misure di Sicurezza}{53}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Il Documento Programmatico sulla Sicurezza (DPS)}{55}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Ulteriori misure in caso di dati sensibili o giudiziari}{55}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {6.2.6}Misure di tutela e garanzia}{57}{subsection.6.2.6}%
+\contentsline {subsection}{\numberline {6.2.7}Trattamenti senza l'ausilio di strumenti elettronici}{58}{subsection.6.2.7}%
