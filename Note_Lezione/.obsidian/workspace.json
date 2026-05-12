@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0cd7ee14601b3e8a",
+        "id": "393847daf67fb04a",
         "type": "tabs",
         "children": [
           {
-            "id": "f0a2610af69c2db2",
+            "id": "31bb87c015c957fc",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -183,10 +183,14 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "f0a2610af69c2db2",
+  "active": "31bb87c015c957fc",
   "lastOpenFiles": [
-    "Computer Security/Ultima lezione GDPR.md",
     "Blockchain/Lezione 2 Eth.md",
+    "Blockchain/Immagini/Pasted image 20260512113606.png",
+    "Blockchain/Immagini/Pasted image 20260512113335 1.png",
+    "Blockchain/Immagini/Pasted image 20260512113335.png",
+    "Blockchain/Immagini/Pasted image 20260512112938.png",
+    "Computer Security/Ultima lezione GDPR.md",
     "Computer Security/Prima e Seconda Lezione GDPR.md",
     "Teoria dei Grafi/Lezione 12 Maggio.md",
     "Teoria dei Grafi/Immagini/Pasted image 20260512104900.png",
@@ -202,16 +206,12 @@
     "Computer Security/Last lesson speed run any %.md",
     "Computer Security/Metasploit.md",
     "Teoria dei Grafi/Immagini/cocicli.png",
-    "Teoria dei Grafi/Immagini/cicli elementari.png",
-    "Blockchain/Immagini/Pasted image 20260423123943.png",
     "Blockchain/Lezione 1. Eth.md",
     "Teoria dei Grafi/Immagini",
-    "Blockchain/Immagini/namecoin_script.png",
     "Principi/Welcome.md",
     "Senza nome.base",
     "Senza nome 1.base",
     "Blockchain/Lezione 23 Aprile.md",
-    "Blockchain/Immagini/soundness_diffie.png",
     "Blockchain/Immagini",
     "Benvenuto.md",
     "Principi/Immagini",

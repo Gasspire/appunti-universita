@@ -52,7 +52,7 @@ In Ethereum esistono due tipi di account, entrambi identificati da un indirizzo 
     \item \textbf{Externally Owned Accounts (EOA)}: Controllati da utenti umani tramite chiavi private e firme ECDSA. Possono inviare transazioni per trasferire ETH o interagire con i contratti.
     \item \textbf{Contract Accounts}: Account governati esclusivamente dal loro codice (\textbf{EVM Bytecode}). Non possiedono chiavi private e le loro azioni sono innescate solo se ricevono una transazione da un EOA o da un altro contratto. Il codice di un contratto è \textbf{immutabile}; per aggiornarlo, gli sviluppatori utilizzano spesso il pattern \textit{Proxy}, che permette di puntare l'indirizzo del contratto a una nuova logica in modo trasparente.
 \end{itemize}
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/capitolo_mdr_3/contract_account_vs_eoa.png}
 \end{figure}

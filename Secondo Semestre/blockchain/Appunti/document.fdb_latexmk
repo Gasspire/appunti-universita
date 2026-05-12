@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex document"] 1778234983 "document.aux" "document.bbl" "document" 1778234985
+["bibtex document"] 1778577782 "document.aux" "document.bbl" "document" 1778577785
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
   "bibliography.bib" 0 -1 0 ""
-  "document.aux" 1778234985 15316 cc87484b2a96a58819e5a4882999ed12 "pdflatex"
+  "document.aux" 1778577785 15316 cc87484b2a96a58819e5a4882999ed12 "pdflatex"
   (generated)
   "document.bbl"
   "document.blg"
-["pdflatex"] 1778234983 "/home/dave/appunti-universita/Secondo Semestre/blockchain/Appunti/document.tex" "document.pdf" "document" 1778234985
+["pdflatex"] 1778577782 "/home/dave/appunti-universita/Secondo Semestre/blockchain/Appunti/document.tex" "document.pdf" "document" 1778577785
   "/etc/texmf/web2c/texmf.cnf" 1777125874 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1777185002 14040 d559b8242501fdc226295c13e27858a2 ""
   "/home/dave/appunti-universita/Secondo Semestre/blockchain/Appunti/document.tex" 1778229106 1889 7a7020b4e55166dd4de1637bec16fbb1 ""
@@ -150,11 +150,11 @@
   "Images/capitolo_mdr_3/contract_account_vs_eoa.png" 1778233582 186479 7215f75d0edc7a890815dfa7b3b34015 ""
   "Images/capitolo_mdr_3/namecoin_script.png" 1778231721 30508 d2228225573433753754a80d98008507 ""
   "Images/university_logo.png" 1776833700 5102 ae18fdab7c5af961bf5f27a3bf5fc7bd ""
-  "document.aux" 1778234985 15316 cc87484b2a96a58819e5a4882999ed12 "pdflatex"
+  "document.aux" 1778577785 15316 cc87484b2a96a58819e5a4882999ed12 "pdflatex"
   "document.bbl" 0 -1 0 "bibtex document"
-  "document.out" 1778234985 19104 c562bcc7bff8cbfe12d48e89355c97ce "pdflatex"
+  "document.out" 1778577785 19104 c562bcc7bff8cbfe12d48e89355c97ce "pdflatex"
   "document.tex" 1778229106 1889 7a7020b4e55166dd4de1637bec16fbb1 ""
-  "document.toc" 1778234985 9563 68673d6215b2ee87e0913b2bd700c9f5 "pdflatex"
+  "document.toc" 1778577785 9563 68673d6215b2ee87e0913b2bd700c9f5 "pdflatex"
   "parts/capitolo_1.tex" 1776833700 15627 4fecb915b874e7c7d33846da13046eb6 ""
   "parts/capitolo_2.tex" 1776833700 21477 ef3991908df706df8a9add863b9c532b ""
   "parts/capitolo_3.tex" 1776833700 13689 bb23c5e356cbb0f6d8afcafc1e7ffba7 ""
@@ -164,7 +164,7 @@
   "parts/capitolo_7.tex" 1778081302 19755 a9c22297cb9938c74f93b787cb494c2c ""
   "parts/capitolo_mdr_1.tex" 1776833700 18023 bf1a34c98f836301bab64912fdd45078 ""
   "parts/capitolo_mdr_2.tex" 1778229073 41024 7842d1e835bdec42a742671daa8ce212 ""
-  "parts/capitolo_mdr_3.tex" 1778234981 7847 c7120a3ebc5301ed73f3be1f9e645c0e ""
+  "parts/capitolo_mdr_3.tex" 1778577782 7850 3d45228dbf12313f491ee0b613bde9bc ""
   "parts/frontespizio.tex" 1776833700 1003 a0c2b8240b6c1fc7f88ee930903ea3e9 ""
   (generated)
   "document.aux"
