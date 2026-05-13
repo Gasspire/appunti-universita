@@ -61,7 +61,6 @@ Questo approccio "a lista di controllo" si discosta nettamente dalla filosofia a
 \vspace{0.5cm} 
 Di seguito analizzeremo nel dettaglio i 29 requisiti originali, evidenziando quali concetti costituiscano ancora una solida base per la \textit{data protection} moderna e quali, invece, siano stati superati dal tempo.
 
-
 \section{Requisiti di Sicurezza Minimi Legge 196/03}
 \subsection{Sistema di autenticazione informatica}
 \subsubsection*{Regola 1}
@@ -71,9 +70,9 @@ Di seguito analizzeremo nel dettaglio i 29 requisiti originali, evidenziando qua
 
 Questa norma stabilisce dunque che l'accesso ai dati personali deve essere \textbf{limitato a persone autorizzate, identificabili attraverso credenziali di autenticazione}. Inoltre, la norma specifica che tali credenziali devono essere legate a uno specifico trattamento o a un insieme di trattamenti, garantendo così un controllo più granulare e mirato sull'accesso ai dati.
 
-È importante sottolineare che questa disposizione rimane molto sul generico, riferendosi proprio a \textbf{tutti quelli che trattano i dati} e questo indica tutti che essi siano dipendenti interni o esterni, come ad esempio i fornitori di servizi cloud. Ciò impone l'autenticazione in pratica su tutti gli strumenti elettronici utilizzati per il trattamento dei dati personali, come computer, server, dispositivi mobili e applicazioni software.
+È importante sottolineare che questa disposizione rimane molto sul generico, riferendosi proprio a \textbf{tutti quelli che trattano i dati} e questo indica tutti, che essi siano dipendenti interni o esterni, come ad esempio i fornitori di servizi cloud. Ciò impone l'autenticazione in pratica su tutti gli strumenti elettronici utilizzati per il trattamento dei dati personali, come computer, server, dispositivi mobili e applicazioni software.
 
-La responsabilità della compliance sta al Titolare del trattamento o, nel caso del responsabile, a quest'ultimo. In entrambi i casi, è fondamentale implementare misure di sicurezza adeguate per garantire che solo le persone autorizzate abbiano accesso ai dati personali, proteggendo così la privacy degli interessati e prevenendo potenziali violazioni dei dati.
+La responsabilità della compliance sta al Titolare del trattamento (come vedremo da 25, anche nel caso di trattamento esterno del dato, il Titolare deve accertarsi della compliance)
 \subsubsection*{Regola 2}
 \begin{quote}
     \textit{«Le credenziali di autenticazione consistono in un codice per l'identificazione dell'incaricato associato a una parola chiave riservata conosciuta solamente dal medesimo oppure in un dispositivo di autenticazione in possesso e uso esclusivo dell'incaricato, eventualmente associato a un codice identificativo o a una parola chiave, oppure in una caratteristica biometrica dell'incaricato, eventualmente associata a un codice identificativo o a una parola chiave.»}
@@ -84,8 +83,11 @@ Questa norma definisce in modo più dettagliato cosa si intende per "credenziali
 \begin{quote}
     \textit{«Ad ogni incaricato sono assegnate o associate individualmente una o più credenziali per l'autenticazione.»}
 \end{quote}
-Questa norma sottolinea che le credenziali devono essere assegnate o associate individualmente a ciascun incaricato. Ciò significa che ogni persona autorizzata a trattare i dati personali deve avere credenziali uniche e personali, che \textbf{non devono essere condivise con altri}. Questo è fondamentale per garantire la tracciabilità delle attività di trattamento e per identificare eventuali responsabilità in caso di violazione dei dati.
-Inoltre, si riferisce all'assegnazione di una o più credenziali, il che implica che un incaricato potrebbe avere accesso a diversi sistemi o trattamenti, ognuno dei quali richiede credenziali specifiche. Questo approccio consente di implementare un controllo più granulare sull'accesso ai dati, limitando le autorizzazioni in base alle esigenze specifiche di ciascun trattamento. 
+Questa norma sottolinea che le credenziali devono essere assegnate o associate individualmente a ciascun incaricato. Ciò significa che ogni persona autorizzata a trattare i dati personali deve avere credenziali uniche e personali, che \textbf{non devono essere condivise con altri}. 
+Questo è fondamentale per garantire la tracciabilità delle attività di trattamento e per identificare eventuali responsabilità in caso di violazione dei dati.
+
+Inoltre, si riferisce all'assegnazione di una o più credenziali, il che implica che un incaricato potrebbe avere accesso a diversi sistemi o trattamenti, ognuno dei quali richiede credenziali specifiche.
+
 Un esempio comune di questo approccio è quello adottato per gli \textbf{amministratori di sistema}, che spesso hanno credenziali separate per le operazioni di routine e per quelle di manutenzione.
 \subsubsection*{Regola 4}
 \begin{quote}
@@ -99,7 +101,7 @@ Questa norma stabilisce che le credenziali di autenticazione devono essere custo
 Questa norma è probabilmente l'elemento dell'Allegato B che sente maggiormente il peso degli anni. Sebbene l'intento originale fosse quello di imporre un'igiene digitale minima, oggi risulta non solo incompleta, ma in certi casi controproducente:
 
 \begin{itemize}
-    \item \textbf{Lunghezza vs Complessità:} La norma richiede una lunghezza minima di 8 caratteri, ma ignora totalmente la \textbf{complessità} (uso di caratteri speciali, numeri, alternanza maiuscole/minuscole). Come evidenziato, una password come \texttt{12345678} risulterebbe formalmente a norma, nonostante sia vulnerabile a un attacco \textit{brute force} in pochi millisecondi.
+    \item \textbf{Lunghezza vs Complessità:} La norma richiede una lunghezza minima di 8 caratteri, ma ignora totalmente la \textbf{complessità} (uso di caratteri speciali, numeri, alternanza maiuscole/minuscole). Come evidenziato, una password come \texttt{12345678} risulterebbe formalmente a norma, nonostante sia vulnerabile a un attacco \textit{brute force} in pochi millisecondi. Inoltre, anche la lunghezza minima di 8 caratteri, da standard, non è abbastanza.
     
     \item \textbf{Il paradosso della rotazione forzata:} L'obbligo di cambiare password ogni 90 o 180 giorni è oggi considerato una pratica sconsigliata dai principali standard internazionali (come le linee guida \textbf{NIST SP 800-63B}). La "password fatigue" spinge gli utenti a utilizzare schemi iterativi (es. \texttt{Password01!}, \texttt{Password02!}), rendendo il lavoro degli attaccanti estremamente prevedibile.
     

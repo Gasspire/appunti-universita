@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  12 MAY 2026 10:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  13 MAY 2026 08:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -550,16 +550,16 @@ Capitolo 6.
 [44
 
 ] [45] [46]
-Overfull \hbox (15.93777pt too wide) in paragraph at lines 65--65
+Overfull \hbox (15.93777pt too wide) in paragraph at lines 64--64
 []\OT1/cmr/bx/n/17.28 Requisiti di Si-cu-rez-za Mi-ni-mi Leg-ge 196/03 
  []
 
-[47] [48] [49] [50] [51] [52] [53] [54]
-Overfull \hbox (21.72292pt too wide) in paragraph at lines 215--215
+[47] [48] [49] [50] [51] [52] [53]
+Overfull \hbox (21.72292pt too wide) in paragraph at lines 217--217
 []\OT1/cmr/bx/n/14.4 Il Do-cu-men-to Pro-gram-ma-ti-co sul-la Si-cu-rez-za (DPS) 
  []
 
-[55] [56] [57] [58]) [59]
+[54] [55] [56] [57] [58]) [59]
 No file document.bbl.
 (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
@@ -574,7 +574,7 @@ Here is how much of TeX's memory you used:
  59 hyphenation exceptions out of 8191
  60i,18n,63p,1330b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on document.pdf (60 pages, 1106030 bytes).
+Output written on document.pdf (60 pages, 1105769 bytes).
 PDF statistics:
  700 PDF objects out of 1000 (max. 8388607)
  575 compressed objects within 6 object streams
