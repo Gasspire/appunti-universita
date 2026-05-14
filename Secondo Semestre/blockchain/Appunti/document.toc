@@ -100,6 +100,10 @@
 \contentsline {section}{\numberline {10.1}Limitazioni di Bitcoin Script}{95}{section.10.1}%
 \contentsline {subsection}{\numberline {10.1.1}Il Caso Namecoin: Limiti della Logica di Bitcoin}{96}{subsection.10.1.1}%
 \contentsline {section}{\numberline {10.2}La Piattaforma Ethereum}{97}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}Tipologie di Account}{98}{subsection.10.2.1}%
-\contentsline {subsection}{\numberline {10.2.2}L'unit\IeC {\`a} monetaria: Ether}{98}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}Consenso: dal PoW al Proof of Stake}{99}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.1}L'unit\IeC {\`a} monetaria: Ether}{98}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Consenso: dal PoW al Proof of Stake}{98}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Tipologie di Account}{98}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Merkle Patricia Trie (MPT)}{100}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.5}World State}{101}{subsection.10.2.5}%
+\contentsline {subsection}{\numberline {10.2.6}Transazioni}{102}{subsection.10.2.6}%
+\contentsline {subsection}{\numberline {10.2.7}Messaggi}{103}{subsection.10.2.7}%

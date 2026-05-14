@@ -46,17 +46,6 @@ Ethereum nasce con l'obiettivo di superare queste barriere, fornendo uno strato 
 
 A differenza di Bitcoin, basato sul modello UTXO (un insieme di "monete" non spese), Ethereum utilizza un \textbf{Account-based model}. La blockchain non è solo una lista di transazioni, ma una \textbf{transizione di stati} che modifica costantemente il \textbf{World State} (lo stato globale del network).
 
-\subsection{Tipologie di Account}
-In Ethereum esistono due tipi di account, entrambi identificati da un indirizzo e dotati di un bilancio in Ether:
-\begin{itemize}
-    \item \textbf{Externally Owned Accounts (EOA)}: Controllati da utenti umani tramite chiavi private e firme ECDSA. Possono inviare transazioni per trasferire ETH o interagire con i contratti.
-    \item \textbf{Contract Accounts}: Account governati esclusivamente dal loro codice (\textbf{EVM Bytecode}). Non possiedono chiavi private e le loro azioni sono innescate solo se ricevono una transazione da un EOA o da un altro contratto. Il codice di un contratto è \textbf{immutabile}; per aggiornarlo, gli sviluppatori utilizzano spesso il pattern \textit{Proxy}, che permette di puntare l'indirizzo del contratto a una nuova logica in modo trasparente.
-\end{itemize}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{Images/capitolo_mdr_3/contract_account_vs_eoa.png}
-\end{figure}
-
 \subsection{L'unità monetaria: Ether}
 Il valore all'interno della rete è denominato in \textbf{Ether} (ETH). Sebbene l'utente medio ragioni in ETH, internamente il sistema opera esclusivamente in \textbf{Wei}, la minima unità divisibile:
 \begin{itemize}
@@ -71,3 +60,110 @@ Dalla genesi fino a settembre 2022 (evento noto come \textbf{The Merge}), Ethere
 Il passaggio alla \textbf{Proof of Stake} era previsto fin dal design iniziale. Per forzare la migrazione e disincentivare i miner a restare sulla vecchia catena, è stata introdotta la \textbf{Difficulty Bomb} un meccanismo che aumenta esponenzialmente la difficoltà del puzzle crittografico fino a rendere impossibile la produzione di blocchi, rendendo la rete PoW di fatto inutilizzabile e accelerando la transizione verso il nuovo modello basato sullo \textit{staking}.
 
 A differenza di Bitcoin, dove il tempo tra i blocchi è di 10 minuti, Ethereum produce un blocco (o \textit{slot}) ogni 12 secondi, garantendo una finalità delle transazioni molto più rapida. Inoltre, l'emissione di ETH non ha un tetto massimo fisso di 21 milioni, ma è regolata da meccanismi di \textit{burn} e ricompense per i validatori che bilanciano inflazione e deflazione.
+
+
+\subsection{Tipologie di Account}
+In Ethereum esistono due tipi di account, entrambi identificati da un indirizzo e dotati di un bilancio in Ether:
+\begin{itemize}
+    \item \textbf{Externally Owned Accounts (EOA)}: Controllati da utenti umani tramite chiavi private e firme ECDSA. Possono inviare transazioni per trasferire ETH o interagire con i contratti.
+    \item \textbf{Contract Accounts}: Account governati esclusivamente dal loro codice (\textbf{EVM Bytecode}). Non possiedono chiavi private e le loro azioni sono innescate solo se ricevono una transazione da un EOA o da un altro contratto. Il codice di un contratto è \textbf{immutabile}; per aggiornarlo, gli sviluppatori utilizzano spesso il pattern \textit{Proxy}, che permette di puntare l'indirizzo del contratto a una nuova logica in modo trasparente.
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/capitolo_mdr_3/contract_account_vs_eoa.png}
+\end{figure}
+
+Analizziamo adesso uno per uno i dati degli account:
+\begin{itemize}
+    \item \textbf{Nonce}: La nonce negli account rappresenta un numero che serve a prevenire gli attacchi di replay. La firma di ogni transazione, infatti, oltre che i dati contiene anche questa nonce che, subito dopo la firma, viene aggiornata di uno. La firma viene considerata valida solo se la nonce nella transazione corrisponde a quelle dell'account segnata in quel momento nel world state. In Bitcoin ricordiamo che non è effettivamente presente una nonce per prevenire attacchi di replay, tuttavia, gli uTXO se vogliamo possono fungere come una sorta di Nonce perché sono spendibili solo una volta. 
+    Nei contratti, la nonce serve a contare quanti contratti sono stati creati a partire da quel contratto ma questa funzione la vedremo dopo nel dettaglio.
+    \item \textbf{Indirizzo}: Conosciamo già l'importanza degli indirizzi nel sistema blockchain per riferirci ad uno specifico account. Per quanto riguarda gli EOA, questo è banalmente l'hash della chiave pubblica mentre, per quanto riguarda i contratti questo è l'hash dell'indirizzo del creatore insieme alla sua nonce. Ricordiamo che per creatore di un contratto possiamo anche avere altri contratti.
+    \item \textbf{Balance}: Come abbiamo già detto, sia gli EOA che i contratti possono possedere un bilancio per effettuare transazioni o attivare altri contratti.
+    \item \textbf{CodeHash}: Il CodeHash è un campo posseduto solo dai contratti. Poiché il codice del contratto è salvato nella blockchain, che possiamo immaginare come una sorta di database, possiamo dire che il CodeHash funge da ID per cercare e trovare velocemente il codice.
+    \item \textbf{StorageRoot}: Ogni contratto possiede una certa memoria che gli servirà per mantenere al suo interno uno stato non volatile. Questa è memorizzata sotto forma di \textbf{Merkle Patricia Trie} che descriveremo tra poco. Nello specifico, anche in questo caso lo StorageRoot è la radice di questo albero che servirà per effettuare prove di appartenenza.
+\end{itemize}
+
+
+\subsection{Merkle Patricia Trie (MPT)}
+I \textbf{Merkle Patricia Trie} rappresentano la struttura dati fondamentale su cui poggia l'architettura di Ethereum, utilizzati sia per la gestione del \textbf{World State} (lo stato globale di tutti gli account) che per lo \textbf{storage dei singoli contratti}.
+
+Essi nascono come un'integrazione tra i \textit{Patricia Trie} (noti anche come \textit{Radix Tree}) e la logica crittografica dei \textit{Merkle Tree}:
+
+\begin{itemize}
+    \item \textbf{Struttura Patricia (Radix Tree)}: Implementano una mappa $key \to value$ dove la chiave (solitamente una stringa esadecimale derivata da un hash) viene utilizzata per navigare l'albero. Il vantaggio principale è la condivisione dei prefissi: chiavi simili condividono lo stesso percorso iniziale, riducendo drasticamente la ridondanza e lo spazio di archiviazione. Se una chiave non è presente, il percorso si interrompe restituendo un valore nullo.
+    
+    \item \textbf{Componente Merkle}: Ogni nodo dell'albero è identificato dall'hash dei suoi contenuti (e dei puntatori ai suoi figli). Questo trasforma l'intera struttura in un \textbf{commitment crittografico}: la radice (\textit{Root Hash}) è un'impronta digitale unica di tutto lo stato. Ciò permette di generare \textbf{Proof of Membership} (o prove di Merkle), consentendo ai nodi leggeri di verificare l'esistenza e il valore di un dato senza possedere l'intero database.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/capitolo_mdr_3/radix_tree.png}
+\end{figure}
+
+A differenza di un semplice Merkle Tree statico (come quello usato nei blocchi di Bitcoin), l'MPT è una \textbf{struttura dinamica}. È progettato per gestire inserimenti, modifiche e cancellazioni frequenti in modo efficiente: 
+\begin{itemize}
+    \item Quando un valore viene aggiornato (ad esempio il bilancio di un account), è necessario ricalcolare solo gli hash dei nodi lungo il percorso che va dalla foglia modificata fino alla radice.
+    \item In un albero bilanciato, la complessità di queste operazioni è logaritmica rispetto al numero di elementi, garantendo prestazioni elevate anche con milioni di account.
+\end{itemize}
+
+\subsection{World State}
+Il \textbf{World State} rappresenta lo stato globale e aggiornato dell'intero ecosistema Ethereum. Tecnicamente, è implementato come un \textbf{Merkle Patricia Trie} (MPT) la cui radice (\textit{State Root}) è inclusa in ogni blocco della blockchain. 
+
+Questo archivio può essere visualizzato come un database chiave-valore dove:
+\begin{itemize}
+    \item \textbf{Chiave}: L'indirizzo esadecimale di 20 byte dell'account (previa applicazione di un hash per bilanciare l'albero).
+    \item \textbf{Valore}: Lo stato dell'account serializzato, che comprende \textit{nonce}, \textit{balance}, \textit{storageRoot} e \textit{codeHash}.
+\end{itemize}
+
+Grazie alla struttura MPT, è possibile fornire una \textbf{Proof of Membership} per dimostrare l'esistenza e il saldo di un account senza dover scansionare l'intera rete.
+
+Per ogni contratto esiste un ulteriore \textbf{Storage Trie}. Qui vengono mappate chiavi di 256 bit (derivanti spesso dalla posizione o dal nome della variabile nel codice Solidity) in valori di 256 bit. 
+
+Se una variabile viene dichiarata ma mai inizializzata, o se viene esplicitamente posta uguale a \texttt{0}, l'MPT non memorizza alcun nodo per quella chiave. 
+Di conseguenza, una ricerca per una chiave inesistente restituisce sempre \texttt{0}, permettendo un risparmio considerevole di spazio poiché si memorizzano solo i valori non nulli.
+
+Per poter inserire un oggetto complesso come un account (composto da 4 campi distinti) all'interno di un nodo dell'albero di Merkle, è necessario prima trasformarlo in una sequenza di byte "piatta". Ethereum utilizza a questo scopo lo standard \textbf{RLP}.
+
+L'RLP è il sistema di serializzazione primario di Ethereum che serve a codificare strutture dati (liste, stringhe, interi) in un formato binario compatto.
+
+\subsection{Transazioni}
+In Ethereum esistono le classiche transazioni che abbiamo già visto in Bitcoin che possono essere effettuate solo da EOA. Queste contengono al loro interno:
+Ogni transazione contiene i seguenti campi fondamentali:
+\begin{itemize}
+    \item \textbf{Nonce}: Un contatore che indica quante transazioni sono state inviate dall'indirizzo mittente. Serve a garantire l'ordine di esecuzione e a prevenire attacchi di \textit{replay}.
+    \item \textbf{Recipient (to)}: L'indirizzo di 20 byte del destinatario. Se il campo è vuoto (nullo), la transazione viene interpretata come una creazione di contratto.
+    \item \textbf{Value}: L'ammontare di Ether (espresso in \textit{Wei}) da trasferire dal mittente al destinatario.
+    \item \textbf{Gas Limit}: La quantità massima di unità di gas che il mittente è disposto a consumare per l'esecuzione.
+    \item \textbf{Gas Price}: Il prezzo (in Wei) che il mittente è disposto a pagare per ogni unità di gas consumata.
+    \item \textbf{Data (o Input)}: Un campo di lunghezza variabile che contiene i dati necessari per l'attivazione di funzioni nei contratti o il codice di inizializzazione per i nuovi contratti.
+    \item \textbf{Firma ECDSA (v, r, s)}: Ethereum utilizza una variante di ECDSA chiamata \textbf{public key recovery}. Invece di includere esplicitamente il campo \textit{from} (mittente), il protocollo estrae la chiave pubblica (e quindi l'indirizzo) direttamente dalla firma e dal messaggio transazionale, ottimizzando lo spazio nella blockchain.
+\end{itemize}
+Queste transazioni possono essere di vari tipi:
+\begin{itemize}
+    \item \textbf{Currency Transfer:} Questa è la classica transazione in cui un EOA invia dei soldi ad un altro EOA.
+    \item \textbf{Contract Activation:} Tramite questo tipo di transazione è possibile attivare una funzione di un contratto. I contratti, infatti, metteranno a disposizione proprio delle funzioni che potranno prendere in input anche dei dati sul quale lavorare.
+    \item \textbf{Contract Creation:} Questa transazione viene fatta verso un indirizzo nullo con una certa semantica e servirà alla generazione di un nuovo contratto. Tra questi valori sarà presente l'init che sarà un codice che, una volta eseguito, produrrà il codice reale del contratto.
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/capitolo_mdr_3/simple_transaction.png}
+\end{figure}
+
+\subsection{Messaggi}
+
+Mentre le transazioni sono originate esclusivamente da account esterni (EOA), i contratti interagiscono tra loro attraverso i \textbf{messaggi}, spesso definiti \textbf{transazioni interne}. 
+
+Sebbene un messaggio sia concettualmente simile a una transazione (possiede un mittente, un destinatario, un valore e dei dati), presenta una differenza fondamentale: \textbf{non richiede una firma digitale}.
+
+La sicurezza e l'autorizzazione nei messaggi non derivano dalla crittografia a chiave pubblica, ma dalla logica deterministica della \textit{Ethereum Virtual Machine} (EVM):
+\begin{itemize}
+    \item \textbf{Catena di Fiducia}: Ogni messaggio è l'effetto di una transazione originale firmata da un EOA. Se l'utente $A$ firma una transazione per il Contratto $B$, e il codice di $B$ prevede l'invio di un messaggio al Contratto $C$, l'intero processo è autorizzato dalla firma iniziale di $A$.
+    \item \textbf{Assenza di Chiavi}: I contratti non possiedono una chiave privata. La loro "volontà" è espressa esclusivamente dal codice immutabile memorizzato sulla blockchain. È il protocollo stesso a garantire che il campo \texttt{msg.sender} (il mittente del messaggio) corrisponda effettivamente all'indirizzo del contratto che ha generato la chiamata.
+\end{itemize}
+
+Esattamente come per le transazioni, possiamo distinguere tre operazioni principali eseguite tramite messaggi:
+\begin{itemize}
+    \item \textbf{Currency Transfer}: Un contratto trasferisce una parte del proprio bilancio in Ether a un EOA o a un altro contratto (solitamente tramite le istruzioni \texttt{transfer} o \texttt{call}).
+    \item \textbf{Contract Activation (Message Call)}: Un contratto chiama una funzione di un altro contratto, passando dei parametri e attendendo eventualmente un valore di ritorno.
+    \item \textbf{Contract Creation}: Un contratto genera un nuovo contratto "figlio" utilizzando l'istruzione \texttt{CREATE} o \texttt{CREATE2}. In questo caso, l'indirizzo del nuovo contratto sarà derivato dall'indirizzo del contratto "padre" e dalla sua \textit{nonce}.
+\end{itemize}

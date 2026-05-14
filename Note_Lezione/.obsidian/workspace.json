@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "641d79923178dfb2",
+        "id": "a3afb514227f245d",
         "type": "tabs",
         "children": [
           {
-            "id": "97237bcab665a954",
+            "id": "219132b2a0c5b898",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Principi/Lezione 13 Maggio (Apparve Maria).md",
+                "file": "Blockchain/Lezione 2. Eth.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 13 Maggio (Apparve Maria)"
+              "title": "Lezione 2. Eth"
             }
           }
         ]
@@ -183,14 +183,14 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "97237bcab665a954",
+  "active": "219132b2a0c5b898",
   "lastOpenFiles": [
+    "Blockchain/Immagini/radix_tree.png",
+    "Blockchain/Lezione 2. Eth.md",
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
     "Computer Security/Lezione 12 Maggio.md",
     "Computer Security/Immagini/Pasted image 20260512150336.png",
     "Computer Security/Immagini",
-    "Blockchain/Lezione 2 Eth.md",
-    "Blockchain/Immagini/Pasted image 20260512113606.png",
     "Blockchain/Immagini/Pasted image 20260512113335 1.png",
     "Blockchain/Immagini/Pasted image 20260512113335.png",
     "Blockchain/Immagini/Pasted image 20260512112938.png",
