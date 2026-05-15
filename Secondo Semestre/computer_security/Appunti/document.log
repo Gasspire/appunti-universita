@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  13 MAY 2026 08:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  15 MAY 2026 11:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -390,7 +390,7 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count309
  (./parts/frontespizio.tex
-<Images/university_logo.png, id=172, 106.3975pt x 112.42pt>
+<Images/university_logo.png, id=176, 106.3975pt x 112.42pt>
 File: Images/university_logo.png Graphic file (type png)
 <use Images/university_logo.png>
 Package pdftex.def Info: Images/university_logo.png  used on input line 3.
@@ -422,7 +422,7 @@ Overfull \hbox (20.31909pt too wide) detected at line 49
  []
 
 [6]
-<Images/capitolo_1/kerberos_struttura.png, id=260, 786.68906pt x 520.94624pt>
+<Images/capitolo_1/kerberos_struttura.png, id=265, 786.68906pt x 520.94624pt>
 File: Images/capitolo_1/kerberos_struttura.png Graphic file (type png)
 <use Images/capitolo_1/kerberos_struttura.png>
 Package pdftex.def Info: Images/capitolo_1/kerberos_struttura.png  used on input line 89.
@@ -443,7 +443,7 @@ Overfull \hbox (2.11534pt too wide) has occurred while \output is active
  []
 
 [10]
-<Images/capitolo_1/kerberos_smartcard.png, id=292, 415.5525pt x 193.47281pt>
+<Images/capitolo_1/kerberos_smartcard.png, id=297, 415.5525pt x 193.47281pt>
 File: Images/capitolo_1/kerberos_smartcard.png Graphic file (type png)
 <use Images/capitolo_1/kerberos_smartcard.png>
 Package pdftex.def Info: Images/capitolo_1/kerberos_smartcard.png  used on input line 135.
@@ -467,7 +467,7 @@ Overfull \hbox (2.11534pt too wide) has occurred while \output is active
 
 [13]
 Capitolo 2.
-<Images/capitolo_2/smart_card_struttura.png, id=313, 359.09157pt x 315.42844pt>
+<Images/capitolo_2/smart_card_struttura.png, id=318, 359.09157pt x 315.42844pt>
 File: Images/capitolo_2/smart_card_struttura.png Graphic file (type png)
 <use Images/capitolo_2/smart_card_struttura.png>
 Package pdftex.def Info: Images/capitolo_2/smart_card_struttura.png  used on input line 9.
@@ -480,7 +480,7 @@ Overfull \hbox (3.80836pt too wide) in paragraph at lines 43--44
  []
 
 [17]
-<Images/capitolo_2/glitch_corrente.png, id=336, 333.49594pt x 252.945pt>
+<Images/capitolo_2/glitch_corrente.png, id=341, 333.49594pt x 252.945pt>
 File: Images/capitolo_2/glitch_corrente.png Graphic file (type png)
 <use Images/capitolo_2/glitch_corrente.png>
 Package pdftex.def Info: Images/capitolo_2/glitch_corrente.png  used on input line 64.
@@ -490,7 +490,7 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 68
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )) (./parts/capitolo_3.tex [18 <./Images/capitolo_2/glitch_corrente.png>]
 Capitolo 3.
-<Images/capitolo_3/esempio_vck.png, id=346, 1142.76938pt x 142.28156pt>
+<Images/capitolo_3/esempio_vck.png, id=351, 1142.76938pt x 142.28156pt>
 File: Images/capitolo_3/esempio_vck.png Graphic file (type png)
 <use Images/capitolo_3/esempio_vck.png>
 Package pdftex.def Info: Images/capitolo_3/esempio_vck.png  used on input line 10.
@@ -498,18 +498,18 @@ Package pdftex.def Info: Images/capitolo_3/esempio_vck.png  used on input line 1
 [19
 
  <./Images/capitolo_3/esempio_vck.png>]
-<Images/capitolo_3/matrice_2x2.png, id=354, 569.12625pt x 353.82187pt>
+<Images/capitolo_3/matrice_2x2.png, id=359, 569.12625pt x 353.82187pt>
 File: Images/capitolo_3/matrice_2x2.png Graphic file (type png)
 <use Images/capitolo_3/matrice_2x2.png>
 Package pdftex.def Info: Images/capitolo_3/matrice_2x2.png  used on input line 26.
 (pdftex.def)             Requested size: 195.0pt x 121.23184pt.
-<Images/capitolo_3/differenza_xor_overlay.png, id=355, 470.50781pt x 192.72pt>
+<Images/capitolo_3/differenza_xor_overlay.png, id=360, 470.50781pt x 192.72pt>
 File: Images/capitolo_3/differenza_xor_overlay.png Graphic file (type png)
 <use Images/capitolo_3/differenza_xor_overlay.png>
 Package pdftex.def Info: Images/capitolo_3/differenza_xor_overlay.png  used on input line 38.
 (pdftex.def)             Requested size: 195.0pt x 79.87143pt.
  [20 <./Images/capitolo_3/matrice_2x2.png>]
-<Images/capitolo_3/matrice_3x3.png, id=363, 566.115pt x 196.48407pt>
+<Images/capitolo_3/matrice_3x3.png, id=368, 566.115pt x 196.48407pt>
 File: Images/capitolo_3/matrice_3x3.png Graphic file (type png)
 <use Images/capitolo_3/matrice_3x3.png>
 Package pdftex.def Info: Images/capitolo_3/matrice_3x3.png  used on input line 50.
@@ -519,7 +519,7 @@ Capitolo 4.
 [23
 
 ] [24] [25] [26] [27] [28] [29] [30] [31] [32]
-<Images/capitolo_4/chiavi_per_firma.png, id=429, 626.34pt x 186.6975pt>
+<Images/capitolo_4/chiavi_per_firma.png, id=434, 626.34pt x 186.6975pt>
 File: Images/capitolo_4/chiavi_per_firma.png Graphic file (type png)
 <use Images/capitolo_4/chiavi_per_firma.png>
 Package pdftex.def Info: Images/capitolo_4/chiavi_per_firma.png  used on input line 201.
@@ -540,7 +540,7 @@ File: omspcr.fd
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 120.
  [42]
-<Images/capitolo_5/esempio_teorema.png, id=483, 563.10374pt x 288.3272pt>
+<Images/capitolo_5/esempio_teorema.png, id=488, 563.10374pt x 288.3272pt>
 File: Images/capitolo_5/esempio_teorema.png Graphic file (type png)
 <use Images/capitolo_5/esempio_teorema.png>
 Package pdftex.def Info: Images/capitolo_5/esempio_teorema.png  used on input line 128.
@@ -554,30 +554,30 @@ Overfull \hbox (15.93777pt too wide) in paragraph at lines 64--64
 []\OT1/cmr/bx/n/17.28 Requisiti di Si-cu-rez-za Mi-ni-mi Leg-ge 196/03 
  []
 
-[47] [48] [49] [50] [51] [52] [53]
-Overfull \hbox (21.72292pt too wide) in paragraph at lines 217--217
+[47] [48] [49] [50] [51] [52] [53] [54]
+Overfull \hbox (21.72292pt too wide) in paragraph at lines 224--224
 []\OT1/cmr/bx/n/14.4 Il Do-cu-men-to Pro-gram-ma-ti-co sul-la Si-cu-rez-za (DPS) 
  []
 
-[54] [55] [56] [57] [58]) [59]
+[55] [56] [57] [58] [59]) [60]
 No file document.bbl.
 (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 5B2D9A2AFBBD16DC03ED86E79E6DF0D6;8654.
+(rerunfilecheck)             Checksum: F016D7DBA0834744914D8BDD18899F19;8786.
  ) 
 Here is how much of TeX's memory you used:
- 14473 strings out of 480163
- 229660 string characters out of 5894093
+ 14476 strings out of 480163
+ 229701 string characters out of 5894093
  703433 words of memory out of 5000000
- 32020 multiletter control sequences out of 15000+600000
+ 32021 multiletter control sequences out of 15000+600000
  480655 words of font info for 67 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  60i,18n,63p,1330b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on document.pdf (60 pages, 1105769 bytes).
+Output written on document.pdf (61 pages, 1108299 bytes).
 PDF statistics:
- 700 PDF objects out of 1000 (max. 8388607)
- 575 compressed objects within 6 object streams
- 173 named destinations out of 1000 (max. 500000)
- 392 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 711 PDF objects out of 1000 (max. 8388607)
+ 585 compressed objects within 6 object streams
+ 175 named destinations out of 1000 (max. 500000)
+ 400 words of extra memory for PDF output out of 10000 (max. 10000000)
 

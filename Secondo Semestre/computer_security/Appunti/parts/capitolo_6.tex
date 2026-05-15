@@ -135,16 +135,20 @@ Infine, la Regola 9 si sposta sul piano del comportamento operativo e della sicu
 \subsubsection*{Regole 10 e 11}
 \begin{quote}
     \begin{itemize}
-        \item \textit{10. Quando l'accesso [...] è consentito esclusivamente mediante uso della componente riservata della credenziale [...] sono impartite idonee e preventive disposizioni scritte volte a individuare chiaramente le modalità con le quali il titolare può assicurare la disponibilità di dati [...] in caso di prolungata assenza o impedimento dell'incaricato [...]. In tal caso la custodia delle copie delle credenziali è organizzata garantendo la relativa segretezza [...].}
-        \item \textit{11. Le disposizioni sul sistema di autenticazione [...] non si applicano ai trattamenti dei dati personali destinati alla diffusione.}
+        \item \textit{10. Quando l'accesso ai dati e agli strumenti elettronici è consentito esclusivamente mediante uso della componente riservata della credenziale per l'autenticazione, sono impartite idonee e preventive disposizioni scritte volte a individuare chiaramente le modalità con le quali il titolare può assicurare la disponibilità di dati o strumenti elettronici in caso di prolungata assenza o impedimento dell'incaricato che renda indispensabile e indifferibile intervenire per esclusive necessità di operatività e di sicurezza del sistema. In tal caso la custodia delle copie delle credenziali è organizzata garantendo la relativa segretezza e individuando preventivamente per iscritto i soggetti incaricati della loro custodia, i quali devono informare tempestivamente l'incaricato dell'intervento effettuato.}
+        \item \textit{11. Le disposizioni sul sistema di autenticazione di cui ai precedenti punti e quelle sul sistema di autorizzazione non si applicano ai trattamenti dei dati personali destinati alla diffusione.}
     \end{itemize}
 \end{quote}
 
 \textbf{Analisi della continuità e delle eccezioni:}
 
-La Regola 10 affronta il delicato tema della \textbf{Business Continuity} in scenari di emergenza. La norma nasce per evitare che l'assenza improvvisa o prolungata di un lavoratore possa paralizzare l'operatività aziendale, specialmente quando l'accesso a informazioni critiche è protetto da credenziali note solo all'interessato. Storicamente, questo ha portato alla creazione di procedure quasi "analogiche", come la custodia di copie delle password in buste sigillate o casseforti, affidate a un \textbf{soggetto fiduciario} preventivamente individuato per iscritto. Tale figura aveva il compito di intervenire solo in casi di indifferibile necessità, con l'obbligo di notificare tempestivamente l'incaricato originale dell'avvenuto accesso.
+La Regola 10 affronta il delicato tema della \textbf{Business Continuity} in scenari di emergenza. La norma nasce per evitare che l'assenza improvvisa o prolungata di un lavoratore possa paralizzare l'operatività aziendale, specialmente quando l'accesso a informazioni critiche è protetto da credenziali note solo all'interessato. Storicamente, questo ha portato alla creazione di procedure di questo tipo:
+\begin{itemize}
+    \item Si creano delle copie delle credenziali in maniera tale che non ne venga comunque rivelato il segreto.
+    \item Viene individuato preventivamente e per iscritto un \textbf{soggetto fiduciario} che custodisce la copia delle credenziali.
+    \item Qualora il titolare avesse la necessità di agire sul dato, il custode gli fornirà l'accesso ma prima dovrà avvisare tempestivamente l'incaricato.
+\end{itemize}
 
-Tuttavia, nell'ecosistema digitale moderno, questa pratica è considerata un vero e proprio "anti-pattern" di sicurezza. La creazione di copie fisiche o digitali di credenziali personali introduce infatti un punto di vulnerabilità critico, poiché ne compromette la segretezza e rende incerta la tracciabilità delle azioni. 
 Oggi, il problema della disponibilità del dato viene risolto preferendo l'uso di \textbf{risorse condivise} (come cartelle di rete o caselle mail di gruppo) accessibili tramite credenziali individuali distinte. In questo modo, se un dipendente è assente, i colleghi autorizzati possono accedere alle stesse informazioni senza mai conoscere la password altrui, garantendo che ogni operazione resti riconducibile a chi l'ha effettivamente compiuta.
 
 Per quanto riguarda la Regola 11, essa stabilisce un'esenzione che oggi appare quantomeno rischiosa. Escludendo l'obbligo di sistemi di autenticazione e autorizzazione per i dati destinati alla \textbf{diffusione pubblica}, la norma si concentra esclusivamente sul pilastro della riservatezza, trascurando quelli dell'integrità e della disponibilità. Sebbene un dato pubblico non richieda protezione contro la lettura, il sistema che lo ospita deve essere comunque protetto con misure di sicurezza universali. Un attaccante, infatti, potrebbe non mirare alla sottrazione del dato (già pubblico), ma puntare alla compromissione del sistema per scopi malevoli, come l'iniezione di malware, il \textit{defacement} del sito o l'utilizzo del server come testa di ponte per movimenti laterali verso zone più protette della rete aziendale. 
@@ -177,16 +181,16 @@ Questo principio è fondamentale per garantire che l'accesso ai dati sia limitat
 \end{quote}
 Questa regola impone una revisione periodica dei profili di autorizzazione, almeno una volta all'anno, per assicurarsi che le condizioni che giustificano la loro conservazione siano ancora valide. 
 
-Tuttavia, anche qui, una corretta gestione dei cambiamenti e una procedura di offboarding efficace dovrebbero prevenire la necessità di revisioni.
+Tuttavia, anche qui, una corretta gestione dei cambiamenti e una procedura di offboarding efficace dovrebbero prevenire la necessità di revisioni. Che, in un certo senso, si avrebbe di continuo tramite queste ultime.
 \subsection{Altre Misure di Sicurezza}
 \subsubsection*{Regola 15}
 \begin{quote}
     \textit{Nell'ambito dell'aggiornamento periodico con cadenza almeno annuale dell'individuazione dell'ambito del trattamento consentito ai singoli incaricati e addetti alla gestione o alla manutenzione degli strumenti elettronici, la lista degli incaricati può essere redatta anche per classi omogenee di incarico e dei relativi profili di autorizzazione}
 \end{quote}
 
-Questa regola sembra essere una sorta di "deroga" alla Regola 14, consentendo la redazione di liste di incaricati per classi omogenee di incarico e dei relativi profili di autorizzazione. Anche questa regola però impone un vincolo "almeno annuale" per l'aggiornamento periodico dell'individuazione dell'ambito del trattamento consentito ai singoli incaricati e addetti alla gestione o alla manutenzione degli strumenti elettronici.
+Questa regola sembra essere una sorta di "deroga" alla Regola 14, consentendo la redazione di liste di incaricati per classi omogenee di incarico e dei relativi profili di autorizzazione. La differenza con la regola 14 sta nel fatto che qui ci dice che possiamo anche non guardare i singoli individui uno per uno ma possiamo anche raggrupparli in classi omogenee.
 
-Quando, in realtà, abbiamo la necessità che gli aggiornamenti siano continui.
+Anche questa regola però impone un vincolo "almeno annuale" per l'aggiornamento periodico dell'individuazione dell'ambito del trattamento consentito ai singoli incaricati e addetti alla gestione o alla manutenzione degli strumenti elettronici. Quando, in realtà, abbiamo la necessità che gli aggiornamenti siano continui.
 
 \subsubsection*{Regola 16}
 \begin{quote}
@@ -195,12 +199,15 @@ Quando, in realtà, abbiamo la necessità che gli aggiornamenti siano continui.
 
 Questa regola è effettivamente corretta, tuttavia, è importante sottolineare che la protezione contro il rischio di intrusione e l'azione di programmi malevoli (come malware, virus, ransomware) richiede un approccio più dinamico e proattivo rispetto a un semplice aggiornamento semestrale degli strumenti elettronici.
 
+Immaginiamo lo scenario peggiore in cui abbiamo appena fatto una revisione e, il giorno dopo esce una CVE che riguarda il nostro DBMS. Se non facessimo nulla per sei mesi, resteremmo senza protezioni e aperti a qualunque tipo di attaccante.
+
 \subsubsection*{Regola 17}
 \begin{quote}
     \textit{Gli aggiornamenti periodici dei programmi per elaboratore volti a prevenire la vulnerabilità di strumenti elettronici e a correggerne difetti sono effettuati almeno annualmente. In caso di trattamento di dati sensibili o giudiziari l'aggiornamento è almeno semestrale.}
 \end{quote}
 
-Anche qui, noi vogliamo \textbf{aggiornamenti continui} e non periodici e non vogliamo differenza tra accesso a dati sensibili o giudiziari e accesso a dati comuni.
+Anche qui, vale quanto detto precedentemente. Vogliamo \textbf{aggiornamenti continui} e non periodici e non vogliamo differenza tra accesso a dati sensibili o giudiziari e accesso a dati comuni.
+
 \subsubsection*{Regola 18}
 \begin{quote}
     \textit{Sono impartite istruzioni organizzative e tecniche che prevedono il salvataggio dei dati con frequenza almeno settimanale.}
@@ -233,7 +240,7 @@ Sebbene oggi non sia più obbligatorio sotto questo nome, il DPS ha introdotto n
 \begin{quote}
     \textit{I dati sensibili o giudiziari sono protetti contro l'accesso abusivo, di cui all'art. 615-ter del codice penale, mediante l'utilizzo di idonei strumenti elettronici.}
 \end{quote}
-Questa regola è chiaramente corretta, ma è importante sottolineare che la protezione contro l'accesso abusivo deve essere garantita non solo per i dati sensibili o giudiziari, ma per tutti i dati personali.
+Questa regola è chiaramente corretta, ma è importante sottolineare che la protezione contro \textbf{l'accesso abusivo deve essere garantita non solo per i dati sensibili o giudiziari, ma per tutti i dati personali}.
 
 Questa regola, se vogliamo, è un'estensione della regola 16 che imponeva la protezione sui dati personali. 
 
@@ -254,8 +261,11 @@ Inoltre, potremmo anche del tutto sostituire dispositivi rimovibili dato che, al
 \begin{quote}
     \textit{I supporti rimovibili contenenti dati sensibili o giudiziari se non utilizzati sono distrutti o resi inutilizzabili, ovvero possono essere riutilizzati da altri incaricati, non autorizzati al trattamento degli stessi dati, se le informazioni precedentemente in essi contenute non sono intelligibili e tecnicamente in alcun modo ricostruibili.}     
 \end{quote}
-Questa procedura di distruzione o di sanificazione dei supporti rimovibili è fondamentale per prevenire il rischio di accessi non autorizzati a dati sensibili o giudiziari.  
-Una corretta procedura di sanitizzazione è molto imporatnte, poiché, se non eseguita correttamente, potrebbe lasciare tracce dei dati precedentemente memorizzati, rendendoli potenzialmente accessibili a persone non autorizzate. Tuttavia, spesso accade che sanitizzare costi più che ricomprare un nuovo supporto, e questo è uno dei motivi per cui molte organizzazioni preferiscono semplicemente distruggere i supporti rimovibili una volta che non sono più necessari, piuttosto che rischiare di lasciare dati sensibili accessibili.
+Questa procedura di distruzione o di sanificazione dei supporti rimovibili è fondamentale per prevenire il rischio di accessi non autorizzati a dati sensibili o giudiziari. 
+
+Una corretta procedura di sanitizzazione è molto importante, poiché, se non eseguita correttamente, potrebbe lasciare tracce dei dati precedentemente memorizzati, rendendoli potenzialmente accessibili a persone non autorizzate. 
+
+Tuttavia, spesso accade che sanitizzare costi più che ricomprare un nuovo supporto, e questo è uno dei motivi per cui molte organizzazioni preferiscono semplicemente distruggere i supporti rimovibili una volta che non sono più necessari, piuttosto che rischiare di lasciare dati sensibili accessibili.
 
 \subsubsection*{Regola 23}
 \begin{quote}
@@ -263,12 +273,14 @@ Una corretta procedura di sanitizzazione è molto imporatnte, poiché, se non es
 \end{quote}
 Anche qui, la regola è corretta, ma è importante sottolineare che il ripristino dell'accesso ai dati in caso di danneggiamento dovrebbe essere garantito non solo per i dati sensibili o giudiziari, ma per tutti i dati personali. E, inoltre, il periodo di sette giorni non è adeguato.
 
+Infatti, anche la distruzione dei dati è considerato un trattamento che deve prima essere autorizzato.
+
 \subsubsection*{Regola 24}
 \begin{quote}
     \textit{Gli organismi sanitari e gli esercenti le professioni sanitarie effettuano il trattamento dei dati idonei a rivelare lo stato di salute e la vita sessuale contenuti in elenchi, registri o banche di dati con le modalità di cui all'articolo 22, comma 6, del codice, anche al fine di consentire il trattamento disgiunto dei medesimi dati dagli altri dati personali che permettono di identificare direttamente gli interessati. I dati relativi all'identità genetica sono trattati esclusivamente all'interno di locali protetti accessibili ai soli incaricati dei trattamenti ed ai soggetti specificatamente autorizzati ad accedervi; il trasporto dei dati all'esterno dei locali riservati al loro trattamento deve avvenire in contenitori muniti di serratura o dispositivi equipollenti; il trasferimento dei dati in formato elettronico è cifrato.}
 \end{quote}
 
-Quindi, vogliamo che i dati sensibili vengano trattati in maniera disgiunta rispetto agli altri dati personali tramite pseudoanonimizzazione/anonimizzazione.
+Quindi, vogliamo che i dati sensibili vengano trattati in maniera disgiunta rispetto agli altri dati personali tramite pseudoanonimizzazione.
 
 Anche qui, vorremmo che questa regola fosse estesa a tutti i dati personali, non solo a quelli idonei a rivelare lo stato di salute e la vita sessuale.
 \subsection{Misure di tutela e garanzia}
@@ -295,3 +307,13 @@ Per quanto riguarda 27 qui si dice che devono essere impartite istruzioni senza 
 Per quanto riguarda 28, qui si parla di controllo e custodia degli atti e dei documenti contenenti dati personali sensibili o giudiziari, ma vorremmo che questa regola fosse estesa a tutti i dati personali.
 
 E, infine, la 29 si riferisce al controllo degli accessi agli archivi contenenti dati sensibili o giudiziari, ma anche qui vorremmo che questa regola fosse estesa a tutti i dati personali e, inoltre, ci dice che il log debba esserci solo dopo l'orario di chiusura, ma vorremmo che ci fosse sempre e che in caso di assenza di strumenti elettronici per il controllo degli accessi o di incaricati della vigilanza, le persone che vi accedono siano preventivamente autorizzate, ma vorremmo che ci fosse sempre un sistema di controllo degli accessi, anche manuale, che garantisca l'accesso agli archivi contenenti dati personali solo da parte di persone autorizzate.
+
+\subsection{Considerazioni}
+Come abbiamo già visto, e vedremo meglio analizzando il GDPR, questo allegato soffre parecchio lo scorrere del tempo di questi ultimi anni. Infatti, possiamo individuare quasi sempre i seguenti punti deboli quando analizziamo le regole:
+\begin{itemize}
+    \item \textbf{Mancanza di continuità}: Le regole fanno quasi sempre riferimento a tempistiche di "ogni sei mesi" o "almeno una volta ogni" e così via. Questo approccio, non è funzionale alla sicurezza dei sistemi poiché non possiamo ridurci ad aggiornamenti o pratiche periodiche a causa del fatto che le vulnerabilità lavorano in tempi continui e non discreti. Abbiamo bisogno, quindi, di un approccio che sia continuo e proattivo rispetto a quelle che possono essere le nuove vulnerabilità scoperte.
+    \item \textbf{Non adeguatezza allo Stato dell'Arte}: Sebbene in alcune regole questo sia presentato in maniera velata, non viene fatto alcun riferimento diretto a quest'ultimo che risulta fondamentale per avere, come detto al punto sopra, un approccio in grado di evolversi nel tempo adeguandosi alle nuove minacce.
+    \item \textbf{Distinzione tra dati sensibili e dati personali}: Spesso le regole fanno nette distinzioni tra protezione dei dati personali e protezione dei dati sensibili. Sebbene, a primo impatto, questo sembri avere una certa logica, la realtà è che abbiamo bisogno di proteggere qualunque tipo di dato personale poiché qualunque punto d'accesso è un potenziale rischio per il nostro sistema.
+\end{itemize}
+
+Nel GDPR vedremo come, invece, adotteremo un approccio più dinamico che terrà conto non solo dello stato dell'arte, ma anche di quelle che sono molte delle variabili che possono esserci all'interno di un'azienda. 

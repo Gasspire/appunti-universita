@@ -1,0 +1,115 @@
+\chapter{OpenMPI}
+
+\section{Il Problema della Scalabilità}
+Il passaggio al modello a memoria distribuita è dettato da limiti fisici e architetturali.
+\begin{itemize}
+    \item \textbf{Memoria Condivisa (es. OpenMP)}: Scala efficacemente fino a qualche decina di core sullo stesso nodo. Quando il numero di core necessari supera quelli fisicamente condivisi o il problema diventa troppo grande, questo modello cessa di funzionare.
+    \item \textbf{Memoria Distribuita (es. MPI)}: Ogni processo possiede la propria RAM privata. La comunicazione non avviene tramite variabili condivise, ma attraverso lo scambio esplicito di messaggi (\textit{msg}) tra processi indipendenti.
+\end{itemize}
+
+\section{Cos'è MPI?}
+MPI (\textit{Message Passing Interface}) è lo standard per la programmazione parallela basata sullo scambio esplicito di messaggi tra processi indipendenti. Non è un linguaggio, ma una specifica di interfaccia multi-piattaforma e vendor-neutral.
+
+\vspace{0.5cm}
+\noindent
+Le caratteristiche principali dello standard sono:
+\begin{enumerate}
+    \item \textbf{Standard Aperto}: Gestito dall'MPI Forum, che riunisce vendor, centri di ricerca e università.
+    \item \textbf{Portabilità Totale}: Lo stesso codice sorgente è eseguibile su diverse architetture, dal singolo laptop ai cluster Linux, fino ai supercomputer più potenti.
+    \item \textbf{Evoluzione Continua}: Dalle prime specifiche MPI-1 (1994) alle più recenti MPI-4 (2021), che introducono modelli a sessioni e collettive persistenti.
+\end{enumerate}
+
+
+\begin{framed}
+\noindent
+\textbf{Il Modello di Esecuzione: SPMD} \\
+MPI adotta il paradigma \textbf{SPMD} (\textit{Single Program, Multiple Data}).
+\begin{itemize}
+    \item \textbf{Binario Unico}: Tutti i processi eseguono lo stesso file eseguibile.
+    \item \textbf{Rank}: La distinzione dei ruoli avviene a runtime tramite il \textit{rank}, ovvero l'identificatore numerico unico di ogni processo.
+    \item \textbf{Esempio}: In un blocco \texttt{if (rank == 0)}, il processo "root" può decidere di raccogliere i risultati, mentre gli altri processi ("worker") eseguono i calcoli e inviano i dati.
+\end{itemize}
+\end{framed}
+
+\section{Struttura di un Programma e Comunicatori}
+L'esecuzione parallela avviene all'interno di un blocco delimitato da chiamate di inizializzazione e chiusura.
+\begin{itemize}
+    \item \texttt{MPI\_Init}: Inizializza il runtime; deve essere la prima chiamata MPI.
+    \item \texttt{MPI\_Comm\_rank}: Restituisce il rank del processo corrente.
+    \item \texttt{MPI\_Comm\_size}: Restituisce il numero totale di processi nel comunicatore.
+    \item \texttt{MPI\_Finalize}: Libera le risorse; nessuna chiamata MPI è permessa dopo di essa.
+\end{itemize}
+
+\vspace{0.3cm}
+\noindent
+\textbf{Il Contesto: I Comunicatori} \\
+Un comunicatore è un oggetto che racchiude un gruppo di processi e un contesto di comunicazione. Ogni messaggio viaggia all'interno di un comunicatore: due messaggi con lo stesso tag ma su comunicatori diversi non si confondono mai. Questo è il meccanismo fondamentale con cui le librerie MPI proteggono i propri messaggi interni dall'interferenza con i messaggi dell'utente. Il comunicatore predefinito è \texttt{MPI\_COMM\_WORLD}, che include tutti i processi. È possibile creare sotto-comunicatori tramite \texttt{MPI\_Comm\_split}, partizionando i processi in base a un \textit{colore} (gruppo di appartenenza) e una \textit{chiave} (ordinamento interno).
+
+\section{Tipi di Dati e Messaggi}
+MPI definisce un insieme di tipi primitivi che corrispondono ai tipi del linguaggio host. Sono usati per specificare il tipo e la quantità dei dati in ogni operazione di comunicazione e per gestire la comunicazione tra architetture diverse.
+\begin{itemize}
+    \item \textbf{Tipi Primitivi}: Corrispondono ai tipi C (es. \texttt{MPI\_INT}, \texttt{MPI\_DOUBLE}, \texttt{MPI\_CHAR}).
+    \item \textbf{Tipi Derivati}: Permettono di descrivere layout di memoria non contigui (strutture, colonne di matrici) senza buffer temporanei.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/primitivi.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/derivati.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/workflow.png}
+    \caption{Un tipo derivato deve essere registrato con MPI\_Type\_commit prima di poter essere usato nelle chiamate di comunicazione. Dopo l'uso va liberato con MPI\_Type\_free per evitare memory leak nell'implementazione MPI.}
+\end{figure}
+
+\vspace{0.5cm}
+\noindent
+\textbf{Anatomia di un Messaggio MPI} \\
+Un messaggio è composto da due parti logiche: l'\textbf{envelope} (intestazione per il matching, cioò identifica il messaggio nel sistema) e il \textbf{data buffer} (payload effettivo).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/cap_8/anatomia.png}
+\end{figure}
+
+\section{Modalità di Comunicazione Point-to-Point}
+Le funzioni fondamentali della comunicazione point-to-point sono \texttt{MPI\_Send} e \texttt{MPI\_Recv}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/cap_8/send-recive.png}
+\end{figure}
+
+Esistono diverse modalità di invio con semantiche differenti. In MPI, il termine \textit{blocking} (bloccante) significa che la funzione non ritorna finché il buffer di memoria non può essere riutilizzato. Tuttavia, il modo in cui questo avviene dipende dalla modalità scelta.
+
+\begin{description}
+    \item[\textbf{Standard Mode (\texttt{MPI\_Send})}] 
+    È la modalità "non deterministica". Il sistema decide autonomamente se bufferizzare il messaggio o sincronizzarsi. 
+    \begin{itemize}
+        \item Se bufferizzato: il mittente prosegue subito.
+        \item Se non bufferizzato: il mittente attende che il destinatario sia pronto.
+    \end{itemize}
+    \textit{Nota: Non è sicuro assumere che il buffer sia libero immediatamente.}
+
+    \item[\textbf{Buffered Mode (\texttt{MPI\_Bsend})}] 
+    Il completamento è sempre \textbf{locale}. Il programmatore deve allocare un buffer di memoria con \texttt{MPI\_Buffer\_attach}. Una volta che i dati sono stati copiati nel buffer di sistema, la funzione ritorna. È l'unica modalità che garantisce il distacco tra mittente e ricevitore.
+
+    \item[\textbf{Synchronous Mode (\texttt{MPI\_Ssend})}] 
+    Il completamento è \textbf{remoto}. La funzione termina solo quando il processo di ricezione ha iniziato a prelevare i dati. Questo garantisce un "rendez-vous" (sincronia) tra i due processi, fondamentale per il debugging dei flussi logici.
+
+    \item[\textbf{Ready Mode (\texttt{MPI\_Rsend})}] 
+    È una modalità a "zero overhead". Si può usare solo se si ha la certezza matematica che il destinatario abbia già postato la sua \texttt{MPI\_Recv}. Se il destinatario non è pronto, l'invio fallisce silenziosamente o causa errori imprevedibili.
+\end{description}
+
+\begin{framed}
+\noindent
+\textbf{Il concetto di Sincronia in MPI} \\
+In un sistema parallelo, meno i processi devono aspettarsi l'un l'altro, più il sistema è efficiente. Tuttavia, la sincronia fornita da \texttt{MPI\_Ssend} è spesso necessaria per evitare che il sistema esaurisca la memoria dei buffer temporanei in caso di messaggi troppo frequenti o troppo grandi.
+\end{framed}
+

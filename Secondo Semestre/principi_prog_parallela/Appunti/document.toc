@@ -1,97 +1,111 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {chapter}{\numberline {1}Architetture Moderne}{8}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Memory Wall}{9}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Gerarchia di Memoria}{9}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Prefetching}{10}{subsection.1.1.2}%
-\contentsline {section}{\numberline {1.2}Parallelismo Interno al Processore}{10}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Pipelining}{10}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Instruction-Level Parallelism (ILP)}{11}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}SIMD: Parallelismo Vettoriale}{11}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}SMT: Simultaneous Multithreading}{12}{subsection.1.2.4}%
-\contentsline {section}{\numberline {1.3}Sistemi Multicore e Modelli di Accesso alla Memoria}{12}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Il Modello MIMD}{13}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}SMP vs NUMA}{13}{subsection.1.3.2}%
-\contentsline {section}{\numberline {1.4}Sistemi a Memoria Condivisa e Distribuita}{13}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Sistemi Ibridi e HPC}{14}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Reti e Acceleratori}{14}{subsection.1.4.2}%
-\contentsline {section}{\numberline {1.5}Modelli di Analisi: Il Roofline Model}{15}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Software Stack in HPC}{16}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Filesystem nei sistemi HPC}{18}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Compilatori in ambienti HPC}{19}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Librerie}{20}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Scheduler}{21}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Workflow per sistemi HPC}{22}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Ottimizzazione}{24}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Misurazione delle performance}{24}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Misure sul clock}{24}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Misure sul Tempo}{25}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Profiling}{26}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Ottimizzare}{26}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Memory Aliasing}{29}{subsection.3.2.1}%
-\contentsline {chapter}{\numberline {4}Ottimizzazione Single-Core}{31}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Memoria cache}{31}{section.4.1}%
-\contentsline {section}{\numberline {4.2}CPU}{33}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Pipeline di Esecuzione}{33}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Evitare le Inefficienze}{35}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Esempio che seguiremo}{35}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}1. Evitare Chiamate a Funzioni Costose}{35}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}2. Hoisting delle espressioni}{36}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}3. Chiarire lo Scope delle Variabili}{37}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}4. Suggerisci cosa \IeC {\`e} Importante}{38}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}5. Non ripetere controlli o referenziazioni non necessarie}{38}{subsection.4.3.6}%
-\contentsline {subsection}{\numberline {4.3.7}Avvertenza su Numeri in Virgola}{40}{subsection.4.3.7}%
-\contentsline {section}{\numberline {4.4}Ottimizzazione basata sulla Cache}{40}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Mappatura della Cache}{41}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Modello di accesso alla Memoria}{42}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Organizzazione dei Dati}{44}{subsection.4.4.3}%
-\contentsline {section}{\numberline {4.5}Branch condizionali}{46}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Branch Predictor}{47}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Tecniche per limitare i Branch}{48}{subsection.4.5.2}%
-\contentsline {section}{\numberline {4.6}Ottimizzazione dei Loop}{50}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Ottimizzazioni per Cicli a Bassa Intensit\IeC {\`a}: Loop Fusion}{51}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Ottimizzazioni per Cicli $O(N^2)$: Unroll \& Jam}{52}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Srotolamento del Ciclo (Loop Unrolling) e Aritmetica Floating Point}{52}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}Esempio Pratico $O(N^3)/O(N^2)$: Moltiplicazione Matrice-Matrice (MMM)}{53}{subsection.4.6.4}%
-\contentsline {chapter}{\numberline {5}Parallelismo e Scalabilit\IeC {\`a}}{55}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Modelli di parallelismo}{55}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Scalabilit\IeC {\`a}}{57}{section.5.2}%
-\contentsline {chapter}{\numberline {6}OpenMP}{60}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Cosa \IeC {\`e} OpenMP}{61}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Modello Fork-Join}{62}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Direttive}{63}{subsection.6.2.1}%
-\contentsline {section}{\numberline {6.3}Regioni Parallele}{64}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Gestione della Regione Parallela}{66}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Controllo del Numero di Thread}{68}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Sincronizzazione dell'Esecuzione}{69}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Ordinamento dei Thread}{73}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}Assegnazione del lavoro}{75}{subsection.6.3.5}%
-\contentsline {section}{\numberline {6.4}Basi della Parallelizzazione dei Cicli con OpenMP}{77}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Assegnazione del Lavoro}{78}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Guida alla Scelta dello Scheduler}{79}{subsection.6.5.1}%
-\contentsline {section}{\numberline {6.6}Clausole Avanzate nei For Paralleli}{79}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}La clausola \texttt {reduction}}{80}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}La clausola \texttt {collapse}}{81}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}La clausola \texttt {nowait}}{81}{subsection.6.6.3}%
-\contentsline {section}{\numberline {6.7}Anatomia di un Data Race}{81}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Il Problema del Livello Macchina (Read-Modify-Write)}{82}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}Sincronizzazione vs Scalabilit\IeC {\`a}}{82}{subsection.6.7.2}%
-\contentsline {section}{\numberline {6.8}Il Problema del False Sharing}{83}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}Risoluzione Tramite Padding}{84}{subsection.6.8.1}%
-\contentsline {section}{\numberline {6.9}Direttive Annidate: Un Dettaglio Importante}{85}{section.6.9}%
-\contentsline {subsection}{\numberline {6.9.1}Caso A: Condivisione del Lavoro (\texttt {omp for})}{85}{subsection.6.9.1}%
-\contentsline {subsection}{\numberline {6.9.2}Caso B: Creazione di Nuove Regioni (\texttt {omp parallel for})}{85}{subsection.6.9.2}%
-\contentsline {section}{\numberline {6.10}Caso di Studio: Calcolo del Pi-greco}{86}{section.6.10}%
-\contentsline {subsection}{\numberline {6.10.1}L'Algoritmo Sequenziale di Base}{86}{subsection.6.10.1}%
-\contentsline {subsection}{\numberline {6.10.2}Tentativi di Parallelizzazione ed Errori Comuni}{86}{subsection.6.10.2}%
-\contentsline {subsubsection}{\numberline {6.10.2.1}Errore 1: Il Data Race (Variabile Condivisa)}{86}{subsubsection.6.10.2.1}%
-\contentsline {subsubsection}{\numberline {6.10.2.2}Errore 2: L'Oblio (Variabile Privata)}{87}{subsubsection.6.10.2.2}%
-\contentsline {subsubsection}{\numberline {6.10.2.3}Errore 3: Il Furto (Variabile Lastprivate)}{87}{subsubsection.6.10.2.3}%
-\contentsline {subsection}{\numberline {6.10.3}La Soluzione Ottimale: Reduction}{87}{subsection.6.10.3}%
-\contentsline {section}{\numberline {6.11}NUMA Awareness}{88}{section.6.11}%
-\contentsline {subsection}{\numberline {6.11.1}Affinit\IeC {\`a} dei Thread}{88}{subsection.6.11.1}%
-\contentsline {subsection}{\numberline {6.11.2}Placecs}{90}{subsection.6.11.2}%
-\contentsline {subsection}{\numberline {6.11.3}Binding}{93}{subsection.6.11.3}%
-\contentsline {subsection}{\numberline {6.11.4}Policy di Allocazione della Memoria}{96}{subsection.6.11.4}%
-\contentsline {subsection}{\numberline {6.11.5}Strumenti per l'Analisi della Topologia e il Pinning}{98}{subsection.6.11.5}%
-\contentsline {subsection}{\numberline {6.11.6}Workflow per la NUMA-awareness}{99}{subsection.6.11.6}%
+\contentsline {chapter}{\numberline {1}Architetture Moderne}{9}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Memory Wall}{10}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Gerarchia di Memoria}{10}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Prefetching}{11}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Parallelismo Interno al Processore}{11}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Pipelining}{11}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Instruction-Level Parallelism (ILP)}{12}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}SIMD: Parallelismo Vettoriale}{12}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}SMT: Simultaneous Multithreading}{13}{subsection.1.2.4}%
+\contentsline {section}{\numberline {1.3}Sistemi Multicore e Modelli di Accesso alla Memoria}{13}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Il Modello MIMD}{14}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}SMP vs NUMA}{14}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Sistemi a Memoria Condivisa e Distribuita}{14}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Sistemi Ibridi e HPC}{15}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Reti e Acceleratori}{15}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Modelli di Analisi: Il Roofline Model}{16}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Software Stack in HPC}{17}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Filesystem nei sistemi HPC}{19}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Compilatori in ambienti HPC}{20}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Librerie}{21}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Scheduler}{22}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Workflow per sistemi HPC}{23}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Ottimizzazione}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Misurazione delle performance}{25}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Misure sul clock}{25}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Misure sul Tempo}{26}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Profiling}{27}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Ottimizzare}{27}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Memory Aliasing}{30}{subsection.3.2.1}%
+\contentsline {chapter}{\numberline {4}Ottimizzazione Single-Core}{32}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Memoria cache}{32}{section.4.1}%
+\contentsline {section}{\numberline {4.2}CPU}{34}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Pipeline di Esecuzione}{34}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Evitare le Inefficienze}{36}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Esempio che seguiremo}{36}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}1. Evitare Chiamate a Funzioni Costose}{36}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}2. Hoisting delle espressioni}{37}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}3. Chiarire lo Scope delle Variabili}{38}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}4. Suggerisci cosa \IeC {\`e} Importante}{39}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}5. Non ripetere controlli o referenziazioni non necessarie}{39}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}Avvertenza su Numeri in Virgola}{41}{subsection.4.3.7}%
+\contentsline {section}{\numberline {4.4}Ottimizzazione basata sulla Cache}{41}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Mappatura della Cache}{42}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Modello di accesso alla Memoria}{43}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Organizzazione dei Dati}{45}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Branch condizionali}{47}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Branch Predictor}{48}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Tecniche per limitare i Branch}{49}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Ottimizzazione dei Loop}{51}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Ottimizzazioni per Cicli a Bassa Intensit\IeC {\`a}: Loop Fusion}{52}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Ottimizzazioni per Cicli $O(N^2)$: Unroll \& Jam}{53}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Srotolamento del Ciclo (Loop Unrolling) e Aritmetica Floating Point}{53}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Esempio Pratico $O(N^3)/O(N^2)$: Moltiplicazione Matrice-Matrice (MMM)}{54}{subsection.4.6.4}%
+\contentsline {chapter}{\numberline {5}Parallelismo e Scalabilit\IeC {\`a}}{56}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Modelli di parallelismo}{56}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Scalabilit\IeC {\`a}}{58}{section.5.2}%
+\contentsline {chapter}{\numberline {6}OpenMP}{61}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Cosa \IeC {\`e} OpenMP}{62}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Modello Fork-Join}{63}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Direttive}{64}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}Regioni Parallele}{65}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Gestione della Regione Parallela}{67}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Controllo del Numero di Thread}{69}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Sincronizzazione dell'Esecuzione}{70}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Ordinamento dei Thread}{74}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Assegnazione del lavoro}{76}{subsection.6.3.5}%
+\contentsline {section}{\numberline {6.4}Basi della Parallelizzazione dei Cicli con OpenMP}{78}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Assegnazione del Lavoro}{79}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Guida alla Scelta dello Scheduler}{80}{subsection.6.5.1}%
+\contentsline {section}{\numberline {6.6}Clausole Avanzate nei For Paralleli}{80}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}La clausola \texttt {reduction}}{81}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}La clausola \texttt {collapse}}{82}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}La clausola \texttt {nowait}}{82}{subsection.6.6.3}%
+\contentsline {section}{\numberline {6.7}Anatomia di un Data Race}{82}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Il Problema del Livello Macchina (Read-Modify-Write)}{83}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Sincronizzazione vs Scalabilit\IeC {\`a}}{83}{subsection.6.7.2}%
+\contentsline {section}{\numberline {6.8}Il Problema del False Sharing}{84}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Risoluzione Tramite Padding}{85}{subsection.6.8.1}%
+\contentsline {section}{\numberline {6.9}Direttive Annidate: Un Dettaglio Importante}{86}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Caso A: Condivisione del Lavoro (\texttt {omp for})}{86}{subsection.6.9.1}%
+\contentsline {subsection}{\numberline {6.9.2}Caso B: Creazione di Nuove Regioni (\texttt {omp parallel for})}{86}{subsection.6.9.2}%
+\contentsline {section}{\numberline {6.10}Caso di Studio: Calcolo del Pi-greco}{87}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}L'Algoritmo Sequenziale di Base}{87}{subsection.6.10.1}%
+\contentsline {subsection}{\numberline {6.10.2}Tentativi di Parallelizzazione ed Errori Comuni}{87}{subsection.6.10.2}%
+\contentsline {subsubsection}{\numberline {6.10.2.1}Errore 1: Il Data Race (Variabile Condivisa)}{87}{subsubsection.6.10.2.1}%
+\contentsline {subsubsection}{\numberline {6.10.2.2}Errore 2: L'Oblio (Variabile Privata)}{88}{subsubsection.6.10.2.2}%
+\contentsline {subsubsection}{\numberline {6.10.2.3}Errore 3: Il Furto (Variabile Lastprivate)}{88}{subsubsection.6.10.2.3}%
+\contentsline {subsection}{\numberline {6.10.3}La Soluzione Ottimale: Reduction}{88}{subsection.6.10.3}%
+\contentsline {section}{\numberline {6.11}NUMA Awareness}{89}{section.6.11}%
+\contentsline {subsection}{\numberline {6.11.1}Affinit\IeC {\`a} dei Thread}{89}{subsection.6.11.1}%
+\contentsline {subsection}{\numberline {6.11.2}Placecs}{91}{subsection.6.11.2}%
+\contentsline {subsection}{\numberline {6.11.3}Binding}{94}{subsection.6.11.3}%
+\contentsline {subsection}{\numberline {6.11.4}Policy di Allocazione della Memoria}{97}{subsection.6.11.4}%
+\contentsline {subsection}{\numberline {6.11.5}Strumenti per l'Analisi della Topologia e il Pinning}{99}{subsection.6.11.5}%
+\contentsline {subsection}{\numberline {6.11.6}Workflow per la NUMA-awareness}{100}{subsection.6.11.6}%
+\contentsline {chapter}{\numberline {7}Tecniche di Compilazione Ottimizzata e Profiling}{102}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Compilatore}{102}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Pipeline di Compilazione}{102}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Il Memory Aliasing}{105}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Profiling}{107}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}PMU}{108}{subsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.1.1}Performance Events for Linux (Perf)}{109}{subsubsection.7.2.1.1}%
+\contentsline {subsubsection}{\numberline {7.2.1.2}Altri strumenti di Profiling}{112}{subsubsection.7.2.1.2}%
+\contentsline {chapter}{\numberline {8}OpenMPI}{115}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Il Problema della Scalabilit\IeC {\`a}}{115}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Cos'\IeC {\`e} MPI?}{115}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Struttura di un Programma e Comunicatori}{116}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Tipi di Dati e Messaggi}{117}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Modalit\IeC {\`a} di Comunicazione Point-to-Point}{118}{section.8.5}%
