@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex document"] 1778750260 "document.aux" "document.bbl" "document" 1778750264
+["bibtex document"] 1778928403 "document.aux" "document.bbl" "document" 1778928405
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
   "bibliography.bib" 0 -1 0 ""
-  "document.aux" 1778750263 15832 0b2273d5e7284f4fa395850c414edf46 "pdflatex"
+  "document.aux" 1778928405 15832 0b2273d5e7284f4fa395850c414edf46 "pdflatex"
   (generated)
   "document.bbl"
   "document.blg"
-["pdflatex"] 1778750260 "/home/dave/appunti-universita/Secondo Semestre/blockchain/Appunti/document.tex" "document.pdf" "document" 1778750264
+["pdflatex"] 1778928403 "/home/dave/appunti-universita/Secondo Semestre/blockchain/Appunti/document.tex" "document.pdf" "document" 1778928405
   "/etc/texmf/web2c/texmf.cnf" 1777125874 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1777185002 14040 d559b8242501fdc226295c13e27858a2 ""
   "/home/dave/appunti-universita/Secondo Semestre/blockchain/Appunti/document.tex" 1778229106 1889 7a7020b4e55166dd4de1637bec16fbb1 ""
@@ -119,7 +119,6 @@
   "/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty" 1622581934 7147 5ac8a9ef36411064b1a501137af0fa54 ""
   "/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def" 1368571634 7784 086a50b784a20762a031889b73f97126 ""
   "/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def" 1368571634 8033 ee5a06eead35a732222f876800c8f10f ""
-  "/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def" 1368571634 8589 ed28b1c7dfc407d19d76bca04a0a8153 ""
   "/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-global.def" 1368571634 1375 8a855db83af5d6753ccbbd32e6a8a901 ""
   "/usr/share/texlive/texmf-dist/tex/latex/ucs/ucs.sty" 1368571634 27982 5723d81d568db410592a59b85fb3eaae ""
   "/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def" 1368571634 22368 c53c9d0d16c65bef2b157515c9d9f658 ""
@@ -152,11 +151,11 @@
   "Images/capitolo_mdr_3/radix_tree.png" 1778746087 132012 4e00caad62315e6825733c946f8f5874 ""
   "Images/capitolo_mdr_3/simple_transaction.png" 1778747569 229748 162f49968fa734cbd328c881940e53c9 ""
   "Images/university_logo.png" 1776833700 5102 ae18fdab7c5af961bf5f27a3bf5fc7bd ""
-  "document.aux" 1778750263 15832 0b2273d5e7284f4fa395850c414edf46 "pdflatex"
+  "document.aux" 1778928405 15832 0b2273d5e7284f4fa395850c414edf46 "pdflatex"
   "document.bbl" 0 -1 0 "bibtex document"
-  "document.out" 1778750263 19660 5747cd3f13f31aff9effb1b9fe12e6bd "pdflatex"
+  "document.out" 1778928405 19660 5747cd3f13f31aff9effb1b9fe12e6bd "pdflatex"
   "document.tex" 1778229106 1889 7a7020b4e55166dd4de1637bec16fbb1 ""
-  "document.toc" 1778750263 9915 e8797f223fcf1d84018ecc432dfee07f "pdflatex"
+  "document.toc" 1778928405 9915 e8797f223fcf1d84018ecc432dfee07f "pdflatex"
   "parts/capitolo_1.tex" 1776833700 15627 4fecb915b874e7c7d33846da13046eb6 ""
   "parts/capitolo_2.tex" 1776833700 21477 ef3991908df706df8a9add863b9c532b ""
   "parts/capitolo_3.tex" 1776833700 13689 bb23c5e356cbb0f6d8afcafc1e7ffba7 ""
@@ -164,7 +163,7 @@
   "parts/capitolo_5.tex" 1778060686 17432 00e3650704b54288703dbd9e3fd9c723 ""
   "parts/capitolo_6.tex" 1778075504 15625 ad73e27ab322bf331a00589b873bfe58 ""
   "parts/capitolo_7.tex" 1778081302 19755 a9c22297cb9938c74f93b787cb494c2c ""
-  "parts/capitolo_mdr_1.tex" 1776833700 18023 bf1a34c98f836301bab64912fdd45078 ""
+  "parts/capitolo_mdr_1.tex" 1778928402 17787 5fa112016869b4507e7c2748970a84e5 ""
   "parts/capitolo_mdr_2.tex" 1778229073 41024 7842d1e835bdec42a742671daa8ce212 ""
   "parts/capitolo_mdr_3.tex" 1778750260 18514 9c46fdfaff93cd7b7981f0f64ca4fd3b ""
   "parts/frontespizio.tex" 1776833700 1003 a0c2b8240b6c1fc7f88ee930903ea3e9 ""

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  14 MAY 2026 11:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  16 MAY 2026 12:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -608,9 +608,7 @@ File: Images/capitolo_2/verifica_firma.png Graphic file (type png)
 <use Images/capitolo_2/verifica_firma.png>
 Package pdftex.def Info: Images/capitolo_2/verifica_firma.png  used on input line 55.
 (pdftex.def)             Requested size: 390.0pt x 62.04572pt.
- [69 <./Images/capitolo_2/verifica_firma.png>] [70] [71] [72] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def
-File: uni-33.def 2013/05/13 UCS: Unicode data U+2100..U+21FF
-) [73]) (./parts/capitolo_mdr_2.tex [74]
+ [69 <./Images/capitolo_2/verifica_firma.png>] [70] [71] [72] [73]) (./parts/capitolo_mdr_2.tex [74]
 Capitolo 9.
 [75
 
@@ -684,15 +682,15 @@ Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: 5747CD3F13F31AFF9EFFB1B9FE12E6BD;19660.
  ) 
 Here is how much of TeX's memory you used:
- 15018 strings out of 480163
- 238085 string characters out of 5894093
+ 14798 strings out of 480163
+ 235560 string characters out of 5894093
  705433 words of memory out of 5000000
- 32349 multiletter control sequences out of 15000+600000
+ 32132 multiletter control sequences out of 15000+600000
  478106 words of font info for 58 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  60i,12n,63p,950b,502s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on document.pdf (105 pages, 2464363 bytes).
+Output written on document.pdf (105 pages, 2464001 bytes).
 PDF statistics:
  1357 PDF objects out of 1440 (max. 8388607)
  1151 compressed objects within 12 object streams

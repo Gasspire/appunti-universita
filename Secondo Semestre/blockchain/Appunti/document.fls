@@ -860,10 +860,6 @@ INPUT ./Images/capitolo_2/verifica_firma.png
 INPUT Images/capitolo_2/verifica_firma.png
 INPUT ./Images/capitolo_2/verifica_firma.png
 INPUT ./Images/capitolo_2/verifica_firma.png
-INPUT /usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def
-INPUT /usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def
-INPUT /usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def
-INPUT /usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def
 INPUT ./parts/capitolo_mdr_2.tex
 INPUT parts/capitolo_mdr_2.tex
 INPUT ./parts/capitolo_mdr_2.tex
