@@ -13,7 +13,7 @@ Ogni programma MPI è una cosa del tipo:
 ```
 Codice seriale
 MPI_Init(&argc, &argv); //i parametri se non servono non mandiamo nulla
-
+//&argc, &argv sono solo un retaggio storico
 // Codice che verrà eseguito da tutti i processi
 
 MPI_Finalize(); 

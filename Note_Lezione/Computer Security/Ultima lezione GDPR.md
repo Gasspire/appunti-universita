@@ -1,4 +1,4 @@
-Continuiamo ancora con delle definizioni:
+	Continuiamo ancora con delle definizioni:
 * **Titolare del trattamento** è colui che detiene il dato e decide come e perché trattare i dati. Lui è il primo responsabile davanti alla legge nel caso in cui vi siano data breach.
 * **Responsabile del trattamento** è un soggetto esterno che il titolare delega alla gestione dei dati. Basti pensare ad esempio a un'azienda in cloud che magari riceve e gestisce il database di un sito web. Se non mette in sicurezza i suoi server, ne risponde direttamente.
 * **Incaricato o Persona Autorizzata** questo è il ruolo che detengono le persone che eseguono materialmente le istruzioni ricevute (aprono i file ecc.).

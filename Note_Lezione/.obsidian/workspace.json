@@ -4,21 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "a3afb514227f245d",
+        "id": "6f7e5b7680ec98ea",
         "type": "tabs",
         "children": [
           {
-            "id": "219132b2a0c5b898",
+            "id": "c71447a882c355e0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blockchain/Lezione 2. Eth.md",
+                "file": "Computer Security/Ultima lezione GDPR.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 2. Eth"
+              "title": "Ultima lezione GDPR"
+            }
+          },
+          {
+            "id": "ed73fec598d1d299",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Computer Security/Lezione 19 Maggio.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Lezione 19 Maggio"
             }
           }
         ]
@@ -183,19 +197,26 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "219132b2a0c5b898",
+  "active": "c71447a882c355e0",
   "lastOpenFiles": [
-    "Blockchain/Immagini/radix_tree.png",
-    "Blockchain/Lezione 2. Eth.md",
+    "Computer Security/Lezione 19 Maggio.md",
+    "Computer Security/Ultima lezione GDPR.md",
+    "Blockchain/Lezione 3. Eth.md",
+    "Computer Security/Prima e Seconda Lezione GDPR.md",
+    "Principi/Lezione 18 Maggio.md",
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
+    "Principi/Lezione 22 Apr.md",
     "Computer Security/Lezione 12 Maggio.md",
+    "Benvenuto.md",
+    "Computer Security/Metasploit.md",
+    "Computer Security/Lezione 23 Aprile.md",
+    "Blockchain/Lezione 2. Eth.md",
+    "Blockchain/Immagini/radix_tree.png",
     "Computer Security/Immagini/Pasted image 20260512150336.png",
     "Computer Security/Immagini",
     "Blockchain/Immagini/Pasted image 20260512113335 1.png",
     "Blockchain/Immagini/Pasted image 20260512113335.png",
     "Blockchain/Immagini/Pasted image 20260512112938.png",
-    "Computer Security/Ultima lezione GDPR.md",
-    "Computer Security/Prima e Seconda Lezione GDPR.md",
     "Teoria dei Grafi/Lezione 12 Maggio.md",
     "Teoria dei Grafi/Immagini/Pasted image 20260512104900.png",
     "Teoria dei Grafi/Immagini/Pasted image 20260512101224.png",
@@ -204,11 +225,8 @@
     "Teoria dei Grafi/Immagini/Pasted image 20260512094944.png",
     "Teoria dei Grafi/Rettangoli Latini.md",
     "Teoria dei Grafi/Lezione 8 Maggio.md",
-    "Principi/Lezione 22 Apr.md",
     "Principi/Lezione 11 Maggio.md",
-    "Computer Security/Lezione 23 Aprile.md",
     "Computer Security/Last lesson speed run any %.md",
-    "Computer Security/Metasploit.md",
     "Blockchain/Lezione 1. Eth.md",
     "Teoria dei Grafi/Immagini",
     "Principi/Welcome.md",
@@ -216,7 +234,6 @@
     "Senza nome 1.base",
     "Blockchain/Lezione 23 Aprile.md",
     "Blockchain/Immagini",
-    "Benvenuto.md",
     "Principi/Immagini",
     "Computer Security",
     "Teoria dei Grafi",

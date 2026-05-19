@@ -16,7 +16,7 @@ Come già accennato, effettueremo dimostrazioni secondo prove interattive. Quest
     \item \textbf{Completness}: P dovrebbe essere in grado di convincere V della validità di asserti veri.
     \[\forall x \in L \quad Pr[\langle P, V\rangle(x)=1] \geq 2/3\]
     \item \textbf{Soundness}: Un P disonesto non dovrebbe essere in grado di convincere V della validità di un asserto falso.
-    \[\forall x \notin L, \forall B \quad Pr[\langle B, V\rangle(x)=1] \geq 1/3\]
+    \[\forall x \notin L, \forall B \quad Pr[\langle B, V\rangle(x)=1] \leq 1/3\]
 \end{itemize}
 Informalmente, un sistema di prove interattive per un linguaggio L è detto \textbf{zero knowledge} se qualsiasi cosa è calcolabile interagendo con P su input $x \in L$ è calcolabile a partire da $x$ soltanto.
 

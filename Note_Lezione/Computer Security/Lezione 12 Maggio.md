@@ -1,4 +1,3 @@
-#palle 
 L'encoding è utile per diverse ragioni
 - Inserimento in URL 
 - Evasione di difese grazie al fatto che il payload modifica la sua forma

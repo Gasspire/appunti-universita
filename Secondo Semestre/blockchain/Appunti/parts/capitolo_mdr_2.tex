@@ -88,15 +88,7 @@ Per quanto riguarda i full node, questi possiedono le seguenti caratteristiche:
     \item \textbf{Verifica esaustiva}: Validano indipendentemente ogni transazione e blocco secondo tutte le regole di consenso.
     \item \textbf{Ottimizzazione UTXO}: Mantengono una cache del set UTXO in memoria RAM per accelerare le verifiche delle transazioni.
 \end{itemize}
-
-Questi nodi forniscono il livello mas\begin{itemize}
-    \item \textbf{Archiviazione selettiva}: Memorizzano solo gli header dei blocchi (circa 460 MB vs. 460 GB), riducendo drasticamente i requisiti di storage.
-    \item \textbf{Verifica mirata}: Verificano solo le transazioni di diretto interesse per l'utente, anziché l'intera blockchain.
-    \item \textbf{Dipendenza dai full node}: Richiedono la connessione a full node per ottenere dati sulle transazioni specifiche e le relative prove di inclusione.
-    \item \textbf{Verifica basata su Merkle proof}: Utilizzano prove crittografiche compatte basate sull’albero di Merkle per confermare l’inclusione di transazioni in blocchi validi.
-\end{itemize}
-
-I nodi SPV offrono un equilibrio tra efficienza e sicurezza, permettendo la partecipazione alla rete con risorse limitate, ma accettando un modello di fiducia delegata verso i full node per alcune verifiche.simo di sicurezza e indipendenza, in quanto non necessitano di fidarsi di terze parti per la validazione delle transazioni che li riguardano. Rappresentano la manifestazione concreta del principio \textbf{don't trust, verify} fondamentale in Bitcoin.
+Questi nodi forniscono il livello massimo di sicurezza e indipendenza, in quanto non necessitano di fidarsi di terze parti per la validazione delle transazioni che li riguardano. Rappresentano la manifestazione concreta del principio \textbf{don't trust, verify} fondamentale in Bitcoin.
 
 La distribuzione geografica e numerica dei full node ha implicazioni significative per la resilienza della rete. Una rete con molti nodi completi distribuiti globalmente offre maggiore resistenza a censura, interruzioni localizzate e tentativi di manipolazione.
 

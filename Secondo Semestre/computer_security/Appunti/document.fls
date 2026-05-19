@@ -368,6 +368,17 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
@@ -827,6 +838,7 @@ INPUT parts/capitolo_6.tex
 INPUT ./parts/capitolo_6.tex
 INPUT ./parts/capitolo_6.tex
 INPUT parts/capitolo_6.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
 INPUT document.aux
 INPUT ./document.out
 INPUT ./document.out
@@ -834,6 +846,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb

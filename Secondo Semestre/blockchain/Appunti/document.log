@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  16 MAY 2026 12:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  19 MAY 2026 19:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -618,24 +618,24 @@ File: Images/capitolo_mdr_2/nuovo_nodo.png Graphic file (type png)
 <use Images/capitolo_mdr_2/nuovo_nodo.png>
 Package pdftex.def Info: Images/capitolo_mdr_2/nuovo_nodo.png  used on input line 44.
 (pdftex.def)             Requested size: 272.99881pt x 187.52pt.
- [77] [78 <./Images/capitolo_mdr_2/nuovo_nodo.png>] [79] [80] [81] [82] [83] [84]
-Overfull \hbox (1.80678pt too wide) in paragraph at lines 184--185
+ [77] [78 <./Images/capitolo_mdr_2/nuovo_nodo.png>] [79] [80] [81] [82] [83]
+Overfull \hbox (1.80678pt too wide) in paragraph at lines 176--177
  []\OT1/cmr/bx/n/12 Generazione e Si-cu-rez-za del-le Chia-vi[] \OT1/cmr/m/n/12 Par-ten-do da una pas-sword (\OT1/cmr/m/it/12 pwd\OT1/cmr/m/n/12 ),
  []
 
-[85] [86] [87]
-Overfull \hbox (14.47536pt too wide) in paragraph at lines 250--251
+[84] [85] [86]
+Overfull \hbox (14.47536pt too wide) in paragraph at lines 242--243
 []\OT1/cmr/bx/n/12 Chiave Pri-va-ta\OT1/cmr/m/n/12 : Un in-te-ro $\OML/cmm/m/it/12 x$ \OT1/cmr/m/n/12 scel-to ca-sual-men-te nel-l'in-ter-val-lo $\OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; [] ; q \OMS/cmsy/m/n/12 ^^@
  []
 
-[88] [89]
-Overfull \hbox (30.33624pt too wide) in paragraph at lines 315--316
+[87] [88] [89]
+Overfull \hbox (30.33624pt too wide) in paragraph at lines 307--308
 []\OT1/cmr/bx/n/12 Ricostruzione\OT1/cmr/m/n/12 : Il se-gre-to pu^^Ro es-se-re re-cu-pe-ra-to at-tra-ver-so l'\OT1/cmr/bx/n/12 interpolazione
  []
 
-[90] [91] [92] [93]) (./parts/capitolo_mdr_3.tex [94]
+[90] [91] [92]) (./parts/capitolo_mdr_3.tex [93]
 Capitolo 10.
-[95
+[94
 
 ]
 Overfull \hbox (17.03839pt too wide) in paragraph at lines 29--30
@@ -647,25 +647,25 @@ Overfull \hbox (38.63838pt too wide) in paragraph at lines 30--31
 []\OT1/pcr/m/n/12 NameCoin.update(domainName, newVal, newOwner, ownerSig)\OT1/cmr/m/n/12 :
  []
 
-<Images/capitolo_mdr_3/namecoin_script.png, id=1136, 323.2075pt x 436.63126pt>
+<Images/capitolo_mdr_3/namecoin_script.png, id=1132, 323.2075pt x 436.63126pt>
 File: Images/capitolo_mdr_3/namecoin_script.png Graphic file (type png)
 <use Images/capitolo_mdr_3/namecoin_script.png>
 Package pdftex.def Info: Images/capitolo_mdr_3/namecoin_script.png  used on input line 37.
 (pdftex.def)             Requested size: 117.00119pt x 158.0599pt.
-[96] [97 <./Images/capitolo_mdr_3/namecoin_script.png>] [98]
-<Images/capitolo_mdr_3/contract_account_vs_eoa.png, id=1152, 1570.86874pt x 784.9325pt>
+[95] [96 <./Images/capitolo_mdr_3/namecoin_script.png>] [97]
+<Images/capitolo_mdr_3/contract_account_vs_eoa.png, id=1148, 1570.86874pt x 784.9325pt>
 File: Images/capitolo_mdr_3/contract_account_vs_eoa.png Graphic file (type png)
 <use Images/capitolo_mdr_3/contract_account_vs_eoa.png>
 Package pdftex.def Info: Images/capitolo_mdr_3/contract_account_vs_eoa.png  used on input line 73.
 (pdftex.def)             Requested size: 312.00119pt x 155.8938pt.
- [99 <./Images/capitolo_mdr_3/contract_account_vs_eoa.png>]
-<Images/capitolo_mdr_3/radix_tree.png, id=1159, 863.225pt x 540.0175pt>
+ [98 <./Images/capitolo_mdr_3/contract_account_vs_eoa.png>]
+<Images/capitolo_mdr_3/radix_tree.png, id=1155, 863.225pt x 540.0175pt>
 File: Images/capitolo_mdr_3/radix_tree.png Graphic file (type png)
 <use Images/capitolo_mdr_3/radix_tree.png>
 Package pdftex.def Info: Images/capitolo_mdr_3/radix_tree.png  used on input line 100.
 (pdftex.def)             Requested size: 272.99881pt x 170.78209pt.
- [100] [101 <./Images/capitolo_mdr_3/radix_tree.png>] [102]
-<Images/capitolo_mdr_3/simple_transaction.png, id=1175, 1402.23875pt x 653.44125pt>
+ [99] [100 <./Images/capitolo_mdr_3/radix_tree.png>] [101]
+<Images/capitolo_mdr_3/simple_transaction.png, id=1170, 1402.23875pt x 653.44125pt>
 File: Images/capitolo_mdr_3/simple_transaction.png Graphic file (type png)
 <use Images/capitolo_mdr_3/simple_transaction.png>
 Package pdftex.def Info: Images/capitolo_mdr_3/simple_transaction.png  used on input line 149.
@@ -675,25 +675,25 @@ Overfull \hbox (1.81538pt too wide) in paragraph at lines 154--155
 \OT1/cmr/m/n/12 Mentre le tran-sa-zio-ni so-no ori-gi-na-te esclu-si-va-men-te da ac-count ester-ni (EOA),
  []
 
-[103 <./Images/capitolo_mdr_3/simple_transaction.png>]) [104]
+[102 <./Images/capitolo_mdr_3/simple_transaction.png>]) [103]
 No file document.bbl.
 (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: 5747CD3F13F31AFF9EFFB1B9FE12E6BD;19660.
  ) 
 Here is how much of TeX's memory you used:
- 14798 strings out of 480163
- 235560 string characters out of 5894093
+ 14797 strings out of 480163
+ 235552 string characters out of 5894093
  705433 words of memory out of 5000000
  32132 multiletter control sequences out of 15000+600000
  478106 words of font info for 58 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  60i,12n,63p,950b,502s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on document.pdf (105 pages, 2464001 bytes).
+Output written on document.pdf (104 pages, 2463008 bytes).
 PDF statistics:
- 1357 PDF objects out of 1440 (max. 8388607)
- 1151 compressed objects within 12 object streams
- 365 named destinations out of 1000 (max. 500000)
+ 1353 PDF objects out of 1440 (max. 8388607)
+ 1148 compressed objects within 12 object streams
+ 364 named destinations out of 1000 (max. 500000)
  924 words of extra memory for PDF output out of 10000 (max. 10000000)
 

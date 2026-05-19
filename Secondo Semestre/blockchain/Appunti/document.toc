@@ -83,27 +83,27 @@
 \contentsline {subsection}{\numberline {9.4.2}Strategie di Conservazione: Hot Storage e Cold Storage}{84}{subsection.9.4.2}%
 \contentsline {paragraph}{Generazione e Sicurezza delle Chiavi}{85}{section*.45}%
 \contentsline {paragraph}{Meccanismo di Derivazione}{86}{section*.48}%
-\contentsline {paragraph}{Modello Matematico (ECDSA)}{87}{section*.49}%
-\contentsline {paragraph}{Sicurezza e Gerarchia}{87}{section*.50}%
+\contentsline {paragraph}{Modello Matematico (ECDSA)}{86}{section*.49}%
+\contentsline {paragraph}{Sicurezza e Gerarchia}{86}{section*.50}%
 \contentsline {paragraph}{Derivazione Indurita e Sicurezza}{87}{section*.51}%
-\contentsline {section}{\numberline {9.5}Algoritmo di Firma Digitale ECDSA}{88}{section.9.5}%
+\contentsline {section}{\numberline {9.5}Algoritmo di Firma Digitale ECDSA}{87}{section.9.5}%
 \contentsline {subsection}{\numberline {9.5.1}Processo di Firma}{88}{subsection.9.5.1}%
 \contentsline {subsection}{\numberline {9.5.2}Secret Sharing e Threshold Cryptography}{89}{subsection.9.5.2}%
-\contentsline {subsection}{\numberline {9.5.3}Principi del Secret Sharing}{90}{subsection.9.5.3}%
-\contentsline {subsection}{\numberline {9.5.4}Threshold Secret Sharing (Shamir's Scheme)}{90}{subsection.9.5.4}%
-\contentsline {subsection}{\numberline {9.5.5}Threshold Signatures}{91}{subsection.9.5.5}%
-\contentsline {paragraph}{Schema a Soglia $(t, n)$}{92}{section*.55}%
+\contentsline {subsection}{\numberline {9.5.3}Principi del Secret Sharing}{89}{subsection.9.5.3}%
+\contentsline {subsection}{\numberline {9.5.4}Threshold Secret Sharing (Shamir's Scheme)}{89}{subsection.9.5.4}%
+\contentsline {subsection}{\numberline {9.5.5}Threshold Signatures}{90}{subsection.9.5.5}%
+\contentsline {paragraph}{Schema a Soglia $(t, n)$}{91}{section*.55}%
 \contentsline {subsection}{\numberline {9.5.6}Tecniche di Mining}{92}{subsection.9.5.6}%
-\contentsline {subsubsection}{\numberline {9.5.6.1}Evoluzione dell'Hardware}{93}{subsubsection.9.5.6.1}%
+\contentsline {subsubsection}{\numberline {9.5.6.1}Evoluzione dell'Hardware}{92}{subsubsection.9.5.6.1}%
 \contentsline {subsection}{\numberline {9.5.7}Mining Pool}{93}{subsection.9.5.7}%
-\contentsline {chapter}{\numberline {10}Smart Contract ed Ethereum}{95}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Limitazioni di Bitcoin Script}{95}{section.10.1}%
-\contentsline {subsection}{\numberline {10.1.1}Il Caso Namecoin: Limiti della Logica di Bitcoin}{96}{subsection.10.1.1}%
-\contentsline {section}{\numberline {10.2}La Piattaforma Ethereum}{97}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}L'unit\IeC {\`a} monetaria: Ether}{98}{subsection.10.2.1}%
-\contentsline {subsection}{\numberline {10.2.2}Consenso: dal PoW al Proof of Stake}{98}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}Tipologie di Account}{98}{subsection.10.2.3}%
-\contentsline {subsection}{\numberline {10.2.4}Merkle Patricia Trie (MPT)}{100}{subsection.10.2.4}%
-\contentsline {subsection}{\numberline {10.2.5}World State}{101}{subsection.10.2.5}%
-\contentsline {subsection}{\numberline {10.2.6}Transazioni}{102}{subsection.10.2.6}%
-\contentsline {subsection}{\numberline {10.2.7}Messaggi}{103}{subsection.10.2.7}%
+\contentsline {chapter}{\numberline {10}Smart Contract ed Ethereum}{94}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Limitazioni di Bitcoin Script}{94}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Il Caso Namecoin: Limiti della Logica di Bitcoin}{95}{subsection.10.1.1}%
+\contentsline {section}{\numberline {10.2}La Piattaforma Ethereum}{96}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}L'unit\IeC {\`a} monetaria: Ether}{97}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Consenso: dal PoW al Proof of Stake}{97}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Tipologie di Account}{97}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Merkle Patricia Trie (MPT)}{99}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.5}World State}{100}{subsection.10.2.5}%
+\contentsline {subsection}{\numberline {10.2.6}Transazioni}{101}{subsection.10.2.6}%
+\contentsline {subsection}{\numberline {10.2.7}Messaggi}{102}{subsection.10.2.7}%

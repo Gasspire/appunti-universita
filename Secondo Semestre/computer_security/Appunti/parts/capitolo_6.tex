@@ -317,3 +317,63 @@ Come abbiamo già visto, e vedremo meglio analizzando il GDPR, questo allegato s
 \end{itemize}
 
 Nel GDPR vedremo come, invece, adotteremo un approccio più dinamico che terrà conto non solo dello stato dell'arte, ma anche di quelle che sono molte delle variabili che possono esserci all'interno di un'azienda. 
+
+\section{Il General Data Protection Regulation (GDPR)}
+
+Il \textbf{GDPR} (acronimo di \textit{General Data Protection Regulation}) è il Regolamento Unico Europeo n. 2016/679, la normativa comunitaria che disciplina in maniera uniforme la protezione delle persone fisiche con riguardo al trattamento dei dati personali, nonché la libera circolazione di tali dati. Adottato il 27 aprile 2016, il regolamento è diventato pienamente applicabile in tutti gli Stati membri dell'Unione Europea il 25 maggio 2018, senza necessità di leggi di recepimento nazionali.
+
+In Italia, l'avvento del GDPR ha radicalmente trasformato il panorama legislativo. Il preesistente Codice della Privacy (Legge 196/03) non è stato abrogato in toto, ma si è adattato alle nuove leggi. 
+
+Se da un lato la normativa italiana del 2003 tentava di perimetrare la sicurezza attraverso il concetto statico di \textbf{misure minime} — una lista rigida di adempimenti burocratici e tecnologici uguali per tutti —, il GDPR introduce un approccio radicalmente dinamico. Il nuovo regolamento si fonda infatti sul \textbf{principio di responsabilizzazione} (\textit{Accountability}), che impone al Titolare del trattamento l'obbligo di valutare autonomamente i rischi e di strutturare un modello di sicurezza "su misura".
+
+Questo cambio di paradigma si traduce in un \textbf{approccio basato sul rischio} (\textit{Risk-based approach}). 
+La legge non fissa più paletti temporali o tecnologici rigidi, ma impone di adottare misure di sicurezza adeguate tenendo conto dello \textbf{stato dell'arte}, dei costi di attuazione, nonché della natura, dell'oggetto, del contesto e delle finalità del trattamento. La sicurezza, dunque, smette di essere un costo burocratico fisso e standardizzato per diventare un processo aziendale costantemente aggiornato rispetto all'evoluzione delle minacce informatiche.
+\subsection{Definizioni}
+Prima di iniziare con l'analisi vera e propria, introduciamo alcune definizioni fondamentali che faranno da base agli articoli che tratteremo di seguito:
+
+\begin{quote}
+    \textit{\textbf{«dato personale»}: qualsiasi informazione riguardante una persona fisica identificata o identificabile («interessato»); si considera identificabile la persona fisica che può essere identificata, direttamente o indirettamente, con particolare riferimento a un identificativo come il nome, un numero di identificazione, dati relativi all'ubicazione, un identificativo online o a uno o più elementi caratteristici della sua identità fisica, fisiologica, genetica, psichica, economica, culturale o sociale;}
+\end{quote}
+In sintesi, possiamo considerare come "dato personale" qualsiasi tipo di informazione che permetta di risalire in modo \textbf{inequivocabile} — sia direttamente che indirettamente — a un individuo specifico.  
+
+\begin{quote}
+    \textit{\textbf{«trattamento»}: qualsiasi operatione o insieme di operazioni, compiute con o senza l'ausilio di processi automatizzati e applicate a dati personali o insiemi di dati personali, come la raccolta, la registrazione, l'organizzazione, la strutturazione, la conservazione, l'adattamento o la modifica, l'estrazione, la consultazione, l'uso, la comunicazione mediante trasmissione, diffusione o qualsiasi altra forma di messa a disposizione, il raffronto o l'interconnessione, la limitazione, la cancellazione o la distruzione;}
+\end{quote}
+Un aspetto fondamentale da sottolineare è che il "trattamento" non coincide solo con l'uso attivo dei dati: anche la loro semplice conservazione, la cancellazione o la distruzione rientrano a pieno titolo in questa categoria. Di conseguenza, se un database viene distrutto a seguito di un attacco informatico, l'evento si configura giuridicamente come un trattamento illecito e abusivo dei dati personali.  
+
+\begin{quote}
+    \textit{\textbf{«profilazione»}: qualsiasi forma di trattamento automatizzato di dati personali consistente nell'utilizzo di tali dati personali per valutare determinati aspetti personali relativi a una persona fisica, in particolare per analizzare o prevedere aspetti riguardanti il rendimento professionale, la situazione economica, la salute, le preferenze personali, gli interessi, l'affidabilità, il comportamento, l'ubicazione o gli spostamenti di detta persona fisica; }
+\end{quote}
+L'esempio classico di profilazione è l'uso dei cookie di tracciamento, che memorizzano le nostre abitudini di navigazione per proporci pubblicità e offerte su misura. Questa definizione, però, copre anche contesti più complessi, come le analisi predittive usate per stimare il potenziale rendimento di uno studente o la propensione di un dipendente a compiere determinate scelte lavorative.  
+
+\begin{quote}
+    \textit{\textbf{«pseudonimizzazione»}: il trattamento dei dati personali in modo tale che i dati personali non possano più essere attribuiti a un interessato specifico senza l'utilizzo di informazioni aggiuntive, a condizione che tali informazioni aggiuntive siano conservate separatamente e soggette a misure tecniche e organizzative intese a garantire che tali dati personali non siano attribuiti a una persona fisica identificata o identificabile;
+}\end{quote}
+In parole semplici, pseudonimizzare significa sostituire i dati identificativi (come nome e cognome) con un codice o un ID fittizio. È importante non confonderla con l'anonimizzazione totale: i dati pseudonimizzati sono ancora considerati dati personali perché, incrociando il codice con la "chiave" di lettura (che deve essere custodita separatamente e in sicurezza), è ancora possibile risalire all'identità dell'utente. Il GDPR la promuove attivamente come un'ottima misura di sicurezza per ridurre i rischi in caso di violazioni.  
+
+\begin{quote}
+    \textit{\textbf{«consenso dell'interessato»}: qualsiasi manifestazione di volontà libera, specifica, informata e inequivocabile dell'interessato, con la quale lo stesso manifesta il proprio assenso, mediante dichiarazione o azione positiva inequivocabile, che i dati personali che lo riguardano siano oggetto di trattamento.
+}
+\end{quote}
+Ai fini giuridici, il consenso deve essere perentoriamente \textbf{libero, informato e inequivocabile}. Questo principio, in linea con l'Art. 7 del GDPR, serve a garantire che i cittadini mantengano il reale controllo sulle proprie informazioni. Richiedere un'azione positiva e chiara serve proprio a questo: assicura una prova solida e incontestabile (valida anche in sede legale) del fatto che l'utente fosse pienamente consapevole di come e perché i suoi dati sarebbero stati usati.  
+
+\begin{quote}
+    \textit{\textbf{«violazione dei dati personali»}: la violazione di sicurezza che comporta accidentalmente o in modo illecito la distruzione, la perdita, la modifica, la divulgazione non autorizzata o l'accesso ai dati personali trasmessi, conservati o comunque trattati;}
+\end{quote}
+
+In sostanza, quello che nel gergo tecnico chiamiamo \textit{data breach} si verifica ogni volta che un incidente di sicurezza mette a rischio l'integrità, la riservatezza o la disponibilità dei dati personali.
+\subsection{Principi}
+\subsubsection*{Principi applicabili al trattamento di dati personali (Articolo 5)}
+\begin{quote}
+    \textit{1. I dati personali sono:
+        \begin{enumerate}[label=\alph*)]
+            \item trattati in modo lecito, corretto e trasparente nei confronti dell'interessato («liceità, correttezza e trasparenza»);
+            \item raccolti per finalità determinate, esplicite e legittime, e successivamente trattati in modo che non sia incompatibile con tali finalità; un ulteriore trattamento dei dati personali a fini di archiviazione nel pubblico interesse, di ricerca scientifica o storica o a fini statistici non è, conformemente all'articolo 89, paragrafo 1, considerato incompatibile con le finalità iniziali («limitazione della finalità»); 
+            \item adeguati, pertinenti e limitati a quanto necessario rispetto alle finalità per le quali sono trattati («minimizzazione dei dati»); 
+            \item esatti e, se necessario, aggiornati; devono essere adottate tutte le misure ragionevoli per cancellare o rettificare tempestivamente i dati inesatti rispetto alle finalità per le quali sono trattati («esattezza»); 
+            \item conservati in una forma che consenta l'identificazione degli interessati per un arco di tempo non superiore al conseguimento delle finalità per le quali sono trattati; i dati personali possono essere conservati per periodi più lunghi a condizione che siano trattati esclusivamente a fini di archiviazione nel pubblico interesse, di ricerca scientifica o storica o a fini statistici, conformemente all'articolo 89, paragrafo 1, fatta salva l'attuazione di misure tecniche e organizzative adeguate richieste dal presente regolamento a tutela dei diritti e delle libertà dell'interessato («limitazione della conservazione»); 
+            \item trattati in maniera da garantire un'adeguata sicurezza dei dati personali, compresa la protezione, mediante misure tecniche e organizzative adeguate, da trattamenti non autorizzati o illeciti e dalla perdita, dalla distruzione o dal danno accidentali («integrità e riservatezza»).
+        \end{enumerate}
+        2. Il titolare del trattamento è competente per il rispetto del paragrafo 1 e in grado di comprovarlo. «responsabilizzazione»
+    }
+\end{quote}

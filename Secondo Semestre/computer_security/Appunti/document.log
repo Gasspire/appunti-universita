@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  15 MAY 2026 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  19 MAY 2026 16:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -173,10 +173,18 @@ Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
 \TX@delta=\dimen150
 \TX@cols=\count277
 \TX@ftn=\toks20
+) (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip52
+\enit@outerparindent=\dimen151
+\enit@toks=\toks21
+\enit@inbox=\box54
+\enit@count@id=\count278
+\enitdp@description=\count279
 ) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks21
-\inpenc@posthook=\toks22
+\inpenc@prehook=\toks22
+\inpenc@posthook=\toks23
  (/usr/share/texlive/texmf-dist/tex/latex/ucs/utf8x.def
 File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
 )) (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucs.sty
@@ -184,10 +192,10 @@ Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
  (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-global.def
 File: uni-global.def 2013/05/13 UCS: Unicode global data
 )
-\uc@secondtry=\count278
-\uc@combtoks=\toks23
-\uc@combtoksb=\toks24
-\uc@temptokena=\toks25
+\uc@secondtry=\count280
+\uc@combtoks=\toks24
+\uc@combtoksb=\toks25
+\uc@temptokena=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
@@ -201,43 +209,43 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen151
-\Gin@req@width=\dimen152
+\Gin@req@height=\dimen152
+\Gin@req@width=\dimen153
 ) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
  (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
-\captionmargin=\dimen153
-\captionmargin@=\dimen154
-\captionwidth=\dimen155
-\caption@tempdima=\dimen156
-\caption@indent=\dimen157
-\caption@parindent=\dimen158
-\caption@hangindent=\dimen159
+\captionmargin=\dimen154
+\captionmargin@=\dimen155
+\captionwidth=\dimen156
+\caption@tempdima=\dimen157
+\caption@indent=\dimen158
+\caption@parindent=\dimen159
+\caption@hangindent=\dimen160
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count279
-\c@continuedfloat=\count280
+\c@caption@flags=\count281
+\c@continuedfloat=\count282
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count281
-\lst@gtempboxa=\box54
-\lst@token=\toks26
-\lst@length=\count282
-\lst@currlwidth=\dimen160
-\lst@column=\count283
-\lst@pos=\count284
-\lst@lostspace=\dimen161
-\lst@width=\dimen162
-\lst@newlines=\count285
-\lst@lineno=\count286
-\lst@maxwidth=\dimen163
+\lst@mode=\count283
+\lst@gtempboxa=\box55
+\lst@token=\toks27
+\lst@length=\count284
+\lst@currlwidth=\dimen161
+\lst@column=\count285
+\lst@pos=\count286
+\lst@lostspace=\dimen162
+\lst@width=\dimen163
+\lst@newlines=\count287
+\lst@lineno=\count288
+\lst@maxwidth=\dimen164
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count287
-\lst@skipnumbers=\count288
-\lst@framebox=\box55
+\c@lstnumber=\count289
+\lst@skipnumbers=\count290
+\lst@framebox=\box56
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
@@ -252,91 +260,91 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2021/10/15 v2.17l AMS math features
-\@mathmargin=\skip52
+\@mathmargin=\skip53
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
  (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks27
-\ex@=\dimen164
+\@emptytoks=\toks28
+\ex@=\dimen165
 )) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen165
+\pmbraise@=\dimen166
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2021/08/26 v2.02 operator names
 )
-\inf@bad=\count289
+\inf@bad=\count291
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count290
-\leftroot@=\count291
+\uproot@=\count292
+\leftroot@=\count293
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count292
-\DOTSCASE@=\count293
+\classnum@=\count294
+\DOTSCASE@=\count295
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box56
-\strutbox@=\box57
-\big@size=\dimen166
+\Mathstrutbox@=\box57
+\strutbox@=\box58
+\big@size=\dimen167
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count294
-\c@MaxMatrixCols=\count295
+\macc@depth=\count296
+\c@MaxMatrixCols=\count297
 \dotsspace@=\muskip17
-\c@parentequation=\count296
-\dspbrk@lvl=\count297
-\tag@help=\toks28
-\row@=\count298
-\column@=\count299
-\maxfields@=\count300
-\andhelp@=\toks29
-\eqnshift@=\dimen167
-\alignsep@=\dimen168
-\tagshift@=\dimen169
-\tagwidth@=\dimen170
-\totwidth@=\dimen171
-\lineht@=\dimen172
-\@envbody=\toks30
-\multlinegap=\skip53
-\multlinetaggap=\skip54
-\mathdisplay@stack=\toks31
+\c@parentequation=\count298
+\dspbrk@lvl=\count299
+\tag@help=\toks29
+\row@=\count300
+\column@=\count301
+\maxfields@=\count302
+\andhelp@=\toks30
+\eqnshift@=\dimen168
+\alignsep@=\dimen169
+\tagshift@=\dimen170
+\tagwidth@=\dimen171
+\totwidth@=\dimen172
+\lineht@=\dimen173
+\@envbody=\toks31
+\multlinegap=\skip54
+\multlinetaggap=\skip55
+\mathdisplay@stack=\toks32
 LaTeX Info: Redefining \[ on input line 2938.
 LaTeX Info: Redefining \] on input line 2939.
 ) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip55
-\fb@frw=\dimen173
-\fb@frh=\dimen174
-\FrameRule=\dimen175
-\FrameSep=\dimen176
+\OuterFrameSep=\skip56
+\fb@frw=\dimen174
+\fb@frh=\dimen175
+\FrameRule=\dimen176
+\FrameSep=\dimen177
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count301
-\l__pdf_internal_box=\box58
+\l__color_backend_stack_int=\count303
+\l__pdf_internal_box=\box59
 ) (./document.aux)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-Package hyperref Info: Link coloring OFF on input line 47.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+Package hyperref Info: Link coloring OFF on input line 48.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -344,17 +352,17 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count302
+\c@section@level=\count304
 )
-LaTeX Info: Redefining \ref on input line 47.
-LaTeX Info: Redefining \pageref on input line 47.
-LaTeX Info: Redefining \nameref on input line 47.
+LaTeX Info: Redefining \ref on input line 48.
+LaTeX Info: Redefining \pageref on input line 48.
+LaTeX Info: Redefining \nameref on input line 48.
  (./document.out) (./document.out)
 \@outlinefile=\write3
 \openout3 = `document.out'.
 
-LaTeX Info: Redefining \it@ocap on input line 47.
-LaTeX Info: Redefining \it@ccap on input line 47.
+LaTeX Info: Redefining \it@ocap on input line 48.
+LaTeX Info: Redefining \it@ccap on input line 48.
 
 
 File italian.ldf warning: 
@@ -362,23 +370,23 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 47.
+italian.ldf    on input line 48.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count303
-\scratchdimen=\dimen177
-\scratchbox=\box59
-\nofMPsegments=\count304
-\nofMParguments=\count305
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count306
-\MPscratchDim=\dimen178
-\MPnumerator=\count307
-\makeMPintoPDFobject=\count308
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count305
+\scratchdimen=\dimen178
+\scratchbox=\box60
+\nofMPsegments=\count306
+\nofMParguments=\count307
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count308
+\MPscratchDim=\dimen179
+\MPnumerator=\count309
+\makeMPintoPDFobject=\count310
+\everyMPtoPDFconversion=\toks34
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -388,9 +396,9 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count309
+\c@lstlisting=\count311
  (./parts/frontespizio.tex
-<Images/university_logo.png, id=176, 106.3975pt x 112.42pt>
+<Images/university_logo.png, id=188, 106.3975pt x 112.42pt>
 File: Images/university_logo.png Graphic file (type png)
 <use Images/university_logo.png>
 Package pdftex.def Info: Images/university_logo.png  used on input line 3.
@@ -422,7 +430,7 @@ Overfull \hbox (20.31909pt too wide) detected at line 49
  []
 
 [6]
-<Images/capitolo_1/kerberos_struttura.png, id=265, 786.68906pt x 520.94624pt>
+<Images/capitolo_1/kerberos_struttura.png, id=280, 786.68906pt x 520.94624pt>
 File: Images/capitolo_1/kerberos_struttura.png Graphic file (type png)
 <use Images/capitolo_1/kerberos_struttura.png>
 Package pdftex.def Info: Images/capitolo_1/kerberos_struttura.png  used on input line 89.
@@ -433,7 +441,7 @@ Overfull \hbox (2.04202pt too wide) detected at line 109
  []
 
 
-Overfull \hbox (91.74739pt too wide) in paragraph at lines 109--112
+Overfull \hbox (91.74739pt too wide) in paragraph at lines 109--113
 \OT1/cmr/m/n/12 L'AuthTicket e il Ser-v-Tic-ket che di-ce-va-mo pri-ma so-no ri-spet-ti-va-men-te $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 A; TGS; authK; T[]\OMS/cmsy/m/n/12 g[]$
  []
 
@@ -443,7 +451,7 @@ Overfull \hbox (2.11534pt too wide) has occurred while \output is active
  []
 
 [10]
-<Images/capitolo_1/kerberos_smartcard.png, id=297, 415.5525pt x 193.47281pt>
+<Images/capitolo_1/kerberos_smartcard.png, id=312, 415.5525pt x 193.47281pt>
 File: Images/capitolo_1/kerberos_smartcard.png Graphic file (type png)
 <use Images/capitolo_1/kerberos_smartcard.png>
 Package pdftex.def Info: Images/capitolo_1/kerberos_smartcard.png  used on input line 135.
@@ -467,7 +475,7 @@ Overfull \hbox (2.11534pt too wide) has occurred while \output is active
 
 [13]
 Capitolo 2.
-<Images/capitolo_2/smart_card_struttura.png, id=318, 359.09157pt x 315.42844pt>
+<Images/capitolo_2/smart_card_struttura.png, id=334, 359.09157pt x 315.42844pt>
 File: Images/capitolo_2/smart_card_struttura.png Graphic file (type png)
 <use Images/capitolo_2/smart_card_struttura.png>
 Package pdftex.def Info: Images/capitolo_2/smart_card_struttura.png  used on input line 9.
@@ -480,7 +488,7 @@ Overfull \hbox (3.80836pt too wide) in paragraph at lines 43--44
  []
 
 [17]
-<Images/capitolo_2/glitch_corrente.png, id=341, 333.49594pt x 252.945pt>
+<Images/capitolo_2/glitch_corrente.png, id=356, 333.49594pt x 252.945pt>
 File: Images/capitolo_2/glitch_corrente.png Graphic file (type png)
 <use Images/capitolo_2/glitch_corrente.png>
 Package pdftex.def Info: Images/capitolo_2/glitch_corrente.png  used on input line 64.
@@ -490,7 +498,7 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 68
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )) (./parts/capitolo_3.tex [18 <./Images/capitolo_2/glitch_corrente.png>]
 Capitolo 3.
-<Images/capitolo_3/esempio_vck.png, id=351, 1142.76938pt x 142.28156pt>
+<Images/capitolo_3/esempio_vck.png, id=366, 1142.76938pt x 142.28156pt>
 File: Images/capitolo_3/esempio_vck.png Graphic file (type png)
 <use Images/capitolo_3/esempio_vck.png>
 Package pdftex.def Info: Images/capitolo_3/esempio_vck.png  used on input line 10.
@@ -498,18 +506,18 @@ Package pdftex.def Info: Images/capitolo_3/esempio_vck.png  used on input line 1
 [19
 
  <./Images/capitolo_3/esempio_vck.png>]
-<Images/capitolo_3/matrice_2x2.png, id=359, 569.12625pt x 353.82187pt>
+<Images/capitolo_3/matrice_2x2.png, id=374, 569.12625pt x 353.82187pt>
 File: Images/capitolo_3/matrice_2x2.png Graphic file (type png)
 <use Images/capitolo_3/matrice_2x2.png>
 Package pdftex.def Info: Images/capitolo_3/matrice_2x2.png  used on input line 26.
 (pdftex.def)             Requested size: 195.0pt x 121.23184pt.
-<Images/capitolo_3/differenza_xor_overlay.png, id=360, 470.50781pt x 192.72pt>
+<Images/capitolo_3/differenza_xor_overlay.png, id=375, 470.50781pt x 192.72pt>
 File: Images/capitolo_3/differenza_xor_overlay.png Graphic file (type png)
 <use Images/capitolo_3/differenza_xor_overlay.png>
 Package pdftex.def Info: Images/capitolo_3/differenza_xor_overlay.png  used on input line 38.
 (pdftex.def)             Requested size: 195.0pt x 79.87143pt.
  [20 <./Images/capitolo_3/matrice_2x2.png>]
-<Images/capitolo_3/matrice_3x3.png, id=368, 566.115pt x 196.48407pt>
+<Images/capitolo_3/matrice_3x3.png, id=383, 566.115pt x 196.48407pt>
 File: Images/capitolo_3/matrice_3x3.png Graphic file (type png)
 <use Images/capitolo_3/matrice_3x3.png>
 Package pdftex.def Info: Images/capitolo_3/matrice_3x3.png  used on input line 50.
@@ -519,7 +527,7 @@ Capitolo 4.
 [23
 
 ] [24] [25] [26] [27] [28] [29] [30] [31] [32]
-<Images/capitolo_4/chiavi_per_firma.png, id=434, 626.34pt x 186.6975pt>
+<Images/capitolo_4/chiavi_per_firma.png, id=449, 626.34pt x 186.6975pt>
 File: Images/capitolo_4/chiavi_per_firma.png Graphic file (type png)
 <use Images/capitolo_4/chiavi_per_firma.png>
 Package pdftex.def Info: Images/capitolo_4/chiavi_per_firma.png  used on input line 201.
@@ -540,7 +548,7 @@ File: omspcr.fd
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 120.
  [42]
-<Images/capitolo_5/esempio_teorema.png, id=488, 563.10374pt x 288.3272pt>
+<Images/capitolo_5/esempio_teorema.png, id=503, 563.10374pt x 288.3272pt>
 File: Images/capitolo_5/esempio_teorema.png Graphic file (type png)
 <use Images/capitolo_5/esempio_teorema.png>
 Package pdftex.def Info: Images/capitolo_5/esempio_teorema.png  used on input line 128.
@@ -559,25 +567,30 @@ Overfull \hbox (21.72292pt too wide) in paragraph at lines 224--224
 []\OT1/cmr/bx/n/14.4 Il Do-cu-men-to Pro-gram-ma-ti-co sul-la Si-cu-rez-za (DPS) 
  []
 
-[55] [56] [57] [58] [59]) [60]
+[55] [56] [57] [58] [59]
+Overfull \hbox (22.41983pt too wide) in paragraph at lines 321--321
+[]\OT1/cmr/bx/n/17.28 Il Ge-ne-ral Da-ta Pro-tec-tion Re-gu-la-tion (GD-
+ []
+
+[60] [61] [62] [63]) [64]
 No file document.bbl.
 (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: F016D7DBA0834744914D8BDD18899F19;8786.
+(rerunfilecheck)             Checksum: 83F59EBC8748BA97D0370C9B1CF94CC3;9301.
  ) 
 Here is how much of TeX's memory you used:
- 14476 strings out of 480163
- 229701 string characters out of 5894093
- 703433 words of memory out of 5000000
- 32021 multiletter control sequences out of 15000+600000
- 480655 words of font info for 67 fonts, out of 8000000 for 9000
+ 14829 strings out of 480163
+ 235761 string characters out of 5894093
+ 710953 words of memory out of 5000000
+ 32355 multiletter control sequences out of 15000+600000
+ 481014 words of font info for 68 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 60i,18n,63p,1330b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on document.pdf (61 pages, 1108299 bytes).
+ 60i,18n,63p,1330b,568s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on document.pdf (65 pages, 1130899 bytes).
 PDF statistics:
- 711 PDF objects out of 1000 (max. 8388607)
- 585 compressed objects within 6 object streams
- 175 named destinations out of 1000 (max. 500000)
- 400 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 758 PDF objects out of 1000 (max. 8388607)
+ 625 compressed objects within 7 object streams
+ 189 named destinations out of 1000 (max. 500000)
+ 424 words of extra memory for PDF output out of 10000 (max. 10000000)
 
