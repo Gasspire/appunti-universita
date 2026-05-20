@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blockchain/Lezione 3. Eth.md",
+                "file": "Random Stuff/Esami BC.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 3. Eth"
+              "title": "Esami BC"
             }
           }
         ]
@@ -185,11 +185,18 @@
   },
   "active": "c71447a882c355e0",
   "lastOpenFiles": [
+    "Random Stuff/Immagini/2020_2.png",
+    "Random Stuff/Immagini/Pasted image 20260520180927.png",
+    "Random Stuff/Esami BC.md",
+    "Random Stuff/Immagini/2020_1.png",
+    "Random Stuff/Immagini",
+    "Blockchain/Lezione 3. Eth.md",
+    "Random Stuff",
+    "Blockchain/Esami Passati.md",
     "Blockchain/Lezione 23 Aprile.md",
     "Computer Security/Last lesson speed run any %.md",
     "Computer Security/Ultima lezione GDPR.md",
     "Computer Security/Lezione 19 Maggio.md",
-    "Blockchain/Lezione 3. Eth.md",
     "Computer Security/Prima e Seconda Lezione GDPR.md",
     "Principi/Lezione 18 Maggio.md",
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
@@ -208,9 +215,6 @@
     "Teoria dei Grafi/Lezione 12 Maggio.md",
     "Teoria dei Grafi/Immagini/Pasted image 20260512104900.png",
     "Teoria dei Grafi/Immagini/Pasted image 20260512101224.png",
-    "Teoria dei Grafi/Immagini/Pasted image 20260512101127.png",
-    "Teoria dei Grafi/Immagini/Pasted image 20260512095257.png",
-    "Teoria dei Grafi/Immagini/Pasted image 20260512094944.png",
     "Teoria dei Grafi/Rettangoli Latini.md",
     "Teoria dei Grafi/Lezione 8 Maggio.md",
     "Principi/Lezione 11 Maggio.md",
@@ -222,8 +226,6 @@
     "Blockchain/Immagini",
     "Principi/Immagini",
     "Computer Security",
-    "Teoria dei Grafi",
-    "Principi",
-    "Blockchain"
+    "Teoria dei Grafi"
   ]
 }

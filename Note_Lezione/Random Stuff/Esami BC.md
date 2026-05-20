@@ -1,0 +1,23 @@
+![[2020_1.png]]
+
+1 Un Hash Pointer non è altro che un Hash legato a degli specifici dati appartenenti ad un indirizzo. Questo viene detto Hash Pointer poiché questo hash viene utilizzato come chiave per andare a recuperare uno specifico indirizzo a cui, in un certo senso questo punta.
+Per costruire una Blockchain l'idea è quella di avere una sorta di linked list in cui ogni blocco contiene un Hash pointer verso il blocco precedente e gli aggiornamenti vengono fatti solamente in testa. Questo fa' sì che la block chain sia *tamper evident* poiché, ogni blocco è, in un certo senso, garante dell'integrità di tutti i blocchi che lo precedono. Supponendo, infatti, che un attaccante volesse modificare dei dati appartenenti ad un blocco in mezzo alla catena, questo dovrà necessariamente o modificare l'hash del blocco successivo poiché calcolato sulla base di dati che non corrispondono più o trovare delle modifiche che in qualche modo non facciano cambiare l'hash del blocco. Nel primo caso, anche modificando l'hash del blocco successivo, l'attaccante dovrebbe ricalcolare l'hash di tutta la blockchain e non è detto che questo sia fattibile o che nessuno se ne accorga, mentre, nel secondo caso, per le proprietà di **resistenza alle collisioni**, non dovrebbe essere proprio possibile farlo.
+![[2020_2.png|489]]
+
+a) In genere, anche nella vita quotidiana, quello che facciamo è tenere due depositi per i nostri fondi. Il primo è quello definito **Hot** cioè lo storage che contiene una minima parte dei nostri fondi e che usiamo per le spese di tutti i giorni. Il **cold storage**, invece, contiene la maggior parte dei nostri fondi e viene usato tendenzialmente solo come deposito.
+
+L'hot storage, a causa del fatto che viene utilizzato molto spesso, abbiamo bisogno di un maggiore compromesso tra quella che è la sicurezza dello storage e la sua usabilità. Questo è in genere considerato meno sicuro. Infatti, nel caso di criptovalute questo tipo di storage si traduce genericamente in un dispositivo collegato alla rete quindi esposto potenzialmente ad attacchi volti a rubare le chiavi private proprio di quest'ultimo.
+Al contrario, il cold storage vogliamo sia estremamente sicuro poiché contiene la maggior parte dei nostri fondi e, quindi, poiché tramite questo non effettuiamo spese continue, possiamo usare maggiori misure di sicurezza. Infatti, questo si traduce spesso in dispositivi Tamper Proof, in hardware specifici da conservare in banca o semplicemente stampati su carta e nascosti. Naturalmente, questo è chiaramente un sistema poco usabile nell'uso quotidiano ma è proprio quello che ci serve per ottenere un sistema simil banca (o vera e propria banca nel caso in cui custodiamo lì i nostri dispositivi).
+
+b) I Wallet gerarchici sono dei particolari tipi di wallet creati specificatamente per risolvere alcuni problemi dei wallet reali. Il sistema Bitcoin per garantire uno pseudo anonimato più forte e rendere più difficile il linking tra le varie operazioni, richiede che venga usata una nuova chiave per ogni transazione. 
+Questo è effettivamente possibile dato che ognuno può creare quando vuole delle nuove chiavi semplicemente eseguendo l'algoritmo di generazione delle chiavi. Tuttavia, con l'aumentare delle transazioni, il numero di chiavi da conservare sarebbe veramente eccessivo rendendone complicata la gestione. 
+Per evitare questo problema, i wallet gerarchici usano un sistema basato generalmente su un segreto principale (composto da master key generator e public key generator)a cui estendere poi le chiavi. Troveremo in questo caso due algoritmi:
+- i-pub-gen: che rappresenta l'algoritmo che, a partire dalla pub key generator e da un valore i, genera l'i-esima chiave pubblica.
+- i-sec-gen: che è l'algoritmo che a partire dalla master key generator e da un valore i, genera l'i-esima chiave privata.
+Naturalmente, usando la stessa i per ogni algoritmo si ottiene la coppia chiave segreta e chiave pubblica e, banalmente, l'indirizzo sarà dato facendo l'hash della chiave pubblica.
+
+Il guadagno dall'uso di questo tipo di implementazione è che le chiavi generate non sono a tutti gli effetti legate tra loro e, dunque, la compromissione dell'i-esima chiave privata rimane circoscritta solo ai soldi ricevuti sull'i-esimo indirizzo e nient'altro.
+Inoltre, poiché gli algoritmi sono separati, possiamo gestire molto più facilmente i trasferimenti da hot storage a cold storage poiché gli indirizzi del cold storage sarebbero potenzialmente infiniti ciò garantirebbe l'uso di un nuovo indirizzo ad ogni transazione piuttosto che avere un singolo indirizzo.
+
+c) devo ancora studiarlo come si deve
+
