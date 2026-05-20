@@ -167,3 +167,106 @@ Esattamente come per le transazioni, possiamo distinguere tre operazioni princip
     \item \textbf{Contract Activation (Message Call)}: Un contratto chiama una funzione di un altro contratto, passando dei parametri e attendendo eventualmente un valore di ritorno.
     \item \textbf{Contract Creation}: Un contratto genera un nuovo contratto "figlio" utilizzando l'istruzione \texttt{CREATE} o \texttt{CREATE2}. In questo caso, l'indirizzo del nuovo contratto sarà derivato dall'indirizzo del contratto "padre" e dalla sua \textit{nonce}.
 \end{itemize}
+\subsection{Block Building}
+Il processo di creazione e validazione dei blocchi di Ethereum rappresenta una delle più grandi differenze rispetto al sistema Bitcoin. Ethereum, infatti, dopo un periodo iniziale basato sulla Proof-of-Work, ha abbandonato questo meccanismo per passare a un sistema chiamato Proof-of-Stake (PoS).
+
+L'idea di fondo è quella di evitare l'eccessivo consumo elettrico causato dalla risoluzione dell'hash puzzle; al suo posto, viene utilizzato un sistema in cui i partecipanti mettono a disposizione il cosiddetto stake, ovvero una quota dei propri possedimenti in criptovaluta (Ether) bloccata come deposito di garanzia. Un validatore che propone o attesta un blocco non valido, o che tenta di frodare la rete, viene penalizzato attraverso il meccanismo di \textbf{slashing}, che comporta la distruzione di una parte o della totalità del patrimonio depositato. Il processo di costruzione e validazione di un blocco avviene come segue:
+\begin{enumerate}
+    \item Raccolta delle transazioni: Il validatore selezionato per il turno corrente (chiamato Block Proposer) raccoglie una serie di transazioni $TX_0, \dots, TX_{n-1}$ dalla mempool (la vasca di memoria in cui sostano le transazioni in attesa).
+    \item Esecuzione e calcolo dello stato: Vengono eseguite le transazioni all'interno della Ethereum Virtual Machine (EVM), modificando i saldi dei conti ed eseguendo il codice degli smart contract coinvolti. Vengono calcolate le commissioni e, infine, viene generato il nuovo stato globale della rete, noto come world state.
+    \item Propagazione e validazione (Attestazione): Il blocco appena creato viene propagato nella rete. Un comitato di altri validatori (chiamati Attesters) verifica l'integrità e la correttezza del blocco. Se il blocco è valido, i validatori inviano la propria approvazione (attestation). Nel caso in cui un validatore dovesse attestare come valido un blocco che non lo è, verrebbe penalizzato con la perdita del proprio deposito.
+\end{enumerate}
+Per poter essere scelti, i validatori devono aver depositato (messo in stake) esattamente 32 ETH. Più nodi validatori un utente possiede (ognuno con 32 ETH), maggiori sono le sue probabilità complessive di essere estratto. All'inizio di ogni epoca, il protocollo utilizza l'algoritmo RANDAO per generare un numero casuale condiviso e sicuro. Questo numero serve a estrarre a sorte, dall'intero pool globale, i 32 Block Proposers (uno per ogni slot dell'imminente epoca) e a formare i comitati di validatori (Attesters) che dovranno votare quei blocchi.
+\subsubsection{Struttura dei Blocchi}
+La struttura dei blocchi Ethereum codifica tutte le informazioni necessarie per la validazione e l’incorporazione di questi nella blockchain.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/capitolo_mdr_3/blocco_eth.png}
+\end{figure}
+Un blocco è composto principalmente da due componenti:
+\begin{itemize}
+    \item \textbf{Header}: Questo contiene i metadati essenziali a rappresentare i vari stati. Tra questi troviamo:
+    \begin{itemize}
+        \item \textbf{parentHash:} L'hash Keccak a 256 bit dell'intero header del blocco precedente. È il collegamento fondamentale che incatena i blocchi tra loro garantendo l'immutabilità della blockchain.
+        \item \textbf{beneficiary:} L'indirizzo a 160 bit (l'account) a cui vengono inviate tutte le commissioni di transazione (i tips o mancie del gas) raccolte dall'esecuzione di questo blocco.
+        \item \textbf{stateRoot:} L'hash della radice del Merkle Patricia Trie dello stato globale (il world state). Rappresenta lo "scatto" di tutti i saldi e i dati dei contratti della rete dopo aver applicato le transazioni del blocco.
+        \item \textbf{receiptsRoot:} L'hash della radice del Merkle Patricia Trie che contiene le ricevute (receipts) di tutte le transazioni incluse in questo blocco. Serve a verificare rapidamente l'esito e i log prodotti dalle transazioni.
+        \item \textbf{transactionRoot:} L'hash della radice del Merkle Patricia Trie contenente tutte le transazioni incluse all'interno di questo specifico blocco.
+        \item \textbf{logsBloom:} Un filtro di Bloom (una struttura dati probabilistica) composto dai log delle transazioni. Permette ai client leggeri di verificare molto velocemente se un determinato log o evento è presente nel blocco senza dover scaricare l'intero stato.
+        \item \textbf{number:} Un valore numerico che indica l'altezza del blocco (il numero progressivo di blocchi generati a partire dal blocco genesi, che ha valore 0).
+        \item \textbf{gasLimit:} La quantità massima di gas che può essere consumata complessivamente dalle transazioni all'interno di questo blocco. Determina, di fatto, la dimensione massima computazionale del blocco stesso.
+        \item \textbf{gasUsed:} La quantità totale ed effettiva di gas che è stata consumata per eseguire tutte le transazioni contenute nel blocco.
+        \item \textbf{timestamp:} Il momento esatto in cui il blocco è stato convalidato, espresso in secondi secondo lo standard Unix (Unix epoch). Post-Merge, coincide precisamente con l'inizio dello slot temporale.
+        \item \textbf{extraData:} Un campo di byte libero e opzionale che il validatore può utilizzare per inserire informazioni arbitrarie (ad esempio note testuali o firme), entro un limite prefissato di dimensioni.
+    \end{itemize}
+    I campi sbarrati nell'immagine (\texttt{ommersHash} e \texttt{difficulty}) sono stati rimossi o azzerati a seguito del passaggio di Ethereum alla Proof-of-Stake (The Merge), in quanto legati al vecchio sistema basato sulla Proof-of-Work.
+    \item \textbf{Body}: Contiene la lista effettiva di tutte le transazioni del blocco mostrate sotto forma di \textbf{Transactions Trie} che non è altro che un altro Merkle Patricia Trie.
+\end{itemize}
+Notiamo come la struttura sia piena ti Merkle Patricia Trie salvati nel blocco come radici. Troviamo:
+\begin{itemize}
+    \item \textbf{World State Trie}: La mappa che memorizza tutti gli stati degli account. 
+    \item \textbf{Transaction Trie}: La mappa di tutte le transazioni incluse nel blocco.
+    \item \textbf{Receipts Trie}: Memorizza le ricevute delle esecuzioni dei contratti.
+    \item \textbf{Storage Trie}: Memorizza per ciascun contratto il suo stato interno detto \textbf{storage} che sarebbe la sua memoria non volatile.
+\end{itemize}
+Il fatto che sia il tutto salvato sotto forma di root all'interno dell'header permette anche ai client leggeri di poterli salvare senza un eccessivo consumo di risorse.
+\subsection{Il sistema di Gas}
+Ethereum è dotato di un linguaggio di programmazione che, a differenza di quello di Bitcoin, è \textbf{Turing-completo} e viene eseguito sulla \textbf{Ethereum Virtual Machine} (EVM).
+
+Il codice di ogni smart contract deve essere eseguito in modo deterministico da ogni validatore della rete. Tuttavia, trattandosi di un linguaggio Turing-completo che supporta cicli e iterazioni, \textbf{non è possibile prevedere a priori se e quando l'esecuzione terminerà} a causa del noto \textbf{problema della fermata} (\textit{halting problem}). Di conseguenza, senza un meccanismo di controllo, la rete sarebbe vulnerabile ad attacchi di tipo Denial of Service (DoS), in cui gli attaccanti potrebbero pubblicare contratti contenenti loop infiniti col fine di bloccare indefinitamente i validatori.
+
+Poiché il protocollo richiede la produzione di un nuovo blocco ogni 12 secondi, sorge la necessità di porre un limite stringente alle computazioni eccessivamente lunghe o infinite. Il meccanismo del Gas rappresenta la soluzione a questo problema:
+
+\begin{itemize}
+    \item \textbf{Consumo computazionale:} Ogni singola istruzione (\textit{opcode}) eseguita dall'EVM consuma una quantità prestabilita di Gas, proporzionale alle risorse computazionali e di memoria richieste. Esiste una netta differenza di costo tra l'uso della memoria volatile (\textit{Memory} o \textit{Stack}) e quella non volatile (\textit{Storage}). Quest'ultima ha un costo sensibilmente superiore in quanto i dati modificati persistono nel \textbf{world state} e devono essere memorizzati permanentemente nei nodi della rete.
+    \item \textbf{Pagamento anticipato:} Il Gas viene pagato in anticipo dall'utente che avvia la transazione. 
+    \item \textbf{Incentivo per i validatori:} Il Gas speso per l'esecuzione del codice viene assegnato al \textit{Block Proposer}, ovvero al validatore che seleziona la transazione e propone il blocco. Sebbene anche tutti gli altri validatori della rete debbano rieseguire la transazione per verificarne la correttezza, la mancia spetta unicamente a chi ha composto il blocco.
+\end{itemize}
+Questo meccanismo di mercato disincentiva gli attacchi DoS e le computazioni inefficienti, poiché l'esecuzione di cicli infiniti o di codice eccessivamente gravoso richiederebbe una disponibilità economica teoricamente infinita e praticamente insostenibile.
+
+\subsubsection{Meccanismo Legacy}
+Prima dell'aggiornamento \textbf{London} (avvenuto a metà del 2021), Ethereum utilizzava un modello ad asta per gestire il calcolo e il pagamento delle commissioni delle transazioni. 
+
+Questo modello si basava su due parametri fondamentali inclusi dal mittente in ogni transazione:
+\begin{itemize}
+    \item \textbf{GasLimit}: La quantità massima di unità di Gas che l'utente è disposto a consumare per l'esecuzione della transazione. Rappresenta un tetto di sicurezza per evitare consumi incontrollati.
+    \item \textbf{GasPrice}: Il prezzo in \textit{wei} che il mittente è disposto a pagare per singola unità di Gas. Questo valore determinava la priorità della transazione all'interno della \textit{mempool}: i validatori, spinti da un incentivo economico, selezionavano prioritariamente le transazioni con il \textit{GasPrice} più alto. Il mercato stabiliva dinamicamente il prezzo ottimale attraverso meccanismi d'asta, supportato da servizi esterni (come \textit{ethgasstation.info}) che fornivano stime in tempo reale per diverse fasce di priorità.
+\end{itemize}
+
+Il Gas stanziato veniva consumato da ogni singola operazione eseguita dalla EVM secondo un rigido "listino prezzi" prefissato dal protocollo. Al termine dell'esecuzione si potevano verificare due scenari:
+\begin{enumerate}
+    \item \textbf{Esecuzione completata con successo:} Se il Gas effettivamente consumato era inferior al \textit{GasLimit}, il Gas residuo veniva interamente rimborsato al mittente al prezzo specificato nel \textit{GasPrice}. La spesa effettiva era pari a:
+    \[\text{Spesa} = \text{Gas Consumato} \times \text{GasPrice}\]
+    \item \textbf{Esaurimento del Gas (\textit{Out of Gas}):} Se la computazione richiedeva più Gas di quello stanziato nel \textit{GasLimit}, l'esecuzione si interrompeva immediatamente. In questo caso, l'intero ammontare di Gas pari al \textit{GasLimit} veniva comunque trattenuto dal validatore per ricompensarlo del lavoro computazionale svolto fino a quel momento. Tuttavia, per garantire la coerenza della blockchain, la transazione falliva e la EVM effettuava un \textbf{ripristino dello stato} (\textit{state rollback}), annullando tutti gli effetti sui saldi e sugli smart contract e riportando il \textit{world state} alla condizione precedente all'esecuzione.
+\end{enumerate}
+
+Nell'ambiente di esecuzione di Ethereum, le anomalie e i fallimenti si dividono fondamentalmente in due categorie:
+\begin{itemize}
+    \item \textbf{Errori Critici (Eccezioni a livello EVM):} Errori causati da eccezioni non gestibili, come l'esaurimento del gas (\textit{Out of Gas}), l'overflow dello stack o l'esecuzione di istruzioni non valide (istruzione \texttt{INVALID}). Provocano la terminazione immediata della transazione, il rollback completo dello stato e il consumo totale del gas fornito.
+    \item \textbf{Errori Gestiti (Eccezioni a livello applicativo):} Errori controllati nel codice dello smart contract (tramite le funzioni Solidity \texttt{require}, \texttt{revert} o \texttt{assert}). Sebbene comportino comunque il fallimento della transazione e il ripristino dello stato per motivi di sicurezza, l'istruzione \texttt{REVERT} permette di interrompere l'esecuzione restituendo al mittente il gas non ancora consumato fino a quel momento, oltre a un eventuale messaggio di errore.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Images/capitolo_mdr_3/esempio_trans_con_contratti.png}
+    \caption{Flusso e passaggio del Gas nelle chiamate interne tra smart contract.}
+    \label{fig:flusso_gas_contratti}
+\end{figure}
+
+La Figura~\ref{fig:flusso_gas_contratti} mostra un esempio di flusso del Gas durante una chiamata inter-contratto (\textit{internal call}). Una transazione ha inizio con un \textit{GasLimit} iniziale pari a 1000 unità. Nella fase di pre-chiamata (all'interno del primo contratto) vengono consumate 600 unità. Al momento di invocare il secondo contratto, il contratto chiamante inoltra una porzione del Gas residuo (circa 400 unità). Il contratto chiamato esegue le proprie operazioni consumandone 350 e restituisce le 50 unità inutilizzate al mittente.
+\subsubsection{Meccanismo EIP-1559}
+Come accennato, a seguito dell'aggiornamento \textit{London} a metà del 2021, il modello di mercato basato esclusivamente sulle aste è stato sostituito dall'introduzione della proposta di miglioramento \textbf{EIP-1559}. Il nuovo sistema si basa principalmente su tre parametri fondamentali all'interno di ogni transazione:
+
+\begin{itemize}
+    \item \textbf{Base Fee}: È la commissione minima obbligatoria per unità di gas richiesta dal protocollo per includere una transazione nel blocco. A differenza del modello legacy, la \textit{Base Fee} non viene assegnata ai validatori, ma viene stabilita algoritmicamente dal protocollo e interamente \textbf{bruciata} (\textit{burned}), rimuovendo l'Ether dalla circolazione e introducendo una dinamica deflazionistica. Questo valore si modifica dinamicamente da un blocco all'altro per adattarsi alla congestione della rete: l'obiettivo del protocollo è un consumo di gas pari a 15 milioni di unità per blocco (il target). Se un blocco consuma più del target (fino a un massimo assoluto di 30 milioni), la \textit{Base Fee} del blocco successivo aumenta (fino a un massimo del $+12.5\%$); se consuma meno, diminuisce.
+    \item \textbf{Priority Fee} (Mancia): È una commissione addizionale per unità di gas specificata opzionalmente dall'utente. Questa somma viene pagata direttamente al \textit{Block Proposer} come incentivo economico per convincerlo a dare priorità alla transazione e includerla all'interno del blocco corrente, specialmente in periodi di alta congestione.
+    \item \textbf{Max Fee}: Rappresenta il tetto massimo assoluto per unità di gas che il mittente è finanziariamente disposto a spendere per la transazione. Poiché la \textit{Base Fee} varia in modo fluttuante tra un blocco e l'altro, questo valore funge da protezione contro picchi improvvisi di costo. 
+\end{itemize}
+
+Il prezzo effettivo per unità di gas pagato dall'utente alla fine dell'esecuzione viene determinato dalla formula:
+\[\text{Prezzo Effettivo} = \min(\text{Base Fee} + \text{Priority Fee}, \text{Max Fee})\]
+
+Se la somma tra \textit{Base Fee} e \textit{Priority Fee} risulta inferiore alla \textit{Max Fee}, la differenza viene integralmente rimborsato all'utente. 
+Al contrario, se la rete subisce un improvviso picco di congestione e la \textit{Base Fee} sale a tal punto da far superare la \textit{Max Fee} impostata, la transazione rimane in attesa nella \textit{mempool} poiché il wallet riduce la mancia effettiva (\textit{Priority Fee}) fino a zero pur di non sforare il tetto massimo richiesto dall'utente.
+
+Grazie a questo impianto algoritmico, l'EIP-1559 migliora drasticamente la prevedibilità del sistema per gli utenti. I wallet non devono più basarsi su stime probabilistiche complesse in un mercato ad asta volatile, ma conoscono a priori la \textit{Base Fee} esatta del blocco corrente, riducendo i casi di transazioni pagate eccessivamente o rimaste bloccate a causa di commissioni insufficienti.

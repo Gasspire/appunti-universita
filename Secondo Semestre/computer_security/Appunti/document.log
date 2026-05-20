@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  19 MAY 2026 16:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  20 MAY 2026 12:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -553,44 +553,44 @@ File: Images/capitolo_5/esempio_teorema.png Graphic file (type png)
 <use Images/capitolo_5/esempio_teorema.png>
 Package pdftex.def Info: Images/capitolo_5/esempio_teorema.png  used on input line 128.
 (pdftex.def)             Requested size: 272.99881pt x 139.78572pt.
-) (./parts/capitolo_6.tex [43 <./Images/capitolo_5/esempio_teorema.png>]
+) (./parts/capitolo_6v2.tex [43 <./Images/capitolo_5/esempio_teorema.png>]
 Capitolo 6.
 [44
 
 ] [45] [46]
-Overfull \hbox (15.93777pt too wide) in paragraph at lines 64--64
+Overfull \hbox (15.93777pt too wide) in paragraph at lines 69--69
 []\OT1/cmr/bx/n/17.28 Requisiti di Si-cu-rez-za Mi-ni-mi Leg-ge 196/03 
  []
 
 [47] [48] [49] [50] [51] [52] [53] [54]
-Overfull \hbox (21.72292pt too wide) in paragraph at lines 224--224
+Overfull \hbox (21.72292pt too wide) in paragraph at lines 237--237
 []\OT1/cmr/bx/n/14.4 Il Do-cu-men-to Pro-gram-ma-ti-co sul-la Si-cu-rez-za (DPS) 
  []
 
-[55] [56] [57] [58] [59]
-Overfull \hbox (22.41983pt too wide) in paragraph at lines 321--321
-[]\OT1/cmr/bx/n/17.28 Il Ge-ne-ral Da-ta Pro-tec-tion Re-gu-la-tion (GD-
+[55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70]
+Overfull \hbox (0.91417pt too wide) in paragraph at lines 508--509
+[]\OT1/cmr/m/n/12 sia au-to-riz-za-ta dal di-rit-to del-l'U-nio-ne o del-lo Sta-to mem-
  []
 
-[60] [61] [62] [63]) [64]
+[71] [72] [73] [74] [75] [76]) [77]
 No file document.bbl.
 (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 83F59EBC8748BA97D0370C9B1CF94CC3;9301.
+(rerunfilecheck)             Checksum: 79B871CF477EA190D0E0EC1E346CF17A;9404.
  ) 
 Here is how much of TeX's memory you used:
- 14829 strings out of 480163
- 235761 string characters out of 5894093
+ 14916 strings out of 480163
+ 236458 string characters out of 5894093
  710953 words of memory out of 5000000
- 32355 multiletter control sequences out of 15000+600000
- 481014 words of font info for 68 fonts, out of 8000000 for 9000
+ 32354 multiletter control sequences out of 15000+600000
+ 480655 words of font info for 67 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 60i,18n,63p,1330b,568s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on document.pdf (65 pages, 1130899 bytes).
+ 60i,18n,63p,1330b,664s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on document.pdf (78 pages, 1147089 bytes).
 PDF statistics:
- 758 PDF objects out of 1000 (max. 8388607)
- 625 compressed objects within 7 object streams
- 189 named destinations out of 1000 (max. 500000)
+ 904 PDF objects out of 1000 (max. 8388607)
+ 759 compressed objects within 8 object streams
+ 278 named destinations out of 1000 (max. 500000)
  424 words of extra memory for PDF output out of 10000 (max. 10000000)
 

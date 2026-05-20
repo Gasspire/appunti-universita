@@ -34,7 +34,7 @@ Art. 5
 
 **Trattati in modo lecito** si intende non faccio dato breach. Trasparenza vuol dire che deve essere tutto fatto in maniera tale che l'informato sappia cosa stia accadendo e abbia il pieno controllo dei suoi dati.
 **Raccolti per finalità** si deve descrivere tutto il trattamento e le finalità per cui verranno presi
-**Adeguati, pertinati e limitati** (limitazioni delle finalità) minimalità rispetto agli obiettivi del trattamento.
+**Adeguati, pertinenti e limitati** (limitazioni delle finalità) minimalità rispetto agli obiettivi del trattamento.
 **I dati devono essere aggiornati** e l'interessato deve essere a conoscenza delle procedure per farlo.
 **Conservati non per sempre** (hai fatto quello che devi fare? cancellali!)
 **Integrità e riservatezza** i dati devono essere trattati in maniera da garantire un'adeguata sicurezza dei dati personali.

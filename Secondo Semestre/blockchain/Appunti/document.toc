@@ -1,109 +1,114 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {chapter}{\numberline {1}Funzioni Hash}{6}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Hash Pointers e Struttura della Blockchain}{7}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Il Merkle Tree}{8}{subsection.1.1.1}%
-\contentsline {section}{\numberline {1.2}Firma digitale}{9}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Basic Cryptocurrencies}{10}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}GoofyCoin}{10}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}ScroogeCoin}{11}{subsection.1.3.2}%
-\contentsline {chapter}{\numberline {2}Come Bitcoin ottiene la Decentralizzazione}{13}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Le domande fondamentali del sistema}{13}{section.2.1}%
-\contentsline {section}{\numberline {2.2}I tre pilastri della decentralizzazione}{14}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Il Consenso Distribuito}{15}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Incentivi e Proof of Work}{17}{subsection.2.3.1}%
-\contentsline {section}{\numberline {2.4}Struttura delle Transazioni e Modello UTXO}{21}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Consenso di Nakamato}{23}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Dimostrazione Matematica dell'attacco}{25}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}La scelta della Difficolt\IeC {\`a} e il Network Delay}{26}{subsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.1.1}Il Discount Rate della potenza onesta}{27}{subsubsection.3.1.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Vantaggi e Svantaggi}{28}{subsection.3.1.2}%
-\contentsline {chapter}{\numberline {4}Anonimato e Privacy}{30}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Perch\IeC {\'e} vogliamo l'anonimato?}{31}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Anonymous e-cash e Blind Signatures}{32}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Anonimato grazie a nuovi indirizzi}{33}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}De-anonimizzazione a livello Network}{35}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Rete Tor}{35}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Mixing e Anonimato nelle Criptovalute}{36}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Online Wallet}{37}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Principi di Mixing}{38}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Coinjoin}{39}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Zero Knowledge Proofs}{41}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Prove Interattive}{41}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Isomorfismo tra Grafi}{42}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}Diffie-Hellman Zero-Knowledge}{44}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Prove di Conoscenza}{47}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Formalizzazione di Conoscenza}{47}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}ZeroKnowledge Proof Non Interattiva}{48}{subsection.5.3.2}%
-\contentsline {chapter}{\numberline {6}Zerocoin e Zerocash}{50}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Zerocoin}{50}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Minting}{51}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Redeeming}{51}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Limiti Tecnici}{52}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Accumulatori crittografici}{52}{subsection.6.1.4}%
-\contentsline {subsubsection}{\numberline {6.1.4.1}RSA}{53}{subsubsection.6.1.4.1}%
-\contentsline {subsection}{\numberline {6.1.5}Implementazione degli Accumulatori}{53}{subsection.6.1.5}%
-\contentsline {subsection}{\numberline {6.1.6}Integrazione in Zerocoin}{54}{subsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.1.7}Sfide di Integrazione e Problematiche}{55}{subsection.6.1.7}%
-\contentsline {section}{\numberline {6.2}Zerocash}{55}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Il problema del Trusted Setup in Zerocash}{56}{subsection.6.2.1}%
-\contentsline {section}{\numberline {6.3}Il Continuum dell'Anonimato nelle Criptovalute}{57}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Alternative Mining Puzzles}{58}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Requisiti dei Mining Puzzles}{58}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Il Problema dei Puzzle Sequenziali (Bad Puzzle)}{60}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Good Puzzle: Campionamento Pesato e Propriet\IeC {\`a} Progress-Free}{60}{subsection.7.1.2}%
-\contentsline {section}{\numberline {7.2}Puzzle Resistenti agli ASIC}{61}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Scrypt e i Memory-Hard Puzzles}{62}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Approcci Alternativi alla Resistenza agli ASIC}{63}{subsection.7.2.2}%
-\contentsline {section}{\numberline {7.3}Proof-of-Useful Work}{64}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Primecoin e le Catene di Cunningham}{65}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Virtual Mining: Proof of Stake e Proof of Deposit}{66}{subsection.7.3.2}%
-\contentsline {chapter}{\numberline {8}Bitcoin Scripting}{67}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Il linguaggio Bitcoin Script}{69}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Il processo di validazione: Sblocco e Blocco}{69}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Multi Signatures con Threshold}{70}{subsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.1.3}Proof-of-Burn}{71}{subsection.8.1.3}%
-\contentsline {subsection}{\numberline {8.1.4}Timestamping}{71}{subsection.8.1.4}%
-\contentsline {subsection}{\numberline {8.1.5}Real-life transaction con Escrow}{72}{subsection.8.1.5}%
-\contentsline {subsection}{\numberline {8.1.6}Micro-pagamenti e Lightning Network}{72}{subsection.8.1.6}%
-\contentsline {subsection}{\numberline {8.1.7}Freezing Funds}{73}{subsection.8.1.7}%
-\contentsline {subsection}{\numberline {8.1.8}Pay-to-Script-Hash (P2SH)}{74}{subsection.8.1.8}%
-\contentsline {chapter}{\numberline {9}La Blockchain}{75}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Il Blocco}{75}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}Merkle Tree e Proof of Membership}{75}{subsection.9.1.1}%
-\contentsline {subsection}{\numberline {9.1.2}Coinbase transaction}{76}{subsection.9.1.2}%
-\contentsline {section}{\numberline {9.2}Il Network Bitcoin}{77}{section.9.2}%
-\contentsline {subsection}{\numberline {9.2.1}Gossip Protocol}{78}{subsection.9.2.1}%
-\contentsline {subsection}{\numberline {9.2.2}Propagazione dei Blocchi}{79}{subsection.9.2.2}%
-\contentsline {subsection}{\numberline {9.2.3}Tipologie di Nodi}{79}{subsection.9.2.3}%
-\contentsline {section}{\numberline {9.3}Limiti Strutturali di Bitcoin}{81}{section.9.3}%
-\contentsline {subsection}{\numberline {9.3.1}Evoluzione del Protocollo: Hard Fork e Soft Fork}{82}{subsection.9.3.1}%
-\contentsline {section}{\numberline {9.4}Conservare Bitcoin}{82}{section.9.4}%
-\contentsline {subsection}{\numberline {9.4.1}Wallet}{83}{subsection.9.4.1}%
-\contentsline {subsection}{\numberline {9.4.2}Strategie di Conservazione: Hot Storage e Cold Storage}{84}{subsection.9.4.2}%
-\contentsline {paragraph}{Generazione e Sicurezza delle Chiavi}{85}{section*.45}%
-\contentsline {paragraph}{Meccanismo di Derivazione}{86}{section*.48}%
-\contentsline {paragraph}{Modello Matematico (ECDSA)}{86}{section*.49}%
-\contentsline {paragraph}{Sicurezza e Gerarchia}{86}{section*.50}%
-\contentsline {paragraph}{Derivazione Indurita e Sicurezza}{87}{section*.51}%
-\contentsline {section}{\numberline {9.5}Algoritmo di Firma Digitale ECDSA}{87}{section.9.5}%
-\contentsline {subsection}{\numberline {9.5.1}Processo di Firma}{88}{subsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.5.2}Secret Sharing e Threshold Cryptography}{89}{subsection.9.5.2}%
-\contentsline {subsection}{\numberline {9.5.3}Principi del Secret Sharing}{89}{subsection.9.5.3}%
-\contentsline {subsection}{\numberline {9.5.4}Threshold Secret Sharing (Shamir's Scheme)}{89}{subsection.9.5.4}%
-\contentsline {subsection}{\numberline {9.5.5}Threshold Signatures}{90}{subsection.9.5.5}%
-\contentsline {paragraph}{Schema a Soglia $(t, n)$}{91}{section*.55}%
-\contentsline {subsection}{\numberline {9.5.6}Tecniche di Mining}{92}{subsection.9.5.6}%
-\contentsline {subsubsection}{\numberline {9.5.6.1}Evoluzione dell'Hardware}{92}{subsubsection.9.5.6.1}%
-\contentsline {subsection}{\numberline {9.5.7}Mining Pool}{93}{subsection.9.5.7}%
-\contentsline {chapter}{\numberline {10}Smart Contract ed Ethereum}{94}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Limitazioni di Bitcoin Script}{94}{section.10.1}%
-\contentsline {subsection}{\numberline {10.1.1}Il Caso Namecoin: Limiti della Logica di Bitcoin}{95}{subsection.10.1.1}%
-\contentsline {section}{\numberline {10.2}La Piattaforma Ethereum}{96}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}L'unit\IeC {\`a} monetaria: Ether}{97}{subsection.10.2.1}%
-\contentsline {subsection}{\numberline {10.2.2}Consenso: dal PoW al Proof of Stake}{97}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}Tipologie di Account}{97}{subsection.10.2.3}%
-\contentsline {subsection}{\numberline {10.2.4}Merkle Patricia Trie (MPT)}{99}{subsection.10.2.4}%
-\contentsline {subsection}{\numberline {10.2.5}World State}{100}{subsection.10.2.5}%
-\contentsline {subsection}{\numberline {10.2.6}Transazioni}{101}{subsection.10.2.6}%
-\contentsline {subsection}{\numberline {10.2.7}Messaggi}{102}{subsection.10.2.7}%
+\contentsline {chapter}{\numberline {1}Funzioni Hash}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Hash Pointers e Struttura della Blockchain}{8}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Il Merkle Tree}{9}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Firma digitale}{10}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Basic Cryptocurrencies}{11}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}GoofyCoin}{11}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}ScroogeCoin}{12}{subsection.1.3.2}%
+\contentsline {chapter}{\numberline {2}Come Bitcoin ottiene la Decentralizzazione}{14}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Le domande fondamentali del sistema}{14}{section.2.1}%
+\contentsline {section}{\numberline {2.2}I tre pilastri della decentralizzazione}{15}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Il Consenso Distribuito}{16}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Incentivi e Proof of Work}{18}{subsection.2.3.1}%
+\contentsline {section}{\numberline {2.4}Struttura delle Transazioni e Modello UTXO}{22}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Consenso di Nakamato}{24}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Dimostrazione Matematica dell'attacco}{26}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}La scelta della Difficolt\IeC {\`a} e il Network Delay}{27}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}Il Discount Rate della potenza onesta}{28}{subsubsection.3.1.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Vantaggi e Svantaggi}{29}{subsection.3.1.2}%
+\contentsline {chapter}{\numberline {4}Anonimato e Privacy}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Perch\IeC {\'e} vogliamo l'anonimato?}{32}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Anonymous e-cash e Blind Signatures}{33}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Anonimato grazie a nuovi indirizzi}{34}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}De-anonimizzazione a livello Network}{36}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Rete Tor}{36}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Mixing e Anonimato nelle Criptovalute}{37}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Online Wallet}{38}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Principi di Mixing}{39}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Coinjoin}{40}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Zero Knowledge Proofs}{42}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Prove Interattive}{42}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Isomorfismo tra Grafi}{43}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}Diffie-Hellman Zero-Knowledge}{45}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Prove di Conoscenza}{48}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Formalizzazione di Conoscenza}{48}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}ZeroKnowledge Proof Non Interattiva}{49}{subsection.5.3.2}%
+\contentsline {chapter}{\numberline {6}Zerocoin e Zerocash}{51}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Zerocoin}{51}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Minting}{52}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Redeeming}{52}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Limiti Tecnici}{53}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Accumulatori crittografici}{53}{subsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.4.1}RSA}{54}{subsubsection.6.1.4.1}%
+\contentsline {subsection}{\numberline {6.1.5}Implementazione degli Accumulatori}{54}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.6}Integrazione in Zerocoin}{55}{subsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.1.7}Sfide di Integrazione e Problematiche}{56}{subsection.6.1.7}%
+\contentsline {section}{\numberline {6.2}Zerocash}{56}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Il problema del Trusted Setup in Zerocash}{57}{subsection.6.2.1}%
+\contentsline {section}{\numberline {6.3}Il Continuum dell'Anonimato nelle Criptovalute}{58}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Alternative Mining Puzzles}{59}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Requisiti dei Mining Puzzles}{59}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Il Problema dei Puzzle Sequenziali (Bad Puzzle)}{61}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Good Puzzle: Campionamento Pesato e Propriet\IeC {\`a} Progress-Free}{61}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Puzzle Resistenti agli ASIC}{62}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Scrypt e i Memory-Hard Puzzles}{63}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Approcci Alternativi alla Resistenza agli ASIC}{64}{subsection.7.2.2}%
+\contentsline {section}{\numberline {7.3}Proof-of-Useful Work}{65}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Primecoin e le Catene di Cunningham}{66}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Virtual Mining: Proof of Stake e Proof of Deposit}{67}{subsection.7.3.2}%
+\contentsline {chapter}{\numberline {8}Bitcoin Scripting}{68}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Il linguaggio Bitcoin Script}{70}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Il processo di validazione: Sblocco e Blocco}{70}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Multi Signatures con Threshold}{71}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Proof-of-Burn}{72}{subsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.1.4}Timestamping}{72}{subsection.8.1.4}%
+\contentsline {subsection}{\numberline {8.1.5}Real-life transaction con Escrow}{73}{subsection.8.1.5}%
+\contentsline {subsection}{\numberline {8.1.6}Micro-pagamenti e Lightning Network}{73}{subsection.8.1.6}%
+\contentsline {subsection}{\numberline {8.1.7}Freezing Funds}{74}{subsection.8.1.7}%
+\contentsline {subsection}{\numberline {8.1.8}Pay-to-Script-Hash (P2SH)}{75}{subsection.8.1.8}%
+\contentsline {chapter}{\numberline {9}La Blockchain}{76}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Il Blocco}{76}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Merkle Tree e Proof of Membership}{76}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Coinbase transaction}{77}{subsection.9.1.2}%
+\contentsline {section}{\numberline {9.2}Il Network Bitcoin}{78}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Gossip Protocol}{79}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Propagazione dei Blocchi}{80}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}Tipologie di Nodi}{80}{subsection.9.2.3}%
+\contentsline {section}{\numberline {9.3}Limiti Strutturali di Bitcoin}{82}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Evoluzione del Protocollo: Hard Fork e Soft Fork}{83}{subsection.9.3.1}%
+\contentsline {section}{\numberline {9.4}Conservare Bitcoin}{83}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}Wallet}{84}{subsection.9.4.1}%
+\contentsline {subsection}{\numberline {9.4.2}Strategie di Conservazione: Hot Storage e Cold Storage}{85}{subsection.9.4.2}%
+\contentsline {paragraph}{Generazione e Sicurezza delle Chiavi}{86}{section*.45}%
+\contentsline {paragraph}{Meccanismo di Derivazione}{87}{section*.48}%
+\contentsline {paragraph}{Modello Matematico (ECDSA)}{87}{section*.49}%
+\contentsline {paragraph}{Sicurezza e Gerarchia}{87}{section*.50}%
+\contentsline {paragraph}{Derivazione Indurita e Sicurezza}{88}{section*.51}%
+\contentsline {section}{\numberline {9.5}Algoritmo di Firma Digitale ECDSA}{88}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Processo di Firma}{89}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Secret Sharing e Threshold Cryptography}{90}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Principi del Secret Sharing}{90}{subsection.9.5.3}%
+\contentsline {subsection}{\numberline {9.5.4}Threshold Secret Sharing (Shamir's Scheme)}{90}{subsection.9.5.4}%
+\contentsline {subsection}{\numberline {9.5.5}Threshold Signatures}{91}{subsection.9.5.5}%
+\contentsline {paragraph}{Schema a Soglia $(t, n)$}{92}{section*.55}%
+\contentsline {subsection}{\numberline {9.5.6}Tecniche di Mining}{93}{subsection.9.5.6}%
+\contentsline {subsubsection}{\numberline {9.5.6.1}Evoluzione dell'Hardware}{93}{subsubsection.9.5.6.1}%
+\contentsline {subsection}{\numberline {9.5.7}Mining Pool}{94}{subsection.9.5.7}%
+\contentsline {chapter}{\numberline {10}Smart Contract ed Ethereum}{95}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Limitazioni di Bitcoin Script}{95}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Il Caso Namecoin: Limiti della Logica di Bitcoin}{96}{subsection.10.1.1}%
+\contentsline {section}{\numberline {10.2}La Piattaforma Ethereum}{97}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}L'unit\IeC {\`a} monetaria: Ether}{98}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Consenso: dal PoW al Proof of Stake}{98}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Tipologie di Account}{98}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Merkle Patricia Trie (MPT)}{100}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.5}World State}{101}{subsection.10.2.5}%
+\contentsline {subsection}{\numberline {10.2.6}Transazioni}{102}{subsection.10.2.6}%
+\contentsline {subsection}{\numberline {10.2.7}Messaggi}{103}{subsection.10.2.7}%
+\contentsline {subsection}{\numberline {10.2.8}Block Building}{104}{subsection.10.2.8}%
+\contentsline {subsubsection}{\numberline {10.2.8.1}Struttura dei Blocchi}{105}{subsubsection.10.2.8.1}%
+\contentsline {subsection}{\numberline {10.2.9}Il sistema di Gas}{107}{subsection.10.2.9}%
+\contentsline {subsubsection}{\numberline {10.2.9.1}Meccanismo Legacy}{108}{subsubsection.10.2.9.1}%
+\contentsline {subsubsection}{\numberline {10.2.9.2}Meccanismo EIP-1559}{110}{subsubsection.10.2.9.2}%

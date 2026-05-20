@@ -13,7 +13,7 @@ Nel corso di questo capitolo analizzeremo, in particolare, lo storico \textbf{Al
 Per comprendere appieno la normativa, è essenziale padroneggiare la classificazione dei dati:
 
 \begin{description}
-    \item[Dati Personali:] Qualsiasi informazione relativa a una persona fisica identificata o identificabile. Possono essere \textbf{diretti} (come nome e cognome) o \textbf{indiretti} (come indirizzi IP, cookie o numeri di targa).
+    \item[Dati Personali:] Qualsiasi informazione r elativa a una persona fisica identificata o identificabile. Possono essere \textbf{diretti} (come nome e cognome) o \textbf{indiretti} (come indirizzi IP, cookie o numeri di targa).
     \item[Dati Sensibili (o Particolari):] Secondo la classificazione del GDPR, si tratta di una categoria speciale di dati personali che rivelano informazioni intime o riservate, quali l'origine razziale o etnica, le opinioni politiche, le convinzioni religiose, l'orientamento sessuale o i dati relativi alla salute.
 \end{description}
 
@@ -374,6 +374,273 @@ In sostanza, quello che nel gergo tecnico chiamiamo \textit{data breach} si veri
             \item conservati in una forma che consenta l'identificazione degli interessati per un arco di tempo non superiore al conseguimento delle finalità per le quali sono trattati; i dati personali possono essere conservati per periodi più lunghi a condizione che siano trattati esclusivamente a fini di archiviazione nel pubblico interesse, di ricerca scientifica o storica o a fini statistici, conformemente all'articolo 89, paragrafo 1, fatta salva l'attuazione di misure tecniche e organizzative adeguate richieste dal presente regolamento a tutela dei diritti e delle libertà dell'interessato («limitazione della conservazione»); 
             \item trattati in maniera da garantire un'adeguata sicurezza dei dati personali, compresa la protezione, mediante misure tecniche e organizzative adeguate, da trattamenti non autorizzati o illeciti e dalla perdita, dalla distruzione o dal danno accidentali («integrità e riservatezza»).
         \end{enumerate}
-        2. Il titolare del trattamento è competente per il rispetto del paragrafo 1 e in grado di comprovarlo. «responsabilizzazione»
     }
 \end{quote}
+Questo primo paragrafo, ci definisce quelli che sono i \textbf{principi fondamentali per il trattamento dei dati}:
+\begin{itemize}
+    \item \textbf{Liceità, Correttezza e Trasparenza}: Non solo vogliamo l'assenza di data breach, ma vogliamo anche il \textbf{consenso informato} dell'interessato che, per esserlo necessità di trasparenza.
+    \item \textbf{Limitazione della Finalità}: I dati devono essere raccolti per specifici trattamenti.
+    \item \textbf{Minimizzazione dei Dati}: Non solo vogliamo che i dati vengano raccolti per specifici fini, ma vogliamo anche che i dati raccolti per certe finalità siano il minimo indispensabile per i fini del trattamento.
+    \item \textbf{Esattezza}: I dati raccolti sull'interessato devono essere sempre aggiornati e l'interessato deve essere a conoscenza delle procedure per effettuare questo aggiornamento. Banalmente, uno scenario è quello sanitario in cui l'interessato vuole magari aggiornare la lista di cose a cui è allergico o, ancora, quando magari vengono raccolti dati pubblici a tutti che, se inesatti, rischierebbero di provocare un danno reputazionale di qualche tipo.
+    \item \textbf{Limitazione della Conservazione}: I dati raccolti sull'interessato non possono essere mantenuti oltre la data di fine del trattamento. Infatti, se i dati non sono più necessari, il titolare non ha senso che li tenga.
+    \item \textbf{Integrità e Riservatezza}: I  dati devono essere trattati in maniera tale da garantire un'adeguata sicurezza dei dati personali.
+\end{itemize}
+Questi sono fondamentali e tutte gli articoli del GDPR dovranno necessariamente adeguarsi a questi principi.
+\begin{quote}
+    \textit{2. Il titolare del trattamento è competente per il rispetto del paragrafo 1 e in grado di comprovarlo. «responsabilizzazione»}
+\end{quote}
+Infine, l'articolo 5 paragrafo 2, completa il quadro della situazione e definisce l'ultimo principio fondamentale, cioè quello di \textbf{responsabilizzazione} o \textbf{accountability}. Infatti, afferma che la responsabilità del rispetto dei principi sopra elencati è a totale responsabilità del titolare del trattamento che, quindi, se ne assumerà le responsabilità nel bene o nel male.
+Il titolare del trattamento sarà dunque tenuto non solo a rispettare questi principi, ma deve anche essere in grado di \textbf{dimostrare} che effettivamente li rispetta.
+
+\subsubsection*{Liceità del Trattamento (Articolo 6)}
+\begin{quote}
+    \textit{1. Il trattamento è lecito solo se e nella misura in cui ricorre almeno una delle seguenti condizioni:
+        \begin{enumerate}[label=\alph*)]
+            \item  l'interessato ha espresso il consenso al trattamento dei propri dati personali per una o più specifiche finalità;
+            \item il trattamento è necessario all'esecuzione di un contratto di cui l'interessato è parte o all'esecuzione di misure precontrattuali adottate su richiesta dello stesso;
+            \item il trattamento è necessario per adempiere un obbligo legale al quale è soggetto il titolare del trattamento;
+            \item il trattamento è necessario per la salvaguardia degli interessi vitali dell'interessato o di un'altra persona fisica;
+            \item il trattamento è necessario per l'esecuzione di un compito di interesse pubblico o connesso all'esercizio di pubblici poteri di cui è investito il titolare del trattamento;
+            \item  il trattamento è necessario per il perseguimento del legittimo interesse del titolare del trattamento o di terzi, a condizione che non prevalgano gli interessi o i diritti e le libertà fondamentali dell'interessato che richiedono la protezione dei dati personali, in particolare se l'interessato è un minore.
+        \end{enumerate}
+    }
+\end{quote}
+Qui l'articolo è parecchio autoesplicativo e definisce sostanzialmente quando un trattamento si definisce lecito. In particolare, risulta parecchio controversa la lettera F poiché si parla di legittimo trattamento del titolare che, tuttavia, non deve in alcun modo prevalere sugli interessi dell'interessato. Questa è argomento di dibattito poiché non è ben chiaro cosa si intenda per legittimo interesse del titolare e dove questo abbia il suo limite fisso.
+
+\subsubsection*{Condizioni per il consenso (Articolo 7)}
+\begin{quote}
+    \textit{
+        \begin{enumerate}
+            \item Qualora il trattamento sia basato sul consenso, il titolare del trattamento deve essere in grado di dimostrare che l'interessato ha prestato il proprio consenso al trattamento dei propri dati personali.
+            \item Se il consenso dell'interessato è prestato nel contesto di una dichiarazione scritta che riguarda anche altre questioni, la richiesta di consenso è presentata in modo chiaramente distinguibile dalle altre materie, in forma comprensibile e facilmente accessibile, utilizzando un linguaggio semplice e chiaro. Nessuna parte di una tale dichiarazione che costituisca una violazione del presente regolamento è vincolante.
+            \item L'interessato ha il diritto di revocare il proprio consenso in qualsiasi momento. La revoca del consenso non pregiudica la liceità del trattamento basata sul consenso prima della revoca. Prima di prestare il proprio consenso, l'interessato è informato di ciò. Il consenso è revocato con la stessa facilità con cui è accordato.
+            \item Nel valutare se il consenso sia stato liberamente prestato, si tiene nella massima considerazione l'eventualità, tra le altre, che l'esecuzione di un contratto, compresa la prestazione di un servizio, sia condizionata alla prestazione del consenso al trattamento di dati personali non necessario all'esecuzione di tale contratto.
+        \end{enumerate}
+    }
+\end{quote}
+Questa regola è piuttosto autoesplicativa e definisce le basi per il consenso. Tuttavia, per avere ben chiara la cosa, la revoca del consenso vale solo nel caso in cui questo è l'unica cosa che vincola il trattamento. Nel caso in cui vi sia un contratto di mezzo, questo che magari vincola il trattamento per due anni, allora non è possibile porvi fine semplicemente revocando il consenso ma bisognerà fare fede a quanto scritto nel contratto in termini di penali e termini per la recessione del contratto.
+
+\subsubsection*{Trattamento di categorie particolari di dati personali (Articolo 9)}
+\begin{quote}
+    \textit{
+        \begin{enumerate}
+            \item È vietato trattare dati personali che rivelino l'origine razziale o etnica, le opinioni politiche, le convinzioni religiose o filosofiche, o l'appartenenza sindacale, nonché trattare dati genetici, dati biometrici intesi a identificare in modo univoco una persona fisica, dati relativi alla salute o alla vita sessuale o all'orientamento sessuale della persona.
+            \item Il paragrafo 1 non si applica nei seguenti casi:
+                \begin{enumerate}[label=\alph*)]
+                    \item Quando si è dato il consenso esplicito.
+                    \item Il trattamento è necessario per assolvere gli obblighi ed esercitare i diritti specifici del titolare del trattamento o dell'interessato in materia di diritto del lavoro e della sicurezza sociale e protezione sociale, nella misura in cui sia autorizzato dal diritto dell'Unione o degli Stati membri o da un contratto collettivo ai sensi del diritto degli Stati membri, in presenza di garanzie appropriate per i diritti fondamentali e gli interessi dell'interessato;
+                    \item Il trattamento è necessario a tutelare un interesse vitale dell'interessato o di un'altra persona fisica qualora l'interessato si trovi nell'incapacità fisica o giuridica di prestare il proprio consenso. (es. prelievo e analisi del sangue)
+                    \item $\dots$
+                    \item il trattamento riguarda dati personali resi manifestamente pubblici dall'interessato;
+                    \item il trattamento è necessario per accertare, esercitare o difendere un diritto in sede giudiziaria o ogniqualvolta le autorità giurisdizionali esercitino le loro funzioni giurisdizionali;
+                    \item il trattamento è necessario per motivi di interesse pubblico rilevante sulla base del diritto dell'Unione o degli Stati membri, che deve essere proporzionato alla finalità perseguita, rispettare l'essenza del diritto alla protezione dei dati e prevedere misure appropriate e specifiche per tutelare i diritti fondamentali e gli interessi dell'interessato; 
+                    \item il trattamento è necessario per finalità di medicina preventiva o di medicina del lavoro, valutazione della capacità lavorativa del dipendente, diagnosi, assistenza o terapia sanitaria o sociale ovvero gestione dei sistemi e servizi sanitari o sociali sulla base del diritto dell'Unione o degli Stati membri o conformemente al contratto con un professionista della sanità, fatte salve le condizioni e le garanzie di cui al paragrafo 3;
+                    \item il trattamento è necessario per motivi di interesse pubblico nel settore della sanità pubblica, quali la protezione da gravi minacce per la salute a carattere transfrontaliero o la garanzia di parametri elevati di qualità e sicurezza dell'assistenza sanitaria e dei medicinali e dei dispositivi medici, sulla base del diritto dell'Unione o degli Stati membri che prevede misure appropriate e specifiche per tutelare i diritti e le libertà dell'interessato, in particolare il segreto professionale; 
+                \end{enumerate}
+        \end{enumerate}
+    }
+\end{quote}
+Particolare attenzione deve essere fatta alla questione del trattamento per motivi di interesse della sanità pubblica di cui l'esempio lampante è stato proprio il periodo covid.
+\subsubsection*{Diritti dell'Interessato}
+\begin{quote}
+    \textit{
+        \begin{itemize}
+            \item  Il titolare del trattamento adotta misure appropriate per fornire all'interessato tutte le informazioni di cui agli articoli 13 e 14 e le comunicazioni di cui agli articoli da 15 a 22 e all'articolo 34 relative al trattamento in forma concisa, trasparente, intelligibile e facilmente accessibile, con un linguaggio semplice e chiaro, in particolare nel caso di informazioni destinate specificamente ai minori. Le informazioni sono fornite per iscritto o con altri mezzi, anche, se del caso, con mezzi elettronici. Se richiesto dall'interessato, le informazioni possono essere fornite oralmente, purché sia comprovata con altri mezzi l'identità dell'interessato.
+            \item Il titolare del trattamento agevola l'esercizio dei diritti dell'interessato ai sensi degli articoli da 15 a 22. Nei casi di cui all'articolo 11, paragrafo 2, il titolare del trattamento non può rifiutare di soddisfare la richiesta dell'interessato al fine di esercitare i suoi diritti ai sensi degli articoli da 15 a 22, salvo che il titolare del trattamento dimostri che non è in grado di identificare l'interessato.
+            \item Il titolare del trattamento fornisce all'interessato le informazioni relative all'azione intrapresa riguardo a una richiesta ai sensi degli articoli da 15 a 22 senza ingiustificato ritardo e, comunque, al più tardi entro un mese dal ricevimento della richiesta stessa. Tale termine può essere prorogato di due mesi, se necessario, tenuto conto della complessità e del numero delle richieste. Il titolare del trattamento informa l'interessato di tale proroga, e dei motivi del ritardo, entro un mese dal ricevimento della richiesta. Se l'interessato presenta la richiesta mediante mezzi elettronici, le informazioni sono fornite, ove possibile, con mezzi elettronici, salvo diversa indicazione dell'interessato.
+        \end{itemize}
+    }
+\end{quote}
+Vediamo dunque che l'interessato deve, in pratica, essere messo a conoscenza di praticamente tutto ciò che avviene con i suoi dati e anche chi sono i responsabili del trattamento chi il titolare e così via.
+\subsubsection*{Diritto di accesso all'interessato (Articolo 15)}
+\begin{quote}
+    \textit{1. L'interessato ha il diritto di ottenere dal titolare del trattamento la conferma che sia o meno in corso un trattamento di dati personali che lo riguardano e, in tal caso, di ottenere l'accesso ai dati personali e alle seguenti informazioni:
+        \begin{enumerate}[label=\alph*)]
+            \item le finalità del trattamento;
+            \item le categorie di dati personali in questione;
+            \item i destinatari o le categorie di destinatari a cui i dati personali sono stati o saranno comunicati, in particolare se destinatari di paesi terzi o organizzazioni internazionali;
+            \item quando possibile, il periodo di conservazione dei dati personali previsto oppure, se non è possibile, i criteri utilizzati per determinare tale periodo;
+            \item l'esistenza del diritto dell'interessato di chiedere al titolare del trattamento la rettifica o la cancellazione dei dati personali o la limitazione del trattamento dei dati personali che lo riguardano o di opporsi al loro trattamento;
+            \item il diritto di proporre reclamo a un'autorità di controllo;
+            \item qualora i dati non siano raccolti presso l'interessato, tutte le informazioni disponibili sulla loro origine.
+        \end{enumerate}
+    }
+\end{quote}
+Come già specificato più volte, l'interessato deve avere il \textbf{totale controllo su quelli che sono i suoi dati} e deve potervi accedere quando e come vuole.
+\subsubsection*{Diritto di Rettifica (Articolo 16)}
+\begin{quote}
+    \textit{
+        L'interessato ha il diritto di ottenere dal titolare del trattamento la rettifica dei dati personali inesatti che lo riguardano senza ingiustificato ritardo. Tenuto conto delle finalità del trattamento, l'interessato ha il diritto di ottenere l'integrazione dei dati personali incompleti, anche fornendo una dichiarazione integrativa.
+    }
+\end{quote}
+Al fine di rispettare uno dei principi fondamentali del trattamento dei dati, questo articolo pone l'obbligo al titolare del trattamento di farlo e in che modo e in che tempo.
+\subsubsection*{Diritto alla Cancellazione (Articolo 17)}
+\begin{quote}
+    \textit{
+        \begin{enumerate}
+            \item L'interessato ha il diritto di ottenere dal titolare del trattamento la cancellazione dei dati personali che lo riguardano senza ingiustificato ritardo e il titolare del trattamento ha l'obbligo di cancellare senza ingiustificato ritardo i dati personali se sussiste uno dei casi: $\dots$
+            \item il titolare del trattamento, se ha reso pubblici dati personali ed è obbligato, ai sensi del paragrafo 1, a cancellarli, tenendo conto della tecnologia disponibile e dei costi di attuazione adotta le misure ragionevoli, anche tecniche, per informare i titolari del trattamento che stanno trattando i dati personali della richiesta dell'interessato di cancellare qualsiasi link, copia o riproduzione dei suoi dati personali.
+        \end{enumerate}
+    }
+\end{quote}
+Questo rappresenta il così detto \textbf{Diritto all'Oblio}, cioè, l'interessato ha il diritto a chiedere che tutti i dati che lo riguardano vengano cancellati senza ingiustificato ritardo.
+\subsubsection*{Diritto alla Portabilità (Articolo 20)}
+\begin{quote}
+    \textit{
+        \begin{enumerate}
+            \item  L'interessato ha il diritto di ricevere in un formato strutturato, di uso comune e leggibile da dispositivo automatico i dati personali che lo riguardano forniti a un titolare del trattamento e ha il diritto di trasmettere tali dati a un altro titolare del trattamento senza impedimenti da parte del titolare del trattamento cui li ha forniti qualora: $\dots$
+            \item Nell'esercitare i propri diritti relativamente alla portabilità dei dati a norma del paragrafo 1, l'interessato ha il diritto di ottenere la trasmissione diretta dei dati personali da un titolare del trattamento all'altro, se tecnicamente fattibile.
+        \end{enumerate}
+    }
+\end{quote}
+Questo articolo rappresenta una delle cose che vediamo quotidianamente ormai da un paio di anni a questa parte. Per quanto riguarda il paragrafo 1, un esempio è il trasferimento del numero di telefono o il trasferimento da un'università a un'altra.
+
+Il paragrafo 2, invece, ci dice non solo che l'interessato a questo diritto ma che il trasferimento deve essere effettuato nei limiti del fattibile dal titolare del trattamento stesso. 
+
+\subsubsection*{Diritto di Opposizione (Articolo 21)}
+\begin{quote}
+    \textit{
+        \begin{enumerate}
+            \item L'interessato ha il diritto di opporsi in qualsiasi momento, per motivi connessi alla sua situazione particolare, al trattamento dei dati personali che lo riguardano ai sensi dell'articolo 6, paragrafo 1, lettere e o f, compresa la profilazione sulla base di tali disposizioni. Il titolare del trattamento si astiene dal trattare ulteriormente i dati personali salvo che egli dimostri l'esistenza di motivi legittimi cogenti per procedere al trattamento che prevalgono sugli interessi, sui diritti e sulle libertà dell'interessato oppure per l'accertamento, l'esercizio o la difesa di un diritto in sede giudiziaria.
+            \item Qualora i dati personali siano trattati per finalità di marketing diretto, l'interessato ha il diritto di opporsi in qualsiasi momento al trattamento dei dati personali che lo riguardano effettuato per tali finalità, compresa la profilazione nella misura in cui sia connessa a tale marketing diretto.
+        \end{enumerate}
+    }
+\end{quote}
+Come già ripetuto più volte, l'interessato ha tutto il diritto di poter decidere dei suoi dati e il titolare deve rispettare questo diritto salvo casi d'eccezione che riguardano vincoli contrattuali o obblighi legali di quest'ultimo.
+
+\subsubsection*{Processo decisionale automatizzato relativo alle persone fisiche, compresa la profilazione (Articolo 22)}
+\begin{quote}
+    \textit{
+        \begin{enumerate}
+            \item L'interessato ha il diritto di non essere sottoposto a una decisione basata unicamente sul trattamento automatizzato, compresa la profilazione, che produca effetti giuridici che lo riguardano o che incida in modo analogo significativamente sulla sua persona.
+            \item Il paragrafo 1 non si applica nel caso in cui la decisione: 
+                    \begin{enumerate}[label=\alph*)]
+                        \item sia necessaria per la conclusione o l'esecuzione di un contratto tra l'interessato e un titolare del trattamento; 
+                        \item sia autorizzata dal diritto dell'Unione o dello Stato membro cui è soggetto il titolare del trattamento, che precisa altresì misure adeguate a tutela dei diritti, delle libertà e dei legittimi interessi dell'interessato;
+                        \item si basi sul consenso esplicito dell'interessato.
+                    \end{enumerate}
+        \end{enumerate}
+    }
+\end{quote}
+Questo articolo tutela l'interessato da quello che è un processo che, al giorno d'oggi, risulta molto più attuale di quanto non sembri. Infatti, spesso ormai le aziende fanno analisi dei c.v. automatizzata da IA o accettazione di mutui automatizzata basata su predizioni effettuate mediante profilazione.
+
+\subsubsection*{Protezione dei dati fin dalla progettazione e protezione per impostazione predefinita (Articolo 25)}
+\begin{quote}
+    \textit{
+        \begin{enumerate}
+            \item Tenendo conto dello stato dell'arte e dei costi di attuazione, nonché della natura, dell'ambito di applicazione, del contesto e delle finalità del trattamento, come anche dei rischi aventi probabilità e gravità diverse per i diritti e le libertà delle persone fisiche costituiti dal trattamento, sia al momento di determinare i mezzi del trattamento sia all'atto del trattamento stesso il titolare del trattamento mette in atto misure tecniche e organizzative adeguate, quali la pseudonimizzazione, volte ad attuare in modo efficace i principi di protezione dei dati, quali la minimizzazione, e a integrare nel trattamento le necessarie garanzie al fine di soddisfare i requisiti del presente regolamento e tutelare i diritti degli interessati.
+            \item  Il titolare del trattamento mette in atto misure tecniche e organizzative adeguate per garantire che siano trattati, per impostazione predefinita, solo i dati personali necessari per ogni specifica finalità del trattamento. Tale obbligo vale per la quantità dei dati personali raccolti, la portata del trattamento, il periodo di conservazione e l'accessibilità. In particolare, dette misure garantiscono che, per impostazione predefinita, non siano resi accessibili dati personali a un numero indefinito di persone fisiche senza l'intervento della persona fisica.
+        \end{enumerate}
+    }
+\end{quote}
+
+Quanto scritto nel paragrafo 1 comincia già a interessare noi in quanto informatici.
+Il GDPR pone al titolare del trattamento il vincolo non sulla tecnologia da adottare, bensì riguardo allo \textbf{stato dell'arte} cosa che evita che l'articolo diventi subito obsoleto come visto nella legge 196/2003.
+Inoltre, vediamo che la sicurezza deve essere \textbf{adeguata} a quelli che sono i \textbf{costi di attuazione, la natura e l'ambito di applicazione, il contesto e le finalità del trattamento e i rischi aventi probabilità e gravità diverse nei confronti dei diritti dell'interessato}.
+Questo si traduce automaticamente in \textbf{Risk Assessment} e \textbf{DPIA (valutazione dell'impatto della protezione dei dati)}, cioè quelle attività volte a stabilire quali sono i rischi che corre un'azienda per cercare di mitigarli. 
+
+Inoltre, vogliamo che queste misure siano prese fin dal principio del trattamento e che siano l'impostazione predefinita, rispettando il principio di \textbf{Privacy By Design}.
+
+\subsubsection*{Registro dell'attività del trattamento (Articolo 30)}
+\begin{quote}
+    \textit{
+        \begin{enumerate}
+            \item Ogni titolare del trattamento e, ove applicabile, il suo rappresentante tengono un registro delle attività di trattamento svolte sotto la propria responsabilità. Tale registro contiene tutte le seguenti informazioni:
+                \begin{enumerate}[label=\alph*)]
+                    \item il nome e i dati di contatto del titolare del trattamento e, ove applicabile, del contitolare del trattamento, del rappresentante del titolo del trattamento e del responsabile della protezione dei dati;
+                    \item le finalità del trattamento;
+                    \item una descrizione delle categorie di interessati e delle categorie di dati personali;
+                    \item le categorie di destinatari a cui i dati personali sono stati o saranno comunicati, compresi i destinatari di paesi terzi o organizzazioni internazionali;
+                    \item ove applicabile, i trasferimenti di dati personali verso un paese terzo o un'organizzazione internazionale, compresa l'identificazione del paese terzo o dell'organizzazione internazionale e, per i trasferimenti di cui al secondo comma dell'articolo 49, la documentazione delle garanzie adeguate;
+                    \item ove possibile, i termini ultimi previsti per la cancellazione delle diverse categorie di dati;
+                    \item ove possibile, una descrizione generale delle misure di sicurezza tecniche e organizzative di cui all'articolo 32, paragrafo 1.
+                \end{enumerate}
+            \item  Ogni responsabile del trattamento e, ove applicabile, il suo rappresentante tengono un registro di tutte le categorie di attività relative al trattamento svolte per conto di un titolare del trattamento contenente: vedi sopra.
+        \end{enumerate}
+    }
+\end{quote}
+Questo estratto descrive il contenuto obbligatorio del \textbf{Registro delle attività di trattamento per il Titolare}. È uno dei documenti più importanti per dimostrare il principio di Accountability.
+
+\subsubsection*{Sicurezza del trattamento (Articolo 32)}
+\begin{quote}
+    \textit{1. Tenendo conto dello stato dell'arte e dei costi di attuazione, nonché della natura, dell'oggetto, del contesto e delle finalità del trattamento, come anche del rischio di varia probabilità e gravità per i diritti e le libertà delle persone fisiche, il titolare del trattamento e il responsabile del trattamento mettono in atto misure tecniche e organizzative adeguate per garantire un livello di sicurezza adeguato al rischio, che comprendono, tra le altre, se del caso:
+        \begin{enumerate}[label=\alph*)]
+            \item la pseudonimizzazione e la cifratura dei dati personali;
+            \item la capacità di assicurare su base permanente la riservatezza, l'integrità, la disponibilità e la resilienza dei sistemi e dei servizi di trattamento;
+            \item la capacità di ripristinare tempestivamente la disponibilità e l'accesso dei dati personali in caso di incidente fisico o tecnico;
+            \item una procedura per testare, verificare e valutare regolarmente l'efficacia delle misure tecniche e organizzative al fine di garantire la sicurezza del trattamento.
+        \end{enumerate}
+    }   
+    \textit{2. Nel valutare l'adeguato livello di sicurezza, si tiene conto in special modo dei rischi presentati dal trattamento che derivano in particolare dalla distruzione, dalla perdita, dalla modifica, dalla divulgazione non autorizzata o dall'accesso, in modo accidentale o illegale, a dati personali trasmessi, conservati o comunque trattati.}
+\end{quote}
+
+L'aspetto più importante del paragrafo 1 dell'Articolo 32 è l'introduzione di un approccio basato interamente sul \textbf{Risk Assessment}. Non esiste più una lista fissa di regole, ma l'obbligo di valutare il rischio caso per caso, poiché la medesima minaccia può assumere livelli di gravità differenti a seconda del contesto di trattamento.
+
+\begin{itemize}
+    \item \textbf{Il superamento della Legge 196/03 (Allegato B):} Il vecchio approccio italiano basato sulle "misure minime di sicurezza" (i famosi 29 punti del disciplinare tecnico) offriva una protezione "flat" e standardizzata, del tutto insufficiente a coprire la complessità dei sistemi moderni. 
+    \item \textbf{L'approccio basato sull'obiettivo:} Il GDPR non detta la procedura esatta su \textit{come} blindare un sistema, ma fissa l'\textbf{obiettivo da raggiungere}. Si passa metaforicamente dal ricevere 29 "compitini" preimpostati al dover dimostrare di aver fatto il massimo per prepararsi all'esame.
+    \item \textbf{Il legame con l'Accountability:} Il titolare del trattamento è pienamente responsabile della sicurezza. In caso di ispezione, deve essere in grado di dimostrare scientificamente al Garante (e agli esperti tecnici di cui l'autorità si avvale) le ragioni logiche ed economiche dietro alle scelte tecnologiche adottate.
+\end{itemize}
+
+L'articolo non è però del tutto astratto e propone quattro pilastri fondamentali come esempi di misure adeguate:
+
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Pseudonimizzazione e cifratura:} Tecniche matematiche e informatiche per proteggere il dato sia a riposo (\textit{at rest}) sia in transito.
+    \item \textbf{La triade RID e la resilienza:} Capacità di assicurare su base permanente \textbf{riservatezza, integrità, disponibilità e resilienza} dei sistemi e dei servizi di trattamento.
+    \item \textbf{Disaster Recovery e Business Continuity:} Capacità di ripristinare tempestivamente la disponibilità e l'accesso dei dati personali in caso di incidente fisico o tecnico.
+    \item \textbf{V.A.P.T. (Vulnerability Assessment and Penetration Testing):} Una procedura per testare, verificare e valutare regolarmente l'efficacia delle misure tecniche e organizzative al fine di garantire la sicurezza del trattamento.
+\end{enumerate}
+
+Dietro i requisiti di integrità, riservatezza, disponibilità e resilienza si nasconde il cuore pulsante della vera informatica. Dal punto di vista del legislatore del GDPR, il ruolo degli ingegneri e dei tecnici informatici all'interno del perimetro di conformità aziendale viene quasi "ridotto" all'assolvimento sistemico e scientifico di questi quattro vincoli fondamentali.
+
+Inoltre, il paragrafo 2 ci dice che non solo dobbiamo tenere conto dei rischi in generale, ma anche che dobbiamo tenere conto dei rischi legati proprio al trattamento che stiamo effettuando sul dato.
+\subsubsection*{Gestione degli Incidenti e Prevenzione del Rischio: Articoli 33, 34 e 35}
+
+Mentre l'Articolo 32 definisce come proteggere il sistema, gli Articoli 33, 34 e 35 stabiliscono le procedure obbligatorie da seguire quando le difese falliscono (\textit{Data Breach}) o quando si progetta un trattamento ad alto rischio (\textit{DPIA}). 
+
+\begin{itemize}
+    \item \textbf{Articolo 33 - Notifica di una violazione dei dati personali al Garante:} \\
+    In caso di \textit{data breach} (accesso non autorizzato, perdita o distruzione di dati), il titolare del trattamento deve notificare l'incidente al Garante della Privacy entro \textbf{72 ore} dal momento in cui ne viene a conoscenza. 
+    \begin{quote}
+        \textit{Eccezione:} La notifica non è obbligatoria solo se è improbabile che la violazione presenti un rischio per i diritti e le libertà delle persone fisiche (ad esempio, se i dati rubati erano cifrati in modo forte).
+    \end{quote}
+    
+    \item \textbf{Articolo 34 - Comunicazione di una violazione dei dati personali all'interessato:} \\
+    Se la violazione dei dati comporta un \textbf{rischio elevato} per i diritti e le libertà delle persone (es. furto di identità, clonazione di carte di credito, fuga di dati sanitari), il titolare non deve avvisare solo il Garante, ma deve comunicare l'accaduto \textbf{direttamente agli utenti coinvolti}, senza ingiustificato ritardo, usando un linguaggio semplice e chiaro.
+    
+    \item \textbf{Articolo 35 - Valutazione di Impatto sulla Protezione dei Dati (DPIA):} \\
+    Rappresenta la massima espressione del principio di \textit{Privacy by Design}. Quando un trattamento prevede l'uso di nuove tecnologie e può presentare un rischio elevato per le persone, il titolare deve effettuare una \textbf{DPIA} (\textit{Data Protection Impact Assessment}) \textbf{prima} di iniziare il trattamento.
+    \begin{quote}
+        \textit{Casi tipici di DPIA obbligatoria:} Valutazioni sistematiche e globali basate su trattamenti automatizzati (profilazione), sorveglianza sistematica su larga scala di zone accessibili al pubblico (videosorveglianza con riconoscimento facciale), o trattamento su larga scala di dati sensibili/giudiziari.
+    \end{quote}
+\end{itemize}
+
+\subsection{I Limiti del System Administrator (SysAdmin)}
+
+La figura dell'Amministratore di Sistema (SysAdmin) presenta forti criticità: avendo privilegi di accesso assoluti ai sistemi informatici, ai database e alle reti, egli potenzialmente ha la capacità di neutralizzare le misure di sicurezza e accedere a qualsiasi dato aziendale o dei dipendenti. Per evitare abusi e garantire la trasparenza, il Garante della Privacy ha stabilito vincoli rigidissimi.
+
+\subsubsection*{1. Nomina Formale e Valutazione delle Competenze}
+Il SysAdmin non può operare nell'ombra. Il titolare del trattamento deve:
+\begin{itemize}
+    \item \textbf{Nominarlo formalmente:} La designazione deve avvenire per iscritto, definendo analiticamente i confini del suo perimetro di azione e i sistemi a cui può accedere.
+    \item \textbf{Elenco aggiornato:} L'azienda deve mantenere un elenco aggiornato dei SysAdmin (con i relativi compiti), a disposizione in caso di ispezioni del Garante.
+\end{itemize}
+
+\subsubsection*{2. L'Obbligo di Logging degli Accessi (Il cuore dei controlli)}
+Per evitare il principio dell'impunità, le azioni del SysAdmin devono essere tracciate in modo inalterabile. Il Provvedimento del Garante del 2008 impone l'adozione di sistemi di \textbf{Access Log} specifici:
+\begin{itemize}
+    \item \textbf{Cosa registrare:} Devono essere registrati i log di tutti gli \textbf{accessi logici} (login, logout) e dei tentativi di accesso falliti da parte dei SysAdmin sui sistemi di produzione.
+    \item \textbf{Inalterabilità:} I log non devono poter essere modificati o cancellati dal SysAdmin stesso. Devono essere esportati su sistemi di memorizzazione centralizzati, protetti e preferibilmente firmati digitalmente o marcati temporalmente (\textit{WORM - Write Once Read Many}).
+    \item \textbf{Conservazione:} I log di accesso dei SysAdmin devono essere conservati per almeno \textbf{6 mesi}.
+\end{itemize}
+
+\subsubsection*{3. Cosa il SysAdmin NON può fare (I Limiti legali)}
+Il SysAdmin deve rispettare il confine tra "manutenzione tecnica" e "controllo dei lavoratori" (Art. 4 Statuto dei Lavoratori):
+\begin{itemize}
+    \item \textbf{No al controllo intenzionale e massivo:} Non può leggere arbitrariamente le e-mail dei dipendenti o spiare la loro cronologia di navigazione internet, a meno che non ci sia una specifica procedura aziendale (es. per incidenti di sicurezza) regolamentata e trasparente.
+    \item \textbf{No all'uso di account condivisi:} Ogni SysAdmin deve avere credenziali personali e univoche. È vietato l'uso indiscriminato dell'utente \textit{root} o \textit{administrator} senza che sia riconducibile alla persona fisica che lo sta usando.
+    \item \textbf{No al bypass delle policy:} Non può disattivare i sistemi di logging che tracciano le sue stesse attività.
+\end{itemize}
+
+\subsubsection*{4. Le verifiche annuali}
+Il Titolare del trattamento (l'azienda) ha l'obbligo di effettuare con cadenza \textbf{almeno annuale} un'attività di auditing e verifica sull'operato dei SysAdmin, per controllare che stiano rispettando le istruzioni ricevute e che le misure di sicurezza tecniche siano efficaci.

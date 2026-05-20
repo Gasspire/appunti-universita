@@ -12,7 +12,7 @@ Abbiamo ciò che riguarda la spesa del gas e ExtraData è un campo per mettere e
 I campi tagliati sono quelli che riguardavano la vecchia struttura
 
 ## Gas 
-È un'idea per risolvere il problema della completezza del codice eseguito sulla Ethereum Virtual Machine. Il codice di ogni contratto va' eseguito su ogni EVM su ogni validatore, proprio per questo motivo, essendo un linguaggio completo che contiene anche loop, non possiamo prevedere quanto tempo duri l'esecuzione e, dunque, senza un limite, potremmo avere attacchi DoS in cui ci sono contratti eseguiti su loop infiniti. Ricordiamoci, inoltre, che c'è un problema che riguarda il limite di tempo di soli 12 secondi. Problema dell'Halting. Inoltre, il problema non è solo il loop ma anche in generale il codice che potrebbe generare referenziazioni infinite e ricorsive.
+È un'idea per risolvere il problema della completezza del codice eseguito sulla Ethereum Virtual Machine.  Il codice di ogni contratto va' eseguito su ogni EVM su ogni validatore, proprio per questo motivo, essendo un linguaggio completo che contiene anche loop, non possiamo prevedere quanto tempo duri l'esecuzione e, dunque, senza un limite, potremmo avere attacchi DoS in cui ci sono contratti eseguiti su loop infiniti. Ricordiamoci, inoltre, che c'è un problema che riguarda il limite di tempo di soli 12 secondi. Problema dell'Halting. Inoltre, il problema non è solo il loop ma anche in generale il codice che potrebbe generare referenziazioni infinite e ricorsive.
 
 Vogliamo dunque bloccare le esecuzioni lunghe.
 
