@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blockchain/Lezione 4. Eth.md",
+                "file": "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 4. Eth"
+              "title": "Domande BC per esame basati su Appunti miei e le prove uscite"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "a8eec85064bed8ea",
@@ -186,6 +187,7 @@
   "active": "c71447a882c355e0",
   "lastOpenFiles": [
     "Blockchain/Lezione 4. Eth.md",
+    "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
     "Random Stuff/Immagini/2020_2.png",
     "Random Stuff/Immagini/Pasted image 20260520180927.png",
     "Random Stuff/Esami BC.md",
