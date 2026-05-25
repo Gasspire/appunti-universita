@@ -113,3 +113,75 @@ Esistono diverse modalità di invio con semantiche differenti. In MPI, il termin
 In un sistema parallelo, meno i processi devono aspettarsi l'un l'altro, più il sistema è efficiente. Tuttavia, la sincronia fornita da \texttt{MPI\_Ssend} è spesso necessaria per evitare che il sistema esaurisca la memoria dei buffer temporanei in caso di messaggi troppo frequenti o troppo grandi.
 \end{framed}
 
+\subsection{Il problema delle Deadlock}
+Supponiamo ci siano due processi che cercano di scambiarsi dei dati mediante l'uso di funzioni bloccanti come \texttt{MPI\_Send} e \texttt{MPI\_Recv}:
+\begin{verbatim}
+    /* Esempio di potenziale Deadlock con messaggi grandi */
+    if (rank == 0) {
+        MPI_Send(sbuf,N,MPI_DOUBLE,1,0,comm);
+        MPI_Recv(rbuf,N,MPI_DOUBLE,1,0,comm,&st);
+    } else {
+        MPI_Send(sbuf,N,MPI_DOUBLE,0,0,comm);
+        MPI_Recv(rbuf,N,MPI_DOUBLE,0,0,comm,&st);
+    }
+\end{verbatim}
+Se si utilizza la classica \texttt{MPI\_Send} bloccante per scambiare messaggi di grandi dimensioni, si rischia di incappare in un \textit{deadlock} (stallo). Poiché la funzione attende che il destinatario sia pronto a ricevere il messaggio prima di sbloccarsi, entrambi i processi finiscono per fermarsi all'infinito, aspettandosi a vicenda. 
+
+Questo problema non si presenta con i messaggi di piccole dimensioni. Implementazioni come OpenMPI, infatti, gestiscono queste situazioni avvalendosi di buffer di sistema interni: se il messaggio è piccolo, viene copiato nel buffer e la \texttt{MPI\_Send} ritorna immediatamente.
+
+Per risolvere in modo sicuro lo scambio simmetrico di messaggi, si può utilizzare la funzione \texttt{MPI\_Sendrecv}, che garantisce che l'invio e la ricezione avvengano in modo protetto. Indipendentemente dallo stato dei buffer di sistema o dalle dimensioni (anche gigantesche) dei messaggi, il runtime di MPI orchestra internamente i flussi di dati prevenendo qualsiasi rischio di deadlock. Di questa funzione ne esistono due varianti principali:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/mpi_send_recv.png}
+\end{figure}
+
+\subsection{Comunicazioni non bloccanti}
+Il limite principale delle comunicazioni bloccanti è l'attesa inattiva: il processo si ferma in attesa che il messaggio arrivi o venga consegnato, causando rallentamenti e sprecando cicli di CPU. 
+
+Per ovviare a questo problema si introducono le comunicazioni non bloccanti, tramite le funzioni \texttt{MPI\_Isend} e \texttt{MPI\_Irecv} (dove la \textit{I} sta per \textit{Immediate}):
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/isend_irecv.png}
+\end{figure} 
+
+Utilizzando queste funzioni, il processo avvia la comunicazione e riprende immediatamente l'esecuzione, permettendo di sovrapporre il trasferimento dei dati al tempo di calcolo (\textit{computation-communication overlap}). Il processo si metterà in attesa esplicita solo nel momento in cui sarà strettamente necessario utilizzare i dati ricevuti (o riutilizzare il buffer di invio). Questo si ottiene tramite la funzione \texttt{MPI\_Wait}, che forza il processo a fermarsi finché la specifica operazione non è conclusa.
+
+È fondamentale, tuttavia, \textbf{non toccare per alcun motivo} i buffer di invio o ricezione nell'intervallo di tempo compreso tra l'avvio della chiamata asincrona e la relativa \texttt{MPI\_Wait}, poiché i dati al loro interno si trovano in uno stato inconsistente.
+
+Il pattern corretto e tipico da applicare è il seguente:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/pattern_isend_irecv.png}
+\end{figure} 
+
+Un'altra situazione comune è non conoscere a priori la lunghezza del messaggio in arrivo. Per gestire questa incertezza, esiste la funzione \texttt{MPI\_Probe} (e la sua variante non bloccante \texttt{MPI\_Iprobe}). Queste funzioni si limitano a ispezionare la coda dei messaggi in arrivo senza effettivamente estrarli, permettendoci di leggerne i metadati (come la dimensione) per allocare dinamicamente i buffer corretti prima di chiamare la \textit{Receive}:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/pattern_firma_probe.png}
+\end{figure} 
+
+Infine, come accennato, le comunicazioni non bloccanti necessitano sempre di primitive di sincronizzazione (\textit{wait}) per garantire il corretto completamento delle operazioni ed evitare perdite di memoria. Oltre alla prima \texttt{MPI\_Wait} analizzata, esistono altre comode varianti per gestire array di richieste:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/waitall_waitany.png}
+\end{figure}
+
+\subsection{Linee guida per la scelta: Bloccanti vs. Non-Bloccanti}
+Le funzioni non bloccanti non rappresentano sempre la scelta migliore, poiché introducono una maggiore complessità nel codice e rendono il debugging nettamente più ostico. La scelta della strategia comunicativa deve quindi basarsi su criteri pratici:
+
+\begin{itemize}
+    \item \textbf{Scegliere le funzioni BLOCCANTI quando:}
+    \begin{itemize}
+        \item Non ci sono computazioni utili da poter eseguire nell'intervallo tra l'invio (\texttt{MPI\_Send}) e la ricezione (\texttt{MPI\_Recv}), rendendo l'asincronia di fatto superflua.
+        \item I messaggi scambiati sono di piccole dimensioni (indicativamente $< 64$~KB, al di sotto dell'\textit{eager limit}), in quanto \texttt{MPI\_Send} sfrutta la bufferizzazione interna e ritorna in modo quasi istantaneo.
+        \item Si è in fase di sviluppo o debugging, poiché la semantica lineare semplifica drasticamente la riproducibilità degli errori e l'individuazione dei bug.
+    \end{itemize}
+    
+    \item \textbf{Scegliere le funzioni NON-BLOCCANTI quando:}
+    \begin{itemize}
+        \item Si hanno calcoli indipendenti da eseguire contemporaneamente al tempo di comunicazione, così da nascondere i tempi morti della rete (\textit{latency hiding}), come nel caso degli algoritmi iterativi con \textit{halo exchange} o nelle computazioni \textit{stencil}.
+        \item Un processo \textit{Master} deve distribuire dati a molti nodi \textit{Worker}: avviare un ciclo veloce di \texttt{MPI\_Isend} seguito da una singola \texttt{MPI\_Waitall} risulta molto più efficiente e scalabile rispetto a una sequenza bloccante di \texttt{MPI\_Send}.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Regola d'oro:} È sempre buona norma iniziare lo sviluppo implementando una logica lineare e robusta con le funzioni \textbf{bloccanti}. Solo successivamente si esegue la profilazione del codice (\textit{profiling}), passando alle varianti \textbf{non bloccanti} esclusivamente nei colli di bottiglia dove l'attesa di comunicazione domina nettamente sul tempo di calcolo.
