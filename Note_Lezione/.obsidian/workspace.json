@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
+                "file": "Principi/Lezione 25 Maggio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Domande BC per esame basati su Appunti miei e le prove uscite"
+              "title": "Lezione 25 Maggio"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "a8eec85064bed8ea",
@@ -186,8 +185,9 @@
   },
   "active": "c71447a882c355e0",
   "lastOpenFiles": [
-    "Blockchain/Lezione 4. Eth.md",
     "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
+    "Principi/Lezione 25 Maggio.md",
+    "Blockchain/Lezione 4. Eth.md",
     "Random Stuff/Immagini/2020_2.png",
     "Random Stuff/Immagini/Pasted image 20260520180927.png",
     "Random Stuff/Esami BC.md",
