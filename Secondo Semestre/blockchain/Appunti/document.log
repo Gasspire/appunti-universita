@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  20 MAY 2026 15:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  26 MAY 2026 11:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -575,7 +575,7 @@ Capitolo 6.
 [51
 
 ] [52] [53] [54] [55] [56] [57]
-<Images/capitolo_5/lv_anonimato.png, id=928, 1182.4175pt x 629.35126pt>
+<Images/capitolo_5/lv_anonimato.png, id=929, 1182.4175pt x 629.35126pt>
 File: Images/capitolo_5/lv_anonimato.png Graphic file (type png)
 <use Images/capitolo_5/lv_anonimato.png>
 Package pdftex.def Info: Images/capitolo_5/lv_anonimato.png  used on input line 154.
@@ -591,7 +591,7 @@ Overfull \hbox (6.81453pt too wide) in paragraph at lines 35--35
 
 [61] [62] [63] [64] [65] [66]) (./parts/capitolo_mdr_1.tex [67]
 Capitolo 8.
-<Images/capitolo_2/trans_real.png, id=983, 1160.08406pt x 612.78937pt>
+<Images/capitolo_2/trans_real.png, id=984, 1160.08406pt x 612.78937pt>
 File: Images/capitolo_2/trans_real.png Graphic file (type png)
 <use Images/capitolo_2/trans_real.png>
 Package pdftex.def Info: Images/capitolo_2/trans_real.png  used on input line 7.
@@ -603,7 +603,7 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 35
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [69]
-<Images/capitolo_2/verifica_firma.png, id=1000, 1258.7025pt x 200.24812pt>
+<Images/capitolo_2/verifica_firma.png, id=1001, 1258.7025pt x 200.24812pt>
 File: Images/capitolo_2/verifica_firma.png Graphic file (type png)
 <use Images/capitolo_2/verifica_firma.png>
 Package pdftex.def Info: Images/capitolo_2/verifica_firma.png  used on input line 55.
@@ -613,7 +613,7 @@ Capitolo 9.
 [76
 
 ] [77]
-<Images/capitolo_mdr_2/nuovo_nodo.png, id=1043, 620.3175pt x 426.09187pt>
+<Images/capitolo_mdr_2/nuovo_nodo.png, id=1044, 620.3175pt x 426.09187pt>
 File: Images/capitolo_mdr_2/nuovo_nodo.png Graphic file (type png)
 <use Images/capitolo_mdr_2/nuovo_nodo.png>
 Package pdftex.def Info: Images/capitolo_mdr_2/nuovo_nodo.png  used on input line 44.
@@ -707,7 +707,7 @@ Here is how much of TeX's memory you used:
  59 hyphenation exceptions out of 8191
  60i,12n,63p,971b,502s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on document.pdf (112 pages, 2671481 bytes).
+Output written on document.pdf (112 pages, 2672704 bytes).
 PDF statistics:
  1433 PDF objects out of 1440 (max. 8388607)
  1213 compressed objects within 13 object streams

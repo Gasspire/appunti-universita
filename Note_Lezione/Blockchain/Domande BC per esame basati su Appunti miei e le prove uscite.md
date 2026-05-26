@@ -2,9 +2,8 @@
 - [x] Cosa è un Merkle Tree e come viene costruito? Come si effettua una verifica?
 - [x] Come funziona lo schema di firma digitale di Bitcoin? E cosa è lo schema di firma di Schnor?
 - [x] Come funziona lo schema di consenso di Bitcoin? Perché è lento?
-- [ ] Come funziona la Proof of Work di Bitcoin?
-- [ ] Cosa è il Double Spending? Come viene prevenuto in Bitcoin?
-- [ ] Come funziona lo schema di consenso di Nakamoto? Che proprietà vuole garantire e perché è lento? Come la latenza di rete influenza questa cosa?
+- [x] Come funziona la Proof of Work di Bitcoin?
+- [x] Cosa è il Double Spending? Come viene prevenuto in Bitcoin?
 - [ ] Cosa vuol dire anonimato? Cosa garantisce Bitcoin e perché? 
 - [ ] Come funziona il sistema Anonymous E-cash di David Chaum?
 - [ ] Come funziona la rete Tor? Cosa ci garantisce in termini di anonimato a livello di rete?

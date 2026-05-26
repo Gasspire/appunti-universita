@@ -214,7 +214,7 @@ In un sistema basato su curve ellittiche, la derivazione di una chiave figlia $x
 
 \begin{itemize}
     \item \textbf{Chiave privata $i$-esima}: $x_i = (y + \text{hash}(k \parallel i)) \pmod n$
-    \item \textbf{Chiave pubblica $i$-esima}: $P_i = G^{x_i} = G^y + G^{\text{hash}(k \parallel i)}$
+    \item \textbf{Chiave pubblica $i$-esima}: $P_i = G^{x_i} = G^y \cdot G^{\text{hash}(k \parallel i)}$
     \item \textbf{Indirizzo $i$-esimo}: $A_i = \text{hash}(P_i)$
 \end{itemize}
 
@@ -339,7 +339,7 @@ Nel caso di una firma a soglia, la chiave privata $x$ è divisa in share $x_i$ t
 \begin{itemize}
     \item \textbf{Fase 1 (Commitment Distribuito)}: 
     Ogni server $S_i$ sceglie un nonce locale $k_i$, calcola $R_i = G^{k_i}$ e lo trasmette agli altri. Al termine della fase, tutti i partecipanti calcolano l'impegno globale come somma dei singoli impegni:
-    \[ R = \sum R_i = G^{\sum k_i} \]
+    \[ R = \prod R_i = G^{\sum k_i} \]
     
     \item \textbf{Fase 2 (Firma Parziale)}: 
     Ogni server calcola la sfida comune $e = \text{hash}(msg \parallel R)$ e produce una firma parziale $z_i$:

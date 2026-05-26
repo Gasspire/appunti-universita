@@ -15,7 +15,7 @@ A questo punto supponiamo di voler spendere questo Zerocoin, l'utente produrrà 
 \end{itemize}
 Questo tipo di commitment è del tipo $C= g^S h^r$ e l'utente, per spendere la moneta, mostrerà $S$ e mostrerà in Zero knowledge che con questo S è stato creato C con un certo $r$ che solo lei conosce.
 
-Questa prova verrà fatta tramite una prova \textbf{non interattiva}, generando $c = H(R || \dots)$ e, poiché l'hash non è prevedibile, allora ci si può mostrare. Inoltre, poiché $S$ viene mostrato, allora quello Zerocoin non è più spendibile poiché presente nella blockchain.
+Questa prova verrà fatta tramite una prova \textbf{non interattiva}, generando $c = H(R || \dots)$ e, poiché l'hash non è prevedibile, allora ci si può fidare. Inoltre, poiché $S$ viene mostrato, allora quello Zerocoin non è più spendibile poiché presente nella blockchain.
 
 \subsection{Minting}
 Cerchiamo di formalizzarlo correttamente adesso. La coniazione rappresenta la fase iniziale nel ciclo di vita di uno Zerocoin, dove un utente converte un'unità di valuta base in uno Zerocoin. Il processo si articola nei seguenti passaggi:
@@ -82,12 +82,12 @@ RSA è uno strumento molto utile che serve anche per fare le firme blind ecc.
 \subsection{Implementazione degli Accumulatori}
 La costruzione di questi accumulatori è fatta mediante l'uso di diversi algoritmi:
 \begin{itemize}
-    \item \textbf{Setup}: Viene generato $N = pq$ e $w$ che è un elemento non nullo minore di $N$. 
-    \item \textbf{Accumulate(params, $(c_1,\dots, c_n)$)}: Qui, quello che vogliamo fare è il \textbf{commitment di tanti valori in un insieme}. Per farlo, calcoliamo $A = u^{c_1 \cdot \dots \cdot c_n} \mod N$. $A$ sarà un elemento nell'ordine di N poiché vi è il modulo.
-    \item \textbf{GenWitness(params, v, $(c_1,\dots, c_n)$)}: Questo genererà un testimone che dimostrerà che il nostro c è un elemento in quell'insieme. Per fare una cosa di questo tipo, supponiamo $ c \in V = (c_1,\dots, c_n)$ e se $v \in V$ allora calcoliamo un altro accumulatore $Accumulate(params, V-\{v\}) = w$.
-    \item \textbf{Acc.Verify(params, s, v, w, A)}: Banalmente adesso calcoliamo $A' = w^v \mod N$ e se $A == A'$, allora la cosa è corretta.  
+    \item \textbf{Setup}: Viene generato $N = pq$ e $w$, che è un elemento non nullo minore di $N$ (la base dell'accumulatore). 
+    \item \textbf{Accumulate(params, $(c_1,\dots, c_n)$)}: Consente di creare il \textbf{commitment di un insieme di valori}. Calcoliamo l'accumulatore come $A = w^{c_1 \cdot \dots \cdot c_n} \pmod N$.
+    \item \textbf{GenWitness(params, v, $(c_1,\dots, c_n)$)}: Genera un testimone per dimostrare che l'elemento $v$ appartiene all'insieme $V = \{c_1,\dots, c_n\}$. Se $v \in V$, il testimone $W$ si calcola come l'accumulatore del sottoinsieme privo di $v$, ovvero: $W = \text{Accumulate}(\text{params}, V \setminus \{v\}) = w^{\prod_{c_i \neq v} c_i} \pmod N$.
+    \item \textbf{Acc.Verify(params, v, W, A)}: Il verificatore calcola $A' = W^v \pmod N$. Se $A == A'$, la prova è valida e l'appartenenza è verificata.  
 \end{itemize}
-Questa cosa è sicura perché chi fa il setup elimina $p, q$ e, dunque, nessuno conosce la fattorizzazione di $N$ e, dunque, l'unico modo per calcolare la prova è o farlo correttamente o estrarre la fattorizzazione ma ciò è impossibile.
+Questa costruzione è sicura perché l'entità che esegue il setup elimina i fattori $p$ e $q$. Di conseguenza, poiché nessuno conosce la fattorizzazione di $N$ (assunzione RSA), l'unico modo per falsificare una prova sarebbe calcolare la radice $v$-esima di $A$ senza conoscere i fattori, il che è computazionalmente impossibile.
 
 \subsection{Integrazione in Zerocoin}
 Nel contesto di Zerocoin, l'integrazione degli accumulatori RSA permette di riformulare le prove di riscatto in modo sostanzialmente più efficiente. La prova di riscatto si trasforma in una dimostrazione zero knowledge strutturata come segue:

@@ -45,7 +45,7 @@
 \contentsline {subsection}{\numberline {6.1.5}Implementazione degli Accumulatori}{54}{subsection.6.1.5}%
 \contentsline {subsection}{\numberline {6.1.6}Integrazione in Zerocoin}{55}{subsection.6.1.6}%
 \contentsline {subsection}{\numberline {6.1.7}Sfide di Integrazione e Problematiche}{56}{subsection.6.1.7}%
-\contentsline {section}{\numberline {6.2}Zerocash}{56}{section.6.2}%
+\contentsline {section}{\numberline {6.2}Zerocash}{57}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Il problema del Trusted Setup in Zerocash}{57}{subsection.6.2.1}%
 \contentsline {section}{\numberline {6.3}Il Continuum dell'Anonimato nelle Criptovalute}{58}{section.6.3}%
 \contentsline {chapter}{\numberline {7}Alternative Mining Puzzles}{59}{chapter.7}%
