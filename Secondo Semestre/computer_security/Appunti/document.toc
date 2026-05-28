@@ -43,7 +43,7 @@
 \contentsline {subsection}{\numberline {6.2.5}Ulteriori misure in caso di dati sensibili o giudiziari}{56}{subsection.6.2.5}%
 \contentsline {subsection}{\numberline {6.2.6}Trattamenti senza l'ausilio di strumenti elettronici}{58}{subsection.6.2.6}%
 \contentsline {subsection}{\numberline {6.2.7}Considerazioni}{59}{subsection.6.2.7}%
-\contentsline {subsection}{\numberline {6.2.8}Il General Data Protection Regulation (GDPR)}{60}{subsection.6.2.8}%
-\contentsline {subsection}{\numberline {6.2.9}Definizioni}{60}{subsection.6.2.9}%
-\contentsline {subsection}{\numberline {6.2.10}Principi}{62}{subsection.6.2.10}%
-\contentsline {subsection}{\numberline {6.2.11}I Limiti del System Administrator (SysAdmin)}{76}{subsection.6.2.11}%
+\contentsline {section}{\numberline {6.3}Il General Data Protection Regulation (GDPR)}{60}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Definizioni}{61}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Principi}{63}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}I Limiti del System Administrator (SysAdmin)}{76}{subsection.6.3.3}%

@@ -113,6 +113,115 @@ Esistono diverse modalità di invio con semantiche differenti. In MPI, il termin
 In un sistema parallelo, meno i processi devono aspettarsi l'un l'altro, più il sistema è efficiente. Tuttavia, la sincronia fornita da \texttt{MPI\_Ssend} è spesso necessaria per evitare che il sistema esaurisca la memoria dei buffer temporanei in caso di messaggi troppo frequenti o troppo grandi.
 \end{framed}
 
+
+
+\subsection{Garanzie di Comunicazione: Ordering, Fairness e Progress}
+MPI fornisce garanzie precise sulla gestione dei messaggi, fondamentali per scrivere programmi corretti ed evitare comportamenti imprevedibili.
+
+\begin{itemize}
+    \item \textbf{Ordering (Non-overtaking)}: I messaggi non si sorpassano. Se il processo A invia due messaggi $M1$ e $M2$ allo stesso processo B, utilizzando lo stesso comunicatore e lo stesso tag, e B lancia due \texttt{MPI\_Recv} compatibili, è garantito che $M1$ verrà ricevuto prima di $M2$.
+    \item \textbf{No Fairness}: MPI non garantisce equità. Se più operazioni di ricezione sono compatibili con un messaggio in arrivo, lo standard non specifica quale verrà soddisfatta per prima. Un processo potrebbe teoricamente monopolizzare i messaggi in modo indefinito (starvation).
+    \item \textbf{Progress}: Un'implementazione conforme deve garantire che, se tutti i processi in un comunicatore eseguono operazioni bloccanti compatibili, almeno una di esse deve completare in un tempo finito.
+\end{itemize}
+
+\subsection{Gestione della Ricezione: \texttt{MPI\_Status} e \texttt{MPI\_Get\_count}}
+Ogni ricezione bloccante accetta come parametro una struttura \texttt{MPI\_Status}. Questa è fondamentale quando si utilizzano wildcard come \texttt{MPI\_ANY\_SOURCE} o \texttt{MPI\_ANY\_TAG}, poiché permette di ispezionare le caratteristiche reali del messaggio appena arrivato.
+
+\begin{verbatim}
+MPI_Status status;
+int count;
+MPI_Recv(buf, MAXN, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG, 
+         MPI_COMM_WORLD, &status);
+
+// Lettura dei campi della struttura:
+status.MPI_SOURCE; // Restituisce il rank effettivo del mittente
+status.MPI_TAG;    // Restituisce il tag effettivo del messaggio
+status.MPI_ERROR;  // Codice di errore (MPI_SUCCESS se ok)
+\end{verbatim}
+
+\noindent
+\textbf{Attenzione}: il numero effettivo di elementi ricevuti è un dato \textit{opaco} all'interno della struttura. Per leggerlo è obbligatorio usare l'apposita funzione \texttt{MPI\_Get\_count(\&status, MPI\_DOUBLE, \&count)}. Se queste informazioni non servono, si può passare la costante \texttt{MPI\_STATUS\_IGNORE} al posto dell'indirizzo di status.
+
+\subsection{Comunicazione Bloccante vs Non-Bloccante}
+Le operazioni MPI si dividono in bloccanti e non bloccanti. La distinzione non riguarda la correttezza del risultato, ma il momento in cui il thread di controllo viene restituito al programma chiamante.
+
+\begin{description}
+    \item[\textbf{Blocking (\texttt{MPI\_Send} / \texttt{MPI\_Recv})}] Ritorna solo quando il buffer può essere riusato. Durante l'attesa per il trasferimento dati o la sincronizzazione, il thread è bloccato e la CPU viene sprecata senza fare calcolo utile.
+    \item[\textbf{Non-Blocking (\texttt{MPI\_Isend} / \texttt{MPI\_Irecv})}] Ritorna immediatamente restituendo un \textit{handle} di tipo \texttt{MPI\_Request}. La comunicazione avviene in background, permettendo la \textbf{sovrapposizione tra calcolo e comunicazione} (\textit{latency hiding}). Per completare l'operazione e assicurarsi che i dati siano pronti, bisogna esplicitamente chiamare \texttt{MPI\_Wait} o \texttt{MPI\_Test} sulla richiesta.
+\end{description}
+
+\begin{framed}
+\noindent
+\textbf{Note Cruciali sulle operazioni Non-Bloccanti}
+\begin{itemize}
+    \item \textbf{Dipendenza dei dati}: Quando si usa la comunicazione non bloccante e si esegue del calcolo in background, bisogna prestare estrema attenzione affinché tale calcolo \textit{non dipenda in alcun modo} dal buffer coinvolto nella comunicazione. Toccare il buffer prima della \texttt{MPI\_Wait} genera risultati inconsistenti.
+    \item \textbf{Interoperabilità}: È perfettamente legale e possibile utilizzare insieme primitive bloccanti e non bloccanti. Ad esempio, una \texttt{MPI\_Isend} da un processo può essere tranquillamente accoppiata con una \texttt{MPI\_Recv} bloccante su un altro processo.
+\end{itemize}
+\end{framed}
+
+\subsection{Deadlock e la Soluzione \texttt{MPI\_Sendrecv}}
+L'errore più comune nella programmazione point-to-point si verifica quando due processi eseguono una \texttt{MPI\_Send} simmetrica l'uno verso l'altro prima di chiamare le rispettive \texttt{MPI\_Recv}. 
+Se i messaggi superano l'\textit{eager limit} (la dimensione massima per cui il sistema tenta di bufferizzare automaticamente), le \texttt{MPI\_Send} si comportano in modo sincrono: entrambi i processi si bloccano in attesa della ricezione dell'altro, causando un \textbf{Deadlock}.
+
+\vspace{0.3cm}
+\noindent
+\textbf{Soluzioni}:
+\begin{enumerate}
+    \item Alternare l'ordine asimmetricamente (es. i processi pari fanno prima Send e poi Recv, i dispari prima Recv e poi Send).
+    \item Usare chiamate non bloccanti (\texttt{MPI\_Isend}).
+    \item Usare la funzione \texttt{MPI\_Sendrecv}.
+\end{enumerate}
+
+\begin{framed}
+\noindent
+\textbf{La primitive \texttt{MPI\_Sendrecv}} \\
+\texttt{MPI\_Sendrecv} esegue un'operazione di invio e una di ricezione in maniera \textbf{atomica}. Il runtime si occupa di gestire l'ordine interno per evitare qualsiasi rischio di deadlock.
+\begin{itemize}
+    \item \textbf{Asimmetria di destinazione/sorgente}: La \textit{source} da cui si riceve e la \textit{destination} a cui si invia non devono essere per forza vincolanti o simmetriche. Un processo può ricevere dal rank $A$ e contestualmente inviare al rank $B$.
+    \item \textbf{Full-Duplex}: Se \texttt{dest = source}, di fatto si stanno inviando simultaneamente due messaggi incrociati (uno in entrata e uno in uscita) sullo stesso comunicatore con lo stesso partner di comunicazione.
+\end{itemize}
+\end{framed}
+
+\subsection{Compilazione ed Esecuzione in Ambiente HPC}
+La compilazione dei programmi MPI utilizza script wrapper che aggiungono automaticamente gli header e i flag di linking corretti.
+\begin{itemize}
+    \item \textbf{Compilazione}: \texttt{mpicc -O2 -o eseg eseguibile.c} (per il C) o \texttt{mpicxx} (per il C++).
+    \item \textbf{Esecuzione Locale}: \texttt{mpirun -np 4 ./eseg} avvia 4 istanze sul nodo corrente.
+    \item \textbf{Esecuzione su Cluster}: Sistemi di produzione HPC moderni (es. SLURM) usano il comando \texttt{srun} (spesso inserito in uno script batch lanciato con \texttt{sbatch}) che si occupa dell'allocazione dinamica delle risorse hardware e del \textit{binding} dei processi.
+\end{itemize}
+
+\section{Misurazione delle Prestazioni: \texttt{MPI\_Wtime}}
+MPI fornisce un timer ad alta risoluzione, sincronizzato con il runtime: \texttt{MPI\_Wtime()}, che restituisce il tempo \textit{wall-clock} trascorso in secondi (come double). \texttt{MPI\_Wtick()} ne restituisce la risoluzione.
+
+\vspace{0.2cm}
+\noindent
+\textit{Best practice}: Inserire sempre una \texttt{MPI\_Barrier(MPI\_COMM\_WORLD)} prima di prendere il tempo di inizio (\texttt{t\_start}). Senza la barriera, i processi non partono allineati e si rischia di misurare tempi sfasati, calcolando erroneamente le performance sul processo più veloce o più lento.
+
+\subsection{Modelli di Costo e Scalabilità (Legge di Amdahl e Modello $\alpha-\beta$)}
+
+\subsubsection{L'impatto sulla Scalabilità}
+Nel contesto MPI, la Legge di Amdahl assume implicazioni pratiche: la "frazione seriale" non è composta solo dal codice non parallelizzabile, ma include \textbf{tutta la comunicazione, la latenza di rete, le barriere di sincronizzazione e gli sbilanciamenti di carico (load imbalance)}. 
+\newline In ambito HPC, si fa spesso riferimento alla \textbf{Legge di Gustafson} ($S(p) = p - (1-\alpha)(p-1)$), basata sullo \textit{scaled speedup}: crescendo la dimensione del problema al crescere dei processi, la frazione seriale si mantiene percentualmente costante.
+
+\subsection{Il Modello di costo $\alpha - \beta$}
+Per scrivere codice efficiente, il tempo di trasferimento di un messaggio di $n$ byte è stimato con una funzione lineare:
+$$T(n) = \alpha + \frac{n}{\beta}$$
+\begin{itemize}
+    \item \textbf{$\alpha$ (Latenza o Startup cost)}: Costo fisso per avviare la comunicazione (overhead software, protocollo di rete). Domina i messaggi piccoli.
+    \item \textbf{$\beta$ (Banda di picco)}: Velocità di trasferimento in byte/sec. Diventa rilevante solo per messaggi grandi.
+\end{itemize}
+
+\begin{framed}
+\noindent
+\textbf{Le 4 Regole d'Oro derivate dal Modello $\alpha-\beta$}
+\begin{enumerate}
+    \item \textbf{Pochi messaggi grandi battono tanti messaggi piccoli}: A causa del termine fisso $\alpha$, inviare $1000$ messaggi da $1$ KB è infinitamente più lento che inviare $1$ messaggio da $1$ MB.
+    \item \textbf{Aggregare le comunicazioni}: Se si devono inviare dati sparsi (es. $N$ variabili scalari separate), bisogna "impacchettarle" (Pack/Unpack o tipi derivati) ed effettuare una singola Send.
+    \item \textbf{La latenza domina sui messaggi piccoli}: Sotto una certa soglia (es. 50 KB), il tempo di invio è dominato dalla latenza di startup ($\alpha$).
+    \item \textbf{Sovrapporre calcolo e comunicazione}: Utilizzare operazioni non bloccanti (\texttt{MPI\_Isend}) per nascondere il tempo di latenza ($\alpha$) sotto calcoli utili della CPU. Questa è la tecnica più potente per scalare su migliaia di processi.
+\end{enumerate}
+\end{framed}
+
 \subsection{Il problema delle Deadlock}
 Supponiamo ci siano due processi che cercano di scambiarsi dei dati mediante l'uso di funzioni bloccanti come \texttt{MPI\_Send} e \texttt{MPI\_Recv}:
 \begin{verbatim}
@@ -127,7 +236,7 @@ Supponiamo ci siano due processi che cercano di scambiarsi dei dati mediante l'u
 \end{verbatim}
 Se si utilizza la classica \texttt{MPI\_Send} bloccante per scambiare messaggi di grandi dimensioni, si rischia di incappare in un \textit{deadlock} (stallo). Poiché la funzione attende che il destinatario sia pronto a ricevere il messaggio prima di sbloccarsi, entrambi i processi finiscono per fermarsi all'infinito, aspettandosi a vicenda. 
 
-Questo problema non si presenta con i messaggi di piccole dimensioni. Implementazioni come OpenMPI, infatti, gestiscono queste situazioni avvalendosi di buffer di sistema interni: se il messaggio è piccolo, viene copiato nel buffer e la \texttt{MPI\_Send} ritorna immediatamente.
+Questo problema non si presenta con i messaggi di piccole dimensioni ma si presenta dopo che il messaggio ha passato una certa dimensione limite detta \textit{eager limit}. Implementazioni come OpenMPI, infatti, gestiscono queste situazioni avvalendosi di buffer di sistema interni: se il messaggio è piccolo, viene copiato nel buffer e la \texttt{MPI\_Send} ritorna immediatamente altrimenti si utilizza il buffer dedicato ma, come abbiamo detto, rischiamo stalli.
 
 Per risolvere in modo sicuro lo scambio simmetrico di messaggi, si può utilizzare la funzione \texttt{MPI\_Sendrecv}, che garantisce che l'invio e la ricezione avvengano in modo protetto. Indipendentemente dallo stato dei buffer di sistema o dalle dimensioni (anche gigantesche) dei messaggi, il runtime di MPI orchestra internamente i flussi di dati prevenendo qualsiasi rischio di deadlock. Di questa funzione ne esistono due varianti principali:
 \begin{figure}[H]
@@ -185,3 +294,141 @@ Le funzioni non bloccanti non rappresentano sempre la scelta migliore, poiché i
 \end{itemize}
 
 \textbf{Regola d'oro:} È sempre buona norma iniziare lo sviluppo implementando una logica lineare e robusta con le funzioni \textbf{bloccanti}. Solo successivamente si esegue la profilazione del codice (\textit{profiling}), passando alle varianti \textbf{non bloccanti} esclusivamente nei colli di bottiglia dove l'attesa di comunicazione domina nettamente sul tempo di calcolo.
+
+\section{Comunicatori}
+La slide definisce il comunicatore come un gruppo di processi con un contesto di comunicazione isolato. In genere, all'avvio di un programma MPI esiste un unico comunicatore chiamato \texttt{MPI\_COMM\_WORLD} e questo include tutti i processi che sono stati lanciati. Facendo una Send o una Recv usando Comm world stiamo mandando o ricevendo il messaggio a tutti i possibili processi.
+
+Tuttavia, può capitare di volere un comunicatore personalizzato che appartenga a specifici processi e che sia in un certo senso privato solo per loro. Ci sono varie ragioni per fare una scelta di questo tipo:
+\begin{enumerate}
+    \item \textbf{Isolare sottogruppi di processi}: Immaginiamo di avere una griglia di processi (es. una matrice) e di voler calcolare la somma degli elementi solo riga per riga o colonna per colonna. Creando un comunicatore per ogni riga, possiamo dire a MPI di fare una riduzione (MPI\_Reduce) solo tra i processi di quella specifica riga, ignorando gli altri.
+    \item \textbf{Isolamento del contesto}: Se una libreria esterna che usiamo nel programma scambia messaggi e anche noi scambiamo messaggi nel codice principale, c'è il rischio che i messaggi si sovrappongano o vengano confusi (anche usando i tag). Un comunicatore custom crea un "canale privato" o namespace separato e i messaggi inviati su comm\_custom non possono essere intercettati o confusi con quelli inviati su MPI\_COMM\_WORLD.
+    \item \textbf{Leggibilità e struttura}: Rende il codice parallelo modulare e molto più facile da gestire.
+\end{enumerate}
+
+È bene ricordare che ogni comunicatore ha un suo \textbf{spazio dei rank} e che questo non coincide con quello di MPI\_COMM\_WORLD. Infatti, per trovare il rank nello specifico comunicare, si usa la funzione \texttt{MPI\_COMM\_RANK}.
+MPI gestisce in automatico tre tipi di comunicatori:
+\begin{enumerate}
+    \item \textbf{\texttt{MPI\_COMM\_WORLD} (Il mondo globale)}
+    \begin{itemize}
+        \item \textbf{Cos'è:} È il comunicatore principale che racchiude \emph{tutti} i $P$ processi che sono stati inizializzati al momento del lancio del programma tramite il comando \texttt{mpirun} o \texttt{mpiexec}.
+        \item \textbf{Caratteristiche:} È sempre disponibile dopo la chiamata a \texttt{MPI\_Init} e rappresenta il punto di partenza universale. Se interroghiamo la sua dimensione tramite \texttt{MPI\_Comm\_size(MPI\_COMM\_WORLD, \&size)}, la variabile \texttt{size} conterrà il numero totale di processi allocati per l'intera esecuzione.
+    \end{itemize}
+
+    \item \textbf{\texttt{MPI\_COMM\_SELF} (Il comunicatore specchio)}
+    \begin{itemize}
+        \item \textbf{Cos'è:} È un comunicatore rigidamente limitato al \emph{singolo processo corrente}. Ogni processo ha il proprio \texttt{MPI\_COMM\_SELF} indipendente dagli altri.
+        \item \textbf{Proprietà fisse:} Per qualsiasi processo che lo interroghi, la \texttt{size} (dimensione) del comunicatore sarà \textbf{sempre 1} e il \texttt{rank} del processo al suo interno sarà \textbf{sempre 0}.
+        \item \textbf{Casi d'uso:} Viene utilizzato per effettuare operazioni MPI puramente locali (che non devono coinvolgere la rete o altri nodi), oppure come tassello base quando si vogliono costruire comunicatori personalizzati partendo da zero in modo programmatico.
+    \end{itemize}
+
+    \item \textbf{\texttt{MPI\_COMM\_NULL} (Il comunicatore nullo)}
+    \begin{itemize}
+        \item \textbf{Cos'è:} Rappresenta un oggetto comunicatore non valido o inesistente. Equivalente al concetto di puntatore \texttt{NULL} in C.
+        \item \textbf{Comportamento con \texttt{MPI\_Comm\_split}:} Quando si usa la funzione \texttt{MPI\_Comm\_split} per dividere un comunicatore in sottogruppi, un processo può auto-escludersi passando come parametro di colore il valore speciale \texttt{MPI\_UNDEFINED}. Di conseguenza, la funzione restituirà nel parametro di output (\texttt{\&sub}) il valore \texttt{MPI\_COMM\_NULL}.
+        \item \textbf{Importanza algoritmica:} Non è possibile inviare o ricevere messaggi su \texttt{MPI\_COMM\_NULL} (genererebbe un errore a runtime). Serve invece come \textbf{sentinella} logica: effettuando un controllo condizionale come \texttt{if (sub != MPI\_COMM\_NULL)}, il processo può verificare matematicamente se fa parte o meno del nuovo sottogruppo di calcolo prima di eseguire funzioni collettive (come la \texttt{MPI\_Bcast} mostrata nell'esempio).
+    \end{itemize}
+\end{enumerate}
+
+Per fare questa divisione utilizziamo la funzione \texttt{MPI\_COMM\_SPLIT} che divide i processi di un comunicatore in sottogruppi in base a un parametro color. Processi con lo stesso color finiscono nello stesso nuovo comunicatore.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/cap_8/firma_split.png}
+\end{figure}
+È importante ricordare che tutti i processi del communicator originale devono chiamare la split anche se questi vogliono escludersi.
+Inoltre è sempre necessario liberare manualmente la memoria del comunicatore mediante la \texttt{MPI\_COMM\_FREE}.
+Immaginiamo il seguente codice:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/esempio_split.png}
+\end{figure}
+Su 8 processi i valori saranno:
+\begin{itemize}
+    \item \textbf{Color}: Questo valore sarà 0 per tutti i processi da 0 a 3 mentre sarà 1 per tutti i processi da 4 a 7.
+    \item \textbf{Key}: Questo andrà a numerare i processi con lo stesso color da 0 a 3.
+\end{itemize}
+
+\subsection{Topologia Cartesiana}
+Fino ad ora, per MPI i processi erano semplicemente una lista lineare da 0 a $n-1$. Con la topologia cartesiana, invece, diciamo a MPI di organizzare i processi come una griglia geometrica (a 2D, 3D o più dimensioni). Questo è utilissimo perché molti problemi reali (es. simulazioni di fluidi, elaborazione immagini, calcolo di matrici) sono strutturati geometricamente.
+Per farlo, usiamo la chiamata \texttt{MPI\_Cart\_create} che ha la seguente firma:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/firma_cart_create.png}
+\end{figure}
+In pratica abbiamo i seguenti parametri:
+\begin{itemize}
+    \item \textbf{\texttt{comm} (\texttt{MPI\_Comm})}: Il comunicatore di partenza (di solito \texttt{MPI\_COMM\_WORLD}) che contiene l'insieme originale di processi da cui attingere per creare la griglia.
+    
+    \item \textbf{\texttt{ndims} (\texttt{int})}: Il numero di dimensioni della struttura cartesiana che si desidera creare (ad esempio, \texttt{1} per una linea/anello, \texttt{2} per una matrice/griglia bidimensionale, \texttt{3} per un cubo).
+    
+    \item \textbf{\texttt{dims[]} (\texttt{int *})}: Un array di interi di dimensione pari a \texttt{ndims}. Ogni elemento specifica il numero di processi da allocare lungo quella specifica dimensione. 
+    \begin{itemize}
+        \item \emph{Esempio:} Se \texttt{ndims = 2}, definire \texttt{dims[2] = \{2, 3\}} significa richiedere una griglia di 2 righe e 3 colonne (6 processi totali).
+    \end{itemize}
+    
+    \item \textbf{\texttt{periods[]} (\texttt{int *})}: Un array di valori logici (booleani espressi come \texttt{0} o \texttt{1}) di dimensione pari a \texttt{ndims}. Specifica se la griglia è periodica (connessa ad anello/toro) oppure se possiede dei bordi aperti lungo ciascuna dimensione.
+    \begin{itemize}
+        \item \texttt{1} (True): Abilita il \emph{wrap-around} (il vicino successivo all'ultimo elemento torna all'elemento zero).
+        \item \texttt{0} (False): I bordi sono lineari e interrotti (i processi di confine non hanno vicini oltre il limite).
+    \end{itemize}
+    
+    \item \textbf{\texttt{reorder} (\texttt{int})}: Un flag booleano (\texttt{0} o \texttt{1}) che indica a MPI se può ottimizzare l'assegnazione dei rank hardware.
+    \begin{itemize}
+        \item \texttt{1} (True): MPI è autorizzato a riordinare i processi e cambiare i loro rank fisici originari per mapparli in modo ottimale sulla reale topologia dei nodi e degli switch del cluster (riducendo la latenza di rete).
+        \item \texttt{0} (False): L'ordine relativo dei rank dei processi deve rimanere identico a quello del comunicatore di partenza.
+    \end{itemize}
+    
+    \item \textbf{\texttt{*comm\_cart} (\texttt{MPI\_Comm *})}: Il puntatore di output in cui MPI salverà l'handle del nuovo comunicatore cartesiano appena creato, dotato delle proprietà geometriche configurate.
+\end{itemize}
+Inoltre, abbiamo anche altre due funzioni:
+\begin{itemize}
+    \item \textbf{MPI\_Cart\_coords}: Quando la griglia è creata, ogni processo mantiene il suo rank numerico tradizionale, ma possiede anche delle coordinate spaziali $(x, y)$ che possono essere ottenute tramite questa funzione.
+    \item \textbf{MPI\_Cart\_rank}: È l'operazione inversa a coords, cioè permette di passare dalle coordinate spaziali al rank banalmente.
+\end{itemize}
+Proprio grazie alla struttura geometrica del problema, possiamo lavorare individuando velocemente i vicini tramite \texttt{MPI\_Cart\_shift}:
+Per farlo, usiamo la chiamata \texttt{MPI\_Cart\_create} che ha la seguente firma:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/firma_shift.png}
+\end{figure}
+Vediamone un esempio per capire meglio. Vediamone un esempio per capire meglio. Supponiamo di avere \verb|MPI_Cart_shift(cart, 0, +1, &up, &down)|\\
+Se la direzione è 0 (quindi verticale) e lo spostamento è +1 (verso il basso): 
+\begin{itemize}
+    \item Il vicino che sta sotto di te è la tua destinazione logica (down), perché se ti muovi in avanti incontri lui.
+    \item Il vicino che sta sopra di te è la tua sorgente logica (up), perché se lui si muovesse in avanti di +1 colpirebbe te.
+\end{itemize}
+Cosa succede ai bordi? Se la griglia non è periodica (periods = 0), i processi che si trovano sul bordo non hanno un vicino esterno. In quel caso, MPI assegnerà a quella variabile il valore speciale MPI\_PROC\_NULL. MPI sa gestire questa costante: se passi MPI\_PROC\_NULL a una funzione di invio/ricezione, la comunicazione viene semplicemente ignorata senza mandare in crash il programma.\\
+
+Infine, un'ultima funzione molto utile è \texttt{MPI\_Dims\_create}. Supponiamo di aver dichiarato a mano come prima la dimensione del numero di processi come, ad esempio supponiamo \verb|int dims[2] = \{2, 3\}| ma che, anziché avere 6 processi, ne abbiamo 4 o magari 8. Questo porterebbe ad un crash a runtime poiché le dimensioni sono \textit{hardcoded}.
+
+La funzione \texttt{MPI\_Dims\_create} risolve proprio questo problema calcolando in automatico le dimensioni ottimali per la griglia in base al numero di processi disponibili a runtime:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/firma_dims_create.png}
+\end{figure}
+Un esempio è il seguente:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Images/cap_8/esempio_dims.png}
+\end{figure}
+
+Quest'ultimo scenario mette a confronto le tre metodologie di gestione dei processi viste finora, definendo i criteri di scelta ottimale in base alla struttura del problema da parallelizzare.
+
+\begin{enumerate}
+    \item \textbf{Quando utilizzare \texttt{MPI\_Comm\_split}}
+    \begin{itemize}
+        \item \textbf{Partizioni logiche indipendenti:} Si sceglie quando l'algoritmo prevede la scomposizione del dominio in macro-blocchi o sotto-problemi isolati che non necessitano di comunicare tra loro (ad esempio, operare in parallelo sulle singole righe o colonne di una matrice, oppure separare le fasi di una pipeline di calcolo).
+        \item \textbf{Operazioni collettive parziali:} È indispensabile quando si ha la necessità di invocare funzioni collettive (come \texttt{MPI\_Reduce}, \texttt{MPI\_Bcast}, \texttt{MPI\_Scatter}) limitando il loro raggio d'azione esclusivamente a un sottoinsieme specifico di processi, evitando di coinvolgere l'intera rete.
+    \end{itemize}
+
+    \item \textbf{Quando utilizzare la Topologia Cartesiana}
+    \begin{itemize}
+        \item \textbf{Struttura spaziale $N$-dimensionale:} Rappresenta la scelta ottimale se il problema ha una forte connotazione geometrica e i processi devono scambiare dati prevalentemente con i propri vicini di casa immediati (es. risoluzione di equazioni a derivate parziali via differenze finite, simulazioni di fluidodinamica, automi cellulari o elaborazione di immagini distribuiti).
+        \item \textbf{Gestione semplificata dei confini:} Consente di scrivere codice lineare ed elegante eliminando una fitta giungla di costrutti condizionali (\texttt{if}). Grazie all'uso della costante \texttt{MPI\_PROC\_NULL}, MPI ignora in modo trasparente e sicuro i messaggi inviati oltre i bordi di una griglia non periodica.
+    \end{itemize}
+
+    \item \textbf{Quando NON utilizzare strutture personalizzate}
+    \begin{itemize}
+        \item \textbf{Assenza di relazioni geometriche o di gruppo:} Se i processi comunicano in modo asimmetrico o se la topologia dei dati non segue uno schema regolare, è preferibile rimanere all'interno di \texttt{MPI\_COMM\_WORLD} utilizzando comunicazioni punto-a-punto (\texttt{MPI\_Send} e \texttt{MPI\_Recv}) dirette.
+        \item \textbf{Problemi a bassa complessità o con pochi processi:} La creazione di nuovi comunicatori e topologie introduce un costo computazionale aggiuntivo in termini di tempo e memoria (\emph{overhead}). Se la comunicazione è banale o i dati scambiati sono minimi, il sovraccarico introdotto dalle funzioni di setup non è giustificato da un reale guadagno in termini di performance o leggibilità.
+    \end{itemize}
+\end{enumerate}

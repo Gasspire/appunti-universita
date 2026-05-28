@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex document"] 1779692615 "document.aux" "document.bbl" "document" 1779692619
+["bibtex document"] 1779892956 "document.aux" "document.bbl" "document" 1779892961
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
   "bibliography.bib" 0 -1 0 ""
-  "document.aux" 1779692619 17258 d89b2acc890690cb256ffba91fdc3b08 "pdflatex"
+  "document.aux" 1779892960 18995 cde00c2f0b8bf6f48651f0bacc47250a "pdflatex"
   (generated)
   "document.bbl"
   "document.blg"
-["pdflatex"] 1779692615 "/home/dave/appunti-universita/Secondo Semestre/principi_prog_parallela/Appunti/document.tex" "document.pdf" "document" 1779692619
+["pdflatex"] 1779892956 "/home/dave/appunti-universita/Secondo Semestre/principi_prog_parallela/Appunti/document.tex" "document.pdf" "document" 1779892961
   "/etc/texmf/web2c/texmf.cnf" 1777125874 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1777185002 14040 d559b8242501fdc226295c13e27858a2 ""
   "/home/dave/appunti-universita/Secondo Semestre/principi_prog_parallela/Appunti/document.tex" 1778834956 1841 34c19bd03dc0130a4bc3d4fca8d7badc ""
@@ -167,6 +167,12 @@
   "Images/cap_7/pipeline_compilazione.png" 1778769937 20872 ac52565e06f83bebb63ac208dc91cc8d ""
   "Images/cap_8/anatomia.png" 1778834848 247761 a2f7025cc7f5379b4194f1b0bf7cc66b ""
   "Images/cap_8/derivati.png" 1778834843 212840 af4cdf3ea3aa25b2159b87ebe8f8c88f ""
+  "Images/cap_8/esempio_dims.png" 1779892811 76421 b80a4ab8b1af901f7393c3d69b4012ec ""
+  "Images/cap_8/esempio_split.png" 1779889951 47848 55ddfbe8874d769df0c5314efd3b5852 ""
+  "Images/cap_8/firma_cart_create.png" 1779891348 64483 22c65aabdd8762877d17d4ec27151ec1 ""
+  "Images/cap_8/firma_dims_create.png" 1779892749 32001 d2c720c05d442db0eb135ba53b92ea0e ""
+  "Images/cap_8/firma_shift.png" 1779891747 43884 dd8387bb92b9103f4b37e6a388cbe093 ""
+  "Images/cap_8/firma_split.png" 1779889610 35342 bbece8a2a130c4417032129a95c29124 ""
   "Images/cap_8/isend_irecv.png" 1779691200 101483 5d4ae1cfbaa0b0a9b3e674edf800b55b ""
   "Images/cap_8/mpi_send_recv.png" 1779690538 165878 c7408780a3d1a4abcca4e8eb295455f7 ""
   "Images/cap_8/pattern_firma_probe.png" 1779691887 121307 0f7c44e8cc3b01c6ebbb378d5c77a313 ""
@@ -178,11 +184,11 @@
   "Images/intro/metodo_sperimentale.png" 1776833700 105205 b350348009415fea8ec6f80235a349ae ""
   "Images/intro/performance_engineering.png" 1776833700 466856 673f95310d40b9af5b2024cc5cca12d3 ""
   "Images/university_logo.png" 1776833700 5102 ae18fdab7c5af961bf5f27a3bf5fc7bd ""
-  "document.aux" 1779692619 17258 d89b2acc890690cb256ffba91fdc3b08 "pdflatex"
+  "document.aux" 1779892960 18995 cde00c2f0b8bf6f48651f0bacc47250a "pdflatex"
   "document.bbl" 0 -1 0 "bibtex document"
-  "document.out" 1779692619 22674 9064dfb09f38d5a29718996d251b2661 "pdflatex"
+  "document.out" 1779892960 25557 708b4718465d61a15035ea1e10b7f70b "pdflatex"
   "document.tex" 1778834956 1841 34c19bd03dc0130a4bc3d4fca8d7badc ""
-  "document.toc" 1779692619 10768 a9fde5699ac149ba6bfb734a9671aaf8 "pdflatex"
+  "document.toc" 1779892960 12050 882d65ab044c86a934bfddc2ab1103d7 "pdflatex"
   "parts/capitolo_0.tex" 1776833700 7161 5c4cd09a89ca0e58b26660fa6d0cf0af ""
   "parts/capitolo_1.tex" 1778406761 12511 0c4cf5504b4c247a61980dfb13dade74 ""
   "parts/capitolo_2.tex" 1776833700 15558 0980aa933db487be9f6b8bbeac6872fe ""
@@ -191,7 +197,7 @@
   "parts/capitolo_5.tex" 1776833700 7744 ec7e11d73dac236886debeba7711de19 ""
   "parts/capitolo_6.tex" 1778509152 79626 86f275d23c2c68ee3a2e0f6bf44948d5 ""
   "parts/capitolo_7.tex" 1778775781 25119 0fc5c0d490999f02fb41ab77d61c583e ""
-  "parts/capitolo_8.tex" 1779692610 13753 0dcc2d05d65238c481d9e6d314d04148 ""
+  "parts/capitolo_8.tex" 1779892952 36749 7cc6f44054b6b85ba44107c4f435401b ""
   "parts/frontespizio.tex" 1776833700 1005 420f5b96419da662bc463616306fb98e ""
   (generated)
   "document.aux"
