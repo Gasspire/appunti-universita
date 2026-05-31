@@ -241,7 +241,7 @@ Questo problema non si presenta con i messaggi di piccole dimensioni ma si prese
 Per risolvere in modo sicuro lo scambio simmetrico di messaggi, si può utilizzare la funzione \texttt{MPI\_Sendrecv}, che garantisce che l'invio e la ricezione avvengano in modo protetto. Indipendentemente dallo stato dei buffer di sistema o dalle dimensioni (anche gigantesche) dei messaggi, il runtime di MPI orchestra internamente i flussi di dati prevenendo qualsiasi rischio di deadlock. Di questa funzione ne esistono due varianti principali:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/cap_8/mpi_send_recv.png}
+    \includegraphics[width=1\linewidth]{Images/cap_8/mpi_send_recv.png}
 \end{figure}
 
 \subsection{Comunicazioni non bloccanti}
@@ -250,7 +250,7 @@ Il limite principale delle comunicazioni bloccanti è l'attesa inattiva: il proc
 Per ovviare a questo problema si introducono le comunicazioni non bloccanti, tramite le funzioni \texttt{MPI\_Isend} e \texttt{MPI\_Irecv} (dove la \textit{I} sta per \textit{Immediate}):
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/cap_8/isend_irecv.png}
+    \includegraphics[width=1\linewidth]{Images/cap_8/isend_irecv.png}
 \end{figure} 
 
 Utilizzando queste funzioni, il processo avvia la comunicazione e riprende immediatamente l'esecuzione, permettendo di sovrapporre il trasferimento dei dati al tempo di calcolo (\textit{computation-communication overlap}). Il processo si metterà in attesa esplicita solo nel momento in cui sarà strettamente necessario utilizzare i dati ricevuti (o riutilizzare il buffer di invio). Questo si ottiene tramite la funzione \texttt{MPI\_Wait}, che forza il processo a fermarsi finché la specifica operazione non è conclusa.
@@ -260,19 +260,19 @@ Utilizzando queste funzioni, il processo avvia la comunicazione e riprende immed
 Il pattern corretto e tipico da applicare è il seguente:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/cap_8/pattern_isend_irecv.png}
+    \includegraphics[width=1\linewidth]{Images/cap_8/pattern_isend_irecv.png}
 \end{figure} 
 
 Un'altra situazione comune è non conoscere a priori la lunghezza del messaggio in arrivo. Per gestire questa incertezza, esiste la funzione \texttt{MPI\_Probe} (e la sua variante non bloccante \texttt{MPI\_Iprobe}). Queste funzioni si limitano a ispezionare la coda dei messaggi in arrivo senza effettivamente estrarli, permettendoci di leggerne i metadati (come la dimensione) per allocare dinamicamente i buffer corretti prima di chiamare la \textit{Receive}:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/cap_8/pattern_firma_probe.png}
+    \includegraphics[width=1\linewidth]{Images/cap_8/pattern_firma_probe.png}
 \end{figure} 
 
 Infine, come accennato, le comunicazioni non bloccanti necessitano sempre di primitive di sincronizzazione (\textit{wait}) per garantire il corretto completamento delle operazioni ed evitare perdite di memoria. Oltre alla prima \texttt{MPI\_Wait} analizzata, esistono altre comode varianti per gestire array di richieste:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/cap_8/waitall_waitany.png}
+    \includegraphics[width=1\linewidth]{Images/cap_8/waitall_waitany.png}
 \end{figure}
 
 \subsection{Linee guida per la scelta: Bloccanti vs. Non-Bloccanti}
@@ -294,6 +294,63 @@ Le funzioni non bloccanti non rappresentano sempre la scelta migliore, poiché i
 \end{itemize}
 
 \textbf{Regola d'oro:} È sempre buona norma iniziare lo sviluppo implementando una logica lineare e robusta con le funzioni \textbf{bloccanti}. Solo successivamente si esegue la profilazione del codice (\textit{profiling}), passando alle varianti \textbf{non bloccanti} esclusivamente nei colli di bottiglia dove l'attesa di comunicazione domina nettamente sul tempo di calcolo.
+
+\section{Comunicazioni Collettive in MPI}
+
+Le operazioni collettive si differenziano dalle comunicazioni point-to-point (che sono selettive e coinvolgono solo un mittente e un destinatario). Le comunicazioni collettive coinvolgono obbligatoriamente \textbf{TUTTI} i processi appartenenti a un determinato \textit{communicator}. 
+
+Una caratteristica cruciale di queste operazioni è che sono \textbf{sincronizzanti}: tutti i processi devono raggiungere il punto della chiamata nel codice prima che l'esecuzione possa procedere regolarmente.
+
+\textbf{NOTA - ERRORE COMUNE:} MPI\_Bcast dentro un if. Se rank 0 chiama Bcast e rank 1 non lo chiama, il programma si blocca indefinitamente.
+
+\subsection{Operazioni di Distribuzione e Raccolta}
+
+\begin{description}
+    \item[\textbf{Broadcast (\texttt{MPI\_Bcast})}] 
+    Permette al processo \textit{root} di distribuire (copiare) un dato o un array a tutti gli altri processi del comunicatore. L'operazione è altamente ottimizzata e avviene in tempo $O(\log P)$ tramite un algoritmo ad albero binario. Tutti i processi devono invocare la funzione passando gli stessi identici parametri.
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{Images/cap_8/bcast.png}
+    \end{figure}
+    
+    \item[\textbf{Scatter (\texttt{MPI\_Scatter})}] 
+    A differenza del broadcast che invia a tutti la stessa copia del dato, lo scatter divide un array residente sul \textit{root} in parti (chunk) di dimensioni uguali e distribuisce un frammento diverso a ciascun processo.
+    
+    \item[\textbf{Gather (\texttt{MPI\_Gather})}] 
+    È l'operazione speculare allo scatter. Raccoglie i chunk di dati dai vari processi e li concatena in un unico array sul processo \textit{root}, rispettando l'ordine dei rank.
+\end{description}
+
+\noindent
+\textit{Nota architetturale:} La sequenza \texttt{Scatter} $\rightarrow$ calcolo locale $\rightarrow$ \texttt{Gather} costituisce il \textbf{pattern parallelo fondamentale}: distribuire il problema, elaborare i dati in parallelo e raccogliere i risultati finali.
+
+\subsection{Operazioni di Riduzione (\texttt{MPI\_Reduce} e \texttt{MPI\_Allreduce})}
+Le operazioni di riduzione servono a combinare i dati distribuiti su più processi utilizzando un operatore matematico o logico predefinito (es. \texttt{MPI\_SUM}, \texttt{MPI\_MAX}, \texttt{MPI\_MIN}, \texttt{MPI\_PROD}). Tali operatori sono commutativi e associativi.
+
+\begin{description}
+    \item[\textbf{Reduce standard (\texttt{MPI\_Reduce})}] 
+    Applica l'operatore ai valori forniti da tutti i processi, ma deposita il risultato finale \textbf{esclusivamente} nel buffer di ricezione (\texttt{recvbuf}) del processo \textit{root}. Sui processi non-root, il buffer di ricezione viene ignorato.
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{Images/cap_8/reduce.png}
+    \end{figure}
+    
+    \item[\textbf{Allreduce (\texttt{MPI\_Allreduce})}] 
+    Esegue la medesima operazione logica della \texttt{Reduce}, ma il risultato finale viene distribuito a \textbf{TUTTI} i processi del comunicatore. Di conseguenza, la firma della funzione non prevede il parametro \texttt{root}.
+    È fondamentale utilizzarla in scenari in cui tutti i processi devono prendere una decisione basata su un dato globale, come nel caso di controlli di convergenza o normalizzazioni. 
+\end{description}
+
+\begin{framed}
+\noindent
+\textbf{Regole Pratiche ed Errori Comuni (Deadlock e Inefficienze)}
+Le collettive hanno una semantica molto rigida. Ignorare queste regole porta a blocchi o risultati errati:
+
+\begin{itemize}
+    \item \textbf{Collettiva dentro un costrutto condizionale (\texttt{if}):} È l'errore più comune. Inserire una chiamata come \texttt{MPI\_Bcast} o \texttt{MPI\_Reduce} all'interno di un \texttt{if (rank == 0)} fa sì che gli altri processi non partecipino mai all'operazione, causando un \textbf{deadlock} (blocco indefinito) dell'intero programma.
+    \item \textbf{Leggere il buffer di ricezione su processi non-root:} In una \texttt{MPI\_Reduce}, cercare di leggere il \texttt{recvbuf} su processi con rank diverso dal root restituirà solo "spazzatura" (valori di memoria indefiniti).
+    \item \textbf{Simulare Allreduce con Reduce + Bcast:} Scrivere codice che esegue una \texttt{MPI\_Reduce} sul root seguita da una \texttt{MPI\_Bcast} per diffondere il risultato è una pratica estremamente \textbf{inefficiente}. Lo standard raccomanda di utilizzare direttamente \texttt{MPI\_Allreduce}, che è ottimizzata internamente per questo scopo.
+\end{itemize}
+\end{framed}
 
 \section{Comunicatori}
 La slide definisce il comunicatore come un gruppo di processi con un contesto di comunicazione isolato. In genere, all'avvio di un programma MPI esiste un unico comunicatore chiamato \texttt{MPI\_COMM\_WORLD} e questo include tutti i processi che sono stati lanciati. Facendo una Send o una Recv usando Comm world stiamo mandando o ricevendo il messaggio a tutti i possibili processi.
@@ -332,14 +389,14 @@ MPI gestisce in automatico tre tipi di comunicatori:
 Per fare questa divisione utilizziamo la funzione \texttt{MPI\_COMM\_SPLIT} che divide i processi di un comunicatore in sottogruppi in base a un parametro color. Processi con lo stesso color finiscono nello stesso nuovo comunicatore.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{Images/cap_8/firma_split.png}
+    \includegraphics[width=1\linewidth]{Images/cap_8/firma_split.png}
 \end{figure}
 È importante ricordare che tutti i processi del communicator originale devono chiamare la split anche se questi vogliono escludersi.
 Inoltre è sempre necessario liberare manualmente la memoria del comunicatore mediante la \texttt{MPI\_COMM\_FREE}.
 Immaginiamo il seguente codice:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/cap_8/esempio_split.png}
+    \includegraphics[width=1\linewidth]{Images/cap_8/esempio_split.png}
 \end{figure}
 Su 8 processi i valori saranno:
 \begin{itemize}
@@ -352,7 +409,7 @@ Fino ad ora, per MPI i processi erano semplicemente una lista lineare da 0 a $n-
 Per farlo, usiamo la chiamata \texttt{MPI\_Cart\_create} che ha la seguente firma:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/cap_8/firma_cart_create.png}
+    \includegraphics[width=1\linewidth]{Images/cap_8/firma_cart_create.png}
 \end{figure}
 In pratica abbiamo i seguenti parametri:
 \begin{itemize}
@@ -388,7 +445,7 @@ Proprio grazie alla struttura geometrica del problema, possiamo lavorare individ
 Per farlo, usiamo la chiamata \texttt{MPI\_Cart\_create} che ha la seguente firma:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/cap_8/firma_shift.png}
+    \includegraphics[width=1\linewidth]{Images/cap_8/firma_shift.png}
 \end{figure}
 Vediamone un esempio per capire meglio. Vediamone un esempio per capire meglio. Supponiamo di avere \verb|MPI_Cart_shift(cart, 0, +1, &up, &down)|\\
 Se la direzione è 0 (quindi verticale) e lo spostamento è +1 (verso il basso): 
@@ -403,12 +460,12 @@ Infine, un'ultima funzione molto utile è \texttt{MPI\_Dims\_create}. Supponiamo
 La funzione \texttt{MPI\_Dims\_create} risolve proprio questo problema calcolando in automatico le dimensioni ottimali per la griglia in base al numero di processi disponibili a runtime:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/cap_8/firma_dims_create.png}
+    \includegraphics[width=1\linewidth]{Images/cap_8/firma_dims_create.png}
 \end{figure}
 Un esempio è il seguente:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/cap_8/esempio_dims.png}
+    \includegraphics[width=1\linewidth]{Images/cap_8/esempio_dims.png}
 \end{figure}
 
 Quest'ultimo scenario mette a confronto le tre metodologie di gestione dei processi viste finora, definendo i criteri di scelta ottimale in base alla struttura del problema da parallelizzare.

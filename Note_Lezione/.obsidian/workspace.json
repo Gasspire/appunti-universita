@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
+                "file": "Principi/Domande per Esame.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Domande BC per esame basati su Appunti miei e le prove uscite"
+              "title": "Domande per Esame"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "a8eec85064bed8ea",
@@ -185,15 +186,16 @@
   },
   "active": "c71447a882c355e0",
   "lastOpenFiles": [
+    "Blockchain/Lezione 4. Eth.md",
+    "Principi/Domande per Esame.md",
+    "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
     "Blockchain/Immagini/Pasted image 20260527120727.png",
     "Computer Security/26 Maggio.md",
     "Computer Security/Prima e Seconda Lezione GDPR.md",
-    "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
     "Blockchain/Immagini/Pasted image 20260525185038.png",
     "Blockchain/Immagini/Pasted image 20260525185037.png",
     "Blockchain/Immagini/Pasted image 20260525185036.png",
     "Principi/Lezione 25 Maggio.md",
-    "Blockchain/Lezione 4. Eth.md",
     "Random Stuff/Immagini/2020_2.png",
     "Random Stuff/Immagini/Pasted image 20260520180927.png",
     "Random Stuff/Esami BC.md",
@@ -218,7 +220,6 @@
     "Computer Security/Immagini/Pasted image 20260512150336.png",
     "Computer Security/Immagini",
     "Blockchain/Immagini/Pasted image 20260512113335 1.png",
-    "Blockchain/Immagini/Pasted image 20260512113335.png",
     "Teoria dei Grafi/Lezione 12 Maggio.md",
     "Teoria dei Grafi/Rettangoli Latini.md",
     "Teoria dei Grafi/Lezione 8 Maggio.md",
