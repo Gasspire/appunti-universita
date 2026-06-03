@@ -12,18 +12,19 @@
 - [x] Cosa è una Zero Knowledge Proof? Quale è il suo obiettivo? Cosa vuole dimostrare? Come trasformiamo una ZKP in una non interactive Zero Knowledge Proof? Quali sono le proprietà da garantire?
 - [x] Cosa è Zero coin e come funziona? Quali sono le sue fasi e quali i limiti tecnici? Come funzionano gli accumulatori crittografici e quali problemi rimangono?
 - [x] Quali sono i requisiti necessari per un Mining Puzzle?
-- [ ] Come si è provato a creare puzzle resistenti agli ASIC?
-- [ ] Come funziona Bitcoin Script? In che modo è limitato? Come funziona il meccanismo di scriptSig e scriptPubKey
-- [ ] Cosa è P2SH e come funzionano i micro pagamenti?
-- [ ] Quale sarebbe la differenza tra Full Node e Light Node?
-- [ ] Cosa è il Gossip Protocol?
-- [ ] Cosa è un Wallet? Quale è la differenza tra hot e cold storage? Cosa sarebbe il processo di firma Air-Gapped?
-- [ ] Cosa è un HD wallet?
-- [ ] Come funziona il secret sharing? e come si realizzano le firme?
+- [x] Come si è provato a creare puzzle resistenti agli ASIC?
+- [x] Come funziona Scrypt?
+- [x] Cosa è Bite una "carta prepagata" o una caparra che A ha messo a garanzia per pagare il servizio di B a poco a poco. Vediamo ecoin Script? In che modo è limitato? Come funziona il meccanismo di scriptSig e scriptPubKey
+- [x] Cosa è P2SH e come funzionano i micro pagamenti?
+- [x] Quale sarebbe la differenza tra Full Node e Light Node?
+- [x] Cosa è il Gossip Protocol?
+- [x] Cosa è un Wallet? Quale è la differenza tra hot e cold storage? Cosa sarebbe il processo di firma Air-Gapped?
+- [x] Cosa è un HD wallet?
+- [x] Come funziona il secret sharing? e come si realizzano le firme?
 
 
 Migliorare nelle risposte:
 - Uso di termini specifici.
 - Aggiunta di qualche formula.
 - Maggiore fluidità nelle risposte.
- this is a task -
+-this is a task -
