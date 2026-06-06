@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  29 MAY 2026 16:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.4.25)  5 JUN 2026 14:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -390,7 +390,7 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count309
  (./parts/frontespizio.tex
-<Images/university_logo.png, id=510, 106.3975pt x 112.42pt>
+<Images/university_logo.png, id=578, 106.3975pt x 112.42pt>
 File: Images/university_logo.png Graphic file (type png)
 <use Images/university_logo.png>
 Package pdftex.def Info: Images/university_logo.png  used on input line 3.
@@ -401,7 +401,7 @@ Package pdftex.def Info: Images/university_logo.png  used on input line 3.
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Images/university_logo.png>]) (./document.tocpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 ...Ottimizzazione Single-Core}{32}{chapter.4}
+l.32 ...Ottimizzazione Single-Core}{33}{chapter.4}
                                                   % [1
 
 ]
@@ -423,66 +423,66 @@ Overfull \hbox (14.39854pt too wide) in paragraph at lines 126--126
  [][] [][]\OT1/cmr/m/n/12 Operazioni di Ri-du-zio-ne (\OT1/pcr/m/n/12 MPI[]Reduce \OT1/cmr/m/n/12 e \OT1/pcr/m/n/12 MPI[]Allreduce\OT1/cmr/m/n/12 )[] []  
  []
 
-)
+[4])
 \tf@toc=\write4
 \openout4 = `document.toc'.
 
- (./parts/capitolo_0.tex [4] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
+ (./parts/capitolo_0.tex [5] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-<Images/intro/metodo_sperimentale.png, id=675, 700.11563pt x 233.37187pt>
+<Images/intro/metodo_sperimentale.png, id=765, 700.11563pt x 233.37187pt>
 File: Images/intro/metodo_sperimentale.png Graphic file (type png)
 <use Images/intro/metodo_sperimentale.png>
 Package pdftex.def Info: Images/intro/metodo_sperimentale.png  used on input line 9.
 (pdftex.def)             Requested size: 390.0pt x 130.00365pt.
  (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-) [5
+) [6
 
  <./Images/intro/metodo_sperimentale.png>]
-<Images/intro/performance_engineering.png, id=686, 1248.16313pt x 557.83406pt>
+<Images/intro/performance_engineering.png, id=776, 1248.16313pt x 557.83406pt>
 File: Images/intro/performance_engineering.png Graphic file (type png)
 <use Images/intro/performance_engineering.png>
 Package pdftex.def Info: Images/intro/performance_engineering.png  used on input line 41.
 (pdftex.def)             Requested size: 331.50238pt x 148.14876pt.
- [6] [7 <./Images/intro/performance_engineering.png>]) (./parts/capitolo_1.tex [8]
+ [7] [8 <./Images/intro/performance_engineering.png>]) (./parts/capitolo_1.tex [9]
 Capitolo 1.
-<Images/cap_1/modelli_vs_real.png, id=709, 841.64438pt x 390.70969pt>
+<Images/cap_1/modelli_vs_real.png, id=798, 841.64438pt x 390.70969pt>
 File: Images/cap_1/modelli_vs_real.png Graphic file (type png)
 <use Images/cap_1/modelli_vs_real.png>
 Package pdftex.def Info: Images/cap_1/modelli_vs_real.png  used on input line 12.
 (pdftex.def)             Requested size: 331.50238pt x 153.89044pt.
-[9
+[10
 
  <./Images/cap_1/modelli_vs_real.png>]
-<Images/cap_1/gerarchia_di_memoria.png, id=716, 715.67375pt x 465.74pt>
+<Images/cap_1/gerarchia_di_memoria.png, id=805, 715.67375pt x 465.74pt>
 File: Images/cap_1/gerarchia_di_memoria.png Graphic file (type png)
 <use Images/cap_1/gerarchia_di_memoria.png>
 Package pdftex.def Info: Images/cap_1/gerarchia_di_memoria.png  used on input line 33.
 (pdftex.def)             Requested size: 331.50238pt x 215.73538pt.
- [10 <./Images/cap_1/gerarchia_di_memoria.png (PNG copy)>]
-<Images/cap_1/accesso_indiretto.png, id=722, 587.19376pt x 156.585pt>
+ [11 <./Images/cap_1/gerarchia_di_memoria.png (PNG copy)>]
+<Images/cap_1/accesso_indiretto.png, id=811, 587.19376pt x 156.585pt>
 File: Images/cap_1/accesso_indiretto.png Graphic file (type png)
 <use Images/cap_1/accesso_indiretto.png>
 Package pdftex.def Info: Images/cap_1/accesso_indiretto.png  used on input line 43.
 (pdftex.def)             Requested size: 234.00238pt x 62.40112pt.
- [11 <./Images/cap_1/accesso_indiretto.png>] [12]
-<Images/cap_1/multicore.png, id=734, 536.75531pt x 264.99pt>
+ [12 <./Images/cap_1/accesso_indiretto.png>] [13]
+<Images/cap_1/multicore.png, id=823, 536.75531pt x 264.99pt>
 File: Images/cap_1/multicore.png Graphic file (type png)
 <use Images/cap_1/multicore.png>
 Package pdftex.def Info: Images/cap_1/multicore.png  used on input line 91.
 (pdftex.def)             Requested size: 234.00238pt x 115.52444pt.
- [13 <./Images/cap_1/multicore.png>] [14] [15]) (./parts/capitolo_2.tex [16]
+ [14 <./Images/cap_1/multicore.png>] [15] [16]) (./parts/capitolo_2.tex [17]
 Capitolo 2.
-<Images/cap_1/stack_HPC.png, id=753, 499.8675pt x 231.86626pt>
+<Images/cap_1/stack_HPC.png, id=843, 499.8675pt x 231.86626pt>
 File: Images/cap_1/stack_HPC.png Graphic file (type png)
 <use Images/cap_1/stack_HPC.png>
 Package pdftex.def Info: Images/cap_1/stack_HPC.png  used on input line 20.
 (pdftex.def)             Requested size: 331.50238pt x 153.77516pt.
-[17
+[18
 
-] [18 <./Images/cap_1/stack_HPC.png>]
-<Images/cap_1/login_vs_compute.png, id=765, 529.98pt x 233.37187pt>
+] [19 <./Images/cap_1/stack_HPC.png>]
+<Images/cap_1/login_vs_compute.png, id=855, 529.98pt x 233.37187pt>
 File: Images/cap_1/login_vs_compute.png Graphic file (type png)
 <use Images/cap_1/login_vs_compute.png>
 Package pdftex.def Info: Images/cap_1/login_vs_compute.png  used on input line 42.
@@ -490,76 +490,76 @@ Package pdftex.def Info: Images/cap_1/login_vs_compute.png  used on input line 4
 LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 50.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [19 <./Images/cap_1/login_vs_compute.png>] [20] [21] [22] [23]) (./parts/capitolo_3.tex [24]
+) [20 <./Images/cap_1/login_vs_compute.png>] [21] [22] [23] [24]) (./parts/capitolo_3.tex [25]
 Capitolo 3.
-[25
+[26
 
 ]
-<Images/cap_3/clock_time.png, id=805, 1070.49937pt x 353.82187pt>
+<Images/cap_3/clock_time.png, id=894, 1070.49937pt x 353.82187pt>
 File: Images/cap_3/clock_time.png Graphic file (type png)
 <use Images/cap_3/clock_time.png>
 Package pdftex.def Info: Images/cap_3/clock_time.png  used on input line 28.
 (pdftex.def)             Requested size: 292.5pt x 96.67773pt.
- [26 <./Images/cap_3/clock_time.png>] [27] [28] [29]
+ [27 <./Images/cap_3/clock_time.png>] [28] [29] [30]
 Overfull \hbox (5.15884pt too wide) in paragraph at lines 102--103
 \OT1/cmr/m/n/12 Esistono an-che di-ver-si mo-del-li ti-pi-ci di com-pi-la-zio-ne co-me, ad esem-pio \OT1/cmr/bx/n/12 fbrach-
  []
 
-<Images/cap_3/aliasing.png, id=831, 435.12563pt x 167.87718pt>
+<Images/cap_3/aliasing.png, id=921, 435.12563pt x 167.87718pt>
 File: Images/cap_3/aliasing.png Graphic file (type png)
 <use Images/cap_3/aliasing.png>
 Package pdftex.def Info: Images/cap_3/aliasing.png  used on input line 122.
 (pdftex.def)             Requested size: 292.5pt x 112.85623pt.
-[30]) (./parts/capitolo_4.tex [31 <./Images/cap_3/aliasing.png>]
+[31]) (./parts/capitolo_4.tex [32 <./Images/cap_3/aliasing.png>]
 Capitolo 4.
-[32
+[33
 
-] [33]
-<Images/cap_4/cpu_superscalari.png, id=863, 1132.23pt x 574.39594pt>
+] [34]
+<Images/cap_4/cpu_superscalari.png, id=953, 1132.23pt x 574.39594pt>
 File: Images/cap_4/cpu_superscalari.png Graphic file (type png)
 <use Images/cap_4/cpu_superscalari.png>
 Package pdftex.def Info: Images/cap_4/cpu_superscalari.png  used on input line 47.
 (pdftex.def)             Requested size: 272.99881pt x 138.48888pt.
- [34 <./Images/cap_4/cpu_superscalari.png>]
-<Images/cap_4/pipeline_multiple.png, id=870, 1001.24063pt x 439.6425pt>
+ [35 <./Images/cap_4/cpu_superscalari.png>]
+<Images/cap_4/pipeline_multiple.png, id=960, 1001.24063pt x 439.6425pt>
 File: Images/cap_4/pipeline_multiple.png Graphic file (type png)
 <use Images/cap_4/pipeline_multiple.png>
 Package pdftex.def Info: Images/cap_4/pipeline_multiple.png  used on input line 66.
 (pdftex.def)             Requested size: 272.99881pt x 119.87231pt.
- [35 <./Images/cap_4/pipeline_multiple.png>]
+ [36 <./Images/cap_4/pipeline_multiple.png>]
 Overfull \hbox (17.62482pt too wide) in paragraph at lines 86--107
 []$[]$ 
  []
 
-[36] [37]
+[37] [38]
 Overfull \hbox (0.79999pt too wide) in paragraph at lines 190--190
 []            \OT1/pcr/m/n/10 double dz = z[p] - (double)k * Ng_inv + half_size;[] 
  []
 
-[38] [39] [40] [41]
-<Images/cap_4/cache_vs_ram.png, id=906, 1382.16376pt x 465.23813pt>
+[39] [40] [41] [42]
+<Images/cap_4/cache_vs_ram.png, id=996, 1382.16376pt x 465.23813pt>
 File: Images/cap_4/cache_vs_ram.png Graphic file (type png)
 <use Images/cap_4/cache_vs_ram.png>
 Package pdftex.def Info: Images/cap_4/cache_vs_ram.png  used on input line 284.
 (pdftex.def)             Requested size: 272.99881pt x 91.88884pt.
- [42 <./Images/cap_4/cache_vs_ram.png>] [43]
-<Images/cap_4/matrice_in_memo.png, id=922, 1355.8153pt x 481.04718pt>
+ [43 <./Images/cap_4/cache_vs_ram.png>] [44]
+<Images/cap_4/matrice_in_memo.png, id=1011, 1355.8153pt x 481.04718pt>
 File: Images/cap_4/matrice_in_memo.png Graphic file (type png)
 <use Images/cap_4/matrice_in_memo.png>
 Package pdftex.def Info: Images/cap_4/matrice_in_memo.png  used on input line 341.
 (pdftex.def)             Requested size: 272.99881pt x 96.86101pt.
-<Images/cap_4/lettura_colonne.png, id=923, 1225.57875pt x 153.57375pt>
+<Images/cap_4/lettura_colonne.png, id=1012, 1225.57875pt x 153.57375pt>
 File: Images/cap_4/lettura_colonne.png Graphic file (type png)
 <use Images/cap_4/lettura_colonne.png>
 Package pdftex.def Info: Images/cap_4/lettura_colonne.png  used on input line 346.
 (pdftex.def)             Requested size: 195.0pt x 24.43404pt.
- [44 <./Images/cap_4/matrice_in_memo.png> <./Images/cap_4/lettura_colonne.png>]
-<Images/cap_4/lettura_blocchi.png, id=932, 307.90031pt x 280.04625pt>
+ [45 <./Images/cap_4/matrice_in_memo.png> <./Images/cap_4/lettura_colonne.png>]
+<Images/cap_4/lettura_blocchi.png, id=1021, 307.90031pt x 280.04625pt>
 File: Images/cap_4/lettura_blocchi.png Graphic file (type png)
 <use Images/cap_4/lettura_blocchi.png>
 Package pdftex.def Info: Images/cap_4/lettura_blocchi.png  used on input line 384.
 (pdftex.def)             Requested size: 97.5pt x 88.67653pt.
- [45] [46 <./Images/cap_4/lettura_blocchi.png>]
+ [46] [47 <./Images/cap_4/lettura_blocchi.png>]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 420--420
 []    \OT1/pcr/m/n/10 my_node *next_node;    // HOT: Ora []e adiacente alla chiave![] 
  []
@@ -569,7 +569,7 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 420--420
 []    \OT1/pcr/m/n/10 struct my_data *payload; // COLD: Puntatore ai dati esterni[] 
  []
 
-[47] [48]
+[48] [49]
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 485--485
 []\OT1/pcr/m/n/10 // Versione NON ottimizzata: il test viene ripetuto 'top' volte[] 
  []
@@ -579,7 +579,7 @@ Overfull \hbox (0.79999pt too wide) in paragraph at lines 485--485
 []\OT1/pcr/m/n/10 // Versione OTTIMIZZATA: il test viene eseguito UNA sola volta[] 
  []
 
-[49] [50] [51]
+[50] [51] [52]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 598.
@@ -592,7 +592,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 598.
 
-[52] [53]
+[53] [54]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 662.
@@ -609,36 +609,36 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 662.
 
-[54]) (./parts/capitolo_5.tex [55]
+[55]) (./parts/capitolo_5.tex [56]
 Capitolo 5.
-[56
+[57
 
-] [57] [58] [59]) (./parts/capitolo_6.tex [60]
+] [58] [59] [60]) (./parts/capitolo_6.tex [61]
 Capitolo 6.
-<Images/cap_6/processo.png, id=1023, 304.13625pt x 170.88844pt>
+<Images/cap_6/processo.png, id=1113, 304.13625pt x 170.88844pt>
 File: Images/cap_6/processo.png Graphic file (type png)
 <use Images/cap_6/processo.png>
 Package pdftex.def Info: Images/cap_6/processo.png  used on input line 8.
 (pdftex.def)             Requested size: 195.0pt x 109.569pt.
-<Images/cap_6/processo_thread.png, id=1024, 332.74312pt x 278.54062pt>
+<Images/cap_6/processo_thread.png, id=1114, 332.74312pt x 278.54062pt>
 File: Images/cap_6/processo_thread.png Graphic file (type png)
 <use Images/cap_6/processo_thread.png>
 Package pdftex.def Info: Images/cap_6/processo_thread.png  used on input line 14.
 (pdftex.def)             Requested size: 195.0pt x 163.23674pt.
-[61
+[62
 
  <./Images/cap_6/processo.png>]
 Overfull \hbox (12.86453pt too wide) in paragraph at lines 33--34
 []\OT1/cmr/bx/n/12 Direttive del Com-pi-la-to-re\OT1/cmr/m/n/12 : In C/C++ as-su-mo-no la for-ma di \OT1/pcr/m/n/12 #pragma
  []
 
-[62 <./Images/cap_6/processo_thread.png>] [63]
+[63 <./Images/cap_6/processo_thread.png>] [64]
 Overfull \hbox (56.39981pt too wide) in paragraph at lines 69--69
 []    \OT1/pcr/m/n/12 // Codice eseguito in parallelo da tutti i thread del team[] 
  []
 
-[64]
-<Images/cap_6/omp_toolbox.png, id=1049, 584.1825pt x 307.1475pt>
+[65]
+<Images/cap_6/omp_toolbox.png, id=1138, 584.1825pt x 307.1475pt>
 File: Images/cap_6/omp_toolbox.png Graphic file (type png)
 <use Images/cap_6/omp_toolbox.png>
 Package pdftex.def Info: Images/cap_6/omp_toolbox.png  used on input line 90.
@@ -648,7 +648,7 @@ Overfull \hbox (5.60646pt too wide) in paragraph at lines 105--106
 []\OT1/pcr/m/n/12 #pragma omp parallel []some[]clauses[]here[] \OT1/cmr/m/n/12 : Una re-gio-ne pa-
  []
 
-[65 <./Images/cap_6/omp_toolbox.png>]
+[66 <./Images/cap_6/omp_toolbox.png>]
 LaTeX Font Info:    Trying to load font information for OMS+pcr on input line 106.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omspcr.fd
 File: omspcr.fd 
@@ -670,18 +670,18 @@ Overfull \hbox (4.03491pt too wide) in paragraph at lines 108--109
 []\OT1/pcr/m/n/12 #pragma omp sections []some[]clauses[]here[] \OMS/cmsy/m/n/12 f \OT1/pcr/m/n/12 ... \OMS/cmsy/m/n/12 g \OT1/cmr/m/n/12 : Un
  []
 
-<Images/cap_6/thread_space.png, id=1056, 633.86812pt x 338.76563pt>
+<Images/cap_6/thread_space.png, id=1146, 633.86812pt x 338.76563pt>
 File: Images/cap_6/thread_space.png Graphic file (type png)
 <use Images/cap_6/thread_space.png>
 Package pdftex.def Info: Images/cap_6/thread_space.png  used on input line 124.
 (pdftex.def)             Requested size: 272.99881pt x 145.90414pt.
-[66 <./Images/cap_6/thread_space.png>]
+[67 <./Images/cap_6/thread_space.png>]
 Overfull \hbox (13.19983pt too wide) in paragraph at lines 148--148
 []    \OT1/pcr/m/n/12 //forza tutti i thread ad arrivare allo stesso punto[] 
  []
 
-[67]
-<Images/cap_6/esempio_private.png, id=1068, 656.4525pt x 311.66437pt>
+[68]
+<Images/cap_6/esempio_private.png, id=1157, 656.4525pt x 311.66437pt>
 File: Images/cap_6/esempio_private.png Graphic file (type png)
 <use Images/cap_6/esempio_private.png>
 Package pdftex.def Info: Images/cap_6/esempio_private.png  used on input line 167.
@@ -691,17 +691,17 @@ Overfull \hbox (14.09354pt too wide) in paragraph at lines 169--170
 []\OT1/cmr/m/n/12 Visto che le va-ria-bi-li \OT1/pcr/m/n/12 private \OT1/cmr/m/n/12 "na-sco-no vuo-te" (non ini-zia-liz-za-te), OpenMP
  []
 
-[68 <./Images/cap_6/esempio_private.png>]
+[69 <./Images/cap_6/esempio_private.png>]
 Overfull \hbox (30.11119pt too wide) in paragraph at lines 186--187
 []\OT1/cmr/bx/n/12 Clausola del-la di-ret-ti-va\OT1/cmr/m/n/12 : \OT1/pcr/m/n/12 #pragma omp parallel num[]threads(n) 
  []
 
-[69]
+[70]
 Overfull \hbox (20.90071pt too wide) in paragraph at lines 217--218
 []\OT1/cmr/m/it/12 Comportamento: \OT1/cmr/m/n/12 La lo-gi-ca di sin-cro-niz-za-zio-ne ^^Re iden-ti-ca a \OT1/pcr/m/n/12 critical\OT1/cmr/m/n/12 .
  []
 
-[70] [71]
+[71] [72]
 Overfull \hbox (42.57452pt too wide) in paragraph at lines 279--279
  []\OT1/pcr/m/n/12 // val ottiene il valore VECCHIO, mem viene incrementato[] 
  []
@@ -711,7 +711,7 @@ Overfull \hbox (28.17453pt too wide) in paragraph at lines 279--279
  []\OT1/pcr/m/n/12 // val ottiene il valore NUOVO, mem viene incrementato[] 
  []
 
-[72] [73]
+[73] [74]
 Overfull \hbox (77.9998pt too wide) in paragraph at lines 311--311
 []        \OT1/pcr/m/n/12 printf( "greetings from thread num %d\n", my_thread_id );[] 
  []
@@ -721,17 +721,17 @@ Overfull \hbox (106.79979pt too wide) in paragraph at lines 323--323
 []            \OT1/pcr/m/n/12 printf( "greetings from thread num %d\n", my_thread_id );[] 
  []
 
-[74]
+[75]
 Overfull \hbox (128.39978pt too wide) in paragraph at lines 339--339
 []                \OT1/pcr/m/n/12 printf( "greetings from thread num %d\n", my_thread_id);[] 
  []
 
-[75]
+[76]
 Overfull \hbox (77.9998pt too wide) in paragraph at lines 362--362
 []        \OT1/pcr/m/n/12 printf( "greetings from thread num %d\n", my_thread_id );[] 
  []
 
-[76] [77]
+[77] [78]
 Overfull \hbox (7.74442pt too wide) in paragraph at lines 411--412
 \OT1/cmr/m/n/12 read nel-la re-gio-ne pa-ral-le-la suc-ces-si-va, sen-za una clau-so-la \OT1/pcr/m/n/12 num[]threads\OT1/cmr/m/n/12 . 
  []
@@ -741,17 +741,17 @@ Overfull \hbox (1.6918pt too wide) in paragraph at lines 418--419
 \OT1/cmr/m/n/12 piat-ta-for-me ete-ro-ge-nee (CPU, GPU, co-pro-ces-so-ri) a par-ti-re da OpenMP
  []
 
-[78]
+[79]
 Overfull \hbox (5.92204pt too wide) in paragraph at lines 460--461
 []\OT1/pcr/b/n/12 static\OT1/cmr/m/n/12 : L'i-te-ra-zio-ne ^^Re sud-di-vi-sa in bloc-chi di di-men-sio-ne \OT1/pcr/m/n/12 chunk-size
  []
 
-[79]
+[80]
 Overfull \hbox (36.03937pt too wide) in paragraph at lines 472--479
  [][] 
  []
 
-[80]
+[81]
 Overfull \hbox (107.3745pt too wide) in paragraph at lines 500--500
  []\OT1/pcr/m/n/12 // Ogni thread inizia con una copia privata di "offset" pari a 10[] 
  []
@@ -766,7 +766,7 @@ Overfull \hbox (28.17453pt too wide) in paragraph at lines 511--511
  []\OT1/pcr/m/n/12 // Qui final_mark ha il valore dell'iterazione i = N-1[] 
  []
 
-[81]
+[82]
 Overfull \hbox (128.39978pt too wide) in paragraph at lines 537--537
 []\OT1/pcr/m/n/12 // Fonde i due cicli for per esporre un maggiore livello di parallelismo[] 
  []
@@ -776,12 +776,12 @@ Overfull \hbox (121.19978pt too wide) in paragraph at lines 556--556
 []    \OT1/pcr/m/n/12 // I thread che finiscono questo ciclo passano subito al successivo[] 
  []
 
-[82] [83]
+[83] [84]
 Overfull \hbox (56.39981pt too wide) in paragraph at lines 614--614
 []    \OT1/pcr/m/n/12 sum[me] += a[i]; // No data race, ma genera false sharing![] 
  []
 
-[84]
+[85]
 Overfull \hbox (13.19983pt too wide) in paragraph at lines 651--651
 []\OT1/pcr/m/n/12 // Creiamo spazio vuoto tra gli elementi (es. fattore 8)[] 
  []
@@ -791,7 +791,7 @@ Overfull \hbox (20.39983pt too wide) in paragraph at lines 651--651
 []    \OT1/pcr/m/n/12 // Ora sum[0] e sum[8] sono su cache lines differenti[] 
  []
 
-[85]
+[86]
 Overfull \hbox (41.99982pt too wide) in paragraph at lines 677--677
 []    \OT1/pcr/m/n/12 // Corretto: divide il ciclo tra i thread gia' esistenti[] 
  []
@@ -806,7 +806,7 @@ Overfull \hbox (92.3998pt too wide) in paragraph at lines 693--693
 []    \OT1/pcr/m/n/12 // Errato/Pericoloso: ogni thread tenta di creare un nuovo pool[] 
  []
 
-[86]
+[87]
 Overfull \hbox (34.79982pt too wide) in paragraph at lines 720--720
 []    \OT1/pcr/m/n/12 fX = fH * ((double)i + 0.5); // Punto medio sull'asse x[] 
  []
@@ -821,7 +821,7 @@ Overfull \hbox (41.99982pt too wide) in paragraph at lines 720--720
 []\OT1/pcr/m/n/12 double pi = fH * fSum; // Area totale = base * somma_altezze[] 
  []
 
-[87]
+[88]
 Overfull \hbox (20.39983pt too wide) in paragraph at lines 750--750
 []\OT1/pcr/m/n/12 #pragma omp parallel for private(fX, i) lastprivate(fSum)[] 
  []
@@ -831,30 +831,30 @@ Overfull \hbox (20.39983pt too wide) in paragraph at lines 763--763
 []\OT1/pcr/m/n/12 #pragma omp parallel for private(fX, i) reduction(+:fSum)[] 
  []
 
-[88] [89]
-<Images/cap_6/distribuzione_core.png, id=1190, 1161.33875pt x 691.58376pt>
+[89] [90]
+<Images/cap_6/distribuzione_core.png, id=1281, 1161.33875pt x 691.58376pt>
 File: Images/cap_6/distribuzione_core.png Graphic file (type png)
 <use Images/cap_6/distribuzione_core.png>
 Package pdftex.def Info: Images/cap_6/distribuzione_core.png  used on input line 796.
 (pdftex.def)             Requested size: 272.99881pt x 162.57497pt.
- [90 <./Images/cap_6/distribuzione_core.png>] [91]
-<Images/cap_6/socket_core_thread.png, id=1204, 1033.8625pt x 449.68pt>
+ [91 <./Images/cap_6/distribuzione_core.png>] [92]
+<Images/cap_6/socket_core_thread.png, id=1294, 1033.8625pt x 449.68pt>
 File: Images/cap_6/socket_core_thread.png Graphic file (type png)
 <use Images/cap_6/socket_core_thread.png>
 Package pdftex.def Info: Images/cap_6/socket_core_thread.png  used on input line 844.
 (pdftex.def)             Requested size: 272.99881pt x 118.73921pt.
-<Images/cap_6/socket_distrib.png, id=1205, 1736.4875pt x 332.24126pt>
+<Images/cap_6/socket_distrib.png, id=1295, 1736.4875pt x 332.24126pt>
 File: Images/cap_6/socket_distrib.png Graphic file (type png)
 <use Images/cap_6/socket_distrib.png>
 Package pdftex.def Info: Images/cap_6/socket_distrib.png  used on input line 864.
 (pdftex.def)             Requested size: 272.99881pt x 52.23195pt.
- [92 <./Images/cap_6/socket_core_thread.png>] [93 <./Images/cap_6/socket_distrib.png>] [94]
+ [93 <./Images/cap_6/socket_core_thread.png>] [94 <./Images/cap_6/socket_distrib.png>] [95]
 Overfull \hbox (16.15204pt too wide) in paragraph at lines 898--899
 \OT1/cmr/m/n/12 th-read vie-ne as-se-gna-to al \OT1/cmr/bx/n/12 pri-mo po-sto \OT1/cmr/m/n/12 del-la pro-pria sotto-partizione.
  []
 
-[95]
-<Images/cap_6/bind_place.png, id=1227, 784.9325pt x 453.695pt>
+[96]
+<Images/cap_6/bind_place.png, id=1318, 784.9325pt x 453.695pt>
 File: Images/cap_6/bind_place.png Graphic file (type png)
 <use Images/cap_6/bind_place.png>
 Package pdftex.def Info: Images/cap_6/bind_place.png  used on input line 912.
@@ -864,7 +864,7 @@ Overfull \hbox (27.8989pt too wide) in paragraph at lines 928--929
 []\OT1/pcr/m/n/12 omp[]get[]place[]proc[]ids(int place[]num, int *ids)\OT1/cmr/m/n/12 : Riem-
  []
 
-[96 <./Images/cap_6/bind_place.png>]
+[97 <./Images/cap_6/bind_place.png>]
 Overfull \hbox (14.46036pt too wide) in paragraph at lines 936--937
 []\OT1/pcr/m/n/12 omp[]get[]place[]proc[]ids(int place[]num, int *ids)\OT1/cmr/m/n/12 :
  []
@@ -879,53 +879,48 @@ Overfull \hbox (151.9052pt too wide) in paragraph at lines 939--940
 []\OT1/pcr/m/n/12 omp[]set[]affinity[]format(const char *format) \OT1/cmr/m/n/12 / \OT1/pcr/m/n/12 omp[]get[]affinity[]format()\OT1/cmr/m/n/12 :
  []
 
-[97]
-<Images/cap_6/esempio_calloc.png, id=1241, 1398.22375pt x 390.45876pt>
+[98]
+<Images/cap_6/esempio_calloc.png, id=1331, 1398.22375pt x 390.45876pt>
 File: Images/cap_6/esempio_calloc.png Graphic file (type png)
 <use Images/cap_6/esempio_calloc.png>
 Package pdftex.def Info: Images/cap_6/esempio_calloc.png  used on input line 956.
 (pdftex.def)             Requested size: 272.99881pt x 76.23149pt.
-<Images/cap_6/esempio_malloc.png, id=1242, 1383.1675pt x 374.39874pt>
+<Images/cap_6/esempio_malloc.png, id=1332, 1383.1675pt x 374.39874pt>
 File: Images/cap_6/esempio_malloc.png Graphic file (type png)
 <use Images/cap_6/esempio_malloc.png>
 Package pdftex.def Info: Images/cap_6/esempio_malloc.png  used on input line 966.
 (pdftex.def)             Requested size: 272.99881pt x 73.8958pt.
- [98 <./Images/cap_6/esempio_calloc.png>] [99 <./Images/cap_6/esempio_malloc.png>] [100]
+ [99 <./Images/cap_6/esempio_calloc.png>] [100 <./Images/cap_6/esempio_malloc.png>] [101]
 Overfull \hbox (13.30402pt too wide) in paragraph at lines 1003--1004
 \OT1/cmr/m/n/12 dei th-read tra-mi-te fun-zio-ni di run-ti-me co-me \OT1/pcr/m/n/12 omp[]display[]affinity()
  []
 
-) (./parts/capitolo_7.tex [101]
+) (./parts/capitolo_7.tex [102]
 Capitolo 7.
-[102
+[103
 
 ]
-<Images/cap_7/pipeline_compilazione.png, id=1279, 1688.3075pt x 97.36375pt>
+<Images/cap_7/pipeline_compilazione.png, id=1368, 1688.3075pt x 97.36375pt>
 File: Images/cap_7/pipeline_compilazione.png Graphic file (type png)
 <use Images/cap_7/pipeline_compilazione.png>
 Package pdftex.def Info: Images/cap_7/pipeline_compilazione.png  used on input line 24.
 (pdftex.def)             Requested size: 272.99881pt x 15.74341pt.
 
 Overfull \hbox (52.92747pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 103
- []
-
-[103 <./Images/cap_7/pipeline_compilazione.png>]
-Overfull \hbox (52.92747pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 104
  []
 
-[104]
-File: Images/cap_3/aliasing.png Graphic file (type png)
-<use Images/cap_3/aliasing.png>
-Package pdftex.def Info: Images/cap_3/aliasing.png  used on input line 80.
-(pdftex.def)             Requested size: 292.5pt x 112.85623pt.
-
+[104 <./Images/cap_7/pipeline_compilazione.png>]
 Overfull \hbox (52.92747pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 105
  []
 
 [105]
+File: Images/cap_3/aliasing.png Graphic file (type png)
+<use Images/cap_3/aliasing.png>
+Package pdftex.def Info: Images/cap_3/aliasing.png  used on input line 80.
+(pdftex.def)             Requested size: 292.5pt x 112.85623pt.
+
 Overfull \hbox (52.92747pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 106
  []
@@ -941,44 +936,39 @@ Overfull \hbox (52.92747pt too wide) has occurred while \output is active
  []
 
 [108]
+Overfull \hbox (52.92747pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 109
+ []
+
+[109]
 Overfull \hbox (22.96019pt too wide) in paragraph at lines 183--184
 []\OT1/cmr/bx/n/12 Kernel SY-SCALL\OT1/cmr/m/n/12 : Que-sto, at-tra-ver-so la chia-ma-ta \OT1/pcr/m/n/12 perf[]event[]open()
  []
 
 
 Overfull \hbox (52.92747pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 109
+\OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 110
  []
 
-[109]
-<Images/cap_7/comandi.png, id=1312, 1204.5pt x 180.675pt>
+[110]
+<Images/cap_7/comandi.png, id=1401, 1204.5pt x 180.675pt>
 File: Images/cap_7/comandi.png Graphic file (type png)
 <use Images/cap_7/comandi.png>
 Package pdftex.def Info: Images/cap_7/comandi.png  used on input line 189.
 (pdftex.def)             Requested size: 195.0pt x 29.24768pt.
 
 Overfull \hbox (52.92747pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 110
- []
-
-[110 <./Images/cap_7/comandi.png>]
-Overfull \hbox (52.92747pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 111
  []
 
-[111]
-Overfull \hbox (21.29779pt too wide) in paragraph at lines 257--258
-[]\OT1/cmr/bx/n/12 Comando\OT1/cmr/m/n/12 : \OT1/pcr/m/n/12 perf record -g --call-graph dwarf ./prog \OT1/cmr/m/n/12 (l'op-
- []
-
-
+[111 <./Images/cap_7/comandi.png>]
 Overfull \hbox (52.92747pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 112
  []
 
 [112]
-Overfull \hbox (69.96596pt too wide) in paragraph at lines 280--281
-\OT1/pcr/m/n/12 <gperftools/profiler.h>\OT1/cmr/m/n/12 ), av-vol-gen-do il co-di-ce tra \OT1/pcr/m/n/12 ProfilerStart()
+Overfull \hbox (21.29779pt too wide) in paragraph at lines 257--258
+[]\OT1/cmr/bx/n/12 Comando\OT1/cmr/m/n/12 : \OT1/pcr/m/n/12 perf record -g --call-graph dwarf ./prog \OT1/cmr/m/n/12 (l'op-
  []
 
 
@@ -986,33 +976,43 @@ Overfull \hbox (52.92747pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 113
  []
 
-[113]) (./parts/capitolo_8.tex
+[113]
+Overfull \hbox (69.96596pt too wide) in paragraph at lines 280--281
+\OT1/pcr/m/n/12 <gperftools/profiler.h>\OT1/cmr/m/n/12 ), av-vol-gen-do il co-di-ce tra \OT1/pcr/m/n/12 ProfilerStart()
+ []
+
+
 Overfull \hbox (52.92747pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 114
  []
 
-[114]
-Capitolo 8.
-[115
+[114]) (./parts/capitolo_8.tex
+Overfull \hbox (52.92747pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 CAPITOLO 7.  TECNICHE DI COMPILAZIONE OTTIMIZZATA E PROFILING \OT1/cmr/m/n/12 115
+ []
 
-] [116]
-<Images/cap_8/primitivi.png, id=1360, 1007.765pt x 406.51875pt>
+[115]
+Capitolo 8.
+[116
+
+] [117]
+<Images/cap_8/primitivi.png, id=1450, 1007.765pt x 406.51875pt>
 File: Images/cap_8/primitivi.png Graphic file (type png)
 <use Images/cap_8/primitivi.png>
 Package pdftex.def Info: Images/cap_8/primitivi.png  used on input line 57.
 (pdftex.def)             Requested size: 350.99762pt x 141.58896pt.
-<Images/cap_8/derivati.png, id=1361, 1017.8025pt x 367.3725pt>
+<Images/cap_8/derivati.png, id=1451, 1017.8025pt x 367.3725pt>
 File: Images/cap_8/derivati.png Graphic file (type png)
 <use Images/cap_8/derivati.png>
 Package pdftex.def Info: Images/cap_8/derivati.png  used on input line 62.
 (pdftex.def)             Requested size: 350.99762pt x 126.69319pt.
-<Images/cap_8/workflow.png, id=1362, 1017.8025pt x 394.47375pt>
+<Images/cap_8/workflow.png, id=1452, 1017.8025pt x 394.47375pt>
 File: Images/cap_8/workflow.png Graphic file (type png)
 <use Images/cap_8/workflow.png>
 Package pdftex.def Info: Images/cap_8/workflow.png  used on input line 67.
 (pdftex.def)             Requested size: 350.99762pt x 136.03941pt.
- [117 <./Images/cap_8/primitivi.png> <./Images/cap_8/derivati.png>]
-<Images/cap_8/anatomia.png, id=1371, 1017.8025pt x 356.33125pt>
+ [118 <./Images/cap_8/primitivi.png> <./Images/cap_8/derivati.png>]
+<Images/cap_8/anatomia.png, id=1461, 1017.8025pt x 356.33125pt>
 File: Images/cap_8/anatomia.png Graphic file (type png)
 <use Images/cap_8/anatomia.png>
 Package pdftex.def Info: Images/cap_8/anatomia.png  used on input line 78.
@@ -1022,17 +1022,17 @@ Overfull \hbox (9.73972pt too wide) in paragraph at lines 81--81
 []\OT1/cmr/bx/n/17.28 Modalit^^Ra di Co-mu-ni-ca-zio-ne Point-to-Point 
  []
 
-<Images/cap_8/send-recive.png, id=1372, 1017.8025pt x 460.72125pt>
+<Images/cap_8/send-recive.png, id=1462, 1017.8025pt x 460.72125pt>
 File: Images/cap_8/send-recive.png Graphic file (type png)
 <use Images/cap_8/send-recive.png>
 Package pdftex.def Info: Images/cap_8/send-recive.png  used on input line 86.
 (pdftex.def)             Requested size: 312.00119pt x 141.23332pt.
-[118 <./Images/cap_8/workflow.png> <./Images/cap_8/anatomia.png>]
+[119 <./Images/cap_8/workflow.png> <./Images/cap_8/anatomia.png>]
 Overfull \hbox (19.08138pt too wide) in paragraph at lines 101--102
 \OT1/cmr/m/n/12 gram-ma-to-re de-ve al-lo-ca-re un buf-fer di me-mo-ria con \OT1/pcr/m/n/12 MPI[]Buffer[]attach\OT1/cmr/m/n/12 .
  []
 
-[119 <./Images/cap_8/send-recive.png>]
+[120 <./Images/cap_8/send-recive.png>]
 Overfull \hbox (42.88336pt too wide) in paragraph at lines 127--127
 []\OT1/cmr/bx/n/14.4 Gestione del-la Ri-ce-zio-ne: \OT1/pcr/b/n/14.4 MPI[]Status \OT1/cmr/bx/n/14.4 e \OT1/pcr/b/n/14.4 MPI[]Get[]count 
  []
@@ -1067,7 +1067,7 @@ Overfull \hbox (27.59982pt too wide) in paragraph at lines 140--140
 []\OT1/pcr/m/n/12 status.MPI_ERROR;  // Codice di errore (MPI_SUCCESS se ok)[] 
  []
 
-[120] [121] [122]
+[121] [122] [123]
 Overfull \hbox (2.24065pt too wide) in paragraph at lines 193--193
 []\OT1/cmr/bx/n/17.28 Misurazione del-le Pre-sta-zio-ni: \OT1/pcr/b/n/17.28 MPI[]Wtime 
  []
@@ -1104,55 +1104,55 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 206.
 
-[123]
+[124]
 Overfull \hbox (41.99982pt too wide) in paragraph at lines 236--236
 []    \OT1/pcr/m/n/12 /* Esempio di potenziale Deadlock con messaggi grandi */[] 
  []
 
-[124]
-<Images/cap_8/mpi_send_recv.png, id=1416, 1754.555pt x 809.0225pt>
+[125]
+<Images/cap_8/mpi_send_recv.png, id=1505, 1754.555pt x 809.0225pt>
 File: Images/cap_8/mpi_send_recv.png Graphic file (type png)
 <use Images/cap_8/mpi_send_recv.png>
 Package pdftex.def Info: Images/cap_8/mpi_send_recv.png  used on input line 244.
 (pdftex.def)             Requested size: 390.0pt x 179.82486pt.
-<Images/cap_8/isend_irecv.png, id=1417, 1745.52126pt x 416.55624pt>
+<Images/cap_8/isend_irecv.png, id=1506, 1745.52126pt x 416.55624pt>
 File: Images/cap_8/isend_irecv.png Graphic file (type png)
 <use Images/cap_8/isend_irecv.png>
 Package pdftex.def Info: Images/cap_8/isend_irecv.png  used on input line 253.
 (pdftex.def)             Requested size: 390.0pt x 93.06642pt.
- [125 <./Images/cap_8/mpi_send_recv.png> <./Images/cap_8/isend_irecv.png>]
-<Images/cap_8/pattern_isend_irecv.png, id=1426, 1749.53625pt x 407.5225pt>
+ [126 <./Images/cap_8/mpi_send_recv.png> <./Images/cap_8/isend_irecv.png>]
+<Images/cap_8/pattern_isend_irecv.png, id=1516, 1749.53625pt x 407.5225pt>
 File: Images/cap_8/pattern_isend_irecv.png Graphic file (type png)
 <use Images/cap_8/pattern_isend_irecv.png>
 Package pdftex.def Info: Images/cap_8/pattern_isend_irecv.png  used on input line 263.
 (pdftex.def)             Requested size: 390.0pt x 90.84291pt.
-<Images/cap_8/pattern_firma_probe.png, id=1427, 1704.3675pt x 678.535pt>
+<Images/cap_8/pattern_firma_probe.png, id=1517, 1704.3675pt x 678.535pt>
 File: Images/cap_8/pattern_firma_probe.png Graphic file (type png)
 <use Images/cap_8/pattern_firma_probe.png>
 Package pdftex.def Info: Images/cap_8/pattern_firma_probe.png  used on input line 269.
 (pdftex.def)             Requested size: 390.0pt x 155.26253pt.
-<Images/cap_8/waitall_waitany.png, id=1428, 1709.38625pt x 716.6775pt>
+<Images/cap_8/waitall_waitany.png, id=1518, 1709.38625pt x 716.6775pt>
 File: Images/cap_8/waitall_waitany.png Graphic file (type png)
 <use Images/cap_8/waitall_waitany.png>
 Package pdftex.def Info: Images/cap_8/waitall_waitany.png  used on input line 275.
 (pdftex.def)             Requested size: 390.0pt x 163.50916pt.
- [126 <./Images/cap_8/pattern_isend_irecv.png> <./Images/cap_8/pattern_firma_probe.png>] [127 <./Images/cap_8/waitall_waitany.png>]
-<Images/cap_8/bcast.png, id=1444, 787.94376pt x 372.39125pt>
+ [127 <./Images/cap_8/pattern_isend_irecv.png> <./Images/cap_8/pattern_firma_probe.png>] [128 <./Images/cap_8/waitall_waitany.png>]
+<Images/cap_8/bcast.png, id=1534, 787.94376pt x 372.39125pt>
 File: Images/cap_8/bcast.png Graphic file (type png)
 <use Images/cap_8/bcast.png>
 Package pdftex.def Info: Images/cap_8/bcast.png  used on input line 313.
 (pdftex.def)             Requested size: 390.0pt x 184.31435pt.
- [128]
+ [129]
 Overfull \hbox (50.37433pt too wide) in paragraph at lines 326--326
 []\OT1/cmr/bx/n/14.4 Operazioni di Ri-du-zio-ne (\OT1/pcr/b/n/14.4 MPI[]Reduce \OT1/cmr/bx/n/14.4 e \OT1/pcr/b/n/14.4 MPI[]Allreduce\OT1/cmr/bx/n/14.4 ) 
  []
 
-<Images/cap_8/reduce.png, id=1449, 787.94376pt x 362.35374pt>
+<Images/cap_8/reduce.png, id=1539, 787.94376pt x 362.35374pt>
 File: Images/cap_8/reduce.png Graphic file (type png)
 <use Images/cap_8/reduce.png>
 Package pdftex.def Info: Images/cap_8/reduce.png  used on input line 335.
 (pdftex.def)             Requested size: 390.0pt x 179.3463pt.
-[129 <./Images/cap_8/bcast.png>] [130 <./Images/cap_8/reduce.png>]
+[130 <./Images/cap_8/bcast.png>] [131 <./Images/cap_8/reduce.png>]
 Overfull \hbox (40.18611pt too wide) in paragraph at lines 361--362
 \OT1/cmr/m/n/12 pos-so-no es-se-re in-ter-cet-ta-ti o con-fu-si con quel-li in-via-ti su MPI[]COMM[]WORLD. 
  []
@@ -1162,19 +1162,19 @@ Overfull \hbox (20.46732pt too wide) in paragraph at lines 371--372
 []\OT1/cmr/bx/n/12 Caratteristiche: []\OT1/cmr/m/n/12 E sem-pre di-spo-ni-bi-le do-po la chia-ma-ta a \OT1/pcr/m/n/12 MPI[]Init
  []
 
-[131]
-<Images/cap_8/firma_split.png, id=1470, 1423.3175pt x 189.70876pt>
+[132]
+<Images/cap_8/firma_split.png, id=1561, 1423.3175pt x 189.70876pt>
 File: Images/cap_8/firma_split.png Graphic file (type png)
 <use Images/cap_8/firma_split.png>
 Package pdftex.def Info: Images/cap_8/firma_split.png  used on input line 392.
 (pdftex.def)             Requested size: 390.0pt x 51.98045pt.
-<Images/cap_8/esempio_split.png, id=1471, 1424.32124pt x 387.4475pt>
+<Images/cap_8/esempio_split.png, id=1562, 1424.32124pt x 387.4475pt>
 File: Images/cap_8/esempio_split.png Graphic file (type png)
 <use Images/cap_8/esempio_split.png>
 Package pdftex.def Info: Images/cap_8/esempio_split.png  used on input line 399.
 (pdftex.def)             Requested size: 390.0pt x 106.08429pt.
- [132 <./Images/cap_8/firma_split.png>]
-<Images/cap_8/firma_cart_create.png, id=1481, 1513.655pt x 281.05pt>
+ [133 <./Images/cap_8/firma_split.png>]
+<Images/cap_8/firma_cart_create.png, id=1571, 1513.655pt x 281.05pt>
 File: Images/cap_8/firma_cart_create.png Graphic file (type png)
 <use Images/cap_8/firma_cart_create.png>
 Package pdftex.def Info: Images/cap_8/firma_cart_create.png  used on input line 412.
@@ -1184,13 +1184,13 @@ Overfull \hbox (31.24368pt too wide) in paragraph at lines 416--417
 []\OT1/pcr/b/n/12 comm \OT1/cmr/bx/n/12 (\OT1/pcr/b/n/12 MPI[]Comm\OT1/cmr/bx/n/12 )\OT1/cmr/m/n/12 : Il co-mu-ni-ca-to-re di par-ten-za (di so-li-to \OT1/pcr/m/n/12 MPI[]COMM[]WORLD\OT1/cmr/m/n/12 )
  []
 
-[133 <./Images/cap_8/esempio_split.png> <./Images/cap_8/firma_cart_create.png>]
-<Images/cap_8/firma_shift.png, id=1490, 1491.5725pt x 231.86626pt>
+[134 <./Images/cap_8/esempio_split.png> <./Images/cap_8/firma_cart_create.png>]
+<Images/cap_8/firma_shift.png, id=1580, 1491.5725pt x 231.86626pt>
 File: Images/cap_8/firma_shift.png Graphic file (type png)
 <use Images/cap_8/firma_shift.png>
 Package pdftex.def Info: Images/cap_8/firma_shift.png  used on input line 448.
 (pdftex.def)             Requested size: 390.0pt x 60.62344pt.
- [134]
+ [135]
 Overfull \hbox (62.04347pt too wide) in paragraph at lines 450--452
 \OT1/cmr/m/n/12 pi-re me-glio. Sup-po-nia-mo di ave-re [][]\OT1/pcr/m/n/12 MPI_Cart_shift(cart, 0, +1, &up, &down) 
  []
@@ -1200,40 +1200,77 @@ Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
-<Images/cap_8/firma_dims_create.png, id=1495, 1501.61pt x 229.85875pt>
+<Images/cap_8/firma_dims_create.png, id=1585, 1501.61pt x 229.85875pt>
 File: Images/cap_8/firma_dims_create.png Graphic file (type png)
 <use Images/cap_8/firma_dims_create.png>
 Package pdftex.def Info: Images/cap_8/firma_dims_create.png  used on input line 463.
 (pdftex.def)             Requested size: 390.0pt x 59.69872pt.
-<Images/cap_8/esempio_dims.png, id=1496, 1496.59125pt x 431.6125pt>
+<Images/cap_8/esempio_dims.png, id=1586, 1496.59125pt x 431.6125pt>
 File: Images/cap_8/esempio_dims.png Graphic file (type png)
 <use Images/cap_8/esempio_dims.png>
 Package pdftex.def Info: Images/cap_8/esempio_dims.png  used on input line 468.
 (pdftex.def)             Requested size: 390.0pt x 112.47345pt.
-[135 <./Images/cap_8/firma_shift.png> <./Images/cap_8/firma_dims_create.png>]
+[136 <./Images/cap_8/firma_shift.png> <./Images/cap_8/firma_dims_create.png>]
 Overfull \hbox (6.8025pt too wide) in paragraph at lines 477--478
 \OT1/pcr/m/n/12 MPI[]Bcast\OT1/cmr/m/n/12 , \OT1/pcr/m/n/12 MPI[]Scatter\OT1/cmr/m/n/12 ) li-mi-tan-do il lo-ro rag-gio d'a-zio-ne esclu-
  []
 
-[136 <./Images/cap_8/esempio_dims.png>]) [137]
+[137 <./Images/cap_8/esempio_dims.png>]) (./parts/capitolo_9.tex [138]
+Capitolo 9.
+[139
+
+] [140]
+Overfull \hbox (16.82898pt too wide) in paragraph at lines 44--45
+\OT1/cmr/m/n/12 Per scri-ve-re un pro-gram-ma ibri-do, si so-sti-tui-sce la clas-si-ca fun-zio-ne \OT1/pcr/m/n/12 MPI[]Init()
+ []
+
+
+Overfull \hbox (8.1804pt too wide) in paragraph at lines 55--56
+[]\OT1/pcr/m/n/12 MPI[]THREAD[]SERIALIZED\OT1/cmr/m/n/12 : Pi^^Ru th-read pos-so-no chia-ma-re fun-zio-ni MPI,
+ []
+
+<Images/cap_9/esempio_codice_for.png, id=1620, 1046.91125pt x 774.895pt>
+File: Images/cap_9/esempio_codice_for.png Graphic file (type png)
+<use Images/cap_9/esempio_codice_for.png>
+Package pdftex.def Info: Images/cap_9/esempio_codice_for.png  used on input line 64.
+(pdftex.def)             Requested size: 312.00119pt x 230.93318pt.
+[141]
+Overfull \hbox (30.02238pt too wide) in paragraph at lines 70--71
+[]\OT1/cmr/bx/n/12 Calcolo (Re-gio-ne OpenMP): \OT1/cmr/m/n/12 Vie-ne aper-to il \OT1/pcr/m/n/12 #pragma omp parallel\OT1/cmr/m/n/12 .
+ []
+
+[142 <./Images/cap_9/esempio_codice_for.png>]
+LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <12> not available
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 97.
+
+Overfull \hbox (2.67787pt too wide) in paragraph at lines 112--113
+[]\OT1/cmr/m/n/12 Si com-pi-la con il wrap-per MPI (es. \OT1/pcr/m/n/12 mpicc\OT1/cmr/m/n/12 ) ag-giun-gen-do il flag OpenMP
+ []
+
+[143]
+Overfull \hbox (11.51976pt too wide) in paragraph at lines 131--131
+[]\OT1/cmr/bx/n/17.28 Metodologia: Ap-proc-cio Mul-ti-li-vel-lo e Pit-
+ []
+
+[144]) [145]
 No file document.bbl.
 (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 6B098E8D9236E160C48F2C1E47EF40A9;26392.
+(rerunfilecheck)             Checksum: 3DBECA032A676F675BB06192470DEC9C;30651.
  ) 
 Here is how much of TeX's memory you used:
- 15145 strings out of 480163
- 242996 string characters out of 5894093
- 705433 words of memory out of 5000000
- 32367 multiletter control sequences out of 15000+600000
- 482992 words of font info for 76 fonts, out of 8000000 for 9000
+ 15214 strings out of 480163
+ 244089 string characters out of 5894093
+ 707433 words of memory out of 5000000
+ 32395 multiletter control sequences out of 15000+600000
+ 483609 words of font info for 78 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  60i,9n,63p,1093b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on document.pdf (138 pages, 7138497 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
+Output written on document.pdf (146 pages, 7250613 bytes).
 PDF statistics:
- 1708 PDF objects out of 1728 (max. 8388607)
- 1416 compressed objects within 15 object streams
- 441 named destinations out of 1000 (max. 500000)
- 1249 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1852 PDF objects out of 2073 (max. 8388607)
+ 1547 compressed objects within 16 object streams
+ 475 named destinations out of 1000 (max. 500000)
+ 1390 words of extra memory for PDF output out of 10000 (max. 10000000)
 

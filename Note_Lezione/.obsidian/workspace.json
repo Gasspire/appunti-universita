@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
+                "file": "Computer Security/RA.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Domande BC per esame basati su Appunti miei e le prove uscite"
+              "title": "RA"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "a8eec85064bed8ea",
@@ -185,13 +185,14 @@
   },
   "active": "c71447a882c355e0",
   "lastOpenFiles": [
+    "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
+    "Computer Security/RA.md",
     "Principi/Lezione 25 Maggio.md",
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
     "Senza nome 1.base",
     "Senza nome.base",
     "Principi/Domande per Esame.md",
     "Blockchain/Lezione 4. Eth.md",
-    "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
     "Blockchain/Immagini/Pasted image 20260527120727.png",
     "Computer Security/26 Maggio.md",
     "Computer Security/Prima e Seconda Lezione GDPR.md",

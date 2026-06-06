@@ -23,8 +23,11 @@
 - [x] Come funziona il secret sharing? e come si realizzano le firme?
 
 
-Migliorare nelle risposte:
-- Uso di termini specifici.
-- Aggiunta di qualche formula.
-- Maggiore fluidità nelle risposte.
--this is a task -
+- Attacco del 51% con delay + qualche formula per colpa di Pippo (Grazie.)
+- Aggiungere tre condizioni di unlinkability
+- Meccanismo di Coinjoin
+- Principi di mixing e garanzie
+- Zeroknowledge proof
+- Zerocoin + accumulatori crittografici + limiti
+- Mem hard puzzles
+- 
