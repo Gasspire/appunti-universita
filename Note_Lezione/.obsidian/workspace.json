@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "6f7e5b7680ec98ea",
+        "id": "364ad6ae4fc14f4d",
         "type": "tabs",
         "children": [
           {
-            "id": "c71447a882c355e0",
+            "id": "8aca1638dcecea3e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Computer Security/RA.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "RA"
+              "title": "Nuova scheda"
             }
           }
         ]
@@ -78,7 +74,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "a8eec85064bed8ea",
@@ -183,10 +180,11 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "c71447a882c355e0",
+  "active": "8aca1638dcecea3e",
   "lastOpenFiles": [
-    "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
+    "Blockchain/Ultimi Dubbi.md",
     "Computer Security/RA.md",
+    "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
     "Principi/Lezione 25 Maggio.md",
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
     "Senza nome 1.base",
@@ -225,7 +223,6 @@
     "Teoria dei Grafi/Lezione 12 Maggio.md",
     "Teoria dei Grafi/Rettangoli Latini.md",
     "Teoria dei Grafi/Lezione 8 Maggio.md",
-    "Principi/Lezione 11 Maggio.md",
     "Teoria dei Grafi/Immagini",
     "Blockchain/Immagini",
     "Principi/Immagini",

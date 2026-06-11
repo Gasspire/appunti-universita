@@ -93,8 +93,8 @@
 \contentsline {subsection}{\numberline {6.11.2}Placecs}{92}{subsection.6.11.2}%
 \contentsline {subsection}{\numberline {6.11.3}Binding}{95}{subsection.6.11.3}%
 \contentsline {subsection}{\numberline {6.11.4}Policy di Allocazione della Memoria}{98}{subsection.6.11.4}%
-\contentsline {subsection}{\numberline {6.11.5}Strumenti per l'Analisi della Topologia e il Pinning}{100}{subsection.6.11.5}%
-\contentsline {subsection}{\numberline {6.11.6}Workflow per la NUMA-awareness}{101}{subsection.6.11.6}%
+\contentsline {subsection}{\numberline {6.11.5}Strumenti per l'Analisi della Topologia e il Pinning}{101}{subsection.6.11.5}%
+\contentsline {subsection}{\numberline {6.11.6}Workflow per la NUMA-awareness}{102}{subsection.6.11.6}%
 \contentsline {chapter}{\numberline {7}Tecniche di Compilazione Ottimizzata e Profiling}{103}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Compilatore}{103}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Pipeline di Compilazione}{103}{subsection.7.1.1}%

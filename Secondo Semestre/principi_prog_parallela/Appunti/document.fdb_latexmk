@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex document"] 1780663412 "document.aux" "document.bbl" "document" 1780663417
+["bibtex document"] 1780818191 "document.aux" "document.bbl" "document" 1780818195
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
   "bibliography.bib" 0 -1 0 ""
-  "document.aux" 1780663416 22034 701d46d31cdd6bc08c53c440722724a7 "pdflatex"
+  "document.aux" 1780818195 22034 124812c134ffc49c8fd551be6e9b9dec "pdflatex"
   (generated)
   "document.bbl"
   "document.blg"
-["pdflatex"] 1780663412 "/home/dave/appunti-universita/Secondo Semestre/principi_prog_parallela/Appunti/document.tex" "document.pdf" "document" 1780663417
+["pdflatex"] 1780818191 "/home/dave/appunti-universita/Secondo Semestre/principi_prog_parallela/Appunti/document.tex" "document.pdf" "document" 1780818195
   "/etc/texmf/web2c/texmf.cnf" 1777125874 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/dave/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1777185002 14040 d559b8242501fdc226295c13e27858a2 ""
   "/home/dave/appunti-universita/Secondo Semestre/principi_prog_parallela/Appunti/document.tex" 1780649181 1866 320359fb3ebcc3cc97175c4c25d87300 ""
@@ -191,18 +191,18 @@
   "Images/intro/metodo_sperimentale.png" 1776833700 105205 b350348009415fea8ec6f80235a349ae ""
   "Images/intro/performance_engineering.png" 1776833700 466856 673f95310d40b9af5b2024cc5cca12d3 ""
   "Images/university_logo.png" 1776833700 5102 ae18fdab7c5af961bf5f27a3bf5fc7bd ""
-  "document.aux" 1780663416 22034 701d46d31cdd6bc08c53c440722724a7 "pdflatex"
+  "document.aux" 1780818195 22034 124812c134ffc49c8fd551be6e9b9dec "pdflatex"
   "document.bbl" 0 -1 0 "bibtex document"
-  "document.out" 1780663416 30651 3dbeca032a676f675bb06192470dec9c "pdflatex"
+  "document.out" 1780818195 30651 3dbeca032a676f675bb06192470dec9c "pdflatex"
   "document.tex" 1780649181 1866 320359fb3ebcc3cc97175c4c25d87300 ""
-  "document.toc" 1780663416 14191 83d80409ce8643bec3c4b2b4490b245f "pdflatex"
+  "document.toc" 1780818195 14191 ec2b5b53948ed669632f2774f51b3428 "pdflatex"
   "parts/capitolo_0.tex" 1776833700 7161 5c4cd09a89ca0e58b26660fa6d0cf0af ""
   "parts/capitolo_1.tex" 1778406761 12511 0c4cf5504b4c247a61980dfb13dade74 ""
   "parts/capitolo_2.tex" 1776833700 15558 0980aa933db487be9f6b8bbeac6872fe ""
   "parts/capitolo_3.tex" 1776833700 13789 8cc61c27cdb9af4b7c25722ed5ecc817 ""
   "parts/capitolo_4.tex" 1776833700 43762 811caf350ceefd906e3b1269faf1317a ""
   "parts/capitolo_5.tex" 1776833700 7744 ec7e11d73dac236886debeba7711de19 ""
-  "parts/capitolo_6.tex" 1778509152 79626 86f275d23c2c68ee3a2e0f6bf44948d5 ""
+  "parts/capitolo_6.tex" 1780818183 79678 dff35649ffdaf283f03e0048c310d39a ""
   "parts/capitolo_7.tex" 1778775781 25119 0fc5c0d490999f02fb41ab77d61c583e ""
   "parts/capitolo_8.tex" 1780063375 41293 c78d29e9d8b3d7ef50d4abcaf71581ff ""
   "parts/capitolo_9.tex" 1780663412 10297 371a860f955ee8d5ec67434ca551cb2a ""
