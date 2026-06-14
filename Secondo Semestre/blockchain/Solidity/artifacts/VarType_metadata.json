@@ -4,7 +4,68 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_data",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "blockNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dato",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testData",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -33,11 +94,11 @@
 	},
 	"sources": {
 		"Var_Type.sol": {
-			"keccak256": "0x5221129bcc08b10755f7bda887a8d8ce4fd839640fe8af0476dd7621fb80ac8c",
+			"keccak256": "0x2a646008b85491bd413df961f87d79408e86c1110ef7c3418041dc60ddd73680",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://57c540a7f3142a3c5cb7ab02e9f3fd1f09a5d9a72316e57295824615d140dba5",
-				"dweb:/ipfs/QmZiN1voY78tmFSiMdix9E3osjXSQdpXmBsiX9FUwVvsdk"
+				"bzz-raw://58600013709a8ff43958cb991b11e43d31cd06deb8d3e1b478d6e3e1ccd4c7ef",
+				"dweb:/ipfs/QmdREgyg7eZN7X27PsVsXutKQbF8L8zZwMJo4FZKauDca7"
 			]
 		}
 	},

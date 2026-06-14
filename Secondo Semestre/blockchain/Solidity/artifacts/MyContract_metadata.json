@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "dato",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Visibilita_Var.sol": "MyContract"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Visibilita_Var.sol": {
+			"keccak256": "0xbdd560825c7a9c86b50490316e4fac131e82ff7bf1e4532da842d16adc3046a2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://12afd946e3e34a09fc1d283e0e9cf4ca4b779342cae47fd558db071feb184a12",
+				"dweb:/ipfs/Qmb2iqCTnFARXLEdcAde6ybxnA1JXxFGHdSpBkQmdTZNCN"
+			]
+		}
+	},
+	"version": 1
+}
