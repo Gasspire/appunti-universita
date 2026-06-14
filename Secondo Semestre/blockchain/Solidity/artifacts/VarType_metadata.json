@@ -94,11 +94,11 @@
 	},
 	"sources": {
 		"Var_Type.sol": {
-			"keccak256": "0x2a646008b85491bd413df961f87d79408e86c1110ef7c3418041dc60ddd73680",
+			"keccak256": "0x080e3172ed97b4b40637469516acdfef8224b7923427a14d3524fcd75167535e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://58600013709a8ff43958cb991b11e43d31cd06deb8d3e1b478d6e3e1ccd4c7ef",
-				"dweb:/ipfs/QmdREgyg7eZN7X27PsVsXutKQbF8L8zZwMJo4FZKauDca7"
+				"bzz-raw://c8e6c58a47314492c3daa982529a7344c26f222ddff38ef8e01c3202e5644561",
+				"dweb:/ipfs/QmPyQEpcQca7MGydfKt8Kjtr5zExGYWj3J33zUoHndY7Pv"
 			]
 		}
 	},
