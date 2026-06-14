@@ -7,15 +7,53 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "dato",
+				"name": "data",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "int256",
 						"name": "",
-						"type": "uint256"
+						"type": "int256"
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "n",
+						"type": "int256"
+					}
+				],
+				"name": "forloop",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "n",
+						"type": "int256"
+					}
+				],
+				"name": "forloop_erase",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -32,7 +70,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Visibilita_Var.sol": "MyContract"
+			"Loop.sol": "MyContract"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -46,12 +84,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Visibilita_Var.sol": {
-			"keccak256": "0xbdd560825c7a9c86b50490316e4fac131e82ff7bf1e4532da842d16adc3046a2",
+		"Loop.sol": {
+			"keccak256": "0x1e436f9fba8e71ce6f6d1aa8f3191d5e73db27cdc4e977584d810c39de883a91",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://12afd946e3e34a09fc1d283e0e9cf4ca4b779342cae47fd558db071feb184a12",
-				"dweb:/ipfs/Qmb2iqCTnFARXLEdcAde6ybxnA1JXxFGHdSpBkQmdTZNCN"
+				"bzz-raw://bf81bc9a0853bb95328802da0596361ee03d211c387f8a72b14d16ebe0dd23ae",
+				"dweb:/ipfs/QmVh7AuPecb5A76t46keErbw2BLRZRKjAQqhcGFUrqJYrX"
 			]
 		}
 	},

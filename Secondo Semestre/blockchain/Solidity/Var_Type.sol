@@ -29,7 +29,11 @@ contract VarType{
         //Queste sono delle variabili GLOBALI che dipendono dallo stato globale della Blockchain o da quanto riportato nella transazione
     }
 
-
+    //Esistono 3 locazioni: 
+    //Storage (memoria interna e permanente, qui vanno le variabili di STATO)
+    //Memory (memoria temporanea, è come lo heap in C. Qui si inseriscono i dati complessi come array e stringhe)
+    //Calldata (memoria speciale dove vanno le variabili di input)
+    //Stack (memoria temporanea dove vanno le variabili locali delle funzioni e i puntatori a memory)
 
 
 }
