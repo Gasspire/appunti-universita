@@ -33,7 +33,7 @@
 						"type": "string"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			}
 		],
@@ -65,11 +65,11 @@
 	},
 	"sources": {
 		"metodo_call.sol": {
-			"keccak256": "0x3a823ec30bf4d796c2858a055f97f7d17692362ac15aa056c4b14e943c2b5e8f",
+			"keccak256": "0x99c7195c5370361a28bf52b1ed81452b37619bed313492ec23fe99c216358124",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2b56ffd64640b58ef691bd0015df39eae6b24f090753da1128f3ba8562f2a33d",
-				"dweb:/ipfs/QmWQQxLXDvM981a1zQrJPJ7U27aiwrwg7HffNstPAm89SN"
+				"bzz-raw://b30f403dd77a44c3856194c8f29a62eb395723205f729f815b91aa47fcc0c221",
+				"dweb:/ipfs/QmamSZbxBaiQkHtynwCN43FKNGY78iVzb6Ta54tsx8mzMe"
 			]
 		}
 	},
