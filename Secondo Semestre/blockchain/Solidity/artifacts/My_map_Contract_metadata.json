@@ -6,29 +6,29 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"name": "GetRice",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "enum Enum_Test.Rice_Bowl",
-						"name": "",
-						"type": "uint8"
+						"internalType": "uint256",
+						"name": "newBalance",
+						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"name": "changeBalance",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
 					{
-						"internalType": "enum Enum_Test.Rice_Bowl",
-						"name": "n",
-						"type": "uint8"
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
-				"name": "SetRice",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -45,7 +45,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Enum.sol": "Enum_Test"
+			"Mapping_Fond.sol": "My_map_Contract"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -59,12 +59,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Enum.sol": {
-			"keccak256": "0xed09a0d3809c357db6c5bd33d073faa8e2ed39c9e26402cb0b9ec7495d8965b6",
+		"Mapping_Fond.sol": {
+			"keccak256": "0x924787c0ee0a6c2d8a48affed62d55e5b5ac4b7b1cf073795e52da41d2fb0af3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ca71cb7116dd33e1f963a5d22ca719e994069ef3af2c25540a01689251cef0bd",
-				"dweb:/ipfs/QmUfXwfTd3RcipmkjN71JXQFxVoWKmdYw3kgrfXrFunX8i"
+				"bzz-raw://3b362e617107d0f22aae751018821892900824524074f0e1d9d0f8f1caaf3b48",
+				"dweb:/ipfs/QmVS1sb3u7GP38yuDpV5X1pcRLqcbGAPkj1J7jVxzs2isf"
 			]
 		}
 	},
