@@ -11,13 +11,28 @@
             "id": "8aca1638dcecea3e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "TaskNotes/Start Here.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nuova scheda"
+              "title": "Start Here"
+            }
+          },
+          {
+            "id": "f99b263f33be8187",
+            "type": "leaf",
+            "state": {
+              "type": "tasknotes-pomodoro-view",
+              "state": {},
+              "icon": "clock",
+              "title": "Pomodoro"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -176,18 +191,36 @@
       "canvas:Crea nuova lavagna": false,
       "daily-notes:Apri nota del giorno": false,
       "templates:Inserisci modello": false,
-      "command-palette:Apri riquadro comandi": false
+      "command-palette:Apri riquadro comandi": false,
+      "tasknotes:Open mini calendar view": false,
+      "tasknotes:Open calendar view": false,
+      "tasknotes:Open tasks view": false,
+      "tasknotes:Open agenda view": false,
+      "tasknotes:Open Kanban board": false,
+      "tasknotes:Open Pomodoro timer": false,
+      "tasknotes:Open Pomodoro statistics": false,
+      "tasknotes:Create new task": false
     }
   },
-  "active": "8aca1638dcecea3e",
+  "active": "043e22568da5ca91",
   "lastOpenFiles": [
+    "Senza nome.base",
+    "TaskNotes/Start Here.md",
+    "TaskNotes/Views/relationships.base",
+    "TaskNotes/Views/pomodoro-stats.base",
+    "TaskNotes/Views/agenda-default.base",
+    "TaskNotes/Views/calendar-default.base",
+    "TaskNotes/Views/tasks-default.base",
+    "TaskNotes/Views/kanban-default.base",
+    "TaskNotes/Views/mini-calendar-default.base",
+    "TaskNotes/Views",
+    "TaskNotes",
     "Blockchain/Ultimi Dubbi.md",
     "Computer Security/RA.md",
     "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
     "Principi/Lezione 25 Maggio.md",
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
     "Senza nome 1.base",
-    "Senza nome.base",
     "Principi/Domande per Esame.md",
     "Blockchain/Lezione 4. Eth.md",
     "Blockchain/Immagini/Pasted image 20260527120727.png",
@@ -200,9 +233,7 @@
     "Random Stuff/Immagini/Pasted image 20260520180927.png",
     "Random Stuff/Esami BC.md",
     "Random Stuff/Immagini/2020_1.png",
-    "Random Stuff/Immagini",
     "Blockchain/Lezione 3. Eth.md",
-    "Random Stuff",
     "Blockchain/Esami Passati.md",
     "Blockchain/Lezione 23 Aprile.md",
     "Computer Security/Last lesson speed run any %.md",
@@ -217,15 +248,7 @@
     "Blockchain/Lezione 2. Eth.md",
     "Blockchain/Immagini/radix_tree.png",
     "Computer Security/Immagini/Pasted image 20260512150336.png",
-    "Computer Security/Immagini",
     "Blockchain/Immagini/Pasted image 20260512113335 1.png",
-    "Teoria dei Grafi/Lezione 12 Maggio.md",
-    "Teoria dei Grafi/Rettangoli Latini.md",
-    "Teoria dei Grafi/Lezione 8 Maggio.md",
-    "Teoria dei Grafi/Immagini",
-    "Blockchain/Immagini",
-    "Principi/Immagini",
-    "Computer Security",
-    "Teoria dei Grafi"
+    "Teoria dei Grafi/Lezione 12 Maggio.md"
   ]
 }
