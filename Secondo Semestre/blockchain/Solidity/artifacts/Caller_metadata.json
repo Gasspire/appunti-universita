@@ -11,21 +11,14 @@
 				"type": "constructor"
 			},
 			{
-				"inputs": [],
-				"name": "i",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"internalType": "address payable",
+						"name": "bers_addr",
+						"type": "address"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "myFunc",
+				"name": "callFunc",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -33,7 +26,7 @@
 						"type": "string"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			}
 		],
@@ -50,7 +43,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"metodo_call.sol": "Bersaglio"
+			"metodo_call.sol": "Caller"
 		},
 		"evmVersion": "prague",
 		"libraries": {},

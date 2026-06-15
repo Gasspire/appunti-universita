@@ -491,8 +491,7 @@
   "lastSeenVersion": "4.11.0",
   "pomodoroState": {
     "isRunning": false,
-    "timeRemaining": 3000,
-    "nextSessionType": "work"
+    "timeRemaining": 3000
   },
   "lastPomodoroDate": "2026-06-14",
   "pomodoroHistory": [
@@ -571,6 +570,20 @@
         {
           "startTime": "2026-06-15T18:40:48.681+02:00",
           "endTime": "2026-06-15T18:50:48.681+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1781542806960",
+      "startTime": "2026-06-15T19:00:06.960+02:00",
+      "endTime": "2026-06-15T19:17:23.057+02:00",
+      "plannedDuration": 30,
+      "type": "work",
+      "completed": false,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-15T19:00:06.960+02:00",
+          "endTime": "2026-06-15T19:06:25.360+02:00"
         }
       ]
     }
