@@ -4,7 +4,88 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "n",
+						"type": "uint256"
+					}
+				],
+				"name": "getVal",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "y",
+						"type": "uint256"
+					}
+				],
+				"name": "get_Val_Strange",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "get_length",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "n",
+						"type": "int256"
+					}
+				],
+				"name": "push_data",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -33,11 +114,11 @@
 	},
 	"sources": {
 		"Array.sol": {
-			"keccak256": "0x010c0e013532f6122c88dc44e06d6c77c5b66b7b136207d07cce9b7467ab90c4",
+			"keccak256": "0xbd23bdf0008787702aa185e97b12db6b11cff23122bda68ad1db94bf290888bc",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7ff487756ddfb68ff00ec9ca36fb2376976d5b79bb4994efa11fdcd2f01f22dc",
-				"dweb:/ipfs/QmUBie13FYNBEujAmSczapXFKggBs3bk8m7p7wBhRq8819"
+				"bzz-raw://8cfce837454afeb79552855a74c5606bd2619595bcda342508bb00069fddb0e5",
+				"dweb:/ipfs/QmWELRsmvtN31VAsaZzkD8ggU8cRwdsrWQ5NRL3jiM5DFh"
 			]
 		}
 	},

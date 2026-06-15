@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "enum Enum_Test.Rice_Bowl",
+						"name": "n",
+						"type": "uint8"
+					}
+				],
+				"name": "SetRice",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Enum.sol": "Enum_Test"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Enum.sol": {
+			"keccak256": "0xa3e241342c0b347b142db8d5522ccac4fcac11f9cfd95aa770ba2e4d9ac615c7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5ea7d2be923b037c58a983dec5fd7dd55c31e736dc3544e831273aaac2e8b7e7",
+				"dweb:/ipfs/QmbwRK15SheGndz7K6xxZgcXeJmX7Nf5uPnrDJjKnfixiV"
+			]
+		}
+	},
+	"version": 1
+}
