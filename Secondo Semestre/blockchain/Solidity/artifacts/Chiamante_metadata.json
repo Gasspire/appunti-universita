@@ -1,0 +1,108 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "bersaglio",
+						"type": "address"
+					}
+				],
+				"name": "chiamaFunzioneInesistente",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "bersaglio",
+						"type": "address"
+					}
+				],
+				"name": "inviaEtherEFunzioneInesistente",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "bersaglio",
+						"type": "address"
+					}
+				],
+				"name": "inviaSoloEther",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Fall_back.sol": "Chiamante"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Fall_back.sol": {
+			"keccak256": "0x26220d31cc1733a59ce77b56f0b3d7643eecd0ddefc30e1d289dc26f10c34c4a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c27f2de3966f54055bf8190642645de93ae614580a707c93552baab2b9898f6a",
+				"dweb:/ipfs/QmTYizhBBCe7NU9TVJYDw91eG2vXQt7LvM8j4F5rRaZd4p"
+			]
+		}
+	},
+	"version": 1
+}
