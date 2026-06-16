@@ -54,19 +54,23 @@ interface TrustworthyRockPaperScissorsTournamentSpecs {
 
 contract Game is TrustworthyRockPaperScissorsTournamentSpecs{
 
+    address payable owner;
 
 
     address payable public firstPlayer;
     address payable public secondPlayer;
     uint8 targetWins; //Numero di partite necessarie a vincere!
     uint256 singleMatchFee; // Quantità da pagare al contratto per ogni singola mossa
-    uint8 n_wins_firstPlayer;
-    uint8 n_wins_secondPlayer;
+    uint8 public n_wins_firstPlayer;
+    uint8 public n_wins_secondPlayer;
 
 
     mapping(address => Player) n_player;
     //Inseriamo il costruttore
     constructor(address payable first, address payable second, uint8 target, uint256 fee) payable {
+
+        owner = payable(msg.sender);
+        
         firstPlayer = first;
         secondPlayer = second;
         targetWins = target;
@@ -92,19 +96,29 @@ contract Game is TrustworthyRockPaperScissorsTournamentSpecs{
         mosseFatte[msg.sender].push(Move.Rock);
         uint8 n_moves = uint8(mosseFatte[msg.sender].length)-1; //Così otteniamo il numero di mosse fatte, bisogna guardare il -1 però dato che è un array
         if(msg.sender == firstPlayer){
-            if(mosseFatte[secondPlayer].length > (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Paper){
+            if(mosseFatte[secondPlayer].length >= (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Paper){
                 n_wins_secondPlayer++;
                 emit MatchWonBy(Player.Second, (n_moves+1));
                 if(n_wins_secondPlayer == targetWins) emit TournamentWonBy(Player.Second);
+
             }
-        }
-        else{
-            if(mosseFatte[firstPlayer].length  > (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Paper){
+            else if(mosseFatte[secondPlayer].length >= (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Scissor){
                 n_wins_firstPlayer++;
                 emit MatchWonBy(Player.First, (n_moves+1));
                 if(n_wins_firstPlayer == targetWins) emit TournamentWonBy(Player.First);
             }
-
+        }
+        else{
+            if(mosseFatte[firstPlayer].length  >= (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Paper){
+                n_wins_firstPlayer++;
+                emit MatchWonBy(Player.First, (n_moves+1));
+                if(n_wins_firstPlayer == targetWins) emit TournamentWonBy(Player.First);
+            }
+            else if(mosseFatte[firstPlayer].length  >= (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Scissor){
+                n_wins_secondPlayer++;
+                emit MatchWonBy(Player.Second, (n_moves+1));
+                if(n_wins_secondPlayer == targetWins) emit TournamentWonBy(Player.Second);
+            }
         }
     }
     function movePaper() external payable onlyPlayer costs{
@@ -112,42 +126,61 @@ contract Game is TrustworthyRockPaperScissorsTournamentSpecs{
 
         uint8 n_moves = uint8(mosseFatte[msg.sender].length)-1; //Così otteniamo il numero di mosse fatte, bisogna guardare il -1 però dato che è un array
         if(msg.sender == firstPlayer){
-            if(mosseFatte[secondPlayer].length > (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Scissor){
+            if(mosseFatte[secondPlayer].length >= (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Scissor){
                 n_wins_secondPlayer++;
                 emit MatchWonBy(Player.Second, (n_moves+1));
                 if(n_wins_secondPlayer == targetWins) emit TournamentWonBy(Player.Second);
 
             }
-        }
-        else{
-            if(mosseFatte[firstPlayer].length  > (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Scissor){
+            else if(mosseFatte[secondPlayer].length >= (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Rock){
                 n_wins_firstPlayer++;
                 emit MatchWonBy(Player.First, (n_moves+1));
                 if(n_wins_firstPlayer == targetWins) emit TournamentWonBy(Player.First);
             }
-
+        }
+        else{
+            if(mosseFatte[firstPlayer].length  >= (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Scissor){
+                n_wins_firstPlayer++;
+                emit MatchWonBy(Player.First, (n_moves+1));
+                if(n_wins_firstPlayer == targetWins) emit TournamentWonBy(Player.First);
+            }
+            else if(mosseFatte[firstPlayer].length  >= (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Rock){
+                n_wins_secondPlayer++;
+                emit MatchWonBy(Player.Second, (n_moves+1));
+                if(n_wins_secondPlayer == targetWins) emit TournamentWonBy(Player.Second);
+            }
         }
     }
     function moveScissor() external payable onlyPlayer costs{
         mosseFatte[msg.sender].push(Move.Scissor);
         uint8 n_moves = uint8(mosseFatte[msg.sender].length)-1; //Così otteniamo il numero di mosse fatte, bisogna guardare il -1 però dato che è un array
         if(msg.sender == firstPlayer){
-            if(mosseFatte[secondPlayer].length > (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Rock){
+            if(mosseFatte[secondPlayer].length >= (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Rock){
                 n_wins_secondPlayer++;
                 emit MatchWonBy(Player.Second, (n_moves+1));
                 if(n_wins_secondPlayer == targetWins) emit TournamentWonBy(Player.Second);
 
             }
-        }
-        else{
-            if(mosseFatte[firstPlayer].length  > (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Rock){
+            else if(mosseFatte[secondPlayer].length >= (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Paper){
                 n_wins_firstPlayer++;
                 emit MatchWonBy(Player.First, (n_moves+1));
                 if(n_wins_firstPlayer == targetWins) emit TournamentWonBy(Player.First);
             }
-
+        }
+        else{
+            if(mosseFatte[firstPlayer].length  >= (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Rock){
+                n_wins_firstPlayer++;
+                emit MatchWonBy(Player.First, (n_moves+1));
+                if(n_wins_firstPlayer == targetWins) emit TournamentWonBy(Player.First);
+            }
+            else if(mosseFatte[firstPlayer].length  >= (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Paper){
+                n_wins_secondPlayer++;
+                emit MatchWonBy(Player.Second, (n_moves+1));
+                if(n_wins_secondPlayer == targetWins) emit TournamentWonBy(Player.Second);
+            }
         }
     }
+
     function disputedMatches() external view returns (uint8){
         uint8 mosseFatte_first = uint8(mosseFatte[firstPlayer].length);
         uint8 mosseFatte_second = uint8(mosseFatte[secondPlayer].length);

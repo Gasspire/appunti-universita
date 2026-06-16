@@ -112,6 +112,32 @@
 			},
 			{
 				"inputs": [],
+				"name": "n_wins_firstPlayer",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "n_wins_secondPlayer",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "secondPlayer",
 				"outputs": [
 					{
@@ -152,11 +178,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2021-06-22-specs.sol": {
-			"keccak256": "0x9bf20c85fd8be8b820e32c17c3ba72fb94cbc25192b0df8f86719e7917ef0b15",
+			"keccak256": "0x1ab1970672f99c3977719809685c229eaafd7cee1e3c272a3b145b10de10cfc5",
 			"license": "None",
 			"urls": [
-				"bzz-raw://54dab5799e065548033ab87b7f97f1afb25bd2d8404af1beb1d8578115d634ad",
-				"dweb:/ipfs/QmU2Y4oip2xBgZgR98mhhghKBMFAzSaCANvwBLXoKsNXjU"
+				"bzz-raw://f20cb40bde17dd91b7d28c5eb6ce54a11dd4cd40c050333adc1864d09d0f76e3",
+				"dweb:/ipfs/QmYK3TwEWyi2CjZrqhZqz55P4NKYvxCdFUhe9hRq8efMtz"
 			]
 		}
 	},
