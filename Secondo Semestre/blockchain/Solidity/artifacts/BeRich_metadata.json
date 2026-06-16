@@ -7,15 +7,20 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "getResult",
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "richiest",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "address payable",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
-				"stateMutability": "pure",
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -32,7 +37,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"interfaccia.sol": "Test"
+			"withdrwad_pattern.sol": "BeRich"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -46,12 +51,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"interfaccia.sol": {
-			"keccak256": "0xe90eda093d10313f3b8a0746aa750e99958f38f900c734771b676f59586432b9",
+		"withdrwad_pattern.sol": {
+			"keccak256": "0xe7697792ef1a5ee1fe2ccbf9440dddebb37f35fdcaac0cdf5806228ae816306a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://262005ac8f367c3668592e1c0ea433904bfdf04759c12cf1f73acd09cc25993d",
-				"dweb:/ipfs/QmXGuH7bvkfjmMZbZZrgQAG4Ls3usybjnVx8HknAx6QWEV"
+				"bzz-raw://70295e8e38b50d8da06b90246e38c6637b2f2a2e8f2617075ed846a87510ace1",
+				"dweb:/ipfs/QmQwjTaTABs9asjYS8MZe8h1wb6QM4ReUcyv2iL5MzwxfM"
 			]
 		}
 	},
