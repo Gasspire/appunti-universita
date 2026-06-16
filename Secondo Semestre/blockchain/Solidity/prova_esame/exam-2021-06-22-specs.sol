@@ -60,17 +60,22 @@ contract Game is TrustworthyRockPaperScissorsTournamentSpecs{
     address payable public secondPlayer;
     uint8 targetWins; //Numero di partite necessarie a vincere!
     uint256 singleMatchFee; // Quantità da pagare al contratto per ogni singola mossa
+    uint8 n_wins_firstPlayer;
+    uint8 n_wins_secondPlayer;
 
+
+    mapping(address => Player) n_player;
     //Inseriamo il costruttore
     constructor(address payable first, address payable second, uint8 target, uint256 fee) payable {
         firstPlayer = first;
         secondPlayer = second;
         targetWins = target;
         singleMatchFee = fee;
+        n_wins_firstPlayer=0;
+        n_wins_secondPlayer=0;
     }
 
     //Devo implementare una struttura dati tale che mappi un player (quindi un indirizzo) alle sue mosse. Posso gestire un array di targetWins mosse e ad ogni push questo viene aggiornato
-
     mapping(address => Move[]) mosseFatte; //ad ogni indirizzo si associa una serie di mosse
 
     modifier onlyPlayer(){ //facciamo in modo che solo i player possano inviare nuove mosse
@@ -85,12 +90,63 @@ contract Game is TrustworthyRockPaperScissorsTournamentSpecs{
 
     function moveRock() external payable onlyPlayer costs{
         mosseFatte[msg.sender].push(Move.Rock);
+        uint8 n_moves = uint8(mosseFatte[msg.sender].length)-1; //Così otteniamo il numero di mosse fatte, bisogna guardare il -1 però dato che è un array
+        if(msg.sender == firstPlayer){
+            if(mosseFatte[secondPlayer].length > (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Paper){
+                n_wins_secondPlayer++;
+                emit MatchWonBy(Player.Second, (n_moves+1));
+                if(n_wins_secondPlayer == targetWins) emit TournamentWonBy(Player.Second);
+            }
+        }
+        else{
+            if(mosseFatte[firstPlayer].length  > (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Paper){
+                n_wins_firstPlayer++;
+                emit MatchWonBy(Player.First, (n_moves+1));
+                if(n_wins_firstPlayer == targetWins) emit TournamentWonBy(Player.First);
+            }
+
+        }
     }
     function movePaper() external payable onlyPlayer costs{
         mosseFatte[msg.sender].push(Move.Paper);
+
+        uint8 n_moves = uint8(mosseFatte[msg.sender].length)-1; //Così otteniamo il numero di mosse fatte, bisogna guardare il -1 però dato che è un array
+        if(msg.sender == firstPlayer){
+            if(mosseFatte[secondPlayer].length > (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Scissor){
+                n_wins_secondPlayer++;
+                emit MatchWonBy(Player.Second, (n_moves+1));
+                if(n_wins_secondPlayer == targetWins) emit TournamentWonBy(Player.Second);
+
+            }
+        }
+        else{
+            if(mosseFatte[firstPlayer].length  > (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Scissor){
+                n_wins_firstPlayer++;
+                emit MatchWonBy(Player.First, (n_moves+1));
+                if(n_wins_firstPlayer == targetWins) emit TournamentWonBy(Player.First);
+            }
+
+        }
     }
     function moveScissor() external payable onlyPlayer costs{
         mosseFatte[msg.sender].push(Move.Scissor);
+        uint8 n_moves = uint8(mosseFatte[msg.sender].length)-1; //Così otteniamo il numero di mosse fatte, bisogna guardare il -1 però dato che è un array
+        if(msg.sender == firstPlayer){
+            if(mosseFatte[secondPlayer].length > (n_moves+1) && mosseFatte[secondPlayer][n_moves] == Move.Rock){
+                n_wins_secondPlayer++;
+                emit MatchWonBy(Player.Second, (n_moves+1));
+                if(n_wins_secondPlayer == targetWins) emit TournamentWonBy(Player.Second);
+
+            }
+        }
+        else{
+            if(mosseFatte[firstPlayer].length  > (n_moves+1) && mosseFatte[firstPlayer][n_moves] == Move.Rock){
+                n_wins_firstPlayer++;
+                emit MatchWonBy(Player.First, (n_moves+1));
+                if(n_wins_firstPlayer == targetWins) emit TournamentWonBy(Player.First);
+            }
+
+        }
     }
     function disputedMatches() external view returns (uint8){
         uint8 mosseFatte_first = uint8(mosseFatte[firstPlayer].length);
@@ -100,7 +156,4 @@ contract Game is TrustworthyRockPaperScissorsTournamentSpecs{
         return (mosseFatte_first < mosseFatte_second ? mosseFatte_first: mosseFatte_second);
     }
         
-    function checkWinner(int n_match)private returns(bool){
-        uint8 dismatch = disputedMatches();
-    }
 }
