@@ -1,0 +1,164 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "idProdotto",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "vecchioPrezzo",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "nuovoPrezzo",
+						"type": "uint256"
+					}
+				],
+				"name": "PrezzoAggiornato",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "acquirente",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "idProdotto",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "prezzoPagato",
+						"type": "uint256"
+					}
+				],
+				"name": "ProdottoAcquistato",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_idProdotto",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_nuovoPrezzo",
+						"type": "uint256"
+					}
+				],
+				"name": "cambiaPrezzo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_idProdotto",
+						"type": "uint256"
+					}
+				],
+				"name": "compraProdotto",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "listinoPrezzi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"eventi.sol": "Negozio"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"eventi.sol": {
+			"keccak256": "0x55d3981c31367157be85221786388ad4f519f4788f05117ed263e01d5d935ab9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3db2c82ef587cedc87cb1c9a5e5e88044850c0a3f9f5f5493b24f6552d4f570c",
+				"dweb:/ipfs/Qme1gcc4GjGtWghqNaqKN6GzcvwBvorLt72Y3qrkQBN21X"
+			]
+		}
+	},
+	"version": 1
+}
