@@ -491,24 +491,16 @@
   "lastSeenVersion": "4.11.0",
   "pomodoroState": {
     "isRunning": true,
-    "timeRemaining": 766,
+    "timeRemaining": 3000,
     "currentSession": {
-      "id": "1781621006116",
-      "startTime": "2026-06-16T16:43:26.116+02:00",
+      "id": "1781625810004",
+      "startTime": "2026-06-16T18:03:30.004+02:00",
       "plannedDuration": 50,
       "type": "work",
       "completed": false,
       "activePeriods": [
         {
-          "startTime": "2026-06-16T16:43:26.116+02:00",
-          "endTime": "2026-06-16T17:12:50.271+02:00"
-        },
-        {
-          "startTime": "2026-06-16T17:23:59.921+02:00",
-          "endTime": "2026-06-16T17:31:50.222+02:00"
-        },
-        {
-          "startTime": "2026-06-16T17:36:43.770+02:00"
+          "startTime": "2026-06-16T18:03:30.004+02:00"
         }
       ]
     }
@@ -604,6 +596,42 @@
         {
           "startTime": "2026-06-15T19:00:06.960+02:00",
           "endTime": "2026-06-15T19:06:25.360+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1781621006116",
+      "startTime": "2026-06-16T16:43:26.116+02:00",
+      "endTime": "2026-06-16T17:49:29.314+02:00",
+      "plannedDuration": 50,
+      "type": "work",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-16T16:43:26.116+02:00",
+          "endTime": "2026-06-16T17:12:50.271+02:00"
+        },
+        {
+          "startTime": "2026-06-16T17:23:59.921+02:00",
+          "endTime": "2026-06-16T17:31:50.222+02:00"
+        },
+        {
+          "startTime": "2026-06-16T17:36:43.770+02:00",
+          "endTime": "2026-06-16T17:49:29.314+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1781624970947",
+      "startTime": "2026-06-16T17:49:30.947+02:00",
+      "endTime": "2026-06-16T17:59:30.947+02:00",
+      "plannedDuration": 10,
+      "type": "short-break",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-16T17:49:30.947+02:00",
+          "endTime": "2026-06-16T17:59:30.947+02:00"
         }
       ]
     }
