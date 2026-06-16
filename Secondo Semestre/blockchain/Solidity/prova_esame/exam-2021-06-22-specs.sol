@@ -45,7 +45,7 @@ interface TrustworthyRockPaperScissorsTournamentSpecs {
     function disputedMatches() external returns (uint8);
 
     enum Player {First, Second}
-    enum Move{Rock, Paper, Scissor} //aggiungiamo le mosse come enum: 0 = Rock, 1 = Paper, 2 = Scissor
+    enum Move{Null, Rock, Paper, Scissor} //aggiungiamo le mosse come enum:0 = Null, 1 = Rock, 2 = Paper, 3 = Scissor
 
     event MatchWonBy(Player winner, uint8 numMatch);
     event TournamentWonBy(Player winner);
@@ -61,15 +61,46 @@ contract Game is TrustworthyRockPaperScissorsTournamentSpecs{
     uint8 targetWins; //Numero di partite necessarie a vincere!
     uint256 singleMatchFee; // Quantità da pagare al contratto per ogni singola mossa
 
+    //Inseriamo il costruttore
     constructor(address payable first, address payable second, uint8 target, uint256 fee) payable {
         firstPlayer = first;
-        secondPlayer = 
+        secondPlayer = second;
+        targetWins = target;
+        singleMatchFee = fee;
+    }
+
+    //Devo implementare una struttura dati tale che mappi un player (quindi un indirizzo) alle sue mosse. Posso gestire un array di targetWins mosse e ad ogni push questo viene aggiornato
+
+    mapping(address => Move[]) mosseFatte; //ad ogni indirizzo si associa una serie di mosse
+
+    modifier onlyPlayer(){ //facciamo in modo che solo i player possano inviare nuove mosse
+        require(msg.sender == firstPlayer || msg.sender == secondPlayer, "Solo i giocatori possono compiere questa azione!");
+        _;
+    }
+    modifier costs(){ // verifichiamo che il costo sia rispettato (se non c'è, va bene comunque perché sarà impostato a 0)
+        require(msg.value >= singleMatchFee,"Manda piu ether!");
+        _;
     }
 
 
+    function moveRock() external payable onlyPlayer costs{
+        mosseFatte[msg.sender].push(Move.Rock);
+    }
+    function movePaper() external payable onlyPlayer costs{
+        mosseFatte[msg.sender].push(Move.Paper);
+    }
+    function moveScissor() external payable onlyPlayer costs{
+        mosseFatte[msg.sender].push(Move.Scissor);
+    }
+    function disputedMatches() external view returns (uint8){
+        uint8 mosseFatte_first = uint8(mosseFatte[firstPlayer].length);
+        uint8 mosseFatte_second = uint8(mosseFatte[secondPlayer].length);
 
-    function moveRock() external payable{}
-    function movePaper() external payable{}
-    function moveScissor() external payable{}
-    function disputedMatches() external returns (uint8){}
+        //0x5B38Da6a701c568545dCfcB03FcB875f56beddC4, 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2, 3, 0
+        return (mosseFatte_first < mosseFatte_second ? mosseFatte_first: mosseFatte_second);
+    }
+        
+    function checkWinner(int n_match)private returns(bool){
+        uint8 dismatch = disputedMatches();
+    }
 }

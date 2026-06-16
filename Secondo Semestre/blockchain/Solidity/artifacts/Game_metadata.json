@@ -6,7 +6,28 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "first",
+						"type": "address"
+					},
+					{
+						"internalType": "address payable",
+						"name": "second",
+						"type": "address"
+					},
+					{
+						"internalType": "uint8",
+						"name": "target",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "fee",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "payable",
 				"type": "constructor"
 			},
@@ -52,7 +73,7 @@
 						"type": "uint8"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -131,11 +152,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2021-06-22-specs.sol": {
-			"keccak256": "0x8907064dbb322cca8b1a6ca3a09b8918e060c18ed7f161092647826d45ad8464",
+			"keccak256": "0x6a7b941bc271aa1274a90e4802565fd9619899db7946ab3d2c3613d4214746f4",
 			"license": "None",
 			"urls": [
-				"bzz-raw://7dda030c48561f0af9422125a4eccac7b29fd3bfcf51e084dc85488efe1c195b",
-				"dweb:/ipfs/QmT8HhR1Cq2RpZ8pJLpfMxmAPJhkyf355ncuxtekHxUiBG"
+				"bzz-raw://1527338492deef8ec87c0cbbc58ec415e802cfd1d487e931799a03f88ace5d87",
+				"dweb:/ipfs/QmWRST5RquGNZAXrgqEGzxbUYXhJYj1LwmUP456L5bov2P"
 			]
 		}
 	},
