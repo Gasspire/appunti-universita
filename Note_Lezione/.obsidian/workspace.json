@@ -55,7 +55,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -225,8 +225,12 @@
       "tasknotes:Create new task": false
     }
   },
-  "active": "f99b263f33be8187",
+  "active": "2fd2ef871f2e176c",
   "lastOpenFiles": [
+    "TaskNotes/Tasks/Un altro esercizio a scelta.md",
+    "TaskNotes/Tasks/Rifare Carta Forbice sos BENE.md",
+    "TaskNotes/Tasks/Standard ERC-20.md",
+    "TaskNotes/Tasks",
     "Senza nome 1.base",
     "Senza nome.base",
     "TaskNotes/Start Here.md",
@@ -237,8 +241,6 @@
     "TaskNotes/Views/tasks-default.base",
     "TaskNotes/Views/kanban-default.base",
     "TaskNotes/Views/mini-calendar-default.base",
-    "TaskNotes/Views",
-    "TaskNotes",
     "Blockchain/Ultimi Dubbi.md",
     "Computer Security/RA.md",
     "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
@@ -268,10 +270,8 @@
     "Benvenuto.md",
     "Computer Security/Metasploit.md",
     "Computer Security/Lezione 23 Aprile.md",
-    "Blockchain/Lezione 2. Eth.md",
     "Blockchain/Immagini/radix_tree.png",
     "Computer Security/Immagini/Pasted image 20260512150336.png",
-    "Blockchain/Immagini/Pasted image 20260512113335 1.png",
-    "Teoria dei Grafi/Lezione 12 Maggio.md"
+    "Blockchain/Immagini/Pasted image 20260512113335 1.png"
   ]
 }

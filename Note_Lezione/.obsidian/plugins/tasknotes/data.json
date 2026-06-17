@@ -490,20 +490,8 @@
   "enableDebugLogging": false,
   "lastSeenVersion": "4.11.0",
   "pomodoroState": {
-    "isRunning": true,
-    "timeRemaining": 3000,
-    "currentSession": {
-      "id": "1781629416282",
-      "startTime": "2026-06-16T19:03:36.282+02:00",
-      "plannedDuration": 50,
-      "type": "work",
-      "completed": false,
-      "activePeriods": [
-        {
-          "startTime": "2026-06-16T19:03:36.282+02:00"
-        }
-      ]
-    }
+    "isRunning": false,
+    "timeRemaining": 3000
   },
   "lastPomodoroDate": "2026-06-15",
   "pomodoroHistory": [
@@ -662,6 +650,54 @@
           "endTime": "2026-06-16T19:03:31.091+02:00"
         }
       ]
+    },
+    {
+      "id": "1781629416282",
+      "startTime": "2026-06-16T19:03:36.282+02:00",
+      "endTime": "2026-06-16T19:53:36.282+02:00",
+      "plannedDuration": 50,
+      "type": "work",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-16T19:03:36.282+02:00",
+          "endTime": "2026-06-16T19:53:36.282+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1781632417361",
+      "startTime": "2026-06-16T19:53:37.360+02:00",
+      "endTime": "2026-06-16T19:53:40.321+02:00",
+      "plannedDuration": 30,
+      "type": "long-break",
+      "completed": false,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-16T19:53:37.360+02:00",
+          "endTime": "2026-06-16T19:53:40.321+02:00"
+        }
+      ]
+    }
+  ],
+  "googleCalendarSyncQueue": [
+    {
+      "taskPath": "TaskNotes/Tasks/Standard ERC-20.md",
+      "requestedAt": 1781632153794,
+      "attempts": 0,
+      "lastError": "Google Calendar sync is not ready"
+    },
+    {
+      "taskPath": "TaskNotes/Tasks/Rifare Carta Forbice sos BENE.md",
+      "requestedAt": 1781632164418,
+      "attempts": 0,
+      "lastError": "Google Calendar sync is not ready"
+    },
+    {
+      "taskPath": "TaskNotes/Tasks/Un altro esercizio a scelta.md",
+      "requestedAt": 1781632182667,
+      "attempts": 0,
+      "lastError": "Google Calendar sync is not ready"
     }
   ]
 }
