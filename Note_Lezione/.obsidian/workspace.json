@@ -4,58 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "364ad6ae4fc14f4d",
+        "id": "6faf997c037e5e96",
         "type": "tabs",
         "children": [
           {
-            "id": "8aca1638dcecea3e",
+            "id": "3f505bda3a328b63",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TaskNotes/Start Here.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Start Here"
-            }
-          },
-          {
-            "id": "f99b263f33be8187",
-            "type": "leaf",
-            "state": {
-              "type": "tasknotes-pomodoro-view",
-              "state": {},
-              "icon": "clock",
-              "title": "Pomodoro"
-            }
-          },
-          {
-            "id": "2fd2ef871f2e176c",
-            "type": "leaf",
-            "state": {
-              "type": "tasknotes-pomodoro-stats-view",
-              "state": {},
-              "icon": "bar-chart",
-              "title": "Pomodoro stats"
-            }
-          },
-          {
-            "id": "0f2ad4e7fae3eef9",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "TaskNotes/Views/kanban-default.base",
-                "viewName": "Kanban Board"
-              },
-              "icon": "tasknotes-simple",
-              "title": "kanban-default"
+              "title": "Nuova scheda"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -225,21 +187,21 @@
       "tasknotes:Create new task": false
     }
   },
-  "active": "2fd2ef871f2e176c",
+  "active": "3f505bda3a328b63",
   "lastOpenFiles": [
+    "TaskNotes/Start Here.md",
+    "TaskNotes/Views/kanban-default.base",
     "TaskNotes/Tasks/Un altro esercizio a scelta.md",
     "TaskNotes/Tasks/Rifare Carta Forbice sos BENE.md",
     "TaskNotes/Tasks/Standard ERC-20.md",
     "TaskNotes/Tasks",
     "Senza nome 1.base",
     "Senza nome.base",
-    "TaskNotes/Start Here.md",
     "TaskNotes/Views/relationships.base",
     "TaskNotes/Views/pomodoro-stats.base",
     "TaskNotes/Views/agenda-default.base",
     "TaskNotes/Views/calendar-default.base",
     "TaskNotes/Views/tasks-default.base",
-    "TaskNotes/Views/kanban-default.base",
     "TaskNotes/Views/mini-calendar-default.base",
     "Blockchain/Ultimi Dubbi.md",
     "Computer Security/RA.md",
@@ -269,7 +231,6 @@
     "Computer Security/Lezione 12 Maggio.md",
     "Benvenuto.md",
     "Computer Security/Metasploit.md",
-    "Computer Security/Lezione 23 Aprile.md",
     "Blockchain/Immagini/radix_tree.png",
     "Computer Security/Immagini/Pasted image 20260512150336.png",
     "Blockchain/Immagini/Pasted image 20260512113335 1.png"
