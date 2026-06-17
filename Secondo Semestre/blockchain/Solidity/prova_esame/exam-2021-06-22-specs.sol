@@ -50,6 +50,7 @@ interface TrustworthyRockPaperScissorsTournamentSpecs {
         uint8 num_wins;
         Move[] mosse;
     }
+    enum Status{OnGoing, End}
     enum Move{Rock, Paper, Scissor}
     enum Player {First, Second}
     event MatchWonBy(Player winner, uint8 numMatch);
@@ -64,11 +65,18 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
     uint8 targetWins;
     uint256 singleMatchFee;
     uint256 sum_of_fees;
+    uint8 match_evaluated;
+    Status status;
     mapping(Player => Pstruct ) giocatori;
     
 
     modifier OnlyPlayer(){
         require(msg.sender == firstPlayer || msg.sender == secondPlayer, "Solo i giocatori possono fare delle mosse");
+        _;
+    }
+    
+    modifier onlyOnGoing(){
+        require(status == Status.OnGoing);
         _;
     }
 
@@ -84,6 +92,8 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
         targetWins = n_target;
         singleMatchFee = fee;
         sum_of_fees = 0;
+        match_evaluated = 0;
+        status = Status.OnGoing;
 
         require(firstPlayer != address(0) && secondPlayer != address(0), "I giocatori devono entrambi essere validi");
         require(firstPlayer != secondPlayer, "I giocatori devono essere diversi");
@@ -109,44 +119,52 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
         else return Player.Second;
     }
 
-    function hasWonTournament(Player winner)internal {
-        
-        if(sum_of_fees > 0){
-            uint256 importo = sum_of_fees;
-            sum_of_fees = 0;
-            giocatori[winner].Player.transfer(importo);
+    function hasWonTournament(Player player)internal {
+        if (giocatori[player].num_wins == targetWins){
+            emit TournamentWonBy(player);
+            status = Status.End;
+            if(sum_of_fees > 0){
+                uint256 importo = sum_of_fees; // importo = address(this).balance; prende TUTTO l'importo se necessario
+                sum_of_fees = 0;
+                giocatori[player].Player.transfer(importo);
+            }
+            selfdestruct(owner);
         }
-        selfdestruct(owner);
+
     }
 
     function checkMatch() internal {
         //ottengo il numero di match da controllare, si considera sempre l'ultimo dato che tanto si controlla ad ogni mossa
         uint8 num_match = uint8(giocatori[Player.First].mosse.length < giocatori[Player.Second].mosse.length ? giocatori[Player.First].mosse.length: giocatori[Player.Second].mosse.length);
-        if(num_match == 0) return;
+        if(num_match == 0 || num_match <= match_evaluated) return;
         num_match--;
+        match_evaluated++;
         if((giocatori[Player.First].mosse[num_match] == Move.Paper && giocatori[Player.Second].mosse[num_match] == Move.Rock) ||
             (giocatori[Player.First].mosse[num_match] == Move.Scissor && giocatori[Player.Second].mosse[num_match] == Move.Paper) || 
             (giocatori[Player.First].mosse[num_match] == Move.Rock && giocatori[Player.Second].mosse[num_match] == Move.Scissor)){
                 emit MatchWonBy(Player.First, num_match);
                 giocatori[Player.First].num_wins++;
-                if(giocatori[Player.First].num_wins == targetWins) emit TournamentWonBy(Player.First);
+                hasWonTournament(Player.First);
             }
         else if((giocatori[Player.Second].mosse[num_match] == Move.Paper && giocatori[Player.First].mosse[num_match] == Move.Rock) ||
             (giocatori[Player.Second].mosse[num_match] == Move.Scissor && giocatori[Player.First].mosse[num_match] == Move.Paper) || 
             (giocatori[Player.Second].mosse[num_match] == Move.Rock && giocatori[Player.First].mosse[num_match] == Move.Scissor)){
                 emit MatchWonBy(Player.Second, num_match);
                 giocatori[Player.Second].num_wins++;
-                if(giocatori[Player.Second].num_wins == targetWins) emit TournamentWonBy(Player.Second);
+                hasWonTournament(Player.Second);
             }
     }
 
 
     function ret_pFirst()public view returns(address, uint8, uint8){
-        return (giocatori[Player.Second].Player, giocatori[Player.Second].id, giocatori[Player.Second].num_wins); 
+        return (giocatori[Player.First].Player, giocatori[Player.First].id, giocatori[Player.First].num_wins); 
     }
 
-    function moveRock() external OnlyPlayer suffFee payable{
-        sum_of_fees += msg.value;
+    function ret_pSecond()public view returns(address, uint8, uint8){
+        return (giocatori[Player.Second].Player, giocatori[Player.Second].id, giocatori[Player.Second].num_wins); 
+    }
+    function moveRock() external OnlyPlayer onlyOnGoing suffFee payable{
+        sum_of_fees += singleMatchFee;
         //individuo chi sta giocando
         Player currPlayer = whoPlaying(msg.sender);
         //faccio la mossa
@@ -155,16 +173,16 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
         checkMatch();
 
     }
-    function movePaper() external OnlyPlayer suffFee payable{
-        sum_of_fees += msg.value;
+    function movePaper() external OnlyPlayer onlyOnGoing suffFee payable{
+        sum_of_fees += singleMatchFee;
         Player currPlayer = whoPlaying(msg.sender);
         //faccio la mossa
         giocatori[currPlayer].mosse.push(Move.Paper);
         //controllo se è stato vinto un match
         checkMatch();
     }
-    function moveScissor() external OnlyPlayer suffFee payable{
-        sum_of_fees += msg.value;
+    function moveScissor() external OnlyPlayer onlyOnGoing suffFee payable{
+        sum_of_fees += singleMatchFee;
         Player currPlayer = whoPlaying(msg.sender);
         //faccio la mossa
         giocatori[currPlayer].mosse.push(Move.Scissor);
@@ -178,6 +196,6 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
 
 
 
-    //0x5B38Da6a701c568545dCfcB03FcB875f56beddC4, 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2, 3, 0
+    //0x5B38Da6a701c568545dCfcB03FcB875f56beddC4, 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2, 3, 50
 
 }

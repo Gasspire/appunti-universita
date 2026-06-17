@@ -119,6 +119,29 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ret_pSecond",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -149,11 +172,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2021-06-22-specs.sol": {
-			"keccak256": "0xc64c48595dce3cea07e7e2b7340b44e6469069d00378794136867971db22cb40",
+			"keccak256": "0x810ca597b53e1a717015dc843efe9508d3f20fd45c62e8e2725b053f743c4b88",
 			"license": "None",
 			"urls": [
-				"bzz-raw://af42783b84af091e479dd6cf8117daaefc878e0b6a1e035a8ad71c062e074790",
-				"dweb:/ipfs/QmNkqzV9wkgynMbVJHTrg4VTVwXxJZc5UJJNZbQS2y46VT"
+				"bzz-raw://a41f44fa63f9818baa508080f5c4573b379aff2b38481d593a478fbe805d8503",
+				"dweb:/ipfs/QmdjGaMDB47iQkbVMJ5PhVpxaQvSLMMdQq6NBwKvcg8nP9"
 			]
 		}
 	},

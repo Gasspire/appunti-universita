@@ -16,8 +16,32 @@
               "icon": "clock",
               "title": "Pomodoro"
             }
+          },
+          {
+            "id": "90846e6f05f2ef37",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "TaskNotes/Views/kanban-default.base",
+                "viewName": "Kanban Board"
+              },
+              "icon": "tasknotes-simple",
+              "title": "kanban-default"
+            }
+          },
+          {
+            "id": "47ba01d4b578e844",
+            "type": "leaf",
+            "state": {
+              "type": "tasknotes-pomodoro-stats-view",
+              "state": {},
+              "icon": "bar-chart",
+              "title": "Pomodoro stats"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -187,7 +211,7 @@
       "tasknotes:Create new task": false
     }
   },
-  "active": "3f505bda3a328b63",
+  "active": "90846e6f05f2ef37",
   "lastOpenFiles": [
     "TaskNotes/Start Here.md",
     "TaskNotes/Views/kanban-default.base",
