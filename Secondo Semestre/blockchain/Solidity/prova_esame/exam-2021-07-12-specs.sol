@@ -118,8 +118,13 @@ contract CorporateManagement is CorporateManagementSpecs{
     _;
   }
 
+  modifier onlyOnGoing(){
+    require(stato == Stato_corp.OnGoing);
+    _;
+  }
+
   //funzione che fa scattare una nuova proposta di new candidate
-  function depositFunds() external suffShare payable{  
+  function depositFunds() external onlyOnGoing suffShare payable{  
     Proposta storage p = proposte[num_proposte];
     p.proposer = msg.sender;
     p.category = ProposalCategory.NewAssociationAcceptance;
@@ -133,42 +138,76 @@ contract CorporateManagement is CorporateManagementSpecs{
 
 
   function isAccepted(uint proposalId)internal returns(bool){
-    //calcoliamo quanto è il 50% più 1 in funzione della quote versate!
-    uint256 necessaryQuorum = (totale_quote/2) +1;
-    //adesso, per ogni votante contiamo il suo balance da sommare
-    uint256 quote = 0;
-    uint num_votanti = proposte[proposalId].votanti.length;
-    //contiamo
-    for(uint i = 0; i < num_votanti; i++){
-      quote += soci[proposte[proposalId].votanti[i]];
+    if(proposte[proposalId].category != ProposalCategory.CorporateDissolution){
+      //calcoliamo quanto è il 50% più 1 in funzione della quote versate!
+      uint256 necessaryQuorum = (totale_quote/2) +1;
+      //adesso, per ogni votante contiamo il suo balance da sommare
+      uint256 quote = 0;
+      uint num_votanti = proposte[proposalId].votanti.length;
+      //contiamo
+      for(uint i = 0; i < num_votanti; i++){
+        quote += soci[proposte[proposalId].votanti[i]];
+      }
+      //se la quota è raggiunta, allora la proposta è stata accettata!
+      if(quote >= necessaryQuorum){
+        if(proposte[proposalId].category == ProposalCategory.NewAssociationAcceptance){
+          address newAssociate = proposte[proposalId].proposer;
+          num_soci++;
+          totale_quote += proposte[proposalId].quota;
+          emit AcceptedAssociate(newAssociate);
+          proposte[proposalId].status = Stato_proposta.Accepted;
+          soci[newAssociate] += proposte[proposalId].quota;
+          return true;
+        }
+        else{
+          proposte[proposalId].status = Stato_proposta.Accepted;
+          emit AcceptedGenericProposal(proposte[proposalId].description);
+          return true;
+        }
+      }
     }
-    //se la quota è raggiunta, allora la proposta è stata accettata!
-    if(quote >= necessaryQuorum){
-      if(proposte[proposalId].category == ProposalCategory.NewAssociationAcceptance){
-        address newAssociate = proposte[proposalId].proposer;
-        num_soci++;
-        emit AcceptedAssociate(newAssociate);
-        proposte[proposalId].status = Stato_proposta.Accepted;
-        soci[newAssociate] += proposte[proposalId].quota;
-        return true;
-      }
-      else if(proposte[proposalId].category == ProposalCategory.Generic){
-        proposte[proposalId].status = Stato_proposta.Accepted;
-        emit AcceptedGenericProposal(description);
-      }
+    else if(proposte[proposalId].category == ProposalCategory.CorporateDissolution){
+      
     }
     else return false;
+
   }
 
 
-  function voteProposal(uint proposalId) onlySoci external{
+  function voteProposal(uint proposalId) onlySoci onlyOnGoing external{
     require(proposte[proposalId].status == Stato_proposta.Pending, "La proposta e' gia' stata accettata");
     proposte[proposalId].votanti.push(msg.sender);
     isAccepted(proposalId);
   }
-  function depositGenericProposal(string calldata description) external{}
-  function depositDissolutionProposal() external{}
-  function requestShareRefunding() external{}
+
+
+  function depositGenericProposal(string calldata description) onlySoci onlyOnGoing external{
+    Proposta storage p = proposte[num_proposte];
+    p.proposer = msg.sender;
+    p.category = ProposalCategory.Generic;
+    p.description = description;
+    p.status = Stato_proposta.Pending;
+
+    emit NewGenericProposal(num_proposte, description);
+    num_proposte++;
+  }
+  function depositDissolutionProposal()onlySoci onlyOnGoing external{
+    Proposta storage p = proposte[num_proposte];
+    p.proposer = msg.sender;
+    p.category = ProposalCategory.CorporateDissolution;
+    p.status = Stato_proposta.Pending;
+
+    emit NewDissolutionProposal(num_proposte);
+    num_proposte++;
+  }
+
+
+  function requestShareRefunding() onlySoci external{
+    require(stato == Stato_corp.Dissoluted,"La corporazione non si e' ancora sciolta");
+    uint256 importo = soci[msg.sender];
+    soci[msg.sender] = 0;
+    payable(msg.sender).transfer(importo);
+  }
 
 
   function isAssociated(address id) external view returns (bool){
@@ -176,6 +215,9 @@ contract CorporateManagement is CorporateManagementSpecs{
     else return false;
   }
 
-  function isDissoluted() external returns (bool){}
+  function isDissoluted() external view returns (bool){
+    if(stato == Stato_corp.Dissoluted) return true;
+    else return false;
+  }
 
 }
