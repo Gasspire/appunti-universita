@@ -493,15 +493,15 @@
     "isRunning": true,
     "timeRemaining": 3000,
     "currentSession": {
-      "id": "1781705746484",
+      "id": "1781709409694",
       "taskPath": "TaskNotes/Tasks/Un altro esercizio a scelta.md",
-      "startTime": "2026-06-17T16:15:46.484+02:00",
+      "startTime": "2026-06-17T17:16:49.694+02:00",
       "plannedDuration": 50,
       "type": "work",
       "completed": false,
       "activePeriods": [
         {
-          "startTime": "2026-06-17T16:15:46.484+02:00"
+          "startTime": "2026-06-17T17:16:49.694+02:00"
         }
       ]
     }
@@ -735,6 +735,35 @@
         {
           "startTime": "2026-06-17T11:27:10.247+02:00",
           "endTime": "2026-06-17T11:59:11.652+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1781705746484",
+      "startTime": "2026-06-17T16:15:46.484+02:00",
+      "endTime": "2026-06-17T17:05:46.484+02:00",
+      "plannedDuration": 50,
+      "type": "work",
+      "taskPath": "TaskNotes/Tasks/Un altro esercizio a scelta.md",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-17T16:15:46.484+02:00",
+          "endTime": "2026-06-17T17:05:46.484+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1781708747669",
+      "startTime": "2026-06-17T17:05:47.669+02:00",
+      "endTime": "2026-06-17T17:16:47.669+02:00",
+      "plannedDuration": 11,
+      "type": "short-break",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-17T17:05:47.669+02:00",
+          "endTime": "2026-06-17T17:16:47.669+02:00"
         }
       ]
     }

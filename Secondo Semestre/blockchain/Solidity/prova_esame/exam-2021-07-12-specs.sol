@@ -75,10 +75,13 @@ interface CorporateManagementSpecs {
 contract CorporateManagement is CorporateManagementSpecs{
   enum Stato_proposta{Pending, Accepted}
   enum Stato_corp{OnGoing, Dissoluted}
+
+
+
   struct Proposta{
     address proposer;
-    ProposalCategory p; // tipo di proposta
-    string p_description; // descrizione della proposta
+    ProposalCategory category; // tipo di proposta
+    string description; // descrizione della proposta
     mapping(address => uint8) votanti; //mapping che tiene conto di chi ha votato. Quando si vota votanti[address] = 1 mentre di default è 0, cioè non votato.
     Stato_proposta status; //stato dopo il quale la proposta non accetterà più nuovi voti
   }
@@ -87,8 +90,9 @@ contract CorporateManagement is CorporateManagementSpecs{
   uint256 minimumAssociatingShare; //Quota necessaria per diventare soci
   uint256 num_soci; //numero di soci
   uint256 num_proposte; //numero di proposte attuali
+  uint256 totale_quote;
   mapping(address => uint256) soci; //Mappa che tiene conto del saldo che ogni socio ha e che, di conseguenza, ci dice se un indirizzo è o no un socio
-  mapping(uint256 => ProposalCategory) proposte; //mappa che tiene conto di tutte le proposte effettuate. Sarà del tipo proposte[id] dove l'id sarà un campo aggiornato di volta in volta e, essendo Ethereum di per sé sequenziale nell'eseguire transazioni, non ci sono rischi di race condition
+  mapping(uint256 => Proposta) proposte; //mappa che tiene conto di tutte le proposte effettuate. Sarà del tipo proposte[id] dove l'id sarà un campo aggiornato di volta in volta e, essendo Ethereum di per sé sequenziale nell'eseguire transazioni, non ci sono rischi di race condition
   Stato_corp stato;
 
   constructor(uint256 _minshare) payable{
@@ -98,6 +102,7 @@ contract CorporateManagement is CorporateManagementSpecs{
     num_proposte = 0; 
     soci[msg.sender] =  msg.value; // automaticamente promosso a socio
     stato = Stato_corp.OnGoing;
+    totale_quote = msg.value;
     emit AcceptedAssociate(msg.sender);
   }
 
@@ -107,14 +112,36 @@ contract CorporateManagement is CorporateManagementSpecs{
     _;
   }
 
-
+  modifier onlySoci(){
+    require(soci[msg.sender] >= minimumAssociatingShare);
+    _;
+  }
 
   //funzione che fa scattare una nuova proposta di new candidate
   function depositFunds() external suffShare payable{  
-    Proposta memory p;
-    p.
+    Proposta storage p = proposte[num_proposte];
+    p.proposer = msg.sender;
+    p.category = ProposalCategory.NewAssociationAcceptance;
+    p.description = "";
+    p.status = Stato_proposta.Pending;
+
+    emit NewAssociateCandidate(num_proposte, p.proposer);
+    num_proposte++;
   }
-  function voteProposal(uint proposalId) external{}
+
+
+  function isAccepted(uint proposalId)internal returns(bool){
+    //calcoliamo quanto è il 50% più 1 in funzione della quote versate!
+    uint256 necessaryQuorum = (totale_quote/num_soci) +1;
+    
+  }
+
+
+  function voteProposal(uint proposalId) onlySoci external{
+    require(proposte[proposalId].status == Stato_proposta.Pending, "La proposta e' gia' stata accettata");
+    proposte[proposalId].votanti[msg.sender] = 1;
+
+  }
   function depositGenericProposal(string calldata description) external{}
   function depositDissolutionProposal() external{}
   function requestShareRefunding() external{}
