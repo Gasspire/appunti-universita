@@ -69,3 +69,56 @@ interface CorporateManagementSpecs {
     event AcceptedGenericProposal(string description);
     event AcceptedCorporateDissolution();
 }
+
+
+
+contract CorporateManagement is CorporateManagementSpecs{
+  enum Stato_proposta{Pending, Accepted}
+  enum Stato_corp{OnGoing, Dissoluted}
+  struct Proposta{
+    address proposer;
+    ProposalCategory p; // tipo di proposta
+    string p_description; // descrizione della proposta
+    mapping(address => uint8) votanti; //mapping che tiene conto di chi ha votato. Quando si vota votanti[address] = 1 mentre di default è 0, cioè non votato.
+    Stato_proposta status; //stato dopo il quale la proposta non accetterà più nuovi voti
+  }
+
+
+  uint256 minimumAssociatingShare; //Quota necessaria per diventare soci
+  uint256 num_soci; //numero di soci
+  uint256 num_proposte; //numero di proposte attuali
+  mapping(address => uint256) soci; //Mappa che tiene conto del saldo che ogni socio ha e che, di conseguenza, ci dice se un indirizzo è o no un socio
+  mapping(uint256 => ProposalCategory) proposte; //mappa che tiene conto di tutte le proposte effettuate. Sarà del tipo proposte[id] dove l'id sarà un campo aggiornato di volta in volta e, essendo Ethereum di per sé sequenziale nell'eseguire transazioni, non ci sono rischi di race condition
+  Stato_corp stato;
+
+  constructor(uint256 _minshare) payable{
+    minimumAssociatingShare = _minshare;
+    require(minimumAssociatingShare < msg.value, "Hai versato meno di quanto proposto!");
+    num_soci = 1;
+    num_proposte = 0; 
+    soci[msg.sender] =  msg.value; // automaticamente promosso a socio
+    stato = Stato_corp.OnGoing;
+    emit AcceptedAssociate(msg.sender);
+  }
+
+
+  modifier suffShare(){
+    require(msg.value >= minimumAssociatingShare);
+    _;
+  }
+
+
+
+  //funzione che fa scattare una nuova proposta di new candidate
+  function depositFunds() external suffShare payable{  
+    Proposta memory p;
+    p.
+  }
+  function voteProposal(uint proposalId) external{}
+  function depositGenericProposal(string calldata description) external{}
+  function depositDissolutionProposal() external{}
+  function requestShareRefunding() external{}
+  function isAssociated(address id) external returns (bool){}
+  function isDissoluted() external returns (bool){}
+
+}
