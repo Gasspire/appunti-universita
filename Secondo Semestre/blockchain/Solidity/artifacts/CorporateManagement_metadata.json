@@ -142,7 +142,7 @@
 						"type": "bool"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -207,11 +207,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2021-07-12-specs.sol": {
-			"keccak256": "0x262252ee3e175c232261de7e028c37cad2c4fe6e3520e15e58eaa4fc43093108",
+			"keccak256": "0xb2cde1ed8594619a7aedc9f8726edc17da6c3d0d2113d39f58a0997878f36169",
 			"license": "None",
 			"urls": [
-				"bzz-raw://7125652bf58960d8478dbee576b993cd680f5ccacba3c5bd00fc63e49aeaf82f",
-				"dweb:/ipfs/QmVUqgumEjGk2PRVqogdmidUauDo6FRUmB5m7L5J5jEpAV"
+				"bzz-raw://549d229582538ff5c90259dd6e8401d76cef10ca2f680d1ded2109378c1021e4",
+				"dweb:/ipfs/QmTfxkH5S6QqBZWFUfk8b6pWtM8UdiJsMTsh3b2MmpyuZC"
 			]
 		}
 	},

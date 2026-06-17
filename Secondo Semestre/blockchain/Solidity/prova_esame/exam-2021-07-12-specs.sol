@@ -80,9 +80,10 @@ contract CorporateManagement is CorporateManagementSpecs{
 
   struct Proposta{
     address proposer;
+    uint256 quota;
     ProposalCategory category; // tipo di proposta
     string description; // descrizione della proposta
-    mapping(address => uint8) votanti; //mapping che tiene conto di chi ha votato. Quando si vota votanti[address] = 1 mentre di default è 0, cioè non votato.
+    address[] votanti; //mapping che tiene conto di chi ha votato. Quando si vota votanti[address] = 1 mentre di default è 0, cioè non votato.
     Stato_proposta status; //stato dopo il quale la proposta non accetterà più nuovi voti
   }
 
@@ -97,7 +98,7 @@ contract CorporateManagement is CorporateManagementSpecs{
 
   constructor(uint256 _minshare) payable{
     minimumAssociatingShare = _minshare;
-    require(minimumAssociatingShare < msg.value, "Hai versato meno di quanto proposto!");
+    require(minimumAssociatingShare <= msg.value, "Hai versato meno di quanto proposto!");
     num_soci = 1;
     num_proposte = 0; 
     soci[msg.sender] =  msg.value; // automaticamente promosso a socio
@@ -123,6 +124,7 @@ contract CorporateManagement is CorporateManagementSpecs{
     p.proposer = msg.sender;
     p.category = ProposalCategory.NewAssociationAcceptance;
     p.description = "";
+    p.quota = msg.value;
     p.status = Stato_proposta.Pending;
 
     emit NewAssociateCandidate(num_proposte, p.proposer);
@@ -132,20 +134,48 @@ contract CorporateManagement is CorporateManagementSpecs{
 
   function isAccepted(uint proposalId)internal returns(bool){
     //calcoliamo quanto è il 50% più 1 in funzione della quote versate!
-    uint256 necessaryQuorum = (totale_quote/num_soci) +1;
-    
+    uint256 necessaryQuorum = (totale_quote/2) +1;
+    //adesso, per ogni votante contiamo il suo balance da sommare
+    uint256 quote = 0;
+    uint num_votanti = proposte[proposalId].votanti.length;
+    //contiamo
+    for(uint i = 0; i < num_votanti; i++){
+      quote += soci[proposte[proposalId].votanti[i]];
+    }
+    //se la quota è raggiunta, allora la proposta è stata accettata!
+    if(quote >= necessaryQuorum){
+      if(proposte[proposalId].category == ProposalCategory.NewAssociationAcceptance){
+        address newAssociate = proposte[proposalId].proposer;
+        num_soci++;
+        emit AcceptedAssociate(newAssociate);
+        proposte[proposalId].status = Stato_proposta.Accepted;
+        soci[newAssociate] += proposte[proposalId].quota;
+        return true;
+      }
+      else if(proposte[proposalId].category == ProposalCategory.Generic){
+        proposte[proposalId].status = Stato_proposta.Accepted;
+        emit AcceptedGenericProposal(description);
+      }
+    }
+    else return false;
   }
 
 
   function voteProposal(uint proposalId) onlySoci external{
     require(proposte[proposalId].status == Stato_proposta.Pending, "La proposta e' gia' stata accettata");
-    proposte[proposalId].votanti[msg.sender] = 1;
-
+    proposte[proposalId].votanti.push(msg.sender);
+    isAccepted(proposalId);
   }
   function depositGenericProposal(string calldata description) external{}
   function depositDissolutionProposal() external{}
   function requestShareRefunding() external{}
-  function isAssociated(address id) external returns (bool){}
+
+
+  function isAssociated(address id) external view returns (bool){
+    if(soci[id] >= minimumAssociatingShare) return true;
+    else return false;
+  }
+
   function isDissoluted() external returns (bool){}
 
 }
