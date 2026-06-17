@@ -172,11 +172,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2021-06-22-specs.sol": {
-			"keccak256": "0x810ca597b53e1a717015dc843efe9508d3f20fd45c62e8e2725b053f743c4b88",
+			"keccak256": "0x8ae6624da6bad68bd30f175947174618fb4935554edac42cce0cf9cec38495c6",
 			"license": "None",
 			"urls": [
-				"bzz-raw://a41f44fa63f9818baa508080f5c4573b379aff2b38481d593a478fbe805d8503",
-				"dweb:/ipfs/QmdjGaMDB47iQkbVMJ5PhVpxaQvSLMMdQq6NBwKvcg8nP9"
+				"bzz-raw://6ea6142336b47fd33d1ec21fb447c00110e288e2de0ecbcc7bbbe59379b70baf",
+				"dweb:/ipfs/QmaEhkVUWMgCGaMJLfekVzpC5LDQDHxrVH9CEvKrrwgrwb"
 			]
 		}
 	},

@@ -128,7 +128,7 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
                 sum_of_fees = 0;
                 giocatori[player].Player.transfer(importo);
             }
-            selfdestruct(owner);
+            //selfdestruct(owner); tolta solo perché deprecata in ^0.6.0 però l'esercizio la chiedeva!
         }
 
     }
