@@ -96,6 +96,29 @@
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ret_pFirst",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -126,11 +149,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2021-06-22-specs.sol": {
-			"keccak256": "0xb74eb221bd1e0235127c706e1e755195f48a6664b309c0c09516fba5a692c6ae",
+			"keccak256": "0x2dfc38ba9fe16236cc0c5553f9a93b0d1ac9b176aa3c546d0e7fc14667ee50c6",
 			"license": "None",
 			"urls": [
-				"bzz-raw://92af080030f6443bf15fbd9b7569606146cda662784df9bcb74352ff0418ecf4",
-				"dweb:/ipfs/QmSWubVk5UPavWMoj9wPuHykRvY3roBnTYVzzoMJ5uNNy1"
+				"bzz-raw://8a382d6c62b3e9ad6fc07fd09008edd69df2c2a1895c220e92c797f16c3e3f93",
+				"dweb:/ipfs/QmPMZChXPgTTDGe6od6YLCjczzgVYQMXG8A8n9CHQGZyaG"
 			]
 		}
 	},
