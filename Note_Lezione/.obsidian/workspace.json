@@ -11,10 +11,10 @@
             "id": "3f505bda3a328b63",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "tasknotes-pomodoro-view",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Nuova scheda"
+              "icon": "clock",
+              "title": "Pomodoro"
             }
           }
         ]

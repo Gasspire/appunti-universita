@@ -6,6 +6,32 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_first",
+						"type": "address"
+					},
+					{
+						"internalType": "address payable",
+						"name": "_second",
+						"type": "address"
+					},
+					{
+						"internalType": "uint8",
+						"name": "n_target",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "fee",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -85,7 +111,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"prova_esame/exam-2021-06-22-specs.sol": "TrustworthyRockPaperScissorsTournamentSpecs"
+			"prova_esame/exam-2021-06-22-specs.sol": "TrustworthyRockPaperScissorsTournament"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
