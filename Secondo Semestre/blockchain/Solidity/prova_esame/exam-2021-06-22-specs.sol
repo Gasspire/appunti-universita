@@ -58,10 +58,12 @@ interface TrustworthyRockPaperScissorsTournamentSpecs {
 
 
 contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsTournamentSpecs{
+    address payable owner;
     address payable firstPlayer;
     address payable secondPlayer;
     uint8 targetWins;
     uint256 singleMatchFee;
+    uint256 sum_of_fees;
     mapping(Player => Pstruct ) giocatori;
     
 
@@ -76,10 +78,12 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
     }
 
     constructor(address payable _first, address payable _second, uint8 n_target, uint256 fee){
+        owner = payable(msg.sender);
         firstPlayer = payable(_first);
         secondPlayer = payable(_second);
         targetWins = n_target;
         singleMatchFee = fee;
+        sum_of_fees = 0;
 
         require(firstPlayer != address(0) && secondPlayer != address(0), "I giocatori devono entrambi essere validi");
         require(firstPlayer != secondPlayer, "I giocatori devono essere diversi");
@@ -105,10 +109,21 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
         else return Player.Second;
     }
 
+    function hasWonTournament(Player winner)internal {
+        
+        if(sum_of_fees > 0){
+            uint256 importo = sum_of_fees;
+            sum_of_fees = 0;
+            giocatori[winner].Player.transfer(importo);
+        }
+        selfdestruct(owner);
+    }
+
     function checkMatch() internal {
         //ottengo il numero di match da controllare, si considera sempre l'ultimo dato che tanto si controlla ad ogni mossa
-        uint8 num_match = uint8(giocatori[Player.First].mosse.length < giocatori[Player.Second].mosse.length ? giocatori[Player.First].mosse.length: giocatori[Player.Second].mosse.length) -1;
-        if(num_match <)
+        uint8 num_match = uint8(giocatori[Player.First].mosse.length < giocatori[Player.Second].mosse.length ? giocatori[Player.First].mosse.length: giocatori[Player.Second].mosse.length);
+        if(num_match == 0) return;
+        num_match--;
         if((giocatori[Player.First].mosse[num_match] == Move.Paper && giocatori[Player.Second].mosse[num_match] == Move.Rock) ||
             (giocatori[Player.First].mosse[num_match] == Move.Scissor && giocatori[Player.Second].mosse[num_match] == Move.Paper) || 
             (giocatori[Player.First].mosse[num_match] == Move.Rock && giocatori[Player.Second].mosse[num_match] == Move.Scissor)){
@@ -119,9 +134,9 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
         else if((giocatori[Player.Second].mosse[num_match] == Move.Paper && giocatori[Player.First].mosse[num_match] == Move.Rock) ||
             (giocatori[Player.Second].mosse[num_match] == Move.Scissor && giocatori[Player.First].mosse[num_match] == Move.Paper) || 
             (giocatori[Player.Second].mosse[num_match] == Move.Rock && giocatori[Player.First].mosse[num_match] == Move.Scissor)){
-                emit MatchWonBy(Player.First, num_match);
-                giocatori[Player.First].num_wins++;
-                if(giocatori[Player.First].num_wins == targetWins) emit TournamentWonBy(Player.First);
+                emit MatchWonBy(Player.Second, num_match);
+                giocatori[Player.Second].num_wins++;
+                if(giocatori[Player.Second].num_wins == targetWins) emit TournamentWonBy(Player.Second);
             }
     }
 
@@ -131,16 +146,35 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
     }
 
     function moveRock() external OnlyPlayer suffFee payable{
+        sum_of_fees += msg.value;
         //individuo chi sta giocando
         Player currPlayer = whoPlaying(msg.sender);
         //faccio la mossa
         giocatori[currPlayer].mosse.push(Move.Rock);
         //controllo se è stato vinto un match
+        checkMatch();
 
     }
-    function movePaper() external payable{}
-    function moveScissor() external payable{}
-    function disputedMatches() external returns (uint8){}
+    function movePaper() external OnlyPlayer suffFee payable{
+        sum_of_fees += msg.value;
+        Player currPlayer = whoPlaying(msg.sender);
+        //faccio la mossa
+        giocatori[currPlayer].mosse.push(Move.Paper);
+        //controllo se è stato vinto un match
+        checkMatch();
+    }
+    function moveScissor() external OnlyPlayer suffFee payable{
+        sum_of_fees += msg.value;
+        Player currPlayer = whoPlaying(msg.sender);
+        //faccio la mossa
+        giocatori[currPlayer].mosse.push(Move.Scissor);
+        //controllo se è stato vinto un match
+        checkMatch();
+    }
+    function disputedMatches() external view returns (uint8){
+
+        return uint8(giocatori[Player.First].mosse.length < giocatori[Player.Second].mosse.length ? giocatori[Player.First].mosse.length: giocatori[Player.Second].mosse.length);
+    }
 
 
 
