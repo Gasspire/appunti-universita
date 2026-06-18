@@ -87,7 +87,7 @@ interface MafiosoTokenSpecs {
 contract MafiaToken is MafiosoTokenSpecs, ERC20{
   address payable padrino;
   uint8 pizzo_rate;
-
+  uint256 lasy_payment;
 
   struct Picciotto{
     address id;
@@ -113,7 +113,7 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
 
   modifier onlyMafia(){
     uint256 indice = index_picciotti[msg.sender];
-    require((indice < num_picciotti) && lista_picciotti[indice].id == msg.sender, "Devi prima entrare nella famiglia...!");
+    require(((indice < num_picciotti) && lista_picciotti[indice].id == msg.sender) || msg.sender == padrino, "Devi prima entrare nella famiglia...!");
     _;
   }
   
@@ -141,6 +141,7 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
   function approve(address delegate, uint256 amount) external returns (bool){
     if(bilanci[msg.sender] < amount) return false;
     deleghe[msg.sender][delegate] = amount;
+    emit Approval(msg.sender, delegate, amount);
     return true;
   }
   function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){
@@ -151,6 +152,7 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
       uint pizzo = (amount * pizzo_rate )/100;
       bilanci[recipient] += (amount-pizzo);
       bilanci[padrino] += pizzo;
+      emit Transfer(sender, recipient, amount);
       return true;
     }
   }
@@ -193,6 +195,7 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
     uint256 indice = index_picciotti[id];
     require((indice < num_picciotti) && lista_picciotti[indice].id == id, "Stai cercando di togliere un picciotto che non esiste!");
     lista_picciotti[indice].id = address(0);
+    lista_picciotti_addr[indice] = address(0);
   }
 
   function forgeNewTokens(uint additionalSupply) onlyPadrino external{
@@ -201,7 +204,8 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
     bilanci[padrino] += additionalSupply;
   }
 
-  function stealTokens(address robbed, uint amount) external{
+  function stealTokens(address robbed, uint amount) onlyMafia external{
+    require(robbed!=padrino,"Come osi pensare di poter derubare il padrino!");
     uint256 importo = (bilanci[robbed] <= amount ? bilanci[robbed]:amount);
     bilanci[robbed] = bilanci[robbed] - importo;
     bilanci[msg.sender] += importo;
@@ -223,7 +227,23 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
     salario_mensile = amount;
   }
   function triggerMonthlyPicciottiSalary() external{
-    
+    uint mesi_passati = (block.timestamp - lasy_payment)/30;
+    if(mesi_passati == 0) return;
+    else{
+      lasy_payment += (mesi_passati*30 days);
+      for (uint i = 0; i < num_picciotti; i++){
+        Picciotto memory p = lista_picciotti[i];
+        if(p.id != address(0)){
+          uint256 stipendio = (p.children + 1)* salario_mensile;
+          uint256 da_pagare = stipendio * mesi_passati;
+          require(bilanci[padrino] >= (da_pagare),"Il padrino non ha abbastanza soldi per pagare tutti i piciotti...");
+
+          bilanci[padrino] -= da_pagare;
+          bilanci[padrino] += da_pagare;
+          emit Transfer(padrino, p.id, da_pagare);
+        }
+      }
+    }
   }
 
 
