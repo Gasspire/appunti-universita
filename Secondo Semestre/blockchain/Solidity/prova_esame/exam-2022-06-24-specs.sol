@@ -82,3 +82,37 @@ interface MafiosoTokenSpecs {
   function setPicciottiPerChildSalary(uint amount) external;
   function triggerMonthlyPicciottiSalary() external;
 }
+
+
+contract MafiaToken is MafiosoTokenSpecs, ERC20{
+  address payable padrino;
+
+  //necessari per ERC20
+  mapping(address => uin25)
+
+
+
+  constructor(){
+    padrino = msg.sender;
+  }
+  
+
+  modifier onlyPadrino(){
+    require(msg.sender == padrino,"Torna al tuo posto picciotto...");
+    _;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
