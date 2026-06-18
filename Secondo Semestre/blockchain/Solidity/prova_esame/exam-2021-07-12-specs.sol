@@ -219,11 +219,19 @@ contract CorporateManagement is CorporateManagementSpecs{
   }
 
 
-  function requestShareRefunding() onlySoci external{
+  function requestShareRefunding() external{
     require(stato == Stato_corp.Dissoluted,"La corporazione non si e' ancora sciolta");
-    uint256 importo = soci[msg.sender];
-    soci[msg.sender] = 0;
-    payable(msg.sender).transfer(importo);
+    if(soci[msg.sender] >= minimumAssociatingShare){
+      uint256 importo = soci[msg.sender];
+      soci[msg.sender] = 0;
+      payable(msg.sender).transfer(importo);
+    }
+    else if(proposte[candidati[msg.sender]].proposer == msg.sender && proposte[candidati[msg.sender]].status == Stato_proposta.Pending){
+      uint256 importo = proposte[candidati[msg.sender]].quota;
+      proposte[candidati[msg.sender]].quota = 0;
+      payable(msg.sender).transfer(importo);
+    } 
+
   }
 
 
