@@ -390,11 +390,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2022-07-14-specs.sol": {
-			"keccak256": "0xee3891453fad5e5c1ce5643870828f31387b90999410ab236610e9ba1e541e55",
+			"keccak256": "0x64e7e340de73675da287d8cff2e0f6f1c3f3c91d4568dbe3e38cc7115a79c656",
 			"license": "None",
 			"urls": [
-				"bzz-raw://bc1495dd4509685da1bccda43cd31e6b96b692fee7c0e3d12583363b1f981d43",
-				"dweb:/ipfs/QmdGE1ryUYdxqbQVC4sdUqmqQhrRcPYxDFpSgog8g8U3Cu"
+				"bzz-raw://832a4bac49419758f7d8ea85d73e3ed34d14d94ad6eca783875b4876ae027038",
+				"dweb:/ipfs/Qmc8K9kZ1zv6C3mDY92fU2JhdQyRVzoZTMeMFHbRzEwupB"
 			]
 		}
 	},
