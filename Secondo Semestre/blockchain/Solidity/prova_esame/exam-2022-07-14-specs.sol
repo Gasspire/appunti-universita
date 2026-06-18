@@ -112,7 +112,7 @@ contract AuctionManager is AuctionManagerSpecs{
 
   //funzione che permette la creazione di una nuova asta
   function createNewAuction(string memory description, uint minimumBid, uint expirationInHours) external returns (uint id){
-    
+    require(expirationInHours > 0 && bytes(description).length > 0 ,"Parametri non validi");
     Auction storage a = aste[num_aste];
 
     a.id = num_aste;
@@ -157,13 +157,10 @@ contract AuctionManager is AuctionManagerSpecs{
 
 
   function bidOnAuction(uint id) external onlyValid(id) payable returns (bool isHighest){
-
-
-    
-    if(msg.value <= aste[id].minBid) revert BidNotAboveMinimum(aste[id].minBid);
+    aste[id].offerte[msg.sender] += msg.value;
+    if(aste[id].offerte[msg.sender] <= aste[id].minBid) revert BidNotAboveMinimum(aste[id].minBid);
     if(aste[id].state != AuctionState.Ongoing) revert AuctionAlreadyEnded(aste[id].state);
     if(block.timestamp > aste[id].scadenza)revert AuctionAlreadyEnded(aste[id].state);
-    aste[id].offerte[msg.sender] += msg.value;
     if(aste[id].lista_offerte[msg.sender] == 0){
       aste[id].lista_offerte[msg.sender] = 1;
       aste[id].offerenti.push(msg.sender);
@@ -212,6 +209,7 @@ contract AuctionManager is AuctionManagerSpecs{
     if(aste[id].state == AuctionState.Ongoing)revert AuctionToFinalizeNotYetEnded(aste[id].scadenza);
     // se è arrivata fino a qui vuol dire che sta finendo per la prima volta
     if(aste[id].state == AuctionState.EndedWithWinner){
+      aste[id].finalized = true;
       //in questo caso dobbiamo pagare il beneficiario
       emit AuctionEndedWithWinner(id, aste[id].curr_highest, aste[id].highestBid);
       uint256 importo = aste[id].highestBid;
@@ -227,10 +225,10 @@ contract AuctionManager is AuctionManagerSpecs{
           curr_addr.transfer(tmp_import);
         }
       }
-      aste[id].finalized = true;
     }
     else if(aste[id].state == AuctionState.Canceled || aste[id].state == AuctionState.Expired){
       //in questo caso dobbiamo solo rimborsare tutti
+      aste[id].finalized = true;
       uint n = aste[id].offerenti.length;
       for(uint i = 0; i < n;i++){
         address payable curr_addr = payable(aste[id].offerenti[i]);
@@ -238,7 +236,6 @@ contract AuctionManager is AuctionManagerSpecs{
         aste[id].offerte[curr_addr] = 0;
         curr_addr.transfer(tmp_import);
       }
-      aste[id].finalized = true;
       emit AuctionExpiredWithoutWinner(id);
     }
   }
