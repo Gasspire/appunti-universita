@@ -79,24 +79,28 @@ interface AuctionManagerSpecs {
 
 contract AuctionManager is AuctionManagerSpecs{
   address owner;
-  uint256 num_aste;
-  Auction[] aste;
+  uint256 num_aste=0;
+  mapping(uint256 => Auction) aste;
+  uint[] aste_in_corso;
 
   constructor(){
     owner = msg.sender;
-    num_aste = 0;
   }
 
   struct Auction{
     uint256 id;
+    address payable beneficiario;
     string description;
     uint256 minBid;
     uint256 highestBid;
     address curr_highest;
+
+    uint curr_date;
     uint scadenza;
 
     mapping(address => uint256) offerte;
-    address[] lista_offerte;
+    mapping(address => uint8) lista_offerte;
+    address[] offerenti;
     AuctionState state;
   }
 
@@ -115,26 +119,82 @@ contract AuctionManager is AuctionManagerSpecs{
     Auction storage a = aste[num_aste];
 
     a.id = num_aste;
+    a.beneficiario = payable(msg.sender);
     a.highestBid = 0;
     a.description = description;
     a.minBid = minimumBid;
     a.scadenza = expirationInHours;
     a.state = AuctionState.Ongoing;
+    a.curr_date = block.timestamp;
 
+    aste_in_corso.push(a.id);
     num_aste++;
     return a.id;
   }
 
+  modifier onGoing(uint id){
+    require(aste[id].state == AuctionState.Ongoing, "Mi dispiace, l'asta a cui vuoi partecipare non e piu in corso!");
+    _;
+  }
 
-  function bidOnAuction(uint id) external payable returns (bool isHighest){}
-  function idsOfOngoingAuctions() external returns (uint[] memory ids){}
-  function auctionDescription(uint id) external view returns (string memory){}
-  function auctionMinimumBid(uint id) external view returns (uint amount){}
-  function auctionExpiration(uint id) external view returns (uint timestamp){}
-  function auctionBeneficiary(uint id) external view returns (address beneficiary){}
-  function auctionState(uint id) external returns (AuctionState){}
-  function auctionHighestBid(uint id) external view returns (uint amount){}
-  function auctionHighestBidder(uint id) external view returns (address bidder){}
+  function checkEnd(uint id) internal{
+    uint actual_timestamp = block.timestamp;
+    if((actual_timestamp-aste[id].curr_date) > 20 hours){ // se il tempo è scaduto, ci sono due esiti: o c'è un vincitore o è scaduta
+      if(aste[id].)
+    }
+
+  }
+
+
+  function bidOnAuction(uint id) external onGoing(id) payable returns (bool isHighest){
+    uint actual_timestamp = block.timestamp;
+    if((actual_timestamp-aste[id].curr_date) > 20 hours){
+      //controllo per la vincita
+    }
+
+
+    require(msg.value >= aste[id].minBid,"La tua offerta non e' stata accettata perche troppo bassa");
+    aste[id].offerte[msg.sender] += msg.value;
+    if(aste[id].lista_offerte[msg.sender] == 0){
+      aste[id].lista_offerte[msg.sender] = 1;
+      aste[id].offerenti.push(msg.sender);
+    } 
+    if(aste[id].highestBid < aste[id].offerte[msg.sender]){
+      aste[id].highestBid = aste[id].offerte[msg.sender];
+      aste[id].curr_highest = msg.sender;
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  function idsOfOngoingAuctions() external view returns (uint[] memory ids){
+    return aste_in_corso;
+  }
+
+  function auctionDescription(uint id) external view returns (string memory){
+    return aste[id].description;
+  }
+
+  function auctionMinimumBid(uint id) external view returns (uint amount){
+    return aste[id].minBid;
+  }
+  function auctionExpiration(uint id) external view returns (uint timestamp){
+    return aste[id].scadenza;
+  }
+  function auctionBeneficiary(uint id) external view returns (address beneficiary){
+    return aste[id].beneficiario;
+  }
+  function auctionState(uint id) external view returns (AuctionState){
+    return aste[id].state;
+  }
+  function auctionHighestBid(uint id) external view returns (uint amount){
+    return aste[id].highestBid;
+  }
+  function auctionHighestBidder(uint id) external view returns (address bidder){
+    return aste[id].curr_highest;
+  }
   function finalizeAuction(uint id) external{}
   function cancelAuction(uint id) external{}
   

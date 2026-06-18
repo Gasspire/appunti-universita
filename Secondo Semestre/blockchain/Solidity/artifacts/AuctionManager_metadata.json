@@ -271,7 +271,7 @@
 						"type": "uint8"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -358,7 +358,7 @@
 						"type": "uint256[]"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -390,11 +390,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2022-07-14-specs.sol": {
-			"keccak256": "0xa05c4ca59c23779b32b85a6d0ac9c35c5f82176c25e3e88a231b710ce831b4e7",
+			"keccak256": "0xae951b6a1d5b3702a33a6930e170f1795eaa30276438339d11613883ad970a8c",
 			"license": "None",
 			"urls": [
-				"bzz-raw://950a53e8232deb0b8c12566670f090d3252fd71d7f95e448872edb6457263e4f",
-				"dweb:/ipfs/QmdvxUA6BQo2rZEfCwg2aLawb8TucMYg4p58izvWvp9vzt"
+				"bzz-raw://001af71b272df9632f9a284a5a1c0e1226a42ca839b4a2b559f140cfe7bb0928",
+				"dweb:/ipfs/QmbS8BMQCX7bv1dBADojVV7Ny5q62bfyBFxHki4LfxnKYA"
 			]
 		}
 	},
