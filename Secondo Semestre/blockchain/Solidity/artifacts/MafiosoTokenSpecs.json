@@ -49,7 +49,7 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"addPicciotto(address,uint8)": "9dd5eb5e",
+			"addPicciotto(address)": "e24f9a78",
 			"forgeNewTokens(uint256)": "011b6106",
 			"godfather()": "191d5cc6",
 			"picciotti()": "96d98f3f",
@@ -69,11 +69,6 @@
 					"internalType": "address",
 					"name": "id",
 					"type": "address"
-				},
-				{
-					"internalType": "uint8",
-					"name": "children",
-					"type": "uint8"
 				}
 			],
 			"name": "addPicciotto",

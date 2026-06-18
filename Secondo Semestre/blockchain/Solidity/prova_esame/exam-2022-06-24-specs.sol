@@ -72,7 +72,7 @@ interface MafiosoTokenSpecs {
 
   function godfather() external view returns (address);
   function picciotti() external view returns (address[] memory);
-  function addPicciotto(address id, uint8 children) external;
+  function addPicciotto(address id) external;
   function removePicciotto(address id) external;
   function forgeNewTokens(uint additionalSupply) external;
   function stealTokens(address robbed, uint amount) external;
@@ -98,13 +98,21 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
 
 
 
-  function totalSupply() external view returns (uint256){}
-  function balanceOf(address account) external view returns (uint256){}
-  function transfer(address recipient, uint256 amount) external returns (bool){}
+  function totalSupply() external view returns (uint256){
+    return totale_token;
+  }
+  function balanceOf(address account) external view returns (uint256){
+    return bilanci[account];
+  }
+  function transfer(address recipient, uint256 amount) external returns (bool){
+    if((bilanci[msg.sender]-amount) < 0) return false;
+    bilanci[msg.sender] -= amount;
+    bilanci[recipient] += amount;
+    return true;
+  }
   function allowance(address owner, address delegate) external view returns (uint256){}
   function approve(address delegate, uint256 amount) external returns (bool){}
   function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){}
-
 
 
 
@@ -132,21 +140,31 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
   }
   
 
-  function addPicciotto(address id, uint8 children) onlyPadrino external{
+  function addPicciotto(address id) onlyPadrino external{
     lista_picciotti.push(id);
-    children++;
+    index_picciotti[id] = num_picciotti;
+    num_picciotti++;
   }
 
   function removePicciotto(address id) onlyPadrino external{
     uint256 indice = index_picciotti[id];
-    require(indice < num_picciotti);
+    require((indice < num_picciotti) && lista_picciotti[indice] == id, "Stai cercando di togliere un picciotto che non esiste!");
     lista_picciotti[indice] = address(0);
-    uint256 value = bilanci[id];
-
   }
 
-  function forgeNewTokens(uint additionalSupply) external{}
-  function stealTokens(address robbed, uint amount) external{}
+  function forgeNewTokens(uint additionalSupply) onlyPadrino external{
+    require(additionalSupply > 0, "Devi creare almeno 1 token");
+    totale_token += additionalSupply;
+    bilanci[padrino] += additionalSupply;
+  }
+
+  function stealTokens(address robbed, uint amount) external{
+    if(bilanci[robbed] - amount < 0){
+      uint256 importo = bilanci[robbed];
+      bilanci[robbed] = 0;
+      bilan
+    }
+  }
   function pizzoRate() external view returns (uint8){}
   function setPizzoRate(uint8 rate) external{}
   function picciottiSalary() external view returns (uint){}

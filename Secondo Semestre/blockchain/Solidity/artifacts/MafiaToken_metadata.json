@@ -66,11 +66,6 @@
 						"internalType": "address",
 						"name": "id",
 						"type": "address"
-					},
-					{
-						"internalType": "uint8",
-						"name": "children",
-						"type": "uint8"
 					}
 				],
 				"name": "addPicciotto",
@@ -369,11 +364,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2022-06-24-specs.sol": {
-			"keccak256": "0x3bf1c9829821964920e3a976a43a19884658d11a1447c030cf8d61de1521d4f3",
+			"keccak256": "0x85bbd6e323362ec0d623375271ddd85607c2f369756815fc1a6ebea85f08f616",
 			"license": "None",
 			"urls": [
-				"bzz-raw://4a5e60aa5600bc786eb02c8804460a6db7c354dea44adbeaafca0fe40e618356",
-				"dweb:/ipfs/QmQC7ieUMucQ4P1zkXfX4ZcoZqSbhLLKgBbv3gGXmrA2qr"
+				"bzz-raw://1aa1b9456086b99e65642cc32f1e91bb84f5d131a4e73e0185b4bc393ba738be",
+				"dweb:/ipfs/QmZsbbnfx5qoBg3BgPsQFP16LvRgSYvTiNGLHaoksm7Wgd"
 			]
 		}
 	},
