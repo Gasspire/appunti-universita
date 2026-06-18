@@ -87,13 +87,33 @@ interface MafiosoTokenSpecs {
 contract MafiaToken is MafiosoTokenSpecs, ERC20{
   address payable padrino;
 
-  //necessari per ERC20
-  mapping(address => uin25)
+  mapping(address => uint256) bilanci; //così posso ottenere tutti i bilanci
+  address[] lista_picciotti; // così conosco i picciotti
+  mapping(address => uint256) index_picciotti;
+  uint256 num_picciotti;
+  uint256 totale_token;
+  uint256 salario_mensile;  
+
+
+
+
+
+  function totalSupply() external view returns (uint256){}
+  function balanceOf(address account) external view returns (uint256){}
+  function transfer(address recipient, uint256 amount) external returns (bool){}
+  function allowance(address owner, address delegate) external view returns (uint256){}
+  function approve(address delegate, uint256 amount) external returns (bool){}
+  function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){}
+
+
 
 
 
   constructor(){
-    padrino = msg.sender;
+    padrino = payable(msg.sender);
+    num_picciotti = 0;
+    totale_token = 0;
+    salario_mensile = 100;
   }
   
 
@@ -103,12 +123,35 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
   }
 
 
+  function godfather() external view returns (address){
+    return padrino;
+  }
 
+  function picciotti() external view returns (address[] memory){
+    return lista_picciotti;
+  }
+  
 
+  function addPicciotto(address id, uint8 children) onlyPadrino external{
+    lista_picciotti.push(id);
+    children++;
+  }
 
+  function removePicciotto(address id) onlyPadrino external{
+    uint256 indice = index_picciotti[id];
+    require(indice < num_picciotti);
+    lista_picciotti[indice] = address(0);
+    uint256 value = bilanci[id];
 
+  }
 
-
+  function forgeNewTokens(uint additionalSupply) external{}
+  function stealTokens(address robbed, uint amount) external{}
+  function pizzoRate() external view returns (uint8){}
+  function setPizzoRate(uint8 rate) external{}
+  function picciottiSalary() external view returns (uint){}
+  function setPicciottiPerChildSalary(uint amount) external{}
+  function triggerMonthlyPicciottiSalary() external{}
 
 
 
