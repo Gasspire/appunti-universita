@@ -82,6 +82,7 @@ contract AuctionManager is AuctionManagerSpecs{
   uint256 num_aste=0;
   mapping(uint256 => Auction) aste;
   uint[] aste_in_corso;
+  mapping(uint => uint) mapp_aste_in_corso;
 
   constructor(){
     owner = msg.sender;
@@ -95,7 +96,6 @@ contract AuctionManager is AuctionManagerSpecs{
     uint256 highestBid;
     address curr_highest;
 
-    uint curr_date;
     uint scadenza;
 
     mapping(address => uint256) offerte;
@@ -123,14 +123,16 @@ contract AuctionManager is AuctionManagerSpecs{
     a.highestBid = 0;
     a.description = description;
     a.minBid = minimumBid;
-    a.scadenza = expirationInHours;
+    a.scadenza = block.timestamp + (expirationInHours * 1 hours);
     a.state = AuctionState.Ongoing;
-    a.curr_date = block.timestamp;
 
     aste_in_corso.push(a.id);
+    mapp_aste_in_corso[a.id] = num_aste;
     num_aste++;
     return a.id;
   }
+
+
 
   modifier onGoing(uint id){
     require(aste[id].state == AuctionState.Ongoing, "Mi dispiace, l'asta a cui vuoi partecipare non e piu in corso!");
@@ -139,21 +141,25 @@ contract AuctionManager is AuctionManagerSpecs{
 
   function checkEnd(uint id) internal{
     uint actual_timestamp = block.timestamp;
-    if((actual_timestamp-aste[id].curr_date) > 20 hours){ // se il tempo è scaduto, ci sono due esiti: o c'è un vincitore o è scaduta
-      if(aste[id].)
+    if(actual_timestamp > aste[id].scadenza){ // se il tempo è scaduto, ci sono due esiti: o c'è un vincitore o è scaduta
+      if(aste[id].offerenti.length > 1){
+        aste[id].state = AuctionState.EndedWithWinner;
+      }
+      else{
+        aste[id].state = AuctionState.Expired;
+      }
+      //Una volta fatti i controlli, l'asta non è più attiva!
+      uint tmp = aste_in_corso[aste_in_corso.length-1];
+      aste_in_corso[mapp_aste_in_corso[id]] = tmp;
+      aste_in_corso.pop();
+      
     }
-
   }
 
 
   function bidOnAuction(uint id) external onGoing(id) payable returns (bool isHighest){
-    uint actual_timestamp = block.timestamp;
-    if((actual_timestamp-aste[id].curr_date) > 20 hours){
-      //controllo per la vincita
-    }
-
-
-    require(msg.value >= aste[id].minBid,"La tua offerta non e' stata accettata perche troppo bassa");
+    checkEnd(id);
+    require(msg.value >= aste[id].minBid && aste[id].state == AuctionState.Ongoing,"La tua offerta non e' stata accettata perche troppo bassa o e scaduto il contratto");
     aste[id].offerte[msg.sender] += msg.value;
     if(aste[id].lista_offerte[msg.sender] == 0){
       aste[id].lista_offerte[msg.sender] = 1;
