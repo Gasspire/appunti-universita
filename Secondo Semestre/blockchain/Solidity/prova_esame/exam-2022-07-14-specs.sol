@@ -87,7 +87,6 @@ contract AuctionManager is AuctionManagerSpecs{
   constructor(){
     owner = msg.sender;
   }
-
   struct Auction{
     uint256 id;
     address payable beneficiario;
@@ -98,20 +97,18 @@ contract AuctionManager is AuctionManagerSpecs{
 
     uint scadenza;
 
+    bool finalized;
+
     mapping(address => uint256) offerte;
     mapping(address => uint8) lista_offerte;
     address[] offerenti;
     AuctionState state;
   }
 
-
-
-
-
-
-
-
-
+  modifier onlyValid(uint id){
+    if(id >= num_aste) revert AuctionNotExisting();
+    _;
+  }
 
   //funzione che permette la creazione di una nuova asta
   function createNewAuction(string memory description, uint minimumBid, uint expirationInHours) external returns (uint id){
@@ -125,9 +122,9 @@ contract AuctionManager is AuctionManagerSpecs{
     a.minBid = minimumBid;
     a.scadenza = block.timestamp + (expirationInHours * 1 hours);
     a.state = AuctionState.Ongoing;
-
+    a.finalized = false;
     aste_in_corso.push(a.id);
-    mapp_aste_in_corso[a.id] = num_aste;
+    mapp_aste_in_corso[a.id] = aste_in_corso.length - 1;
 
     emit NewAuction(description, minimumBid, a.scadenza);
     num_aste++;
@@ -140,26 +137,32 @@ contract AuctionManager is AuctionManagerSpecs{
   function checkEnd(uint id) internal{
     uint actual_timestamp = block.timestamp;
     if(actual_timestamp > aste[id].scadenza){ // se il tempo è scaduto, ci sono due esiti: o c'è un vincitore o è scaduta
-      if(aste[id].offerenti.length > 1){
+      if(aste[id].offerenti.length > 0){
         aste[id].state = AuctionState.EndedWithWinner;
       }
       else{
         aste[id].state = AuctionState.Expired;
       }
       //Una volta fatti i controlli, l'asta non è più attiva!
-      uint tmp = aste_in_corso[aste_in_corso.length-1];
-      aste_in_corso[mapp_aste_in_corso[id]] = tmp;
-      aste_in_corso.pop();
+      uint lastIndex = aste_in_corso.length - 1;
+      uint lastElement = aste_in_corso[lastIndex];
+      uint indexToRemove = mapp_aste_in_corso[id];
       
+      aste_in_corso[indexToRemove] = lastElement;
+      mapp_aste_in_corso[lastElement] = indexToRemove; 
+      aste_in_corso.pop();
+      delete mapp_aste_in_corso[id];
     }
   }
 
 
-  function bidOnAuction(uint id) external payable returns (bool isHighest){
-    if(aste[id] == 0) AuctionNotExisting();
-    require(msg.value >= aste[id].minBid,"Offerta non sufficiente");
-    require(aste[id].state == AuctionState.Ongoing,"L'asta non e in corso");
-    require(block.timestamp < aste[id].scadenza,"L'asta e scaduta");
+  function bidOnAuction(uint id) external onlyValid(id) payable returns (bool isHighest){
+
+
+    
+    if(msg.value <= aste[id].minBid) revert BidNotAboveMinimum(aste[id].minBid);
+    if(aste[id].state != AuctionState.Ongoing) revert AuctionAlreadyEnded(aste[id].state);
+    if(block.timestamp > aste[id].scadenza)revert AuctionAlreadyEnded(aste[id].state);
     aste[id].offerte[msg.sender] += msg.value;
     if(aste[id].lista_offerte[msg.sender] == 0){
       aste[id].lista_offerte[msg.sender] = 1;
@@ -180,31 +183,34 @@ contract AuctionManager is AuctionManagerSpecs{
     return aste_in_corso;
   }
 
-  function auctionDescription(uint id) external view returns (string memory){
+  function auctionDescription(uint id) external onlyValid(id) view returns (string memory){
     return aste[id].description;
   }
 
-  function auctionMinimumBid(uint id) external view returns (uint amount){
+  function auctionMinimumBid(uint id) external onlyValid(id) view returns (uint amount){
     return aste[id].minBid;
   }
-  function auctionExpiration(uint id) external view returns (uint timestamp){
+  function auctionExpiration(uint id) external onlyValid(id) view returns (uint timestamp){
     return aste[id].scadenza;
   }
-  function auctionBeneficiary(uint id) external view returns (address beneficiary){
+  function auctionBeneficiary(uint id) external onlyValid(id) view returns (address beneficiary){
     return aste[id].beneficiario;
   }
-  function auctionState(uint id) external view returns (AuctionState){
+  function auctionState(uint id) external onlyValid(id) returns (AuctionState){
+    checkEnd(id);
     return aste[id].state;
   }
-  function auctionHighestBid(uint id) external view returns (uint amount){
+  function auctionHighestBid(uint id) external onlyValid(id) view returns (uint amount){
     return aste[id].highestBid;
   }
-  function auctionHighestBidder(uint id) external view returns (address bidder){
+  function auctionHighestBidder(uint id) external onlyValid(id) view returns (address bidder){
     return aste[id].curr_highest;
   }
-  function finalizeAuction(uint id) external{
+  function finalizeAuction(uint id) onlyValid(id) external{
     checkEnd(id);
-    require(aste[id].state != AuctionState.Ongoing,"L'aste e ancora in corso")
+    if(aste[id].finalized == true) revert AuctionToFinalizeAlreadyFinalized();
+    if(aste[id].state == AuctionState.Ongoing)revert AuctionToFinalizeNotYetEnded(aste[id].scadenza);
+    // se è arrivata fino a qui vuol dire che sta finendo per la prima volta
     if(aste[id].state == AuctionState.EndedWithWinner){
       //in questo caso dobbiamo pagare il beneficiario
       emit AuctionEndedWithWinner(id, aste[id].curr_highest, aste[id].highestBid);
@@ -221,9 +227,10 @@ contract AuctionManager is AuctionManagerSpecs{
           curr_addr.transfer(tmp_import);
         }
       }
+      aste[id].finalized = true;
     }
     else if(aste[id].state == AuctionState.Canceled || aste[id].state == AuctionState.Expired){
-      //in questo caso dobbiamo solo rimboorsare tutti
+      //in questo caso dobbiamo solo rimborsare tutti
       uint n = aste[id].offerenti.length;
       for(uint i = 0; i < n;i++){
         address payable curr_addr = payable(aste[id].offerenti[i]);
@@ -231,6 +238,7 @@ contract AuctionManager is AuctionManagerSpecs{
         aste[id].offerte[curr_addr] = 0;
         curr_addr.transfer(tmp_import);
       }
+      aste[id].finalized = true;
       emit AuctionExpiredWithoutWinner(id);
     }
   }
@@ -238,6 +246,16 @@ contract AuctionManager is AuctionManagerSpecs{
     require(msg.sender == owner,"Solo l'owner puo compiere questa operazione");
     require(aste[id].state == AuctionState.Ongoing,"L'asta deve essere ancora in corso per essere annullata");
     aste[id].state = AuctionState.Canceled;
+
+
+    uint lastIndex = aste_in_corso.length - 1;
+    uint lastElement = aste_in_corso[lastIndex];
+    uint indexToRemove = mapp_aste_in_corso[id];
+    
+    aste_in_corso[indexToRemove] = lastElement;
+    mapp_aste_in_corso[lastElement] = indexToRemove; 
+    aste_in_corso.pop();
+    delete mapp_aste_in_corso[id];
   }
   
 }
