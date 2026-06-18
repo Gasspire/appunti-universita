@@ -181,11 +181,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2022-06-24-specs.sol": {
-			"keccak256": "0x8e3897f7d4955fee8bb282582c856b8ec520978a343cf39a2dd3b610cf364e2a",
+			"keccak256": "0x2c2312b62ef4d68085a39d686df3c7bfdc2291a285338474e4c5466bd8817312",
 			"license": "None",
 			"urls": [
-				"bzz-raw://c4782eab4d392c0cd9f52d5ff710d8d17273913a7705a39caded146307c330de",
-				"dweb:/ipfs/Qmada6sP1Do1EzDMv5zjPA9FysacmUcHXV8cc5eRvpFxtR"
+				"bzz-raw://d2728cfba5e2850eabbcc15e47f62fbbd61578a89d55cbded0e2347edb373375",
+				"dweb:/ipfs/QmShRj59fwUBMTezrwESdL5b78WWidoEm1u9HkRAfJ7MF5"
 			]
 		}
 	},

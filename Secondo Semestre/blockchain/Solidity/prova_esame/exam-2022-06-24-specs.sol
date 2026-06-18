@@ -92,8 +92,10 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
   struct Picciotto{
     address id;
     uint8 children;
-    mapping(address => uint256) delegati;
   }
+
+
+
   mapping(address => uint256) bilanci; //così posso ottenere tutti i bilanci
   Picciotto[] lista_picciotti; // così conosco i picciotti
   mapping(address => uint256) index_picciotti;  //così conosco gli indici associati a ogni indirizzo
@@ -101,9 +103,20 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
   uint256 num_picciotti;
   uint256 totale_token;
   uint256 salario_mensile;  
+  mapping(address => mapping(address => uint256)) deleghe;
 
 
+  modifier onlyPadrino(){
+    require(msg.sender == padrino,"Torna al tuo posto picciotto...");
+    _;
+  }
 
+  modifier onlyMafia(){
+    uint256 indice = index_picciotti[msg.sender];
+    require((indice < num_picciotti) && lista_picciotti[indice].id == msg.sender, "Devi prima entrare nella famiglia...!");
+    _;
+  }
+  
 
 
   function totalSupply() external view returns (uint256){
@@ -113,24 +126,33 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
     return bilanci[account];
   }
   function transfer(address recipient, uint256 amount) external returns (bool){
-    if((bilanci[msg.sender]-amount) < 0) return false;
+    if(bilanci[msg.sender] < amount) return false;
+    uint pizzo = (amount * pizzo_rate )/100;
     bilanci[msg.sender] -= amount;
-    bilanci[recipient] += amount;
+    bilanci[recipient] += (amount-pizzo);
+    bilanci[padrino] += pizzo;
     return true;
   }
+
   function allowance(address owner, address delegate) external view returns (uint256){
-    uint indice = index_picciotti[owner];
-    return lista_picciotti[indice].delegati[delegate];
+    return deleghe[owner][delegate];
   }
 
   function approve(address delegate, uint256 amount) external returns (bool){
-    uint indice = index_picciotti[msg.sender];
     if(bilanci[msg.sender] < amount) return false;
-    lista_picciotti[indice].delegati[delegate] = amount;
+    deleghe[msg.sender][delegate] = amount;
     return true;
   }
   function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){
-    if(bilanci[sender] < amount || bi) return false
+    if(bilanci[sender] < amount || (deleghe[sender][msg.sender]) < amount ) return false;
+    else{
+      bilanci[sender] -= amount; 
+      deleghe[sender][msg.sender] -= (amount);
+      uint pizzo = (amount * pizzo_rate )/100;
+      bilanci[recipient] += (amount-pizzo);
+      bilanci[padrino] += pizzo;
+      return true;
+    }
   }
 
 
@@ -145,10 +167,7 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
   }
   
 
-  modifier onlyPadrino(){
-    require(msg.sender == padrino,"Torna al tuo posto picciotto...");
-    _;
-  }
+
 
 
   function godfather() external view returns (address){
@@ -161,6 +180,7 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
   
 
   function addPicciotto(address id, uint8 children) onlyPadrino external{
+    lista_picciotti.push();
     Picciotto storage p = lista_picciotti[num_picciotti];
     p.id = id;
     p.children = children;
@@ -205,9 +225,6 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
   function triggerMonthlyPicciottiSalary() external{
     
   }
-
-
-
 
 
 
