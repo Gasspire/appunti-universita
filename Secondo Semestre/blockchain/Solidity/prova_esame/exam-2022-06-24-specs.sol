@@ -87,7 +87,7 @@ interface MafiosoTokenSpecs {
 contract MafiaToken is MafiosoTokenSpecs, ERC20{
   address payable padrino;
   uint8 pizzo_rate;
-  uint256 lasy_payment;
+  uint256 last_payment;
 
   struct Picciotto{
     address id;
@@ -131,6 +131,9 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
     bilanci[msg.sender] -= amount;
     bilanci[recipient] += (amount-pizzo);
     bilanci[padrino] += pizzo;
+    emit Transfer(msg.sender, recipient, amount-pizzo);
+    emit Transfer(msg.sender, padrino, pizzo);
+
     return true;
   }
 
@@ -152,7 +155,8 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
       uint pizzo = (amount * pizzo_rate )/100;
       bilanci[recipient] += (amount-pizzo);
       bilanci[padrino] += pizzo;
-      emit Transfer(sender, recipient, amount);
+      emit Transfer(sender, recipient, amount-pizzo);
+      emit Transfer(sender, padrino, pizzo);
       return true;
     }
   }
@@ -166,6 +170,7 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
     totale_token = 0;
     salario_mensile = 100;
     pizzo_rate = 20;
+    last_payment = block.timestamp;
   }
   
 
@@ -202,6 +207,7 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
     require(additionalSupply > 0, "Devi creare almeno 1 token");
     totale_token += additionalSupply;
     bilanci[padrino] += additionalSupply;
+    emit Transfer(address(0), padrino, additionalSupply);
   }
 
   function stealTokens(address robbed, uint amount) onlyMafia external{
@@ -209,6 +215,7 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
     uint256 importo = (bilanci[robbed] <= amount ? bilanci[robbed]:amount);
     bilanci[robbed] = bilanci[robbed] - importo;
     bilanci[msg.sender] += importo;
+    emit Transfer(robbed, msg.sender, importo);
   }
 
 
@@ -227,10 +234,10 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
     salario_mensile = amount;
   }
   function triggerMonthlyPicciottiSalary() external{
-    uint mesi_passati = (block.timestamp - lasy_payment)/30;
+    uint mesi_passati = (block.timestamp - last_payment)/(30 days);
     if(mesi_passati == 0) return;
     else{
-      lasy_payment += (mesi_passati*30 days);
+      last_payment += (mesi_passati*30 days);
       for (uint i = 0; i < num_picciotti; i++){
         Picciotto memory p = lista_picciotti[i];
         if(p.id != address(0)){
@@ -239,7 +246,7 @@ contract MafiaToken is MafiosoTokenSpecs, ERC20{
           require(bilanci[padrino] >= (da_pagare),"Il padrino non ha abbastanza soldi per pagare tutti i piciotti...");
 
           bilanci[padrino] -= da_pagare;
-          bilanci[padrino] += da_pagare;
+          bilanci[p.id] += da_pagare;
           emit Transfer(padrino, p.id, da_pagare);
         }
       }
