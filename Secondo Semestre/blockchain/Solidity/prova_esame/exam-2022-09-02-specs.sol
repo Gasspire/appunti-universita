@@ -69,7 +69,11 @@ interface UnblindElectionSpecs {
   function acceptCandidations(address[] calldata candidates) external;
 
   function getAcceptedCandidates() external view returns (address[] memory candidates);
+
+
   function vote(address candidate) external;
+
+
   function closeElection() external returns (bool valid);
 
   error PresidentReservedAction();
@@ -106,6 +110,8 @@ contract UnblindElection is UnblindElectionSpecs{
   mapping(address => uint8) accettati;
   address[] accettati_list;
 
+  mapping(address => uint256) voti_per_candidato;
+  mapping(address => uint8) votante_ha_votato;
 
   constructor(uint candidationDays, uint votingDays, uint8 quorumPercent){
     if(quorum >= 100 || quorum < 0) revert();
@@ -128,6 +134,10 @@ contract UnblindElection is UnblindElectionSpecs{
     _;
   }
 
+  modifier onlyVotePhase(){
+    if(status != Election_Status.VotingPhase) revert VotingPhaseNotYetOpen();
+    _;
+  }
 
 
   function addVoter(address voter) onlyPresident external{
@@ -188,10 +198,31 @@ contract UnblindElection is UnblindElectionSpecs{
   function getAcceptedCandidates() external view returns (address[] memory candidates){
     return accettati_list;
   }
-  
-  function vote(address candidate) external{}
-  function closeElection() external returns (bool valid){}
 
+  function vote(address candidate) onlyVotePhase external{
+    if(votanti[msg.sender] != 1) revert OnlyKnownVotersCanVote();
+    if(votante_ha_votato[msg.sender] != 0) revert OnlyOneVotePerVoter();
+    if(accettati[candidate] != 1) revert OnlyAcceptedCandidatesCanBeVoted();
 
+    voti_per_candidato[candidate]++;
+  }
+  function closeElection() onlyPresident external returns (bool valid){
+    if(block.timestamp < voting_days_end) revert (); // non si è ancora conclusa la fase di voto
+    address winner; 
+    uint256 vote_of_winner;
+
+    uint n_accettati = accettati_list.length;
+    uint n_votanti = votanti_list.length;
+    if(n_accettati < 0) revert ElectionClosedWithAnInvalidResult(); // non è stato accettato nessun candidato
+    if()
+    for(uint i=0; i < n_accettati;i++){
+      address curr_accettato = accettati_list[i];
+      if(voti_per_candidato[curr_accettato] > vote_of_winner){
+        winner = curr_accettato;
+        vote_of_winner = voti_per_candidato[winner]
+      }
+    }
+
+  }
 
 }

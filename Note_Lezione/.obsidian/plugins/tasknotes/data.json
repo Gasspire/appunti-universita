@@ -493,14 +493,14 @@
     "isRunning": true,
     "timeRemaining": 3000,
     "currentSession": {
-      "id": "1781857400329",
-      "startTime": "2026-06-19T10:23:20.329+02:00",
+      "id": "1781861170795",
+      "startTime": "2026-06-19T11:26:10.795+02:00",
       "plannedDuration": 50,
       "type": "work",
       "completed": false,
       "activePeriods": [
         {
-          "startTime": "2026-06-19T10:23:20.329+02:00"
+          "startTime": "2026-06-19T11:26:10.795+02:00"
         }
       ]
     }
@@ -935,6 +935,34 @@
         {
           "startTime": "2026-06-18T17:51:10.984+02:00",
           "endTime": "2026-06-18T18:01:10.984+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1781857400329",
+      "startTime": "2026-06-19T10:23:20.329+02:00",
+      "endTime": "2026-06-19T11:13:20.329+02:00",
+      "plannedDuration": 50,
+      "type": "work",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-19T10:23:20.329+02:00",
+          "endTime": "2026-06-19T11:13:20.329+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1781860401540",
+      "startTime": "2026-06-19T11:13:21.539+02:00",
+      "endTime": "2026-06-19T11:23:21.539+02:00",
+      "plannedDuration": 10,
+      "type": "short-break",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-19T11:13:21.539+02:00",
+          "endTime": "2026-06-19T11:23:21.539+02:00"
         }
       ]
     }
