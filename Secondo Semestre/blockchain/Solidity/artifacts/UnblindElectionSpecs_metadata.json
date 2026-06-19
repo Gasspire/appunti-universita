@@ -1,0 +1,243 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "CandidateHasToBeAVoter",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "CandidationPhaseAlreadyClosed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ElectionClosedWithAnInvalidResult",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ElectionClosedWithoutQuorum",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ItIsNotACandidate",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "OnlyAcceptedCandidatesCanBeVoted",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "OnlyKnownVotersCanVote",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "OnlyOneVotePerVoter",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "PresidentReservedAction",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "VotingPhaseAlreadyClosed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "VotingPhaseNotYetClosed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "VotingPhaseNotYetOpen",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "candidate",
+						"type": "address"
+					}
+				],
+				"name": "AcceptedCandidation",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "winner",
+						"type": "address"
+					}
+				],
+				"name": "ElectionRegularlyClosed",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "candidate",
+						"type": "address"
+					}
+				],
+				"name": "acceptCandidation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "candidates",
+						"type": "address[]"
+					}
+				],
+				"name": "acceptCandidations",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "voter",
+						"type": "address"
+					}
+				],
+				"name": "addVoter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "voters",
+						"type": "address[]"
+					}
+				],
+				"name": "addVoters",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "candidateMySelf",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "candidate",
+						"type": "address"
+					}
+				],
+				"name": "candidateSomeoneElse",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "closeElection",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "valid",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAcceptedCandidates",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "candidates",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "candidate",
+						"type": "address"
+					}
+				],
+				"name": "vote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"prova_esame/exam-2022-09-02-specs.sol": "UnblindElectionSpecs"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"prova_esame/exam-2022-09-02-specs.sol": {
+			"keccak256": "0x13dae88e3b2c33c90bb1267b741c516a54fd26d80e711db72abd0dcd4d7e1fdf",
+			"license": "None",
+			"urls": [
+				"bzz-raw://5086f2f53e0b19be78b2546b8d224b099772d9716d09c9c0dcecc39f90e3c65c",
+				"dweb:/ipfs/QmT1VyXnPdaZS9ca6kHgcxkKVsMKrHpphGwjLaRew829XN"
+			]
+		}
+	},
+	"version": 1
+}

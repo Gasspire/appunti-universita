@@ -18,7 +18,17 @@
             }
           },
           {
-            "id": "90846e6f05f2ef37",
+            "id": "875a8173eb1ba496",
+            "type": "leaf",
+            "state": {
+              "type": "tasknotes-pomodoro-stats-view",
+              "state": {},
+              "icon": "bar-chart",
+              "title": "Pomodoro stats"
+            }
+          },
+          {
+            "id": "47bee6ba6f8f839a",
             "type": "leaf",
             "state": {
               "type": "bases",
@@ -28,16 +38,6 @@
               },
               "icon": "tasknotes-simple",
               "title": "kanban-default"
-            }
-          },
-          {
-            "id": "47ba01d4b578e844",
-            "type": "leaf",
-            "state": {
-              "type": "tasknotes-pomodoro-stats-view",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "tasknotes-pomodoro-stats-view"
             }
           }
         ]
@@ -212,8 +212,8 @@
   },
   "active": "3f505bda3a328b63",
   "lastOpenFiles": [
-    "TaskNotes/Start Here.md",
     "TaskNotes/Views/kanban-default.base",
+    "TaskNotes/Start Here.md",
     "TaskNotes/Tasks/Un altro esercizio a scelta.md",
     "TaskNotes/Tasks/Rifare Carta Forbice sos BENE.md",
     "TaskNotes/Tasks/Standard ERC-20.md",
