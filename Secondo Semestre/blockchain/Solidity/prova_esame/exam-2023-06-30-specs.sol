@@ -142,13 +142,14 @@ contract BingoGame is BingoGameSpecs{
 
   constructor(uint bookingPeriodInHours, uint cardCost){
     if( bookingPeriodInHours == 0 || cardCost == 0) revert(); // controlliamo che gli input abbiano senso
-    end_booking_phase = block.timestamp + (bookingPeriodInHours * 1 minutes);
+    end_booking_phase = block.timestamp + (bookingPeriodInHours * 1 hours);
     card_cost = cardCost;
     stato = GameState.Booking;
   }
 
 
   function buyCards() payable onlyBookingPhase external{
+    if(block.timestamp > end_booking_phase) revert BookingPeriodAlreadyExpired();
     if(giocatori[msg.sender].num_card == 0){ //allora è un nuovo player
       giocatori[msg.sender].addr = msg.sender;
       giocatori[msg.sender].id = num_player;
@@ -213,7 +214,7 @@ contract BingoGame is BingoGameSpecs{
       randomness++;
     } 
     while (numeri_estratti[numero_estratto] != 0); //così ho un numero unico
-
+    numeri_estratti[numero_estratto] = 1;
 
 
     //una volta estratto il numero, devo controllare tutte le cartelle e assegnare i premi.
@@ -222,14 +223,16 @@ contract BingoGame is BingoGameSpecs{
     uint total_in_row = 0;
     uint total_in_card = 0;
     uint number_of_winner_row = 0;
-    address[] memory row_winner;
+    address[] memory row_winner = new address[](num_player);
+    //address[] memory row_winner;
     uint8 is_already_winner = 0;
 
 
 
     uint number_of_bingo_winner = 0;
-    address[] memory bingo_winner;
+    address[] memory bingo_winner = new address[](num_player);
     uint8 is_already_winner_bingo = 0;
+    //address[] memory bingo_winner;
 
     uint256 numero_incombenze;
 
