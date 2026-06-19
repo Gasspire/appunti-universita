@@ -22,6 +22,7 @@
   Nella fase di candidatura chiunque può candidarsi o essere candidato tramite i 
   metodi `candidateMySelf` e `candidateSomeoneElse`. Questi potrebbero generare
   i seguenti errori: `CandidationPhaseAlreadyClosed` o `CandidateHasToBeAVoter`.
+
   Solo il presidente, in tutte le fasi, può accettare una candidatura tramite
   i metodi `acceptCandidation` e `acceptCandidations`; questi metodi genereranno
   l'evento `AcceptedCandidation` o un dei seguenti errori: `ItIsNotACandidate` o
@@ -60,10 +61,13 @@ interface UnblindElectionSpecs {
 
   function addVoter(address voter) external;
   function addVoters(address[] calldata voters) external;
+
   function candidateMySelf() external;
   function candidateSomeoneElse(address candidate) external;
+
   function acceptCandidation(address candidate) external;
   function acceptCandidations(address[] calldata candidates) external;
+
   function getAcceptedCandidates() external view returns (address[] memory candidates);
   function vote(address candidate) external;
   function closeElection() external returns (bool valid);
@@ -86,24 +90,105 @@ interface UnblindElectionSpecs {
 }
 
 contract UnblindElection is UnblindElectionSpecs{
+  enum Election_Status{CandidatePhase, VotingPhase, End}
   address president;
-  uint cadidate_days_end;
+  uint candidate_days_end;
   uint voting_days_end;
   uint8 quorum;
+  Election_Status status;
+
+  mapping(address => uint8) votanti;
+  address[] votanti_list;
+
+  mapping(address => uint8) candidati;
+  address[] candidati_list;
+
+  mapping(address => uint8) accettati;
+  address[] accettati_list;
 
 
   constructor(uint candidationDays, uint votingDays, uint8 quorumPercent){
+    if(quorum >= 100 || quorum < 0) revert();
+    if(candidationDays == 0 || votingDays == 0) revert();
     president = msg.sender;
-    cadidate_days_end = 
+    candidate_days_end = block.timestamp + (candidationDays * 1 days);
+    voting_days_end = candidate_days_end + (votingDays * 1 days);
+    quorum = quorumPercent;
+    status = Election_Status.CandidatePhase;
   }
 
-  function addVoter(address voter) external{}
-  function addVoters(address[] calldata voters) external{}
-  function candidateMySelf() external{}
-  function candidateSomeoneElse(address candidate) external{}
-  function acceptCandidation(address candidate) external{}
-  function acceptCandidations(address[] calldata candidates) external{}
-  function getAcceptedCandidates() external view returns (address[] memory candidates){}
+
+  modifier onlyPresident(){
+    if(msg.sender != president) revert PresidentReservedAction();
+    _;
+  }
+
+  modifier onlyCandidatePhase(){
+    if(status != Election_Status.CandidatePhase) revert CandidationPhaseAlreadyClosed();
+    _;
+  }
+
+
+
+  function addVoter(address voter) onlyPresident external{
+    if(voter == address(0))revert();
+    if(votanti[voter] == 1) revert(); // il voters è già stato segnato
+
+    votanti[voter] = 1;
+    votanti_list.push(voter);
+    return;
+  }
+  function addVoters(address[] calldata voters) onlyPresident external{
+    uint n = voters.length;
+    for(uint i = 0; i < n; i++){
+      if(voters[i] == address(0)) revert();
+      if(votanti[voters[i]] == 1) revert(); // il voters è già stato segnato
+
+      votanti[voters[i]] = 1;
+      votanti_list.push(voters[i]);
+    }
+  }
+
+
+  function candidateMySelf() onlyCandidatePhase external{
+    if(candidati[msg.sender] == 1) revert(); // è già stato candidato
+    if(votanti[msg.sender] != 1) revert CandidateHasToBeAVoter(); // se il sender non è presente nella lista dei votanti, allora non può essere candidato
+    candidati[msg.sender] = 1; //lo segnamo nella lista dei candidati
+    candidati_list.push(msg.sender);
+  }
+  function candidateSomeoneElse(address candidate) onlyCandidatePhase external{ //stessa logica di prima
+    if(candidati[candidate] == 1) revert(); // è già stato candidato
+    if(votanti[candidate] != 1) revert CandidateHasToBeAVoter(); // se il sender non è presente nella lista dei votanti, allora non può essere candidato
+    candidati[candidate] = 1; //lo segnamo nella lista dei candidati
+    candidati_list.push(candidate);
+  }
+
+
+  function acceptCandidation(address candidate) onlyPresident external{
+    if(accettati[candidate]== 1) revert(); //il candidate è già stato accettato
+    if(candidati[candidate] != 1) revert ItIsNotACandidate();
+
+    accettati[candidate] = 1;
+    accettati_list.push(candidate);
+  }
+  function acceptCandidations(address[] calldata candidates) onlyPresident external{
+    uint n = candidates.length;
+
+    for (uint i = 0; i < n; i++) 
+    {
+      if(accettati[candidates[i]] == 1) revert(); 
+      if(candidati[candidates[i]] != 1) revert ItIsNotACandidate();
+      accettati[candidates[i]] = 1;
+      accettati_list.push(candidates[i]);
+    }
+  }
+
+
+
+  function getAcceptedCandidates() external view returns (address[] memory candidates){
+    return accettati_list;
+  }
+  
   function vote(address candidate) external{}
   function closeElection() external returns (bool valid){}
 

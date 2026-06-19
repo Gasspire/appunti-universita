@@ -231,11 +231,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2022-09-02-specs.sol": {
-			"keccak256": "0x13dae88e3b2c33c90bb1267b741c516a54fd26d80e711db72abd0dcd4d7e1fdf",
+			"keccak256": "0x56fecb40ee86e01a5cc52407ae4a0e27b254a482bdfd9a1b25e33f2cefa6d466",
 			"license": "None",
 			"urls": [
-				"bzz-raw://5086f2f53e0b19be78b2546b8d224b099772d9716d09c9c0dcecc39f90e3c65c",
-				"dweb:/ipfs/QmT1VyXnPdaZS9ca6kHgcxkKVsMKrHpphGwjLaRew829XN"
+				"bzz-raw://2c52aa9d043b82a5a2e060de2da23964191a5451a4934cffdb695b63a9172396",
+				"dweb:/ipfs/QmdtYyEWKJV2ZZE1ZEgttgB4a7AUhVSJ58mLdukVTuT4Nb"
 			]
 		}
 	},
