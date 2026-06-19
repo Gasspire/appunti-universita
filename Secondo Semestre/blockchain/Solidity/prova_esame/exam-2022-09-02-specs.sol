@@ -94,12 +94,12 @@ interface UnblindElectionSpecs {
 }
 
 contract UnblindElection is UnblindElectionSpecs{
-  enum Election_Status{CandidatePhase, VotingPhase, End}
   address president;
   uint candidate_days_end;
   uint voting_days_end;
   uint8 quorum;
-  Election_Status status;
+
+  address election_winner;
 
   mapping(address => uint8) votanti;
   address[] votanti_list;
@@ -120,7 +120,6 @@ contract UnblindElection is UnblindElectionSpecs{
     candidate_days_end = block.timestamp + (candidationDays * 1 days);
     voting_days_end = candidate_days_end + (votingDays * 1 days);
     quorum = quorumPercent;
-    status = Election_Status.CandidatePhase;
   }
 
 
@@ -129,15 +128,20 @@ contract UnblindElection is UnblindElectionSpecs{
     _;
   }
 
+  
   modifier onlyCandidatePhase(){
-    if(status != Election_Status.CandidatePhase) revert CandidationPhaseAlreadyClosed();
-    _;
+    uint curr_date = block.timestamp;
+    if(curr_date > candidate_days_end) revert CandidationPhaseAlreadyClosed();
+     _;
   }
 
   modifier onlyVotePhase(){
-    if(status != Election_Status.VotingPhase) revert VotingPhaseNotYetOpen();
-    _;
+    uint curr_date = block.timestamp;
+    if(curr_date < candidate_days_end) revert VotingPhaseNotYetOpen(); //errori erano invertiti
+    else if(curr_date >  voting_days_end) revert VotingPhaseAlreadyClosed();
+     _;
   }
+
 
 
   function addVoter(address voter) onlyPresident external{
@@ -180,6 +184,7 @@ contract UnblindElection is UnblindElectionSpecs{
 
     accettati[candidate] = 1;
     accettati_list.push(candidate);
+    emit AcceptedCandidation(candidate);
   }
   function acceptCandidations(address[] calldata candidates) onlyPresident external{
     uint n = candidates.length;
@@ -190,6 +195,7 @@ contract UnblindElection is UnblindElectionSpecs{
       if(candidati[candidates[i]] != 1) revert ItIsNotACandidate();
       accettati[candidates[i]] = 1;
       accettati_list.push(candidates[i]);
+      emit AcceptedCandidation(candidates[i]);
     }
   }
 
@@ -204,25 +210,50 @@ contract UnblindElection is UnblindElectionSpecs{
     if(votante_ha_votato[msg.sender] != 0) revert OnlyOneVotePerVoter();
     if(accettati[candidate] != 1) revert OnlyAcceptedCandidatesCanBeVoted();
 
+    votante_ha_votato[msg.sender]++; //mancava il controllo
     voti_per_candidato[candidate]++;
   }
+
+
   function closeElection() onlyPresident external returns (bool valid){
-    if(block.timestamp < voting_days_end) revert (); // non si è ancora conclusa la fase di voto
+    if(block.timestamp < voting_days_end) revert VotingPhaseNotYetClosed(); // non si è ancora conclusa la fase di voto
+
     address winner; 
     uint256 vote_of_winner;
 
+    address second;
+    uint256 vote_of_second;
+    
     uint n_accettati = accettati_list.length;
     uint n_votanti = votanti_list.length;
-    if(n_accettati < 0) revert ElectionClosedWithAnInvalidResult(); // non è stato accettato nessun candidato
-    if()
+    uint total_number_of_vote = 0;
+
+    if(n_accettati == 0) revert ElectionClosedWithAnInvalidResult(); // non è stato accettato nessun candidato. L'errore di prima è che non è possibile che un uint sia < 0
+    if(n_votanti == 0) revert ElectionClosedWithAnInvalidResult(); //non c'era alcun votante. 
     for(uint i=0; i < n_accettati;i++){
       address curr_accettato = accettati_list[i];
+      total_number_of_vote += voti_per_candidato[curr_accettato]; //tengo il conto dei votanti
       if(voti_per_candidato[curr_accettato] > vote_of_winner){
+        second = winner; //facciamo scalare alla seconda posizione
+        vote_of_second = vote_of_winner;
+
         winner = curr_accettato;
-        vote_of_winner = voti_per_candidato[winner]
+        vote_of_winner = voti_per_candidato[winner];
+      }
+      else if(voti_per_candidato[curr_accettato] > vote_of_second){
+        second = curr_accettato;
+        vote_of_second = voti_per_candidato[second];
       }
     }
+    if (total_number_of_vote == 0) revert ElectionClosedWithAnInvalidResult(); //nessuno ha votato
+    uint percentuale_votanti = (100 * total_number_of_vote)/n_votanti;
+    if(percentuale_votanti < quorum) revert ElectionClosedWithoutQuorum();
+    if((vote_of_winner - vote_of_second) < 1) revert ElectionClosedWithAnInvalidResult(); // non c'è stata una differenza di almeno uno
 
+    election_winner = winner;
+
+    emit ElectionRegularlyClosed(election_winner);
+    return true;
   }
 
 }
