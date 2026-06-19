@@ -40,7 +40,8 @@
               "title": "kanban-default"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -210,7 +211,7 @@
       "tasknotes:Create new task": false
     }
   },
-  "active": "3f505bda3a328b63",
+  "active": "875a8173eb1ba496",
   "lastOpenFiles": [
     "TaskNotes/Views/kanban-default.base",
     "TaskNotes/Start Here.md",
