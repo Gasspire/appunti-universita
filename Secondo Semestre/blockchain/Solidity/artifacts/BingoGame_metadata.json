@@ -298,11 +298,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2023-06-30-specs.sol": {
-			"keccak256": "0x7af7658169098f4b41a030b7f91ee6c3e7ece1dd80915084dbdb6fe21229283c",
+			"keccak256": "0xb096eb996e1fac2b96b5eacf252a164253ff6b47642d3df1843b23b039ad1df7",
 			"license": "None",
 			"urls": [
-				"bzz-raw://8c04a752b311e4bc2880cff3c6faddf0fe77bdf6c7ab3ae530ca2ded07c0f879",
-				"dweb:/ipfs/QmPTQBAQFDbZkKhQ4MRA1yDt7a4QMZgqZ49LuYdpFBJjtv"
+				"bzz-raw://61ae6a3b3692a95e2729a6227c6f40e59cbc5d372e6016c75c28abc0fb683f20",
+				"dweb:/ipfs/QmP61Nf35QT78FsXsnf5efLBxgceLZhkoy3kqtv3ZTVMCZ"
 			]
 		}
 	},

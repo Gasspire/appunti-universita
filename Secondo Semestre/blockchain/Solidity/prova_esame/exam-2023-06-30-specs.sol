@@ -109,6 +109,7 @@ contract BingoGame is BingoGameSpecs{
     uint256 id;
     uint256 num_card;
     Card[] card;
+    Card[] card_uscito;
   }
   uint end_booking_phase;
   uint card_cost;
@@ -125,6 +126,8 @@ contract BingoGame is BingoGameSpecs{
 
 
   uint8[76] numeri_estratti;
+  uint8 bingo_vinto;
+  uint8 cinque_in_riga;
 
   modifier onlyBookingPhase(){
     if(stato == GameState.Extraction) revert BookingPeriodAlreadyExpired();
@@ -146,6 +149,8 @@ contract BingoGame is BingoGameSpecs{
     if(giocatori[msg.sender].num_card == 0){ //allora è un nuovo player
       giocatori[msg.sender].addr = msg.sender;
       giocatori[msg.sender].id = num_player;
+
+      giocatori_lista.push(msg.sender);
       num_player++;
     } 
     uint number_of_cards = uint(msg.value/card_cost);
@@ -154,9 +159,9 @@ contract BingoGame is BingoGameSpecs{
     for(uint i = 0; i < number_of_cards; i++){
       uint8[76] memory usciti;
       uint256 curr_number = giocatori[msg.sender].num_card;
-      for (uint x = 0; x < 5; x++) 
+      for (uint x = 0; x < 3; x++) 
       {
-        for (uint y = 0; y < 3; y++) 
+        for (uint y = 0; y < 5; y++) 
         {
           uint8 number;
           //mi assicuro che il numero uscito sia sempre diverso
@@ -169,6 +174,7 @@ contract BingoGame is BingoGameSpecs{
         }
       }
       giocatori[msg.sender].num_card++;
+      giocatori[msg.sender].card_uscito.push();
       num_cards++;
     }
   }
@@ -182,11 +188,54 @@ contract BingoGame is BingoGameSpecs{
     do {
       numero_estratto = uint8((uint256(keccak256(abi.encode(block.timestamp, block.prevrandao)))%(76)) + 1);
     } 
-    while (numeri_estratti[number] != 0); //così ho un numero unico
+    while (numeri_estratti[numero_estratto] != 0); //così ho un numero unico
 
 
 
+    //una volta estratto il numero, devo controllare tutte le cartelle e assegnare i premi.
 
+
+    uint total_in_row = 0;
+    uint total_in_card = 0;
+    uint number_of_winner_row = 0;
+    address[] memory row_winner;
+    uint8 is_already_winner = 0;
+
+    uint number_of_bingo_winner = 0;
+    address[] memory bingo_winner;
+    uint8 is_already_winner_bingo = 0;
+
+
+    for (uint i = 0; i < num_player; i++) 
+    {
+      address curr_player = giocatori_lista[i];
+      for(uint j = 0; j < giocatori[curr_player].num_card; j++){
+        for(uint x = 0; x < 3; x++){
+          for(uint y = 0; y < 5; y++){
+            if(giocatori[curr_player].card[j].cells[x][y] == numero_estratto) giocatori[curr_player].card_uscito[j].cells[x][y] = 1;
+            total_in_row+= giocatori[curr_player].card_uscito[j].cells[x][y]; //conto quanti numeri sono stati indovinati in una riga!
+            total_in_card+= giocatori[curr_player].card_uscito[j].cells[x][y]; //conto quanti numeri sono stati indovinati nella cartella
+          }
+          if(total_in_row == 5 && is_already_winner == 0){
+            row_winner[number_of_winner_row] = curr_player; //aggiungiamo il player che ha vinto la riga se non ha già vinto
+            total_in_row = 0;
+            is_already_winner = 1;
+            number_of_winner_row++;
+          }
+          else total_in_row = 0;
+        }
+        if(total_in_card == 15 && is_already_winner_bingo == 0){
+          bingo_winner[number_of_bingo_winner] = curr_player;
+          total_in_card = 0;
+          is_already_winner_bingo = 1;
+          number_of_bingo_winner++;
+        }
+        else total_in_card = 0;
+      }
+    }
+
+
+    return numero_estratto;
   }
 
   function getCardCost() external view returns (uint cost){
