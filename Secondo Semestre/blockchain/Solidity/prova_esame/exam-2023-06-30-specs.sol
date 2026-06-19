@@ -142,13 +142,12 @@ contract BingoGame is BingoGameSpecs{
 
   constructor(uint bookingPeriodInHours, uint cardCost){
     if( bookingPeriodInHours == 0 || cardCost == 0) revert(); // controlliamo che gli input abbiano senso
-    end_booking_phase = block.timestamp + (bookingPeriodInHours * 1 hours);
+    end_booking_phase = block.timestamp + (bookingPeriodInHours * 1 minutes);
     card_cost = cardCost;
     stato = GameState.Booking;
   }
 
 
-  
   function buyCards() payable onlyBookingPhase external{
     if(giocatori[msg.sender].num_card == 0){ //allora è un nuovo player
       giocatori[msg.sender].addr = msg.sender;
@@ -157,13 +156,23 @@ contract BingoGame is BingoGameSpecs{
       giocatori_lista.push(msg.sender);
       num_player++;
     } 
+
+
+
     uint number_of_cards = uint(msg.value/card_cost);
     if(number_of_cards == 0) revert InsufficientFundsToBuyEvenACard(msg.value, card_cost);
-    //Se non è 0 possiamo iniziare
+
+
     total_amount += msg.value;
+
     for(uint i = 0; i < number_of_cards; i++){
+
       uint8[76] memory usciti;
       uint256 curr_number = giocatori[msg.sender].num_card;
+      giocatori[msg.sender].card_uscito.push();
+      giocatori[msg.sender].card.push();
+      uint256 randomness = 0;
+
       for (uint x = 0; x < 3; x++) 
       {
         for (uint y = 0; y < 5; y++) 
@@ -171,15 +180,16 @@ contract BingoGame is BingoGameSpecs{
           uint8 number;
           //mi assicuro che il numero uscito sia sempre diverso
           do {
-            number = uint8((uint256(keccak256(abi.encode(block.timestamp, block.prevrandao, (i+x+y))))%(76)) + 1);
+            number = uint8((uint256(keccak256(abi.encode(block.timestamp, block.prevrandao, (i+x+y+randomness))))%(76)) + 1);
+            randomness++;
           } 
           while (usciti[number] != 0);
           usciti[number] = 1;
+          
           giocatori[msg.sender].card[curr_number].cells[x][y] = number;
         }
       }
       giocatori[msg.sender].num_card++;
-      giocatori[msg.sender].card_uscito.push();
       num_cards++;
     }
 
@@ -197,8 +207,10 @@ contract BingoGame is BingoGameSpecs{
     if(stato == GameState.Ended) revert GameAlreadyEnded();
 
     uint8 numero_estratto;
+    uint256 randomness = 0;
     do {
-      numero_estratto = uint8((uint256(keccak256(abi.encode(block.timestamp, block.prevrandao)))%(76)) + 1);
+      numero_estratto = uint8((uint256(keccak256(abi.encode(block.timestamp, block.prevrandao,randomness)))%(75)) + 1);
+      randomness++;
     } 
     while (numeri_estratti[numero_estratto] != 0); //così ho un numero unico
 
@@ -235,6 +247,7 @@ contract BingoGame is BingoGameSpecs{
             total_in_row+= giocatori[curr_player].card_uscito[j].cells[x][y]; //conto quanti numeri sono stati indovinati in una riga!
             total_in_card+= giocatori[curr_player].card_uscito[j].cells[x][y]; //conto quanti numeri sono stati indovinati nella cartella
           }
+
           if(total_in_row == 5 && is_already_winner == 0){
             row_winner[number_of_winner_row] = curr_player; //aggiungiamo il player che ha vinto la riga se non ha già vinto
             total_in_row = 0;
@@ -256,16 +269,17 @@ contract BingoGame is BingoGameSpecs{
     }
 
     //abbiamo fatto tutti i controlli ora assegnamo i premi
-    if(cinque_in_riga == 0){ //allora assegnamo i premi 
+    if(cinque_in_riga == 0 && number_of_winner_row != 0){ //allora assegnamo i premi 
       cinque_in_riga = 1; //qualunque tentativo di chiamata fallback fallirà nel provare a rientrare qui evitando attacchi che svuotano il conto
       emit FiveInARowHasBeenWon(premio_cinquina, number_of_winner_row);
       uint256 importo = premio_cinquina/number_of_winner_row;
       for (uint i = 0; i < number_of_winner_row; i++) 
       {
         payable(row_winner[i]).transfer(importo);
+        emit PrizePayed(importo, row_winner[i]);
       }
     }
-    if(bingo_vinto == 0){
+    if(bingo_vinto == 0 && number_of_bingo_winner != 0){
       bingo_vinto = 1;
       emit BingoHasBeenWon(premio_bingo, number_of_bingo_winner);
       stato = GameState.Ended;
@@ -273,6 +287,8 @@ contract BingoGame is BingoGameSpecs{
       for (uint i = 0; i < number_of_bingo_winner; i++) 
       {
         payable(bingo_winner[i]).transfer(importo);
+        emit PrizePayed(importo, bingo_winner[i]);
+
       }
     }
     emit NumberExtraction(numero_estratto, numero_incombenze);
