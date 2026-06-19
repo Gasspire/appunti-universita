@@ -112,17 +112,23 @@ contract BingoGame is BingoGameSpecs{
   }
   uint end_booking_phase;
   uint card_cost;
-  GameState state;
+  GameState stato;
+
+
 
   uint total_amount; //per sapere quanto è il premio raccolto per poi dividerlo
   uint num_player;
+  uint num_cards;
 
   mapping(address => Player) giocatori;
   address[] giocatori_lista;
 
 
+  uint8[76] numeri_estratti;
+
   modifier onlyBookingPhase(){
-    if(state != GameState.Booking) revert BookingPeriodAlreadyExpired();
+    if(stato == GameState.Extraction) revert BookingPeriodAlreadyExpired();
+    else if(stato == GameState.Ended) revert GameAlreadyEnded();
     _;
   }
 
@@ -131,7 +137,7 @@ contract BingoGame is BingoGameSpecs{
     if( bookingPeriodInHours == 0 || cardCost == 0) revert(); // controlliamo che gli input abbiano senso
     end_booking_phase = block.timestamp + (bookingPeriodInHours * 1 hours);
     card_cost = cardCost;
-    state = GameState.Booking;
+    stato = GameState.Booking;
   }
 
 
@@ -140,36 +146,72 @@ contract BingoGame is BingoGameSpecs{
     if(giocatori[msg.sender].num_card == 0){ //allora è un nuovo player
       giocatori[msg.sender].addr = msg.sender;
       giocatori[msg.sender].id = num_player;
+      num_player++;
     } 
     uint number_of_cards = uint(msg.value/card_cost);
     if(number_of_cards == 0) revert InsufficientFundsToBuyEvenACard(msg.value, card_cost);
     //Se non è 0 possiamo iniziare
     for(uint i = 0; i < number_of_cards; i++){
-      uint8[75] memory usciti;
+      uint8[76] memory usciti;
       uint256 curr_number = giocatori[msg.sender].num_card;
       for (uint x = 0; x < 5; x++) 
       {
         for (uint y = 0; y < 3; y++) 
         {
-          uint 8 number = 
-          giocatori[msg.sender].card[curr_number].cells[x][y] = ;
+          uint8 number;
+          //mi assicuro che il numero uscito sia sempre diverso
+          do {
+            number = uint8((uint256(keccak256(abi.encode(block.timestamp, block.prevrandao, (i+x+y))))%(76)) + 1);
+          } 
+          while (usciti[number] != 0);
+          usciti[number] = 1;
+          giocatori[msg.sender].card[curr_number].cells[x][y] = number;
         }
       }
-
-
-
+      giocatori[msg.sender].num_card++;
+      num_cards++;
     }
+  }
+  
+  function extractNextNumber() external returns (uint8 number){
+    if(stato == GameState.Booking && block.timestamp < end_booking_phase) revert ExtractionPhaseNotYetStarted(end_booking_phase - block.timestamp);
+    if(stato == GameState.Booking && block.timestamp > end_booking_phase) stato = GameState.Extraction;
+    if(stato == GameState.Ended) revert GameAlreadyEnded();
+
+    uint8 numero_estratto;
+    do {
+      numero_estratto = uint8((uint256(keccak256(abi.encode(block.timestamp, block.prevrandao)))%(76)) + 1);
+    } 
+    while (numeri_estratti[number] != 0); //così ho un numero unico
+
+
 
 
   }
-  function extractNextNumber() external returns (uint8 number){}
 
-  function getCardCost() external view returns (uint cost){}
-  function getGameState() external view returns (GameState state){}
-  function getNumberOfPlayers() external view returns (uint players){}
-  function getNumberOfCards() external view returns (uint cards){}
-  function getMyCards() external view returns (Card[] memory cards){}
-  function isItExtracted(uint8 number) external view returns (bool){}
+  function getCardCost() external view returns (uint cost){
+    return card_cost;
+  }
+  function getGameState() external view returns (GameState state){
+    return stato;
+  }
+  function getNumberOfPlayers() external view returns (uint players){
+    return num_player;
+  }
+  function getNumberOfCards() external view returns (uint cards){
+    return num_cards;
+  }
+
+  function getMyCards() external view returns (Card[] memory cards){
+    if(giocatori[msg.sender].num_card == 0) revert EnquirerIsNotAGamer();
+    else return giocatori[msg.sender].card;
+  }
+  function isItExtracted(uint8 number) external view returns (bool){
+    if(number > 75) revert();
+    if(stato == GameState.Booking) revert ExtractionPhaseNotYetStarted(end_booking_phase - block.timestamp);
+    if(numeri_estratti[number] == 1) return true;
+    else return false;
+  }
 
 
 

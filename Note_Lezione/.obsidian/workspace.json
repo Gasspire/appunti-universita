@@ -28,19 +28,6 @@
             }
           },
           {
-            "id": "47bee6ba6f8f839a",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "TaskNotes/Views/kanban-default.base",
-                "viewName": "Kanban Board"
-              },
-              "icon": "tasknotes-simple",
-              "title": "kanban-default"
-            }
-          },
-          {
             "id": "3bf88526d7d7ff7d",
             "type": "leaf",
             "state": {
@@ -54,8 +41,7 @@
               "title": "Senza nome"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -225,7 +211,7 @@
       "tasknotes:Create new task": false
     }
   },
-  "active": "3bf88526d7d7ff7d",
+  "active": "3f505bda3a328b63",
   "lastOpenFiles": [
     "Senza nome.md",
     "TaskNotes/Views/kanban-default.base",
