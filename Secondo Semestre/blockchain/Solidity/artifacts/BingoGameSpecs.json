@@ -1,0 +1,312 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"buyCards()": "21870eec",
+			"extractNextNumber()": "10978262",
+			"getCardCost()": "d66a0ffc",
+			"getGameState()": "b7d0628b",
+			"getMyCards()": "ed92c4bb",
+			"getNumberOfCards()": "c487282c",
+			"getNumberOfPlayers()": "fd6673f5",
+			"isItExtracted(uint8)": "873b604e"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [],
+			"name": "BookingPeriodAlreadyExpired",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "EnquirerIsNotAGamer",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "secondsToGo",
+					"type": "uint256"
+				}
+			],
+			"name": "ExtractionPhaseNotYetStarted",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "GameAlreadyEnded",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "providedFunds",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "cardCost",
+					"type": "uint256"
+				}
+			],
+			"name": "InsufficientFundsToBuyEvenACard",
+			"type": "error"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "prizeAmount",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "numberOfWinners",
+					"type": "uint256"
+				}
+			],
+			"name": "BingoHasBeenWon",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "prizeAmount",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "numberOfWinners",
+					"type": "uint256"
+				}
+			],
+			"name": "FiveInARowHasBeenWon",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint8",
+					"name": "number",
+					"type": "uint8"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "matchingCards",
+					"type": "uint256"
+				}
+			],
+			"name": "NumberExtraction",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "prizeAmount",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "winner",
+					"type": "address"
+				}
+			],
+			"name": "PrizePayed",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "buyer",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "numberOfCards",
+					"type": "uint256"
+				}
+			],
+			"name": "PurchaseOfCards",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "buyCards",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "extractNextNumber",
+			"outputs": [
+				{
+					"internalType": "uint8",
+					"name": "number",
+					"type": "uint8"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getCardCost",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "cost",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getGameState",
+			"outputs": [
+				{
+					"internalType": "enum BingoGameSpecs.GameState",
+					"name": "state",
+					"type": "uint8"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getMyCards",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint8[5][3]",
+							"name": "cells",
+							"type": "uint8[5][3]"
+						}
+					],
+					"internalType": "struct BingoGameSpecs.Card[]",
+					"name": "cards",
+					"type": "tuple[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getNumberOfCards",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "cards",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getNumberOfPlayers",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "players",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint8",
+					"name": "number",
+					"type": "uint8"
+				}
+			],
+			"name": "isItExtracted",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}
