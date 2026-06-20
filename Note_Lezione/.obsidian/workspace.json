@@ -4,27 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "6faf997c037e5e96",
+        "id": "404c10c5f2371151",
         "type": "tabs",
         "children": [
           {
-            "id": "3f505bda3a328b63",
+            "id": "66aa011fef8fcae4",
             "type": "leaf",
             "state": {
-              "type": "tasknotes-pomodoro-view",
+              "type": "empty",
               "state": {},
-              "icon": "clock",
-              "title": "Pomodoro"
-            }
-          },
-          {
-            "id": "875a8173eb1ba496",
-            "type": "leaf",
-            "state": {
-              "type": "tasknotes-pomodoro-stats-view",
-              "state": {},
-              "icon": "bar-chart",
-              "title": "Pomodoro stats"
+              "icon": "lucide-file",
+              "title": "Nuova scheda"
             }
           }
         ]
@@ -197,7 +187,7 @@
       "tasknotes:Create new task": false
     }
   },
-  "active": "3f505bda3a328b63",
+  "active": "043e22568da5ca91",
   "lastOpenFiles": [
     "Senza nome.md",
     "TaskNotes/Views/kanban-default.base",
