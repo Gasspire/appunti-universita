@@ -202,7 +202,26 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
     if(firstParent == secondParent) revert ParentsCannotBeEqual();
     if(proprietari[firstParent] == address(0) || proprietari[secondParent] == address(0)) revert PigeonIdentifierUnknown();
     if(proprietari[firstParent] != msg.sender || proprietari[secondParent] != msg.sender) revert PigeonOwnerReservedAction();
-    if(msg.value < )
+    if(msg.value < birth_Fee) revert InsufficientSentAmount(birth_Fee);
+    if(piccioni[firstParent].cooldownEndBlockTime > block.timestamp) revert ParentStillInCooldownPeriod(firstParent, (piccioni[firstParent].cooldownEndBlockTime - block.timestamp));
+    if(piccioni[secondParent].cooldownEndBlockTime > block.timestamp) revert ParentStillInCooldownPeriod(secondParent, (piccioni[secondParent].cooldownEndBlockTime - block.timestamp));
+    if(piccioni[firstParent].birthTime + pubertyPeriod > block.timestamp) revert ParentStillInPubertyPeriod(firstParent, (piccioni[firstParent].birthTime + pubertyPeriod )- block.timestamp);
+    if(piccioni[secondParent].birthTime + pubertyPeriod > block.timestamp) revert ParentStillInPubertyPeriod(secondParent, (piccioni[secondParent].birthTime + pubertyPeriod) - block.timestamp);
+
+
+    piccioni[num_piccioni].name = name;
+    piccioni[num_piccioni].firstParent = firstParent;
+    piccioni[num_piccioni].secondParent = secondParent;
+    piccioni[num_piccioni].birthTime = block.timestamp;
+    piccioni[num_piccioni].generation = (piccioni[firstParent].generation > piccioni[secondParent].generation ? piccioni[firstParent].generation:piccioni[secondParent].generation) + 1;
+    
+    uint media = (piccioni[firstParent].geneticScore + piccioni[secondParent].geneticScore)/2;
+    uint varianza_n = uint256(keccak256(abi.encode(block.timestamp, block.prevrandao)))%(140 - 80 + 1) + 80;  // ho un valore tra 140 e 80 se faccio questo - 100 ottengo o -20 o 40
+    int varianza = int(varianza_n - 100); // qui ho la varianza da -20 a 40
+    //ARRIVATO QUI: CALCOLA LO SCORE DEI PICCIONI
+
+
+
   }
 
   function getPigeonData(uint256 _id) external view returns (Pigeon memory){
