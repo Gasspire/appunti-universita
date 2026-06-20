@@ -152,27 +152,42 @@ interface SimplifiedERC721 {
 
 contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
 
-  struct User{
-    uint id;
-    address indirizzo;
-    uint num_piccioni;
-    Pigeon[] piccioni;
-    mapping(uint => uint) piccioni_num; 
-  }
 
 
+  address manager;
   
-  uint256 birthFee;
-  uint256 renaimingFee;
-  uint num_piccioni;  
-  mapping(address => User[]) utenti;
+  uint256 birth_Fee;
+  uint256 renaiming_Fee;
+  uint256 pubertyPeriod;
+  uint256 cooldownPerid;
+  uint num_piccioni;  //totale piccioni
+
+
+  mapping(address => Pigeon[]) utenti; //utenti ai suoi piccioni
+
+  mapping(uint => Pigeon) piccioni; //piccioni al loro id
+
+  mapping(uint => address) proprietari; //id to piccioni
+
 
   constructor(uint16 _initialPigeons, uint256 _initialPigeonsFixedScore, uint256 _birthFee, uint256 _renamingFee, uint256 _pubertyBlockPeriodInSecs, uint256 _cooldownBlockPeriodInSecs){
-    
+    manager = msg.sender;
+    birth_Fee = _birthFee;
+    renaiming_Fee = _renamingFee;
+    pubertyPeriod = _pubertyBlockPeriodInSecs;
+    cooldownPerid = _cooldownBlockPeriodInSecs;
 
+    //adesso cominiciamo a creare i piccioni
+    for(uint i = 0; i < _initialPigeons; i++){
+
+    }
   }
 
 
+  modifier onlyManager(){
+    if(msg.sender != manager) revert ManagerReservedAction();
+    _;
+  }
 
 
 
@@ -183,22 +198,40 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
 
   function renamePigeon(uint256 _id, string calldata _newName) external payable{}
 
-  function birthFee() external view returns (uint256){}
+  function birthFee() external view returns (uint256){
+    return birth_Fee;
+  }
 
-  function changeBirthFee(uint256 _newFee) external{}
+  function changeBirthFee(uint256 _newFee) onlyManager external{
+    birth_Fee = _newFee;
+  }
 
-  function renamingFee() external view returns (uint256){}
+  function renamingFee() external view returns (uint256){
+    return renaiming_Fee;
+  }
 
-  function changeRenamingFee(uint256 _newFee) external{}
+  function changeRenamingFee(uint256 _newFee) onlyManager external{
+    renaiming_Fee = _newFee;
+  }
 
-  function withdrawProfits(uint256 _amount) external{}
+  function withdrawProfits(uint256 _amount) external{
 
-  function totalSupply() external view returns (uint256 total){}
+  }
 
-  function balanceOf(address _owner) external view returns (uint256 balance){}
+  function totalSupply() external view returns (uint256 total){
+    return num_piccioni;
+  }
 
-  function ownerOf(uint256 _tokenId) external view returns (address owner){}
+  function balanceOf(address _owner) external view returns (uint256 balance){
+    return utenti[_owner].length;
+  }
 
-  function transfer(address _to, uint256 _tokenId) external{}
+  function ownerOf(uint256 _tokenId) external view returns (address owner){
+    return proprietari[_tokenId];
+  }
+
+  function transfer(address _to, uint256 _tokenId) external{
+    for
+  }
 
 }
