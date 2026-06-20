@@ -128,11 +128,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2023-07-14-specs.sol": {
-			"keccak256": "0x81358304817c9794e0d4ca25f1a862b01cdc1489c39bc9219f74c2a81b157831",
+			"keccak256": "0xc087e25565f90832bc9f87591a163042b5cf8d5472411cec7466557b1a85eb20",
 			"license": "None",
 			"urls": [
-				"bzz-raw://3b5cf50b673bce10f85e6ffb7349fbb23f313f66ec69567f01236e1a7d76ce57",
-				"dweb:/ipfs/QmVyLFyfaGUvNDmeSFP1hfDH7u1f2MbzpmpuV4URSZNbVq"
+				"bzz-raw://b14ca823959f5026513138e09ca9626f03c3bd8fe8aa86e791ddfa2c51aec87a",
+				"dweb:/ipfs/QmdS7uWhEp9gCAm7nb1pRykGwFiLP7KdLbuJgWRc8nhkLe"
 			]
 		}
 	},

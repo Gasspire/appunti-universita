@@ -163,11 +163,11 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
   uint num_piccioni;  //totale piccioni
 
 
-  mapping(address => Pigeon[]) utenti; //utenti ai suoi piccioni
+  mapping(address => uint) utenti; //Quanti piccioni ha ognuno
 
   mapping(uint => Pigeon) piccioni; //piccioni al loro id
 
-  mapping(uint => address) proprietari; //id to piccioni
+  mapping(uint => address) proprietari; //id to piccioniuint
 
 
   constructor(uint16 _initialPigeons, uint256 _initialPigeonsFixedScore, uint256 _birthFee, uint256 _renamingFee, uint256 _pubertyBlockPeriodInSecs, uint256 _cooldownBlockPeriodInSecs){
@@ -179,7 +179,13 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
 
     //adesso cominiciamo a creare i piccioni
     for(uint i = 0; i < _initialPigeons; i++){
+      piccioni[num_piccioni].geneticScore = _initialPigeonsFixedScore;
+      piccioni[num_piccioni].generation = 0;
+      piccioni[num_piccioni].birthTime = block.timestamp;
 
+      utenti[msg.sender]++;
+      proprietari[num_piccioni] = msg.sender;
+      num_piccioni++;
     }
   }
 
@@ -192,11 +198,20 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
 
 
 
-  function pigeonBirth(uint256 firstParent, uint256 secondParent, string calldata name) external payable returns (uint256 _id){}
+  function pigeonBirth(uint256 firstParent, uint256 secondParent, string calldata name) external payable returns (uint256 _id){
+    if(firstParent == secondParent) revert ParentsCannotBeEqual();
+    if(proprietari[firstParent] == address(0) || proprietari[secondParent] == address(0)) revert PigeonIdentifierUnknown();
+    if(proprietari[firstParent] != msg.sender || proprietari[secondParent] != msg.sender) revert PigeonOwnerReservedAction();
+    if(msg.value < )
+  }
 
-  function getPigeonData(uint256 _id) external view returns (Pigeon memory){}
+  function getPigeonData(uint256 _id) external view returns (Pigeon memory){
+    return piccioni[_id];
+  }
 
-  function renamePigeon(uint256 _id, string calldata _newName) external payable{}
+  function renamePigeon(uint256 _id, string calldata _newName) external payable{
+    piccioni[_id].name = _newName;
+  }
 
   function birthFee() external view returns (uint256){
     return birth_Fee;
@@ -223,7 +238,7 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
   }
 
   function balanceOf(address _owner) external view returns (uint256 balance){
-    return utenti[_owner].length;
+    return utenti[_owner];
   }
 
   function ownerOf(uint256 _tokenId) external view returns (address owner){
@@ -231,7 +246,10 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
   }
 
   function transfer(address _to, uint256 _tokenId) external{
-    for
+    if(proprietari[_tokenId] == msg.sender) revert();
+    utenti[msg.sender]--;
+    utenti[_to]++;  
+    proprietari[_tokenId] = _to;
   }
 
 }
