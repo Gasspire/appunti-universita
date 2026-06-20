@@ -37,8 +37,8 @@
   I metodi dell'interfaccia `CryptoPigeonSpecs` sono:
   - `pigeonBirth`: permette ad un proprietario di far accoppiare due piccioni di
     sua proprietà, assegnandogli eventualmente anche un nome; il nuovo nato 
-    avrà un proprio identificativo univoco e uno score genetico dato dalla
-    media dei genitori con una variazione randomica che può andare dal -20% al
+    avrà un proprio identificativo univoco e uno score genetico gen dato dalla
+    media deiitori con una variazione randomica che può andare dal -20% al
     +40%; tale metodo può essere azionato solo dietro pagamento (incassato dal 
     contratto) di `birthFee` wei; esso genererà l'evento `Birth` o uno dei
     seguenti errori: `ParentStillInPubertyPeriod`, `ParentsCannotBeEqual`,
@@ -147,4 +147,58 @@ interface SimplifiedERC721 {
     function transfer(address _to, uint256 _tokenId) external;
 
     event Transfer(address from, address to, uint256 tokenId);
+}
+
+
+contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
+
+  struct User{
+    uint id;
+    address indirizzo;
+    uint num_piccioni;
+    Pigeon[] piccioni;
+    mapping(uint => uint) piccioni_num; 
+  }
+
+
+  
+  uint256 birthFee;
+  uint256 renaimingFee;
+  uint num_piccioni;  
+  mapping(address => User[]) utenti;
+
+  constructor(uint16 _initialPigeons, uint256 _initialPigeonsFixedScore, uint256 _birthFee, uint256 _renamingFee, uint256 _pubertyBlockPeriodInSecs, uint256 _cooldownBlockPeriodInSecs){
+    
+
+  }
+
+
+
+
+
+
+  function pigeonBirth(uint256 firstParent, uint256 secondParent, string calldata name) external payable returns (uint256 _id){}
+
+  function getPigeonData(uint256 _id) external view returns (Pigeon memory){}
+
+  function renamePigeon(uint256 _id, string calldata _newName) external payable{}
+
+  function birthFee() external view returns (uint256){}
+
+  function changeBirthFee(uint256 _newFee) external{}
+
+  function renamingFee() external view returns (uint256){}
+
+  function changeRenamingFee(uint256 _newFee) external{}
+
+  function withdrawProfits(uint256 _amount) external{}
+
+  function totalSupply() external view returns (uint256 total){}
+
+  function balanceOf(address _owner) external view returns (uint256 balance){}
+
+  function ownerOf(uint256 _tokenId) external view returns (address owner){}
+
+  function transfer(address _to, uint256 _tokenId) external{}
+
 }
