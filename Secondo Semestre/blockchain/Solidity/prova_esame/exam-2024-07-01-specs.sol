@@ -81,7 +81,7 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
   mapping(address => uint256) utenti_balance;
   address[] public lista_partecipanti;
   mapping(address => mapping(address => uint256)) deleghe;
-
+  mapping(address => bool) is_partecipante; 
 
   uint scadenza;
   uint costo_biglietto;
@@ -106,10 +106,13 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
   
 
     uint num = msg.value/costo_biglietto; //anche se ci fosse resto viene arrotondato per difetto dato che stiamo lavorando con un uint
-    if(utenti_balance[msg.sender] == 0) lista_partecipanti.push(msg.sender); //aggiungiamo alla lista dei partecipanti;
+    if(is_partecipante[msg.sender]==false){
+      lista_partecipanti.push(msg.sender); //aggiungiamo alla lista dei partecipanti;
+      is_partecipante[msg.sender] = true;
+    }
     utenti_balance[msg.sender] += num;
     numero_biglietti+= num;
-
+    emit Transfer(address(0), msg.sender, num);
   }
 
   function checkoutLottery() external returns (address winner){
@@ -121,18 +124,14 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
       uint num_vincente = uint(keccak256(abi.encode(block.timestamp, block.prevrandao))) % numero_biglietti;
 
       uint[] memory array_biglietti = new uint[](lista_partecipanti.length);
-      array_biglietti[0] = utenti_balance[lista_partecipanti[0]];
-      for (uint i = 1; i < lista_partecipanti.length; i++) 
-      {
-        array_biglietti[i] = array_biglietti[i-1] + utenti_balance[lista_partecipanti[i]];
-      }
-
       int index_vincitore = -1;
+      array_biglietti[0] = utenti_balance[lista_partecipanti[0]];
       if(num_vincente < array_biglietti[0]) index_vincitore = 0;
       else{
         for (uint i = 1; i < lista_partecipanti.length; i++) 
         {
-          if(num_vincente <= array_biglietti[i] && num_vincente > array_biglietti[i-1]){
+          array_biglietti[i] = array_biglietti[i-1] + utenti_balance[lista_partecipanti[i]];
+          if(num_vincente < array_biglietti[i] && num_vincente >= array_biglietti[i-1]){
             index_vincitore = int(i);
             break;
           }
@@ -174,7 +173,10 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
   function transfer(address recipient, uint256 amount) external returns (bool){
     if(amount > utenti_balance[msg.sender]) return false;
     else{
-      if(utenti_balance[recipient] == 0) lista_partecipanti.push(recipient);
+      if(is_partecipante[recipient]==false){
+        lista_partecipanti.push(recipient); //aggiungiamo alla lista dei partecipanti;
+        is_partecipante[recipient] = true;
+      }
       utenti_balance[msg.sender] -= amount;
       utenti_balance[recipient] += amount;
       emit Transfer(msg.sender, recipient, amount);
@@ -186,7 +188,6 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
   }
   function approve(address delegate, uint256 amount) external returns (bool){
     if(delegate == address(0)) return false;
-    if(amount == 0) return false;
     deleghe[msg.sender][delegate] = amount;
     emit Approval(msg.sender, delegate, amount);
     return true;
@@ -194,7 +195,10 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
   function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){
     if(deleghe[sender][msg.sender] < amount) return false; //controllo che sia abilitato a spendere quei soldi
     if(utenti_balance[sender] < amount) return false; // controllo se ha abbastanza soldi
-    if(utenti_balance[recipient] == 0) lista_partecipanti.push(recipient);
+    if(is_partecipante[recipient]==false){
+      lista_partecipanti.push(recipient); //aggiungiamo alla lista dei partecipanti;
+      is_partecipante[recipient] = true;
+    }
     deleghe[sender][msg.sender]-=amount;
     utenti_balance[sender]-= amount;
     utenti_balance[recipient] += amount;
