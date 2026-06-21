@@ -113,3 +113,94 @@ interface SimplifiedERC721 {
 
   event Transfer(address from, address to, uint256 tokenId);
 }
+
+contract DMICards is DMICardsSpecs, SimplifiedERC721{
+  struct Card{
+    uint256 id;
+    uint attackScore;
+    uint defenseScore;
+  }
+  struct Challenge{
+    uint256 id_card_1;
+    uint256 id_card_2;
+    bool is_accepted;
+    bool is_ongoing;
+
+    uint256 betValue;
+  }
+  mapping(address => uint) utenti_balance;
+  mapping(uint => address) proprietari;
+  mapping(uint => Card) carte;
+  mapping(address => uint) cooldown_end_create;
+  mapping(address => uint) cooldown_end_challenge;
+
+  mapping(address => Challenge) sfide;
+  
+  uint numero_carte;
+  uint base_fee;
+  uint hoursBetweenOp;
+
+  address manager;
+
+
+
+
+
+
+
+  function createCard() external payable returns (uint256 id){
+    if(msg.value < (100 * base_fee)) revert InsufficientFee(100 * base_fee);
+    if(block.timestamp < cooldown_end_create[msg.sender]) revert TooEarlyOperation((hoursBetweenOp - block.timestamp)*1 hours); //l'errore deve essere in ore
+
+    carte[numero_carte].id = numero_carte;
+    carte[numero_carte].attackScore = uint(keccak256(abi.encode(block.timestamp,block.prevrandao, 1)));
+    carte[numero_carte].defenseScore = uint(keccak256(abi.encode(block.timestamp,block.prevrandao, 2)));
+
+    proprietari[numero_carte] = msg.sender;
+    emit CardGenerated(msg.sender, carte[numero_carte].id, carte[numero_carte].attackScore, carte[numero_carte].defenseScore);
+    numero_carte++;
+    cooldown_end_create[msg.sender] = block.timestamp + (hoursBetweenOp * 1 hours);
+    return numero_carte-1;
+  }
+
+  function launchChallenge(address challenged, uint256 cardId) external payable{}
+  function withdrawChallenge(address challenged) external{
+    if(sfide[msg.])
+  }
+  function takeUpChallenge(address challenger, uint256 cardId) external payable{}
+
+  function baseFee() external view returns (uint256){
+    return base_fee;
+  }
+  function hoursBetweenOps() external view returns (uint256){
+    return hoursBetweenOp;
+  }
+  function withdrawFees(uint256 amount) external{
+    if(msg.sender != manager) revert("Non sei il proprietario del contratto");
+    if(amount > address(this).balance) revert("Non e possibile trasferire tale somma");
+
+    (bool success, ) = manager.call{value: amount}("");
+    if(!success) revert("Qualcosa non ha funzionato");
+  }
+
+
+
+  function totalSupply() external view returns (uint256 total){
+    return numero_carte;
+  }
+  function balanceOf(address _owner) external view returns (uint256 balance){
+    return utenti_balance[_owner];
+  }
+  function ownerOf(uint256 _tokenId) external view returns (address owner){
+    return proprietari[_tokenId];
+  }
+  function transfer(address _to, uint256 _tokenId) external{
+    if(proprietari[_tokenId] != msg.sender ) revert CardNotOwned(_tokenId);
+    else{
+      proprietari[_tokenId] = _to;
+      utenti_balance[msg.sender]--;
+      utenti_balance[_to]++;
+      emit Transfer(msg.sender, _to, _tokenId);
+    }
+  }
+}

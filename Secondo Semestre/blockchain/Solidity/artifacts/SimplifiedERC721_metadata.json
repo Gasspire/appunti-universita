@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.34+commit.80d5c536"
 	},
 	"language": "Solidity",
 	"output": {
@@ -113,9 +113,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"prova_esame/exam-2023-07-14-specs.sol": "SimplifiedERC721"
+			"prova_esame/exam-2024-07-25-specs.sol": "SimplifiedERC721"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "osaka",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -127,12 +127,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"prova_esame/exam-2023-07-14-specs.sol": {
-			"keccak256": "0x3dd2d4f2f0817db7b43d96a56be26ef56fea704d3e964ee9c1e29f7996c38965",
+		"prova_esame/exam-2024-07-25-specs.sol": {
+			"keccak256": "0xfa72ab121cedc874a9abd6c6a75b1811e6dfae7106d4706ffb926de4a6b70c6e",
 			"license": "None",
 			"urls": [
-				"bzz-raw://f93218674ae629b13f85a54650a761fecbc8957b90670680c845bea5a8435a0b",
-				"dweb:/ipfs/QmRbWBLSeo6QUDvoeBQDnYqQRcFaeEKAcnYsWSaC1Y41cw"
+				"bzz-raw://75f6694145a7687638759abe5c0983664bb1489c36d807c866d31e7bed8c52e0",
+				"dweb:/ipfs/QmZ5AWyfXDBnrUGLYCdayct4X895FynVgxm57xAQ69GwHU"
 			]
 		}
 	},
