@@ -214,12 +214,8 @@ contract DMICards is DMICardsSpecs, SimplifiedERC721{
     uint r_tmp = uint(keccak256(abi.encode(block.timestamp,block.prevrandao)))%61;
     int r = int(r_tmp) - 30; // se il risultato è ad esempio 60, abbiamo un 30, se è 30 abbiamo 0 se è ad esempio 15 sarà -15 e così via.
     
-    int256 A1 = int256(carte[id_card_challenger].attackScore);
-    int256 D1 = int256(carte[id_card_challenger].defenseScore);
-    int256 A2 = int256(carte[cardId].attackScore);
-    int256 D2 = int256(carte[cardId].defenseScore);
-
-    int256 x = (A1 - D2) - (A2 - D1) + r;    
+    int256 x = (int256(carte[id_card_challenger].attackScore) - int256(carte[cardId].defenseScore)) - 
+               (int256(carte[cardId].attackScore) - int256(carte[id_card_challenger].defenseScore)) + r;
     if(x >= 0){
       //il vincitore è lo sfidante
       uint contribute_attack_1 = (carte[id_card_challenger].attackScore * 10)/100;
