@@ -79,8 +79,10 @@ interface LotteryTokenSpecs {
 
 contract LotteryToken is LotteryTokenSpecs, ERC20{
   mapping(address => uint256) utenti_balance;
-  mapping(uint => address) proprietari;
+  address[] lista_partecipanti;
   mapping(address => mapping(address => uint256)) deleghe;
+
+
   uint scadenza;
   uint costo_biglietto;
   uint numero_biglietti;
@@ -104,40 +106,40 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
   
 
     uint num = msg.value/costo_biglietto; //anche se ci fosse resto viene arrotondato per difetto dato che stiamo lavorando con un uint
-
+    if(utenti_balance[msg.sender] == 0) lista_partecipanti.push(msg.sender); //aggiungiamo alla lista dei partecipanti;
     utenti_balance[msg.sender] += num;
-    for(uint i = 0; i < num; i++){
-      proprietari[numero_biglietti] = msg.sender;
-      numero_biglietti++;//teniamo traccia di chi ha quale biglietto
-    }
+
   }
 
   function checkoutLottery() external returns (address winner){
     if(block.timestamp < scadenza) revert LotteryNotYetExpired(scadenza - block.timestamp);
     if(vincitore != address(0)) revert ();// il vincitore della lotteria è gia stato dichiarato
     if(numero_biglietti == 0) emit LotteryClosedWithoutTickets();
-    
-    //controlliamo il vincitore
-    //generiamo un numero di biglietto tra 0 e num_biglietti
-    uint num_vincente = uint(keccak256(abi.encode(block.timestamp, block.prevrandao))) % numero_biglietti;
+    else{    //controlliamo il vincitore
+      //generiamo un numero di biglietto tra 0 e num_biglietti
+      uint num_vincente = uint(keccak256(abi.encode(block.timestamp, block.prevrandao))) % numero_biglietti;
 
-    vincitore = proprietari[num_vincente];
-    uint amount = address(this).balance;
-    vincita = amount;
-    emit LotteryClosedWithWinner(winner, amount);
-    payable(vincitore).transfer(amount);
+      uint array_biglietti;
+      for (uint i = 0; i < lista_partecipanti.length; i++) 
+      {
+        
+      };
 
 
-    return vincitore;
+    }
   }
   function getCostPerTicket() external view returns (uint cost){
     return costo_biglietto;
   }
   function getWinner() external view returns (address winner, uint amount){
+    if(block.timestamp < scadenza) revert LotteryNotYetExpired(scadenza - block.timestamp);
+    if(vincitore == address(0)) revert ("Vincitore non ancora dichiarato, usa checkoutLottery");
     return (vincitore,vincita);
   }
   function getRemainingTimeInSecs() external view returns (uint){
-    return scadenza - block.timestamp;
+    if (scadenza > block.timestamp) return scadenza - block.timestamp;
+    else return 0;
+    
   }
 
 
@@ -154,6 +156,7 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
     else{
       utenti_balance[msg.sender] -= amount;
       utenti_balance[recipient] += amount;
+      emit Transfer(msg.sender, recipient, amount);
       return true;
     }
   }
@@ -164,11 +167,18 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
     if(delegate == address(0)) return false;
     if(amount == 0) return false;
     deleghe[msg.sender][delegate] += amount;
+    emit Approval(msg.sender, delegate, amount);
     return true;
   }
   function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){
     if(deleghe[sender][msg.sender] < amount) return false; //controllo che sia abilitato a spendere quei soldi
-    if(utenti_balance[sender])
+    if(utenti_balance[sender] < amount) return false; // controllo se ha abbastanza soldi
+
+    deleghe[sender][msg.sender]-=amount;
+    utenti_balance[sender]-= amount;
+    utenti_balance[recipient] += amount;
+    emit Transfer(sender, recipient, amount);
+    return true;
   }
 
 
