@@ -1,0 +1,77 @@
+/*
+    Corso Blockchain & Cryptocurrencies - Compito di laboratorio del 01/07/2024
+
+    Scrivere un contratto `LotteryToken` che implementi sia l'interfaccia standard `ERC20`, vista a lezione, che 
+    quella addizionale `LotteryTokenSpecs` che realizzi, usando il linguaggio Solidity, un token che rappresenta i 
+    biglietti di una lotteria virtuale sulla piattaforma Ethereum. La lotteria prevede una scadenza iniziale e un 
+    costo fisso del biglietto in ETH; chiunque ha la possibilità di acquistare biglietti fino alla scadenza.
+    Passata la scadenza viene scelto un biglietto a caso e il possessore vincerà l'intero ammontare in ETH accantonato
+    attraverso le vendite. I biglietti, fino alla scadenza, avranno tutte le caratteristiche di un token ERC-20 
+    e pertanto potranno essere, ad esempio, trasferiti da un utente all'altro.
+
+    I metodi standard dell'interfaccia `ERC20` hanno i seguenti compiti:
+    - `totalSupply`: fornisce il totale dei token in circolazione;
+    - `balanceOf`: fornisce l'ammontare di token associati ad uno specifico indirizzo;
+    - `transfer`: trasferisce all'indirizzo `recipient` l'ammontare specificato attingendo dal conto del 
+      chiamante;
+    - `approve`: autorizza l'indirizzo `delegate` a spendere al piu' l'ammontare specificato attingendo dal
+      conto del chiamante;
+    - `transferFrom`: trasferisce all'indirizzo `recipient` l'ammontare specificato (purche' pre-autorizzato
+      tramite `approve`) attingendo dal conto dell'indirizzo `spender`;
+    - `allowance`: riporta l'ammontare pre-autorizzato per delega (vedi `approve`) da `owner` a favore di 
+      `delegate`.
+
+    I metodi dell'interfaccia specifica `LotteryTokenSpecs` seguono le seguenti indicazioni:
+    - il costruttore deve stabilire una durata in secondi della lotteria e il costo in Wei, non nullo, del singolo
+      ticket;
+    - il metodo `buyTickets` permette a chiunque di acquistare un certo numero di biglietti dalla lotteria, se 
+      ancora attiva; il numero di biglietti acquisiti viene determinato dall'ammontare trasferito trattenendo 
+      comunque l'intero importo (se c'è resto, questo non viene restituito); deve essere possibile acquistare 
+      biglietti multipli attraverso invocazioni ripetute del metodo stesso; questo potrebbe lanciare gli errori 
+      `LotteryAlreadyExpired` o `NotEnoughFundsForATicket`;
+    - i metodi `getCostPerTicket` e `getRemainingTimeInSecs` riportano a chiunque le informazioni indicate;
+      il metodo `getWinner` riporta, su una lotteria conclusa, l'identità del vincitore e l'ammontare della 
+      vincita o, in caso di lotteria ancora non chiusa, l'errore `LotteryNotYetExpired`;
+    - il metodo `checkoutLottery` può essere invocato da chiunque per generare le azioni legate alla chiusura
+      della lotteria: se la scadenza non è ancora stata raggiunta verrà generato l'errore `LotteryNotYetExpired`; 
+      se invece la scadenza è passata e il metodo non è stato ancora invocato, verrà individuato il vincitore e 
+      il totale degli ETH accumulati sul contratto verranno trasferiti a questo con relativo evento 
+      `LotteryClosedWithWinner`; nel caso limite in cui non sia stato venduto alcun biglietto verrà generato 
+      l'evento `LotteryClosedWithoutTickets`; la scelta random del ticket vincitore dovrà essere effettuata, 
+      con i limiti della piattaforma, sfruttando il valore `block.prevrandao`.
+
+*/
+
+// SPDX-License-Identifier: None
+
+pragma solidity ^0.8.18;
+
+/* https://eips.ethereum.org/EIPS/eip-20 */
+interface ERC20 {
+    function totalSupply() external view returns (uint256);
+    function balanceOf(address account) external view returns (uint256);
+    function transfer(address recipient, uint256 amount) external returns (bool);
+    function allowance(address owner, address delegate) external view returns (uint256);
+    function approve(address delegate, uint256 amount) external returns (bool);
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(address indexed owner, address indexed delegate, uint256 value);
+}
+
+interface LotteryTokenSpecs {
+  /* constructor(uint durationInSecs, uint costPerTicket) */
+
+  function buyTickets() external payable;
+  function checkoutLottery() external returns (address winner);
+  function getCostPerTicket() external view returns (uint cost);
+  function getWinner() external view returns (address winner, uint amount);
+  function getRemainingTimeInSecs() external view returns (uint);
+
+  event LotteryClosedWithWinner(address winner, uint amount);
+  event LotteryClosedWithoutTickets();
+
+  error LotteryNotYetExpired(uint remainingTimeInSecs);
+  error LotteryAlreadyExpired();
+  error NotEnoughFundsForATicket(uint minimum);
+}
