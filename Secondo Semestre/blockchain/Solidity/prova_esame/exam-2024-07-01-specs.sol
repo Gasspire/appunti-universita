@@ -75,3 +75,101 @@ interface LotteryTokenSpecs {
   error LotteryAlreadyExpired();
   error NotEnoughFundsForATicket(uint minimum);
 }
+
+
+contract LotteryToken is LotteryTokenSpecs, ERC20{
+  mapping(address => uint256) utenti_balance;
+  mapping(uint => address) proprietari;
+  mapping(address => mapping(address => uint256)) deleghe;
+  uint scadenza;
+  uint costo_biglietto;
+  uint numero_biglietti;
+  uint vincita;
+  address vincitore;
+
+  constructor(uint durationInSecs, uint costPerTicket){
+    if(costPerTicket == 0) revert ();
+    if(durationInSecs == 0) revert ();
+
+    scadenza = block.timestamp + (durationInSecs * 1 seconds);
+    costo_biglietto = costPerTicket;
+  }
+
+
+
+
+  function buyTickets() external payable{
+    if(msg.value < costo_biglietto) revert NotEnoughFundsForATicket(costo_biglietto);//non ha abbastanza soldi
+    if(block.timestamp > scadenza) revert LotteryAlreadyExpired(); //la lotteria è già scaduta!    
+  
+
+    uint num = msg.value/costo_biglietto; //anche se ci fosse resto viene arrotondato per difetto dato che stiamo lavorando con un uint
+
+    utenti_balance[msg.sender] += num;
+    for(uint i = 0; i < num; i++){
+      proprietari[numero_biglietti] = msg.sender;
+      numero_biglietti++;//teniamo traccia di chi ha quale biglietto
+    }
+  }
+
+  function checkoutLottery() external returns (address winner){
+    if(block.timestamp < scadenza) revert LotteryNotYetExpired(scadenza - block.timestamp);
+    if(vincitore != address(0)) revert ();// il vincitore della lotteria è gia stato dichiarato
+    if(numero_biglietti == 0) emit LotteryClosedWithoutTickets();
+    
+    //controlliamo il vincitore
+    //generiamo un numero di biglietto tra 0 e num_biglietti
+    uint num_vincente = uint(keccak256(abi.encode(block.timestamp, block.prevrandao))) % numero_biglietti;
+
+    vincitore = proprietari[num_vincente];
+    uint amount = address(this).balance;
+    vincita = amount;
+    emit LotteryClosedWithWinner(winner, amount);
+    payable(vincitore).transfer(amount);
+
+
+    return vincitore;
+  }
+  function getCostPerTicket() external view returns (uint cost){
+    return costo_biglietto;
+  }
+  function getWinner() external view returns (address winner, uint amount){
+    return (vincitore,vincita);
+  }
+  function getRemainingTimeInSecs() external view returns (uint){
+    return scadenza - block.timestamp;
+  }
+
+
+
+
+  function totalSupply() external view returns (uint256){
+    return numero_biglietti;
+  }
+  function balanceOf(address account) external view returns (uint256){
+    return utenti_balance[account];
+  }
+  function transfer(address recipient, uint256 amount) external returns (bool){
+    if(amount > utenti_balance[msg.sender]) return false;
+    else{
+      utenti_balance[msg.sender] -= amount;
+      utenti_balance[recipient] += amount;
+      return true;
+    }
+  }
+  function allowance(address owner, address delegate) external view returns (uint256){
+    return deleghe[owner][delegate];
+  }
+  function approve(address delegate, uint256 amount) external returns (bool){
+    if(delegate == address(0)) return false;
+    if(amount == 0) return false;
+    deleghe[msg.sender][delegate] += amount;
+    return true;
+  }
+  function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){
+    if(deleghe[sender][msg.sender] < amount) return false; //controllo che sia abilitato a spendere quei soldi
+    if(utenti_balance[sender])
+  }
+
+
+}
