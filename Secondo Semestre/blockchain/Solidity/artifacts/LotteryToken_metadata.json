@@ -368,11 +368,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2024-07-01-specs.sol": {
-			"keccak256": "0x19f036ec835ae61a3b2a10a3199b29c254b9fd48d4356a0c46ff2b8e7d452689",
+			"keccak256": "0xe4c5c33bde4c157228788acb449e78c8faf6343c02a6475d0bc0b1868ad95f55",
 			"license": "None",
 			"urls": [
-				"bzz-raw://6524a0c4df0890c053f657d437ec503feb1b4ee6fe807ebfcbc10f119c6a32b4",
-				"dweb:/ipfs/QmbUDEwTRxt9aHb4L3vJrNNJ4m6x6tvFygUNF2ViF8Rfja"
+				"bzz-raw://e9808d4aaa8ec01b0a65a7c158dc59d8cb447852166dd2fcad6cd181c0350e61",
+				"dweb:/ipfs/QmURgxqcJW3Rp8E3N3dopoDQk8swhNVbJ4GxsBA4DPPvqJ"
 			]
 		}
 	},

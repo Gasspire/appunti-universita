@@ -128,7 +128,7 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
       }
 
       int index_vincitore = -1;
-      if(num_vincente <= array_biglietti[0]) index_vincitore = 0;
+      if(num_vincente < array_biglietti[0]) index_vincitore = 0;
       else{
         for (uint i = 1; i < lista_partecipanti.length; i++) 
         {
@@ -137,13 +137,13 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
             break;
           }
         }
-        vincitore = lista_partecipanti[uint(index_vincitore)];
-        vincita = address(this).balance;
-        emit LotteryClosedWithWinner(vincitore, vincita);
-        (bool success, ) = vincitore.call{value: vincita}("");
-        if(!success) revert("Qualcosa e' andato storto!"); 
-        return vincitore;
       }
+      vincitore = lista_partecipanti[uint(index_vincitore)];
+      vincita = address(this).balance;
+      emit LotteryClosedWithWinner(vincitore, vincita);
+      (bool success, ) = vincitore.call{value: vincita}("");
+      if(!success) revert("Qualcosa e' andato storto!"); 
+      return vincitore;
 
 
     }
@@ -174,6 +174,7 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
   function transfer(address recipient, uint256 amount) external returns (bool){
     if(amount > utenti_balance[msg.sender]) return false;
     else{
+      if(utenti_balance[recipient] == 0) lista_partecipanti.push(recipient);
       utenti_balance[msg.sender] -= amount;
       utenti_balance[recipient] += amount;
       emit Transfer(msg.sender, recipient, amount);
@@ -186,14 +187,14 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
   function approve(address delegate, uint256 amount) external returns (bool){
     if(delegate == address(0)) return false;
     if(amount == 0) return false;
-    deleghe[msg.sender][delegate] += amount;
+    deleghe[msg.sender][delegate] = amount;
     emit Approval(msg.sender, delegate, amount);
     return true;
   }
   function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){
     if(deleghe[sender][msg.sender] < amount) return false; //controllo che sia abilitato a spendere quei soldi
     if(utenti_balance[sender] < amount) return false; // controllo se ha abbastanza soldi
-
+    if(utenti_balance[recipient] == 0) lista_partecipanti.push(recipient);
     deleghe[sender][msg.sender]-=amount;
     utenti_balance[sender]-= amount;
     utenti_balance[recipient] += amount;
