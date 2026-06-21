@@ -302,11 +302,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2023-07-14-specs.sol": {
-			"keccak256": "0xb1a0b39c112fd669a3644fa4d9f2f22ab5e5306bb79d6a9350491cd6176a8f82",
+			"keccak256": "0x7b62191aaa977299aa7f9ddc334b70941ca161f7caeb5644a48e6eeb8c65c1b7",
 			"license": "None",
 			"urls": [
-				"bzz-raw://20ac05376f5d7bd3f98180c73e7310ac2ada0e122a177bf4d11f0530cbed1b22",
-				"dweb:/ipfs/QmWami9bY3dk5T398ezKxyPnNHXxgECZiFusnbEFyfH9Q3"
+				"bzz-raw://9ce06234c1ef8a6cc0a0753fe70c776d9508b16abd5efff329b69d3293aa9e91",
+				"dweb:/ipfs/QmWf3fa9NxmEFYkSEGQuDjhAgvNoM7YofLnLcTXzPhEVa5"
 			]
 		}
 	},

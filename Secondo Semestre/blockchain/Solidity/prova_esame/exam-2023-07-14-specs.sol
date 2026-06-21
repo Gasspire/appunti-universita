@@ -171,6 +171,7 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
 
 
   constructor(uint16 _initialPigeons, uint256 _initialPigeonsFixedScore, uint256 _birthFee, uint256 _renamingFee, uint256 _pubertyBlockPeriodInSecs, uint256 _cooldownBlockPeriodInSecs){
+    if(_initialPigeons > 2) revert (); //se il numero di piccioni non è almeno due, non è possibile mandare avanti le generazioni
     manager = msg.sender;
     birth_Fee = _birthFee;
     renaiming_Fee = _renamingFee;
@@ -185,6 +186,7 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
 
       utenti[msg.sender]++;
       proprietari[num_piccioni] = msg.sender;
+      emit Birth(num_piccioni, piccioni[num_piccioni].name, 0,0,0);
       num_piccioni++;
     }
   }
@@ -216,19 +218,34 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
     piccioni[num_piccioni].generation = (piccioni[firstParent].generation > piccioni[secondParent].generation ? piccioni[firstParent].generation:piccioni[secondParent].generation) + 1;
     
     uint media = (piccioni[firstParent].geneticScore + piccioni[secondParent].geneticScore)/2;
-    uint varianza_n = uint256(keccak256(abi.encode(block.timestamp, block.prevrandao)))%(140 - 80 + 1) + 80;  // ho un valore tra 140 e 80 se faccio questo - 100 ottengo o -20 o 40
-    int varianza = int(varianza_n - 100); // qui ho la varianza da -20 a 40
-    //ARRIVATO QUI: CALCOLA LO SCORE DEI PICCIONI
-
-
+    uint varianza_n = uint256(keccak256(abi.encode(block.timestamp, block.prevrandao)))%(140 - 80 + 1) + 80;  // ho un valore tra 140 e 80 
+    if(varianza_n <= 100){//allora è tra 100 e 80
+      uint contributo = varianza_n - 80; //ottengo il valore in percentuale tra 0 e 20
+      piccioni[num_piccioni].geneticScore = media - ((media * contributo)/100);
+    }
+    else{ //abbiamo la varianza tra 101 e 140
+      uint contributo = varianza_n - 100; //ottengo il valore in percentuale tra 0 e 20
+      piccioni[num_piccioni].geneticScore = media + ((media * contributo)/100);
+    }
+    emit Birth(num_piccioni, piccioni[num_piccioni].name, firstParent,secondParent, piccioni[num_piccioni].generation);
+    proprietari[num_piccioni] = msg.sender;
+    utenti[msg.sender]++;
+    num_piccioni++;
+    piccioni[firstParent].cooldownEndBlockTime = block.timestamp + (cooldownPerid * 1 seconds);
+    piccioni[secondParent].cooldownEndBlockTime = block.timestamp + (cooldownPerid * 1 seconds);
+    return num_piccioni-1;
 
   }
 
   function getPigeonData(uint256 _id) external view returns (Pigeon memory){
+    if(_id >= num_piccioni) revert PigeonIdentifierUnknown();
     return piccioni[_id];
   }
 
   function renamePigeon(uint256 _id, string calldata _newName) external payable{
+    if(_id >= num_piccioni) revert PigeonIdentifierUnknown();
+    if(msg.value < renaiming_Fee) revert InsufficientSentAmount(renaiming_Fee);
+    if(msg.sender != proprietari[_id]) revert PigeonOwnerReservedAction();
     piccioni[_id].name = _newName;
   }
 
@@ -248,8 +265,11 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
     renaiming_Fee = _newFee;
   }
 
-  function withdrawProfits(uint256 _amount) external{
-
+  function withdrawProfits(uint256 _amount) onlyManager external{
+    if(_amount > address(this).balance) revert ();
+    else{
+      payable(manager).transfer(_amount);
+    } 
   }
 
   function totalSupply() external view returns (uint256 total){
@@ -261,14 +281,17 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
   }
 
   function ownerOf(uint256 _tokenId) external view returns (address owner){
+    if(_tokenId >= num_piccioni) revert PigeonIdentifierUnknown();
     return proprietari[_tokenId];
   }
 
   function transfer(address _to, uint256 _tokenId) external{
-    if(proprietari[_tokenId] == msg.sender) revert();
+    if(_tokenId >= num_piccioni) revert PigeonIdentifierUnknown();
+    if(proprietari[_tokenId] != msg.sender) revert();
     utenti[msg.sender]--;
     utenti[_to]++;  
     proprietari[_tokenId] = _to;
+    emit Transfer(msg.sender, _to, _tokenId);
   }
 
 }
