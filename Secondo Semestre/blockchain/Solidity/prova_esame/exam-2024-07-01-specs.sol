@@ -79,7 +79,7 @@ interface LotteryTokenSpecs {
 
 contract LotteryToken is LotteryTokenSpecs, ERC20{
   mapping(address => uint256) utenti_balance;
-  address[] lista_partecipanti;
+  address[] public lista_partecipanti;
   mapping(address => mapping(address => uint256)) deleghe;
 
 
@@ -108,6 +108,7 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
     uint num = msg.value/costo_biglietto; //anche se ci fosse resto viene arrotondato per difetto dato che stiamo lavorando con un uint
     if(utenti_balance[msg.sender] == 0) lista_partecipanti.push(msg.sender); //aggiungiamo alla lista dei partecipanti;
     utenti_balance[msg.sender] += num;
+    numero_biglietti+= num;
 
   }
 
@@ -119,11 +120,30 @@ contract LotteryToken is LotteryTokenSpecs, ERC20{
       //generiamo un numero di biglietto tra 0 e num_biglietti
       uint num_vincente = uint(keccak256(abi.encode(block.timestamp, block.prevrandao))) % numero_biglietti;
 
-      uint array_biglietti;
-      for (uint i = 0; i < lista_partecipanti.length; i++) 
+      uint[] memory array_biglietti = new uint[](lista_partecipanti.length);
+      array_biglietti[0] = utenti_balance[lista_partecipanti[0]];
+      for (uint i = 1; i < lista_partecipanti.length; i++) 
       {
-        
-      };
+        array_biglietti[i] = array_biglietti[i-1] + utenti_balance[lista_partecipanti[i]];
+      }
+
+      int index_vincitore = -1;
+      if(num_vincente <= array_biglietti[0]) index_vincitore = 0;
+      else{
+        for (uint i = 1; i < lista_partecipanti.length; i++) 
+        {
+          if(num_vincente <= array_biglietti[i] && num_vincente > array_biglietti[i-1]){
+            index_vincitore = int(i);
+            break;
+          }
+        }
+        vincitore = lista_partecipanti[uint(index_vincitore)];
+        vincita = address(this).balance;
+        emit LotteryClosedWithWinner(vincitore, vincita);
+        (bool success, ) = vincitore.call{value: vincita}("");
+        if(!success) revert("Qualcosa e' andato storto!"); 
+        return vincitore;
+      }
 
 
     }
