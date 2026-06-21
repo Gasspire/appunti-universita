@@ -171,7 +171,7 @@ contract CryptoPigeon is CryptoPigeonSpecs, SimplifiedERC721{
 
 
   constructor(uint16 _initialPigeons, uint256 _initialPigeonsFixedScore, uint256 _birthFee, uint256 _renamingFee, uint256 _pubertyBlockPeriodInSecs, uint256 _cooldownBlockPeriodInSecs){
-    if(_initialPigeons > 2) revert (); //se il numero di piccioni non è almeno due, non è possibile mandare avanti le generazioni
+    if(_initialPigeons < 2) revert (); //se il numero di piccioni non è almeno due, non è possibile mandare avanti le generazioni
     manager = msg.sender;
     birth_Fee = _birthFee;
     renaiming_Fee = _renamingFee;
