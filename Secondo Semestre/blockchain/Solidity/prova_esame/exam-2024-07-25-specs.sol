@@ -129,20 +129,26 @@ contract DMICards is DMICardsSpecs, SimplifiedERC721{
     uint256 betValue;
   }
   mapping(address => uint) utenti_balance;
-  mapping(uint => address) proprietari;
-  mapping(uint => Card) carte;
+  mapping(uint256 => address) proprietari;
+  mapping(uint256 => Card) carte;
   mapping(address => uint) cooldown_end_create;
   mapping(address => uint) cooldown_end_challenge;
 
   mapping(address => mapping(address => Challenge)) sfide;
   
+  uint pending_found;
   uint numero_carte;
   uint base_fee;
   uint hoursBetweenOp;
 
   address manager;
 
-
+  constructor(uint256 _baseFee, uint256 _hoursBetweenOps){
+    if(_baseFee == 0) revert("La base fee non puo essere 0");
+    manager = msg.sender;
+    base_fee = _baseFee;
+    hoursBetweenOp = _hoursBetweenOps;
+  }
 
 
 
@@ -153,8 +159,8 @@ contract DMICards is DMICardsSpecs, SimplifiedERC721{
     if(block.timestamp < cooldown_end_create[msg.sender]) revert TooEarlyOperation((cooldown_end_create[msg.sender] - block.timestamp)*1 hours); //l'errore deve essere in ore
 
     carte[numero_carte].id = numero_carte;
-    carte[numero_carte].attackScore = uint(keccak256(abi.encode(block.timestamp,block.prevrandao, 1)));
-    carte[numero_carte].defenseScore = uint(keccak256(abi.encode(block.timestamp,block.prevrandao, 2)));
+    carte[numero_carte].attackScore = uint(keccak256(abi.encode(block.timestamp,block.prevrandao, 1))) % (49) + 1;
+    carte[numero_carte].defenseScore = uint(keccak256(abi.encode(block.timestamp,block.prevrandao, 2))) % (49) + 1;
 
     proprietari[numero_carte] = msg.sender;
     emit CardGenerated(msg.sender, carte[numero_carte].id, carte[numero_carte].attackScore, carte[numero_carte].defenseScore);
@@ -164,14 +170,18 @@ contract DMICards is DMICardsSpecs, SimplifiedERC721{
   }
 
   function launchChallenge(address challenged, uint256 cardId) external payable{
-    if(msg.value < (base_fee*10))  revert InsufficientFee(10 * base_fee);
+    if(msg.value < (base_fee*10) + 1)  revert InsufficientFee((10 * base_fee)+1);
     if(cooldown_end_challenge[msg.sender] > block.timestamp) revert TooEarlyOperation((cooldown_end_challenge[msg.sender] - block.timestamp)*1 hours); 
+    if(sfide[msg.sender][challenged].exist == true || sfide[challenged][msg.sender].exist == true ) revert ChallengeAlreadyExists(msg.sender, challenged);
+    if(challenged == msg.sender) revert("Non puoi sfidare te stesso");
     if(proprietari[cardId] != msg.sender) revert CardNotOwned(cardId);
 
     sfide[msg.sender][challenged].id_card_1 = cardId;
     sfide[msg.sender][challenged].betValue = msg.value - (base_fee*10);
     sfide[msg.sender][challenged].exist = true;
-
+    pending_found += sfide[msg.sender][challenged].betValue;
+    
+    emit ChallengeLaunched(msg.sender, cardId, challenged, sfide[msg.sender][challenged].betValue);
     return;
   }
 
@@ -179,8 +189,14 @@ contract DMICards is DMICardsSpecs, SimplifiedERC721{
     if(sfide[msg.sender][challenged].is_ongoing == true) revert("Non puoi ritirarti da una sfida in corso!");
     if(sfide[msg.sender][challenged].exist == false) revert ChallengeDoesNotExist(msg.sender,challenged);
     else{
-      (bool success, ) = msg.sender.call{value: sfide[msg.sender][challenged].betValue}("");
+      sfide[msg.sender][challenged].exist = false;
+      sfide[msg.sender][challenged].id_card_1 = 0;
+      uint importo = sfide[msg.sender][challenged].betValue;
+      sfide[msg.sender][challenged].betValue = 0;
+      (bool success, ) = msg.sender.call{value: importo}("");
+      pending_found -= importo;
       if(!success) revert("Qualcosa non ha funzionato");
+      emit ChallengeWithDrawn(msg.sender, challenged);
     }
   }
   function takeUpChallenge(address challenger, uint256 cardId) external payable{
@@ -188,19 +204,67 @@ contract DMICards is DMICardsSpecs, SimplifiedERC721{
     if(sfide[challenger][msg.sender].exist == false)revert ChallengeDoesNotExist(challenger, msg.sender);
     if(msg.value < (sfide[challenger][msg.sender].betValue + 10*base_fee)) revert InsufficientFee(sfide[challenger][msg.sender].betValue + 10*base_fee);
 
-    
+    sfide[challenger][msg.sender].is_ongoing == true;
+    emit ChallengeTakenUp(challenger, msg.sender, cardId);
+
     uint256 id_card_challenger = sfide[challenger][msg.sender].id_card_1;
     uint r_tmp = uint(keccak256(abi.encode(block.timestamp,block.prevrandao, 1)))%61;
     int r = int(r_tmp - 30); // se il risultato è ad esempio 60, abbiamo un 30, se è 30 abbiamo 0 se è ad esempio 15 sarà -15 e così via.
     int256 x = int256((carte[id_card_challenger].attackScore - carte[cardId].defenseScore) - (carte[cardId].attackScore - carte[id_card_challenger].defenseScore)) + r;
-    if(x > 0){
+    if(x >= 0){
       //il vincitore è lo sfidante
-      uint contribute_attack = (carte[id_card_challenger].attackScore * 10)/100;
-      uint contribute_defense = (carte[id_card_challenger].defenseScore * 10)/100;
+      uint contribute_attack_1 = (carte[id_card_challenger].attackScore * 10)/100;
+      uint contribute_defense_1 = (carte[id_card_challenger].defenseScore * 10)/100;
 
+      carte[id_card_challenger].attackScore += contribute_attack_1;
+      carte[id_card_challenger].defenseScore += contribute_defense_1;
+
+      uint contribute_attack_2 = (carte[cardId].attackScore * 10)/100;
+      uint contribute_defense_2 = (carte[cardId].defenseScore * 10)/100;
+
+
+      carte[cardId].attackScore += contribute_attack_2;
+      carte[cardId].defenseScore += contribute_defense_2;
+
+      //facciamo il pagamento
+      sfide[challenger][msg.sender].exist = false; //poniamo già fine alla sfida così da evitare attacchi di fallback
+      pending_found-=sfide[challenger][msg.sender].betValue;
+      uint importo = sfide[challenger][msg.sender].betValue * 2;
+      sfide[challenger][msg.sender].betValue = 0;
+      sfide[challenger][msg.sender].id_card_1 = 0;
+      sfide[challenger][msg.sender].id_card_2 = 0;
+
+      (bool success, ) = challenger.call{value: importo}("");
+      if(!success) revert ("Qualcosa non ha funzionato");
+      emit ChallengeCompleted(challenger);
     }
+    else{
+      //il vincitore è lo sfidato
+      uint contribute_attack_1 = (carte[cardId].attackScore * 10)/100;
+      uint contribute_defense_1 = (carte[cardId].defenseScore * 10)/100;
+
+      carte[cardId].attackScore += contribute_attack_1;
+      carte[cardId].defenseScore += contribute_defense_1;
+
+      uint contribute_attack_2 = (carte[id_card_challenger].attackScore * 10)/100;
+      uint contribute_defense_2 = (carte[id_card_challenger].defenseScore * 10)/100;
 
 
+      carte[id_card_challenger].attackScore -= contribute_attack_2;
+      carte[id_card_challenger].defenseScore -= contribute_defense_2;
+
+      //facciamo il pagamento
+      sfide[challenger][msg.sender].exist = false; //poniamo già fine alla sfida così da evitare attacchi di fallback
+      pending_found-=sfide[challenger][msg.sender].betValue;
+      uint importo = sfide[challenger][msg.sender].betValue * 2;
+      sfide[challenger][msg.sender].betValue = 0;
+      sfide[challenger][msg.sender].id_card_1 = 0;
+      sfide[challenger][msg.sender].id_card_2 = 0;
+
+      (bool success, ) = msg.sender.call{value: importo}("");
+      if(!success) revert ("Qualcosa non ha funzionato");
+      emit ChallengeCompleted(msg.sender);
+    }
   }
 
   function baseFee() external view returns (uint256){
@@ -211,7 +275,7 @@ contract DMICards is DMICardsSpecs, SimplifiedERC721{
   }
   function withdrawFees(uint256 amount) external{
     if(msg.sender != manager) revert("Non sei il proprietario del contratto");
-    if(amount > address(this).balance) revert("Non e possibile trasferire tale somma");
+    if(amount > (address(this).balance - pending_found)) revert("Non e possibile trasferire tale somma");
 
     (bool success, ) = manager.call{value: amount}("");
     if(!success) revert("Qualcosa non ha funzionato");

@@ -9,6 +9,22 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
+						"name": "_baseFee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_hoursBetweenOps",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
 						"name": "id",
 						"type": "uint256"
 					}
@@ -413,11 +429,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2024-07-25-specs.sol": {
-			"keccak256": "0x0bc084a3e5a3b972a477e9aa5a7f3184cabdce51ce325d1f98f0717ffce03bc9",
+			"keccak256": "0xb10d1f5d05365884be83bc35750fb9a47b5483d3c4c43de41bd589ca7ab1b49c",
 			"license": "None",
 			"urls": [
-				"bzz-raw://bda1707388b7c335c009fad2b7d41cbedf912081f334acf35d214cb535ead3d5",
-				"dweb:/ipfs/QmSR76oACWgtSLHYd7AW1qr69GWYMZ2Ac2ofzYLyMFq5iw"
+				"bzz-raw://495476d0eb95494bb22efe5cacf3903be28ab68df048f45d5bc7f59774b8bfcd",
+				"dweb:/ipfs/QmTBdoZ7H6X87RnyjCyMziTXVGT6Xkf5HtusSSz3eEPseM"
 			]
 		}
 	},
