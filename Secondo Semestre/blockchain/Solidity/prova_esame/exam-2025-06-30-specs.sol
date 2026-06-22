@@ -85,6 +85,8 @@ interface DecentralizedCreatorSubscriptionFundSpecs {
     event MonthlySubscriptionAmountChanged(uint256 newAmount);
     event FundsDistributed(uint256 totalAmountDistributed);
 
+    event PopolaritaPagaento(address creator, uint pop, uint pop_percent,uint popolarita_tot);
+
     error ManagerReservedAction();
     error CreatorNotRegistered(address creator);
     error CreatorAlreadyRegistered(address creator);
@@ -99,11 +101,12 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
   uint256 monthlySubAmount;
 
   
-  address[] creator_lista;
-  address[] creator_lista_attivi;
+  address[] public creator_lista;
+  address[] public creator_lista_attivi;
 
   mapping(address => bool) is_creator;
   mapping(address => uint) popolarita;
+  uint totale_popolarita;
   mapping(address => bool) was_creator;
   mapping(address => uint) creator_to_index_lista_attivi;
   uint num_creator_attivi;
@@ -178,7 +181,7 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
       is_creator[_creator] = false;
 
       //devo fare lo scambio 
-      uint last_in_list = active_sub.length - 1;
+      uint last_in_list = creator_lista_attivi.length - 1;
       uint index_to_change = creator_to_index_lista_attivi[_creator];
       creator_lista_attivi[index_to_change] = creator_lista_attivi[last_in_list];
       creator_to_index_lista_attivi[creator_lista_attivi[index_to_change]] = index_to_change;
@@ -191,7 +194,9 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
   }
   function updateCreatorScore(address _creator, uint256 _newScore) OnlyManager external{
     if(is_creator[_creator] == false)revert CreatorNotRegistered(_creator);
+    totale_popolarita -= popolarita[_creator]; //tanto se è 0 non si toglie niente, non posso mai togliere più di quanto ho messo
     popolarita[_creator] = _newScore;
+    totale_popolarita += _newScore;
     emit CreatorScoreUpdated(_creator, _newScore);
   }
 
@@ -199,7 +204,24 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
     if(_newAmount == 0)revert("La sub deve avere costo != 0");
     monthlySubAmount = _newAmount;
   }
-  function distributeFunds() external{}
+  function distributeFunds() OnlyManager external{
+    if(address(this).balance == 0) revert NoFundsToDistribute();
+    if(creator_lista_attivi.length == 0) revert NoCreatorsRegistered();
+
+
+    uint[] memory percentuali_popolarita = new uint[](creator_lista_attivi.length);
+    uint balance_tot = address(this).balance;
+
+    for (uint i = 0; i < creator_lista_attivi.length; i++) 
+    {
+      percentuali_popolarita[i] = (popolarita[creator_lista_attivi[i]] * 100) / totale_popolarita;
+      uint importo = (balance_tot * percentuali_popolarita[i]) / 100;
+      emit PopolaritaPagaento(creator_lista_attivi[i], popolarita[creator_lista_attivi[i]], percentuali_popolarita[i], totale_popolarita);
+
+      (bool success, ) = creator_lista_attivi[i].call{value: importo}("");
+      if(!success) revert("Qualcosa e andato storto");
+    }
+  }
 
   function manager() external view returns (address){
     return Manager;
@@ -219,7 +241,10 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
   function getContractBalance() external view returns (uint256){
     return address(this).balance;
   }
+
   function getHistoricalDistributedFunds() external view returns (uint256){}
+
+
   function getTotalSubscribers() external view returns (uint256){
     return active_sub.length;
   }
