@@ -1,0 +1,235 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"sepolia:11155111": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"buyTickets()": "c8199826",
+			"checkoutLottery()": "f8050797",
+			"claimPrize()": "70740ac9",
+			"getCostPerTicket()": "e91e583d",
+			"getRemainingTimeInSecs()": "72a50fb5",
+			"getWinnerInfo(uint8)": "9e8fc086"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "uint8",
+					"name": "rank",
+					"type": "uint8"
+				}
+			],
+			"name": "InvalidPrizeRank",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "LotteryAlreadyExpired",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "LotteryNotYetClosed",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "remainingTimeInSecs",
+					"type": "uint256"
+				}
+			],
+			"name": "LotteryNotYetExpired",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "NotAWinner",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "minimum",
+					"type": "uint256"
+				}
+			],
+			"name": "NotEnoughFundsForATicket",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint8",
+					"name": "rank",
+					"type": "uint8"
+				}
+			],
+			"name": "PrizeAlreadyClaimed",
+			"type": "error"
+		},
+		{
+			"anonymous": false,
+			"inputs": [],
+			"name": "LotteryClosedWithoutTickets",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address[5]",
+					"name": "winners",
+					"type": "address[5]"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256[5]",
+					"name": "amounts",
+					"type": "uint256[5]"
+				}
+			],
+			"name": "LotteryWinnersDetermined",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "winner",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint8",
+					"name": "rank",
+					"type": "uint8"
+				}
+			],
+			"name": "PrizeClaimed",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "buyTickets",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "checkoutLottery",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "claimPrize",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getCostPerTicket",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "cost",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getRemainingTimeInSecs",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint8",
+					"name": "rank",
+					"type": "uint8"
+				}
+			],
+			"name": "getWinnerInfo",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "winner",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "claimed",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}

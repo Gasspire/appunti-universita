@@ -6,6 +6,81 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "durationInSecs",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "costPerTicket",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "rank",
+						"type": "uint8"
+					}
+				],
+				"name": "InvalidPrizeRank",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "LotteryAlreadyExpired",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "LotteryNotYetClosed",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "remainingTimeInSecs",
+						"type": "uint256"
+					}
+				],
+				"name": "LotteryNotYetExpired",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotAWinner",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "minimum",
+						"type": "uint256"
+					}
+				],
+				"name": "NotEnoughFundsForATicket",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "rank",
+						"type": "uint8"
+					}
+				],
+				"name": "PrizeAlreadyClaimed",
+				"type": "error"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -28,6 +103,56 @@
 					}
 				],
 				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "LotteryClosedWithoutTickets",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address[5]",
+						"name": "winners",
+						"type": "address[5]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256[5]",
+						"name": "amounts",
+						"type": "uint256[5]"
+					}
+				],
+				"name": "LotteryWinnersDetermined",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "winner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "rank",
+						"type": "uint8"
+					}
+				],
+				"name": "PrizeClaimed",
 				"type": "event"
 			},
 			{
@@ -124,6 +249,82 @@
 			},
 			{
 				"inputs": [],
+				"name": "buyTickets",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkoutLottery",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "claimPrize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCostPerTicket",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "cost",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRemainingTimeInSecs",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "rank",
+						"type": "uint8"
+					}
+				],
+				"name": "getWinnerInfo",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "winner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "claimed",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "totalSupply",
 				"outputs": [
 					{
@@ -202,7 +403,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"prova_esame/exam-2025-07-14-specs.sol": "ERC20"
+			"prova_esame/exam-2025-07-14-specs.sol": "MultiPrizeLotteryToken"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},

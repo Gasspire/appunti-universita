@@ -1,0 +1,231 @@
+{
+	"compiler": {
+		"version": "0.8.34+commit.80d5c536"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "rank",
+						"type": "uint8"
+					}
+				],
+				"name": "InvalidPrizeRank",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "LotteryAlreadyExpired",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "LotteryNotYetClosed",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "remainingTimeInSecs",
+						"type": "uint256"
+					}
+				],
+				"name": "LotteryNotYetExpired",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotAWinner",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "minimum",
+						"type": "uint256"
+					}
+				],
+				"name": "NotEnoughFundsForATicket",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "rank",
+						"type": "uint8"
+					}
+				],
+				"name": "PrizeAlreadyClaimed",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "LotteryClosedWithoutTickets",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address[5]",
+						"name": "winners",
+						"type": "address[5]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256[5]",
+						"name": "amounts",
+						"type": "uint256[5]"
+					}
+				],
+				"name": "LotteryWinnersDetermined",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "winner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "rank",
+						"type": "uint8"
+					}
+				],
+				"name": "PrizeClaimed",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "buyTickets",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkoutLottery",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "claimPrize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getCostPerTicket",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "cost",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRemainingTimeInSecs",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "rank",
+						"type": "uint8"
+					}
+				],
+				"name": "getWinnerInfo",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "winner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "claimed",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"prova_esame/exam-2025-07-14-specs.sol": "MultiPrizeLotteryTokenSpecs"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"prova_esame/exam-2025-07-14-specs.sol": {
+			"keccak256": "0xc646e8c471462cd1b75d4a2ae2aa40605bda71015013c4492d72fcbd83d4c741",
+			"license": "None",
+			"urls": [
+				"bzz-raw://977d9523c9299b49362ca8579defbc3a0fba207687781b7e5abe5aeab9397ddb",
+				"dweb:/ipfs/Qmc5YDx5JE5jR6vtBvCR7UUhWdxnJWRKCPHSJDuYXw1m4P"
+			]
+		}
+	},
+	"version": 1
+}

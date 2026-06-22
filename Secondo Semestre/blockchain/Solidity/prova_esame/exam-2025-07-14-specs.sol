@@ -88,3 +88,111 @@ interface MultiPrizeLotteryTokenSpecs {
     error LotteryNotYetClosed();
     error InvalidPrizeRank(uint8 rank);
 }
+
+contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
+
+  uint totale_biglietti;
+  uint prezzo_biglietti;
+  uint scadenza_lotteria;
+
+  address[] partecipanti;
+  uint num_partecipanti;
+  mapping(address => uint) partecipante_to_index;
+  mapping(address => bool) is_partecipante;
+  mapping(address => uint) bilanci;
+  mapping(address => mapping(address=> uint)) deleghe;
+  
+  uint[5] premi;
+  address[5] vincitori;
+  uint[5] pagamenti;
+  
+  
+  constructor(uint durationInSecs, uint costPerTicket){
+    if(durationInSecs == 0) revert("Errore, la durata non puo essere zero");
+    if(costPerTicket == 0) revert("Serve che il ticket abbia un costo maggiore di 0");
+    prezzo_biglietti = costPerTicket;
+    scadenza_lotteria = block.timestamp + (durationInSecs * 1 seconds);
+  }
+
+
+
+  function buyTickets() external payable{
+    if(msg.value < prezzo_biglietti) revert NotEnoughFundsForATicket(prezzo_biglietti);
+    else{
+      uint num = msg.value/prezzo_biglietti;
+      
+      bilanci[msg.sender] += num;
+      if(is_partecipante[msg.sender]==false){
+        is_partecipante[msg.sender]= true;
+        partecipanti.push();
+        partecipanti[num_partecipanti] = msg.sender;
+        partecipante_to_index[msg.sender] = num_partecipanti;
+
+        num_partecipanti++;
+      }
+    }
+  }
+
+  function checkoutLottery() external{}
+
+  function claimPrize() external{}
+  function getCostPerTicket() external view returns (uint cost){
+    return prezzo_biglietti;
+  }
+
+  function getRemainingTimeInSecs() external view returns (uint){
+    if(block.timestamp < scadenza_lotteria) return scadenza_lotteria - block.timestamp;
+    else return 0;
+  }
+
+  function getWinnerInfo(uint8 rank) external view returns (address winner, uint256 amount, bool claimed){
+    if(winner == address(0)) revert LotteryNotYetClosed(); //o comunque non ancora assegnati i vincitori ma, dato che è dichiarato come view, non posso modificare lo stato da qui
+    if(rank > 5 || rank < 1) revert("Inserisci un premio valido!");
+    else{
+      bool claim = (pagamenti[rank] == premi[rank] ? false:true);
+      return (vincitori[rank],premi[rank],claim);
+    }
+  }
+
+  function totalSupply() external view returns (uint256){
+    return totale_biglietti;
+  }
+  function balanceOf(address account) external view returns (uint256){
+    return bilanci[account];
+  }
+  function transfer(address recipient, uint256 amount) external returns (bool){ //AGGIUNGI A PARTECIPANTI E TOGLI EVENTUALMENTE
+    if(bilanci[msg.sender] < amount) return false;
+    else{
+      if(is_partecipante[recipient] == false){
+        is_partecipante[recipient] = true;
+        partecipanti.push();
+        partecipanti[num_partecipanti] = recipient;
+        partecipante_to_index[recipient] = num_partecipanti;
+        num_partecipanti++;
+      }
+      bilanci[msg.sender]-=amount;
+      bilanci[recipient] += amount;
+      if(bilanci[msg.sender] == 0){//vuol dire che non ha più ticket, cioè non è piu un partecipante
+        
+      }
+      return true;
+    }
+  }
+  function allowance(address owner, address delegate) external view returns (uint256){
+    return deleghe[owner][delegate];
+  }
+  function approve(address delegate, uint256 amount) external returns (bool){
+    deleghe[msg.sender][delegate] = amount;
+    return true;
+  }
+  function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){//AGGIUNGI A PARTECIPANTI E TOGLI
+    if(deleghe[sender][msg.sender] < amount) return false;
+    if(bilanci[sender] < amount) return false;
+    else{
+      bilanci[sender]-= amount;
+      deleghe[sender][msg.sender] -= amount;
+      bilanci[recipient] += amount;
+      return true;
+    }
+  }
+}
