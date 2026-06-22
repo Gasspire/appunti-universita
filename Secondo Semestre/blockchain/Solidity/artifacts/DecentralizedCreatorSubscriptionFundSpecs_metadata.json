@@ -144,37 +144,6 @@
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "creator",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "pop",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "pop_percent",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "popolarita_tot",
-						"type": "uint256"
-					}
-				],
-				"name": "PopolaritaPagaento",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
 						"indexed": true,
 						"internalType": "address",
 						"name": "subscriber",
@@ -450,11 +419,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2025-06-30-specs.sol": {
-			"keccak256": "0xd0435f77e5dc7efe9ea050876eaa5d01f8f6d7e975d97c0adf86a540222eb5b6",
+			"keccak256": "0x2e53dd6af3ce7d915da27995f8838825b78db7c6a58508796004d83dae59339e",
 			"license": "None",
 			"urls": [
-				"bzz-raw://5d1f2aeea285746f4070daee55d9521ffeb21283e3056e5613bdc8caf804e7f7",
-				"dweb:/ipfs/QmX77oZNYHzmWeSocBBD8cqwdGnJNcwLwsX3JrhkvGdusZ"
+				"bzz-raw://69ddee0f7e5a283af9a47cc91a61134e989b208f7c2716276596fa71ffc776cf",
+				"dweb:/ipfs/QmX9US3puk8MrzBn1hTUxdGG4kyJ3ytXx3RFrseXv9pKd1"
 			]
 		}
 	},

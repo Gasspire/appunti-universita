@@ -195,37 +195,6 @@
 			"anonymous": false,
 			"inputs": [
 				{
-					"indexed": false,
-					"internalType": "address",
-					"name": "creator",
-					"type": "address"
-				},
-				{
-					"indexed": false,
-					"internalType": "uint256",
-					"name": "pop",
-					"type": "uint256"
-				},
-				{
-					"indexed": false,
-					"internalType": "uint256",
-					"name": "pop_percent",
-					"type": "uint256"
-				},
-				{
-					"indexed": false,
-					"internalType": "uint256",
-					"name": "popolarita_tot",
-					"type": "uint256"
-				}
-			],
-			"name": "PopolaritaPagaento",
-			"type": "event"
-		},
-		{
-			"anonymous": false,
-			"inputs": [
-				{
 					"indexed": true,
 					"internalType": "address",
 					"name": "subscriber",

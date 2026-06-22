@@ -85,7 +85,6 @@ interface DecentralizedCreatorSubscriptionFundSpecs {
     event MonthlySubscriptionAmountChanged(uint256 newAmount);
     event FundsDistributed(uint256 totalAmountDistributed);
 
-    event PopolaritaPagaento(address creator, uint pop, uint pop_percent,uint popolarita_tot);
 
     error ManagerReservedAction();
     error CreatorNotRegistered(address creator);
@@ -101,17 +100,15 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
   uint256 monthlySubAmount;
 
   
-  address[] public creator_lista;
   address[] public creator_lista_attivi;
 
   mapping(address => bool) is_creator;
   mapping(address => uint) popolarita;
   uint totale_popolarita;
-  mapping(address => bool) was_creator;
   mapping(address => uint) creator_to_index_lista_attivi;
   uint num_creator_attivi;
 
-
+  uint fondi_pagati;
   address[] active_sub;
   uint num_sub;
   mapping(address => uint) sub_to_index;
@@ -154,9 +151,11 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
       uint index_to_change = sub_to_index[msg.sender];
       active_sub[index_to_change] = active_sub[last_in_list];
       sub_to_index[active_sub[index_to_change]] = index_to_change;
-
+      
       active_sub.pop();
       num_sub--;
+
+      emit SubscriptionCancelled(msg.sender);
     }
 
   }
@@ -168,11 +167,8 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
       creator_lista_attivi.push();
       creator_lista_attivi[num_creator_attivi] = _creator;
       creator_to_index_lista_attivi[_creator] = num_creator_attivi;
-      if(was_creator[_creator] != true){ //se non è mai stato un creator lo aggiungiamo per avere lo storico
-        creator_lista.push(_creator);
-        was_creator[_creator] = true;
-      }
       num_creator_attivi++;
+      emit CreatorAdded(_creator);
     }
   }
   function removeCreator(address _creator) OnlyManager external{
@@ -189,6 +185,9 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
 
       creator_lista_attivi.pop();
       num_creator_attivi--;
+      totale_popolarita -= popolarita[_creator];
+      popolarita[_creator] = 0;
+      emit CreatorRemoved(_creator);
     }
 
   }
@@ -203,24 +202,28 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
   function setMonthlySubscriptionAmount(uint256 _newAmount) OnlyManager external{
     if(_newAmount == 0)revert("La sub deve avere costo != 0");
     monthlySubAmount = _newAmount;
+    emit MonthlySubscriptionAmountChanged(_newAmount);
   }
   function distributeFunds() OnlyManager external{
     if(address(this).balance == 0) revert NoFundsToDistribute();
     if(creator_lista_attivi.length == 0) revert NoCreatorsRegistered();
 
 
-    uint[] memory percentuali_popolarita = new uint[](creator_lista_attivi.length);
+    //uint[] memory percentuali_popolarita = new uint[](creator_lista_attivi.length);
     uint balance_tot = address(this).balance;
-
+    if(totale_popolarita == 0) revert("Nessuno deve essere pagato");
     for (uint i = 0; i < creator_lista_attivi.length; i++) 
     {
-      percentuali_popolarita[i] = (popolarita[creator_lista_attivi[i]] * 100) / totale_popolarita;
-      uint importo = (balance_tot * percentuali_popolarita[i]) / 100;
-      emit PopolaritaPagaento(creator_lista_attivi[i], popolarita[creator_lista_attivi[i]], percentuali_popolarita[i], totale_popolarita);
+      //percentuali_popolarita[i] = (popolarita[creator_lista_attivi[i]] * 100) / totale_popolarita;
+      //uint importo = (balance_tot * percentuali_popolarita[i]) / 100;
+
+      uint importo = (balance_tot * popolarita[creator_lista_attivi[i]])/totale_popolarita;
 
       (bool success, ) = creator_lista_attivi[i].call{value: importo}("");
       if(!success) revert("Qualcosa e andato storto");
     }
+    fondi_pagati += balance_tot;
+    emit FundsDistributed(balance_tot);
   }
 
   function manager() external view returns (address){
@@ -242,7 +245,9 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
     return address(this).balance;
   }
 
-  function getHistoricalDistributedFunds() external view returns (uint256){}
+  function getHistoricalDistributedFunds() external view returns (uint256){
+    return fondi_pagati;
+  }
 
 
   function getTotalSubscribers() external view returns (uint256){
