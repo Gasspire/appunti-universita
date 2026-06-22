@@ -140,10 +140,71 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
 
   function checkoutLottery() external{
     if(block.timestamp < scadenza_lotteria) revert LotteryNotYetExpired(scadenza_lotteria - block.timestamp);
-    if(vincitori[0] != address(0)) revert 
+    if(vincitori[0] != address(0)) revert("Lotteria gia conclusa!");
+    if(totale_biglietti == 0){
+      emit LotteryClosedWithoutTickets();
+      return;
+    }
+    else{
+      uint n = partecipanti.length;
+      uint primo; uint secondo; uint terzo; uint quarto; uint quinto;
+
+      primo = uint256(keccak256(abi.encode(block.timestamp,block.prevrandao,1)))%totale_biglietti;
+      secondo = uint256(keccak256(abi.encode(block.timestamp,block.prevrandao,2)))%totale_biglietti;
+      terzo = uint256(keccak256(abi.encode(block.timestamp,block.prevrandao,3)))%totale_biglietti;
+      quarto = uint256(keccak256(abi.encode(block.timestamp,block.prevrandao,4)))%totale_biglietti;
+      quinto = uint256(keccak256(abi.encode(block.timestamp,block.prevrandao,5)))%totale_biglietti;
+
+      uint[] memory array_num = new uint[](n);
+      array_num[0] = bilanci[partecipanti[0]];
+      if(array_num[0] > primo) vincitori[0] = partecipanti[0];
+      if(array_num[0] > secondo) vincitori[1] = partecipanti[0];
+      if(array_num[0] > terzo) vincitori[2] = partecipanti[0];
+      if(array_num[0] > quarto) vincitori[3] = partecipanti[0];
+      if(array_num[0] > quinto) vincitori[4] = partecipanti[0];
+      for (uint i = 1; i < n; i++) 
+      {
+        array_num[i] = array_num[i-1] + bilanci[partecipanti[i]];
+        if(primo >= array_num[i-1] && primo < array_num[i]) vincitori[0] = partecipanti[i];
+        if(secondo >= array_num[i-1] && secondo < array_num[i]) vincitori[1] = partecipanti[i];
+        if(terzo >= array_num[i-1] && terzo < array_num[i]) vincitori[2] = partecipanti[i];
+        if(quarto >= array_num[i-1] && quarto < array_num[i]) vincitori[3] = partecipanti[i];
+        if(quinto >= array_num[i-1] && quinto < array_num[i]) vincitori[4] = partecipanti[i];
+      }
+      //uscito da questo ciclo ho la lista dei vincitori e devo calcolare i premi
+      uint totale = address(this).balance;
+
+      premi[0] = (totale * 60)/100;
+      premi[1] = (totale * 20)/100;
+      premi[2] = (totale * 10)/100;
+      premi[3] = (totale * 8)/100;
+      premi[4] = (totale * 2)/100;
+
+      pagamenti[0] = premi[0];
+      pagamenti[1] = premi[1];
+      pagamenti[2] = premi[2];
+      pagamenti[3] = premi[3];
+      pagamenti[4] = premi[4];
+    }
   }
 
-  function claimPrize() external{}
+  function claimPrize() external{
+    bool is_winner;
+    uint[] index;
+    for (uint i = 0; i < 5 ; i++) 
+    {
+      if(vincitori[i] == msg.sender){ 
+        is_winner = true;
+        index = i;
+      }
+    }
+    if(is_winner == false) revert NotAWinner();
+    if(pagamenti[index] == 0) revert PrizeAlreadyClaimed(index+1);
+    else{
+      pagamenti[index] == 0
+    }
+
+  }
   function getCostPerTicket() external view returns (uint cost){
     return prezzo_biglietti;
   }
@@ -154,7 +215,7 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
   }
 
   function getWinnerInfo(uint8 rank) external view returns (address winner, uint256 amount, bool claimed){
-    if(winner == address(0)) revert LotteryNotYetClosed()(); //o comunque non ancora assegnati i vincitori ma, dato che è dichiarato come view, non posso modificare lo stato da qui
+    if(winner == address(0)) revert LotteryNotYetClosed(); //o comunque non ancora assegnati i vincitori ma, dato che è dichiarato come view, non posso modificare lo stato da qui
     if(rank > 5 || rank < 1) revert("Inserisci un premio valido!");
     else{
       bool claim = (pagamenti[rank] == premi[rank] ? false:true);

@@ -491,20 +491,16 @@
   "lastSeenVersion": "4.11.0",
   "pomodoroState": {
     "isRunning": true,
-    "timeRemaining": 780,
+    "timeRemaining": 2100,
     "currentSession": {
-      "id": "1782134591367",
-      "startTime": "2026-06-22T15:23:11.367+02:00",
-      "plannedDuration": 50,
+      "id": "1782139728723",
+      "startTime": "2026-06-22T16:48:48.723+02:00",
+      "plannedDuration": 35,
       "type": "work",
       "completed": false,
       "activePeriods": [
         {
-          "startTime": "2026-06-22T15:23:11.367+02:00",
-          "endTime": "2026-06-22T16:00:12.091+02:00"
-        },
-        {
-          "startTime": "2026-06-22T16:15:03.133+02:00"
+          "startTime": "2026-06-22T16:48:48.723+02:00"
         }
       ]
     }
@@ -1105,6 +1101,38 @@
         {
           "startTime": "2026-06-22T11:49:35.970+02:00",
           "endTime": "2026-06-22T11:59:35.970+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1782134591367",
+      "startTime": "2026-06-22T15:23:11.367+02:00",
+      "endTime": "2026-06-22T16:28:02.409+02:00",
+      "plannedDuration": 50,
+      "type": "work",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-22T15:23:11.367+02:00",
+          "endTime": "2026-06-22T16:00:12.091+02:00"
+        },
+        {
+          "startTime": "2026-06-22T16:15:03.133+02:00",
+          "endTime": "2026-06-22T16:28:02.409+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1782138484351",
+      "startTime": "2026-06-22T16:28:04.351+02:00",
+      "endTime": "2026-06-22T16:48:42.209+02:00",
+      "plannedDuration": 30,
+      "type": "long-break",
+      "completed": false,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-22T16:28:04.351+02:00",
+          "endTime": "2026-06-22T16:48:42.209+02:00"
         }
       ]
     }

@@ -217,11 +217,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2025-07-14-specs.sol": {
-			"keccak256": "0x5c0db4bd7cd91101d3fdc68b37b58780fbb72972f64fa3b75cc3f53bea6c7608",
+			"keccak256": "0xf3f317f95584a4b442808fdd2285bad4489fb2d66759dcdbd7a6684338c9021d",
 			"license": "None",
 			"urls": [
-				"bzz-raw://5c9ea492319a6c348f7f96fee269e879151f0bd8d1ffc6b7092961204565cc2c",
-				"dweb:/ipfs/QmcM1D2YKvUvP42KmFJDxxN7P2zrNtLd2BMgccDj9t8jvF"
+				"bzz-raw://092633c898931923fe299b81bae35e6988c57a09b8c7d638d654b75b7cb7f4f8",
+				"dweb:/ipfs/QmQ5zQAjoECLgWrWVDee8uEan7ub9VV2bfnKvzxFbaYJY6"
 			]
 		}
 	},
