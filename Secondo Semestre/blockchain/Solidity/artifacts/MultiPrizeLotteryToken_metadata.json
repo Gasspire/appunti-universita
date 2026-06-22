@@ -388,6 +388,19 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "vediPartecipanti",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -418,11 +431,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2025-07-14-specs.sol": {
-			"keccak256": "0xc646e8c471462cd1b75d4a2ae2aa40605bda71015013c4492d72fcbd83d4c741",
+			"keccak256": "0x5c0db4bd7cd91101d3fdc68b37b58780fbb72972f64fa3b75cc3f53bea6c7608",
 			"license": "None",
 			"urls": [
-				"bzz-raw://977d9523c9299b49362ca8579defbc3a0fba207687781b7e5abe5aeab9397ddb",
-				"dweb:/ipfs/Qmc5YDx5JE5jR6vtBvCR7UUhWdxnJWRKCPHSJDuYXw1m4P"
+				"bzz-raw://5c9ea492319a6c348f7f96fee269e879151f0bd8d1ffc6b7092961204565cc2c",
+				"dweb:/ipfs/QmcM1D2YKvUvP42KmFJDxxN7P2zrNtLd2BMgccDj9t8jvF"
 			]
 		}
 	},

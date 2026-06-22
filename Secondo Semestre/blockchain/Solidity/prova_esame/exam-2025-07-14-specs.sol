@@ -115,12 +115,17 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
   }
 
 
+  function vediPartecipanti()public view returns(address[] memory){
+    return partecipanti;
+  }
+
 
   function buyTickets() external payable{
     if(msg.value < prezzo_biglietti) revert NotEnoughFundsForATicket(prezzo_biglietti);
+    if(block.timestamp > scadenza_lotteria) revert LotteryAlreadyExpired();
     else{
       uint num = msg.value/prezzo_biglietti;
-      
+      totale_biglietti += num;
       bilanci[msg.sender] += num;
       if(is_partecipante[msg.sender]==false){
         is_partecipante[msg.sender]= true;
@@ -133,7 +138,10 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
     }
   }
 
-  function checkoutLottery() external{}
+  function checkoutLottery() external{
+    if(block.timestamp < scadenza_lotteria) revert LotteryNotYetExpired(scadenza_lotteria - block.timestamp);
+    if(vincitori[0] != address(0)) revert 
+  }
 
   function claimPrize() external{}
   function getCostPerTicket() external view returns (uint cost){
@@ -146,7 +154,7 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
   }
 
   function getWinnerInfo(uint8 rank) external view returns (address winner, uint256 amount, bool claimed){
-    if(winner == address(0)) revert LotteryNotYetClosed(); //o comunque non ancora assegnati i vincitori ma, dato che è dichiarato come view, non posso modificare lo stato da qui
+    if(winner == address(0)) revert LotteryNotYetClosed()(); //o comunque non ancora assegnati i vincitori ma, dato che è dichiarato come view, non posso modificare lo stato da qui
     if(rank > 5 || rank < 1) revert("Inserisci un premio valido!");
     else{
       bool claim = (pagamenti[rank] == premi[rank] ? false:true);
@@ -160,7 +168,8 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
   function balanceOf(address account) external view returns (uint256){
     return bilanci[account];
   }
-  function transfer(address recipient, uint256 amount) external returns (bool){ //AGGIUNGI A PARTECIPANTI E TOGLI EVENTUALMENTE
+  function transfer(address recipient, uint256 amount) external returns (bool){ //CONTROLLO CHE SIA FINITA LA LOTTERIA
+    if(block.timestamp > scadenza_lotteria) revert LotteryAlreadyExpired();
     if(bilanci[msg.sender] < amount) return false;
     else{
       if(is_partecipante[recipient] == false){
@@ -173,7 +182,16 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
       bilanci[msg.sender]-=amount;
       bilanci[recipient] += amount;
       if(bilanci[msg.sender] == 0){//vuol dire che non ha più ticket, cioè non è piu un partecipante
-        
+        is_partecipante[msg.sender] = false;
+
+        //troviamo l'ultimo indice e quello da togliere
+        uint last_index = partecipanti.length -1;
+        uint index_to_change = partecipante_to_index[msg.sender];
+
+        partecipanti[index_to_change] = partecipanti[last_index];
+        partecipanti.pop();
+        num_partecipanti--;
+        partecipante_to_index[partecipanti[index_to_change]] = index_to_change;
       }
       return true;
     }
@@ -185,13 +203,33 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
     deleghe[msg.sender][delegate] = amount;
     return true;
   }
-  function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){//AGGIUNGI A PARTECIPANTI E TOGLI
+  function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){//AGGIUNGI CONTROLLO SULLA FINE DELLA LOTTERIA
+    if(block.timestamp > scadenza_lotteria) revert LotteryAlreadyExpired();
     if(deleghe[sender][msg.sender] < amount) return false;
     if(bilanci[sender] < amount) return false;
     else{
+      if(is_partecipante[recipient] == false){
+        is_partecipante[recipient] = true;
+        partecipanti.push();
+        partecipanti[num_partecipanti] = recipient;
+        partecipante_to_index[recipient] = num_partecipanti;
+        num_partecipanti++;
+      }
       bilanci[sender]-= amount;
       deleghe[sender][msg.sender] -= amount;
       bilanci[recipient] += amount;
+      if(bilanci[sender] == 0){//vuol dire che non ha più ticket, cioè non è piu un partecipante
+        is_partecipante[sender] = false;
+
+        //troviamo l'ultimo indice e quello da togliere
+        uint last_index = partecipanti.length -1;
+        uint index_to_change = partecipante_to_index[sender];
+
+        partecipanti[index_to_change] = partecipanti[last_index];
+        partecipanti.pop();
+        num_partecipanti--;
+        partecipante_to_index[partecipanti[index_to_change]] = index_to_change;
+      }
       return true;
     }
   }
