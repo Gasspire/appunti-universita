@@ -135,6 +135,8 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
 
         num_partecipanti++;
       }
+      emit Transfer(address(0), msg.sender, num);
+
     }
   }
 
@@ -185,23 +187,34 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
       pagamenti[2] = premi[2];
       pagamenti[3] = premi[3];
       pagamenti[4] = premi[4];
+      emit LotteryWinnersDetermined(vincitori, premi);
     }
   }
 
   function claimPrize() external{
+    if(scadenza_lotteria > block.timestamp) revert LotteryNotYetExpired(scadenza_lotteria - block.timestamp);
+    if(vincitori[0] == address(0)) revert("Lotteria conclusa, chiamare checkoutLottery per verificare i risultati!");
     bool is_winner;
-    uint[] index;
+    uint[] memory index = new uint[](5);
     for (uint i = 0; i < 5 ; i++) 
     {
       if(vincitori[i] == msg.sender){ 
         is_winner = true;
-        index = i;
+        index[i] = 1; //gestisco con un array perché non è detto che abbia vinto un solo premio!
       }
     }
     if(is_winner == false) revert NotAWinner();
-    if(pagamenti[index] == 0) revert PrizeAlreadyClaimed(index+1);
     else{
-      pagamenti[index] == 0
+      for (uint8 i= 0; i < 5; i++) 
+      {
+        if(index[i] == 1){
+          if(pagamenti[i] == 0) revert PrizeAlreadyClaimed(i+1);
+          pagamenti[i] = 0;
+          (bool success, ) = msg.sender.call{value: premi[i]}("");
+          if(!success) revert("Qualcosa e' andato storto");
+          emit PrizeClaimed(msg.sender, premi[i], i+1);
+        }
+      }
     }
 
   }
@@ -215,11 +228,11 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
   }
 
   function getWinnerInfo(uint8 rank) external view returns (address winner, uint256 amount, bool claimed){
-    if(winner == address(0)) revert LotteryNotYetClosed(); //o comunque non ancora assegnati i vincitori ma, dato che è dichiarato come view, non posso modificare lo stato da qui
-    if(rank > 5 || rank < 1) revert("Inserisci un premio valido!");
+    if(vincitori[0] == address(0)) revert LotteryNotYetClosed(); //o comunque non ancora assegnati i vincitori ma, dato che è dichiarato come view, non posso modificare lo stato da qui
+    if(rank > 5 || rank < 1) revert InvalidPrizeRank(rank);
     else{
       bool claim = (pagamenti[rank] == premi[rank] ? false:true);
-      return (vincitori[rank],premi[rank],claim);
+      return (vincitori[rank-1],premi[rank-1],claim);
     }
   }
 
@@ -254,6 +267,8 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
         num_partecipanti--;
         partecipante_to_index[partecipanti[index_to_change]] = index_to_change;
       }
+
+      emit Transfer(msg.sender, recipient, amount);
       return true;
     }
   }
@@ -262,6 +277,7 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
   }
   function approve(address delegate, uint256 amount) external returns (bool){
     deleghe[msg.sender][delegate] = amount;
+    emit Approval(msg.sender, delegate, amount);
     return true;
   }
   function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){//AGGIUNGI CONTROLLO SULLA FINE DELLA LOTTERIA
@@ -291,6 +307,7 @@ contract MultiPrizeLotteryToken is MultiPrizeLotteryTokenSpecs, ERC20{
         num_partecipanti--;
         partecipante_to_index[partecipanti[index_to_change]] = index_to_change;
       }
+      emit Transfer(sender, recipient, amount);
       return true;
     }
   }
