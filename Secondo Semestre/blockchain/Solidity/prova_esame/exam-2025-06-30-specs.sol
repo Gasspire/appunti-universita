@@ -94,3 +94,96 @@ interface DecentralizedCreatorSubscriptionFundSpecs {
     error NoCreatorsRegistered();
 }
 
+contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptionFundSpecs{
+  address immutable Manager;
+  uint256 monthlySubAmount;
+  address[] creator_lista;
+  address[] creator_lista_attivi;
+
+  mapping(address => bool) is_creator;
+  mapping(address => uint) popolarita;
+  mapping(address => uint) creator_to_index_lista;
+  mapping(address => uint) creator_to_index_lista_attivi;
+
+
+  address[] active_sub;
+  uint num_sub;
+  mapping(address => uint) sub_to_index;
+  mapping(address => bool) is_sub_active;
+  mapping(address => uint) sub_last_payment;
+
+  constructor(uint256 _initialMonthlySubscriptionAmount){
+    Manager = msg.sender;
+    if(_initialMonthlySubscriptionAmount == 0) revert("La sub deve avere costo != 0");
+    monthlySubAmount = _initialMonthlySubscriptionAmount;
+  }
+
+  modifier OnlyManager(){
+    if(msg.sender != Manager) revert ManagerReservedAction();
+    _;
+  }
+
+
+
+
+  function subscribe() external payable{
+    if(msg.value != monthlySubAmount) revert IncorrectSubscriptionAmount(monthlySubAmount, msg.value);
+    if(is_sub_active[msg.sender] == false){  //vuol dire che non è sub in questo momento, devo assicurarmi di fare bene la cancellazione
+      is_sub_active[msg.sender] = true;
+      active_sub.push();
+      active_sub[num_sub] = msg.sender;
+      sub_to_index[msg.sender] = num_sub;
+      num_sub++;
+    }
+    sub_last_payment[msg.sender] = block.timestamp;
+    emit Subscribed(msg.sender, msg.value);
+  }
+  function cancelSubscription() external{
+    if(is_sub_active[msg.sender] == false) revert NoActiveSubscription(msg.sender);
+    else{
+      is_sub_active[msg.sender] = false;
+      //devo fare lo scambio tra l'ultimo e l'indice attuale del sub da togliere
+
+      uint last_in_list = active_sub.length - 1;
+      uint index_to_change = sub_to_index[msg.sender];
+      active_sub[index_to_change] = active_sub[last_in_list];
+      sub_to_index[active_sub[index_to_change]] = index_to_change;
+
+      active_sub.pop();
+      num_sub--;
+    }
+
+  }
+
+  function addCreator(address _creator) external{}
+  function removeCreator(address _creator) external{}
+  function updateCreatorScore(address _creator, uint256 _newScore) external{}
+  function setMonthlySubscriptionAmount(uint256 _newAmount) external{}
+  function distributeFunds() external{}
+
+  function manager() external view returns (address){
+    return Manager;
+  }
+  function monthlySubscriptionAmount() external view returns (uint256){
+    return monthlySubAmount;
+  }
+  function isCreator(address _creator) external view returns (bool){
+    return is_creator[_creator];
+  }
+  function getCreatorScore(address _creator) external view returns (uint256){
+    return popolarita[_creator];
+  }
+  function getSubscriptionStatus(address _subscriber) external view returns (bool isActive, uint256 lastPaymentTime){
+    return (is_sub_active[_subscriber], sub_last_payment[_subscriber]);
+  }
+  function getContractBalance() external view returns (uint256){
+    return address(this).balance;
+  }
+  function getHistoricalDistributedFunds() external view returns (uint256){}
+  function getTotalSubscribers() external view returns (uint256){
+    return active_sub.length;
+  }
+  function getSubscribers() external view returns (address[] memory){
+    return active_sub;
+  }
+}

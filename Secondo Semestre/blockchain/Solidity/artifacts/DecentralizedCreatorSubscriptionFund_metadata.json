@@ -1,0 +1,442 @@
+{
+	"compiler": {
+		"version": "0.8.34+commit.80d5c536"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_initialMonthlySubscriptionAmount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					}
+				],
+				"name": "CreatorAlreadyRegistered",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					}
+				],
+				"name": "CreatorNotRegistered",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requiredAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "providedAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "IncorrectSubscriptionAmount",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ManagerReservedAction",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "subscriber",
+						"type": "address"
+					}
+				],
+				"name": "NoActiveSubscription",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NoCreatorsRegistered",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NoFundsToDistribute",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					}
+				],
+				"name": "CreatorAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					}
+				],
+				"name": "CreatorRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newScore",
+						"type": "uint256"
+					}
+				],
+				"name": "CreatorScoreUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalAmountDistributed",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsDistributed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "MonthlySubscriptionAmountChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "subscriber",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Subscribed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "subscriber",
+						"type": "address"
+					}
+				],
+				"name": "SubscriptionCancelled",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_creator",
+						"type": "address"
+					}
+				],
+				"name": "addCreator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "cancelSubscription",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "distributeFunds",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getContractBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_creator",
+						"type": "address"
+					}
+				],
+				"name": "getCreatorScore",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getHistoricalDistributedFunds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getSubscribers",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_subscriber",
+						"type": "address"
+					}
+				],
+				"name": "getSubscriptionStatus",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "isActive",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastPaymentTime",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTotalSubscribers",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_creator",
+						"type": "address"
+					}
+				],
+				"name": "isCreator",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "manager",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "monthlySubscriptionAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_creator",
+						"type": "address"
+					}
+				],
+				"name": "removeCreator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_newAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "setMonthlySubscriptionAmount",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "subscribe",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_creator",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_newScore",
+						"type": "uint256"
+					}
+				],
+				"name": "updateCreatorScore",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"prova_esame/exam-2025-06-30-specs.sol": "DecentralizedCreatorSubscriptionFund"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"prova_esame/exam-2025-06-30-specs.sol": {
+			"keccak256": "0x6b258d946348408801234d40a92e85c78febd47459769acf98bf97cd72447037",
+			"license": "None",
+			"urls": [
+				"bzz-raw://c422c5779e225f779c99891dae7efadc60fc72cc28f1fb9be0487a832f31708d",
+				"dweb:/ipfs/QmRXnQSSCT6HLjWor9AMVaffgcskpTYZmmBk78x4eUXQC9"
+			]
+		}
+	},
+	"version": 1
+}
