@@ -419,11 +419,11 @@
 	},
 	"sources": {
 		"prova_esame/exam-2025-06-30-specs.sol": {
-			"keccak256": "0x6b258d946348408801234d40a92e85c78febd47459769acf98bf97cd72447037",
+			"keccak256": "0xc9ce55b3e138a18b59351656599bd4cb39d39aeb3753407d9bc57015dd52bc2b",
 			"license": "None",
 			"urls": [
-				"bzz-raw://c422c5779e225f779c99891dae7efadc60fc72cc28f1fb9be0487a832f31708d",
-				"dweb:/ipfs/QmRXnQSSCT6HLjWor9AMVaffgcskpTYZmmBk78x4eUXQC9"
+				"bzz-raw://15035b789d54721d56ed07b1cb5d13068e44fc980d8fc70d8a3c8b7d296bb72c",
+				"dweb:/ipfs/QmZEUSaL3ATbwY1mHv1UeFrMMpyJCq7zcsvu5viQ34ef7a"
 			]
 		}
 	},

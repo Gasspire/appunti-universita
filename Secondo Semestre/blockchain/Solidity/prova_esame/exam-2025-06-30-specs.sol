@@ -97,13 +97,16 @@ interface DecentralizedCreatorSubscriptionFundSpecs {
 contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptionFundSpecs{
   address immutable Manager;
   uint256 monthlySubAmount;
+
+  
   address[] creator_lista;
   address[] creator_lista_attivi;
 
   mapping(address => bool) is_creator;
   mapping(address => uint) popolarita;
-  mapping(address => uint) creator_to_index_lista;
+  mapping(address => bool) was_creator;
   mapping(address => uint) creator_to_index_lista_attivi;
+  uint num_creator_attivi;
 
 
   address[] active_sub;
@@ -155,10 +158,47 @@ contract DecentralizedCreatorSubscriptionFund is DecentralizedCreatorSubscriptio
 
   }
 
-  function addCreator(address _creator) external{}
-  function removeCreator(address _creator) external{}
-  function updateCreatorScore(address _creator, uint256 _newScore) external{}
-  function setMonthlySubscriptionAmount(uint256 _newAmount) external{}
+  function addCreator(address _creator) OnlyManager external{
+    if(is_creator[_creator] == true) revert CreatorAlreadyRegistered(_creator);
+    else{
+      is_creator[_creator] = true;
+      creator_lista_attivi.push();
+      creator_lista_attivi[num_creator_attivi] = _creator;
+      creator_to_index_lista_attivi[_creator] = num_creator_attivi;
+      if(was_creator[_creator] != true){ //se non è mai stato un creator lo aggiungiamo per avere lo storico
+        creator_lista.push(_creator);
+        was_creator[_creator] = true;
+      }
+      num_creator_attivi++;
+    }
+  }
+  function removeCreator(address _creator) OnlyManager external{
+    if(is_creator[_creator] == false) revert CreatorNotRegistered(_creator);
+    else{
+      is_creator[_creator] = false;
+
+      //devo fare lo scambio 
+      uint last_in_list = active_sub.length - 1;
+      uint index_to_change = creator_to_index_lista_attivi[_creator];
+      creator_lista_attivi[index_to_change] = creator_lista_attivi[last_in_list];
+      creator_to_index_lista_attivi[creator_lista_attivi[index_to_change]] = index_to_change;
+
+
+      creator_lista_attivi.pop();
+      num_creator_attivi--;
+    }
+
+  }
+  function updateCreatorScore(address _creator, uint256 _newScore) OnlyManager external{
+    if(is_creator[_creator] == false)revert CreatorNotRegistered(_creator);
+    popolarita[_creator] = _newScore;
+    emit CreatorScoreUpdated(_creator, _newScore);
+  }
+
+  function setMonthlySubscriptionAmount(uint256 _newAmount) OnlyManager external{
+    if(_newAmount == 0)revert("La sub deve avere costo != 0");
+    monthlySubAmount = _newAmount;
+  }
   function distributeFunds() external{}
 
   function manager() external view returns (address){
