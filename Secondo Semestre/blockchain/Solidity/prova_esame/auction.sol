@@ -92,8 +92,9 @@ contract AuctionManager is AuctionManagerSpecs{
 
         AuctionState stato_asta;
 
-
+        bool finalized_yet;
         mapping(address => uint) offerta;
+        mapping(address => bool) is_offerente;
         address[] offerenti;
     }   
     
@@ -126,14 +127,28 @@ contract AuctionManager is AuctionManagerSpecs{
         a.description = description;
         a.beneficiario = msg.sender;
         a.offerta_minima = minimumBid;
-        a.scadenza = block.timestamp + (expirationInHours * 1 hours);
+        a.scadenza = block.timestamp + (expirationInHours * 1 minutes);
         a.stato_asta = AuctionState.Ongoing;
 
         num_aste++;
-        emit NewAuction(a.description, a.offerta_minima, (a.scadenza)); //Capiamo se mettere a.scadenza - block.timestamp / 1 hours;
+        emit NewAuction(a.description, a.offerta_minima, (a.scadenza - block.timestamp)/1 minutes);
     }
 
-    function bidOnAuction(uint id) external payable returns (bool isHighest){}
+    function bidOnAuction(uint id) external checkAste(id) payable returns (bool isHighest){//aggiungere funzione che faccia il finalize!
+        aste[id].offerta[msg.sender] += msg.value;
+        if(aste[id].offerta[msg.sender] < aste[id].offerta_minima) revert BidNotAboveMinimum(aste[id].offerta_minima);
+        if(aste[id].is_offerente[msg.sender] == false){//questa è la sua prima offerta
+            aste[id].is_offerente[msg.sender] = true;
+            aste[id].offerenti.push(msg.sender);
+        } 
+        if(aste[id].offerta[msg.sender] > aste[id].offerta_alta){ // mettiamo solo il maggiore così anche in caso sia uguale prende quella arrivata prima!
+            aste[id].vincitore_corrente = msg.sender;
+            aste[id].offerta_alta = aste[id].offerta[msg.sender];
+            emit NewHighestBid(id, msg.sender, aste[id].offerta_alta);
+            return true;
+        }
+        else return false;
+    }
 
     function idsOfOngoingAuctions() external view returns (uint[] memory ids){ //Capiamo dopo se fare l'eliminazione e togliere view
         return aste_attive;
@@ -167,7 +182,20 @@ contract AuctionManager is AuctionManagerSpecs{
         return aste[id].vincitore_corrente;
     }
 
-    function finalizeAuction(uint id) checkAste(id) external{}
+    function finalizeAuction(uint id) checkAste(id) external{
+        if(aste[id].scadenza > block.timestamp) revert AuctionToFinalizeNotYetEnded((aste[id].scadenza - block.timestamp)/1 minutes); //asta non ancora scaduta
+        if(aste[id].finalized_yet == true) revert AuctionToFinalizeAlreadyFinalized(); //asta già finalizzata
+        if(aste[id].offerenti.length == 0){
+            aste[id].finalized_yet = true;
+            aste[id].stato_asta = AuctionState.Expired;
+            emit AuctionExpiredWithoutWinner(id);
+            return;
+        }
+        else{
+            
+
+        }
+    }
 
     function cancelAuction(uint id) checkAste(id) external{}
 }

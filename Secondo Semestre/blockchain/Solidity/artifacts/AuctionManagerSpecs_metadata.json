@@ -385,11 +385,11 @@
 	},
 	"sources": {
 		"prova_esame/auction.sol": {
-			"keccak256": "0xa2d33707636173de7da84809d55e69d05189ca22fb966421d6c4a953eea9962c",
+			"keccak256": "0x4bca47e6ccb76cad2cc3e62da7609c3728578b3cbcf3a90c3623ab72993d8946",
 			"license": "None",
 			"urls": [
-				"bzz-raw://c07e626625892b47ffa9415220f223b5312979a331a682818ee13fc07c3ac111",
-				"dweb:/ipfs/QmUdEcQbpu4XCP4yACrLXMG4hp4hPjWcSPR63rMt9AAnQs"
+				"bzz-raw://c1ea4019dbc741a11151bdb17482ae21bfec384bbe15e8edd217c8729030105a",
+				"dweb:/ipfs/Qmba1yQBSbjrKN3ujHM9E6S9ssvGtgejEdoyMZ9XESVwfV"
 			]
 		}
 	},
