@@ -121,6 +121,7 @@ contract AuctionManager is AuctionManagerSpecs{
         
         aste_attive.push();
         aste_attive[num_aste] = num_aste;
+        id_to_index[num_aste] = num_aste;
 
         Asta storage a = aste[num_aste];
         a.id = num_aste;
@@ -132,6 +133,7 @@ contract AuctionManager is AuctionManagerSpecs{
 
         num_aste++;
         emit NewAuction(a.description, a.offerta_minima, (a.scadenza - block.timestamp)/1 minutes);
+        return a.id;
     }
 
     function bidOnAuction(uint id) external checkAste(id) payable returns (bool isHighest){
@@ -139,14 +141,17 @@ contract AuctionManager is AuctionManagerSpecs{
             if(aste[id].offerenti.length == 0) aste[id].stato_asta = AuctionState.Expired; //Naturalmente la finalizzazione va fatta a parte
             else aste[id].stato_asta = AuctionState.EndedWithWinner;
 
-                uint last_index = aste_attive.length -1;
-                uint index_to_change = id_to_index[id];
-                //mettiamo l'ultimo al posto di quella da eliminare
-                aste_attive[index_to_change] = aste_attive[last_index];
-                //facciamo la pop per eliminare il doppione
-                aste_attive.pop();
-                //sistemiamo il mapping
-                id_to_index[aste_attive[index_to_change]] = index_to_change;
+            uint last_index = aste_attive.length -1;
+            uint index_to_change = id_to_index[id];
+            //mettiamo l'ultimo al posto di quella da eliminare
+            aste_attive[index_to_change] = aste_attive[last_index];
+            //sistemiamo il mapping
+            id_to_index[aste_attive[index_to_change]] = index_to_change;
+            //facciamo la pop per eliminare il doppione
+            aste_attive.pop();
+
+
+
             revert AuctionAlreadyEnded(aste[id].stato_asta);
         }
         if(aste[id].stato_asta == AuctionState.Canceled) revert AuctionAlreadyEnded(aste[id].stato_asta);
@@ -178,10 +183,11 @@ contract AuctionManager is AuctionManagerSpecs{
                 uint index_to_change = id_to_index[curr_id];
                 //mettiamo l'ultimo al posto di quella da eliminare
                 aste_attive[index_to_change] = aste_attive[last_index];
-                //facciamo la pop per eliminare il doppione
-                aste_attive.pop();
                 //sistemiamo il mapping
                 id_to_index[aste_attive[index_to_change]] = index_to_change;
+                //facciamo la pop per eliminare il doppione
+                aste_attive.pop();
+                i--;
             }
         }
         return aste_attive;
@@ -196,7 +202,8 @@ contract AuctionManager is AuctionManagerSpecs{
     }
 
     function auctionExpiration(uint id) external checkAste(id) view returns (uint timestamp){
-        return (aste[id].scadenza);
+        if(aste[id].scadenza < block.timestamp) return 0; 
+        return (aste[id].scadenza - block.timestamp);
     }
 
     function auctionBeneficiary(uint id) external checkAste(id) view returns (address beneficiary){
@@ -216,20 +223,22 @@ contract AuctionManager is AuctionManagerSpecs{
     }
 
     function finalizeAuction(uint id) checkAste(id) external{
-        if(aste[id].scadenza > block.timestamp) revert AuctionToFinalizeNotYetEnded((aste[id].scadenza - block.timestamp)/1 minutes); //asta non ancora scaduta
+        if(aste[id].scadenza > block.timestamp) revert AuctionToFinalizeNotYetEnded((aste[id].scadenza - block.timestamp)); //asta non ancora scaduta
         if(aste[id].finalized_yet == true) revert AuctionToFinalizeAlreadyFinalized(); //asta già finalizzata
         if(aste[id].offerenti.length == 0){ //asta conclusa senza vincitori
+
             aste[id].finalized_yet = true;
             aste[id].stato_asta = AuctionState.Expired;
 
-            uint last_index = aste_attive.length -1;
+            uint last_index = aste_attive.length - 1;
             uint index_to_change = id_to_index[id];
             //mettiamo l'ultimo al posto di quella da eliminare
             aste_attive[index_to_change] = aste_attive[last_index];
-            //facciamo la pop per eliminare il doppione
-            aste_attive.pop();
             //sistemiamo il mapping
             id_to_index[aste_attive[index_to_change]] = index_to_change;
+
+            //facciamo la pop per eliminare il doppione
+            aste_attive.pop();
 
 
 
@@ -263,10 +272,11 @@ contract AuctionManager is AuctionManagerSpecs{
             uint index_to_change = id_to_index[id];
             //mettiamo l'ultimo al posto di quella da eliminare
             aste_attive[index_to_change] = aste_attive[last_index];
-            //facciamo la pop per eliminare il doppione
-            aste_attive.pop();
             //sistemiamo il mapping
             id_to_index[aste_attive[index_to_change]] = index_to_change;
+            //facciamo la pop per eliminare il doppione
+            aste_attive.pop();
+
 
             emit AuctionEndedWithWinner(id, aste[id].vincitore_corrente, aste[id].offerta_alta);
         }
@@ -291,10 +301,11 @@ contract AuctionManager is AuctionManagerSpecs{
             uint index_to_change = id_to_index[id];
             //mettiamo l'ultimo al posto di quella da eliminare
             aste_attive[index_to_change] = aste_attive[last_index];
+            //sistemiamo il mapping
+            id_to_index[aste_attive[index_to_change]] = index_to_change;           
             //facciamo la pop per eliminare il doppione
             aste_attive.pop();
-            //sistemiamo il mapping
-            id_to_index[aste_attive[index_to_change]] = index_to_change;            
+ 
         }
         else revert AuctionAlreadyEnded(aste[id].stato_asta);
     }
