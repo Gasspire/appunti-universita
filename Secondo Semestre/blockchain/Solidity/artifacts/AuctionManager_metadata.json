@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.34+commit.80d5c536"
 	},
 	"language": "Solidity",
 	"output": {
@@ -271,7 +271,7 @@
 						"type": "uint8"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -375,9 +375,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"prova_esame/exam-2022-07-14-specs.sol": "AuctionManager"
+			"prova_esame/auction.sol": "AuctionManager"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "osaka",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -389,12 +389,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"prova_esame/exam-2022-07-14-specs.sol": {
-			"keccak256": "0x956c69c439715d6a014ee01d509acfe9f6e8285276a0a1ea1ea1acb0dc2edc59",
+		"prova_esame/auction.sol": {
+			"keccak256": "0xa2d33707636173de7da84809d55e69d05189ca22fb966421d6c4a953eea9962c",
 			"license": "None",
 			"urls": [
-				"bzz-raw://f0dda2959d982c0df7f2d41292d6fd0eba97aba18abb321ec530f88794912106",
-				"dweb:/ipfs/QmWf9AribhkzARXbmE44ANeUeNKpa47CFADEbfdtBYKV41"
+				"bzz-raw://c07e626625892b47ffa9415220f223b5312979a331a682818ee13fc07c3ac111",
+				"dweb:/ipfs/QmUdEcQbpu4XCP4yACrLXMG4hp4hPjWcSPR63rMt9AAnQs"
 			]
 		}
 	},
