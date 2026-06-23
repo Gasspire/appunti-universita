@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.34+commit.80d5c536"
 	},
 	"language": "Solidity",
 	"output": {
@@ -9,22 +9,22 @@
 				"inputs": [
 					{
 						"internalType": "address payable",
-						"name": "_first",
+						"name": "firstPlayer",
 						"type": "address"
 					},
 					{
 						"internalType": "address payable",
-						"name": "_second",
+						"name": "secondPlayer",
 						"type": "address"
 					},
 					{
 						"internalType": "uint8",
-						"name": "n_target",
+						"name": "targetWins",
 						"type": "uint8"
 					},
 					{
 						"internalType": "uint256",
-						"name": "fee",
+						"name": "singleMatchFee",
 						"type": "uint256"
 					}
 				],
@@ -96,52 +96,6 @@
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "ret_pFirst",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					},
-					{
-						"internalType": "uint8",
-						"name": "",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint8",
-						"name": "",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "ret_pSecond",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					},
-					{
-						"internalType": "uint8",
-						"name": "",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint8",
-						"name": "",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -157,9 +111,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"prova_esame/exam-2021-06-22-specs.sol": "TrustworthyRockPaperScissorsTournament"
+			"prova_esame/esercitazione_2.sol": "TrustworthyRockPaperScissorsTournament"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "osaka",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -171,12 +125,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"prova_esame/exam-2021-06-22-specs.sol": {
-			"keccak256": "0x8ae6624da6bad68bd30f175947174618fb4935554edac42cce0cf9cec38495c6",
+		"prova_esame/esercitazione_2.sol": {
+			"keccak256": "0x369fe7bedf9dfbddd0a501c5795b621a94875f70ce45aadc97cab2d261fafe23",
 			"license": "None",
 			"urls": [
-				"bzz-raw://6ea6142336b47fd33d1ec21fb447c00110e288e2de0ecbcc7bbbe59379b70baf",
-				"dweb:/ipfs/QmaEhkVUWMgCGaMJLfekVzpC5LDQDHxrVH9CEvKrrwgrwb"
+				"bzz-raw://61b0af3587794193ceccbced7a23eb6ae0b4dd167ee0a6954a70c7facc36ba10",
+				"dweb:/ipfs/QmdzAbXrRXCnNu4yUMwj8MYMK9ht3wK5JDMavS14uCkdrd"
 			]
 		}
 	},
