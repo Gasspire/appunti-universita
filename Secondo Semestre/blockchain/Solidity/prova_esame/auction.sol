@@ -170,28 +170,36 @@ contract AuctionManager is AuctionManagerSpecs{
         else return false;
     }
 
-    function idsOfOngoingAuctions() external returns (uint[] memory ids){ 
-        uint numero_aste_attive = aste_attive.length;
-        for(uint i = 0; i < numero_aste_attive; i++){
-            uint curr_id = aste_attive[i];
-            if(aste[curr_id].scadenza < block.timestamp){ //allora l'asta è già conlusa ma è ancora da finalizzare, però la togliamo da quelle attive
-
-                if(aste[curr_id].offerenti.length == 0) aste[curr_id].stato_asta = AuctionState.Expired; //Naturalmente la finalizzazione va fatta a parte
-                else aste[curr_id].stato_asta = AuctionState.EndedWithWinner;
-
-                uint last_index = aste_attive.length -1;
-                uint index_to_change = id_to_index[curr_id];
-                //mettiamo l'ultimo al posto di quella da eliminare
-                aste_attive[index_to_change] = aste_attive[last_index];
-                //sistemiamo il mapping
-                id_to_index[aste_attive[index_to_change]] = index_to_change;
-                //facciamo la pop per eliminare il doppione
-                aste_attive.pop();
-                i--;
+function idsOfOngoingAuctions() external returns (uint[] memory ids) { 
+    // Usiamo direttamente aste_attive.length come condizione per evitare Out of Bounds
+    for(uint i = 0; i < aste_attive.length; /* NESSUN i++ QUI */){ 
+        uint curr_id = aste_attive[i];
+        
+        if(aste[curr_id].scadenza < block.timestamp) { 
+            // Aggiorniamo lo stato
+            if(aste[curr_id].offerenti.length == 0) {
+                aste[curr_id].stato_asta = AuctionState.Expired; 
+            } else {
+                aste[curr_id].stato_asta = AuctionState.EndedWithWinner;
             }
+
+            // Swap and Pop
+            uint last_index = aste_attive.length - 1;
+            
+            // Usiamo direttamente 'i' al posto di 'id_to_index[curr_id]' perché sappiamo che coincide
+            aste_attive[i] = aste_attive[last_index]; 
+            id_to_index[aste_attive[i]] = i; // Aggiorniamo il mapping per l'elemento spostato
+            
+            aste_attive.pop();
+            // IMPORTANTE: Non facciamo i++ qui, così al prossimo giro ricontrolliamo l'elemento appena spostato in posizione 'i'
+            
+        } else {
+            // L'asta è ancora in corso, quindi andiamo avanti all'elemento successivo
+            i++; 
         }
-        return aste_attive;
     }
+    return aste_attive;
+}
 
     function auctionDescription(uint id) external checkAste(id) view returns (string memory){
         return aste[id].description;
