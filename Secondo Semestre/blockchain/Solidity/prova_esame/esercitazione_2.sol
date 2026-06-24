@@ -58,7 +58,6 @@ interface TrustworthyRockPaperScissorsTournamentSpecs {
 
 
 contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsTournamentSpecs{
-    
     mapping(Player => Pstruct) giocatori; //Così conosco il giocatore 1 e il giocatore 2
     uint8 target;
     uint256 match_fee;
@@ -69,10 +68,10 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
         if(firstPlayer == address(0) || secondPlayer == address(0)) revert("Errore, uno dei due giocatori e' nullo");
         if(targetWins == 0) revert("Errore, deve essere fatta almeno una partita");
         if(singleMatchFee == 0)revert("Errore, deve esserci almeno una fee");
-        Pstruct memory p_1 = giocatori[Player.First];
+        Pstruct storage p_1 = giocatori[Player.First];
         p_1.Player = firstPlayer;
 
-        Pstruct memory p_2 = giocatori[Player.Second];
+        Pstruct storage p_2 = giocatori[Player.Second];
         p_2.Player = secondPlayer;
 
         match_fee = singleMatchFee;
@@ -84,9 +83,13 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
         if(msg.sender != giocatori[Player.First].Player && msg.sender != giocatori[Player.Second].Player) revert("Errore, azione permessa solo ai giocatori");
         _;
     }
+    modifier OnlyOnGoing(){
+        if(stato != Status.OnGoing) revert("Errore, la partita non e' gia finita");
+        _;
+    }
 
     function checkWin(Player p)internal{
-        uint8 last_match_to_check = uint8(giocatori[Player.First].mosse.length > giocatori[Player.Second].mosse.length ? giocatori[Player.First].mosse.length: giocatori[Player.Second].mosse.length);
+        uint8 last_match_to_check = uint8(giocatori[p].mosse.length); //ho l'ultima giocata dal player
         Player p_opp = (p == Player.First ? Player.Second:Player.First); //Così ho anche l'opponent
 
         if(giocatori[p_opp].mosse.length < last_match_to_check) return; // L'opponent non ha ancora giocato!
@@ -99,27 +102,50 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
                 giocatori[Player.First].num_wins += 1;
             }
             else if((giocatori[Player.Second].mosse[last_match_to_check-1] == Move.Rock && giocatori[Player.First].mosse[last_match_to_check-1] == Move.Scissor)||
-                (giocatori[Player.Second].mosse[last_match_to_check-1] == Move.Paper && giocatori[Player.First].mosse[last_match_to_check-1] == Move.Rock) ||
-                (giocatori[Player.Second].mosse[last_match_to_check-1] == Move.Scissor && giocatori[Player.First].mosse[last_match_to_check-1] == Move.Paper)){
-                    giocatori[Player.Second].num_wins+=1;
-                }
+            (giocatori[Player.Second].mosse[last_match_to_check-1] == Move.Paper && giocatori[Player.First].mosse[last_match_to_check-1] == Move.Rock) ||
+            (giocatori[Player.Second].mosse[last_match_to_check-1] == Move.Scissor && giocatori[Player.First].mosse[last_match_to_check-1] == Move.Paper)){
+                giocatori[Player.Second].num_wins+=1;
+            }
+            address victory;
+            if(giocatori[Player.First].num_wins == target) victory = giocatori[Player.First].Player;
+            if(giocatori[Player.Second].num_wins == target) victory = giocatori[Player.Second].Player;
 
-
-
+            if(victory != address(0)){ // qualcuno ha vinto!
+                stato = Status.End;
+                (bool success, ) = victory.call{value: address(this).balance}("");
+                if(!success) revert("Qualcosa e' andato storto!");
+                selfdestruct(payable(address(0)));
+            }
         }
     }
 
+    
 
-    function moveRock() external OnlyPlayer payable{
+    function moveRock() external OnlyOnGoing OnlyPlayer payable{
         Player p = (msg.sender == giocatori[Player.First].Player ? Player.First: Player.Second);
 
         giocatori[p].mosse.push(Move.Rock);
         checkWin(p);
     }
-    function movePaper() external OnlyPlayer payable{}
-    function moveScissor() external OnlyPlayer payable{}
+    function movePaper() external OnlyOnGoing OnlyPlayer payable{
+        Player p = (msg.sender == giocatori[Player.First].Player ? Player.First: Player.Second);
 
+        giocatori[p].mosse.push(Move.Paper);
+        checkWin(p);
+    }
+    function moveScissor() external OnlyOnGoing OnlyPlayer payable{
+        Player p = (msg.sender == giocatori[Player.First].Player ? Player.First: Player.Second);
 
+        giocatori[p].mosse.push(Move.Scissor);
+        checkWin(p);
+    }
+
+    function returnP1()external view returns(Pstruct memory){
+        return giocatori[Player.First];
+    }
+    function returnP2()external view returns(Pstruct memory){
+        return giocatori[Player.Second];
+    }
 
     function disputedMatches() external view returns (uint8){
         return uint8(giocatori[Player.First].mosse.length > giocatori[Player.Second].mosse.length ? giocatori[Player.First].mosse.length: giocatori[Player.Second].mosse.length);
