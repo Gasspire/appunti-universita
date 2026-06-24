@@ -1,0 +1,339 @@
+{
+	"compiler": {
+		"version": "0.8.34+commit.80d5c536"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "DriverReservedAction",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "provided",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "required",
+						"type": "uint256"
+					}
+				],
+				"name": "InsufficientFundsProvided",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NoRefundAvailable",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NoSeatsAvailable",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TripNotExisting",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum CryptoCarpoolingSpecs.TripState",
+						"name": "state",
+						"type": "uint8"
+					}
+				],
+				"name": "TripNotOpen",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tripId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "driver",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "destination",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ticketPrice",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "availableSeats",
+						"type": "uint8"
+					}
+				],
+				"name": "NewTrip",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tripId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "passenger",
+						"type": "address"
+					}
+				],
+				"name": "SeatBooked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tripId",
+						"type": "uint256"
+					}
+				],
+				"name": "TripCanceled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tripId",
+						"type": "uint256"
+					}
+				],
+				"name": "TripCompleted",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tripId",
+						"type": "uint256"
+					}
+				],
+				"name": "bookSeat",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tripId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelTrip",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tripId",
+						"type": "uint256"
+					}
+				],
+				"name": "completeTrip",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "destination",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ticketPrice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "seats",
+						"type": "uint8"
+					}
+				],
+				"name": "createTrip",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "tripId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tripId",
+						"type": "uint256"
+					}
+				],
+				"name": "getTripInfo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "driver",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "destination",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "ticketPrice",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "totalSeats",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint8",
+								"name": "availableSeats",
+								"type": "uint8"
+							},
+							{
+								"internalType": "enum CryptoCarpoolingSpecs.TripState",
+								"name": "state",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct CryptoCarpoolingSpecs.Trip",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "passenger",
+						"type": "address"
+					}
+				],
+				"name": "pendingRefunds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tripId",
+						"type": "uint256"
+					}
+				],
+				"name": "tripState",
+				"outputs": [
+					{
+						"internalType": "enum CryptoCarpoolingSpecs.TripState",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawRefund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"prova_esame/esame_simul.sol": "CryptoCarpoolingSpecs"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"prova_esame/esame_simul.sol": {
+			"keccak256": "0xf00249d850434c3e6d472320082d94f9cfbb983e1fbddaf1468552db98cc15a9",
+			"license": "None",
+			"urls": [
+				"bzz-raw://f374aeab16f6dbccd3df83f062e616648ee03f2acdc0414e2ee4a69b3a0e9c43",
+				"dweb:/ipfs/QmYMWhkXgdWveW2TFLWJ16i48nuA1E7DWBdarVC5yYLRcC"
+			]
+		}
+	},
+	"version": 1
+}

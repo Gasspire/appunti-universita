@@ -1,0 +1,345 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"sepolia:11155111": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"bookSeat(uint256)": "84e9f7c9",
+			"cancelTrip(uint256)": "1dca2c7e",
+			"completeTrip(uint256)": "c1917e79",
+			"createTrip(string,uint256,uint8)": "fb82b0f5",
+			"getTripInfo(uint256)": "b2c9e753",
+			"pendingRefunds(address)": "b613b114",
+			"tripState(uint256)": "9200b10d",
+			"withdrawRefund()": "110f8874"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [],
+			"name": "DriverReservedAction",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "provided",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "required",
+					"type": "uint256"
+				}
+			],
+			"name": "InsufficientFundsProvided",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "NoRefundAvailable",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "NoSeatsAvailable",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "TripNotExisting",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "enum CryptoCarpoolingSpecs.TripState",
+					"name": "state",
+					"type": "uint8"
+				}
+			],
+			"name": "TripNotOpen",
+			"type": "error"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "tripId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "driver",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "destination",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "ticketPrice",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint8",
+					"name": "availableSeats",
+					"type": "uint8"
+				}
+			],
+			"name": "NewTrip",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "tripId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "passenger",
+					"type": "address"
+				}
+			],
+			"name": "SeatBooked",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "tripId",
+					"type": "uint256"
+				}
+			],
+			"name": "TripCanceled",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "tripId",
+					"type": "uint256"
+				}
+			],
+			"name": "TripCompleted",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tripId",
+					"type": "uint256"
+				}
+			],
+			"name": "bookSeat",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tripId",
+					"type": "uint256"
+				}
+			],
+			"name": "cancelTrip",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tripId",
+					"type": "uint256"
+				}
+			],
+			"name": "completeTrip",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "destination",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "ticketPrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint8",
+					"name": "seats",
+					"type": "uint8"
+				}
+			],
+			"name": "createTrip",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "tripId",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tripId",
+					"type": "uint256"
+				}
+			],
+			"name": "getTripInfo",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "driver",
+							"type": "address"
+						},
+						{
+							"internalType": "string",
+							"name": "destination",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "ticketPrice",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint8",
+							"name": "totalSeats",
+							"type": "uint8"
+						},
+						{
+							"internalType": "uint8",
+							"name": "availableSeats",
+							"type": "uint8"
+						},
+						{
+							"internalType": "enum CryptoCarpoolingSpecs.TripState",
+							"name": "state",
+							"type": "uint8"
+						}
+					],
+					"internalType": "struct CryptoCarpoolingSpecs.Trip",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "passenger",
+					"type": "address"
+				}
+			],
+			"name": "pendingRefunds",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tripId",
+					"type": "uint256"
+				}
+			],
+			"name": "tripState",
+			"outputs": [
+				{
+					"internalType": "enum CryptoCarpoolingSpecs.TripState",
+					"name": "",
+					"type": "uint8"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "withdrawRefund",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}
