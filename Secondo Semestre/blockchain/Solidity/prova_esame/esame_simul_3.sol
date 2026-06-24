@@ -80,11 +80,16 @@ interface UniversitySpecs {
 
 contract UniversityCreds is ERC20, UniversitySpecs{
     address immutable preside;
-    mapping(address => uint)
+    mapping(address => uint) bilanci;
+    mapping(address => mapping(address => uint)) deleghe;
+    mapping(address => bool) is_studente;
+
+    uint num_token;
 
 
-
-
+    constructor(){
+        preside = msg.sender;
+    }
 
 
     modifier OnlyPreside(){
@@ -92,26 +97,94 @@ contract UniversityCreds is ERC20, UniversitySpecs{
         _;
     }
 
+    modifier OnlyStudenti(){
+        if(is_studente[msg.sender] != true) revert NotAnEnrolledStudent(msg.sender);
+        _;
+    }
 
 
-    function dean() external view returns (address){}
+    function dean() external view returns (address){
+        return preside;
+    }
     
-    function isStudent(address account) external view returns (bool){}
+    function isStudent(address account) external view returns (bool){
+        return is_studente[account];
+    }
     
-    function enrollStudent(address student) external{}
+    function enrollStudent(address student)OnlyPreside external{
+        if(is_studente[student] == true)revert StudentAlreadyEnrolled();
+        else{
+            is_studente[student] = true;
+            bilanci[student] += 50;
+            num_token+=50;
+            emit Transfer(address(0), student, 50);
+            emit StudentEnrolled(student);
+        }
+    }
     
-    function rewardStudent(address student, uint amount) external{}
+    function rewardStudent(address student, uint amount)OnlyPreside external{
+        if(amount == 0)revert();
+        if(is_studente[student] == false) revert  NotAnEnrolledStudent(student);
+        bilanci[student]+=amount;
+        num_token+=amount;
+        emit Transfer(address(0), student, amount);
+    }
     
-    function penalizeStudent(address student, uint amount) external{}
-    function buyMeal() external{}
+    function penalizeStudent(address student, uint amount)OnlyPreside external{
+        if(amount == 0)revert();
+        if(is_studente[student] == false) revert  NotAnEnrolledStudent(student);
+        if(bilanci[student] < amount) revert InsufficientTokenBalance(amount, bilanci[student]);
+        bilanci[student]-= amount;
+        num_token-=amount;
+        emit Transfer(student, address(0), amount);
+    }
+    function buyMeal() OnlyStudenti external{
+        if(bilanci[msg.sender] < 15) revert InsufficientTokenBalance(15, bilanci[msg.sender]);
+        bilanci[msg.sender]-=15;
+        bilanci[preside]+=15;
+    
+        emit Transfer(msg.sender, preside, 15);
+        emit MealPurchased(msg.sender);
+        return;
+    }
 
 
 
 
-    function totalSupply() external view returns (uint256){}
-    function balanceOf(address account) external view returns (uint256){}
-    function transfer(address recipient, uint256 amount) external returns (bool){}
-    function allowance(address owner, address delegate) external view returns (uint256){}
-    function approve(address delegate, uint256 amount) external returns (bool){}
-    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){}
+    function totalSupply() external view returns (uint256){
+        return num_token;
+    }
+    function balanceOf(address account) external view returns (uint256){
+        return bilanci[account];
+    }
+    function transfer(address recipient, uint256 amount) external returns (bool){
+        if(bilanci[msg.sender] < amount)revert InsufficientTokenBalance(amount,bilanci[msg.sender]);
+        else{
+            bilanci[msg.sender]-=amount;
+            bilanci[recipient]+=amount;
+            emit Transfer(msg.sender, recipient, amount);
+            return true;
+        }
+    }
+    function allowance(address owner, address delegate) external view returns (uint256){
+        return deleghe[owner][delegate];
+    }
+    function approve(address delegate, uint256 amount) external returns (bool){
+        deleghe[msg.sender][delegate] = amount;
+
+        emit Approval(msg.sender, delegate, amount);
+        return true;
+    }
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){
+        if(deleghe[sender][msg.sender] < amount) revert InsufficientTokenBalance(amount, deleghe[sender][msg.sender]);
+        if(bilanci[sender] < amount) revert InsufficientTokenBalance(amount, bilanci[sender]);
+        else{
+            deleghe[sender][msg.sender]-=amount;
+            bilanci[sender]-=amount;
+            bilanci[recipient]+=amount;
+
+            emit Transfer(sender, recipient, amount);
+            return true;
+        }
+    }
 }
