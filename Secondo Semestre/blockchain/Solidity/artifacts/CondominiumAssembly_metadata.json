@@ -7,6 +7,11 @@
 		"abi": [
 			{
 				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
 				"name": "AdminReservedAction",
 				"type": "error"
 			},
@@ -278,7 +283,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"prova_esame/esame_simul_2.sol": "CondominiumAssemblySpecs"
+			"prova_esame/esame_simul_2.sol": "CondominiumAssembly"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},

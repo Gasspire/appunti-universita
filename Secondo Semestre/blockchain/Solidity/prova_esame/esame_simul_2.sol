@@ -46,6 +46,8 @@ interface CondominiumAssemblySpecs {
         ProposalStatus status;
         uint positiveVotesMillesimals;
         uint negativeVotesMillesimals;
+
+        mapping(address => bool) had_already_voted;
     }
 
     // Aggiunge un condomino e i suoi millesimi (Solo Amministratore)
@@ -78,4 +80,66 @@ interface CondominiumAssemblySpecs {
     error ProposalNotExisting();
     error ProposalNotOpen();
     error AlreadyVoted();
+}
+
+contract CondominiumAssembly is CondominiumAssemblySpecs{
+    address immutable amministratore;
+
+    mapping(uint => Proposal) proposte; //qui manteniamo tutte le proposte
+    uint numero_proposte;
+    mapping(address => uint) millesimi_condomino; //qui teniamo traccia dei condomini e di quanto tengono
+    uint current_total_millesimi;
+
+    constructor(){
+        amministratore = msg.sender;
+    }
+
+    modifier onlyAdmin(){
+        if(msg.sender != amministratore)revert AdminReservedAction();
+        _;
+    }
+
+    modifier existingProposal(uint id){
+        if(id >= numero_proposte) revert ProposalNotExisting();
+        _;
+    }
+
+    modifier onlyCondomino(){
+        if(millesimi_condomino[msg.sender] == 0) revert CondominoReservedAction();
+        _;
+    }
+
+
+
+
+
+
+
+
+    function addCondomino(address condomino, uint millesimi) onlyAdmin external{
+        if(current_total_millesimi + millesimi > 1000) revert MillesimiLimitExceeded(millesimi, (1000 - current_total_millesimi));
+
+        millesimi_condomino[condomino] = millesimi;
+        current_total_millesimi+=millesimi;
+
+        return;
+    }
+
+    function submitProposal(string calldata description) onlyCondomino external returns (uint proposalId){
+        if(bytes(description).length == 0) revert();
+    }
+
+    function voteProposal(uint proposalId, bool support) external{}
+
+    function closeVoting(uint proposalId) external{}
+
+    function getCondominoMillesimi(address condomino) external view returns (uint){
+        return millesimi_condomino[condomino];
+    }
+    function getTotalRegisteredMillesimals() external view returns (uint){
+        return current_total_millesimi;
+    }
+    function getProposalInfo(uint proposalId) external view returns (string memory description, ProposalStatus status){
+        return (proposte[proposalId].description,proposte[proposalId].status );
+    }
 }
