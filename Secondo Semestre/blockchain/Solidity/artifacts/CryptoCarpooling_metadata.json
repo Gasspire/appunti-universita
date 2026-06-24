@@ -300,7 +300,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"prova_esame/esame_simul.sol": "CryptoCarpoolingSpecs"
+			"prova_esame/esame_simul.sol": "CryptoCarpooling"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},

@@ -256,41 +256,29 @@
 			"name": "getTripInfo",
 			"outputs": [
 				{
-					"components": [
-						{
-							"internalType": "address",
-							"name": "driver",
-							"type": "address"
-						},
-						{
-							"internalType": "string",
-							"name": "destination",
-							"type": "string"
-						},
-						{
-							"internalType": "uint256",
-							"name": "ticketPrice",
-							"type": "uint256"
-						},
-						{
-							"internalType": "uint8",
-							"name": "totalSeats",
-							"type": "uint8"
-						},
-						{
-							"internalType": "uint8",
-							"name": "availableSeats",
-							"type": "uint8"
-						},
-						{
-							"internalType": "enum CryptoCarpoolingSpecs.TripState",
-							"name": "state",
-							"type": "uint8"
-						}
-					],
-					"internalType": "struct CryptoCarpoolingSpecs.Trip",
-					"name": "",
-					"type": "tuple"
+					"internalType": "string",
+					"name": "description",
+					"type": "string"
+				},
+				{
+					"internalType": "address",
+					"name": "driver",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "total_seats",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "ticketprice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "enum CryptoCarpoolingSpecs.TripState",
+					"name": "state",
+					"type": "uint8"
 				}
 			],
 			"stateMutability": "view",

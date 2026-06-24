@@ -51,6 +51,8 @@ interface CryptoCarpoolingSpecs {
         uint8 totalSeats;
         uint8 availableSeats;
         TripState state;
+
+        address[] partecipanti;
     }
 
     // Crea un nuovo viaggio e restituisce il suo id univoco (partendo da 0 o da 1)
@@ -69,7 +71,7 @@ interface CryptoCarpoolingSpecs {
     function withdrawRefund() external;
 
     // Metodi di sola lettura
-    function getTripInfo(uint tripId) external view returns (Trip memory);
+    function getTripInfo(uint tripId) external view returns (string memory description, address driver, uint total_seats, uint ticketprice, TripState state);
     function tripState(uint tripId) external view returns (TripState);
     function pendingRefunds(address passenger) external view returns (uint amount);
 
@@ -86,4 +88,41 @@ interface CryptoCarpoolingSpecs {
     error NoSeatsAvailable();
     error DriverReservedAction();
     error NoRefundAvailable();
+}
+
+contract CryptoCarpooling is CryptoCarpoolingSpecs{
+    mapping(uint => Trip) viaggi;
+    uint256 num_viaggi;
+
+    
+
+
+    modifier OnlyDriver(uint tripId){
+        if(msg.sender != viaggi[tripId].driver)revert DriverReservedAction();
+        _;
+    }
+    modifier existingId(uint tripId){
+        if(tripId > num_viaggi) revert TripNotExisting();
+        _;
+    }
+
+
+    function createTrip(string calldata destination, uint ticketPrice, uint8 seats) external returns (uint tripId){}
+
+    function bookSeat(uint tripId) external payable{}
+
+    function cancelTrip(uint tripId) external{}
+
+    function completeTrip(uint tripId) existingId(tripId) OnlyDriver(tripId) external{}
+
+    function withdrawRefund() external{}
+
+    function getTripInfo(uint tripId) existingId(tripId) external view returns (string memory description, address driver, uint total_seats, uint ticketprice, TripState state){
+        return (viaggi[tripId].destination, viaggi[tripId].driver, viaggi[tripId].totalSeats, viaggi[tripId].ticketPrice, viaggi[tripId].state);
+    }
+    function tripState(uint tripId) existingId(tripId) external view returns (TripState){
+        return viaggi[tripId].state;
+    }
+    function pendingRefunds(address passenger) external view returns (uint amount){}
+    
 }
