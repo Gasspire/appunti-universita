@@ -6,74 +6,83 @@
 	"output": {
 		"abi": [
 			{
-				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "owner",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "delegate",
-						"type": "address"
-					},
-					{
-						"indexed": false,
 						"internalType": "uint256",
-						"name": "value",
+						"name": "requested",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "available",
 						"type": "uint256"
 					}
 				],
-				"name": "Approval",
+				"name": "InsufficientTokenBalance",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "NotAnEnrolledStudent",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "OnlyDeanReservedAction",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "StudentAlreadyEnrolled",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "student",
+						"type": "address"
+					}
+				],
+				"name": "MealPurchased",
 				"type": "event"
 			},
 			{
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "from",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					},
-					{
 						"indexed": false,
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "student",
+						"type": "address"
 					}
 				],
-				"name": "Transfer",
+				"name": "StudentEnrolled",
 				"type": "event"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "owner",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "delegate",
-						"type": "address"
-					}
-				],
-				"name": "allowance",
+				"inputs": [],
+				"name": "buyMeal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dean",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -83,23 +92,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "delegate",
+						"name": "student",
 						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
 					}
 				],
-				"name": "approve",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
+				"name": "enrollStudent",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -111,25 +109,12 @@
 						"type": "address"
 					}
 				],
-				"name": "balanceOf",
+				"name": "isStudent",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "bool",
 						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "totalSupply",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -139,7 +124,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "recipient",
+						"name": "student",
 						"type": "address"
 					},
 					{
@@ -148,14 +133,8 @@
 						"type": "uint256"
 					}
 				],
-				"name": "transfer",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
+				"name": "penalizeStudent",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -163,12 +142,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "sender",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "recipient",
+						"name": "student",
 						"type": "address"
 					},
 					{
@@ -177,14 +151,8 @@
 						"type": "uint256"
 					}
 				],
-				"name": "transferFrom",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
+				"name": "rewardStudent",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
@@ -202,7 +170,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"prova_esame/esame_simul_3.sol": "ERC20"
+			"prova_esame/esame_simul_3.sol": "UniversitySpecs"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
