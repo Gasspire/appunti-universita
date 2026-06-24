@@ -111,27 +111,49 @@ contract CondominiumAssembly is CondominiumAssemblySpecs{
 
 
 
-
-
-
-
-
     function addCondomino(address condomino, uint millesimi) onlyAdmin external{
         if(current_total_millesimi + millesimi > 1000) revert MillesimiLimitExceeded(millesimi, (1000 - current_total_millesimi));
+        if(millesimi_condomino[condomino] != 0) current_total_millesimi -= millesimi_condomino[condomino];
 
         millesimi_condomino[condomino] = millesimi;
         current_total_millesimi+=millesimi;
 
+        emit CondominoAdded(condomino, millesimi);
         return;
     }
 
     function submitProposal(string calldata description) onlyCondomino external returns (uint proposalId){
-        if(bytes(description).length == 0) revert();
+        proposte[numero_proposte].proposer = msg.sender;
+        proposte[numero_proposte].description = description;
+        proposte[numero_proposte].status = ProposalStatus.Voting;
+
+        numero_proposte++;        
+
+        emit NewProposal(numero_proposte-1, description, msg.sender);
+        return numero_proposte-1;
     }
 
-    function voteProposal(uint proposalId, bool support) external{}
+    function voteProposal(uint proposalId, bool support) onlyCondomino existingProposal(proposalId) external{
+        if(proposte[proposalId].status != ProposalStatus.Voting) revert ProposalNotOpen();
+        if(proposte[proposalId].had_already_voted[msg.sender] == true) revert AlreadyVoted();
 
-    function closeVoting(uint proposalId) external{}
+        proposte[proposalId].had_already_voted[msg.sender] = true;
+
+        if(support == true) proposte[proposalId].positiveVotesMillesimals += millesimi_condomino[msg.sender];
+        else proposte[proposalId].negativeVotesMillesimals += millesimi_condomino[msg.sender];
+
+        emit VoteCast(proposalId, msg.sender, support, millesimi_condomino[msg.sender]);
+    }
+
+    function closeVoting(uint proposalId) onlyAdmin existingProposal(proposalId) external{
+        if(proposte[proposalId].status != ProposalStatus.Voting)revert ProposalNotOpen();
+        uint necessario = (current_total_millesimi/2)+1;
+
+        if(proposte[proposalId].positiveVotesMillesimals >= necessario) proposte[proposalId].status = ProposalStatus.Approved;
+        else proposte[proposalId].status = ProposalStatus.Rejected;
+
+        emit ProposalClosed(proposalId, proposte[proposalId].status);
+    }
 
     function getCondominoMillesimi(address condomino) external view returns (uint){
         return millesimi_condomino[condomino];

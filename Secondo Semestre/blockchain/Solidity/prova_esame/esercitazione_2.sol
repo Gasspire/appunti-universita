@@ -114,7 +114,6 @@ contract TrustworthyRockPaperScissorsTournament is TrustworthyRockPaperScissorsT
                 stato = Status.End;
                 (bool success, ) = victory.call{value: address(this).balance}("");
                 if(!success) revert("Qualcosa e' andato storto!");
-                selfdestruct(payable(address(0)));
             }
         }
     }
