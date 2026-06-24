@@ -7,49 +7,43 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "DriverReservedAction",
+				"name": "AdminReservedAction",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "AlreadyVoted",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "CondominoReservedAction",
 				"type": "error"
 			},
 			{
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "provided",
+						"name": "requested",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
-						"name": "required",
+						"name": "available",
 						"type": "uint256"
 					}
 				],
-				"name": "InsufficientFundsProvided",
+				"name": "MillesimiLimitExceeded",
 				"type": "error"
 			},
 			{
 				"inputs": [],
-				"name": "NoRefundAvailable",
+				"name": "ProposalNotExisting",
 				"type": "error"
 			},
 			{
 				"inputs": [],
-				"name": "NoSeatsAvailable",
-				"type": "error"
-			},
-			{
-				"inputs": [],
-				"name": "TripNotExisting",
-				"type": "error"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "enum CryptoCarpoolingSpecs.TripState",
-						"name": "state",
-						"type": "uint8"
-					}
-				],
-				"name": "TripNotOpen",
+				"name": "ProposalNotOpen",
 				"type": "error"
 			},
 			{
@@ -57,36 +51,43 @@
 				"inputs": [
 					{
 						"indexed": false,
-						"internalType": "uint256",
-						"name": "tripId",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "condomino",
+						"type": "address"
 					},
 					{
 						"indexed": false,
-						"internalType": "address",
-						"name": "driver",
-						"type": "address"
+						"internalType": "uint256",
+						"name": "millesimi",
+						"type": "uint256"
+					}
+				],
+				"name": "CondominoAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "proposalId",
+						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "string",
-						"name": "destination",
+						"name": "description",
 						"type": "string"
 					},
 					{
 						"indexed": false,
-						"internalType": "uint256",
-						"name": "ticketPrice",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint8",
-						"name": "availableSeats",
-						"type": "uint8"
+						"internalType": "address",
+						"name": "proposer",
+						"type": "address"
 					}
 				],
-				"name": "NewTrip",
+				"name": "NewProposal",
 				"type": "event"
 			},
 			{
@@ -95,67 +96,64 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "tripId",
+						"name": "proposalId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum CondominiumAssemblySpecs.ProposalStatus",
+						"name": "finalStatus",
+						"type": "uint8"
+					}
+				],
+				"name": "ProposalClosed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "proposalId",
 						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "address",
-						"name": "passenger",
+						"name": "voter",
 						"type": "address"
-					}
-				],
-				"name": "SeatBooked",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "support",
+						"type": "bool"
+					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "tripId",
+						"name": "weight",
 						"type": "uint256"
 					}
 				],
-				"name": "TripCanceled",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "tripId",
-						"type": "uint256"
-					}
-				],
-				"name": "TripCompleted",
+				"name": "VoteCast",
 				"type": "event"
 			},
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "tripId",
-						"type": "uint256"
-					}
-				],
-				"name": "bookSeat",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [
+						"internalType": "address",
+						"name": "condomino",
+						"type": "address"
+					},
 					{
 						"internalType": "uint256",
-						"name": "tripId",
+						"name": "millesimi",
 						"type": "uint256"
 					}
 				],
-				"name": "cancelTrip",
+				"name": "addCondomino",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -164,11 +162,11 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "tripId",
+						"name": "proposalId",
 						"type": "uint256"
 					}
 				],
-				"name": "completeTrip",
+				"name": "closeVoting",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -176,41 +174,31 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "destination",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "ticketPrice",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint8",
-						"name": "seats",
-						"type": "uint8"
+						"internalType": "address",
+						"name": "condomino",
+						"type": "address"
 					}
 				],
-				"name": "createTrip",
+				"name": "getCondominoMillesimi",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "tripId",
+						"name": "",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "tripId",
+						"name": "proposalId",
 						"type": "uint256"
 					}
 				],
-				"name": "getTripInfo",
+				"name": "getProposalInfo",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -218,61 +206,8 @@
 						"type": "string"
 					},
 					{
-						"internalType": "address",
-						"name": "driver",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "total_seats",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "ticketprice",
-						"type": "uint256"
-					},
-					{
-						"internalType": "enum CryptoCarpoolingSpecs.TripState",
-						"name": "state",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "passenger",
-						"type": "address"
-					}
-				],
-				"name": "pendingRefunds",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tripId",
-						"type": "uint256"
-					}
-				],
-				"name": "tripState",
-				"outputs": [
-					{
-						"internalType": "enum CryptoCarpoolingSpecs.TripState",
-						"name": "",
+						"internalType": "enum CondominiumAssemblySpecs.ProposalStatus",
+						"name": "status",
 						"type": "uint8"
 					}
 				],
@@ -281,7 +216,50 @@
 			},
 			{
 				"inputs": [],
-				"name": "withdrawRefund",
+				"name": "getTotalRegisteredMillesimals",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					}
+				],
+				"name": "submitProposal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "proposalId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "proposalId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "support",
+						"type": "bool"
+					}
+				],
+				"name": "voteProposal",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -300,7 +278,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"prova_esame/esame_simul.sol": "CryptoCarpooling"
+			"prova_esame/esame_simul_2.sol": "CondominiumAssemblySpecs"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -314,12 +292,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"prova_esame/esame_simul.sol": {
-			"keccak256": "0x83f6f76acb70b72cb739852400e70c7e5bad4c1a19a1cd79fcdea104046389d0",
+		"prova_esame/esame_simul_2.sol": {
+			"keccak256": "0xe5839b2af5dc6a5f9616b0385a39e0ff5ce4ec193b6f9cc191d63a0429ca99d1",
 			"license": "None",
 			"urls": [
-				"bzz-raw://c89d8f4fe9a26676549d0b36acbdb0dd817c8e48eea4cc33a80dc45d2e5857f8",
-				"dweb:/ipfs/QmYJaYZ2WJqpUwyMCbs4nrzbv1XjKxnFobbvE7jdQdMLDi"
+				"bzz-raw://16501f3fd1e27b4dc780957cb7c062c6514f1c16620f113b198ee15f4c5e8c19",
+				"dweb:/ipfs/QmaKSVJoUSZ7VEHeyNmzrMqzmwG6teRp5H8HLCh54Dxo8b"
 			]
 		}
 	},

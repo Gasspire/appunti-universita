@@ -1,0 +1,310 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"sepolia:11155111": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"addCondomino(address,uint256)": "f249e1c7",
+			"closeVoting(uint256)": "d2111a72",
+			"getCondominoMillesimi(address)": "6008753d",
+			"getProposalInfo(uint256)": "bc903cb8",
+			"getTotalRegisteredMillesimals()": "196b01e4",
+			"submitProposal(string)": "373d6d5e",
+			"voteProposal(uint256,bool)": "bcfb9b61"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [],
+			"name": "AdminReservedAction",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "AlreadyVoted",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "CondominoReservedAction",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "requested",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "available",
+					"type": "uint256"
+				}
+			],
+			"name": "MillesimiLimitExceeded",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "ProposalNotExisting",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "ProposalNotOpen",
+			"type": "error"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "condomino",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "millesimi",
+					"type": "uint256"
+				}
+			],
+			"name": "CondominoAdded",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "proposalId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "description",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "proposer",
+					"type": "address"
+				}
+			],
+			"name": "NewProposal",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "proposalId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "enum CondominiumAssemblySpecs.ProposalStatus",
+					"name": "finalStatus",
+					"type": "uint8"
+				}
+			],
+			"name": "ProposalClosed",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "proposalId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "voter",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "bool",
+					"name": "support",
+					"type": "bool"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "weight",
+					"type": "uint256"
+				}
+			],
+			"name": "VoteCast",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "condomino",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "millesimi",
+					"type": "uint256"
+				}
+			],
+			"name": "addCondomino",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "proposalId",
+					"type": "uint256"
+				}
+			],
+			"name": "closeVoting",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "condomino",
+					"type": "address"
+				}
+			],
+			"name": "getCondominoMillesimi",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "proposalId",
+					"type": "uint256"
+				}
+			],
+			"name": "getProposalInfo",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "description",
+					"type": "string"
+				},
+				{
+					"internalType": "enum CondominiumAssemblySpecs.ProposalStatus",
+					"name": "status",
+					"type": "uint8"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getTotalRegisteredMillesimals",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "description",
+					"type": "string"
+				}
+			],
+			"name": "submitProposal",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "proposalId",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "proposalId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "support",
+					"type": "bool"
+				}
+			],
+			"name": "voteProposal",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

@@ -54,6 +54,8 @@ interface CryptoCarpoolingSpecs {
 
         address[] partecipanti;
         mapping(address => uint) partecipanti_pagamento;
+
+        uint totale_accumulato;
     }
 
     // Crea un nuovo viaggio e restituisce il suo id univoco (partendo da 0 o da 1)
@@ -95,6 +97,7 @@ contract CryptoCarpooling is CryptoCarpoolingSpecs{
     mapping(uint => Trip) viaggi;
     uint256 num_viaggi;
 
+    mapping(address => uint) rimborsi_accumulati;
     
 
 
@@ -103,7 +106,7 @@ contract CryptoCarpooling is CryptoCarpoolingSpecs{
         _;
     }
     modifier existingId(uint tripId){
-        if(tripId > num_viaggi) revert TripNotExisting();
+        if(tripId >= num_viaggi) revert TripNotExisting();
         _;
     }
 
@@ -118,6 +121,7 @@ contract CryptoCarpooling is CryptoCarpoolingSpecs{
         v.destination = destination;
         v.ticketPrice = ticketPrice;
         v.totalSeats = seats;
+        v.availableSeats = seats;
         v.state = TripState.Open;
 
         num_viaggi++;
@@ -126,21 +130,53 @@ contract CryptoCarpooling is CryptoCarpoolingSpecs{
     }
 
     function bookSeat(uint tripId) existingId(tripId) external payable{ //da modificare se si possono acquistare più biglietti!
+        if(viaggi[tripId].state != TripState.Open) revert TripNotOpen(viaggi[tripId].state);
         if(msg.value < viaggi[tripId].ticketPrice) revert InsufficientFundsProvided(msg.value, viaggi[tripId].ticketPrice);
         if(viaggi[tripId].partecipanti_pagamento[msg.sender] != 0) revert("Sei gia un partecipante");
-        if(viaggi[tripId].partecipanti.length < viaggi[tripId].totalSeats) revert NoSeatsAvailable();
+        if(viaggi[tripId].partecipanti.length == viaggi[tripId].totalSeats) revert NoSeatsAvailable();
 
         viaggi[tripId].partecipanti.push(msg.sender);
         viaggi[tripId].partecipanti_pagamento[msg.sender] += msg.value;
+        viaggi[tripId].totale_accumulato += msg.value;//se ci sono mancie così ne possiamo tenere traccia
+        viaggi[tripId].availableSeats--;
 
+        emit SeatBooked(tripId, msg.sender );
         return;
     }
 
-    function cancelTrip(uint tripId) OnlyDriver(tripId) external{}
+    function cancelTrip(uint tripId) OnlyDriver(tripId) external{
+        if(viaggi[tripId].state != TripState.Open) revert("Non puoi cancellare un viaggio gia completato o gia cancellato!");
+        viaggi[tripId].state = TripState.Canceled;
 
-    function completeTrip(uint tripId) existingId(tripId) OnlyDriver(tripId) external{}
+        for(uint i = 0; i < viaggi[tripId].partecipanti.length; i++){
+            address curr_partecipante = viaggi[tripId].partecipanti[i];
+            rimborsi_accumulati[curr_partecipante] += viaggi[tripId].partecipanti_pagamento[curr_partecipante];
+            viaggi[tripId].partecipanti_pagamento[curr_partecipante] = 0;
+        }
+        emit TripCanceled(tripId);
+        return;
+    }
 
-    function withdrawRefund() external{}
+    function completeTrip(uint tripId) existingId(tripId) OnlyDriver(tripId) external{
+        if(viaggi[tripId].state != TripState.Open)revert TripNotOpen(viaggi[tripId].state);
+        
+        viaggi[tripId].state = TripState.Completed;//da adesso, anche in caso di fallback, non si potrà più accedere alla funzione 
+        uint importo = viaggi[tripId].totale_accumulato;
+        viaggi[tripId].totale_accumulato = 0;
+        (bool success, ) = viaggi[tripId].driver.call{value: importo}("");
+        if(!success)revert("Qualcosa non ha funzionato!");
+        emit TripCompleted(tripId);
+    }
+
+    function withdrawRefund() external{        
+        if(rimborsi_accumulati[msg.sender] == 0) revert NoRefundAvailable();
+        else{
+            uint importo =rimborsi_accumulati[msg.sender];
+            rimborsi_accumulati[msg.sender] = 0;
+            (bool succ, ) = msg.sender.call{value: importo}("");
+            if(!succ) revert("Qualcosa non ha funzionato");
+        }
+    }
 
     function getTripInfo(uint tripId) existingId(tripId) external view returns (string memory description, address driver, uint total_seats, uint ticketprice, TripState state){
         return (viaggi[tripId].destination, viaggi[tripId].driver, viaggi[tripId].totalSeats, viaggi[tripId].ticketPrice, viaggi[tripId].state);
@@ -148,6 +184,8 @@ contract CryptoCarpooling is CryptoCarpoolingSpecs{
     function tripState(uint tripId) existingId(tripId) external view returns (TripState){
         return viaggi[tripId].state;
     }
-    function pendingRefunds(address passenger) external view returns (uint amount){}
+    function pendingRefunds(address passenger) external view returns (uint amount){
+        return rimborsi_accumulati[passenger];
+    }
     
 }
