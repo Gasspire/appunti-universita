@@ -53,6 +53,7 @@ interface CryptoCarpoolingSpecs {
         TripState state;
 
         address[] partecipanti;
+        mapping(address => uint) partecipanti_pagamento;
     }
 
     // Crea un nuovo viaggio e restituisce il suo id univoco (partendo da 0 o da 1)
@@ -107,11 +108,35 @@ contract CryptoCarpooling is CryptoCarpoolingSpecs{
     }
 
 
-    function createTrip(string calldata destination, uint ticketPrice, uint8 seats) external returns (uint tripId){}
+    function createTrip(string calldata destination, uint ticketPrice, uint8 seats) external returns (uint tripId){
+        if(seats == 0) revert("Non puoi creare un viaggio senza passeggeri");
+        if(ticketPrice == 0)revert("Non hai inserito alcun prezzo");
+        if(bytes(destination).length == 0)revert("Non hai inserito la destinazione!");
 
-    function bookSeat(uint tripId) external payable{}
+        Trip storage v = viaggi[num_viaggi];
+        v.driver = msg.sender;
+        v.destination = destination;
+        v.ticketPrice = ticketPrice;
+        v.totalSeats = seats;
+        v.state = TripState.Open;
 
-    function cancelTrip(uint tripId) external{}
+        num_viaggi++;
+        emit NewTrip(num_viaggi-1, v.driver, v.destination, v.ticketPrice, v.totalSeats);
+        return num_viaggi-1;
+    }
+
+    function bookSeat(uint tripId) existingId(tripId) external payable{ //da modificare se si possono acquistare più biglietti!
+        if(msg.value < viaggi[tripId].ticketPrice) revert InsufficientFundsProvided(msg.value, viaggi[tripId].ticketPrice);
+        if(viaggi[tripId].partecipanti_pagamento[msg.sender] != 0) revert("Sei gia un partecipante");
+        if(viaggi[tripId].partecipanti.length < viaggi[tripId].totalSeats) revert NoSeatsAvailable();
+
+        viaggi[tripId].partecipanti.push(msg.sender);
+        viaggi[tripId].partecipanti_pagamento[msg.sender] += msg.value;
+
+        return;
+    }
+
+    function cancelTrip(uint tripId) OnlyDriver(tripId) external{}
 
     function completeTrip(uint tripId) existingId(tripId) OnlyDriver(tripId) external{}
 
