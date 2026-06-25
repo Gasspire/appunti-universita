@@ -76,3 +76,125 @@ interface DecentralizedTrisSpecs {
     error InvalidPosition();
     error CellAlreadyTaken();
 }
+
+
+
+contract DecentralizedTris is DecentralizedTrisSpecs{
+
+    struct Partita{
+        address p1;
+        address p2;
+        uint256 bet;
+        Mark[9] mosse;
+        GameState stato;
+        address curr_turn;
+        uint num_mosse;
+    }
+    
+
+    uint num_partite;
+    mapping(uint => Partita) partite;
+
+    modifier OnlyExisting(uint id){
+        if(id >= num_partite) revert InvalidGame();
+        _;
+    }
+
+    modifier OnlyTurn(uint id){
+        if(msg.sender != partite[id].curr_turn) revert NotYourTurn(); 
+        _;
+    }
+    
+
+
+    function createGame() external payable returns (uint gameId){
+        partite[num_partite].p1 = msg.sender;
+        partite[num_partite].bet = msg.value;
+
+        partite[num_partite].bet = msg.value;
+
+        num_partite++;
+        
+    }
+
+    // Unisciti a una partita in attesa versando l'esatta quota
+    function joinGame(uint gameId) external payable{
+        if(msg.value != partite[gameId].bet) revert IncorrectBetAmount(partite[gameId].bet, msg.value);
+
+    }
+ 
+    function checkBoard(Mark curr_mark, uint gameId)internal view returns(bool){
+        //Controlliamo prima le righe 
+        uint8 counter_riga;
+        uint8 counter_diag_dx;
+        uint8 counter_diag_sx;
+
+        bool winner;
+
+
+        for (uint i = 0; i < 8; i++) 
+        {
+            if(partite[gameId].mosse[i] == curr_mark){
+                counter_riga++;
+                if((i%4) == 0) counter_diag_dx++;
+                if(i==2 || i == 4 || i == 6) counter_diag_sx++;
+                if(counter_riga != 3 && (i == 2 || i == 5)) counter_riga = 0;
+                else if(counter_riga == 3){
+                    winner = true;
+                    break;
+                }
+            }
+        }
+        if(counter_diag_dx == 3 || counter_diag_sx == 3) winner = true;
+        //manca il controllo della colonna...
+        if(partite[gameId].mosse[0] == curr_mark && partite[gameId].mosse[3] == curr_mark && partite[gameId].mosse[6] == curr_mark) winner = true;
+        if(partite[gameId].mosse[1] == curr_mark && partite[gameId].mosse[4] == curr_mark && partite[gameId].mosse[7] == curr_mark) winner = true;
+        if(partite[gameId].mosse[2] == curr_mark && partite[gameId].mosse[5] == curr_mark && partite[gameId].mosse[8] == curr_mark) winner = true;
+
+        if(winner) return true;
+        else return false;
+    }
+
+
+    // Fai una mossa specificando la cella (da 0 a 8)
+    function makeMove(uint gameId, uint8 position) OnlyTurn(gameId) external{  
+        if(position > 8) revert InvalidPosition();
+        if(partite[gameId].stato != GameState.Playing)revert GameNotPlaying();
+        if(partite[gameId].mosse[position] != Mark.Empty) revert CellAlreadyTaken();
+
+        Mark curr_mark = (msg.sender == partite[gameId].p1? Mark.X:Mark.O);
+        
+        partite[gameId].mosse[position] = curr_mark;
+        partite[gameId].num_mosse++;
+
+        if(checkBoard(curr_mark, gameId)){ //il player ha vinto!
+            partite[gameId].stato = GameState.Finished;
+            address winner = (curr_mark == Mark.X ? partite[gameId].p1: partite[gameId].p2);
+            (bool success, ) = winner.call{value: partite[gameId].bet*2}("");    
+            emit GameWon(gameId, winner, partite[gameId].bet*2);
+            require(success,"Errore");
+            return;
+        }    
+        if(partite[gameId].num_mosse == 9){
+            partite[gameId].stato = GameState.Finished;
+            (bool succ_p1, ) = partite[gameId].p1.call{value: partite[gameId].bet}("");
+            (bool succ_p2, ) = partite[gameId].p2.call{value: partite[gameId].bet}("");
+            require(succ_p1 && succ_p2,"Errore");
+            emit GameDrawn(gameId);
+            return;
+        }
+    }
+
+    // --- Metodi di sola lettura ---
+    function getGameState(uint gameId) external view returns (GameState){
+        return partite[gameId].stato;
+    }
+    function getBoard(uint gameId) external view returns (Mark[9] memory){
+        return partite[gameId].mosse;
+    }
+    function getCurrentTurn(uint gameId) external view returns (address){
+        return partite[gameId].curr_turn;
+    }
+
+
+}
