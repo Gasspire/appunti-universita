@@ -1,0 +1,310 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"sepolia:11155111": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"createGame()": "7255d729",
+			"getBoard(uint256)": "45e09e54",
+			"getCurrentTurn(uint256)": "a9cdc1ee",
+			"getGameState(uint256)": "ffde0c74",
+			"joinGame(uint256)": "efaa55a0",
+			"makeMove(uint256,uint8)": "7fd6f7c4"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [],
+			"name": "CellAlreadyTaken",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "GameNotPlaying",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "GameNotWaiting",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "required",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "provided",
+					"type": "uint256"
+				}
+			],
+			"name": "IncorrectBetAmount",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "InvalidGame",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "InvalidPosition",
+			"type": "error"
+		},
+		{
+			"inputs": [],
+			"name": "NotYourTurn",
+			"type": "error"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "gameId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "creator",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "betAmount",
+					"type": "uint256"
+				}
+			],
+			"name": "GameCreated",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "gameId",
+					"type": "uint256"
+				}
+			],
+			"name": "GameDrawn",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "gameId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "playerO",
+					"type": "address"
+				}
+			],
+			"name": "GameJoined",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "gameId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "winner",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "prizeAmount",
+					"type": "uint256"
+				}
+			],
+			"name": "GameWon",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "gameId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "player",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "enum DecentralizedTrisSpecs.Mark",
+					"name": "mark",
+					"type": "uint8"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint8",
+					"name": "position",
+					"type": "uint8"
+				}
+			],
+			"name": "MoveMade",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "createGame",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "gameId",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "gameId",
+					"type": "uint256"
+				}
+			],
+			"name": "getBoard",
+			"outputs": [
+				{
+					"internalType": "enum DecentralizedTrisSpecs.Mark[9]",
+					"name": "",
+					"type": "uint8[9]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "gameId",
+					"type": "uint256"
+				}
+			],
+			"name": "getCurrentTurn",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "gameId",
+					"type": "uint256"
+				}
+			],
+			"name": "getGameState",
+			"outputs": [
+				{
+					"internalType": "enum DecentralizedTrisSpecs.GameState",
+					"name": "",
+					"type": "uint8"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "gameId",
+					"type": "uint256"
+				}
+			],
+			"name": "joinGame",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "gameId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint8",
+					"name": "position",
+					"type": "uint8"
+				}
+			],
+			"name": "makeMove",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}
