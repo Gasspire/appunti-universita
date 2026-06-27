@@ -294,11 +294,11 @@
 	},
 	"sources": {
 		"prova_esame/tris.sol": {
-			"keccak256": "0xfbf465e78b12bf3895cec0d5ebae3887c511a77f8158f7b527fbce8a467f38b4",
+			"keccak256": "0x83e13172b9516b26a19ba7fd7e3387a5fc5866308428ca5a72b843c67f9b78dc",
 			"license": "None",
 			"urls": [
-				"bzz-raw://6035909878220aeebde4d91ab51dcfcafa476b3d4e13e8b748ad88f0fbd1cb91",
-				"dweb:/ipfs/QmR2BprZqWe7kziiFHxVHLoAgZZSrMTjVW33QTv9UG1oFE"
+				"bzz-raw://0760157c2751f15ca311389769a5ef9189a26c777198966169a8e13fef3eecc5",
+				"dweb:/ipfs/QmcymRzU2pnapjZ5P2yvFT3HzAQKL6h2Ah2dWbaA6XiNxk"
 			]
 		}
 	},

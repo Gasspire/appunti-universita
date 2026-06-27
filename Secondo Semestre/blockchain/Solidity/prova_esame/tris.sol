@@ -108,19 +108,26 @@ contract DecentralizedTris is DecentralizedTrisSpecs{
 
 
     function createGame() external payable returns (uint gameId){
+        require(msg.value != 0,"Errore");
         partite[num_partite].p1 = msg.sender;
         partite[num_partite].bet = msg.value;
 
-        partite[num_partite].bet = msg.value;
-
+        partite[num_partite].curr_turn = partite[num_partite].p1;
+        partite[num_partite].stato = GameState.WaitingForPlayer;
+        emit GameCreated(gameId, msg.sender, msg.value);
         num_partite++;
-        
+        return num_partite-1;
     }
 
     // Unisciti a una partita in attesa versando l'esatta quota
     function joinGame(uint gameId) external payable{
+        if(partite[gameId].stato != GameState.WaitingForPlayer) revert GameNotWaiting();
         if(msg.value != partite[gameId].bet) revert IncorrectBetAmount(partite[gameId].bet, msg.value);
+        require(partite[gameId].p1 != msg.sender,"Errore, non puoi giocare da solo");
+        partite[gameId].p2 = msg.sender;
+        partite[gameId].stato = GameState.Playing;
 
+        emit GameJoined(gameId, msg.sender);
     }
  
     function checkBoard(Mark curr_mark, uint gameId)internal view returns(bool){
@@ -167,7 +174,9 @@ contract DecentralizedTris is DecentralizedTrisSpecs{
         partite[gameId].mosse[position] = curr_mark;
         partite[gameId].num_mosse++;
 
-        if(checkBoard(curr_mark, gameId)){ //il player ha vinto!
+        emit MoveMade(gameId, msg.sender, curr_mark, position);
+        bool vittoria = checkBoard(curr_mark, gameId);
+        if(vittoria){ //il player ha vinto!
             partite[gameId].stato = GameState.Finished;
             address winner = (curr_mark == Mark.X ? partite[gameId].p1: partite[gameId].p2);
             (bool success, ) = winner.call{value: partite[gameId].bet*2}("");    
@@ -183,6 +192,10 @@ contract DecentralizedTris is DecentralizedTrisSpecs{
             emit GameDrawn(gameId);
             return;
         }
+
+        if(partite[gameId].curr_turn == partite[gameId].p1) partite[gameId].curr_turn = partite[gameId].p2;
+        else partite[gameId].curr_turn = partite[gameId].p1;
+
     }
 
     // --- Metodi di sola lettura ---
