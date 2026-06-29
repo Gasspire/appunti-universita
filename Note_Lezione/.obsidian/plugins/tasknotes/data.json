@@ -488,13 +488,12 @@
     "defaultReminderMinutes": null
   },
   "enableDebugLogging": false,
-  "lastSeenVersion": "4.11.0",
+  "lastSeenVersion": "4.11.1",
   "pomodoroState": {
     "isRunning": false,
-    "timeRemaining": 3000,
-    "nextSessionType": "work"
+    "timeRemaining": 3000
   },
-  "lastPomodoroDate": "2026-06-23",
+  "lastPomodoroDate": "2026-06-28",
   "pomodoroHistory": [
     {
       "id": "1781534895991",
@@ -1244,5 +1243,6 @@
       "lastError": "Google Calendar sync is not ready"
     }
   ],
-  "lastSelectedTaskPath": "TaskNotes/Tasks/Un altro esercizio a scelta.md"
+  "lastSelectedTaskPath": "TaskNotes/Tasks/Un altro esercizio a scelta.md",
+  "lastNotifiedReleaseVersion": "4.11.1"
 }
