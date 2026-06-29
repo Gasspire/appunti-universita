@@ -31,7 +31,8 @@
               "title": "Pomodoro"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -201,7 +202,7 @@
       "tasknotes:Create new task": false
     }
   },
-  "active": "fb156f39bd59adba",
+  "active": "66aa011fef8fcae4",
   "lastOpenFiles": [
     "Principi/Immagini/Pasted image 20260629151613.png",
     "Senza nome.base",
