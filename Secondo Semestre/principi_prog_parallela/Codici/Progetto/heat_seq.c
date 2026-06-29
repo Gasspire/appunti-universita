@@ -1,8 +1,12 @@
+#define _POSIX_C_SOURCE 199309L
+//COMPILAZIONE: gcc heat_seq.c -O2 -Wall -lm -o heat_seq_1
+//Se si vuole vedere l'aumento di prestazioni tra heat_seq e heat_seq_2 allora bisogna mettere O0.
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <math.h>
-//#define N 64
-#define N 512
+#define N 64
+//#define N 512
 //#define N 1024
 //#define N 2048
 #define TOP 100
@@ -52,6 +56,11 @@ int main(int argc, char const *argv[])
     double differenza = 0.0; //qui inseriremo la norma L2
     int iterazioni = 0; //qui teniamo conto del numero di iterazioni fatte dal ciclo 
 
+
+
+    struct timespec start, end;
+
+    clock_gettime(CLOCK_MONOTONIC, &start);
     do
     {
         differenza = 0.0;
@@ -81,7 +90,13 @@ int main(int argc, char const *argv[])
 
     } while (sqrt(differenza) > EPS);
     
+    clock_gettime(CLOCK_MONOTONIC, &end);
+
+    // Calcolo del tempo trascorso in secondi
+    double tempo_esecuzione = (end.tv_sec - start.tv_sec) +(end.tv_nsec - start.tv_nsec) / 1e9;
+    
     printf("Simulazione completata in %d iterazioni.\n", iterazioni);
+    printf("Tempo di esecuzione: %f secondi.\n", tempo_esecuzione);
     for (int i = 0; i < N; i++) {
         free(u[i]);
         free(u_new[i]);

@@ -1,8 +1,14 @@
+#define _POSIX_C_SOURCE 199309L
+//COMPILAZIONE: gcc heat_seq_2.c -O2 -Wall -o heat_seq_2
+//Se si vuole vedere l'aumento di prestazioni tra heat_seq e heat_seq_2 allora bisogna mettere O0.
 #include <stdio.h>
 #include <stdlib.h>
 //#include <math.h>
-//#define N 64
-#define N 512
+#include <time.h>
+
+
+#define N 64
+//#define N 512
 //#define N 1024
 //#define N 2048
 #define TOP 100
@@ -15,7 +21,6 @@
 In questa versione del codice si vogliono aggiungere delle ottimizzazioni viste per quanto riguarda il codice single-core:
 1. Posso eliminare SQRT se calcolo il quadrato di EPS e controllo la differenza al quadrato con EPS al quadrato
 2. Posso fare la moltiplicazione invece della divisione
-
 */
 
 
@@ -49,6 +54,16 @@ int main(int argc, char const *argv[])
     int iterazioni = 0; //qui teniamo conto del numero di iterazioni fatte dal ciclo 
     
     double eps_sq = EPS * EPS; //lo calcoliamo fuori dato che non cambia durante il ciclo
+
+
+
+
+
+    struct timespec start, end;
+
+    clock_gettime(CLOCK_MONOTONIC, &start);
+
+
     do
     {
         differenza = 0.0;
@@ -77,7 +92,13 @@ int main(int argc, char const *argv[])
 
     } while (differenza > eps_sq);
     
+    clock_gettime(CLOCK_MONOTONIC, &end);
+
+    // Calcolo del tempo trascorso in secondi
+    double tempo_esecuzione = (end.tv_sec - start.tv_sec) +(end.tv_nsec - start.tv_nsec) / 1e9;
+    
     printf("Simulazione completata in %d iterazioni.\n", iterazioni);
+    printf("Tempo di esecuzione: %f secondi.\n", tempo_esecuzione);
     for (int i = 0; i < N; i++) {
         free(u[i]);
         free(u_new[i]);
