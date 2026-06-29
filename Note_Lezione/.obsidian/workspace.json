@@ -23,15 +23,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Principi/Appunti Progetto.md",
+                "file": "Principi/Simulazione della Diffusione del Calore 2D.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Appunti Progetto"
+              "title": "Simulazione della Diffusione del Calore 2D"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -201,11 +202,12 @@
       "tasknotes:Create new task": false
     }
   },
-  "active": "66aa011fef8fcae4",
+  "active": "fb156f39bd59adba",
   "lastOpenFiles": [
+    "Principi/Immagini/Pasted image 20260629151613.png",
     "Senza nome.base",
     "Senza nome 1.base",
-    "Principi/Appunti Progetto.md",
+    "Principi/Simulazione della Diffusione del Calore 2D.md",
     "Senza nome.md",
     "TaskNotes/Views/kanban-default.base",
     "TaskNotes/Start Here.md",
