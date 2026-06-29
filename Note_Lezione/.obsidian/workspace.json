@@ -8,16 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "66aa011fef8fcae4",
-            "type": "leaf",
-            "state": {
-              "type": "tasknotes-pomodoro-view",
-              "state": {},
-              "icon": "clock",
-              "title": "Pomodoro"
-            }
-          },
-          {
             "id": "fb156f39bd59adba",
             "type": "leaf",
             "state": {
@@ -30,9 +20,18 @@
               "icon": "lucide-file",
               "title": "Simulazione della Diffusione del Calore 2D"
             }
+          },
+          {
+            "id": "66aa011fef8fcae4",
+            "type": "leaf",
+            "state": {
+              "type": "tasknotes-pomodoro-view",
+              "state": {},
+              "icon": "clock",
+              "title": "Pomodoro"
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
