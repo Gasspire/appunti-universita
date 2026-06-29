@@ -490,8 +490,8 @@
   "enableDebugLogging": false,
   "lastSeenVersion": "4.11.1",
   "pomodoroState": {
-    "isRunning": true,
-    "timeRemaining": 3000,
+    "isRunning": false,
+    "timeRemaining": 1094,
     "currentSession": {
       "id": "1782747764923",
       "startTime": "2026-06-29T17:42:44.923+02:00",
@@ -500,7 +500,8 @@
       "completed": false,
       "activePeriods": [
         {
-          "startTime": "2026-06-29T17:42:44.923+02:00"
+          "startTime": "2026-06-29T17:42:44.923+02:00",
+          "endTime": "2026-06-29T18:14:30.982+02:00"
         }
       ]
     }
