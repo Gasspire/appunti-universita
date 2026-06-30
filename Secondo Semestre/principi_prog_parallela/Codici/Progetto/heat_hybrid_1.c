@@ -30,10 +30,10 @@ FASE 6: Tutti chiamano la MPI_Allreduce per ottenere L2. Se si finisce si termin
 */
 
 
-int main(int argc, char const *argv[])
+int main(int argc, char  *argv[])
 {
     int provided;
-    MPI_Init_thread(argc,argv, MPI_THREAD_FUNNELED, &provided);
+    MPI_Init_thread(&argc,&argv, MPI_THREAD_FUNNELED, &provided);
     //controllo che il livello sia quello proposto
     if(provided < MPI_THREAD_FUNNELED){
         printf("ERRORE: Richiesto il livello MPI_THREAD_FUNNELED\n");
@@ -75,7 +75,7 @@ int main(int argc, char const *argv[])
     //adesso ogni processo dovrà inizializzare la sua parte di matrice.
     //Essendo la suddivisione fatta per riga, ognuno di questi dovrà allocare il valore a sinistra e a destra ma SOLO 0 e NUM-PROCESSI -1 dovranno allocare rispettivamente TOP e BOT
     if(rank == 0){ //inizializziamo il sopra
-        for (int i = 0; i < N-1; i++)
+        for (int i = 0; i < N; i++)
         {
             u[i] = u_new[i] = TOP;
         }
@@ -89,7 +89,7 @@ int main(int argc, char const *argv[])
     }
     
     //qui ognuno dovrà inizializzare sx e dx
-    for (int i = 1; i < N; i++) //la riga 0 è usata per l'hello nei casi standard 
+    for (int i = 1; i <= righe_per_processo; i++) //la riga 0 è usata per l'hello nei casi standard 
     {
         u[i*N] = u_new[i*N] = LEFT;
         u[(i*N) + N-1] = u_new[(i*N) + N-1] = RIGHT;
@@ -108,13 +108,19 @@ int main(int argc, char const *argv[])
     int iterazioni = 0; //qui teniamo conto del numero di iterazioni fatte dal ciclo 
 
 
+    double eps_sq = EPS * EPS;
+    double differenza_globale;
 
-
+    double start_time = 0.0, end_time = 0.0;
+    MPI_Barrier(comm_cart); // La barriera serve sempre!
+    if (rank == 0) {
+        start_time = MPI_Wtime();
+    }
 
     do{
         //A questo punto cominciamo il processo di scambio delle righe sotto e sopra
         //Ci viene garantito grazie alla chiamata MPI_Cart_shift che se il vicino sopra/sotto non c'è (caso di rank 0 e rank num_p -1), allora poi con la Send/Recv, non succederà niente 
-        
+        differenza = 0.0;
         MPI_Request req_send[2];
         MPI_Request req_recv[2];
 
@@ -124,10 +130,10 @@ int main(int argc, char const *argv[])
 
     
 
-        MPI_Isend(&u[1* N], N,MPI_DOUBLE,rank_up, 0, comm_cart,req_send[0]);
-        MPI_Isend(&u[(righe_per_processo * N)], N,MPI_DOUBLE,rank_down, 0, comm_cart,req_send[1]);
+        MPI_Isend(&u[1* N], N,MPI_DOUBLE,rank_up, 0, comm_cart,&req_send[0]);
+        MPI_Isend(&u[(righe_per_processo * N)], N,MPI_DOUBLE,rank_down, 0, comm_cart,&req_send[1]);
 
-
+        
 
         #pragma omp parallel for reduction(+:differenza) schedule(static)
         for (int i = 2; i < righe_per_processo; i++) //Dobbiamo saltare le prime due righe che sono quella di exchange e quella da calcolare con l'exchange
@@ -151,22 +157,37 @@ int main(int argc, char const *argv[])
         for (int i = 1; i < N-1; i++) //calcoliamo le ultime righe arrivate 
         {
             
+            
+            u_new[N+i] = (u[i] + u[N+i-1] + u[N+i+1]+u[(2*N)+i])  *0.25; //prima riga
+            u_new[(righe_per_processo * N)+i] = (u[((righe_per_processo-1) * N)+i] + u[(righe_per_processo * N)+i -1 ] + u[(righe_per_processo * N)+i +1 ]+u[((righe_per_processo+1) * N)+i])  *0.25; //ultima riga
+            double tmp_1 = u_new[N+i] - u[N+i];
+            double tmp_2 = u_new[(righe_per_processo * N)+i] - u[(righe_per_processo * N)+i];
+
+            differenza +=(tmp_1 * tmp_1);
+            differenza +=(tmp_2 * tmp_2);
+        
         }
         
+        MPI_Waitall(2,req_send,MPI_STATUS_IGNORE);
+        MPI_Allreduce(&differenza,&differenza_globale, 1, MPI_DOUBLE, MPI_SUM, comm_cart);
 
+        double *tmp_swap = u;
+        u = u_new;
+        u_new = tmp_swap;
 
+        iterazioni++;
 
-
+    
+    } while (differenza_globale > eps_sq);
+    
+    MPI_Barrier(comm_cart); 
+    if (rank == 0) {
+        end_time = MPI_Wtime();
+        double tempo_esecuzione = end_time - start_time;
         
-
-        MPI_Waitall(2,req_recv,MPI_STATUS_IGNORE);
-        //QUA FACCIAMO L'ULTIMO CALCOLO
-
-    
-    } while (sqrt(differenza) > EPS);
-    
-
-
+        printf("Simulazione completata in %d iterazioni.\n", iterazioni);
+        printf("Tempo di esecuzione ibrido: %f secondi.\n", tempo_esecuzione);
+    }
 
     MPI_Finalize();
 

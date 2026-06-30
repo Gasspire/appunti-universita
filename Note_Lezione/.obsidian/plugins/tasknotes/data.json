@@ -490,28 +490,9 @@
   "enableDebugLogging": false,
   "lastSeenVersion": "4.11.1",
   "pomodoroState": {
-    "isRunning": true,
-    "timeRemaining": 1211,
-    "currentSession": {
-      "id": "1782829305290",
-      "startTime": "2026-06-30T16:21:45.290+02:00",
-      "plannedDuration": 57,
-      "type": "work",
-      "completed": false,
-      "activePeriods": [
-        {
-          "startTime": "2026-06-30T16:21:45.290+02:00",
-          "endTime": "2026-06-30T16:53:17.397+02:00"
-        },
-        {
-          "startTime": "2026-06-30T16:55:36.177+02:00",
-          "endTime": "2026-06-30T17:00:53.964+02:00"
-        },
-        {
-          "startTime": "2026-06-30T17:02:40.200+02:00"
-        }
-      ]
-    }
+    "isRunning": false,
+    "timeRemaining": 3000,
+    "nextSessionType": "work"
   },
   "lastPomodoroDate": "2026-06-29",
   "pomodoroHistory": [
@@ -1373,6 +1354,42 @@
         {
           "startTime": "2026-06-30T16:12:43.363+02:00",
           "endTime": "2026-06-30T16:21:42.495+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1782829305290",
+      "startTime": "2026-06-30T16:21:45.290+02:00",
+      "endTime": "2026-06-30T17:22:50.306+02:00",
+      "plannedDuration": 57,
+      "type": "work",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-30T16:21:45.290+02:00",
+          "endTime": "2026-06-30T16:53:17.397+02:00"
+        },
+        {
+          "startTime": "2026-06-30T16:55:36.177+02:00",
+          "endTime": "2026-06-30T17:00:53.964+02:00"
+        },
+        {
+          "startTime": "2026-06-30T17:02:40.200+02:00",
+          "endTime": "2026-06-30T17:22:50.306+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1782832972270",
+      "startTime": "2026-06-30T17:22:52.270+02:00",
+      "endTime": "2026-06-30T17:32:52.270+02:00",
+      "plannedDuration": 10,
+      "type": "short-break",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-06-30T17:22:52.270+02:00",
+          "endTime": "2026-06-30T17:32:52.270+02:00"
         }
       ]
     }
