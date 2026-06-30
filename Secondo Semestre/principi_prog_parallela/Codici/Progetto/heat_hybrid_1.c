@@ -7,8 +7,8 @@
 #include <omp.h>
 #include <mpi.h>
 
-#define N 64
-//#define N 512
+//define N 64
+#define N 512
 //#define N 1024
 //#define N 2048
 
@@ -154,18 +154,19 @@ int main(int argc, char  *argv[])
         }
         MPI_Waitall(2,req_recv,MPI_STATUS_IGNORE);
 
-        for (int i = 1; i < N-1; i++) //calcoliamo le ultime righe arrivate 
+        for (int i = 1; i < N-1; i++) 
         {
-            
-            
-            u_new[N+i] = (u[i] + u[N+i-1] + u[N+i+1]+u[(2*N)+i])  *0.25; //prima riga
-            u_new[(righe_per_processo * N)+i] = (u[((righe_per_processo-1) * N)+i] + u[(righe_per_processo * N)+i -1 ] + u[(righe_per_processo * N)+i +1 ]+u[((righe_per_processo+1) * N)+i])  *0.25; //ultima riga
+            // La prima riga va calcolata sempre da tutti (il TOP è sicuro nell'Halo)
+            u_new[N+i] = (u[i] + u[N+i-1] + u[N+i+1]+u[(2*N)+i]) * 0.25; 
             double tmp_1 = u_new[N+i] - u[N+i];
-            double tmp_2 = u_new[(righe_per_processo * N)+i] - u[(righe_per_processo * N)+i];
-
-            differenza +=(tmp_1 * tmp_1);
-            differenza +=(tmp_2 * tmp_2);
-        
+            differenza += (tmp_1 * tmp_1);
+            
+            // L'ultima riga si calcola SOLO se non sei l'ultimo processo
+            if (rank != num_processi - 1) {
+                u_new[(righe_per_processo * N)+i] = (u[((righe_per_processo-1) * N)+i] + u[(righe_per_processo * N)+i -1 ] + u[(righe_per_processo * N)+i +1 ]+u[((righe_per_processo+1) * N)+i]) * 0.25; 
+                double tmp_2 = u_new[(righe_per_processo * N)+i] - u[(righe_per_processo * N)+i];
+                differenza += (tmp_2 * tmp_2);
+            }
         }
         
         MPI_Waitall(2,req_send,MPI_STATUS_IGNORE);
