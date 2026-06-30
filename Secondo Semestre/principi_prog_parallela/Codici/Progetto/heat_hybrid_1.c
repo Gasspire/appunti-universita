@@ -1,5 +1,5 @@
 #define _POSIX_C_SOURCE 199309L
-//COMPILAZIONE: gcc heat_seq.c -O2 -Wall -lm -o heat_seq_1
+//COMPILAZIONE: mpicc heat_hybrid_1.c -O2 -Wall -fopenmp -o heat_hybrid
 //Se si vuole vedere l'aumento di prestazioni tra heat_seq e heat_seq_2 allora bisogna mettere O0.
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,8 +7,8 @@
 #include <omp.h>
 #include <mpi.h>
 
-//define N 64
-#define N 512
+#define N 64
+//#define N 512
 //#define N 1024
 //#define N 2048
 
@@ -74,11 +74,13 @@ int main(int argc, char  *argv[])
 
     //adesso ogni processo dovrà inizializzare la sua parte di matrice.
     //Essendo la suddivisione fatta per riga, ognuno di questi dovrà allocare il valore a sinistra e a destra ma SOLO 0 e NUM-PROCESSI -1 dovranno allocare rispettivamente TOP e BOT
-    if(rank == 0){ //inizializziamo il sopra
+    if(rank == 0){ //inizializziamo il sopra sulla prima riga VERA (riga 1)
         for (int i = 0; i < N; i++)
         {
-            u[i] = u_new[i] = TOP;
+            u[N + i] = u_new[N + i] = TOP;
         }
+        // L'angolo in alto a destra scala di conseguenza sulla riga 1
+        u[N + N - 1] = u_new[N + N - 1] = RIGHT;
     }
 
     if(rank == num_processi -1){ //inizializziamo il sotto
@@ -154,14 +156,16 @@ int main(int argc, char  *argv[])
         }
         MPI_Waitall(2,req_recv,MPI_STATUS_IGNORE);
 
-        for (int i = 1; i < N-1; i++) 
+        for (int i = 1; i < N-1; i++) //calcoliamo le ultime righe arrivate 
         {
-            // La prima riga va calcolata sempre da tutti (il TOP è sicuro nell'Halo)
-            u_new[N+i] = (u[i] + u[N+i-1] + u[N+i+1]+u[(2*N)+i]) * 0.25; 
-            double tmp_1 = u_new[N+i] - u[N+i];
-            differenza += (tmp_1 * tmp_1);
+            // SOLO CHI NON È IL PRIMO calcola la prima riga
+            if (rank != 0) {
+                u_new[N+i] = (u[i] + u[N+i-1] + u[N+i+1]+u[(2*N)+i]) * 0.25; 
+                double tmp_1 = u_new[N+i] - u[N+i];
+                differenza += (tmp_1 * tmp_1);
+            }
             
-            // L'ultima riga si calcola SOLO se non sei l'ultimo processo
+            // SOLO CHI NON È L'ULTIMO calcola l'ultima riga
             if (rank != num_processi - 1) {
                 u_new[(righe_per_processo * N)+i] = (u[((righe_per_processo-1) * N)+i] + u[(righe_per_processo * N)+i -1 ] + u[(righe_per_processo * N)+i +1 ]+u[((righe_per_processo+1) * N)+i]) * 0.25; 
                 double tmp_2 = u_new[(righe_per_processo * N)+i] - u[(righe_per_processo * N)+i];
