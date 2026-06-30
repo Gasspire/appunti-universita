@@ -104,6 +104,69 @@ int main(int argc, char const *argv[])
     }
 
 
+    double differenza = 0.0; //qui inseriremo la norma L2
+    int iterazioni = 0; //qui teniamo conto del numero di iterazioni fatte dal ciclo 
+
+
+
+
+
+    do{
+        //A questo punto cominciamo il processo di scambio delle righe sotto e sopra
+        //Ci viene garantito grazie alla chiamata MPI_Cart_shift che se il vicino sopra/sotto non c'è (caso di rank 0 e rank num_p -1), allora poi con la Send/Recv, non succederà niente 
+        
+        MPI_Request req_send[2];
+        MPI_Request req_recv[2];
+
+        //Quello che vogliamo mandare al prossimo processo è la prima riga a quello di sopra mentre a quello di sotto vogliamo mandare l'ultima!
+        MPI_Irecv(&u[0], N, MPI_DOUBLE, rank_up, 0, comm_cart, &req_recv[0]);
+        MPI_Irecv(&u[(righe_per_processo+1) * N], N, MPI_DOUBLE, rank_down, 0, comm_cart, &req_recv[1]);
+
+    
+
+        MPI_Isend(&u[1* N], N,MPI_DOUBLE,rank_up, 0, comm_cart,req_send[0]);
+        MPI_Isend(&u[(righe_per_processo * N)], N,MPI_DOUBLE,rank_down, 0, comm_cart,req_send[1]);
+
+
+
+        #pragma omp parallel for reduction(+:differenza) schedule(static)
+        for (int i = 2; i < righe_per_processo; i++) //Dobbiamo saltare le prime due righe che sono quella di exchange e quella da calcolare con l'exchange
+        {
+            for (int j = 1; j < N-1; j++) 
+            {
+                //Dobbiamo trovare adesso gli indici dx, sx, up,down
+                int idx_sopra = ((i-1) * N) + j;
+                int idx_sotto = ((i+1) * N) + j;
+                int idx_sx = ((i * N) + j) - 1; 
+                int idx_dx = ((i * N) + j) + 1; 
+
+                u_new[(i*N)+j] = (u[idx_sopra] + u[idx_sotto] + u[idx_sx]+ u[idx_dx]) *0.25;
+
+                double tmp = u_new[(i*N)+j] - u[(i*N)+j];
+                differenza +=(tmp * tmp);
+            }
+        }
+        MPI_Waitall(2,req_recv,MPI_STATUS_IGNORE);
+
+        for (int i = 1; i < N-1; i++) //calcoliamo le ultime righe arrivate 
+        {
+            
+        }
+        
+
+
+
+
+        
+
+        MPI_Waitall(2,req_recv,MPI_STATUS_IGNORE);
+        //QUA FACCIAMO L'ULTIMO CALCOLO
+
+    
+    } while (sqrt(differenza) > EPS);
+    
+
+
 
     MPI_Finalize();
 
