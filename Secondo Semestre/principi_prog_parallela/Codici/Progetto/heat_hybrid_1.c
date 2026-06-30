@@ -66,8 +66,42 @@ int main(int argc, char const *argv[])
     }
 
 
+    int dimensione_totale = (righe_per_processo +2) * N; // perché due sono quella sopra a quella sotto, N è la dimensione della riga.
+
+    double *u = (double *) calloc(dimensione_totale, sizeof(double));
+    double *u_new = (double *) calloc(dimensione_totale, sizeof(double));
     
 
+    //adesso ogni processo dovrà inizializzare la sua parte di matrice.
+    //Essendo la suddivisione fatta per riga, ognuno di questi dovrà allocare il valore a sinistra e a destra ma SOLO 0 e NUM-PROCESSI -1 dovranno allocare rispettivamente TOP e BOT
+    if(rank == 0){ //inizializziamo il sopra
+        for (int i = 0; i < N-1; i++)
+        {
+            u[i] = u_new[i] = TOP;
+        }
+    }
+
+    if(rank == num_processi -1){ //inizializziamo il sotto
+        for (int i = 0; i < N; i++)
+        {
+            u[(righe_per_processo * N)  + i] = u_new[(righe_per_processo * N)  + i] = BOT;
+        }
+    }
+    
+    //qui ognuno dovrà inizializzare sx e dx
+    for (int i = 1; i < N; i++) //la riga 0 è usata per l'hello nei casi standard 
+    {
+        u[i*N] = u_new[i*N] = LEFT;
+        u[(i*N) + N-1] = u_new[(i*N) + N-1] = RIGHT;
+    }
+
+    //sistemiamo gli angoli per coerenza con la versione sequenziale
+    if(rank == num_processi-1){
+        u[(righe_per_processo * N)] = u_new[(righe_per_processo) * N] = LEFT; 
+    }
+    if(rank == 0){
+        u[N-1] = u_new[N-1] = RIGHT;
+    }
 
 
 
