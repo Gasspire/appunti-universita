@@ -491,21 +491,21 @@
   "lastSeenVersion": "4.11.1",
   "pomodoroState": {
     "isRunning": true,
-    "timeRemaining": 600,
+    "timeRemaining": 3000,
     "currentSession": {
-      "id": "1782755831341",
-      "startTime": "2026-06-29T19:57:11.341+02:00",
-      "plannedDuration": 10,
-      "type": "short-break",
+      "id": "1782826031608",
+      "startTime": "2026-06-30T15:27:11.608+02:00",
+      "plannedDuration": 50,
+      "type": "work",
       "completed": false,
       "activePeriods": [
         {
-          "startTime": "2026-06-29T19:57:11.341+02:00"
+          "startTime": "2026-06-30T15:27:11.608+02:00"
         }
       ]
     }
   },
-  "lastPomodoroDate": "2026-06-28",
+  "lastPomodoroDate": "2026-06-29",
   "pomodoroHistory": [
     {
       "id": "1781534895991",
