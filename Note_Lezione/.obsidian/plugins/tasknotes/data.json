@@ -491,11 +491,11 @@
   "lastSeenVersion": "4.11.1",
   "pomodoroState": {
     "isRunning": true,
-    "timeRemaining": 3000,
+    "timeRemaining": 1380,
     "currentSession": {
       "id": "1783004397571",
       "startTime": "2026-07-02T16:59:57.571+02:00",
-      "plannedDuration": 50,
+      "plannedDuration": 53.016666666666666,
       "type": "work",
       "completed": false,
       "activePeriods": [
