@@ -7,8 +7,8 @@
 #include <omp.h>
 #include <mpi.h>
 
-#define N 64
-//#define N 512
+//#define N 64
+#define N 512
 //#define N 1024
 //#define N 2048
 
@@ -156,6 +156,7 @@ int main(int argc, char  *argv[])
         }
         MPI_Waitall(2,req_recv,MPI_STATUS_IGNORE);
 
+        #pragma omp parallel for schedule(static)
         for (int i = 1; i < N-1; i++) //calcoliamo le ultime righe arrivate 
         {
             // SOLO CHI NON È IL PRIMO calcola la prima riga

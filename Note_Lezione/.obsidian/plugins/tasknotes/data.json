@@ -1451,6 +1451,20 @@
           "endTime": "2026-07-02T17:59:50.484+02:00"
         }
       ]
+    },
+    {
+      "id": "1783009449813",
+      "startTime": "2026-07-02T18:24:09.813+02:00",
+      "endTime": "2026-07-02T18:24:12.564+02:00",
+      "plannedDuration": 50,
+      "type": "work",
+      "completed": false,
+      "activePeriods": [
+        {
+          "startTime": "2026-07-02T18:24:09.813+02:00",
+          "endTime": "2026-07-02T18:24:12.564+02:00"
+        }
+      ]
     }
   ],
   "googleCalendarSyncQueue": [

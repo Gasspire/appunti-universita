@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
-#define N 64
-//#define N 512
+//#define N 64
+#define N 512
 //#define N 1024
 //#define N 2048
 #define TOP 100
