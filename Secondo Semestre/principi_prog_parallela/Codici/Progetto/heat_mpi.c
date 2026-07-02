@@ -5,8 +5,8 @@
 #include <time.h>
 #include <mpi.h>
 
-#define N 64
-//#define N 512
+//#define N 64
+#define N 512
 //#define N 1024
 //#define N 2048
 
@@ -18,7 +18,7 @@
 
 
 /*
-FASE 1: Inizializzazione di MPI e OpenMP
+FASE 1: Inizializzazione di MPI e 
 FASE 2: Allocazione della matrice fatta da P0
 FASE 3: Il carico di lavoro viene suddiviso in base al numero di processi attivi, facendo quindi N/P con P = processi assicurando che se c'è resto banalmente l'ultimo ne prende qualcuna in più
 FASE 4: Una volta che il carico è distribuito si scambiano le righe necessarie sotto e sopra: esempio il processo che sta in mezzo ha bisogno sia di quella sopra che di quella sotto e così via
@@ -184,7 +184,7 @@ int main(int argc, char  *argv[])
         double tempo_esecuzione = end_time - start_time;
         
         printf("Simulazione completata in %d iterazioni.\n", iterazioni);
-        printf("Tempo di esecuzione ibrido: %f secondi.\n", tempo_esecuzione);
+        printf("Tempo di esecuzione MPI puro: %f secondi.\n", tempo_esecuzione);
     }
 
     MPI_Finalize();
