@@ -490,7 +490,7 @@
   "enableDebugLogging": false,
   "lastSeenVersion": "4.11.1",
   "pomodoroState": {
-    "isRunning": false,
+    "isRunning": true,
     "timeRemaining": 2307,
     "currentSession": {
       "id": "1783089860860",
@@ -502,6 +502,9 @@
         {
           "startTime": "2026-07-03T16:44:20.860+02:00",
           "endTime": "2026-07-03T16:55:53.872+02:00"
+        },
+        {
+          "startTime": "2026-07-03T17:46:20.503+02:00"
         }
       ]
     }
