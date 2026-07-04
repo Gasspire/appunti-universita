@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoria dei Grafi/Concetti Base.md",
+                "file": "Teoria dei Grafi/Alberi.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Concetti Base"
+              "title": "Alberi"
             }
           }
         ]
@@ -205,6 +205,11 @@
   },
   "active": "1a7ddd30e83fe178",
   "lastOpenFiles": [
+    "Teoria dei Grafi/Concetti Base.md",
+    "Teoria dei Grafi/Alberi.md",
+    "Teoria dei Grafi/Immagini/Pasted image 20260704165713.png",
+    "Teoria dei Grafi/Immagini/Pasted image 20260704165700.png",
+    "Teoria dei Grafi/Immagini/Pasted image 20260704165615.png",
     "Teoria dei Grafi/Immagini/Pasted image 20260704165344.png",
     "Teoria dei Grafi/Immagini/Pasted image 20260704165158.png",
     "Teoria dei Grafi/Immagini/Pasted image 20260704165002.png",
@@ -213,7 +218,6 @@
     "Teoria dei Grafi/Immagini/Pasted image 20260704161540.png",
     "Senza nome.base",
     "Senza nome 1.base",
-    "Teoria dei Grafi/Concetti Base.md",
     "Principi/Immagini/Pasted image 20260629151613.png",
     "Principi/Simulazione della Diffusione del Calore 2D.md",
     "Senza nome.md",
@@ -236,12 +240,8 @@
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
     "Principi/Domande per Esame.md",
     "Blockchain/Lezione 4. Eth.md",
-    "Blockchain/Immagini/Pasted image 20260527120727.png",
     "Computer Security/26 Maggio.md",
     "Computer Security/Prima e Seconda Lezione GDPR.md",
-    "Blockchain/Immagini/Pasted image 20260525185038.png",
-    "Blockchain/Immagini/Pasted image 20260525185037.png",
-    "Blockchain/Immagini/Pasted image 20260525185036.png",
     "Random Stuff/Esami BC.md",
     "Blockchain/Lezione 3. Eth.md",
     "Blockchain/Esami Passati.md",
