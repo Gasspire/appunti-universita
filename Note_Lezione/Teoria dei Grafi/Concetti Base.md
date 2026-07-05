@@ -1,5 +1,4 @@
-#flashcards
-
+#flashcards/concetti
 Definizione di Grafo non orientato
 ?
 Si definisce grafo non orientato o semplicemente grafo (graph) una coppia
@@ -10,10 +9,12 @@ definita sull'insieme V .
 Definizione di Spigoli incidenti
 ?
 Due spigoli e, e′ ∈ E si dicono incidenti se hanno un vertice in comune (e = (u, v), e′ = (v, w)). Due vertici u, v ∈ V si dicono adiacenti se esiste uno spigolo che li congiunge (∃e ∈ E t.c. e = (u, v)). Diremo anche che uno spigolo e ∈ E è incidente in un vertice v ∈ V se v è un suo estremo (e = (u, v) o e = (v, u)).
+<!--SR:!2026-07-08,3,250-->
 
 Definizione di ordine del Grafo
 ?
 Si definisce ordine di G il numero n = |V |.
+<!--SR:!2026-07-08,3,250-->
 
 Definizione di grado di un vertice
 ?
@@ -50,6 +51,7 @@ Definizione di grafo pesato
 Definizione di Loop
 ?
 Dato un grafo (risp. digrafo) G = (V, E), se e = (u, v) è uno spigolo (risp. arco) tale che u = v, allora e si definisce loop o cappio.
+<!--SR:!2026-07-13,8,250-->
 
 Definizione di multigrafo
 ?
@@ -66,6 +68,7 @@ Definizione di intorno aperto e intorno chiuso
 Dato un vertice v ∈ V , si definisce intorno aperto (open neighborhood ) di v l’insieme N (v) = {u ∈ V | (v, u) ∈ E}, anche detto insieme dei vicini di v.
 Dato un vertice v ∈ V , si definisce intorno chiuso (closed neighborhood )
 di v l’insieme N [v] = N (v) ∪ {v}.
+<!--SR:!2026-07-08,3,250-->
 
 Quando un vertice domina un altro
 ?
@@ -77,6 +80,7 @@ Cosa è un insieme dominante e il numero dominante
 Un insieme X ⊆ V si definisce insieme dominante (dominating set) se $$N[X] = V = \bigcup N[v]$$
 Poiché un grafo può ammettere più insiemi dominanti, si definisce numero
 dominante (domination number ) la cardinalità minima di un insieme dominante.
+<!--SR:!2026-07-08,3,250-->
 
 Definizione di cammino
 ?
@@ -84,6 +88,7 @@ Dati due vertici u, v ∈ V , si definisce catena o cammino (walk ) di estremi
 u e v una sequenza finita di spigoli del tipo
 $$C(u, v) = ((u = v_0 , v_1 ), (v_1 , v_2 ), . . . , (v_{m−1} , v_m = v))$$
 in cui due spigoli consecutivi qualsiasi sono adiacenti o identici. A sua volta, un tale cammino determinerà una sequenza di vertici $u = v_0 , v_1 , . . . , v_m = v$ dove u sarà detto vertice iniziale e v sarà detto vertice finale.
+<!--SR:!2026-07-08,3,250-->
 
 Definizione di cammino elementare e cammino semplice
 ?
@@ -95,24 +100,29 @@ Definizione di Ciclo
 Fissati k vertici tutti distinti v1 , v2 , . . . , vk ∈ V , con k ≥ 3, si dice che essi
 formano un ciclo (cycle) Ck di lunghezza k se esiste una catena elementare Pk = C(v1 , vk ) e
 (v1 , vk ) ∈ E.
+<!--SR:!2026-07-08,3,250-->
 
 Definizione di Corda e Grafo Cordale
 ?
 Dato un cammino elementare Pk (o un ciclo Ck ) si definisce corda di Pk (o di Ck ) uno spigolo e = (viq , vir ) ∈ E tale che viq , vir ∈ V ed e non è uno spigolo di Pk (o di Ck ).
 Un grafo si dice cordale se ogni ciclo di lunghezza k ≥ 4 in esso contenuto possiede almeno una corda.
+<!--SR:!2026-07-08,3,250-->
 
 Distanza tra due vertici
 ?
 ![[Pasted image 20260704165158.png]]
+<!--SR:!2026-07-08,3,250-->
 
 Cosa è una componente connessa
 ?
 ![[Pasted image 20260704164745.png]]
+<!--SR:!2026-07-08,3,250-->
 
 Definizione di Fortemente connesso
 ?
 Un digrafo G si dice fortemente connesso se per ogni coppia di vertici
 u, v ∈ V esiste un cammino orientato C(u, v) e C(v, u).
+<!--SR:!2026-07-08,3,250-->
 
 Definizione di Cut-Vertex e Cut-Edge
 ?
@@ -122,6 +132,7 @@ Dato G un grafo connesso, un vertice v ∈ V si chiama cut-vertex (punto di arti
 Handshaking Lemma
 ?
 ![[Pasted image 20260704164939.png]]
+<!--SR:!2026-07-08,3,250-->
 
 Corollario handshaking lemma
 ?
@@ -131,10 +142,12 @@ Corollario handshaking lemma
 Grafo Nullo
 ?
 Un grafo si definisce nullo se V ̸= ∅ ed E = ∅.
+<!--SR:!2026-07-08,3,250-->
 
 Grafo completo
 ?
 Un grafo si dice completo se ogni suo vertice è adiacente a tutti gli altri vertici, ovvero se per ogni v ∈ V, d(v) = n − 1, con n = |V |.
+<!--SR:!2026-07-08,3,250-->
 
 Grafo p-regolare
 ?
@@ -154,11 +167,13 @@ Un insieme T ⊆ V si dice stabile se esso non contiene vertici adiacenti, cioè
 Grafo bipartito
 ?
 ![[Pasted image 20260704165344.png]]
+<!--SR:!2026-07-08,3,250-->
 
 
 Grafo Cubo
 ?
 Si definisce un grafo cubo di ordine k, o un k−cubo, un grafo tale che i vertici corrispondono ad una k−upla (a0 , a1 , ..., ak ) a coefficienti in {0, 1} assegnati in modo tale due k−uple sono adiacenti se e solo se differiscono per una ed una sola componente. Denotiamo tale grafo con Qk .
+<!--SR:!2026-07-08,3,250-->
 
 Definizione di sottografo
 ?
@@ -168,10 +183,12 @@ Si definisce sottografo di G il grafo G ′ = (V ′ , E ′ ) tale che V ′ �
 Definizione di sottografo indotto
 ?
 Si definisce sottografo indotto (induced subgraph) di G il sottografo G ′ = (V ′ , E ′ ) tale che V ′ ⊆ V ed E ′ = {(u, v) ∈ E | u, v ∈ V ′ }.
+<!--SR:!2026-07-08,3,250-->
 
 Definizione di grafo parziale
 ?
 Si definisce grafo parziale di G (spanning subgraph) il sottografo G ′ = (V ′ , E ′ ) tale che V = V ′ ed E ′ ⊆ E.
+<!--SR:!2026-07-08,3,250-->
 
 Definizione di isomorfismo
 ?
@@ -182,3 +199,4 @@ Definizione di matrice di adiacenze e di incidenza
 ?
 ![[Pasted image 20260704165700.png]]
 ![[Pasted image 20260704165713.png]]
+<!--SR:!2026-07-08,3,250-->
