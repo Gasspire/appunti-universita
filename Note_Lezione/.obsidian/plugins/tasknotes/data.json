@@ -490,10 +490,27 @@
   "enableDebugLogging": false,
   "lastSeenVersion": "4.11.1",
   "pomodoroState": {
-    "isRunning": false,
-    "timeRemaining": 3000
+    "isRunning": true,
+    "timeRemaining": 2353,
+    "currentSession": {
+      "id": "1783349464038",
+      "taskPath": "TaskNotes/Tasks/Fare pulizia del codice e commenti.md",
+      "startTime": "2026-07-06T16:51:04.038+02:00",
+      "plannedDuration": 50,
+      "type": "work",
+      "completed": false,
+      "activePeriods": [
+        {
+          "startTime": "2026-07-06T16:51:04.038+02:00",
+          "endTime": "2026-07-06T17:01:51.298+02:00"
+        },
+        {
+          "startTime": "2026-07-06T17:08:20.784+02:00"
+        }
+      ]
+    }
   },
-  "lastPomodoroDate": "2026-07-02",
+  "lastPomodoroDate": "2026-07-05",
   "pomodoroHistory": [
     {
       "id": "1781534895991",
@@ -1687,6 +1704,6 @@
       "lastError": "Google Calendar sync is not ready"
     }
   ],
-  "lastSelectedTaskPath": "TaskNotes/Tasks/Un altro esercizio a scelta.md",
+  "lastSelectedTaskPath": "TaskNotes/Tasks/Fare pulizia del codice e commenti.md",
   "lastNotifiedReleaseVersion": "4.11.1"
 }

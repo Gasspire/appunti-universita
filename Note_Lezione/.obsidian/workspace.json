@@ -33,9 +33,19 @@
               "icon": "tasknotes-simple",
               "title": "kanban-default"
             }
+          },
+          {
+            "id": "a063ef73752742a4",
+            "type": "leaf",
+            "state": {
+              "type": "tasknotes-pomodoro-view",
+              "state": {},
+              "icon": "clock",
+              "title": "Pomodoro"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -217,7 +227,7 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "c934532cabf2938e",
+  "active": "a063ef73752742a4",
   "lastOpenFiles": [
     "TaskNotes/Views/kanban-default.base",
     "TaskNotes/Tasks/Fare il powerpoint per il progetto.md",
