@@ -1,9 +1,9 @@
 ---
-status: open
+status: done
 priority: normal
 scheduled: 2026-07-06
 dateCreated: 2026-07-06T12:22:30.644+02:00
-dateModified: 2026-07-06T18:16:38.096+02:00
+dateModified: 2026-07-06T18:35:11.331+02:00
 tags:
   - task
 timeEntries:
@@ -18,5 +18,7 @@ timeEntries:
     endTime: 2026-07-06T16:01:41.793Z
   - startTime: 2026-07-06T16:16:38.097Z
     description: Work session
+    endTime: 2026-07-06T16:35:11.331Z
+completedDate: 2026-07-06
 ---
 

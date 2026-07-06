@@ -6,10 +6,9 @@
 #include <time.h>
 #include <omp.h>
 
-//#define N 64
 #define N 512
-//#define N 1024
-//#define N 2048
+//define N 1024
+//define N 2048
 
 #define TOP 100
 #define BOT 0
@@ -19,18 +18,26 @@
 #define EPS 1e-4 
 
 /*
-In questa versione del codice, si vogliono testare le prestazioni del codice mediante l'uso di solo openMP
-Fase 1: Inizializzazione dell'array lineare contiguo (usando come base l'ottimizzazione di heat_seq_3)
-Fase 2: Parallelizzazione dell'inizializzazione dei dati ai bordi (sfrutta la First-Touch policy per i sistemi NUMA)
-Fase 3: Parallelizzazione dei calcoli all'interno del for usando collapse(2) (dato che mancano istruzioni tra i due cicli) e reduction sulla differenza per evitare race conditions
-Fase 4: Verifica del superamento della soglia mediante confronto tra i quadrati
+Fase 1: Allocazione con malloc per evitare il First Touch del Master Thread.
+Fase 2: Usiamo un pragma omp parallel for con schedule(static) per azzerare la matrice e impostare i bordi. Questo garantisce che la RAM venga allocata sul socket corretto rispettando la First Touch Policy.
+Fase 3: Calcolo parallelo con collapse(2) e reduction.
 */
 
 int main(int argc, char const *argv[])
 {
-    double *u = (double *)calloc(N * N, sizeof(double));
-    double *u_new = (double *)calloc(N * N, sizeof(double));
+    //allocazione delle matrice
+    double *u = (double *)malloc(N * N * sizeof(double));
+    double *u_new = (double *)malloc(N * N * sizeof(double));
 
+    //inizializzazione della matrice tramite schedule static
+    #pragma omp parallel for schedule(static)
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            u[i * N + j] = 0.0;
+            u_new[i * N + j] = 0.0;
+        }
+    }
+    //inizializzazione dei lati 
     #pragma omp parallel for schedule(static)
     for (int i = 1; i < N - 1; i++) {
         u[0 * N + i] = u_new[0 * N + i] = TOP;               
@@ -39,11 +46,12 @@ int main(int argc, char const *argv[])
         u[i * N + (N - 1)] = u_new[i * N + (N - 1)] = RIGHT; 
     }
 
+    // Inizializzazione degli angoli
     u[0 * N + 0] = u_new[0 * N + 0] = TOP;                               
     u[0 * N + (N - 1)] = u_new[0 * N + (N - 1)] = RIGHT;                 
     u[(N - 1) * N + 0] = u_new[(N - 1) * N + 0] = LEFT;                  
-    u[(N - 1) * N + (N - 1)] = u_new[(N - 1) * N + (N - 1)] = BOT;       
-    
+    u[(N - 1) * N + (N - 1)] = u_new[(N - 1) * N + (N - 1)] = BOT;
+
     double differenza = 0.0; 
     int iterazioni = 0; 
     double eps_sq = EPS * EPS; 
@@ -78,7 +86,7 @@ int main(int argc, char const *argv[])
 
         iterazioni++; 
 
-    } while (differenza > eps_sq); 
+    } while (differenza > eps_sq);
     
     clock_gettime(CLOCK_MONOTONIC, &end);
 
