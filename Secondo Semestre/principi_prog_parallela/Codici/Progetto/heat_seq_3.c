@@ -6,8 +6,8 @@
 
 //#define N 64
 //#define N 512
-#define N 1024
-//#define N 2048
+//#define N 1024
+#define N 2048
 #define TOP 100
 #define BOT 0
 #define LEFT 75
