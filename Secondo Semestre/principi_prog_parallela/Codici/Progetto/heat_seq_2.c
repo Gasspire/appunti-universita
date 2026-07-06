@@ -3,7 +3,6 @@
 //Se si vuole vedere l'aumento di prestazioni tra heat_seq e heat_seq_2 allora bisogna mettere O0.
 #include <stdio.h>
 #include <stdlib.h>
-//#include <math.h>
 #include <time.h>
 
 
@@ -19,7 +18,7 @@
 #define EPS 1e-4 // Soglia di convergenza definita
 
 /*
-In questa versione del codice si vogliono aggiungere delle ottimizzazioni viste per quanto riguarda il codice single-core:
+In questa versione del codice si vogliono aggiungere delle ottimizzazioni viste a lezione per quanto riguarda il codice single-core:
 1. Posso eliminare SQRT se calcolo il quadrato di EPS e controllo la differenza al quadrato con EPS al quadrato
 2. Posso fare la moltiplicazione invece della divisione
 */
@@ -29,31 +28,28 @@ In questa versione del codice si vogliono aggiungere delle ottimizzazioni viste 
 
 int main(int argc, char const *argv[])
 {
-    //Creazione e inizializzazione della matrice tutti a 0
     double **u = (double **)calloc(N, sizeof(double *));
     double **u_new = (double **)calloc(N, sizeof(double *));
     for (int i = 0; i < N; i++) {
         u[i] = (double *)calloc(N, sizeof(double));
         u_new[i] = (double *)calloc(N, sizeof(double));
     }
-    //inseriamo le condizioni ai bordi e ignoriamo gli angoli così da scegliere arbitrariamente quale valore va dove
     for (int i = 1; i < N - 1; i++) {
         u[0][i] = u_new[0][i] = TOP;
         u[N-1][i] = u_new[N-1][i] = BOT;
         u[i][0] = u_new[i][0] = LEFT;
         u[i][N-1] = u_new[i][N-1] = RIGHT;
     }
-    //Inseriamo i valori agli angoli 
     u[0][0] = u_new[0][0] = TOP;
     u[0][N-1] = u_new[0][N-1] = RIGHT;
     u[N-1][0] = u_new[N-1][0] = LEFT;
     u[N-1][N-1] = u_new[N-1][N-1] = BOT;
     
     
-    //adesso possiamo fare i calcoli. Per farlo ho bisogno di una variabile per tenere conto della differenza
-    double differenza = 0.0; //qui inseriremo la norma L2
-    int iterazioni = 0; //qui teniamo conto del numero di iterazioni fatte dal ciclo 
-    
+    double differenza = 0.0;
+    int iterazioni = 0; 
+
+    //per evitare di calcolare la radice quadrata, consideriamo la soglia al quadrato così da non richiamare funzioni di librerie esterne
     double eps_sq = EPS * EPS; //lo calcoliamo fuori dato che non cambia durante il ciclo
 
 
@@ -69,11 +65,11 @@ int main(int argc, char const *argv[])
     {
         differenza = 0.0;
 
-        for (int i = 1; i < N-1; i++) //partiamo da 1 e arriviamo a N-1 così da non sovrascrivere i valori delle temp ai bordi
+        for (int i = 1; i < N-1; i++)
         {
             for (int j = 1; j < N-1; j++)
             {
-                u_new[i][j] = (u[i-1][j] + u[i+1][j] + u[i][j-1] + u[i][j+1]) * 0.25;
+                u_new[i][j] = (u[i-1][j] + u[i+1][j] + u[i][j-1] + u[i][j+1]) * 0.25; //utilizziamo la moltiplicazione anziché la divisione che risulta più leggera per il compilatore
 
 
                 double tmp = u_new[i][j] - u[i][j];
@@ -83,23 +79,22 @@ int main(int argc, char const *argv[])
         }
         
 
-        //invertiamo i puntatori di u_new e u
-        register double **tmp = u;
+        double **tmp = u;
         u = u_new;
         u_new = tmp;
 
 
-        iterazioni++; //per il momento non controlliamo
+        iterazioni++; 
 
-    } while (differenza > eps_sq);
+    } while (differenza > eps_sq);// controllo senza l'uso della radice quadrata
     
     clock_gettime(CLOCK_MONOTONIC, &end);
 
-    // Calcolo del tempo trascorso in secondi
     double tempo_esecuzione = (end.tv_sec - start.tv_sec) +(end.tv_nsec - start.tv_nsec) / 1e9;
     
     printf("Simulazione completata in %d iterazioni.\n", iterazioni);
     printf("Tempo di esecuzione: %f secondi.\n", tempo_esecuzione);
+
     for (int i = 0; i < N; i++) {
         free(u[i]);
         free(u_new[i]);

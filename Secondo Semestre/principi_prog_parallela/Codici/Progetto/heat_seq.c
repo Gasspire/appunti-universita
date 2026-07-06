@@ -1,7 +1,7 @@
 #define _POSIX_C_SOURCE 199309L //per evitare problemi con il CLOCK_MONOTONIC
 
 
-//COMPILAZIONE: gcc heat_seq.c -O2 -Wall -lm -o heat_seq_1
+//COMPILAZIONE: gcc heat_seq.c -O2 -Wall -lm -o heat_seq
 //Se si vuole vedere l'aumento di prestazioni tra heat_seq e heat_seq_2 allora bisogna mettere O0.
 
 #include <stdio.h>

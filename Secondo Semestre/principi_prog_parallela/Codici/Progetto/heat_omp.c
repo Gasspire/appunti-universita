@@ -1,17 +1,30 @@
-#define _POSIX_C_SOURCE 199309L
+#define _POSIX_C_SOURCE 199309L // Per evitare problemi con il CLOCK_MONOTONIC
+
 // COMPILAZIONE: gcc heat_omp.c -O2 -Wall -fopenmp -o heat_omp
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <omp.h>
 
+//#define N 64
 #define N 512
+//#define N 1024
+//#define N 2048
+
 #define TOP 100
 #define BOT 0
 #define LEFT 75
 #define RIGHT 25
 
 #define EPS 1e-4 
+
+/*
+In questa versione del codice, si vogliono testare le prestazioni del codice mediante l'uso di solo openMP
+Fase 1: Inizializzazione dell'array lineare contiguo (usando come base l'ottimizzazione di heat_seq_3)
+Fase 2: Parallelizzazione dell'inizializzazione dei dati ai bordi (sfrutta la First-Touch policy per i sistemi NUMA)
+Fase 3: Parallelizzazione dei calcoli all'interno del for usando collapse(2) (dato che mancano istruzioni tra i due cicli) e reduction sulla differenza per evitare race conditions
+Fase 4: Verifica del superamento della soglia mediante confronto tra i quadrati
+*/
 
 int main(int argc, char const *argv[])
 {
@@ -65,7 +78,7 @@ int main(int argc, char const *argv[])
 
         iterazioni++; 
 
-    } while (differenza > eps_sq);
+    } while (differenza > eps_sq); 
     
     clock_gettime(CLOCK_MONOTONIC, &end);
 

@@ -5,7 +5,6 @@
 #include <time.h>
 
 //#define N 64
-//#define N 128
 #define N 512
 //#define N 1024
 //#define N 2048
@@ -13,27 +12,27 @@
 #define BOT 0
 #define LEFT 75
 #define RIGHT 25
-#define EPS 1e-4 // Soglia di convergenza definita
+#define EPS 1e-4 
+
+/* In questa versione del codice sequenziale si vuole testare il miglioramento delle prestazioni evitando l'utilizzo di una matrice bensì utilizzando un unico grande array da "scorrere come una matrice" così da ottimizzare l'utilizzo della cache e velocizzare gli accessi tramite aritmetica dei puntatori.
+*/
 
 int main(int argc, char const *argv[])
 {
-    // 1. ALLOCAZIONE LINEARE
     double *u = (double *)calloc(N * N, sizeof(double));
     double *u_new = (double *)calloc(N * N, sizeof(double));
 
-    // 2. INIZIALIZZAZIONE DEI BORDI
     for (int i = 1; i < N - 1; i++) {
         u[0 * N + i] = u_new[0 * N + i] = TOP;               // Riga 0
-        u[(N - 1) * N + i] = u_new[(N - 1) * N + i] = BOT;   // Ultima Riga
-        u[i * N + 0] = u_new[i * N + 0] = LEFT;              // Prima Colonna
-        u[i * N + (N - 1)] = u_new[i * N + (N - 1)] = RIGHT; // Ultima Colonna
+        u[(N - 1) * N + i] = u_new[(N - 1) * N + i] = BOT;   // Ultima riga
+        u[i * N + 0] = u_new[i * N + 0] = LEFT;              // Prima colonna
+        u[i * N + (N - 1)] = u_new[i * N + (N - 1)] = RIGHT; // Ultima colonna
     }
 
-    // 3. INIZIALIZZAZIONE DEGLI ANGOLI
-    u[0 * N + 0] = u_new[0 * N + 0] = TOP;                               // Alto-Sinistra
-    u[0 * N + (N - 1)] = u_new[0 * N + (N - 1)] = RIGHT;                 // Alto-Destra
-    u[(N - 1) * N + 0] = u_new[(N - 1) * N + 0] = LEFT;                  // Basso-Sinistra
-    u[(N - 1) * N + (N - 1)] = u_new[(N - 1) * N + (N - 1)] = BOT;       // Basso-Destra
+    u[0 * N + 0] = u_new[0 * N + 0] = TOP;                               // Alto-sinistra
+    u[0 * N + (N - 1)] = u_new[0 * N + (N - 1)] = RIGHT;                 // Alto-destra
+    u[(N - 1) * N + 0] = u_new[(N - 1) * N + 0] = LEFT;                  // Basso-sinistra
+    u[(N - 1) * N + (N - 1)] = u_new[(N - 1) * N + (N - 1)] = BOT;       // Basso-destra
     
     double differenza = 0.0; 
     int iterazioni = 0; 
