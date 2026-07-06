@@ -6,8 +6,8 @@
 #include <time.h>
 #include <omp.h>
 
-#define N 512
-//define N 1024
+//#define N 512
+#define N 1024
 //define N 2048
 
 #define TOP 100
