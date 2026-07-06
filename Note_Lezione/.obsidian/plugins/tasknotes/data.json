@@ -491,7 +491,7 @@
   "lastSeenVersion": "4.11.1",
   "pomodoroState": {
     "isRunning": true,
-    "timeRemaining": 3000,
+    "timeRemaining": 2161,
     "currentSession": {
       "id": "1783352862018",
       "taskPath": "TaskNotes/Tasks/Fare pulizia del codice e commenti.md",
@@ -501,7 +501,11 @@
       "completed": false,
       "activePeriods": [
         {
-          "startTime": "2026-07-06T17:47:42.018+02:00"
+          "startTime": "2026-07-06T17:47:42.018+02:00",
+          "endTime": "2026-07-06T18:01:41.792+02:00"
+        },
+        {
+          "startTime": "2026-07-06T18:16:38.087+02:00"
         }
       ]
     }

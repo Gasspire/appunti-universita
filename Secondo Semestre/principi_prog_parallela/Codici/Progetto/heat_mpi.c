@@ -18,20 +18,18 @@
 
 
 /*
-FASE 1: Inizializzazione di MPI e 
-FASE 2: Allocazione della matrice fatta da P0
-FASE 3: Il carico di lavoro viene suddiviso in base al numero di processi attivi, facendo quindi N/P con P = processi assicurando che se c'è resto banalmente l'ultimo ne prende qualcuna in più
+FASE 1: Inizializzazione di MPI 
+FASE 2: Allocazione della sottomatrice locale da parte di ogni singolo processo
+FASE 3: Il carico di lavoro viene suddiviso in base al numero di processi attivi (N/P). L'eventuale resto viene assegnato all'ultimo processo.
 FASE 4: Una volta che il carico è distribuito si scambiano le righe necessarie sotto e sopra: esempio il processo che sta in mezzo ha bisogno sia di quella sopra che di quella sotto e così via
-FASE 5: Si inizia il lavoro e parallelizziamo il for interno con più thread facendo poi la somma su un TMP in modo da da poi calcolare la norma L2
-FASE 5.2: Una volta finito tutto il lavoro si chiama la wait per ottenere le righe necessarie e poi si calcolano i bordi.  
+FASE 5.1: Si inizia il lavoro di calcolo sulle righe interne grazie all'uso di chiamate non bloccanti
+FASE 5.2: Chiamata Waitall per attendere la ricezione effettiva degli halo, seguita dal calcolo delle righe di bordo.
 FASE 6: Tutti chiamano la MPI_Allreduce per ottenere L2. Se si finisce si termina, altrimenti si invertono i puntatori u e u_new e si ricomincia
 */
-
 
 int main(int argc, char  *argv[])
 {
     MPI_Init(&argc,&argv);
-    //controllo che il livello sia quello proposto
 
 
     int num_processi, rank;
@@ -67,8 +65,8 @@ int main(int argc, char  *argv[])
     
 
     //adesso ogni processo dovrà inizializzare la sua parte di matrice.
-    //Essendo la suddivisione fatta per riga, ognuno di questi dovrà allocare il valore a sinistra e a destra ma SOLO 0 e NUM-PROCESSI -1 dovranno allocare rispettivamente TOP e BOT
-    if(rank == 0){ //inizializziamo il sopra sulla prima riga VERA (riga 1)
+    //Essendo la suddivisione fatta per riga, ognuno di questi dovrà allocare il valore a sinistra e a destra ma solo 0 e num_processi -1 dovranno allocare rispettivamente TOP e BOT
+    if(rank == 0){ //inizializziamo il sopra sulla prima riga (riga 1)
         for (int i = 0; i < N; i++)
         {
             u[N + i] = u_new[N + i] = TOP;
@@ -85,7 +83,7 @@ int main(int argc, char  *argv[])
     }
     
     //qui ognuno dovrà inizializzare sx e dx
-    for (int i = 1; i <= righe_per_processo; i++) //la riga 0 è usata per l'hello nei casi standard 
+    for (int i = 1; i <= righe_per_processo; i++) //la riga 0 è usata per l'halo nei casi in cui non sia P0
     {
         u[i*N] = u_new[i*N] = LEFT;
         u[(i*N) + N-1] = u_new[(i*N) + N-1] = RIGHT;
@@ -100,15 +98,15 @@ int main(int argc, char  *argv[])
     }
 
 
-    double differenza = 0.0; //qui inseriremo la norma L2
-    int iterazioni = 0; //qui teniamo conto del numero di iterazioni fatte dal ciclo 
+    double differenza = 0.0;  // qui accumuleremo la somma dei quadrati delle differenze per la norma L2
+    int iterazioni = 0; //qui teniamo conto del numero di iterazioni fatte dal While 
 
 
     double eps_sq = EPS * EPS;
     double differenza_globale;
 
     double start_time = 0.0, end_time = 0.0;
-    MPI_Barrier(comm_cart); // La barriera serve sempre!
+    MPI_Barrier(comm_cart); // Barriera prima di inizializzare il conto del tempo
     if (rank == 0) {
         start_time = MPI_Wtime();
     }
@@ -117,15 +115,17 @@ int main(int argc, char  *argv[])
         //A questo punto cominciamo il processo di scambio delle righe sotto e sopra
         //Ci viene garantito grazie alla chiamata MPI_Cart_shift che se il vicino sopra/sotto non c'è (caso di rank 0 e rank num_p -1), allora poi con la Send/Recv, non succederà niente 
         differenza = 0.0;
-        MPI_Request req_send[2];
-        MPI_Request req_recv[2];
+        MPI_Request req_send[2]; //richieste di send per halo
+        MPI_Request req_recv[2]; //richieste di recv per halo
 
-        //Quello che vogliamo mandare al prossimo processo è la prima riga a quello di sopra mentre a quello di sotto vogliamo mandare l'ultima!
+        //Quello che vogliamo mandare è la prima riga al processo sopra mentre a quello di sotto vogliamo mandare l'ultima (questo ci è permesso grazie al mapping dei processi dovuti a MPI_Cart_create)
+        
+        // Ci mettiamo in attesa tramite chiamate asincrone
         MPI_Irecv(&u[0], N, MPI_DOUBLE, rank_up, 0, comm_cart, &req_recv[0]);
         MPI_Irecv(&u[(righe_per_processo+1) * N], N, MPI_DOUBLE, rank_down, 0, comm_cart, &req_recv[1]);
 
     
-
+        // Inviamo tramite righe asincrone
         MPI_Isend(&u[1* N], N,MPI_DOUBLE,rank_up, 0, comm_cart,&req_send[0]);
         MPI_Isend(&u[(righe_per_processo * N)], N,MPI_DOUBLE,rank_down, 0, comm_cart,&req_send[1]);
 
@@ -151,14 +151,14 @@ int main(int argc, char  *argv[])
 
         for (int i = 1; i < N-1; i++) //calcoliamo le ultime righe arrivate 
         {
-            // SOLO CHI NON È IL PRIMO calcola la prima riga
+            // Solo chi non è il primo processo calcola la prima riga dato che lui può effettivamente calcolarla a prescindere dato che non ha bisogno dello scambio
             if (rank != 0) {
                 u_new[N+i] = (u[i] + u[N+i-1] + u[N+i+1]+u[(2*N)+i]) * 0.25; 
                 double tmp_1 = u_new[N+i] - u[N+i];
                 differenza += (tmp_1 * tmp_1);
             }
             
-            // SOLO CHI NON È L'ULTIMO calcola l'ultima riga
+            // Solo chi non è l'ultimo processo calcola l'ultima riga per le stesse ragioni descritte sopra
             if (rank != num_processi - 1) {
                 u_new[(righe_per_processo * N)+i] = (u[((righe_per_processo-1) * N)+i] + u[(righe_per_processo * N)+i -1 ] + u[(righe_per_processo * N)+i +1 ]+u[((righe_per_processo+1) * N)+i]) * 0.25; 
                 double tmp_2 = u_new[(righe_per_processo * N)+i] - u[(righe_per_processo * N)+i];
@@ -178,7 +178,7 @@ int main(int argc, char  *argv[])
     
     } while (differenza_globale > eps_sq);
     
-    MPI_Barrier(comm_cart); 
+    MPI_Barrier(comm_cart);  // barriera che ci garantisce che tutti abbiano finito prima di calcolare il tempo di fine
     if (rank == 0) {
         end_time = MPI_Wtime();
         double tempo_esecuzione = end_time - start_time;

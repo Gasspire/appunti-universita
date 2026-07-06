@@ -73,7 +73,7 @@ int main(int argc, char  *argv[])
 
     //adesso ogni processo dovrà inizializzare la sua parte di matrice.
     //Essendo la suddivisione fatta per riga, ognuno di questi dovrà allocare il valore a sinistra e a destra ma SOLO 0 e NUM-PROCESSI -1 dovranno allocare rispettivamente TOP e BOT
-    if(rank == 0){ //inizializziamo il sopra sulla prima riga VERA (riga 1)
+    if(rank == 0){ //inizializziamo il sopra sulla prima riga vera
         for (int i = 0; i < N; i++)
         {
             u[N + i] = u_new[N + i] = TOP;
@@ -122,10 +122,10 @@ int main(int argc, char  *argv[])
         //A questo punto cominciamo il processo di scambio delle righe sotto e sopra
         //Ci viene garantito grazie alla chiamata MPI_Cart_shift che se il vicino sopra/sotto non c'è (caso di rank 0 e rank num_p -1), allora poi con la Send/Recv, non succederà niente e non si verificheranno crash
         differenza = 0.0;
-        MPI_Request req_send[2]; //richieste di send per hallo
-        MPI_Request req_recv[2]; //richieste di recv per hallo
+        MPI_Request req_send[2]; //richieste di send per halo
+        MPI_Request req_recv[2]; //richieste di recv per halo
 
-        //Quello che vogliamo mandare è la prima riga al processo sopra mentre a quello di sotto vogliamo mandare l'ultima (questo ci è permesso grazie al mappin dei processi dovuti a MPI_Cart_create)
+        //Quello che vogliamo mandare è la prima riga al processo sopra mentre a quello di sotto vogliamo mandare l'ultima (questo ci è permesso grazie al mapping dei processi dovuti a MPI_Cart_create)
 
         // Ci mettiamo in attesa tramite chiamate asincrone
         MPI_Irecv(&u[0], N, MPI_DOUBLE, rank_up, 0, comm_cart, &req_recv[0]);
@@ -187,7 +187,7 @@ int main(int argc, char  *argv[])
     
     } while (differenza_globale > eps_sq);
     
-    MPI_Barrier(comm_cart);  // barriera che ci garantisce che tutti abbiano finito prima di calcolare il tempoo di fine
+    MPI_Barrier(comm_cart);  // barriera che ci garantisce che tutti abbiano finito prima di calcolare il tempo di fine
     if (rank == 0) {
         end_time = MPI_Wtime();
         double tempo_esecuzione = end_time - start_time;
