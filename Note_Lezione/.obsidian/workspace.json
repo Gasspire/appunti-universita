@@ -20,8 +20,22 @@
               "icon": "lucide-file",
               "title": "Grafi Hamiltoniani ed Eureliani"
             }
+          },
+          {
+            "id": "3646ecd5ed27fd2f",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "TaskNotes/Views/kanban-default.base",
+                "viewName": "Kanban Board"
+              },
+              "icon": "tasknotes-simple",
+              "title": "kanban-default"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -203,7 +217,7 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "264152998cf7b9d0",
+  "active": "3646ecd5ed27fd2f",
   "lastOpenFiles": [
     "Teoria dei Grafi/Grafi Hamiltoniani ed Eureliani.md",
     "Teoria dei Grafi/Concetti Base.md",
