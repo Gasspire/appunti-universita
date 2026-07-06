@@ -217,8 +217,13 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "3646ecd5ed27fd2f",
+  "active": "c934532cabf2938e",
   "lastOpenFiles": [
+    "TaskNotes/Views/kanban-default.base",
+    "TaskNotes/Tasks/Fare il powerpoint per il progetto.md",
+    "TaskNotes/Tasks/Fare versione puramente OMP.md",
+    "TaskNotes/Tasks/Fare pulizia del codice e commenti.md",
+    "TaskNotes/Tasks/Fare tutti i benchmark per il progetto.md",
     "Teoria dei Grafi/Grafi Hamiltoniani ed Eureliani.md",
     "Teoria dei Grafi/Concetti Base.md",
     "Teoria dei Grafi/Alberi.md",
@@ -236,7 +241,6 @@
     "Principi/Immagini/Pasted image 20260629151613.png",
     "Principi/Simulazione della Diffusione del Calore 2D.md",
     "Senza nome.md",
-    "TaskNotes/Views/kanban-default.base",
     "TaskNotes/Start Here.md",
     "TaskNotes/Tasks/Un altro esercizio a scelta.md",
     "TaskNotes/Tasks/Rifare Carta Forbice sos BENE.md",
@@ -259,11 +263,6 @@
     "Computer Security/Prima e Seconda Lezione GDPR.md",
     "Random Stuff/Esami BC.md",
     "Blockchain/Lezione 3. Eth.md",
-    "Blockchain/Esami Passati.md",
-    "Blockchain/Lezione 23 Aprile.md",
-    "Computer Security/Last lesson speed run any %.md",
-    "Computer Security/Ultima lezione GDPR.md",
-    "Computer Security/Lezione 19 Maggio.md",
-    "Principi/Lezione 18 Maggio.md"
+    "Blockchain/Esami Passati.md"
   ]
 }

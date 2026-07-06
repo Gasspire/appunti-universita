@@ -1661,6 +1661,30 @@
       "requestedAt": 1781632182667,
       "attempts": 0,
       "lastError": "Google Calendar sync is not ready"
+    },
+    {
+      "taskPath": "TaskNotes/Tasks/Fare tutti i benchmark per il progetto.md",
+      "requestedAt": 1783333311782,
+      "attempts": 0,
+      "lastError": "Google Calendar sync is not ready"
+    },
+    {
+      "taskPath": "TaskNotes/Tasks/Fare pulizia del codice e commenti.md",
+      "requestedAt": 1783333350703,
+      "attempts": 0,
+      "lastError": "Google Calendar sync is not ready"
+    },
+    {
+      "taskPath": "TaskNotes/Tasks/Fare versione puramente OMP.md",
+      "requestedAt": 1783333583975,
+      "attempts": 0,
+      "lastError": "Google Calendar sync is not ready"
+    },
+    {
+      "taskPath": "TaskNotes/Tasks/Fare il powerpoint per il progetto.md",
+      "requestedAt": 1783333679423,
+      "attempts": 0,
+      "lastError": "Google Calendar sync is not ready"
     }
   ],
   "lastSelectedTaskPath": "TaskNotes/Tasks/Un altro esercizio a scelta.md",
