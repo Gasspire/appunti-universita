@@ -226,5 +226,21 @@ Tempo di esecuzione ibrido: 43.772035 secondi.
 ```
 #### N: 1024
 ```
+Simulazione completata in 1607108 iterazioni.
+Tempo di esecuzione ibrido: 1942.127437 secondi.
 
+ Performance counter stats for 'mpirun -np 4 --oversubscribe ./heat_hybrid':
+
+ 1.175.883.003.967      cache-references                                                        (83,33%)
+    48.616.082.903      cache-misses                     #    4,13% of all cache refs           (83,33%)
+53.362.553.227.245      cycles                                                                  (83,33%)
+24.435.674.630.849      instructions                     #    0,46  insn per cycle              (83,33%)
+ 2.528.987.844.238      branches                                                                (83,33%)
+    10.097.991.867      branch-misses                    #    0,40% of all branches             (83,33%)
+            16.866      page-faults                                                           
+
+    1942,502456038 seconds time elapsed
+
+   15349,030770000 seconds user
+     183,860811000 seconds sys
 ```
