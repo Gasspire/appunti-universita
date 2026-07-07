@@ -491,7 +491,7 @@
   "lastSeenVersion": "4.11.1",
   "pomodoroState": {
     "isRunning": true,
-    "timeRemaining": 3000,
+    "timeRemaining": 1672,
     "currentSession": {
       "id": "1783420617720",
       "startTime": "2026-07-07T12:36:57.720+02:00",
@@ -500,7 +500,11 @@
       "completed": false,
       "activePeriods": [
         {
-          "startTime": "2026-07-07T12:36:57.720+02:00"
+          "startTime": "2026-07-07T12:36:57.720+02:00",
+          "endTime": "2026-07-07T12:59:06.714+02:00"
+        },
+        {
+          "startTime": "2026-07-07T13:21:10.940+02:00"
         }
       ]
     }
