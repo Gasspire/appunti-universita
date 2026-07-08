@@ -98,3 +98,4 @@ Dato un grafo $\mathcal{G}=(V,E)$, si definisce **densità** di $\mathcal{G}$ (i
 Definizione di Classe di colorazione
 ?
 Data una colorazione dei vertici, l'insieme dei vertici che condividono lo stesso colore forma una classe di equivalenza detta **classe di colorazione**. Ogni classe di colorazione è necessariamente un *insieme stabile*, poiché due vertici con lo stesso colore non possono essere adiacenti.
+
