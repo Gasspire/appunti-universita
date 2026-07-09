@@ -45,7 +45,8 @@
               "title": "Colorazione dei grafi"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -227,7 +228,7 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "3646ecd5ed27fd2f",
+  "active": "a063ef73752742a4",
   "lastOpenFiles": [
     "Senza nome.base",
     "Teoria dei Grafi/Stabilità.md",
