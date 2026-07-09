@@ -11,13 +11,14 @@
             "id": "3646ecd5ed27fd2f",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "TaskNotes/Views/kanban-default.base",
-                "viewName": "Kanban Board"
+                "file": "Teoria dei Grafi/Stabilità.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "tasknotes-simple",
-              "title": "kanban-default"
+              "icon": "lucide-file",
+              "title": "Stabilità"
             }
           },
           {
@@ -44,8 +45,7 @@
               "title": "Colorazione dei grafi"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -227,13 +227,17 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "a063ef73752742a4",
+  "active": "3646ecd5ed27fd2f",
   "lastOpenFiles": [
+    "Senza nome.base",
+    "Teoria dei Grafi/Stabilità.md",
+    "Teoria dei Grafi/Edge Coloring.md",
+    "Teoria dei Grafi/Fattorizzazioni.md",
+    "TaskNotes/Views/kanban-default.base",
+    "Teoria dei Grafi/Colorazione dei grafi.md",
     "Teoria dei Grafi/Concetti Base.md",
     "Teoria dei Grafi/Grafi Planari.md",
-    "Teoria dei Grafi/Colorazione dei grafi.md",
     "Benchmark.md",
-    "TaskNotes/Views/kanban-default.base",
     "TaskNotes/Tasks/Fare il powerpoint per il progetto.md",
     "TaskNotes/Tasks/Fare versione puramente OMP.md",
     "TaskNotes/Tasks/Fare pulizia del codice e commenti.md",
@@ -249,7 +253,6 @@
     "Teoria dei Grafi/Immagini/Pasted image 20260704164939.png",
     "Teoria dei Grafi/Immagini/Pasted image 20260704164745.png",
     "Teoria dei Grafi/Immagini/Pasted image 20260704161540.png",
-    "Senza nome.base",
     "Senza nome 1.base",
     "Principi/Immagini/Pasted image 20260629151613.png",
     "Principi/Simulazione della Diffusione del Calore 2D.md",
@@ -270,10 +273,6 @@
     "Principi/Lezione 25 Maggio.md",
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
     "Principi/Domande per Esame.md",
-    "Blockchain/Lezione 4. Eth.md",
-    "Computer Security/26 Maggio.md",
-    "Computer Security/Prima e Seconda Lezione GDPR.md",
-    "Random Stuff/Esami BC.md",
-    "Blockchain/Lezione 3. Eth.md"
+    "Blockchain/Lezione 4. Eth.md"
   ]
 }
