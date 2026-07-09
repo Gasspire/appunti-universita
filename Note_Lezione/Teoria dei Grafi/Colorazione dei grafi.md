@@ -1,3 +1,4 @@
+#flashcards/colorazione
 Definizione di Colorazione dei vertici e grafi notevoli
 ?
 Si definisce colorazione dei vertici di un grafo $\mathcal{G}=(V,E)$ un'applicazione $K:V\rightarrow C$ che ad ogni coppia di vertici $x,y \in V$ per cui esiste uno spigolo $(x,y) \in E$ associa $K(x) \neq K(y)$. Equivalentemente, è una partizione dell'insieme dei vertici $V$ in classi tutte stabili.
@@ -99,3 +100,28 @@ Definizione di Classe di colorazione
 ?
 Data una colorazione dei vertici, l'insieme dei vertici che condividono lo stesso colore forma una classe di equivalenza detta **classe di colorazione**. Ogni classe di colorazione è necessariamente un *insieme stabile*, poiché due vertici con lo stesso colore non possono essere adiacenti.
 
+Teorema sulle proprietà del Polinomio Cromatico (Teorema 5.8.2)
+?
+**Teorema 5.8.2:** Sia $\mathcal{G}$ un grafo con $n$ vertici, $m$ spigoli e $\chi(\mathcal{G}) = \chi$. Allora:
+(i) $P(\mathcal{G}, \lambda) = a_n[\lambda]_n + a_{n-1}[\lambda]_{n-1} + \dots + a_\chi[\lambda]_\chi$
+(ii) $P(\mathcal{G}, \lambda)$ ha grado $n$ ed il suo termine noto è nullo
+(iii) Il coefficiente di $\lambda^n$ è sempre pari a 1
+(iv) $P(\mathcal{G}, \lambda) = \lambda(\lambda-1)\dots(\lambda-\chi+1)Q(\lambda)$
+(v) I coefficienti di $P(\mathcal{G}, \lambda)$ sono alternativamente $\ge 0, \le 0$
+(vi) Il coefficiente di $\lambda^{n-1}$ è $-m$.
+**Dimostrazioni:**
+(i) Applicando l'algoritmo di connessione e contrazione, la scomposizione in cricche di $\mathcal{G}$ è $C(\mathcal{G}) = a_n\mathcal{K}_n + \dots + a_\chi\mathcal{K}_\chi$. Per la linearità, sostituendo il polinomio del grafo completo $P(\mathcal{K}_i, \lambda) = [\lambda]_i$, si ottiene l'espressione.
+(ii) Sviluppando algebricamente i prodotti del punto (i), il grado maggiore lo fornisce la prima parentesi, con $\lambda^n$. Tutti i termini dipendono da $\lambda$, quindi il termine noto è nullo.
+(iii) Nell'algoritmo di connessione/contrazione si ottiene un solo $\mathcal{K}_n$ derivato unicamente da una catena di connessioni continue, per cui $a_n=1$.
+(iv) Poiché per $\lambda < \chi$ non esistono colorazioni, il polinomio si annulla, quindi ha radici in $0, 1, 2, \dots, \chi-1$.Pertanto quei monomi si raccolgono a fattore.
+(v, vi) Entrambe si dimostrano per induzione su $m$. Per $m=0$, il polinomio è $\lambda^n$ e verifica (v) e (vi). Per $m>0$, usando la relazione di contrazione e connessione $P(\mathcal{G}) = P(\mathcal{G}') - P(\mathcal{G} \setminus e)$, la sottrazione tra i polinomi per cui vale l'ipotesi induttiva dimostra che i coefficienti mantengono l'alternanza dei segni (v) e che la componente $\lambda^{n-1}$ decrementa esattamente di 1 per ogni spigolo inserito, provando che vale $-m$ (vi).
+
+Grafi di tipo T1(n,p) e T2(n,p) (Disuguaglianza di Nordhaus-Gaddum)
+?
+Sono le uniche due famiglie di grafi con $n$ vertici per le quali la disuguaglianza di Nordhaus-Gaddum diventa un'uguaglianza ($\chi(\mathcal{G}) + \chi(\overline{\mathcal{G}}) = n + 1$):
+
+- **Grafi di tipo $T_1(n,p)$:** Sono grafi costituiti da un sottografo completo $\mathcal{K}_{n-p+1}$ e da un insieme stabile $T_p$, tali che la loro intersezione contenga un solo vertice ($|V(\mathcal{K}_{n-p+1})\cap T_{p}|=1$). Possono esistere spigoli che collegano un vertice di $\mathcal{K}_{n-p+1}$ con uno di $T_p$.
+Valgono le relazioni: $\chi(\mathcal{G})=n-p+1$, $\chi(\overline{\mathcal{G}})=p$.
+
+- **Grafi di tipo $T_2(n,p)$:** Sono grafi composti da un ciclo $\mathcal{C}_5$, un sottografo completo $\mathcal{K}_{n-p-5}$ e un insieme stabile $T_p$ (con $p \le n-5$). Nessun vertice di $\mathcal{C}_5$ è adiacente a un vertice di $T_p$, mentre ogni vertice di $\mathcal{C}_5$ è adiacente a tutti i vertici di $\mathcal{K}_{n-p-5}$. Possono inoltre esistere spigoli tra $\mathcal{K}_{n-p-5}$ e $T_p$.
+Valgono le relazioni: $\chi(\mathcal{G})=n-p-2$, $\chi(\overline{\mathcal{G}})=p+3$.

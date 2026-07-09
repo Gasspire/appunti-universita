@@ -26,12 +26,12 @@
             "state": {
               "type": "tasknotes-pomodoro-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "tasknotes-pomodoro-view"
+              "icon": "clock",
+              "title": "Pomodoro"
             }
           },
           {
-            "id": "4a37911c74731782",
+            "id": "9fba6e9fb4efd74f",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -45,7 +45,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -227,18 +227,18 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "4a37911c74731782",
+  "active": "a063ef73752742a4",
   "lastOpenFiles": [
-    "Benchmark.md",
-    "Teoria dei Grafi/Colorazione dei grafi.md",
-    "TaskNotes/Views/kanban-default.base",
+    "Teoria dei Grafi/Concetti Base.md",
     "Teoria dei Grafi/Grafi Planari.md",
+    "Teoria dei Grafi/Colorazione dei grafi.md",
+    "Benchmark.md",
+    "TaskNotes/Views/kanban-default.base",
     "TaskNotes/Tasks/Fare il powerpoint per il progetto.md",
     "TaskNotes/Tasks/Fare versione puramente OMP.md",
     "TaskNotes/Tasks/Fare pulizia del codice e commenti.md",
     "TaskNotes/Tasks/Fare tutti i benchmark per il progetto.md",
     "Teoria dei Grafi/Grafi Hamiltoniani ed Eureliani.md",
-    "Teoria dei Grafi/Concetti Base.md",
     "Teoria dei Grafi/Alberi.md",
     "Teoria dei Grafi/Immagini/Pasted image 20260704165713.png",
     "Teoria dei Grafi/Immagini/Pasted image 20260704165700.png",
