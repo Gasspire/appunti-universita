@@ -1,0 +1,28 @@
+Inizializza matrici u e u_new (N x N) con bordi di Dirichlet
+eps_sq = EPS * EPS
+iterazioni = 0
+
+DO
+    differenza = 0.0
+    
+    // Scansione del dominio interno
+    FOR i = 1 TO N - 1
+        FOR j = 1 TO N - 1
+            
+            // Aggiornamento tramite stencil a 5 punti
+            u_new[i, j] = 0.25 * (u[i-1, j] + u[i+1, j] + 
+                                  u[i, j-1] + u[i, j+1])
+            
+            // Calcolo scarto per la convergenza L2
+            tmp = u_new[i, j] - u[i, j]
+            differenza = differenza + (tmp * tmp)
+            
+        END FOR
+    END FOR
+    
+    Scambia(u, u_new)
+    iterazioni = iterazioni + 1
+
+WHILE (differenza > eps_sq)
+
+

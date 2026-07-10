@@ -490,22 +490,11 @@
   "enableDebugLogging": false,
   "lastSeenVersion": "4.11.1",
   "pomodoroState": {
-    "isRunning": true,
-    "timeRemaining": 600,
-    "currentSession": {
-      "id": "1783592425877",
-      "startTime": "2026-07-09T12:20:25.876+02:00",
-      "plannedDuration": 10,
-      "type": "short-break",
-      "completed": false,
-      "activePeriods": [
-        {
-          "startTime": "2026-07-09T12:20:25.876+02:00"
-        }
-      ]
-    }
+    "isRunning": false,
+    "timeRemaining": 3000,
+    "nextSessionType": "work"
   },
-  "lastPomodoroDate": "2026-07-08",
+  "lastPomodoroDate": "2026-07-09",
   "pomodoroHistory": [
     {
       "id": "1781534895991",
@@ -1878,6 +1867,66 @@
         {
           "startTime": "2026-07-09T11:51:09.759+02:00",
           "endTime": "2026-07-09T12:20:24.055+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1783671414734",
+      "startTime": "2026-07-10T10:16:54.734+02:00",
+      "endTime": "2026-07-10T11:09:19.061+02:00",
+      "plannedDuration": 50,
+      "type": "work",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-07-10T10:16:54.734+02:00",
+          "endTime": "2026-07-10T10:32:43.611+02:00"
+        },
+        {
+          "startTime": "2026-07-10T10:35:07.938+02:00",
+          "endTime": "2026-07-10T11:09:19.061+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1783674561105",
+      "startTime": "2026-07-10T11:09:21.105+02:00",
+      "endTime": "2026-07-10T11:19:21.105+02:00",
+      "plannedDuration": 10,
+      "type": "short-break",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-07-10T11:09:21.105+02:00",
+          "endTime": "2026-07-10T11:19:21.105+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1783675483921",
+      "startTime": "2026-07-10T11:24:43.921+02:00",
+      "endTime": "2026-07-10T12:14:43.921+02:00",
+      "plannedDuration": 50,
+      "type": "work",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-07-10T11:24:43.921+02:00",
+          "endTime": "2026-07-10T12:14:43.921+02:00"
+        }
+      ]
+    },
+    {
+      "id": "1783678485031",
+      "startTime": "2026-07-10T12:14:45.031+02:00",
+      "endTime": "2026-07-10T12:24:45.031+02:00",
+      "plannedDuration": 10,
+      "type": "short-break",
+      "completed": true,
+      "activePeriods": [
+        {
+          "startTime": "2026-07-10T12:14:45.031+02:00",
+          "endTime": "2026-07-10T12:24:45.031+02:00"
         }
       ]
     }

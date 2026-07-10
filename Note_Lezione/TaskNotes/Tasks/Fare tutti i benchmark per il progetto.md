@@ -1,11 +1,13 @@
 ---
-status: open
+status: done
 priority: normal
 scheduled: 2026-07-06
 dateCreated: 2026-07-06T12:21:51.705+02:00
-dateModified: 2026-07-06T12:25:48.780+02:00
+dateModified: 2026-07-10T10:16:47.279+02:00
 tags:
   - task
+tasknotes_manual_order: tnqgmzzzzzzx
+completedDate: 2026-07-10
 ---
 
 Raccogliere metriche: 
