@@ -8,16 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a063ef73752742a4",
-            "type": "leaf",
-            "state": {
-              "type": "tasknotes-pomodoro-view",
-              "state": {},
-              "icon": "clock",
-              "title": "Pomodoro"
-            }
-          },
-          {
             "id": "d74b618897e0e050",
             "type": "leaf",
             "state": {
@@ -45,8 +35,7 @@
               "title": "Benchmark"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -228,7 +217,7 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "bfe9238a087c5645",
+  "active": "d74b618897e0e050",
   "lastOpenFiles": [
     "Cose.md",
     "Benchmark.md",
