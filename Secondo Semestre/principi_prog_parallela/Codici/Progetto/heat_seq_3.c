@@ -4,11 +4,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-//#define N 64
+#define N 64
 //#define N 128
 //#define N 256
 
-#define N 512
+//#define N 512
 //#define N 1024
 //#define N 2048
 #define TOP 100

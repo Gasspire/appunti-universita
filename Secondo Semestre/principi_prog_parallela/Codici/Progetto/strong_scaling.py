@@ -27,6 +27,7 @@ configs = [
     {"modello": "Ibrido", "P": 1, "T": 2, "exe": "./heat_hybrid"},
     {"modello": "Ibrido", "P": 2, "T": 2, "exe": "./heat_hybrid"},
     {"modello": "Ibrido", "P": 2, "T": 3, "exe": "./heat_hybrid"},
+    {"modello": "Ibrido", "P": 3, "T": 2, "exe": "./heat_hybrid"},
     {"modello": "Ibrido", "P": 4, "T": 2, "exe": "./heat_hybrid"}
 ]
 

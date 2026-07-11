@@ -1,5 +1,5 @@
 #define _POSIX_C_SOURCE 199309L
-//COMPILAZIONE: mpicc heat_hybrid_1.c -O2 -Wall -fopenmp -o heat_hybrid
+//COMPILAZIONE: mpicc heat_hybrid_2.c -O2 -Wall -fopenmp -o heat_hybrid
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -9,8 +9,8 @@
 //#define N 64
 //#define N 128
 //#define N 256
-#define N 512
-//#define N 1024
+//#define N 512
+#define N 1024
 
 #define TOP 100
 #define BOT 0

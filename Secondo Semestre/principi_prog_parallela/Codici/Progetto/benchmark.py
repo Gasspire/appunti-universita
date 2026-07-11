@@ -8,10 +8,10 @@ from datetime import datetime
 # ==========================================
 # Le configurazioni richieste dal prof a parità di core (PxT = 8)
 configs = [
-    {"P": 8, "T": 1},
-    {"P": 4, "T": 2},
-    {"P": 2, "T": 4},
-    {"P": 1, "T": 8}
+    {"P": 6, "T": 1},
+    {"P": 3, "T": 2},
+    {"P": 2, "T": 3},
+    {"P": 1, "T": 6}
 ]
 
 # Modifica questo flag a True se il tuo PC ha meno di 8 core fisici 
