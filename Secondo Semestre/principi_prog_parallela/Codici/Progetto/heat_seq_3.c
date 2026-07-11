@@ -8,8 +8,8 @@
 //#define N 128
 //#define N 256
 
-//#define N 512
-#define N 1024
+#define N 512
+//#define N 1024
 //#define N 2048
 #define TOP 100
 #define BOT 0

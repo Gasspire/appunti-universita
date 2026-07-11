@@ -18,7 +18,7 @@ $(EXEC_SEQ): heat_seq_3.c
 $(EXEC_MPI): heat_mpi.c
 	$(MPICC) $(CFLAGS) $< -o $@
 
-$(EXEC_HYBRID): heat_hybrid_1.c
+$(EXEC_HYBRID): heat_hybrid_2.c
 	$(MPICC) $(CFLAGS) $(OMPFLAGS) $< -o $@
 
 $(EXEC_OMP): heat_omp.c
