@@ -23,7 +23,7 @@
 /*
 Fase 1: Allocazione con malloc per evitare il First Touch del Master Thread.
 Fase 2: Usiamo un pragma omp parallel for con schedule(static) per azzerare la matrice e impostare i bordi. Questo garantisce che la RAM venga allocata sul socket corretto rispettando la First Touch Policy.
-Fase 3: Calcolo parallelo con collapse(2) e reduction.
+Fase 3: Calcolo parallelo con reduction.
 */
 
 int main(int argc, char const *argv[])
@@ -65,7 +65,7 @@ int main(int argc, char const *argv[])
     do {
         differenza = 0.0;
 
-        #pragma omp parallel for schedule(static) collapse(2) reduction(+:differenza)
+        #pragma omp parallel for schedule(static) reduction(+:differenza)
         for (int i = 1; i < N-1; i++) 
         {
             for (int j = 1; j < N-1; j++)

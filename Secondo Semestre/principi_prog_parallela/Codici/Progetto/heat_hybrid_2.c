@@ -1,5 +1,5 @@
 #define _POSIX_C_SOURCE 199309L
-//COMPILAZIONE: mpicc heat_hybrid_2.c -O2 -Wall -fopenmp -o heat_hybrid
+//COMPILAZIONE: mpicc heat_hybrid_1.c -O2 -Wall -fopenmp -o heat_hybrid
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -53,17 +53,9 @@ int main(int argc, char  *argv[])
 
     int dimensione_totale = (righe_per_processo + 2) * N;
 
-    // ==========================================
-    // FIRST TOUCH POLICY
-    // ==========================================
-    // Usiamo malloc invece di calloc. La calloc verrebbe eseguita dal solo thread 
-    // master, allocando tutta la memoria fisica sul suo nodo NUMA.
     double *u = (double *) malloc(dimensione_totale * sizeof(double));
     double *u_new = (double *) malloc(dimensione_totale * sizeof(double));
     
-    // Inizializziamo a 0 in parallelo usando lo stesso schedule(static) del calcolo.
-    // Il sistema operativo mapperà fisicamente la memoria RAM sul nodo NUMA del thread
-    // che effettua la prima scrittura (First Touch).
     #pragma omp parallel for schedule(static)
     for (int i = 0; i < righe_per_processo + 2; i++) {
         for (int j = 0; j < N; j++) {
@@ -71,7 +63,6 @@ int main(int argc, char  *argv[])
             u_new[(i * N) + j] = 0.0;
         }
     }
-    // ==========================================
 
     if(rank == 0){ 
         for (int i = 0; i < N; i++)
