@@ -3,10 +3,7 @@ import re
 import os
 from datetime import datetime
 
-# ==========================================
-# CONFIGURAZIONE DEL BENCHMARK
-# ==========================================
-# Le configurazioni richieste dal prof a parità di core (PxT = 8)
+
 configs = [
     {"P": 6, "T": 1},
     {"P": 3, "T": 2},
@@ -14,8 +11,6 @@ configs = [
     {"P": 1, "T": 6}
 ]
 
-# Modifica questo flag a True se il tuo PC ha meno di 8 core fisici 
-# e mpirun ti dà errore quando provi a lanciare 8 processi.
 USE_OVERSUBSCRIBE = True 
 
 def extract_time(output):
@@ -46,7 +41,6 @@ def main():
     with open(filename, "w") as f:
         write_log(f"# Benchmark Equazione del Calore 2D - {datetime.now().strftime('%d/%m/%Y %H:%M')}\n", f)
         
-        # 1. ESECUZIONE SEQUENZIALE (Baseline)
         write_log("## 1. Versione Sequenziale (Baseline)", f)
         out_seq = run_cmd(["./heat_seq"])
         if not out_seq:
@@ -56,18 +50,15 @@ def main():
         t_seq = extract_time(out_seq)
         write_log(f"**Tempo Sequenziale:** {t_seq:.4f} secondi\n", f)
 
-        # Preparazione tabella Markdown
         write_log("## 2. Test Paralleli (Strong Scaling - P x T = 8)", f)
         write_log("| Configurazione | Modello | Eseguibile | Tempo (s) | Speedup $S(p)$ | Efficienza $E(p)$ |", f)
         write_log("| :--- | :--- | :--- | :--- | :--- | :--- |", f)
 
-        # 2. ESECUZIONE DELLE CONFIGURAZIONI PARALLELE
         for conf in configs:
             p = conf["P"]
             t = conf["T"]
             core_totali = p * t
             
-            # --- TEST MPI PURO (Solo per P=8, T=1) ---
             if t == 1:
                 cmd_mpi = ["mpirun", "-np", str(p)]
                 if USE_OVERSUBSCRIBE:
@@ -82,7 +73,6 @@ def main():
                     efficienza = speedup / core_totali
                     write_log(f"| {p}P x {t}T | **MPI Puro** | `heat_mpi` | {t_mpi:.4f} | {speedup:.2f}x | {efficienza:.2f} |", f)
 
-            # --- TEST OPENMP PURO (Solo per P=1, T=8) ---
             if p == 1:
                 cmd_omp = ["./heat_omp"]
                 env = os.environ.copy()
@@ -96,7 +86,6 @@ def main():
                     efficienza = speedup / core_totali
                     write_log(f"| {p}P x {t}T | **OMP Puro** | `heat_omp` | {t_omp:.4f} | {speedup:.2f}x | {efficienza:.2f} |", f)
 
-            # --- TEST IBRIDO (Per tutte le configurazioni) ---
             cmd_hybrid = ["mpirun", "-np", str(p)]
             if USE_OVERSUBSCRIBE:
                 cmd_hybrid.insert(1, "--oversubscribe")
