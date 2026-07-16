@@ -97,9 +97,7 @@ Un cammino C(u, v) si dice elementare o percorso (path) se i vertici che la comp
 
 Definizione di Ciclo
 ?
-Fissati k vertici tutti distinti v1 , v2 , . . . , vk ∈ V , con k ≥ 3, si dice che essi
-formano un ciclo (cycle) Ck di lunghezza k se esiste una catena elementare Pk = C(v1 , vk ) e
-(v1 , vk ) ∈ E.
+Fissati k vertici tutti distinti v1 , v2 , . . . , vk ∈ V , con k ≥ 3, si dice che essi formano un ciclo (cycle) Ck di lunghezza k se esiste una catena elementare Pk = C(v1 , vk ) e (v1 , vk ) ∈ E.
 <!--SR:!2026-07-08,3,250-->
 
 Definizione di Corda e Grafo Cordale
