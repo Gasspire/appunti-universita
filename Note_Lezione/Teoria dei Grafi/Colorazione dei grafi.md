@@ -1,5 +1,5 @@
 #flashcards/colorazione
-Definizione di Colorazione dei vertici e grafi notevoli
+Definizione di Colorazione dei vertici
 ?
 Si definisce colorazione dei vertici di un grafo $\mathcal{G}=(V,E)$ un'applicazione $K:V\rightarrow C$ che ad ogni coppia di vertici $x,y \in V$ per cui esiste uno spigolo $(x,y) \in E$ associa $K(x) \neq K(y)$. Equivalentemente, è una partizione dell'insieme dei vertici $V$ in classi tutte stabili.
 
