@@ -44,7 +44,7 @@ Polinomio cromatico: definizione e principali proprietà
 - Riduzione: se $x$ e $y$ non sono adiacenti, $P(\mathcal{G},\lambda) = P(\mathcal{G}+(x,y),\lambda) + P(\mathcal{G}\setminus(x,y),\lambda)$. **Dimostrazione:** Tutte le $\lambda$-colorazioni di $\mathcal{G}$ si dividono esattamente in quelle in cui $x$ e $y$ hanno colori diversi (calcolate nel grafo connessione) e quelle in cui hanno lo stesso colore (calcolate nel grafo contrazione).
 - È un polinomio di grado $n$, il cui termine noto è nullo e il coefficiente di $\lambda^n$ è 1.
 
-Teorema 5.8.3
+Teorema 5.8.3: Polinomio cromatico di un albero
 ?
 **Enunciato:** Sia $\mathcal{G}$ un grafo con $n$ vertici ed $m$ spigoli. Allora $\mathcal{G}$ è un albero se e solo se $P(\mathcal{G},\lambda) = \lambda(\lambda-1)^{n-1}$.
 
@@ -72,7 +72,7 @@ Teorema di Mycielski
 ?
 **Enunciato:** Se $\mathcal{G}$ è un grafo $k$-cromatico e privo di sottografi $\mathcal{K}_3$, allora $M(\mathcal{G})$ è $(k+1)$-cromatico ed è anch'esso privo di $\mathcal{K}_3$.
 
-Teorema 5.9.4
+**Enunciato:** Per ogni $h \in \mathbb{N}$ esistono grafi $\mathcal{G}$ aventi densità cromatica $h$.
 ?
 **Enunciato:** Per ogni $h \in \mathbb{N}$ esistono grafi $\mathcal{G}$ aventi densità cromatica $h$.
 **Dimostrazione:** Si considera un grafo $\mathcal{G}$ con $\chi(\mathcal{G})=\omega(\mathcal{G})=2$ a cui si applica $h$ volte iterativamente la costruzione di Mycielski. Ad ogni iterazione, per il Teorema di Mycielski, il numero cromatico aumenta di 1 mentre la densità rimane 2 in quanto non si creano triangoli. Il grafo finale $\mathcal{G}_h$ avrà $\chi(\mathcal{G}_h) = h+2$ e $\omega(\mathcal{G}_h) = 2$, fornendo una densità cromatica $\delta(\mathcal{G}_h) = h$.
