@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Benchmark.md",
+                "file": "Teoria dei Grafi/Caratterizzazioni, Teoremi Importanti, Applicazioni.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Benchmark"
+              "title": "Caratterizzazioni, Teoremi Importanti, Applicazioni"
             }
           }
         ]
@@ -203,8 +203,9 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "c934532cabf2938e",
+  "active": "d74b618897e0e050",
   "lastOpenFiles": [
+    "Teoria dei Grafi/Caratterizzazioni, Teoremi Importanti, Applicazioni.md",
     "Benchmark.md",
     "Cose.md",
     "TaskNotes/Views/kanban-default.base",
@@ -249,7 +250,6 @@
     "TaskNotes/Views/mini-calendar-default.base",
     "Blockchain/Ultimi Dubbi.md",
     "Computer Security/RA.md",
-    "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md",
-    "Principi/Lezione 25 Maggio.md"
+    "Blockchain/Domande BC per esame basati su Appunti miei e le prove uscite.md"
   ]
 }
