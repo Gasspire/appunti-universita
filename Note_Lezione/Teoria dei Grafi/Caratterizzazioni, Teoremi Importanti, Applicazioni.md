@@ -21,18 +21,10 @@ Dato un digrafo $G=(V,E)$ connesso e tale che $|V| = n$ e $|E| = m$ le seguente 
 
 ## Applicazioni
 #### Formula di Cayley
-L'applicazione dei grafi studiata da Arthur Cayley a partire dal 1850 nasce per risolvere un problema pratico di chimica matematica legato agli **alcani**, composti organici formati solo da carbonio e idrogeno con formula generale $C_n H_{2n+2}$.
-
-Cayley notò che rappresentando queste molecole con un grafo — in cui gli atomi sono i vertici e i legami sono gli spigoli — il carbonio (tetravalente) assume sempre grado 4 e l'idrogeno (monovalente) assume sempre grado 1. Avendo la molecola un totale di $3n+2$ atomi, tramite l'applicazione del lemma delle strette di mano si ricava che il numero complessivo di legami è esattamente $3n+1$. Poiché in questo grafo il numero di spigoli è pari al numero dei vertici meno uno ($|E| = |V| - 1$) e la molecola è una struttura connessa, **il grafo associato a un alcano è sempre e rigorosamente un albero**.
-
-Il motivo che spinse Cayley a cercare una formula derivò dall'esigenza chimica di determinare tutti i possibili **isomeri** degli alcani. Gli isomeri sono composti che possiedono la medesima formula molecolare ma con una struttura spaziale degli atomi differente, il che si traduce in proprietà chimico-fisiche diverse. In termini di teoria dei grafi, trovare tutti i possibili isomeri equivale a risolvere un problema combinatorio: **contare quanti alberi etichettati distinti si possono costruire su un insieme di $n$ vertici**.
-
-Da questa intuizione scaturisce la celebre formula, matematicamente formalizzata nel **Teorema di Cayley (1899)**: **Il numero di alberi etichettati su $n$ vertici è esattamente $n^{n-2}$**.
-
-Una conseguenza pratica diretta di questa formula è che anche il numero totale di _spanning trees_ (alberi ricoprenti) che si possono ottenere da un grafo completo $K_n$ è pari a $n^{n-2}$.
-
-Il calcolo esatto di questa formula fu successivamente dimostrato in maniera costruttiva grazie all'invenzione del **codice di Prüfer**. Prüfer dimostrò che esiste una corrispondenza biunivoca perfetta tra ogni possibile albero etichettato su $n$ vertici e una sequenza ordinata di $n-2$ interi scelti tra 1 e $n$. Poiché per comporre questa sequenza di lunghezza $n-2$ possiamo scegliere tra $n$ opzioni disponibili in ciascuna posizione, il calcolo combinatorio elementare ci dice che le configurazioni possibili sono esattamente $n \cdot n \cdot ... \cdot n = n^{n-2}$. Di conseguenza, esisteranno esattamente $n^{n-2}$ alberi etichettati distinti.
-
+_Problema_ Determinare il numero di tutti i possibili isomeri degli alcani, ovvero composti organici con formula $C_n H_{2n+2}$, calcolando le diverse configurazioni strutturali spaziali che mantengono inalterata la formula molecolare.
+_Traduzione_ Modellando la molecola come un grafo in cui gli atomi sono i vertici e i legami chimici sono gli spigoli, si ottiene una struttura connessa con $\vert{}V\vert{} = 3n+2$ atomi e $\vert{}E\vert{} = 3n+1$ legami. Poiché $\vert{}E\vert{} = \vert{}V\vert{} - 1$, il grafo è rigorosamente un albero. Il problema combinatorio equivale a calcolare quanti alberi etichettati distinti possono essere costruiti su tale insieme di vertici.
+_Soluzione_
+Il numero esatto di alberi etichettati su un insieme di $n$ vertici è dato dalla formula $n^{n-2}$, valore che coincide con il numero totale di spanning tree estraibili da un grafo completo $K_n$. La dimostrazione costruttiva del teorema si basa sul **codice di Prüfer**, il quale stabilisce una corrispondenza biunivoca perfetta tra ogni possibile albero etichettato su $n$ vertici e una sequenza ordinata di lunghezza $n-2$ formata da interi scelti tra $1$ e $n$.
 #### Il grafo del Cavallo
 *Problema* data una scacchiera $n \times n$ è possibile muovere un cavallo occupando tutte le caselle una ed una sola volta? Si può percorrere una cammino chiuso che quindi occupi tutte le caselle una sola volta a e poi ritorni alla prima? Se sì, quanti cicli esistono?
 *Traduzione* Definiamo il grafo $G_n$ i cui vertici rappresentano tutte le caselle della scacchiera e questi sono connessi da spigoli solamente se il cavallo può passare da una casella all'altra tramite il suo movimento a L. La ricerca di un percorso che occupi tutte le caselle è la ricerca di un **cammino Hamiltoniano** o di un **ciclo hamiltoniano**
@@ -66,4 +58,14 @@ Ci sono due casi:
 *Problema* Abbiamo un gruppo di ragazzi che conosce un gruppo di ragazze e vogliamo fare in modo che ognuno ne sposi una diversa ma facendo in modo che tutti i ragazzi si sposino.
 *Traduzione* Abbiamo un grafo bipartito con A e B e vogliamo trovare un matching A-completo. 
 *Soluzione*
-Il teorema di Konig-Hall ci dice che il grafo bipartito in questione (con $|A| = r \leq |B| = s$) ammette matching  A-perfetto se e solo se per ogni $X \subseteq A, |X| = k, 1 \leq k \leq r$, si ha che $|\Gamma(X)|\geq k$. Cioè che per ogni sotto insieme di $k$ vertici di A, il numero di vertici adiacenti è almeno k.
+- Il teorema di Konig-Hall ci dice che il grafo bipartito in questione (con $|A| = r \leq |B| = s$) ammette matching  A-perfetto se e solo se per ogni $X \subseteq A, |X| = k, 1 \leq k \leq r$, si ha che $|\Gamma(X)|\geq k$. Cioè che per ogni sotto insieme di $k$ vertici di A, il numero di vertici adiacenti è almeno k.
+- Un'altra formulazione si può avere usando gli insiemi trasversali. Sia E l'insieme che comprende tutti i ragazzi e siano $F_i$ le ragazze che conosce l'i-esimo ragazzo. Se riusciamo a trovare un trasversale, significa che abbiamo trovato una ragazza per ogni ragazzo.
+
+#### Grafo della regina
+*Problema* Vogliamo cercare di piazzare quante più regine possibili su una scacchiera $8 \times 8$ in modo che nessuna ne mangi un'altra.
+*Traduzione*:
+1. La scacchiera ha 64 caselle ognuna delle quali rappresenta un vertice. Ogni casella è collegata ad un'altra se e solo se una regina può passare da una all'altra tramite i suoi movimenti. In questa formulazione si tratta di trovare l'insieme stabile più grande possibile.
+2. Allo stesso modo possiamo rappresentare questo problema in termini di stabilità esterna. In questo senso, vogliamo determinare il numero di stabilità esterna più piccolo possibile in maniera tale che una casella sia sotto il controllo di almeno una regina. (NB: i problemi non sono equivalenti)
+#### Caso dei ripetitori TV
+*Problema* Vogliamo piazzare il minor numero di ripetitori tv in maniera tale che questi ricoprano tutte le case.
+*Traduzione* Cerchiamo di trovare su un grafo bipartito (da una parte i ripetitori, dall'altra le case) il minor insieme esternamente stabile che ricopra tutte le case possibili.
