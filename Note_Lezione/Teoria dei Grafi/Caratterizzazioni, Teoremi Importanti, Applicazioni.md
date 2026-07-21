@@ -86,11 +86,51 @@ Se è planare allora:
 Se è planare allora:
 1. esiste almeno un vertice tale che il suo grado è $\leq 5$. (dim da hand shake lemma supponi per assurdo che tutti hanno grado maggiore e vedi che grado è maggiore del massimale $2m \geq 6n$)
 2. Se $|n| \geq 4$ esistono almeno 3 vertici il cui grado è $\leq 5$. (dim. stessa cosa di prima ma si arriva a $2m \geq 6n-10$)
-
 #### Teorema di Kuratowski 
 Se un sottografo è omeomorfo a $K_5$ o $K_{3,3}$ non è planare
 
-#### Colorazion
+### Colorazione dei Vertici
+#### Relazione tra numero cromatico e densità (massimo numero di vertici adiacenti tra loro)
+Per ogni grafo $G=(V,E)$ si ha che $\chi(G)\geq \omega(G)$ (dim. banale)
+#### Relazione tra numero cromatico e grado massimo
+Per ogni grafo $G=(V,E)$ si ha che $\chi(G)\leq \Delta(G)+1$ (dim. induzione |V| eliminiamo un vertice e lo vediamo che è il grafo non solo è $\Delta(G')+1$ colorabile ma a maggiorazione lo è anche $\Delta(G)+1$ )
+#### Teorema di Brooks
+Dato un grafo che non sia isomorfo ad un grafo completo o ad un ciclo di lunghezza dispari, allora abbiamo che $\chi(G)\leq \Delta(G)$
+#### Teorema dei 5 colori
+Se $G=(V,E)$ è planare, allora $\chi(G) \leq 5$.
+#### Proprietà del Polinomio Cromatico 1
+Se $G$ non è completo e x e y non sono vertici adiacenti, allora abbiamo che $P(G,\lambda) = P(G+(x,y), \lambda) + P(G\backslash(x,y), \lambda)$ (connessione e contrazione)
+#### Proprietà del Polinomio Cromatico 2
+(i) $P(\mathcal{G}, \lambda) = a_n[\lambda]_n + a_{n-1}[\lambda]_{n-1} + \dots + a_\chi[\lambda]_\chi$ (Algoritmo di connessione e contrazione)
+(ii) $P(\mathcal{G}, \lambda)$ ha grado $n$ ed il suo termine noto è nullo (Sviluppando il polinomio si nota che $\lambda$ è comune a tutti quindi è nullo e il suo grado è n)
+(iii) Il coefficiente di $\lambda^n$ è sempre pari a 1 (Dall'algoritmo di connessione e contrazione avremo 1 solo $K_n$)
+(iv) $P(\mathcal{G}, \lambda) = \lambda(\lambda-1)\dots(\lambda-\chi+1)Q(\lambda)$ (Scomposizione di ruffini, il polinomio è zero per ogni $\lambda < \chi$ )
+(v) I coefficienti di $P(\mathcal{G}, \lambda)$ sono alternativamente $\ge 0, \le 0$ (ind. su spigoli, poi connessione e contrazione come induzione, si nota che è incluso G iniziale e poi porta dall'altra parte)
+(vi) Il coefficiente di $\lambda^{n-1}$ è $-m$. (ind. come sopra, poi si sostituisce m' = m-1)
+#### Polinomio cromatico dell'albero
+$G$ è un albero se e solo se $P(G,\lambda) = \lambda (\lambda-1)^{n-1}$
+#### Polinomio cromatico di un ciclo
+Sia $\mathcal{C}_n$ un grafo ciclo con $n \ge 3$ vertici, allora si ha che:
+$P(\mathcal{C}_n, \lambda) = (\lambda-1)[(\lambda-1)^{n-1} + 1]$ se $n$ è pari,
+$P(\mathcal{C}_n, \lambda) = (\lambda-1)[(\lambda-1)^{n-1} - 1]$ se $n$ è dispari.
+
+#### Teorema di Grotzsch
+Se G è un grafo planare privo di facce triangolari, allora $\chi(G) \leq 3$.
+
+#### Teorema di Mycielski
+ Se $\mathcal{G}$ è un grafo $k$-cromatico e privo di sottografi $\mathcal{K}_3$, allora $M(\mathcal{G})$ è $(k+1)$-cromatico ed è anch'esso privo di $\mathcal{K}_3$.
+
+#### Teorema sulla densità cromatica
+Per ogni $h \in N$ esistono grafi aventi densità cromatica $h$.
+
+
+### Fattorizazzione
+#### Teorema di Konig-Hall 1
+Sia $\mathcal{G}=(A,B,E)$ un grafo bipartito. Esiste in $\mathcal{G}$ un matching completo ($A$-perfetto) se e solo se per ogni sottoinsieme $X \subseteq A$ vale la condizione:
+$$|\Gamma_{\mathcal{G}}(X)| \ge |X|$$
+dove $\Gamma_{\mathcal{G}}(X)$ indica l'insieme dei vertici di $B$ adiacenti ad almeno un vertice di $X$.
+#### Teorema di Konig-Hall 2
+Sia E un insieme finito non vuoto e sia $F=\{F_1,\dots, F_m\}$ una famiglia di sottoinsiemi di E non vuoti, allora $F$ ammette un insieme trasversale se e solo se l'unione di k sottoinsiemi $F_i$ contiene almeno k elementi con $1\leq k \leq m$
 
 ## Applicazioni
 #### Formula di Cayley
