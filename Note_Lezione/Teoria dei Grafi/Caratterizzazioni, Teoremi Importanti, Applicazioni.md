@@ -136,7 +136,25 @@ Sia E un insieme finito non vuoto e sia $F=\{F_1,\dots, F_m\}$ una famiglia di s
 Sia $M$ un rettangolo latino di ordine $m \times n$ con $m < n$. Allora $M$ può essere sempre esteso ad un quadrato latino di ordine $n \times n$ aggiungendo $n - m$ righe nuove.
 
 ### Colorazione degli Spigoli
+#### Relazione tra massimo grado e Colori spigoli
+Sia $\Delta(G)$ il massimo grado presente in G, allora si ha che $\chi'(G) \geq \Delta(G)$ 
 
+#### Colorazione K_n
+Per il grafo completo $K_n$, l'indice cromatico $\chi'(K_n)$ è pari a $n-1$ se $n$ è pari, ed è pari a $n$ se $n$ è dispari.
+
+#### Teorema di Konig 
+Sia $G$ un grafo bipartito e sia $\Delta(G)$ il massimo grado, allora $\chi'(G) = \Delta(G)$
+
+#### Teorema di Vizing
+Per ogni grafo semplice $G$, l'indice cromatico $\chi'(G)$ è limitato dal grado massimo $\Delta(G)$ secondo la seguente disuguaglianza: $\Delta(G) \le \chi'(G) \le \Delta(G) + 1$
+
+#### Teorema sui grafi di classe 2
+Se $m > \Delta \lfloor 1/2 n \rfloor$ allora il grafo è di classe 2
+### Stabilità
+#### Numero di clique e numero di stabilità interna
+Dato un grafo si ha che:
+1. $\alpha(G) \leq \theta(G)$
+2. Sia T un insieme stabile di G e $C=\{C_1, \dots, C_k\}$ una sua partizione in sottografi completi di G tale che |T| = |C|.
 ## Applicazioni
 #### Formula di Cayley
 _Problema_ Determinare il numero di tutti i possibili isomeri degli alcani, ovvero composti organici con formula $C_n H_{2n+2}$, calcolando le diverse configurazioni strutturali spaziali che mantengono inalterata la formula molecolare.

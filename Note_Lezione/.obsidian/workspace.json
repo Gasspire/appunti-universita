@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d74b618897e0e050",
+            "id": "bc6af84c7c4551dd",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -22,17 +22,17 @@
             }
           },
           {
-            "id": "789d571b125ba0d7",
+            "id": "b3da996abaf76cae",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoria dei Grafi/Fattorizzazioni.md",
+                "file": "Teoria dei Grafi/Stabilità.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fattorizzazioni"
+              "title": "Stabilità"
             }
           }
         ]
@@ -217,10 +217,12 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "d74b618897e0e050",
+  "active": "bc6af84c7c4551dd",
   "lastOpenFiles": [
-    "Teoria dei Grafi/Fattorizzazioni.md",
+    "Teoria dei Grafi/Stabilità.md",
     "Teoria dei Grafi/Caratterizzazioni, Teoremi Importanti, Applicazioni.md",
+    "Teoria dei Grafi/Edge Coloring.md",
+    "Teoria dei Grafi/Fattorizzazioni.md",
     "Teoria dei Grafi/Colorazione dei grafi.md",
     "Benchmark.md",
     "Cose.md",
@@ -228,9 +230,7 @@
     "Teoria dei Grafi/Matroidi.md",
     "Teoria dei Grafi/Reti di Flusso.md",
     "Teoria dei Grafi/Grafi Orientati.md",
-    "Teoria dei Grafi/Stabilità.md",
     "Senza nome.base",
-    "Teoria dei Grafi/Edge Coloring.md",
     "Teoria dei Grafi/Concetti Base.md",
     "Teoria dei Grafi/Grafi Planari.md",
     "TaskNotes/Tasks/Fare il powerpoint per il progetto.md",
