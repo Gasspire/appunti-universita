@@ -90,6 +90,8 @@ Se è planare allora:
 #### Teorema di Kuratowski 
 Se un sottografo è omeomorfo a $K_5$ o $K_{3,3}$ non è planare
 
+#### Colorazion
+
 ## Applicazioni
 #### Formula di Cayley
 _Problema_ Determinare il numero di tutti i possibili isomeri degli alcani, ovvero composti organici con formula $C_n H_{2n+2}$, calcolando le diverse configurazioni strutturali spaziali che mantengono inalterata la formula molecolare.
