@@ -46,7 +46,50 @@ Dato un grafo con $|V| \geq 3$ se $\forall v \in V, d(v) \geq n/2$ allora G è c
 Sia G un grafo semplice con $|V| \geq 3$ se tutti i vertici non adiacenti sono tali che $d(u) + d(v) \geq n$ allora G è hamiltoniano. (dim. Assurdo supp. aggiungere spigoli fino ad avere un cammino hamiltoniano, notiamo quella cosa della catena, calcoliamo i gradi, arriviamo all'assurdo)
 
 #### Dirac
-Sia G un grafo semplice con $|V|\geq 3$ e
+Sia G un grafo semplice con $|V|\geq 3$ e per ogni $v \in V, d(v) \geq n/2$ allora G è hamiltoniano. (dim. Ore)
+
+#### Bondy-Chavatal
+Sia G un grafo semplice come sopra e siano $u,v$ tale che $d(u)+d(v) \geq n$, $G+(u,v)$ è hamiltoniano solo se lo è $G$. (Dim. Se G è hamiltoniano ovviamente anche G+ lo è. Viceversa, per assurdo se G+ è hamiltoniano e G no, siamo di nuovo nelle condizioni di ore, da cui seguirebbe l'assurdo.) 
+
+### Grafi Planari
+
+#### Eulero
+Sia G un grafo planare connesso con $|V| = n, |E| = m$ ed $f$ il numero di facce nel grafo, allora $n-m+f =2$ (dim. induzione sul numero di spigoli togliendone poi uno da quello grande che unisce due facce )
+
+#### Eulero generalizzato
+Sia G un grafo planare non necessariamente connesso come sopra, allora $n-m+f = p+1$ (dim. Applico Eulero a tutte le componenti connesse, poi tolgo la faccia infinita e arrivo a p + 1)
+
+#### Somma della lunghezza delle facce
+Sia G un grafo planare, sia $L(F_i)$ la lunghezza della i esima faccia, abbiamo che la somma delle lunghezza è uguale a 2m. (dim banale)
+
+#### Somma delle lunghezze uguali per tutte le facce
+Come sopra, banalmente sia $r$ la lunghezza delle facce, segue che $r \cdot f = 2m$
+
+#### Numero di spigoli in relazione a facce della stessa lunghezza
+Come sopra, dai teoremi precedenti segue che $m = \frac{r\cdot(n-2)}{r-2}$
+
+#### Numero spigoli su facce quadrangolari e triangolari
+Dal teorema sopra segue che:
+1. Se ha solo facce triangolari $m = 3n-6$
+2. Se ha solo facce quadrangolari $m = 2n - 4$
+
+#### Considerazioni su grafo planare massimale
+Se un grafo è massimale allora:
+1. Ha solo facce triangolare 
+2. $m = 3n-6$ (dim ovvia dal fatto che se è massimale, il ciclo deve avere al massimo 3 vertici)
+#### Condizioni necessarie ma non sufficienti 1
+Se è planare allora:
+1. $m \leq 3n-6$ (dim. si aggiungono spigoli fino ad arrivare al massimale)
+2. Se non ci sono facce triangolari, allora $m\leq 2n-4$ (dim si arriva da 2m = somma della lunghezza delle facce >= 4 f e poi si usa Eulero)
+
+#### Condizioni necessaria ma non sufficienti 2
+Se è planare allora:
+1. esiste almeno un vertice tale che il suo grado è $\leq 5$. (dim da hand shake lemma supponi per assurdo che tutti hanno grado maggiore e vedi che grado è maggiore del massimale $2m \geq 6n$)
+2. Se $|n| \geq 4$ esistono almeno 3 vertici il cui grado è $\leq 5$. (dim. stessa cosa di prima ma si arriva a $2m \geq 6n-10$)
+
+#### Teorema di Kuratowski 
+Se un sottografo è omeomorfo a $K_5$ o $K_{3,3}$ non è planare
+
 ## Applicazioni
 #### Formula di Cayley
 _Problema_ Determinare il numero di tutti i possibili isomeri degli alcani, ovvero composti organici con formula $C_n H_{2n+2}$, calcolando le diverse configurazioni strutturali spaziali che mantengono inalterata la formula molecolare.
