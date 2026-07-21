@@ -132,6 +132,11 @@ dove $\Gamma_{\mathcal{G}}(X)$ indica l'insieme dei vertici di $B$ adiacenti ad 
 #### Teorema di Konig-Hall 2
 Sia E un insieme finito non vuoto e sia $F=\{F_1,\dots, F_m\}$ una famiglia di sottoinsiemi di E non vuoti, allora $F$ ammette un insieme trasversale se e solo se l'unione di k sottoinsiemi $F_i$ contiene almeno k elementi con $1\leq k \leq m$
 
+#### Completamento di un rettangolo latino
+Sia $M$ un rettangolo latino di ordine $m \times n$ con $m < n$. Allora $M$ può essere sempre esteso ad un quadrato latino di ordine $n \times n$ aggiungendo $n - m$ righe nuove.
+
+### Colorazione degli Spigoli
+
 ## Applicazioni
 #### Formula di Cayley
 _Problema_ Determinare il numero di tutti i possibili isomeri degli alcani, ovvero composti organici con formula $C_n H_{2n+2}$, calcolando le diverse configurazioni strutturali spaziali che mantengono inalterata la formula molecolare.
