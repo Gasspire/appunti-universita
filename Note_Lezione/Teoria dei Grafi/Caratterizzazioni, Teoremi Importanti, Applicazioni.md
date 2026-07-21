@@ -18,7 +18,35 @@ Dato un digrafo $G=(V,E)$ connesso e tale che $|V| = n$ e $|E| = m$ le seguente 
 3. G non contiene cocircuiti.
 
 ## Teoremi Importanti
+### Alberi
+#### Unicità della catena
+Sia $G = (V,E)$ un albero e siano $x,y \in V$ due vertici distinti qualsiasi, esisterà una e una sola catena che ha come estremi x e y. (DIM per contraddizione in caso di cammino alternativo (ciclo))
 
+#### Disconnessione del grafo in caso di una sola catena
+Sia $G = (V,E)$ un grafo e siano $x,y \in V$ due vertici distinti qualsiasi i quali sono sempre estremi di una sola catena:
+1. G è connesso (banale)
+2. per ogni spigolo vale che $G-\{e\}$ è sconnesso (come sopra)
+
+#### Numero di spigoli per grafo senza uno spigolo sconnesso
+Sia $G = (V,E)$ un grafo, tale che se togli uno spigolo si disconnette. Allora abbiamo che $m = n-1$. (DIM per induzione su vertici)
+
+#### Procedura di Kruskal su Grafo completo e correttezza
+Sia A l'albero di costo minimo e sia T l'albero ottenuto dall'algoritmo di Kruskal, allora $c(A) = c(T)$. (DIM Opz. Se sono uguali, ggwp. Se sono diversi, togli da A e metti in T il primo diverso e poi arrivi a vedere che anche T è un MST)
+
+
+### Grafi Euleriani e Hamiltoniani
+#### Esistenza di cicli
+Se in un grafo, ogni vertice ha almeno grado 2, esiste un ciclo.
+
+#### Connessione del grafo |V| >= 3 se grado >= n/2
+Dato un grafo con $|V| \geq 3$ se $\forall v \in V, d(v) \geq n/2$ allora G è connesso. (DIM se u,v non sono adiacenti, hanno almeno un vertice in comune)
+
+
+#### Ore
+Sia G un grafo semplice con $|V| \geq 3$ se tutti i vertici non adiacenti sono tali che $d(u) + d(v) \geq n$ allora G è hamiltoniano. (dim. Assurdo supp. aggiungere spigoli fino ad avere un cammino hamiltoniano, notiamo quella cosa della catena, calcoliamo i gradi, arriviamo all'assurdo)
+
+#### Dirac
+Sia G un grafo semplice con $|V|\geq 3$ e
 ## Applicazioni
 #### Formula di Cayley
 _Problema_ Determinare il numero di tutti i possibili isomeri degli alcani, ovvero composti organici con formula $C_n H_{2n+2}$, calcolando le diverse configurazioni strutturali spaziali che mantengono inalterata la formula molecolare.
