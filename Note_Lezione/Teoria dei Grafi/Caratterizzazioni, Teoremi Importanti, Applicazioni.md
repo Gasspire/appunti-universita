@@ -153,8 +153,28 @@ Se $m > \Delta \lfloor 1/2 n \rfloor$ allora il grafo è di classe 2
 ### Stabilità
 #### Numero di clique e numero di stabilità interna
 Dato un grafo si ha che:
-1. $\alpha(G) \leq \theta(G)$
-2. Sia T un insieme stabile di G e $C=\{C_1, \dots, C_k\}$ una sua partizione in sottografi completi di G tale che |T| = |C|.
+1. $\alpha(G) \leq \theta(G)$ (dim poiché i vertici di T non sono adiacenti e i vertici di $C_i$ sono tutti adiacenti tra loro, i due insiemi possono avere al più un vertice comune segue che $\alpha(G) = \max |T| \leq min |C| = \theta(G)$)
+2. Sia T un insieme stabile di G e $C=\{C_1, \dots, C_k\}$ una sua partizione in sottografi completi di G tale che |T| = |C|, allora T è un insieme stabile massimo e C è una partizione minima. (segue da 1 notando che so uguali)
+### Grafi Orientati
+#### Lemma di Minty
+Sia un grafo con $m$ archi. Si colori il primo arco di nero e si colorino i restanti archi in maniera arbitraria di rosso, nero e verde. Allora vale una ed una sola delle seguenti condizioni:
+1. esiste un ciclo elementare contenente il primo arco e formato soltanto da archi rossi e neri, con la proprietà che tutti gli archi neri nel ciclo hanno la stessa direzione;
+2. esiste un cociclo elementare contenente il primo arco e formato soltanto da archi verdi e neri, con la proprietà che tutti gli archi neri nel cociclo hanno la stessa direzione.
+#### Numero di cocicli e cicli
+Il numero ciclomatico è $\nu = m-n+p$ e il numero cociclomatico è $\lambda(G) = n-p$
+
+#### Numero di base di cicli fortemente connesso
+Sia G un digrafo fortemente connesso con n nodi. Allora $G$ ha una base di cicli formata da $\nu = m-n+p$ circuiti.
+
+#### Base di cocicli
+Sia G un grafo senza circuiti, esso ha una base di cocicli formata da $\lambda(G) = n-p$ cocircuiti
+
+#### Massimo flusso, minimo taglio
+Siano $\mathcal{G} = (V,E)$ una rete di flusso ed $f$ il suo flusso. Le seguenti affermazioni sono equivalenti:
+
+1. $f$ è il flusso massimo in $\mathcal{G}$;
+2. la rete residuale $\mathcal{G}_f$ non contiene cammini aumentanti;
+3. esiste un taglio $(S,T)$ di $\mathcal{G}$ tale che $\vert{}f\vert{} = c(S,T)$.
 ## Applicazioni
 #### Formula di Cayley
 _Problema_ Determinare il numero di tutti i possibili isomeri degli alcani, ovvero composti organici con formula $C_n H_{2n+2}$, calcolando le diverse configurazioni strutturali spaziali che mantengono inalterata la formula molecolare.
