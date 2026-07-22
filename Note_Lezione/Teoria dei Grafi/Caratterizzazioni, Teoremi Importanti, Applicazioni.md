@@ -225,3 +225,32 @@ Ci sono due casi:
 #### Caso dei ripetitori TV
 *Problema* Vogliamo piazzare il minor numero di ripetitori tv in maniera tale che questi ricoprano tutte le case.
 *Traduzione* Cerchiamo di trovare su un grafo bipartito (da una parte i ripetitori, dall'altra le case) il minor insieme esternamente stabile che ricopra tutte le case possibili.
+
+## Algoritmi
+
+#### Algoritmo di Kruskal per trovare il Minimum Spanning Tree su Grafi completi
+1. Si selezione lo spigolo di costo minimo di $K_n$ e si consideri $K_n \backslash\{e_1\}$.
+2. Si selezioni nuovamente lo spigolo di costo minimo del nuovo grafo e lo si rimuova nuovamente
+3. Iterando questo processo per tutti gli spigoli CHE NON CREANO CICLI CON I PRECEDENTI SCELTI, si ottiene un minimum spanning tree.
+
+#### Algoritmo di Fleury per la ricerca di un ciclo Euleriano
+1. Si scelga un vertice qualsiasi di $G$.
+2. Si selezioni uno spigolo $(x_1, x_2)$ incidente in $x_1$. Questo sarà il primo del ciclo euleriano.
+3. Iteriamo questo processo scegliendo sempre uno spigolo incidente in $x_i$ che però non sia istmo se abbiamo altre scelte. (eliminiamo i vertici isolati)
+4. Esauriti tutti gli spigoli, la sequenza sarà un ciclo euleriano.
+
+#### Algoritmo per la determinazione del numero cromatico
+1. Se $G=K_n$ allora la colorazione unica possibile è $n-1$ dando un colore diverso a tutti i vertici
+2. Se $G$ non è completo, allora esistono due vertici non adiacenti. Consideriamo il grafo connessione $G' = G + (x,y)$ e il grafo contrazione $G'' = G\backslash(x,y)$ in cui x e y sono fusi in un unico vertice. Su questi si riapplica il punto 1 o il punto 2.
+3. Il grafo $K_r$ ottenuto solo dalle contrazioni rappresenta il numero cromatico $r= \chi(G)$.
+
+#### Algoritmo di Trémaux per trovare tutti i path da un nodo verso gli altri
+
+1. Sia il vertice $a$ il punto di partenza. Se esiste uno spigolo $u = (a, x)$ incidente in $a$, si definisce la prima traiettoria $\mu^1 = +u$ (in altre parole, avanziamo lungo $u$ apponendovi una prima etichetta).
+2. Sia $\mu^i = u_1 + u_2 + \dots + u_i$ una traiettoria che termina nel vertice $x$ derivante da una fase di avanzamento ($v_i > 0$).
+    - Se il vertice $x$ non è stato precedentemente incontrato e costituisce il punto iniziale di uno spigolo $u_{i+1} = (x, y)$ privo di etichette, allora si pone $\mu^{i+1} = \mu^i + u_{i+1}$, apponendo la prima etichetta allo spigolo $u_{i+1}$ e al vertice $y$.
+    - Altrimenti (se il vertice $x$ è già noto o è un vicolo cieco), si pone $\mu^{i+1} = \mu^i - u_i$ e si etichetta nuovamente lo spigolo $u_i$ (che raggiunge così due etichettature).
+3. Sia $\mu^i = u_1 + u_2 + \dots + u_i$ una traiettoria che termina in $x$ derivante da una fase di arretramento ($v_i < 0$).
+    - Se in $x$ esiste uno spigolo $u_{i+1} = (x, y) \notin \mu^i$ privo di etichette, allora si pone $\mu^{i+1} = \mu^i + u_{i+1}$, apponendo la prima etichetta su $u_{i+1}$.
+    - Altrimenti, si pone $\mu^{i+1} = \mu^i - u_j$, dove $u_j$ è uno spigolo incidente in $x$ avente una sola etichetta (corrispondente all'ultima lettera della parola ridotta $\overline{\mu}^i$), apponendo la seconda etichetta su $u_j$. Non è consentito porre $\mu^{i+1} = \mu^i \pm u_k$ se $u_k$ possiede già due etichette.
+
