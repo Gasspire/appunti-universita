@@ -7,7 +7,7 @@ Un grafo $\mathcal{G}$ si definisce albero se è aciclico (privo di cicli) e con
 Definizione di Spanning tree
 ?
 Dato un grafo $\mathcal{G}=(V,E)$, si definisce spanning tree un sottografo di $\mathcal{G}$ che sia un albero e che include tutti i vertici di $\mathcal{G}$.
-<!--SR:!2026-07-08,3,250-->
+<!--SR:!2026-07-30,8,250-->
 
 Teorema sull'unicità della catena in un albero
 ?

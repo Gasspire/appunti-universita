@@ -244,7 +244,7 @@ Ci sono due casi:
 2. Se $G$ non è completo, allora esistono due vertici non adiacenti. Consideriamo il grafo connessione $G' = G + (x,y)$ e il grafo contrazione $G'' = G\backslash(x,y)$ in cui x e y sono fusi in un unico vertice. Su questi si riapplica il punto 1 o il punto 2.
 3. Il grafo $K_r$ ottenuto solo dalle contrazioni rappresenta il numero cromatico $r= \chi(G)$.
 
-#### Algoritmo di Trémaux per trovare tutti i path da un nodo verso gli altri
+#### Algoritmo di Trémaux per trovare tutti i path da un nodo verso gli altri (DFS)
 
 1. Sia il vertice $a$ il punto di partenza. Se esiste uno spigolo $u = (a, x)$ incidente in $a$, si definisce la prima traiettoria $\mu^1 = +u$ (in altre parole, avanziamo lungo $u$ apponendovi una prima etichetta).
 2. Sia $\mu^i = u_1 + u_2 + \dots + u_i$ una traiettoria che termina nel vertice $x$ derivante da una fase di avanzamento ($v_i > 0$).
@@ -254,3 +254,35 @@ Ci sono due casi:
     - Se in $x$ esiste uno spigolo $u_{i+1} = (x, y) \notin \mu^i$ privo di etichette, allora si pone $\mu^{i+1} = \mu^i + u_{i+1}$, apponendo la prima etichetta su $u_{i+1}$.
     - Altrimenti, si pone $\mu^{i+1} = \mu^i - u_j$, dove $u_j$ è uno spigolo incidente in $x$ avente una sola etichetta (corrispondente all'ultima lettera della parola ridotta $\overline{\mu}^i$), apponendo la seconda etichetta su $u_j$. Non è consentito porre $\mu^{i+1} = \mu^i \pm u_k$ se $u_k$ possiede già due etichette.
 
+#### Algoritmo di Dantzig per trovare lo shortest path (Praticamente è Dijkstra)
+1. Dato il vertice di partenza $a = a_1$, si ponga il costo del cammino $t(a_1) = 0$. La funzione dei cammini minimi $t$ risulta così definita sull'insieme iniziale $A_1 = \{a_1\}$.
+2. Assumendo che al passo $k$-esimo la funzione $t$ sia definita sull'insieme $A_k = \{a_1, a_2, \dots, a_k\}$, per ogni vertice $a_j \in A_k$ si selezioni il vertice $b_j \in X \setminus A_k$ tale che esista lo spigolo $(a_j, b_j) \in E$ e la sua lunghezza $l(a_j, b_j)$ sia minima. Tra tutti questi, si individui il vertice $a_q \in A_k$ che minimizza la quantità complessiva:
+
+$$t(a_q) + l(a_q, b_q) = \min_j \{t(a_j) + l(a_j, b_j)\}$$
+
+
+
+Si aggiorni quindi l'insieme espandendolo, ponendo $A_{k+1} = A_k \cup \{b_q\}$, e si definisca il costo del nuovo vertice come $t(b_q) = t(a_q) + l(a_q, b_q)$.
+3. Si iteri questo procedimento fino a quando tutti i vertici del grafo non siano stati inclusi nell'insieme $A_k$.
+
+#### Algoritmo di Ford Fulkerson per la ricerca del massimo flusso
+
+**Step 1.** Si imposta un flusso nullo su tutti gli archi:
+
+$$f(u,v) = 0, \;\forall u,v \in V.$$
+
+**Step 2.** Per un dato flusso $f$, si costruisce la rete residuale $\mathcal{G}_f$ che indica la capacità residua disponibile per ulteriori flussi. Per ogni coppia di vertici $u,v \in V$, la rete residuale contiene:
+- un arco diretto $(u,v)$ con capacità residua $c_f(u,v) = c(u,v) - f(u,v)$,
+- un arco inverso $(v,u)$ con capacità residua $c_f(v,u) = f(u,v)$.
+La rete residua consente non solo di aumentare il flusso su archi disponibili, ma anche di togliere flusso su archi già usati, permettendo nuove configurazioni di flusso più efficienti.
+
+**Step 3.** Nella rete $\mathcal{G}_f$ cerchiamo un cammino aumentante $s \to p$, ovvero un cammino semplice in cui tutti gli archi hanno capacità residua positiva:
+- se tale cammino non esiste, l'algoritmo si arresta,
+- se tale cammino esiste, si passa allo step successivo.
+Ogni cammino aumentante rappresenta un'opportunità per spingere più flusso da $s \to p$, senza violare le capacità della rete originale.
+**Step 4.** Si individua il collo di bottiglia del cammino, ovvero la capacità residua minima $\delta$ lungo gli archi del cammino aumentante. Rappresenta la quantità di flusso massima per il cammino preso in considerazione.
+**Step 5.** Aggiornamento del flusso lungo il cammino aumentante:
+- se è un arco diretto $(u,v)$ allora $f(u,v) + \delta \to f(u,v)$,
+- se è un arco inverso $(v,u)$ allora $f(v,u) - \delta \to f(v,u)$.
+Stiamo modificando il flusso lungo archi reali e inversi, riflettendo il fatto che possiamo reindirizzare flusso già inviato. Questo è il cuore del concetto di flusso reversibile e della struttura della rete residua.
+**Step 6.** L'algoritmo termina quando non esistono più cammini aumentanti da $s \to p$, nella rete residua $\mathcal{G}_f$.
