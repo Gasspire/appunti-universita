@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "ce7e71e045f028d8",
+        "id": "a7b4ca2d51e10d03",
         "type": "tabs",
         "children": [
           {
-            "id": "f9b1ff75ccd7620b",
+            "id": "e8cc1f286a838c95",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Teoria dei Grafi/Caratterizzazioni, Teoremi Importanti, Applicazioni.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Caratterizzazioni, Teoremi Importanti, Applicazioni"
+              "title": "Nuova scheda"
             }
           }
         ]
@@ -78,8 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "a8eec85064bed8ea",
@@ -204,13 +199,13 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "f9b1ff75ccd7620b",
+  "active": "c934532cabf2938e",
   "lastOpenFiles": [
+    "Teoria dei Grafi/Caratterizzazioni, Teoremi Importanti, Applicazioni.md",
     "Teoria dei Grafi/Grafi Orientati.md",
     "Teoria dei Grafi/Rettangoli Latini.md",
     "Teoria dei Grafi/Reti di Flusso.md",
     "Teoria dei Grafi/Stabilità.md",
-    "Teoria dei Grafi/Caratterizzazioni, Teoremi Importanti, Applicazioni.md",
     "Teoria dei Grafi/Edge Coloring.md",
     "Teoria dei Grafi/Fattorizzazioni.md",
     "Teoria dei Grafi/Colorazione dei grafi.md",
