@@ -1,4 +1,5 @@
 {
   "accentColor": "#ffa200",
-  "cssTheme": "Ukiyo"
+  "cssTheme": "Ukiyo",
+  "baseFontSize": 27
 }
