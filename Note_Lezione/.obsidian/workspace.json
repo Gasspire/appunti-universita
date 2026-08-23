@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "75c08bfd69f20892",
+        "id": "a7b4ca2d51e10d03",
         "type": "tabs",
         "children": [
           {
-            "id": "73806d1c3b413048",
+            "id": "e8cc1f286a838c95",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Benchmark.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Benchmark"
+              "title": "Nuova scheda"
             }
           }
         ]
@@ -41,12 +37,10 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Esplora file"
+              "title": "Esplora risorse"
             }
           },
           {
@@ -187,11 +181,11 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Apri selettore rapido": false,
-      "daily-notes:Apri nota giornaliera": false,
       "bases:Crea nuova Base": false,
+      "switcher:Apri selezione rapida": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
+      "daily-notes:Apri nota del giorno": false,
       "templates:Inserisci modello": false,
       "command-palette:Apri riquadro comandi": false,
       "tasknotes:Open mini calendar view": false,
@@ -205,12 +199,8 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "73806d1c3b413048",
+  "active": "c934532cabf2938e",
   "lastOpenFiles": [
-    "Obiettivi per entrare in un PHD.md",
-    "Principi/Lezione 11 Maggio.md",
-    "Principi/Domande per Esame.md",
-    "Principi/Immagini/Pasted image 20260629151613.png",
     "Teoria dei Grafi/Caratterizzazioni, Teoremi Importanti, Applicazioni.md",
     "Teoria dei Grafi/Grafi Orientati.md",
     "Teoria dei Grafi/Rettangoli Latini.md",
@@ -242,16 +232,20 @@
     "Teoria dei Grafi/Immagini/Pasted image 20260704164745.png",
     "Teoria dei Grafi/Immagini/Pasted image 20260704161540.png",
     "Senza nome 1.base",
+    "Principi/Immagini/Pasted image 20260629151613.png",
     "Principi/Simulazione della Diffusione del Calore 2D.md",
     "TaskNotes/Start Here.md",
     "TaskNotes/Tasks/Un altro esercizio a scelta.md",
     "TaskNotes/Tasks/Rifare Carta Forbice sos BENE.md",
+    "TaskNotes/Tasks/Standard ERC-20.md",
     "TaskNotes/Tasks",
     "TaskNotes/Views/relationships.base",
     "TaskNotes/Views/pomodoro-stats.base",
     "TaskNotes/Views/agenda-default.base",
     "TaskNotes/Views/calendar-default.base",
     "TaskNotes/Views/tasks-default.base",
-    "TaskNotes/Views/mini-calendar-default.base"
+    "TaskNotes/Views/mini-calendar-default.base",
+    "Blockchain/Ultimi Dubbi.md",
+    "Computer Security/RA.md"
   ]
 }
