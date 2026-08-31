@@ -11,10 +11,14 @@
             "id": "e8cc1f286a838c95",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Computer Security/Progetto.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nuova scheda"
+              "title": "Progetto"
             }
           }
         ]
@@ -37,10 +41,12 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
-              "title": "Esplora risorse"
+              "title": "Esplora file"
             }
           },
           {
@@ -167,8 +173,8 @@
             "state": {
               "type": "review-queue-list-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "review-queue-list-view"
+              "icon": "SpacedRepIcon",
+              "title": "Coda di note da rivedere"
             }
           }
         ],
@@ -181,11 +187,11 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "switcher:Apri selettore rapido": false,
+      "daily-notes:Apri nota giornaliera": false,
       "bases:Crea nuova Base": false,
-      "switcher:Apri selezione rapida": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
-      "daily-notes:Apri nota del giorno": false,
       "templates:Inserisci modello": false,
       "command-palette:Apri riquadro comandi": false,
       "tasknotes:Open mini calendar view": false,
@@ -199,8 +205,15 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "c934532cabf2938e",
+  "active": "e8cc1f286a838c95",
   "lastOpenFiles": [
+    "Computer Security/Last lesson speed run any %.md",
+    "Computer Security/Progetto.md",
+    "Computer Security/Lezione 12 Maggio.md",
+    "Computer Security/26 Maggio.md",
+    "Inglese/1 - Present Time.md",
+    "Inglese",
+    "Computer Security/Ultima lezione GDPR.md",
     "Teoria dei Grafi/Caratterizzazioni, Teoremi Importanti, Applicazioni.md",
     "Teoria dei Grafi/Grafi Orientati.md",
     "Teoria dei Grafi/Rettangoli Latini.md",
@@ -234,18 +247,11 @@
     "Senza nome 1.base",
     "Principi/Immagini/Pasted image 20260629151613.png",
     "Principi/Simulazione della Diffusione del Calore 2D.md",
-    "TaskNotes/Start Here.md",
-    "TaskNotes/Tasks/Un altro esercizio a scelta.md",
-    "TaskNotes/Tasks/Rifare Carta Forbice sos BENE.md",
-    "TaskNotes/Tasks/Standard ERC-20.md",
     "TaskNotes/Tasks",
     "TaskNotes/Views/relationships.base",
     "TaskNotes/Views/pomodoro-stats.base",
     "TaskNotes/Views/agenda-default.base",
     "TaskNotes/Views/calendar-default.base",
-    "TaskNotes/Views/tasks-default.base",
-    "TaskNotes/Views/mini-calendar-default.base",
-    "Blockchain/Ultimi Dubbi.md",
-    "Computer Security/RA.md"
+    "TaskNotes/Views/tasks-default.base"
   ]
 }
