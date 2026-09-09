@@ -30,4 +30,29 @@
 * Perché si usa lo XOR nei cifrari piuttosto che usare un banalissimo OR o un AND? 
 * Come possiamo implementare la crittografia visuale su un immagine a bianco e nera? Quali sono gli "share" prodotti e come vengono prodotti? 
 * Nello specifico, come funziona l'implementazione della crittografia visuale 2x2? 
-* Quanti livelli di "grigio" possiamo implementare in una matrice 2x2
+* Quanti livelli di "grigio" possiamo implementare in una matrice 2x2? Perché, invece, non lo facciamo?
+* Cosa deve garantire un cifrario per essere definito Perfettamente sicuro?
+* Come funziona One time pad?
+* Descrivi il processo di cifratura di un immagine mediante crittografia visuale.
+* Cosa è uno schema a soglia in crittografia visuale? 
+* Cosa è uno schema a gruppo di accesso in crittografia visuale?
+* Quanta è la differenza di contrasto tra una scala e l'altra in crittografia visuale nella classica implementazione 2x2 
+* Descrivi la proprietà di Non ripudio.
+* In che modello di attaccante siamo quando trattiamo la proprietà di non ripudio?
+* Parlami del problema della Equa Compravendita.
+* Quando una compravendita si definisce Equa.
+* Quali sono i vari protocolli di equa compravendita nei vari casi di agenti onesti e disonesti o mezzo affidabile e non? Cosa ci insegano?
+* Perché il paper Zhou Gollman sembra fare una trattazione inutile quando parla del quarto caso? E perché, appunto, fallisce?
+* Cosa è il "rilascio posticipato" e come funziona?
+* Quando si rende necessaria la presenza di un TTP? 
+* Quale è l'idea rivoluzionaria del protocollo Zhou Gollman oltre al rilascio posticipato? 
+* Il rilascio posticipato è davvero utile nel protocollo Zhou Gollman? Prova a descriverne una versione che non adotta questa strategia. Che difetti ha però questa nuova versione?
+* Descrivi il protocollo Zhou Gollman per l'equa compravendita. 
+* Quale è il ruolo della label nel protocollo Zhou Gollman per l'equa compravendita?
+* Prova a emulare il protocollo Zhou Gollman nel caso in cui uno dei due interlocutori voglia imbrogliare.
+* Parlami della proprietà di Equo recapito in entrambe le sue versioni.
+* Quando parliamo di raccomandata, di che tipo di equo recapito stiamo parlando?
+* Quali sono i presupposti del protocollo Abadi et al.? Che cosa osserviamo riguardo alla PKI? 
+* Qual è il ruolo della funzione ack nel protocollo Abadi et al.? 
+* Descrivi il protocollo Abadi et Al. Che tipo di equo recapito otteniamo?
+* Nel noto protocollo Abadi et al. non otteniamo equo recapito forte, bensì debole. Perché? Come facciamo a ottenere equo recapito forte?
