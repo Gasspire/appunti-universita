@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Security/Progetto.md",
+                "file": "Computer Security/Possibili domande Esame Computer Security.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Progetto"
+              "title": "Possibili domande Esame Computer Security"
             }
           }
         ]
@@ -41,12 +41,10 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Esplora file"
+              "title": "Esplora risorse"
             }
           },
           {
@@ -80,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "a8eec85064bed8ea",
@@ -173,8 +172,8 @@
             "state": {
               "type": "review-queue-list-view",
               "state": {},
-              "icon": "SpacedRepIcon",
-              "title": "Coda di note da rivedere"
+              "icon": "lucide-ghost",
+              "title": "review-queue-list-view"
             }
           }
         ],
@@ -187,8 +186,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Apri selettore rapido": false,
-      "daily-notes:Apri nota giornaliera": false,
+      "switcher:Apri selezione rapida": false,
+      "daily-notes:Apri nota del giorno": false,
       "bases:Crea nuova Base": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
@@ -207,8 +206,9 @@
   },
   "active": "e8cc1f286a838c95",
   "lastOpenFiles": [
-    "Computer Security/Last lesson speed run any %.md",
     "Computer Security/Progetto.md",
+    "Computer Security/Possibili domande Esame Computer Security.md",
+    "Computer Security/Last lesson speed run any %.md",
     "Computer Security/Lezione 12 Maggio.md",
     "Computer Security/26 Maggio.md",
     "Inglese/1 - Present Time.md",
@@ -246,7 +246,6 @@
     "Teoria dei Grafi/Immagini/Pasted image 20260704161540.png",
     "Senza nome 1.base",
     "Principi/Immagini/Pasted image 20260629151613.png",
-    "Principi/Simulazione della Diffusione del Calore 2D.md",
     "TaskNotes/Tasks",
     "TaskNotes/Views/relationships.base",
     "TaskNotes/Views/pomodoro-stats.base",
