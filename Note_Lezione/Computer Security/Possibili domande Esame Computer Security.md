@@ -56,3 +56,12 @@
 * Qual è il ruolo della funzione ack nel protocollo Abadi et al.? 
 * Descrivi il protocollo Abadi et Al. Che tipo di equo recapito otteniamo?
 * Nel noto protocollo Abadi et al. non otteniamo equo recapito forte, bensì debole. Perché? Come facciamo a ottenere equo recapito forte?
+* Come avviene la risoluzione delle controversie nel caso di equo recapito? 
+* Cosa è l'equa delega? 
+* Cosa è il Protocollo Crispo e come avviene la sua tipica esecuzione? 
+* Come avviene la risoluzione delle controversie nel caso di equa delega nel protocollo Crispo?
+* Come funzionano tutte le chiavi presenti nel protocollo Crispo? Ne possiamo fare a meno? Descrivi una versione del protocollo senza tutte quelle chiavi.
+* Una versione semplificata del protocollo Crispo omette l'utilizzo di diverse chiavi. Cosa comporta a livello di proprietà garantite? Che vantaggi perdiamo? 
+* Quale è la differenza tra analisi formale e informale?
+* Cosa è il Model Checking e come si distingue dall'analisi formale?
+* Cosa vogliamo ottenere mediante analisi formale?
