@@ -99,6 +99,8 @@
 * Quali sono i primi 5, poi 10 poi 15 poi 20 poi 25 e poi 29 requisiti minimi di sicurezza?
 * Cosa ha l'obbligo di fare il titolare del trattamento? 
 * Cosa è il GDPR e quali sono i suoi principi?
+* Cosa è la profilazione?
+* Cosa è un trattamento?
 * Quali sono i principi fondamentali per il trattamento dei dati? (articolo 5)
 * Quando un trattamento si dice lecito e quali sono le condizioni per il consenso al trattamento?
 * Quali sono le categorie particolari di dati personali e come questi vengono/possono essere trattati?
