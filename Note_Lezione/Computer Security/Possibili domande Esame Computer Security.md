@@ -69,4 +69,42 @@
 * Quando parliamo di model checking, come descriviamo i protocolli?
 * Quali sono i limiti del model checking e da cosa derivano 
 * Cosa intendiamo con Theorem Proving?
-* Quando usiamo Isabelle, facciamo uso di di
+* Quando usiamo Isabelle, facciamo uso di una specifica tipologia di logica, quale e da cosa deriva.
+* Le dimostrazioni in Isabelle sfruttano un principio fondamentale quale e quando è possibile applicarlo.
+* Durante l'analisi formale facciamo uso di due livelli di ragionamento, quali e come si distinguono?
+* Isabelle è un framework composto da cosa?
+* Una traccia in Isabelle da cosa è composta? 
+* Quali sono i principali di tipi in Isabelle e da cosa sono composti?
+* Quale è la principale differenza tra parts e used? 
+* Cosa ci permette di fare analz e cosa lo distingue da knows?
+* Cosa rappresenta Synth? Chi è il solo a poterlo utilizzare?
+* Quali sono le principali regole del protocollo che abbiamo visto a lezione? Perché abbiamo NIL?
+* Come si modella Spy mediante le regole che abbiamo visto a lezione? 
+* Cosa è un Proof Assistant
+* Come modelliamo la proprietà di segretezza/confidenzialità mediante Isabelle?
+* Come modelliamo la proprietà di autenticazione in Isabelle?
+* Come si distingue Knows tra Spy e non?
+* Come funziona analz?
+* Cosa contiene used?
+* Che vincoli abbiamo sul TTP?
+* Descrivi tutte le 5 regole che descrivono il protocollo che abbiamo visto.
+* Parlami del Codice sulla Privacy pre 2018. 
+* Cosa è un dato personale e cosa è un dato sensibile? Questa definizione cambia nel GDPR?
+* Cosa ci dice l'articolo 7 della carta dei diritti fondamentali dell'UE?
+* Cosa ci dice l'articolo 8 della carta dei diritti fondamentali dell'UE?
+* Quali sono i principali ruoli del trattamento citati nella Legge 196/2003 allegato B?
+* Perché è storicamente importante la legge 196/2003? 
+* Quali sono i limiti della legge 196/2003 e come questi cambiano nel GDPR?
+* Parlami dei requisiti minimi di sicurezza della legge 196/2003. 
+* Quali sono i primi 5, poi 10 poi 15 poi 20 poi 25 e poi 29 requisiti minimi di sicurezza?
+* Cosa è il GDPR e quali sono i suoi principi?
+* Quali sono i principi fondamentali per il trattamento dei dati? (articolo 5)
+* Quando un trattamento si dice lecito e quali sono le condizioni per il consenso al trattamento?
+* Quali sono le categorie particolari di dati personali e come questi vengono/possono essere trattati?
+* Quali sono i diritti dell'interessato?
+* Cosa vi è nel diritto di accesso dell'interessato (art. 15)
+* Parlami del diritto di rettifica/cancellazione e portabilità.
+* In un mondo dominato dall'uso di AI, cosa ci dice l'articolo 22 del GDPR riguardo ai processi automatizzati?
+* Cosa ci dice l'articolo 25 del GDPR riguardo alla protezione dei dati?
+* Nell'articolo 25 e nell'articolo 32 del GDPR viene recitata sempre una sorta di "formula" per parlare di misure di sicurezza? Quale e perché è così importante? 
+* 
