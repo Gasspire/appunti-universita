@@ -65,3 +65,8 @@
 * Quale è la differenza tra analisi formale e informale?
 * Cosa è il Model Checking e come si distingue dall'analisi formale?
 * Cosa vogliamo ottenere mediante analisi formale?
+* Come mai l'analisi formale surclassa il model checking
+* Quando parliamo di model checking, come descriviamo i protocolli?
+* Quali sono i limiti del model checking e da cosa derivano 
+* Cosa intendiamo con Theorem Proving?
+* Quando usiamo Isabelle, facciamo uso di di
