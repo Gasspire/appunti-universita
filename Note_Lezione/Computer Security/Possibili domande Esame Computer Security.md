@@ -97,14 +97,24 @@
 * Quali sono i limiti della legge 196/2003 e come questi cambiano nel GDPR?
 * Parlami dei requisiti minimi di sicurezza della legge 196/2003. 
 * Quali sono i primi 5, poi 10 poi 15 poi 20 poi 25 e poi 29 requisiti minimi di sicurezza?
+* Cosa ha l'obbligo di fare il titolare del trattamento? 
 * Cosa è il GDPR e quali sono i suoi principi?
 * Quali sono i principi fondamentali per il trattamento dei dati? (articolo 5)
 * Quando un trattamento si dice lecito e quali sono le condizioni per il consenso al trattamento?
 * Quali sono le categorie particolari di dati personali e come questi vengono/possono essere trattati?
+* Quando abbiamo analizzato la legge 196/2003 abbiamo specificato come la diversità del trattamento tra dati personali e dati sensibili sia estremamente esagerata nei modi in cui viene fatta. Questa distinzione è tuttavia presente anche nel GDPR ma questa ha un approccio diverso che lo rende gestibile, come mai?
 * Quali sono i diritti dell'interessato?
 * Cosa vi è nel diritto di accesso dell'interessato (art. 15)
 * Parlami del diritto di rettifica/cancellazione e portabilità.
+* Diritto all'opposizione
 * In un mondo dominato dall'uso di AI, cosa ci dice l'articolo 22 del GDPR riguardo ai processi automatizzati?
 * Cosa ci dice l'articolo 25 del GDPR riguardo alla protezione dei dati?
 * Nell'articolo 25 e nell'articolo 32 del GDPR viene recitata sempre una sorta di "formula" per parlare di misure di sicurezza? Quale e perché è così importante? 
-* 
+* Nell'articolo 30 del GDPR si parla di registro delle attività del trattamento. Perché è importante e cosa conserva
+* Parlami dell'articolo 32 del GDPR. Cosa viene citato tra le misure di sicurezza da adottare?
+* Come cambia l'approccio tra il GDPR e la legge 196/03?
+* Cosa è un data breach o violazione dei dati personali?
+* Cosa succede in caso di data breach (art. 33 34 e 35)
+* Cosa è l'attività di DPIA?
+* Cosa è l'attività d Risk Assessment?
+* Quali sono i vincoli del SysAdmin? Perché non è possibile che cancelli i log?
