@@ -27,4 +27,3 @@ AI ricorsiva
 
 #### Test di più modelli
 
-#### 
