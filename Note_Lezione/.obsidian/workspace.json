@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoria dei Grafi/Stabilità.md",
+                "file": "Computer Security/Possibili domande Esame Computer Security.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Stabilità"
+              "title": "Possibili domande Esame Computer Security"
             }
           }
         ]
@@ -205,8 +205,8 @@
   },
   "active": "e8cc1f286a838c95",
   "lastOpenFiles": [
-    "Benchmark.md",
     "Teoria dei Grafi/Stabilità.md",
+    "Benchmark.md",
     "Computer Security/Possibili domande Esame Computer Security.md",
     "Computer Security/Progetto.md",
     "Computer Security/Last lesson speed run any %.md",
