@@ -68,4 +68,6 @@ Spesso dobbiamo gestire dei segnali periodici:
 Possono essere simmetrici o asimmetrici:
 1. Simmetrici tempo degli stati 1 è uguale a tempi di 0
 2. Asimmetrici no
-
+Asimmetricità si può misurare in percentuale o in secondi di entrambi.
+*Duty cicle*: possiamo modularla per modulare l'asimmetria.
+Può servire per modulare la luminosità della luce. PWM 
