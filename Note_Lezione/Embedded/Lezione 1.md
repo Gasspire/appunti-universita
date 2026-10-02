@@ -19,5 +19,30 @@ Tipico *design pattern*:
 **Come lo programmiamo?**
 Ambiente di sviluppo + compilatore per l'architettura target del microcontrollore. C.
 
-In circuit debugger programmer consente l'u
+In circuit debugger programmer consente l'upload del binario.
 
+STM32F401RE f4 è la famiglia, 01 quantità di memoria il resto è il package cioè come sono disposti i pin
+![[Pasted image 20261002113659.png]]
+
+Micro Controller Unit
+
+**Come si programmano le periferiche?**
+C'è una zona di memoria per le periferiche al di fuori di quelle standard. Ogni indirizzo di memoria rappresenta una periferica su cui posso "scrivere il programma". Special Function Registers sono registri hardware e ognuno ha funzioni diverse nel microcontrollore.
+
+Come scrivo nel SFR? Uso i puntatori C se voglio lavorare a basso livello. Le librerie ci aiutano con delle variabili globali che indicheranno quell'indirizzo.
+
+Ci sarà una libreria fatta dal prof. 
+
+**Strumenti**
+- VSCode con PlatformIO extension
+- Emulatore di terminale
+- Librerie del prof
+- Manuale del microcontrollore
+
+**Hardware**
+- Scheda 
+
+**Esame**
+Pratico + orale
+Pratico = software per scheda 
+Orale = classico
