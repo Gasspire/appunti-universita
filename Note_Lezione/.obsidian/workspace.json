@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Security/Possibili domande Esame Computer Security.md",
+                "file": "Embedded/Lezione 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Possibili domande Esame Computer Security"
+              "title": "Lezione 1"
             }
           }
         ]
@@ -41,12 +41,10 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Esplora file"
+              "title": "Esplora risorse"
             }
           },
           {
@@ -187,8 +185,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Apri selettore rapido": false,
-      "daily-notes:Apri nota giornaliera": false,
+      "switcher:Apri selezione rapida": false,
+      "daily-notes:Apri nota del giorno": false,
       "bases:Crea nuova Base": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
@@ -205,9 +203,14 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "c934532cabf2938e",
+  "active": "e8cc1f286a838c95",
   "lastOpenFiles": [
+    "Embedded/Immagini/Pasted image 20261002112708.png",
+    "Embedded/Immagini",
     "Computer Security/Possibili domande Esame Computer Security.md",
+    "Embedded/Lezione 1.md",
+    "Embedded",
+    "Senza nome.md",
     "Teoria dei Grafi/Stabilità.md",
     "Benchmark.md",
     "Computer Security/Progetto.md",
@@ -233,9 +236,6 @@
     "TaskNotes/Tasks/Fare il powerpoint per il progetto.md",
     "TaskNotes/Tasks/Fare versione puramente OMP.md",
     "TaskNotes/Tasks/Fare pulizia del codice e commenti.md",
-    "TaskNotes/Tasks/Fare tutti i benchmark per il progetto.md",
-    "Teoria dei Grafi/Grafi Hamiltoniani ed Eureliani.md",
-    "Teoria dei Grafi/Alberi.md",
     "Teoria dei Grafi/Immagini/Pasted image 20260704165713.png",
     "Teoria dei Grafi/Immagini/Pasted image 20260704165700.png",
     "Teoria dei Grafi/Immagini/Pasted image 20260704165615.png",
@@ -250,8 +250,6 @@
     "TaskNotes/Tasks",
     "TaskNotes/Views/relationships.base",
     "TaskNotes/Views/pomodoro-stats.base",
-    "TaskNotes/Views/agenda-default.base",
-    "TaskNotes/Views/calendar-default.base",
-    "TaskNotes/Views/tasks-default.base"
+    "TaskNotes/Views/agenda-default.base"
   ]
 }
