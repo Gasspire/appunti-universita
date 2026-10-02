@@ -46,3 +46,26 @@ Ci sarà una libreria fatta dal prof.
 Pratico + orale
 Pratico = software per scheda 
 Orale = classico
+
+**Basi**
+STM32 è a 3.3V 
+
+Multiplexer
+
+Contatori, Registri e Flip-Flop
+
+#### Segnali logici
+Un pulsante premuto è un cambiamento di stato. Ci serve capirlo per agganciarci un interrupt.
+
+Sono di due tipi:
+1. Failing Edge: cerchio + triangolo da 1 a 0.
+2. Rising Edge: triangolo da 0 a 1.
+
+Spesso dobbiamo gestire dei segnali periodici:
+1. Periodo: distanza tra due fronti dello stesso tipo (discesa o picco). Si misura in secondi.
+2. Frequenza: periodi al secondo in Hertz.
+
+Possono essere simmetrici o asimmetrici:
+1. Simmetrici tempo degli stati 1 è uguale a tempi di 0
+2. Asimmetrici no
+
