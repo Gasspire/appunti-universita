@@ -39,3 +39,10 @@ Hello_world:
 ![[Pasted image 20261005090242.png]]
 
 Facciamo uso delle variabili globali per capire come era lo stato del pin prima e come sarà dopo.
+Altro esempio con il toggle e luce temporizzata che se ripetuta riavvia il timer.
+Il problema del timer è che se siamo in stato di attesa, non leggiamo altri comandi.
+
+Mettiamo un ritardo piccolo con la delay ma poi contiamo i ritardi passati separatamente.
+
+Ho bisogno che l'esecuzione del ciclo sia più piccola del tempo di reazione di una persona (?)
+
