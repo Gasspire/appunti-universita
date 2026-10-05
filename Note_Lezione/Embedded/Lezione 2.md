@@ -46,3 +46,4 @@ Mettiamo un ritardo piccolo con la delay ma poi contiamo i ritardi passati separ
 
 Ho bisogno che l'esecuzione del ciclo sia più piccola del tempo di reazione di una persona (?)
 
+Importanza delle macchine a stati finiti e eventi
