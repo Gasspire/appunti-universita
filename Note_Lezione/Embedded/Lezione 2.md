@@ -21,3 +21,21 @@ L'interfaccia completa è composta da varie porte GPIOA, GPIOB, ecc.
 Ognuna ha 16 pin elettrici e, dunque, 16 bit.
 I Pin sono definiti chiamati con Pxy dove x intende la porta (Che è numerata in lettere A, B ecc.) e y indica il pin (0 a 15)
 
+La scheda è F401
+![[Pasted image 20261005084300.png]]
+
+è necessario **inizializzare** le porte (nonostante in teoria tutte le periferiche hanno il clock spento)
+
+![[Pasted image 20261005084442.png|778]]
+
+Per leggere possiamo usare banalmente la GPIO_read della sua libreria.
+![[Pasted image 20261005084720.png]]
+
+Nella scheda ogni segmento del display non viene collegato singolarmente, bensì tramite multiplexing (?)
+
+Hello_world:
+![[Pasted image 20261005084915.png]]
+
+![[Pasted image 20261005090242.png]]
+
+Facciamo uso delle variabili globali per capire come era lo stato del pin prima e come sarà dopo.
