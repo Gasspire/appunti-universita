@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Embedded/Lezione 2.md",
+                "file": "IoT/Lezione 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 2"
+              "title": "Lezione 1"
             }
           }
         ]
@@ -205,8 +205,10 @@
   },
   "active": "e8cc1f286a838c95",
   "lastOpenFiles": [
-    "Embedded/Lezione 1.md",
     "Embedded/Lezione 2.md",
+    "IoT/Lezione 1.md",
+    "IoT",
+    "Embedded/Lezione 1.md",
     "Embedded/Immagini/Pasted image 20261005090242.png",
     "Embedded/Immagini/Pasted image 20261005084915.png",
     "Embedded/Immagini/Pasted image 20261005084720.png",
@@ -248,7 +250,6 @@
     "Senza nome 1.base",
     "TaskNotes/Tasks",
     "TaskNotes/Views/relationships.base",
-    "TaskNotes/Views/pomodoro-stats.base",
-    "TaskNotes/Views/agenda-default.base"
+    "TaskNotes/Views/pomodoro-stats.base"
   ]
 }
