@@ -15,3 +15,4 @@ Videocamera? Not good.
 Infrarosso? 
 Lettore di codice a barre wireless ? + Sensore di capacità + compartimentazione + temperatura sensore 
 Canale solo in uscita
+
