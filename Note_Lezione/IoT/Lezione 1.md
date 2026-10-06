@@ -13,4 +13,5 @@ Devono essere in grado di comunicare attraverso internet.
 **Frigorifero Smart**
 Videocamera? Not good.
 Infrarosso? 
-Codice a barre + Sensore di capacità + 
+Lettore di codice a barre wireless ? + Sensore di capacità + compartimentazione + temperatura sensore 
+Canale solo in uscita
