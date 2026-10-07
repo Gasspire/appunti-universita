@@ -41,10 +41,12 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
-              "title": "Esplora risorse"
+              "title": "Esplora file"
             }
           },
           {
@@ -78,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "a8eec85064bed8ea",
@@ -185,8 +188,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Apri selezione rapida": false,
-      "daily-notes:Apri nota del giorno": false,
+      "switcher:Apri selettore rapido": false,
+      "daily-notes:Apri nota giornaliera": false,
       "bases:Crea nuova Base": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
@@ -205,8 +208,12 @@
   },
   "active": "e8cc1f286a838c95",
   "lastOpenFiles": [
-    "Embedded/Lezione 2.md",
+    "IoT/Immagini/Pasted image 20261007115146.png",
+    "IoT/Immagini/Pasted image 20261007115119.png",
+    "IoT/Immagini/Pasted image 20261007115108.png",
+    "IoT/Immagini",
     "IoT/Lezione 1.md",
+    "Embedded/Lezione 2.md",
     "IoT",
     "Embedded/Lezione 1.md",
     "Embedded/Immagini/Pasted image 20261005090242.png",
@@ -217,8 +224,6 @@
     "Embedded/Immagini/Pasted image 20261005084300.png",
     "Embedded/Immagini/Pasted image 20261005083029.png",
     "Embedded/Immagini/Pasted image 20261005082844.png",
-    "Embedded/Immagini/Pasted image 20261005082744.png",
-    "Embedded/Immagini/Pasted image 20261002113659.png",
     "Embedded/Immagini",
     "Computer Security/Possibili domande Esame Computer Security.md",
     "Embedded",
@@ -246,10 +251,8 @@
     "Teoria dei Grafi/Concetti Base.md",
     "Teoria dei Grafi/Grafi Planari.md",
     "TaskNotes/Tasks/Fare il powerpoint per il progetto.md",
-    "TaskNotes/Tasks/Fare versione puramente OMP.md",
     "Senza nome 1.base",
     "TaskNotes/Tasks",
-    "TaskNotes/Views/relationships.base",
-    "TaskNotes/Views/pomodoro-stats.base"
+    "TaskNotes/Views/relationships.base"
   ]
 }
