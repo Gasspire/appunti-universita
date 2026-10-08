@@ -35,3 +35,17 @@ Watchdog timer: sistema di sicurezza che si accorge se qualche microprocessore s
 Interfacce seriali: protocolli di comunicazione seriale (sincrono o asincrono). Ci servono per far comunicare i micro controllori tra loro.
 
 STM 32 due parti: uno per programmare e l'altra per il microcontrollore vero e proprio.
+
+---
+## Single Board computer
+
+Hanno un SO
+
+---
+Come programmo un microcontrollore? 
+1. Scrivo l'assembly.
+2. C/C++
+3. framework to linguaggio di programmazione
+firmware
+
+Arduino API framework.
