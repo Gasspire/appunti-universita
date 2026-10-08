@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4e6b419c4c66b731",
+        "id": "16a7ce395f864cc3",
         "type": "tabs",
         "children": [
           {
-            "id": "88920a8997fa5650",
+            "id": "db7ebaef0e7c33e4",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -203,10 +203,11 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "88920a8997fa5650",
+  "active": "db7ebaef0e7c33e4",
   "lastOpenFiles": [
+    "IoT/Lezione 1.md",
+    "IoT/Lezione 2.md",
     "IoT/Immagini/Pasted image 20261008173501.png",
-    "IoT/Immagini/Pasted image 20261008171148.png",
-    "IoT/Lezione 2.md"
+    "IoT/Immagini/Pasted image 20261008171148.png"
   ]
 }

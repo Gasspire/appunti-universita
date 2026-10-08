@@ -28,3 +28,10 @@ Il MAC non è un computer perché non ci sono i bus e c'è una memoria unificata
 
 ![[Pasted image 20261008173501.png]]
 
+Slide:
+
+Watchdog timer: sistema di sicurezza che si accorge se qualche microprocessore si è bloccato. In tal caso lo azzera. (non lo usiamo)
+
+Interfacce seriali: protocolli di comunicazione seriale (sincrono o asincrono). Ci servono per far comunicare i micro controllori tra loro.
+
+STM 32 due parti: uno per programmare e l'altra per il microcontrollore vero e proprio.
