@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "14eb3febea728d05",
+    "id": "55a23b0ba84bdb51",
     "type": "split",
     "children": [
       {
-        "id": "a7b4ca2d51e10d03",
+        "id": "4e6b419c4c66b731",
         "type": "tabs",
         "children": [
           {
-            "id": "e8cc1f286a838c95",
+            "id": "88920a8997fa5650",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "IoT/Lezione 1.md",
+                "file": "IoT/Lezione 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 1"
+              "title": "Lezione 2"
             }
           }
         ]
@@ -27,30 +27,28 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "03e723fe8d09811b",
+    "id": "935eff8008e438db",
     "type": "split",
     "children": [
       {
-        "id": "e26e514a83b58deb",
+        "id": "7649432e8529fff2",
         "type": "tabs",
         "children": [
           {
-            "id": "043e22568da5ca91",
+            "id": "ed1ccde1a17eb2ad",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Esplora file"
+              "title": "Esplora risorse"
             }
           },
           {
-            "id": "3b3019d730e670d1",
+            "id": "707d704bf05a7c8c",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -67,7 +65,7 @@
             }
           },
           {
-            "id": "72575f33fda5fd57",
+            "id": "ced1605f8e95b2ba",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -80,24 +78,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 300
   },
   "right": {
-    "id": "a8eec85064bed8ea",
+    "id": "5cc4a9eaaacf48ff",
     "type": "split",
     "children": [
       {
-        "id": "6aee96100431609a",
+        "id": "76664a19b0900eae",
         "type": "tabs",
         "children": [
           {
-            "id": "ca2433253856b660",
+            "id": "bcce39f640667ea3",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Computer Security/Prima e Seconda Lezione GDPR.md",
+                "file": "IoT/Lezione 2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,25 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Riferimenti a Prima e Seconda Lezione GDPR"
+              "title": "Riferimenti a Lezione 2"
             }
           },
           {
-            "id": "f2815e4455421f6e",
+            "id": "e599fc87bad394b6",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Computer Security/Lezione 23 Aprile.md",
+                "file": "IoT/Lezione 2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Collegamenti in uscita da Lezione 23 Aprile"
+              "title": "Collegamenti in uscita da Lezione 2"
             }
           },
           {
-            "id": "7aa58ac4c0ad96d3",
+            "id": "553f104619d71e8d",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -140,7 +137,7 @@
             }
           },
           {
-            "id": "5b295d71aaa6697a",
+            "id": "427505ebca997db9",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -154,22 +151,22 @@
             }
           },
           {
-            "id": "05cb11a9c45bd6ec",
+            "id": "b2cd168565e49ee7",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Computer Security/Lezione 23 Aprile.md",
+                "file": "IoT/Lezione 2.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Struttura di Lezione 23 Aprile"
+              "title": "Struttura di Lezione 2"
             }
           },
           {
-            "id": "c934532cabf2938e",
+            "id": "7f5f74be22b7139a",
             "type": "leaf",
             "state": {
               "type": "review-queue-list-view",
@@ -188,13 +185,13 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Apri selettore rapido": false,
-      "daily-notes:Apri nota giornaliera": false,
-      "bases:Crea nuova Base": false,
+      "switcher:Apri selezione rapida": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
+      "daily-notes:Apri nota del giorno": false,
       "templates:Inserisci modello": false,
       "command-palette:Apri riquadro comandi": false,
+      "bases:Crea nuova Base": false,
       "tasknotes:Open mini calendar view": false,
       "tasknotes:Open calendar view": false,
       "tasknotes:Open tasks view": false,
@@ -206,53 +203,10 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "e8cc1f286a838c95",
+  "active": "88920a8997fa5650",
   "lastOpenFiles": [
-    "IoT/Immagini/Pasted image 20261007115146.png",
-    "IoT/Immagini/Pasted image 20261007115119.png",
-    "IoT/Immagini/Pasted image 20261007115108.png",
-    "IoT/Immagini",
-    "IoT/Lezione 1.md",
-    "Embedded/Lezione 2.md",
-    "IoT",
-    "Embedded/Lezione 1.md",
-    "Embedded/Immagini/Pasted image 20261005090242.png",
-    "Embedded/Immagini/Pasted image 20261005084915.png",
-    "Embedded/Immagini/Pasted image 20261005084720.png",
-    "Embedded/Immagini/Pasted image 20261005084442.png",
-    "Embedded/Immagini/Pasted image 20261005084412.png",
-    "Embedded/Immagini/Pasted image 20261005084300.png",
-    "Embedded/Immagini/Pasted image 20261005083029.png",
-    "Embedded/Immagini/Pasted image 20261005082844.png",
-    "Embedded/Immagini",
-    "Computer Security/Possibili domande Esame Computer Security.md",
-    "Embedded",
-    "Senza nome.md",
-    "Teoria dei Grafi/Stabilità.md",
-    "Benchmark.md",
-    "Computer Security/Progetto.md",
-    "Computer Security/Last lesson speed run any %.md",
-    "Computer Security/Lezione 12 Maggio.md",
-    "Computer Security/26 Maggio.md",
-    "Inglese/1 - Present Time.md",
-    "Inglese",
-    "Computer Security/Ultima lezione GDPR.md",
-    "Teoria dei Grafi/Caratterizzazioni, Teoremi Importanti, Applicazioni.md",
-    "Teoria dei Grafi/Grafi Orientati.md",
-    "Teoria dei Grafi/Rettangoli Latini.md",
-    "Teoria dei Grafi/Reti di Flusso.md",
-    "Teoria dei Grafi/Edge Coloring.md",
-    "Teoria dei Grafi/Fattorizzazioni.md",
-    "Teoria dei Grafi/Colorazione dei grafi.md",
-    "Cose.md",
-    "TaskNotes/Views/kanban-default.base",
-    "Teoria dei Grafi/Matroidi.md",
-    "Senza nome.base",
-    "Teoria dei Grafi/Concetti Base.md",
-    "Teoria dei Grafi/Grafi Planari.md",
-    "TaskNotes/Tasks/Fare il powerpoint per il progetto.md",
-    "Senza nome 1.base",
-    "TaskNotes/Tasks",
-    "TaskNotes/Views/relationships.base"
+    "IoT/Immagini/Pasted image 20261008173501.png",
+    "IoT/Immagini/Pasted image 20261008171148.png",
+    "IoT/Lezione 2.md"
   ]
 }
