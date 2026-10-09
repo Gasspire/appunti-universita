@@ -11,3 +11,4 @@ Linguaggio di scripting bash
 
 ## GIT
 Sistema di controllo di versione
+watta hell
