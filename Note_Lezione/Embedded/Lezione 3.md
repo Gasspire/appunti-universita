@@ -14,3 +14,14 @@ un resistore è un qualunque oggetto che assorbe energia (eg. telefono)
 Supponiamo di avere un MCU a 3.3 V che sarà da considerare come una batteria (perché passa la corrente alle nostre periferiche) e supponiamo di attaccarci un led che magari va da 1.2 V a 1.4 V. Però il MCU emette 3.3 V, come si fa?
 Ci si attacca una resistenza, ma da quanto?
 ![[Pasted image 20261009113141.png]]
+
+Quando misuro tra due linee verticale tra parte generazione e parte resistenza, deve essere uguale. Cioè la tensione deve ridistribuirsi in base al valore della resistenza.
+
+Se calcolo le singole resistenze ottengo:
+1. V1 = I R_1
+2. V2 = I R_2
+3. V3 = I R_3
+Otteniamo come la tensione originale si è ripartita. In una maglia sappiamo che Vg = V1 + V2 + V3. -> **Legge di Kirchhoff**
+
+**Partitore di tensione**
+Gli ingressi digitali hanno una resistenza da considerarsi infinita(?)
