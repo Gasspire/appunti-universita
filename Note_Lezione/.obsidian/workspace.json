@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "13087986d0f51898",
+        "id": "05fe4edd00ba33c5",
         "type": "tabs",
         "children": [
           {
-            "id": "1ddfad3afefbe552",
+            "id": "2f210d1e62ae975c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Principi/Lezione 18 Maggio.md",
+                "file": "Quality/Lezione 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 18 Maggio"
+              "title": "Lezione 1"
             }
           }
         ]
@@ -203,11 +203,14 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "1ddfad3afefbe552",
+  "active": "2f210d1e62ae975c",
   "lastOpenFiles": [
+    "Quality/Lezione 1.md",
+    "Principi/Lezione 25 Maggio.md",
+    "Principi/Lezione 22 Apr.md",
+    "Principi/Lezione 18 Maggio.md",
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
     "Principi/Lezione 11 Maggio.md",
-    "Principi/Lezione 22 Apr.md",
     "Quality",
     "Embedded/Lezione 3.md",
     "Embedded/Immagini/Pasted image 20261009113141.png",
