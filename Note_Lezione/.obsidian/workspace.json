@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "16a7ce395f864cc3",
+        "id": "13087986d0f51898",
         "type": "tabs",
         "children": [
           {
-            "id": "5584f606786a9c6a",
+            "id": "1ddfad3afefbe552",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Embedded/Lezione 3.md",
+                "file": "Principi/Lezione 18 Maggio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 3"
+              "title": "Lezione 18 Maggio"
             }
           }
         ]
@@ -203,13 +203,17 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "5584f606786a9c6a",
+  "active": "1ddfad3afefbe552",
   "lastOpenFiles": [
+    "Principi/Lezione 13 Maggio (Apparve Maria).md",
+    "Principi/Lezione 11 Maggio.md",
+    "Principi/Lezione 22 Apr.md",
+    "Quality",
+    "Embedded/Lezione 3.md",
     "Embedded/Immagini/Pasted image 20261009113141.png",
     "Embedded/Immagini/Pasted image 20261009112253.png",
     "Embedded/Immagini/Pasted image 20261009112113.png",
     "Embedded/Lezione 2.md",
-    "Embedded/Lezione 3.md",
     "Embedded/Immagini/Pasted image 20261009111525.png",
     "Embedded/Lezione 1.md",
     "IoT/Lezione 2.md",
