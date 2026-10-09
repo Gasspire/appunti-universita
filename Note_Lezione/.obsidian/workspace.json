@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "db7ebaef0e7c33e4",
+            "id": "5584f606786a9c6a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -203,10 +203,16 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "db7ebaef0e7c33e4",
+  "active": "5584f606786a9c6a",
   "lastOpenFiles": [
-    "IoT/Lezione 2.md",
+    "Embedded/Immagini/Pasted image 20261009113141.png",
+    "Embedded/Immagini/Pasted image 20261009112253.png",
+    "Embedded/Immagini/Pasted image 20261009112113.png",
+    "Embedded/Lezione 2.md",
     "Embedded/Lezione 3.md",
+    "Embedded/Immagini/Pasted image 20261009111525.png",
+    "Embedded/Lezione 1.md",
+    "IoT/Lezione 2.md",
     "IoT/Lezione 1.md",
     "IoT/Immagini/Pasted image 20261008173501.png",
     "IoT/Immagini/Pasted image 20261008171148.png"

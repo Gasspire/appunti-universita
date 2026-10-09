@@ -39,11 +39,12 @@ Hello_world:
 ![[Pasted image 20261005090242.png]]
 
 Facciamo uso delle variabili globali per capire come era lo stato del pin prima e come sarà dopo.
-Altro esempio con il toggle e luce temporizzata che se ripetuta riavvia il timer.
+Altro esempio con il toggle è la luce temporizzata che se ripetuta riavvia il timer.
+![[Pasted image 20261009111525.png]]
 Il problema del timer è che se siamo in stato di attesa, non leggiamo altri comandi.
 
-Mettiamo un ritardo piccolo con la delay ma poi contiamo i ritardi passati separatamente.
+Mettiamo un ritardo piccolo con la delay ma poi contiamo i ritardi passati separatamente con un contatore.
 
-Ho bisogno che l'esecuzione del ciclo sia più piccola del tempo di reazione di una persona (?)
+Ho bisogno che l'esecuzione del ciclo sia più piccola del tempo di reazione di una persona così da poter prendere l'eventuale push del bottone.
 
 Importanza delle macchine a stati finiti e eventi
