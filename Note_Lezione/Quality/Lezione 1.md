@@ -7,5 +7,7 @@ Shell = ciò che interpreta i comandi "BASH", "PYTHON" Ecc.
 
 Linguaggio di scripting bash
 
-(comandi base)
+**(comandi base)**
 
+## GIT
+Sistema di controllo di versione
