@@ -1,14 +1,25 @@
-#include <Arduino.h>
+#include <iot_board.h>
 
 void setup() {
-  Serial.begin(115200);
+  IoTBoard::init_serial();
 
-  sleep(2);
-  Serial.println("Configurazione ultimata!");
+  pinMode(LED_RED, OUTPUT);
+  pinMode(LED_GREEN, OUTPUT);
+  pinMode(LED_YELLOW, OUTPUT);
+
+  digitalWrite(LED_RED,0);
+  digitalWrite(LED_GREEN,0);
+  digitalWrite(LED_YELLOW,0);
+
   Serial.println("Avvio del loop!");
 }
-
+int count = 1;
 void loop() {
-  Serial.println("Lol");
-  sleep(60);
+  digitalWrite(LED_RED,count);
+  sleep(1);
+  digitalWrite(LED_YELLOW,count);
+  sleep(1);
+  digitalWrite(LED_GREEN,count);
+  sleep(1);
+  count = !count;
 }
