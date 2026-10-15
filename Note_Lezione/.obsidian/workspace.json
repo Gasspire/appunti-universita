@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Embedded/Lezione 3.md",
+                "file": "IoT/Lezione 4.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 3"
+              "title": "Lezione 4"
             }
           }
         ]
@@ -41,12 +41,10 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Esplora file"
+              "title": "Esplora risorse"
             }
           },
           {
@@ -80,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "5cc4a9eaaacf48ff",
@@ -188,8 +185,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Apri selettore rapido": false,
-      "daily-notes:Apri nota giornaliera": false,
+      "switcher:Apri selezione rapida": false,
+      "daily-notes:Apri nota del giorno": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
       "templates:Inserisci modello": false,
@@ -208,6 +205,9 @@
   },
   "active": "5a956fa22d09ae62",
   "lastOpenFiles": [
+    "IoT/Immagini/Pasted image 20261015174420.png",
+    "Embedded/Lezione 3.md",
+    "IoT/Lezione 4.md",
     "Quality/Lezione 1.md",
     "Principi/Lezione 25 Maggio.md",
     "Principi/Lezione 22 Apr.md",
@@ -215,7 +215,6 @@
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
     "Principi/Lezione 11 Maggio.md",
     "Quality",
-    "Embedded/Lezione 3.md",
     "Embedded/Immagini/Pasted image 20261009113141.png",
     "Embedded/Immagini/Pasted image 20261009112253.png",
     "Embedded/Immagini/Pasted image 20261009112113.png",
