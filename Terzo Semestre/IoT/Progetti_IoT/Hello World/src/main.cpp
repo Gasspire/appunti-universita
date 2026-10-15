@@ -1,25 +1,34 @@
 #include <iot_board.h>
 
-void setup() {
-  IoTBoard::init_serial();
-
-  pinMode(LED_RED, OUTPUT);
-  pinMode(LED_GREEN, OUTPUT);
-  pinMode(LED_YELLOW, OUTPUT);
-
-  digitalWrite(LED_RED,0);
-  digitalWrite(LED_GREEN,0);
-  digitalWrite(LED_YELLOW,0);
-
-  Serial.println("Avvio del loop!");
+void Button1Pressed(uint8_t pinBtn){ //funzione che verrà richiamata
+  display->clearDisplay();
+  display->println("Antonio è puppos");
+  display->display();
 }
-int count = 1;
-void loop() {
-  digitalWrite(LED_RED,count);
-  sleep(1);
-  digitalWrite(LED_YELLOW,count);
-  sleep(1);
-  digitalWrite(LED_GREEN,count);
-  sleep(1);
-  count = !count;
+
+
+//programmare bottoni e schermino
+void setup(){
+    IoTBoard::init_serial();
+    IoTBoard::init_buttons();
+
+    IoTBoard::init_display(); //inizializzo il display
+    IoTBoard::init_leds(); // led
+    display->clearDisplay(); //lo pulisco
+    digitalWrite(LED_RED, LOW);
+    digitalWrite(LED_GREEN, LOW);
+
+
+    display->println("Pulsanti configurati"); //metto in coda il "disegno"
+    display->display(); //lo mostro
+    display->println("Board pronta");
+    display->display();
+    display->clearDisplay();
+
+
+    buttons->onBtn1Release(Button1Pressed); //linka la release del pulsante alla funzione che ho craftato
+}
+
+void loop(){
+    buttons->update(); // Fa pooling, hanno sbagliato condensatore e quindi non se po' fa 
 }
