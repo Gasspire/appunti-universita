@@ -69,6 +69,7 @@ Nello specifico, ogni blocco
 
 Nel primo blocco (0) ci vanno le info di produzione quali UID, tipologia di RFID e chi lo ha fatto prodotto.
 
+<<<<<<< HEAD
 In ogni settore l'ultimo è il "trailer" e contiene alcune informazioni di "sicurezza" relative al settore stesso (come si può accedere e come si può modificare un blocco). 
 In totale, se abbiamo 64 blocchi da 16 byte, di 1 kb ci rimangano 752 byte.
 ![[Pasted image 20261016135650.png]]
@@ -113,3 +114,9 @@ Una volta autenticato il settore, il Reader può eseguire i seguenti comandi med
 - **`HALT` (`0x50 0x00`):** Mette la carta nello stato di riposo
 
 ![[Pasted image 20261016140106.png]]
+=======
+Key A e Key B so 2 chiavi per gestire meglio i permessi di scrittura o lettura.
+La chiave A non è mai leggibile, la chiave B si.
+I bit di accesso ci dicono come possiamo accedere ai blocchi.
+![[Pasted image 20261015183920.png]]
+>>>>>>> 7b4e06b (Auto-sync: 2026-10-16 13:01:43)
