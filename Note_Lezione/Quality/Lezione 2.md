@@ -20,3 +20,22 @@ git restore per fare rollback di un file.
 ---
 **Convenzioni per commit e branch**
 ![[Pasted image 20261016160454.png]]
+
+---
+Esistono delle impostazioni per dare regole di branch ecc.
+
+.gitignore: file che non devono essere oggetto di commit etc. 
+questo va' pushato.
+
+---
+GIT LFS
+
+Su github non si pushano file pesanti (tra cui .exe, pdf, file 3D etc.)
+
+---
+## GitHub
+
+GitLab posso hostarlo da me.
+
+Codeberg è l'alternativa a tutto il resto.
+
