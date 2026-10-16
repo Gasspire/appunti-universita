@@ -41,10 +41,12 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
-              "title": "Esplora risorse"
+              "title": "Esplora file"
             }
           },
           {
@@ -78,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "5cc4a9eaaacf48ff",
@@ -185,8 +188,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Apri selezione rapida": false,
-      "daily-notes:Apri nota del giorno": false,
+      "switcher:Apri selettore rapido": false,
+      "daily-notes:Apri nota giornaliera": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
       "templates:Inserisci modello": false,
@@ -205,14 +208,19 @@
   },
   "active": "5a956fa22d09ae62",
   "lastOpenFiles": [
+    "IoT/Immagini/Pasted image 20261016140106.png",
+    "IoT/Immagini/Pasted image 20261016135919.png",
+    "IoT/Immagini/Pasted image 20261016135650.png",
+    "IoT/Immagini/Pasted image 20261016135047.png",
+    "IoT/Immagini/Pasted image 20261016135036.png",
+    "IoT/Immagini/Pasted image 20261016134654.png",
+    "IoT/Lezione 4.md",
     "IoT/Immagini/Pasted image 20261015183920.png",
     "IoT/Immagini/Pasted image 20261015183633.png",
     "IoT/Immagini/Pasted image 20261015183017.png",
     "IoT/Immagini/Pasted image 20261015181646.png",
     "IoT/Immagini/Pasted image 20261015181600.png",
-    "IoT/Immagini/Pasted image 20261015174420.png",
     "Embedded/Lezione 3.md",
-    "IoT/Lezione 4.md",
     "Quality/Lezione 1.md",
     "Principi/Lezione 25 Maggio.md",
     "Principi/Lezione 22 Apr.md",
@@ -220,14 +228,9 @@
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
     "Principi/Lezione 11 Maggio.md",
     "Quality",
-    "Embedded/Immagini/Pasted image 20261009113141.png",
-    "Embedded/Immagini/Pasted image 20261009112253.png",
-    "Embedded/Immagini/Pasted image 20261009112113.png",
     "Embedded/Lezione 2.md",
-    "Embedded/Immagini/Pasted image 20261009111525.png",
     "Embedded/Lezione 1.md",
     "IoT/Lezione 2.md",
-    "IoT/Lezione 1.md",
-    "IoT/Immagini/Pasted image 20261008173501.png"
+    "IoT/Lezione 1.md"
   ]
 }
