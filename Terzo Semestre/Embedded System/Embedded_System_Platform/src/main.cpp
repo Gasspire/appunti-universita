@@ -75,15 +75,16 @@ void EXTI9_5_IRQHandler(void) {
         array_mem[numero_salvati%10] = centesimi;
         numero_salvati++;//vengono mostrati solo gli ultimi 10 salvati non in ordine
         
-        GPIO_write(GPIOB,0,1); //accendo il led rosso
+        GPIO_write(GPIOC,2,1); //accendo il led rosso
         delay_ms(1000); //aspetto un secondo e lo spengo
-        GPIO_write(GPIOB,0,0);
+        GPIO_write(GPIOB,2,0);
 
         EXTI_clear(EXTI5);
     }
     else if(EXTI_isset(EXTI6)){
         // Se tengo premuto questo tasto, il led rosso si accende e viene mostrato il valore di ogni snapshot per 1 secondo. Quando vengono mostrati tutti si ritorna al funzionamento normale
         if(!is_running){
+            GPIO_write(GPIOB,0,1);
             int limit = (numero_salvati > 10? 10: numero_salvati);
             for (int i = 0; i < limit; i++)
             {
@@ -95,7 +96,9 @@ void EXTI9_5_IRQHandler(void) {
                 char msg[10]; 
                 sprintf(msg,"%02d%02d",ss,cc);
                 DISPLAY_puts(0,msg); 
+                delay_ms(1000);
             }
+            GPIO_write(GPIOB,0,0);
         }
         EXTI_clear(EXTI6);
     }
