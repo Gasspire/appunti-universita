@@ -1,149 +1,170 @@
 #include "stm32_unict_lib.h"
 #include <stdio.h>
 
-int contatore = 0; // conto i periodi
-volatile int centesimi = 0; //conto i centesimi
-//conto i secondi come centesimi / 100, es. 104 / 100 -> prendendo l'intero è 1 sec. e per mostrare i centesimi mi basta fare centesimi mod 100 così ottengo ad esempio solo il 4.
-bool is_running = false; //gestisco l'avvio del timer
+int contatore = 0; 
+volatile int centesimi = 0; 
+bool is_running = false; 
 bool lampeggio = false;
 
 int array_mem[10] = {0};
 int numero_salvati = 0;
-int numero_mostrati = 0;
+
+bool save_mode = false;
+bool mem_show_mode = false;
+
+bool giallo_is_acceso = false;
+int led_giallo_lampeggio = 0;
 
 void setup() {
-    ClockConfig(); // setta correttamente il clock a 84 MHz
-    CONSOLE_init(); // qui si può inizializzare la console di debug 
-    DISPLAY_init(); // inizializzazione del display
+    ClockConfig(); 
+    CONSOLE_init(); 
+    DISPLAY_init(); 
 
-    // devo inizializzare i tasti X, Y, Z, T in maniera tale da poter generare gli interrupt
-    
-    //Configurato il tasto X
-    GPIO_config_input(GPIOB,10);
+    // Tasto X (PB10) - Start/Stop
+    GPIO_config_input(GPIOB, 10);
     GPIO_config_EXTI(GPIOB, EXTI10);
     EXTI_enable(EXTI10, FALLING_EDGE);
 
-    //Configuro il tast Y
-    GPIO_config_input(GPIOB,4);
+    // Tasto Y (PB4) - Reset
+    GPIO_config_input(GPIOB, 4);
     GPIO_config_EXTI(GPIOB, EXTI4);
     EXTI_enable(EXTI4, FALLING_EDGE);
 
-    //Configuro il tasto Z
-    GPIO_config_input(GPIOB,5);
+    // Tasto Z (PB5) - Store Snapshot
+    GPIO_config_input(GPIOB, 5);
     GPIO_config_EXTI(GPIOB, EXTI5);
     EXTI_enable(EXTI5, FALLING_EDGE);
 
-    //Configuro il tasto T
-    GPIO_config_input(GPIOB,6);
+    // Tasto T (PB6) - Show Memory
+    GPIO_config_input(GPIOB, 6);
     GPIO_config_EXTI(GPIOB, EXTI6);
     EXTI_enable(EXTI6, FALLING_EDGE);
 
-    //Configuro i due punti (?)
+    // Due punti (PB8)
     GPIO_init(GPIOB);
     GPIO_config_output(GPIOB, 8);
 
-    //Inizializzo il LED ROSSO
-    GPIO_init(GPIOB);
-    GPIO_config_output(GPIOB,0);
+    // LED ROSSO (PB0)
+    GPIO_config_output(GPIOB, 0);
 
-    //Inizializzo il LED GIALLO
+    // LED GIALLO (PC2)
     GPIO_init(GPIOC);
-    GPIO_config_output(GPIOB,2);
+    GPIO_config_output(GPIOC, 2);
 }
 
-
-//Avvia/Ferma il cronometro
 void EXTI15_10_IRQHandler(void) {
-    if (EXTI_isset(EXTI10)){
+    if (EXTI_isset(EXTI10)) {
         is_running = !is_running;
         EXTI_clear(EXTI10);
     }
 }
-//Azzera il cronometro
+
 void EXTI4_IRQHandler(void) {
-    if (EXTI_isset(EXTI4)){
-        centesimi = 0;
-        contatore = 0;
+    if (EXTI_isset(EXTI4)) {
+        if (!is_running) { // Azzeramento consigliato a timer fermo
+            centesimi = 0;
+            contatore = 0;
+        }
         EXTI_clear(EXTI4);
     }
 }
 
 void EXTI9_5_IRQHandler(void) {
-    if (EXTI_isset(EXTI5)){ //Se è stato premuto il tasto 5
-        //Premuto questo facciamo lo "snapshot" cioè salva il risultato attuale del cronometro.
-        
-        array_mem[numero_salvati%10] = centesimi;
-        numero_salvati++;//vengono mostrati solo gli ultimi 10 salvati non in ordine
-        
-        GPIO_write(GPIOC,2,1); //accendo il led rosso
-        delay_ms(1000); //aspetto un secondo e lo spengo
-        GPIO_write(GPIOB,2,0);
-
+    if (EXTI_isset(EXTI5)) {
+        if (is_running) {
+            save_mode = true; 
+        }
         EXTI_clear(EXTI5);
     }
-    else if(EXTI_isset(EXTI6)){
-        // Se tengo premuto questo tasto, il led rosso si accende e viene mostrato il valore di ogni snapshot per 1 secondo. Quando vengono mostrati tutti si ritorna al funzionamento normale
-        if(!is_running){
-            GPIO_write(GPIOB,0,1);
-            int limit = (numero_salvati > 10? 10: numero_salvati);
-            for (int i = 0; i < limit; i++)
-            {
-                int curr_cent = array_mem[i];
-
-                int ss = curr_cent/100;
-                int cc = curr_cent%100;
-
-                char msg[10]; 
-                sprintf(msg,"%02d%02d",ss,cc);
-                DISPLAY_puts(0,msg); 
-                delay_ms(1000);
-            }
-            GPIO_write(GPIOB,0,0);
+    else if (EXTI_isset(EXTI6)) {
+        if (!is_running) {
+            mem_show_mode = true;
         }
         EXTI_clear(EXTI6);
     }
 }
- 
+
 void loop() {
-    if(is_running) {
-        delay_ms(10); //aspetto 10 ms per aggiornare i centesimi di secondo
+    // 1. Gestione Salvataggio Snapshot
+    if (save_mode) {
+        array_mem[numero_salvati % 10] = centesimi;
+        numero_salvati++;
+        
+        GPIO_write(GPIOC, 2, 1); // Accende il LED giallo
+        save_mode = false;
+        led_giallo_lampeggio = 0;
+        giallo_is_acceso = true;
+    }
+
+    // 2. Gestione Temporizzata LED Giallo (SPOSTATA FUORI DALL'IF IS_RUNNING)
+    if (giallo_is_acceso) {
+        led_giallo_lampeggio++;
+        if (led_giallo_lampeggio >= 100) { // 100 iterazioni * 10 ms = 1 secondo
+            GPIO_write(GPIOC, 2, 0); 
+            giallo_is_acceso = false;
+            led_giallo_lampeggio = 0;
+        }
+    }
+
+    // 3. Modalità Visualizzazione Memoria
+    if (mem_show_mode) {
+        GPIO_write(GPIOB, 0, 1); // Accende il LED rosso 
+        
+        int limit = (numero_salvati > 10) ? 10 : numero_salvati;
+        int start_index = (numero_salvati > 10) ? (numero_salvati % 10) : 0;
+
+        for (int i = 0; i < limit; i++) {
+            int idx = (start_index + i) % 10; // Calcola l'indice in ordine cronologico
+            int curr_cent = array_mem[idx];
+
+            int ss = curr_cent / 100;
+            int cc = curr_cent % 100;
+
+            char msg[10]; 
+            sprintf(msg, "%02d%02d", ss, cc);
+            DISPLAY_puts(0, msg); 
+            delay_ms(1000);
+        }
+        
+        GPIO_write(GPIOB, 0, 0); // Spegne il LED rosso
+        mem_show_mode = false;
+    }
+
+    // 4. Avanzamento Timer e Display
+    if (is_running) {
+        delay_ms(10); 
         contatore++;
         centesimi++;
-        if(contatore == 50) { //devo fare lampeggiare i due punti
-            //printo con lampeggio
+
+        if (contatore == 25) { // Periodo totale 500 ms (250 ms ON, 250 ms OFF)
             contatore = 0;
             lampeggio = !lampeggio;
         }
+
+        int ss = centesimi / 100;
+        int cc = centesimi % 100;
+
+        char msg[10]; 
+        sprintf(msg, "%02d%02d", ss, cc);
+        DISPLAY_puts(0, msg); 
+
+        GPIO_write(GPIOB, 8, lampeggio ? 1 : 0);
+    }
+    else {
+        GPIO_write(GPIOB, 8, 0); // Spegne i due punti se il cronometro è fermo
         
-        int ss = centesimi/100;
-        int cc = centesimi%100;
+        int ss = centesimi / 100;
+        int cc = centesimi % 100;
 
         char msg[10]; 
-        sprintf(msg,"%02d%02d",ss,cc);
-        DISPLAY_puts(0,msg); //primo parametro 0 è la posizione di partenza, msg è la stringa da mostrare di 4 caratteri presumibilmente
-
-        if(lampeggio){
-            GPIO_write(GPIOB,8,1);
-        }
-        else{
-            GPIO_write(GPIOB,8,0);
-        }
+        sprintf(msg, "%02d%02d", ss, cc);
+        DISPLAY_puts(0, msg); 
     }
-    else{ //se siamo qui il timere è fermo e stampiamo e basta
-        int ss = centesimi/100;
-        int cc = centesimi%100;
-
-        char msg[10]; 
-        sprintf(msg,"%02d%02d",ss,cc);
-        DISPLAY_puts(0,msg); 
-    }
-
 }
 
-
 int main() {
-    setup(); //eseguiamo la setup
-    for(;;){ // facciamo partire il loop
+    setup(); 
+    for (;;) { 
         loop(); 
     }
     return 0;
