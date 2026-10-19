@@ -7,6 +7,9 @@ volatile int centesimi = 0; //conto i centesimi
 bool is_running = false; //gestisco l'avvio del timer
 bool lampeggio = false;
 
+int array_mem[10] = {0};
+int numero_salvati = 0;
+int numero_mostrati = 0;
 
 void setup() {
     ClockConfig(); // setta correttamente il clock a 84 MHz
@@ -59,8 +62,8 @@ void EXTI15_10_IRQHandler(void) {
 //Azzera il cronometro
 void EXTI4_IRQHandler(void) {
     if (EXTI_isset(EXTI4)){
-
-
+        centesimi = 0;
+        contatore = 0;
         EXTI_clear(EXTI4);
     }
 }
@@ -68,13 +71,32 @@ void EXTI4_IRQHandler(void) {
 void EXTI9_5_IRQHandler(void) {
     if (EXTI_isset(EXTI5)){ //Se è stato premuto il tasto 5
         //Premuto questo facciamo lo "snapshot" cioè salva il risultato attuale del cronometro.
-
+        
+        array_mem[numero_salvati%10] = centesimi;
+        numero_salvati++;//vengono mostrati solo gli ultimi 10 salvati non in ordine
+        
+        GPIO_write(GPIOB,0,1); //accendo il led rosso
+        delay_ms(1000); //aspetto un secondo e lo spengo
+        GPIO_write(GPIOB,0,0);
 
         EXTI_clear(EXTI5);
     }
     else if(EXTI_isset(EXTI6)){
         // Se tengo premuto questo tasto, il led rosso si accende e viene mostrato il valore di ogni snapshot per 1 secondo. Quando vengono mostrati tutti si ritorna al funzionamento normale
+        if(!is_running){
+            int limit = (numero_salvati > 10? 10: numero_salvati);
+            for (int i = 0; i < limit; i++)
+            {
+                int curr_cent = array_mem[i];
 
+                int ss = curr_cent/100;
+                int cc = curr_cent%100;
+
+                char msg[10]; 
+                sprintf(msg,"%02d%02d",ss,cc);
+                DISPLAY_puts(0,msg); 
+            }
+        }
         EXTI_clear(EXTI6);
     }
 }
@@ -103,7 +125,14 @@ void loop() {
         else{
             GPIO_write(GPIOB,8,0);
         }
+    }
+    else{ //se siamo qui il timere è fermo e stampiamo e basta
+        int ss = centesimi/100;
+        int cc = centesimi%100;
 
+        char msg[10]; 
+        sprintf(msg,"%02d%02d",ss,cc);
+        DISPLAY_puts(0,msg); 
     }
 
 }
