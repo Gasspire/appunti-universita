@@ -1,10 +1,12 @@
 #include "stm32_unict_lib.h"
 #include <stdio.h>
 
-
+int contatore = 0; // conto i periodi
 volatile int centesimi = 0; //conto i centesimi
-volatile int secondi = 0; //conto i secondi 
+//conto i secondi come centesimi / 100, es. 104 / 100 -> prendendo l'intero è 1 sec. e per mostrare i centesimi mi basta fare centesimi mod 100 così ottengo ad esempio solo il 4.
 bool is_running = false; //gestisco l'avvio del timer
+bool lampeggio = false;
+
 
 void setup() {
     ClockConfig(); // setta correttamente il clock a 84 MHz
@@ -33,6 +35,10 @@ void setup() {
     GPIO_config_EXTI(GPIOB, EXTI6);
     EXTI_enable(EXTI6, FALLING_EDGE);
 
+    //Configuro i due punti (?)
+    GPIO_init(GPIOB);
+    GPIO_config_output(GPIOB, 8);
+
     //Inizializzo il LED ROSSO
     GPIO_init(GPIOB);
     GPIO_config_output(GPIOB,0);
@@ -46,8 +52,7 @@ void setup() {
 //Avvia/Ferma il cronometro
 void EXTI15_10_IRQHandler(void) {
     if (EXTI_isset(EXTI10)){
-
-
+        is_running = !is_running;
         EXTI_clear(EXTI10);
     }
 }
@@ -75,7 +80,31 @@ void EXTI9_5_IRQHandler(void) {
 }
  
 void loop() {
+    if(is_running) {
+        delay_ms(10); //aspetto 10 ms per aggiornare i centesimi di secondo
+        contatore++;
+        centesimi++;
+        if(contatore == 50) { //devo fare lampeggiare i due punti
+            //printo con lampeggio
+            contatore = 0;
+            lampeggio = !lampeggio;
+        }
+        
+        int ss = centesimi/100;
+        int cc = centesimi%100;
 
+        char msg[10]; 
+        sprintf(msg,"%02d%02d",ss,cc);
+        DISPLAY_puts(0,msg); //primo parametro 0 è la posizione di partenza, msg è la stringa da mostrare di 4 caratteri presumibilmente
+
+        if(lampeggio){
+            GPIO_write(GPIOB,8,1);
+        }
+        else{
+            GPIO_write(GPIOB,8,0);
+        }
+
+    }
 
 }
 
