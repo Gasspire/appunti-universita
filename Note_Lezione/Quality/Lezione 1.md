@@ -1,5 +1,5 @@
 Progetto (27 punti) + Documentazione + Presentazione
-Provo
+
 ---
 **Differenza tra SHELL e Terminale**
 Terminale = interfaccia grafica.
