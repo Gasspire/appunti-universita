@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Quality/Lezione 2.md",
+                "file": "Quality/Lezione 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 2"
+              "title": "Lezione 1"
             }
           }
         ]
@@ -203,10 +203,10 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "7f5f74be22b7139a",
+  "active": "5a956fa22d09ae62",
   "lastOpenFiles": [
-    "Quality/Lezione 1.md",
     "Quality/Lezione 2.md",
+    "Quality/Lezione 1.md",
     "IoT/Lezione 4.md",
     "IoT/Immagini/Pasted image 20261015183920.png",
     "IoT/Immagini/Pasted image 20261015183633.png",

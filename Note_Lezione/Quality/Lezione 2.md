@@ -1,4 +1,4 @@
-Alla init si parte con master o main. È la linea storica "canon" che deve sempre essere stabile. 
+Alla init si parte con master o main. È la linea storica "canon" che deve sempre essere stabile.
 
 Quando lavori a una feature, cambi branch (ramo) che poi, finita la serie di commit, si fa il merge dei branch.
 
