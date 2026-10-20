@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Alla init si parte con master o main. È la linea storica "canon". 
 
 Quando lavori a una feature, cambi branch (ramo) che poi, finita la serie di commit, si fa il merge dei branch.
@@ -43,6 +42,3 @@ Codeberg è l'alternativa a tutto il resto.
 Fork: creo una copia sul mio profilo di una certa repo ma io ho tutti i permessi.
 
 ---
-=======
-.
->>>>>>> 4846e88 (Auto-sync: 2026-10-16 15:35:10)
