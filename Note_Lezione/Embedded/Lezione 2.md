@@ -1,4 +1,4 @@
-I circuiti del MCU sono connessi tramite i registri (indirizzi).
+I circuiti del MCU sono connessi tramite i registri indicizzati mediante indirizzi.
 ![[Pasted image 20261005082744.png]]
 Registro del contatore di pezzi alla memoria 0x80c000. Questo registro è collegato da un bus. Per leggere e scrivere il valore in quell'indirizzo basta lavorare dunque con il puntatore:
 ![[Pasted image 20261005082844.png]]
