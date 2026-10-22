@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Quality/Lezione 1.md",
+                "file": "IoT/Lezione 6.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 1"
+              "title": "Lezione 6"
             }
           }
         ]
@@ -205,13 +205,17 @@
   },
   "active": "5a956fa22d09ae62",
   "lastOpenFiles": [
-    "Quality/Lezione 2.md",
-    "Quality/Lezione 1.md",
+    "IoT/Immagini/Pasted image 20261022172402.png",
+    "IoT/Immagini/Pasted image 20261022171928.png",
     "IoT/Lezione 4.md",
+    "IoT/Lezione 6.md",
+    "IoT/Lezione 2.md",
+    "Embedded/Lezione 3.md",
+    "Quality/Lezione 1.md",
+    "Quality/Lezione 2.md",
     "IoT/Immagini/Pasted image 20261015183920.png",
     "IoT/Immagini/Pasted image 20261015183633.png",
     "IoT/Immagini/Pasted image 20261015183017.png",
-    "Embedded/Lezione 3.md",
     "Principi/Lezione 25 Maggio.md",
     "Principi/Lezione 22 Apr.md",
     "Principi/Lezione 18 Maggio.md",
@@ -220,7 +224,6 @@
     "Quality",
     "Embedded/Lezione 2.md",
     "Embedded/Lezione 1.md",
-    "IoT/Lezione 2.md",
     "IoT/Lezione 1.md"
   ]
 }
