@@ -20,3 +20,6 @@ Il MCU può andare in deep sleep e poi svegliarsi solo all'accadere di certi eve
 
 Con Wi-Fi 6 è possibile attivare il Wake dal wifi.
 
+![[Pasted image 20261022174324.png]]
+
+![[Pasted image 20261022180922.png]]
