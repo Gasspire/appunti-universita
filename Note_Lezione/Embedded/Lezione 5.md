@@ -20,3 +20,13 @@ Si può scrivere anche spezzando i bit in due quindi 0100 0000 -> 0x40
 Se invece vogliamo mettere un bit a 0 allora possiamo fare così:
 XXXXXXXX & 10111111 = X0XXXXXX  
 
+1 << 6  -> forziamo il bit 6 a 1 (cioè 1 shiftato al bit 6)
+
+GPIOC->ODR = GPIOC -> ODR | (1<<3) è uguale a GPIO_write(GPIOC,3,1).
+GPIOC->ODR = GPIOC -> ODR & (uint32_t~(1<<3)) è uguale a GPIO_write(GPIOC,3,0).
+
+A volte ci sono dei registri specifici in cui possiamo andare a dire quale bit mettere a 0 e quali mettere a 1. 
+
+GPIOC -> BSRR = 1 << 3 è la stessa cosa che abbiamo visto prima per accendere.
+Se io voglio spegnere dobbiamo fare 
+GPIOC->BSRR = 1 << 16+3
