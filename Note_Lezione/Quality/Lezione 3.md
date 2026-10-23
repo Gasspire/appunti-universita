@@ -18,4 +18,4 @@ I conflitti possono essere risolti in vari modi:
 - Ne accetti solo uno.
 
 O faccio il merge di tutti i commit e sul main aggiungerò tutti i commit sul main, altrimenti se metto **squash and merge** unifico tutti i commit in uno solo.
-Nel caso di **git rebase** rifaccio tutto sul main (?)
+Nel caso di **git rebase** "effettua" tutti i commit della branch sul main.
