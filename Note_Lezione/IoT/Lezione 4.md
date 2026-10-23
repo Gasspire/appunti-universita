@@ -1,4 +1,4 @@
-Rete cellulare consuma assj
+Rete cellulare consuma assai.
 
 Posso costruire il livello applicativo direttamente sopra il data link layer skippando il network e transport.
 ![[Pasted image 20261015174420.png]]
