@@ -30,3 +30,9 @@ A volte ci sono dei registri specifici in cui possiamo andare a dire quale bit m
 GPIOC -> BSRR = 1 << 3 è la stessa cosa che abbiamo visto prima per accendere.
 Se io voglio spegnere dobbiamo fare 
 GPIOC->BSRR = 1 << 16+3
+
+Per testare un singolo bit di un registro, bisogna prima fare un'operazione che mette tutti gli altri a 0 e poi testiamo con il corrispondente che ci serve, quindi: 
+
+Facciamo PB4 & (1<<4) e poi fai il controllo.
+
+Quando premo il bottone vado, il registro va a 0.
