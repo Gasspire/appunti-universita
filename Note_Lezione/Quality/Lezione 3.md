@@ -28,9 +28,6 @@ Quando facciamo un commit, possiamo triggerare una pipeline che può far partire
 
 Quando le pipeline danno l'okay su tutto il nostro software è pronto per il deploy. Allo stesso modo può accadere quando si fa il deploy, cioè può partire un'altra pipeline.
 
+## tennis (Segreti)
 
----
-
-## tennis 
-
----
+Variabili con contenuto segreto. Utile per chiavi API 
