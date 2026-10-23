@@ -14,3 +14,9 @@ Ma anche la **proprietà dell'elemento neutro** -> Se $X \in [0,1] \rightarrow x
 
 In C abbiamo *&* per l'and logico bit wise e *|* per l'or logico bit wise. Quindi eg. se voglio che il bit 7 viene modificato basta fare:
 XXXXXXXX | 01000000 = X1XXXXXX  
+
+Si può scrivere anche spezzando i bit in due quindi 0100 0000 -> 0x40 
+
+Se invece vogliamo mettere un bit a 0 allora possiamo fare così:
+XXXXXXXX & 10111111 = X0XXXXXX  
+

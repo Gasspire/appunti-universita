@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "4d4c2107ba5ab874",
+        "id": "35624213963866d7",
         "type": "tabs",
         "children": [
           {
-            "id": "e1d63785c27469f4",
+            "id": "6fa10b74fdc38972",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Embedded/Lezione 5.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nuova scheda"
+              "title": "Lezione 5"
             }
           }
         ]
@@ -199,7 +203,7 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "e1d63785c27469f4",
+  "active": "6fa10b74fdc38972",
   "lastOpenFiles": [
     "Embedded/Lezione 5.md",
     "IoT/Lezione 6.md",
