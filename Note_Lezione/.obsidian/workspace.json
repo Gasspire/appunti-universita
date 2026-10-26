@@ -11,10 +11,14 @@
             "id": "c17b71cb73b8c1f1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Embedded/Lezione 6.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nuova scheda"
+              "title": "Lezione 6"
             }
           }
         ]
@@ -74,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "5cc4a9eaaacf48ff",
@@ -201,6 +206,10 @@
   },
   "active": "c17b71cb73b8c1f1",
   "lastOpenFiles": [
+    "Embedded/Immagini/Pasted image 20261026083231.png",
+    "Embedded/Immagini/Pasted image 20261026082957.png",
+    "Embedded/Immagini/Pasted image 20261026082642.png",
+    "Embedded/Lezione 6.md",
     "Quality/Lezione 3.md",
     "Embedded/Lezione 5.md",
     "IoT/Lezione 6.md",
