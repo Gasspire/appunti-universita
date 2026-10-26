@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "da8a423cf20a2833",
+        "id": "8f7cade86f6ba828",
         "type": "tabs",
         "children": [
           {
-            "id": "c17b71cb73b8c1f1",
+            "id": "99ce3f8fbea4a4a2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Embedded/Lezione 6.md",
+                "file": "IoT/Lezione 6.md",
                 "mode": "source",
                 "source": false
               },
@@ -41,10 +41,12 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
-              "title": "Esplora risorse"
+              "title": "Esplora file"
             }
           },
           {
@@ -78,8 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "5cc4a9eaaacf48ff",
@@ -186,8 +187,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Apri selezione rapida": false,
-      "daily-notes:Apri nota del giorno": false,
+      "switcher:Apri selettore rapido": false,
+      "daily-notes:Apri nota giornaliera": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
       "templates:Inserisci modello": false,
@@ -204,26 +205,30 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "c17b71cb73b8c1f1",
+  "active": "7f5f74be22b7139a",
   "lastOpenFiles": [
+    "IoT/Immagini/Pasted image 20261025184913.png",
+    "IoT/Immagini/Pasted image 20261025184831.png",
+    "IoT/Immagini/Pasted image 20261025184720.png",
+    "IoT/Immagini/Pasted image 20261025175655.png",
+    "IoT/Immagini/Pasted image 20261025174237.png",
+    "Embedded/Lezione 4.md",
+    "Embedded/Immagini/Pasted image 20261025171125.png",
+    "Embedded/Lezione 6.md",
     "Embedded/Immagini/Pasted image 20261026093204.png",
     "Embedded/Immagini/Pasted image 20261026090203.png",
     "Embedded/Immagini/Pasted image 20261026084346.png",
     "Embedded/Immagini/Pasted image 20261026084256.png",
     "Embedded/Immagini/Pasted image 20261026083231.png",
-    "Embedded/Immagini/Pasted image 20261026082957.png",
-    "Embedded/Immagini/Pasted image 20261026082642.png",
-    "Embedded/Lezione 6.md",
-    "Quality/Lezione 3.md",
-    "Embedded/Lezione 5.md",
     "IoT/Lezione 6.md",
-    "IoT/Immagini/Pasted image 20261022180922.png",
-    "IoT/Immagini/Pasted image 20261022174324.png",
-    "IoT/Immagini/Pasted image 20261022172402.png",
-    "IoT/Immagini/Pasted image 20261022171928.png",
+    "IoT/Lezione 5.md",
     "IoT/Lezione 4.md",
     "IoT/Lezione 2.md",
+    "Embedded/Lezione 5.md",
     "Embedded/Lezione 3.md",
+    "Embedded/Lezione 2.md",
+    "Embedded/Lezione 1.md",
+    "Quality/Lezione 3.md",
     "Quality/Lezione 1.md",
     "Quality/Lezione 2.md",
     "Principi/Lezione 25 Maggio.md",
@@ -232,8 +237,6 @@
     "Principi/Lezione 13 Maggio (Apparve Maria).md",
     "Principi/Lezione 11 Maggio.md",
     "Quality",
-    "Embedded/Lezione 2.md",
-    "Embedded/Lezione 1.md",
     "IoT/Lezione 1.md"
   ]
 }

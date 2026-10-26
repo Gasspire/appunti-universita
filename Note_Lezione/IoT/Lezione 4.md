@@ -1,5 +1,3 @@
-Rete cellulare consuma assai.
-
 Posso costruire il livello applicativo direttamente sopra il data link layer skippando il network e transport.
 ![[Pasted image 20261015174420.png]]
 
@@ -7,18 +5,19 @@ Zigbee si ferma al DLL poi o costruiamo sopra o usiamo cose pronte.
 
 ---
 ## RFID
-RFID fu il primo protocollo *wireless* adottato in campo IoT.
+RFID fu uno dei primi protocolli *wireless* adottato in campo IoT.
 
 Questo protocollo nasce dall'idea di voler risolvere il problema del contenuto dei container senza aprirli.
 
 Il funzionamento si basa su dei **Tag passivi** che erano dei piccoli chip con una sola antenna e senza batteria che potevano essere letti attraverso dei **Reader** il cui compito era quello di inviare dei segnali in grado di attivare i tag passivi e riceve le informazioni che questi gli inviavano.
-
-Quando parliamo di wireless in generale, il problema principale è che il canale è occupato da tanti dispositivi e quindi serve la gestione della comunicazione rispetto all'hub a cui questi sono *connessi*. In realtà, la parola *connessione* sembra indicare qualcosa di persistente in maniera passiva quando, in realtà, qui banalmente la connessione non è altro che un continuo scambio di messaggi per tenersi "attivi". 
+![[Pasted image 20261025174237.png]]
+Quando parliamo di wireless in generale, il problema principale è che il canale **è occupato da tanti dispositivi** e quindi serve una gestione della comunicazione rispetto all'hub a cui questi sono *connessi*. 
+In realtà, la parola *connessione* sembra indicare qualcosa di persistente in maniera passiva quando, in realtà, qui banalmente la connessione non è altro che un continuo scambio di messaggi per tenersi "attivi". 
 
 RFID risolve:
-- No batteria, dunque costo piuttosto basso e 0 problemi legati alla sostituzione.
-- Risolve la privacy perché si doveva essere molto vicini al tag per poterlo leggere.
-- Coordinazione nella comunicazione per cui prima il reader invia il segnale e poi banalmente il tag risponde.
+- **No batteria**, dunque costo piuttosto basso e 0 problemi legati alla sostituzione.
+- Risolve la privacy perché si doveva essere **molto vicini al tag** per poterlo leggere.
+- **Coordinazione nella comunicazione per cui prima il reader invia il segnale e poi banalmente il tag risponde.**
 
 ![[Pasted image 20261015181600.png]]
 - **Power up (Accensione):**
@@ -69,7 +68,6 @@ Nello specifico, ogni blocco
 
 Nel primo blocco (0) ci vanno le info di produzione quali UID, tipologia di RFID e chi lo ha fatto prodotto.
 
-<<<<<<< HEAD
 In ogni settore l'ultimo è il "trailer" e contiene alcune informazioni di "sicurezza" relative al settore stesso (come si può accedere e come si può modificare un blocco). 
 In totale, se abbiamo 64 blocchi da 16 byte, di 1 kb ci rimangano 752 byte.
 ![[Pasted image 20261016135650.png]]
@@ -119,4 +117,87 @@ Key A e Key B so 2 chiavi per gestire meglio i permessi di scrittura o lettura.
 La chiave A non è mai leggibile, la chiave B si.
 I bit di accesso ci dicono come possiamo accedere ai blocchi.
 ![[Pasted image 20261015183920.png]]
->>>>>>> 7b4e06b (Auto-sync: 2026-10-16 13:01:43)
+
+---
+#### Codice che legge TAG
+
+```
+#include <iot_board.h>
+#include <Adafruit_PN532.h>
+
+// Inizializzazione interfaccia PN532 via I2C (senza pin IRQ/RST dedicati)
+Adafruit_PN532 nfc(-1, -1, &Wire); 
+
+void setup() {
+  IoTBoard::init_serial();
+  IoTBoard::init_display();     // Inizializza seriale, display e bus I2C (A4, A5)
+  nfc.begin();
+
+  // Verifica presenza del PN532 e lettura versione firmware
+  uint32_t v = nfc.getFirmwareVersion();
+  if (!v) { Serial.println("No PN532"); while (true) delay(1000); }
+  Serial.printf("PN5%02X fw %u.%u\n", (v >> 24) & 0xFF, (v >> 16) & 0xFF, (v >> 8) & 0xFF);
+
+  nfc.SAMConfig();                        // Configura la scheda SAM in modalità normale
+  nfc.setPassiveActivationRetries(0x10);  // Imposta max 16 tentativi di lettura (evita blocco infinito)
+}
+
+void loop() {
+  uint8_t uid[7], len;
+
+  // Scansione tag ISO14443A: se non rileva nulla, esce dal loop
+  if (!nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &len))
+    return;
+
+  // Stampa dell'UID rilevato in esadecimale
+  Serial.print("UID:");
+  for (uint8_t i = 0; i < len; i++) Serial.printf(" %02X", uid[i]);
+
+  // Identificazione presunta del tipo di tag in base alla lunghezza dell'UID
+  Serial.println(len == 4 ? "  Classic?" : "  NTAG?");
+  delay(1000);                            // Attesa di 1s prima della scansione successiva
+}
+```
+
+---
+#### Codice Autenticazione, Scrittura e Lettura del blocco
+
+```
+// Definizione della chiave di fabbrica standard (6 byte a 0xFF)
+uint8_t keyA[6] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF }; 
+
+// Target: Blocco 4 (ovvero il primo blocco del Settore 1)
+const uint8_t BLOCK = 4;
+
+void loop() {
+  uint8_t uid[7], len, buf[16];
+
+  // 1. Rileva la presenza di una carta RFID ISO14443A
+  if (!nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &len))
+    return;
+
+  // 2. Filtra solo le carte con UID da 4 byte (tipico delle MIFARE Classic)
+  if (len != 4) return;
+
+  // 3. Autenticazione sul settore contenente il BLOCK 4[cite: 2]
+  // Parametri: (UID, lunghezza UID, Blocco target, 0 = Key A, Array chiave)[cite: 2]
+  if (!nfc.mifareclassic_AuthenticateBlock(uid, len, BLOCK, 0, keyA)) {
+    Serial.println("Auth failed: wrong key?");
+    return;
+  }
+
+  // 4. Preparazione del buffer di dati da scrivere (16 byte totali)[cite: 2]
+  uint8_t data[16] = "Hello UNICT IoT"; // 15 caratteri + terminatore di stringa '\0'[cite: 2]
+
+  // 5. Scrittura del blocco e immediata rilettura per verifica[cite: 2]
+  if (nfc.mifareclassic_WriteDataBlock(BLOCK, data) && 
+      nfc.mifareclassic_ReadDataBlock(BLOCK, buf)) {
+    
+    // Stampa sulla seriale dei 16 byte letti formattati in Esadecimale[cite: 2]
+    for (uint8_t i = 0; i < 16; i++) Serial.printf("%02X ", buf[i]);
+    Serial.println();
+  }
+
+  delay(2000); // Attesa di 2 secondi prima del ciclo successivo[cite: 2]
+}
+```
