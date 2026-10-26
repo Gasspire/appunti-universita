@@ -39,3 +39,14 @@ Pull up pull down register
 
 Ci sono altri registri vedremo dopo.
 
+---
+
+## Collegamento a matrice
+![[Pasted image 20261026093204.png]]
+
+
+Tecnica di scansione:: prendo le linee e le collego a 4 output di un micro e 4 di in. 
+
+Ogni volta attivo una riga e poi faccio la scansione delle colonne per vedere quale ho attivato continuamente.
+
+La conversione da tasto ad ASCII lo fa il driver. Quello che viene generato è lo *scan code*.
