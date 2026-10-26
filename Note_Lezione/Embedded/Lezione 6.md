@@ -50,3 +50,9 @@ Tecnica di scansione:: prendo le linee e le collego a 4 output di un micro e 4 d
 Ogni volta attivo una riga e poi faccio la scansione delle colonne per vedere quale ho attivato continuamente.
 
 La conversione da tasto ad ASCII lo fa il driver. Quello che viene generato è lo *scan code*.
+
+What if premo due contemporaneamente? Utilizzare un push pull crea un conflitto in questo caso (si brucia) -> open drain e pull up così no problem.
+
+Cosa succede in In se il tasto non è premuto? è flottante -> metto le pull up qui (e non in Out) questo fa si che se il tasto non è premuto è 1, devo far sì che gli out siano pure gli out funzionino così e metto 1.
+
+Abbiamo bisogno di un ritardo che facciamo con le NOP
