@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Embedded/Lezione 6.md",
+                "file": "IoT/Lezione 7.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 6"
+              "title": "Lezione 7"
             }
           }
         ]
@@ -41,12 +41,10 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Esplora file"
+              "title": "Esplora risorse"
             }
           },
           {
@@ -187,8 +185,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Apri selettore rapido": false,
-      "daily-notes:Apri nota giornaliera": false,
+      "switcher:Apri selezione rapida": false,
+      "daily-notes:Apri nota del giorno": false,
       "graph:Apri vista grafo": false,
       "canvas:Crea nuova lavagna": false,
       "templates:Inserisci modello": false,
@@ -207,6 +205,9 @@
   },
   "active": "99ce3f8fbea4a4a2",
   "lastOpenFiles": [
+    "IoT/Immagini/Pasted image 20261027172522.png",
+    "Embedded/Lezione 6.md",
+    "IoT/Lezione 7.md",
     "Embedded/Immagini/Pasted image 20261025171125.png",
     "Embedded/Immagini/Pasted image 20261026082642.png",
     "Embedded/Immagini/Pasted image 20261026082957.png",
@@ -217,8 +218,6 @@
     "Embedded/Immagini/Pasted image 20261026170024.png",
     "Embedded/Immagini/Pasted image 20261026090203.png",
     "Embedded/Immagini/Pasted image 20261026170700.png",
-    "Embedded/Immagini/Pasted image 20261026171000.png",
-    "Embedded/Lezione 6.md",
     "Embedded/Lezione 5.md",
     "Embedded/Lezione 4.md",
     "IoT/Lezione 6.md",

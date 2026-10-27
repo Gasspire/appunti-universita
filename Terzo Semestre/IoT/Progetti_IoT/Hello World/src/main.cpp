@@ -1,17 +1,23 @@
-#include <WiFi.h>
 #include <iot_board.h>
+#include <WiFi.h>
+#include <lwip/sockets.h>
 
-void setup() {
-    Serial.begin(115200);
-    WiFi.mode(WIFI_AP);
-    // ssid, password, channel, hidden, max clients
-    WiFi.softAP("Prof_Riccobene_aiuto", "provaprovaprovaprovaprova", 6, 0, 4);
-    Serial.print("AP address: ");
-    Serial.println(WiFi.softAPIP());
-    // 192.168.4.1
+const char *ssid = "ARSLab-IoT_2G";
+const char *password = "arslabiot";
+
+void onMesh(const EspMeshEvent &e){
+
 }
 
-void loop() {
-    Serial.printf("Clients: %d\n", WiFi.softAPgetStationNum());
-    delay(5000);
+void setup(){
+    IoTBoard::init_serial();
+    IoTBoard::init_leds();
+    IoTBoard::init_espmesh();
+
+
+}
+
+
+void loop(){
+
 }
