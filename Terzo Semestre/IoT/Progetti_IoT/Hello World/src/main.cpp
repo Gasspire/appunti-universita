@@ -1,63 +1,85 @@
+#include <iot_board.h>
 
-#include <iot_board.h> // + -DESPMESH_ENABLED
-#include <lwip/sockets.h>
+#define SONO_ROOT 0
 
-#define SONO_ROOT 0 // 1 su UNA sola board, 0 sulle altre
+// Identificativo univoco del vostro gruppo (per non interferire con altri gruppi in aula)
+#define ID_GRUPPO 0x05
 
-const char *ssid = "Pixel 9 Pro";
-const char *pwd = "ciaociao";
-
-int sent = 0;
 float temp;
+uint8_t myMac[6];
 
-void onMesh(const EspMeshEvent &e)
-{
-    switch (e.type)
-    {
-    case EspMeshEventType::Connected:
-        digitalWrite(LED_GREEN, HIGH);
-        break;
-    case EspMeshEventType::Disconnected:
-        digitalWrite(LED_GREEN, LOW);
-        digitalWrite(LED_YELLOW, LOW);
-        break;
-    case EspMeshEventType::BecameRoot:
-        digitalWrite(LED_YELLOW, HIGH);
-        break;
-    case EspMeshEventType::Message:
-        display->clearDisplay();
-        display->setCursor(0, 0);
-        display->printf("From " MACSTR "\n",
-                        MAC2STR(e.from));
-        display->println((char *)e.data);
-        display->display();
-        break;
-    default:
-        break;
-    }
-}
-void setup()
-{
-    IoTBoard::init_serial();
-    IoTBoard::init_leds();
-    IoTBoard::init_display();
-    
-    if (IoTBoard::init_espmesh(ssid, pwd, onMesh))
-        display->println("EspMesh enabled");
-    else
-        display->println("EspMesh error");
+void onMesh(const EspMeshEvent &e) {
+  switch (e.type) {
+  case EspMeshEventType::Connected:
+    digitalWrite(LED_GREEN, HIGH);
+    Serial.println("[MESH] Connesso alla rete mesh!");
+    break;
+  case EspMeshEventType::Disconnected:
+    digitalWrite(LED_GREEN, LOW);
+    digitalWrite(LED_YELLOW, LOW);
+    Serial.println("[MESH] Disconnesso!");
+    break;
+  case EspMeshEventType::BecameRoot:
+    digitalWrite(LED_YELLOW, HIGH);
+    Serial.println("[MESH] Ruolo: ROOT");
+    break;
+  case EspMeshEventType::ChildJoined:
+    Serial.printf("[MESH] Nodo connesso: " MACSTR "\n", MAC2STR(e.from));
+    break;
+  case EspMeshEventType::Message:
+    // Stampa il messaggio ricevuto sul Serial Monitor e sul Display
+    Serial.printf("[RX da " MACSTR "]: %s\n", MAC2STR(e.from), (char *)e.data);
+    display->clearDisplay();
+    display->setCursor(0, 0);
+    display->printf("Da " MACSTR "\n", MAC2STR(e.from));
+    display->printf("%s\n", (char *)e.data);
     display->display();
+    break;
+  default:
+    break;
+  }
 }
-void loop()
-{
-    espmesh->update();
-    // runs the callback
-    if (!IoTBoard::runEvery(5000))
-        return;
-    if (espmesh->isRoot() || !espmesh->isConnected())
-        return;
-    // the root only listens
-    String s = "Hello " + String(sent++) +
-               " layer " + String(espmesh->getLayer());
-    espmesh->sendToRoot(s.c_str(), s.length());
+
+void setup() {
+  IoTBoard::init_serial();
+  IoTBoard::init_leds();
+  IoTBoard::init_display();
+
+  display->clearDisplay();
+  display->setCursor(0, 0);
+  display->setTextSize(1);
+  display->setTextColor(SSD1306_WHITE);
+
+  EspMeshConfig config;
+  config.router_ssid = ""; // Nome fittizio: nessun router richiesto
+  config.on_event = onMesh;
+  config.channel = 11;            // Stesso canale radio per tutte le 4 schede
+  config.mesh_id[5] = ID_GRUPPO;  // Stesso ID mesh per il vostro gruppo
+  config.role = SONO_ROOT ? EspMeshRole::Root : EspMeshRole::Node;
+
+  if (IoTBoard::init_espmesh(config)) {
+    espmesh->getMac(myMac);
+    display->println("Mesh pronta!");
+    display->printf("MAC: " MACSTR "\n", MAC2STR(myMac));
+    display->println(SONO_ROOT ? "Ruolo: ROOT" : "Ruolo: NODO");
+  } else {
+    display->println("Errore avvio Mesh");
+  }
+  display->display();
+}
+
+void loop() {
+  espmesh->update(); // Processa la ricezione e chiama onMesh
+
+  // Ogni 4 secondi invia la temperatura in broadcast
+  if (IoTBoard::runEvery(4000)) {
+    // Il Root trasmette sempre; i nodi solo dopo essersi collegati
+    if (espmesh->isRoot() || espmesh->isConnected()) {
+      temp = temperatureRead();
+      String s = (SONO_ROOT ? "Root: " : "Node: ") + String(temp, 1) + " C";
+      
+      espmesh->broadcast(s.c_str(), s.length());
+      Serial.println("[TX broadcast] " + s);
+    }
+  }
 }
