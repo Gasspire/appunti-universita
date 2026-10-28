@@ -1,33 +1,56 @@
 #include <iot_board.h>
 
+// --> 1 su UNA SOLA board, 0 sulle altre 3!
 #define SONO_ROOT 0
 
-// Identificativo univoco del vostro gruppo (per non interferire con altri gruppi in aula)
+// Identificativo univoco del vostro gruppo
 #define ID_GRUPPO 0x05
+
+// Numero totale di board nel gruppo (1 Root + 3 Station)
+#define NUM_BOARD 4
 
 float temp;
 uint8_t myMac[6];
+bool allarmeMancanza = true; // true se manca qualcuno -> Verde OFF, Giallo LAMPEGGIA
 
 void onMesh(const EspMeshEvent &e) {
   switch (e.type) {
   case EspMeshEventType::Connected:
-    digitalWrite(LED_GREEN, HIGH);
     Serial.println("[MESH] Connesso alla rete mesh!");
     break;
+
   case EspMeshEventType::Disconnected:
-    digitalWrite(LED_GREEN, LOW);
-    digitalWrite(LED_YELLOW, LOW);
-    Serial.println("[MESH] Disconnesso!");
+    if (!SONO_ROOT) {
+      allarmeMancanza = true;
+      digitalWrite(LED_GREEN, LOW);
+      Serial.println("[MESH] Disconnesso!");
+    }
     break;
-  case EspMeshEventType::BecameRoot:
-    digitalWrite(LED_YELLOW, HIGH);
-    Serial.println("[MESH] Ruolo: ROOT");
-    break;
+
   case EspMeshEventType::ChildJoined:
     Serial.printf("[MESH] Nodo connesso: " MACSTR "\n", MAC2STR(e.from));
     break;
+
   case EspMeshEventType::Message:
-    // Stampa il messaggio ricevuto sul Serial Monitor e sul Display
+    // Ignoro il messaggio se e' l'eco del mio stesso broadcast
+    if (memcmp(e.from, myMac, 6) == 0) return;
+
+    // Se sono una Station, ascolto i comandi inviati dal Root
+    if (!SONO_ROOT) {
+      if (strstr((char *)e.data, "CMD:ALL_OK") != nullptr) {
+        allarmeMancanza = false;
+        digitalWrite(LED_GREEN, HIGH);
+        digitalWrite(LED_YELLOW, LOW);
+        Serial.println("[CMD dal Root] Tutti connessi -> Verde ON, Giallo OFF");
+      } 
+      else if (strstr((char *)e.data, "CMD:MISSING") != nullptr) {
+        allarmeMancanza = true;
+        digitalWrite(LED_GREEN, LOW);
+        Serial.println("[CMD dal Root] Manca qualcuno -> Verde OFF, Giallo LAMPEGGIA");
+      }
+    }
+
+    // Mostro il messaggio ricevuto su Seriale e Display
     Serial.printf("[RX da " MACSTR "]: %s\n", MAC2STR(e.from), (char *)e.data);
     display->clearDisplay();
     display->setCursor(0, 0);
@@ -35,6 +58,7 @@ void onMesh(const EspMeshEvent &e) {
     display->printf("%s\n", (char *)e.data);
     display->display();
     break;
+
   default:
     break;
   }
@@ -51,10 +75,10 @@ void setup() {
   display->setTextColor(SSD1306_WHITE);
 
   EspMeshConfig config;
-  config.router_ssid = ""; // Nome fittizio: nessun router richiesto
+  config.router_ssid = "";
   config.on_event = onMesh;
-  config.channel = 11;            // Stesso canale radio per tutte le 4 schede
-  config.mesh_id[5] = ID_GRUPPO;  // Stesso ID mesh per il vostro gruppo
+  config.channel = 11;           // Stesso canale per tutte le board
+  config.mesh_id[5] = ID_GRUPPO; // Stesso ID gruppo per tutte le board
   config.role = SONO_ROOT ? EspMeshRole::Root : EspMeshRole::Node;
 
   if (IoTBoard::init_espmesh(config)) {
@@ -69,17 +93,48 @@ void setup() {
 }
 
 void loop() {
-  espmesh->update(); // Processa la ricezione e chiama onMesh
+  espmesh->update();
 
-  // Ogni 4 secondi invia la temperatura in broadcast
-  if (IoTBoard::runEvery(4000)) {
-    // Il Root trasmette sempre; i nodi solo dopo essersi collegati
-    if (espmesh->isRoot() || espmesh->isConnected()) {
-      temp = temperatureRead();
-      String s = (SONO_ROOT ? "Root: " : "Node: ") + String(temp, 1) + " C";
-      
-      espmesh->broadcast(s.c_str(), s.length());
-      Serial.println("[TX broadcast] " + s);
+  // Lampeggio del LED Giallo se manca qualcuno (sia su Root che su Station)
+  if (allarmeMancanza) {
+    if (IoTBoard::runEvery(500, 1)) {
+      digitalWrite(LED_YELLOW, !digitalRead(LED_YELLOW));
+    }
+  }
+
+  // Ogni 3 secondi logica di controllo / invio
+  if (IoTBoard::runEvery(3000, 0)) {
+    if (SONO_ROOT) {
+      uint8_t nodes[10][6];
+      int numNodi = espmesh->getNodes(nodes, 10);
+
+      // Verifico se sono connesse tutte le board (compreso il root: 4)
+      if (numNodi >= NUM_BOARD) {
+        allarmeMancanza = false;
+        digitalWrite(LED_GREEN, HIGH);
+        digitalWrite(LED_YELLOW, LOW);
+
+        // Mando il messaggio di comando a tutti per accendere il verde
+        String cmd = "CMD:ALL_OK";
+        espmesh->broadcast(cmd.c_str(), cmd.length());
+        Serial.printf("[ROOT] %d/%d connessi. Inviato CMD:ALL_OK (Verde ON, Giallo OFF)\n", numNodi, NUM_BOARD);
+      } else {
+        allarmeMancanza = true;
+        digitalWrite(LED_GREEN, LOW);
+
+        // Mando il messaggio di comando per far spegnere il verde e lampeggiare il giallo
+        String cmd = "CMD:MISSING";
+        espmesh->broadcast(cmd.c_str(), cmd.length());
+        Serial.printf("[ROOT] Mancano nodi (%d/%d). Inviato CMD:MISSING (Verde OFF, Giallo BLINK)\n", numNodi, NUM_BOARD);
+      }
+    } else {
+      // Le Station inviano la loro temperatura
+      if (espmesh->isConnected()) {
+        temp = temperatureRead();
+        String s = "Temp: " + String(temp, 1) + " C";
+        espmesh->broadcast(s.c_str(), s.length());
+        Serial.println("[TX broadcast] " + s);
+      }
     }
   }
 }
