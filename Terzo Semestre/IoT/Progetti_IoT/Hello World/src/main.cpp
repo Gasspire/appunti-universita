@@ -12,7 +12,6 @@
 
 enum STATI {
   SYNC,
-  CONN,
   ROSSO,
   VERDE,
   GIALLO
