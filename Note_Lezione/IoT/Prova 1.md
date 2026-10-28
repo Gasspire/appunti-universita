@@ -1,0 +1,7 @@
+## Codici MAC
+1 D
+Station MAC: 34:85:18:7B:0A:0C
+SoftAP MAC: 36:85:18:7B:0A:0C
+2 Diletta:
+Station MAC: 34:85:18:7A:B7:00
+SoftAP MAC: 36:85:18:7A:B7:00
