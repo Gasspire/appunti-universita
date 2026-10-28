@@ -10,32 +10,31 @@
 #define MAC_1 "34:85:18:7A:B7:00" // Diletta
 #define MAC_2 "34:85:18:7A:FA:14" // Marco
 
-float temp;
-uint8_t myMac[6];
-bool allarmeMancanza = true; // true se manca qualcuno -> Verde OFF, Giallo LAMPEGGIA
-int numNodi = 0;
-bool SONO_ROOT = false;
-
 enum STATI {
-  DISCONNESSO,
-  CONNESSO,
+  SYNC,
+  CONN,
   ROSSO,
   VERDE,
   GIALLO
 };
 
-STATI stato = DISCONNESSO;
+float temp;
+uint8_t myMac[6];
+bool allarmeMancanza = true; // true se manca qualcuno -> Verde OFF, Giallo LAMPEGGIA
+int numNodi = 0;
+bool SONO_ROOT = false;
+STATI stato = SYNC;
 
 
 void onMesh(const EspMeshEvent &e) {
   switch (e.type) {
   case EspMeshEventType::Connected:
-    Serial.println("[MESH] Connesso alla rete mesh!");
+    Serial.printf("[" MACSTR "] Connesso alla rete mesh!", MAC2STR(e.from));
     break;
 
   case EspMeshEventType::Disconnected:
     if (!SONO_ROOT) {
-      allarmeMancanza = true;
+      allarmeMancanza = true; //TOGLI ALLARME METTI STATO = SYNC
       digitalWrite(LED_GREEN, LOW);
       digitalWrite(LED_RED, LOW);
       digitalWrite(LED_YELLOW, LOW);
