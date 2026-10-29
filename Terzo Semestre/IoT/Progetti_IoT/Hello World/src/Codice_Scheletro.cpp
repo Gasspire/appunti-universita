@@ -35,20 +35,22 @@ void onMesh(const EspMeshEvent &e) {
     }
     break;
 
+  // FATTO SOLO DA ROOT
   case EspMeshEventType::ChildJoined:
     Serial.printf("[ROOT] Nodo connesso: " MACSTR "\n", MAC2STR(e.from));
     break;
+    
+  // FATTO SOLO DA ROOT
   case EspMeshEventType::ChildLeft:
     Serial.printf("[ROOT] Nodo caduto/scollegato: " MACSTR "\n",MAC2STR(e.from));
+    // QUI DOBBIAMO AGGIUNGERE L'AVVISO AI VARI NODI
     break;
 
   case EspMeshEventType::Message:
     // Ignoro il messaggio se e' l'eco del mio stesso broadcast
-    if (memcmp(e.from, myMac, 6) == 0)
-      return;
+    if (memcmp(e.from, myMac, 6) == 0) return;
 
-    // Ascolto i messaggi e capisco
-    
+    // Ascolto i messaggi della ROOT e gestisco i miei stati
     break;
 
   default:
@@ -83,7 +85,7 @@ void setup() {
   config.on_event = onMesh;      // quando accade un evento, gestito da onMesh
   config.channel = 11;           // Stesso canale per tutte le board
   config.mesh_id[5] = ID_GRUPPO; // Stesso ID gruppo per tutte le board
-  config.role = SONO_ROOT ? EspMeshRole::Root : EspMeshRole::Node;
+  config.role = SONO_ROOT ? EspMeshRole::Root : EspMeshRole::Node; // forzo a essere non root
 
   if (IoTBoard::init_espmesh(config)) {
     if (SONO_ROOT) {
@@ -117,7 +119,7 @@ void loop() {
       numNodi = espmesh->getNodes(nodes, 10);
 
       // Verifico se sono connesse tutte le board
-      if (numNodi == NUM_BOARD && stato == SYNC) {
+      if (numNodi == NUM_BOARD && stato == SYNC) { // Tutte le board si sono appena riconnesse
         if (turno == 0) {
           // avviso i membri del gruppo 0 di andare a verde e quelli del gruppo
           // 1 di andare a rosso
@@ -125,12 +127,21 @@ void loop() {
           // avviso i membri del gruppo 1 di andare a verde e quelli del gruppo
           // 0 di andare a rosso
         }
-      } else if (numNodi < NUM_BOARD && stato != SYNC) {
+      } else if (numNodi < NUM_BOARD && stato != SYNC) { 
         // eravamo connessi e qualcuno si è disconnesso
         // mandiamo un messaggio a tutti (broadcast) dicendo che d'ora in avanti saranno in sync
       }
     }
   }
+  
+  
+  
+  // DA AGGIUNGERE: Devo rendermi conto se non sono root se in qualche modo è morto
+ 
+
+
+
+
 
   // Lampeggio del LED Giallo se manca qualcuno (sia su Root che su Station)
   if (stato == SYNC) {
@@ -139,11 +150,13 @@ void loop() {
     }
   }
 
-  // Ogni 3 secondi logica di controllo / invio
+  // Ogni x  secondi logica di controllo / invio
   if (IoTBoard::runEvery(3000, 0)) {
     if (SONO_ROOT) {
-      //gestisco la logica del cambiamento di stato da rosso a verde ogni x secondi + giallo naturalmente
+      //gestisco la logica del cambiamento di stato da rosso a verde ogni x secondi + giallo 
     }
-    // attivo il mio led dello stato 
   }
+
+  // attivo il mio led dello stato 
+
 }
