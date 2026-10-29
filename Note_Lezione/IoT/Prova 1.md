@@ -38,7 +38,7 @@ Fase boot:
 - Elezione coordinatore
 - Elezione gruppi
 
-Possibili due coordinatori (?) ->  Se sì, GRUPPO A e GRUPPO B si mettono d'accordo tra loro del tipo:
+**Due coordinatori** ->  GRUPPO A e GRUPPO B si mettono d'accordo tra loro del tipo:
 - A: Io sto diventando rosso -> B: Io sto diventando verde
 - Counter interno
 - A manda il segnale a b solo se A2 conferma di essere rosso. 
