@@ -26,3 +26,19 @@ int turno  = 0/1 -> Se 0 parte gruppo 0, altrimenti parte gruppo 1
 Root: 
 - Faccio delay green -> mando segnale diventa giallo 
 
+---
+
+Dobbiamo passare al router (?) / Vuole un approccio plug and play
+
+Aggiungiamo l'AP:
+- Chiunque può diventare root (who cares se la gestione è dinamica)
+
+
+Fase boot: 
+- Elezione coordinatore
+- Elezione gruppi
+
+Possibili due coordinatori (?) ->  Se sì, GRUPPO A e GRUPPO B si mettono d'accordo tra loro del tipo:
+- A: Io sto diventando rosso -> B: Io sto diventando verde
+- Counter interno
+- A manda il segnale a b solo se A2 conferma di essere rosso. 
