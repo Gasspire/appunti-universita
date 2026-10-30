@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Embedded/Lezione 7.md",
+                "file": "Quality/Lezione 4.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lezione 7"
+              "title": "Lezione 4"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "5cc4a9eaaacf48ff",
@@ -204,9 +203,10 @@
       "obsidian-spaced-repetition:Rivisita schede": false
     }
   },
-  "active": "7f5f74be22b7139a",
+  "active": "99ce3f8fbea4a4a2",
   "lastOpenFiles": [
     "Embedded/Lezione 7.md",
+    "Quality/Lezione 4.md",
     "Embedded/Immagini/Pasted image 20261030113537.png",
     "Embedded/Immagini/Pasted image 20261030112900.png",
     "Embedded/Immagini/Pasted image 20261030112346.png",

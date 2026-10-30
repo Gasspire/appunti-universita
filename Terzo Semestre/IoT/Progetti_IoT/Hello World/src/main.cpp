@@ -79,7 +79,7 @@ void applica_comando(const char *cmd)
 // Manda un comando a un gruppo; se la root fa parte di quel gruppo lo esegue subito anche lei
 void invia_a_gruppo(uint8_t g, const char *cmd, size_t len)
 {
-  espmesh->sendToGroup(g == 0 ? GRUP\PO_0 : GRUPPO_1, cmd, len); // DAVE: da fixare perché togliamo la maschera
+  espmesh->sendToGroup(g == 0 ? GRUPPO_0 : GRUPPO_1, cmd, len); // DAVE: da fixare perché togliamo la maschera
   if (SONO_ROOT && gruppo == g) 
   {
     applica_comando(cmd);
@@ -103,7 +103,7 @@ void onMesh(const EspMeshEvent &e)
     stato = SYNC;
     break;
 
-  case EspMeshEventType::Disconnected:
+  case EspMeshEventType::Disconnected: // DAVE: Ridondante perché abbiamo heartbeat
     if (!SONO_ROOT)
     {
       stato = SYNC; // Torno nello stato di sincronizzazione/attesa
@@ -123,11 +123,6 @@ void onMesh(const EspMeshEvent &e)
 
   case EspMeshEventType::Message:
   {
-    // Ignoro l'eco dei miei stessi messaggi
-    if (memcmp(e.from, myMac, 6) == 0)
-    {
-      break;
-    }
     // Ogni messaggio della root dimostra che e' viva
     if (memcmp(e.from, MAC_0, 6) == 0)
     {
