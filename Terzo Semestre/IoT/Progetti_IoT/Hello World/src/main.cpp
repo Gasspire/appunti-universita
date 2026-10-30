@@ -1,7 +1,7 @@
 #include <cstdint>
 #include <iot_board.h>
 #include <sys/types.h>
-// Identificativo univoco del vostro gruppo
+// DAVE: Serve nella nuova versione con AP? 
 #define ID_GRUPPO 0x05
 
 // Numero totale di board nel gruppo (1 Root + 3 Station)
@@ -14,8 +14,6 @@
 #define PERIODO_PING 1000     // ogni quanto la root dice "sono viva"
 #define TIMEOUT_ROOT 3000     // se un nodo non sente la root per 3 s va in SYNC
 
-// Messaggio + lunghezza calcolata in automatico (compreso il '\0' finale)
-#define TXT(s) s, sizeof(s)
 
 // Inidirizzi MAC in byte
 
@@ -31,8 +29,8 @@ enum STATI
 {
   SYNC,
   ROSSO,
-  VERDE,
-  GIALLO
+  VERDE, 
+  GIALLO 
 };
 
 // DAVE: Aggiungere AP
@@ -40,13 +38,13 @@ enum STATI
 
 uint8_t turno = 0;
 uint8_t gruppo;
+
 uint8_t myMac[6]; 
+
 int numNodi = 0;
 bool SONO_ROOT = false;
 STATI stato = SYNC;
 
-// Usate solo dalla root
-bool cicloAttivo = false; // true quando tutte le board sono collegate e il semaforo gira
 bool attesa_conferme = false;
 uint8_t numeroConferme = 0;
 unsigned long inizioVerde = 0;
@@ -81,8 +79,8 @@ void applica_comando(const char *cmd)
 // Manda un comando a un gruppo; se la root fa parte di quel gruppo lo esegue subito anche lei
 void invia_a_gruppo(uint8_t g, const char *cmd, size_t len)
 {
-  espmesh->sendToGroup(g == 0 ? GRUPPO_0 : GRUPPO_1, cmd, len);
-  if (SONO_ROOT && gruppo == g)
+  espmesh->sendToGroup(g == 0 ? GRUP\PO_0 : GRUPPO_1, cmd, len); // DAVE: da fixare perché togliamo la maschera
+  if (SONO_ROOT && gruppo == g) 
   {
     applica_comando(cmd);
   }
@@ -91,9 +89,7 @@ void invia_a_gruppo(uint8_t g, const char *cmd, size_t len)
 // Root: ferma il semaforo e porta tutti in SYNC
 void vaiInSync()
 {
-  espmesh->broadcast(TXT("SYNC"));
-  stato = SYNC;
-  cicloAttivo = false;
+  espmesh->broadcast("SYNC", sizeof("SYNC"));
   attesa_conferme = false;
   numeroConferme = 0;
 }
@@ -232,21 +228,22 @@ void loop()
       uint8_t nodes[10][6];
       numNodi = espmesh->getNodes(nodes, 10);
 
-      if (numNodi == NUM_BOARD && !cicloAttivo)
+      // da non connesso a connesso
+      if (numNodi == NUM_BOARD && stato == SYNC)
       {
         // Tutte le board collegate: (ri)parto. Il gruppo di turno va a verde, l'altro a rosso
-        invia_a_gruppo(turno, TXT("VERDE"));
-        invia_a_gruppo(1 - turno, TXT("ROSSO"));
-        cicloAttivo = true;
-        attesa_conferme = false;
+        invia_a_gruppo(turno, "VERDE", sizeof("VERDE")); // inviamo il comando verde
+        invia_a_gruppo(!turno, "ROSSO", sizeof("ROSSO")); // inviamo il comando rosso
+        attesa_conferme = false; // indica se ho ricevuto tutti gli ack
         numeroConferme = 0;
         inizioVerde = millis();
       }
-      else if (numNodi < NUM_BOARD && cicloAttivo)
+      // da connesso a non connesso
+      else if (numNodi < NUM_BOARD && stato != SYNC)
       {
         // Qualcuno si e' scollegato: tutti in SYNC
         Serial.println("[ROOT] Manca una board, risincronizzo");
-        vaiInSync();
+        vaiInSync(); // avviso tutti della disconnessione
       }
     }
 
@@ -254,32 +251,35 @@ void loop()
     // In SYNC ripeto "SYNC", cosi' chi ha perso il messaggio si allinea comunque.
     if (IoTBoard::runEvery(PERIODO_PING, 3))
     {
-      if (cicloAttivo)
-        espmesh->broadcast(TXT("PING"));
-      else
-        espmesh->broadcast(TXT("SYNC"));
+      if (stato != SYNC) //la root è viva
+        espmesh->broadcast("PING", sizeof("PING"));
+      else //la root è morta
+        espmesh->broadcast("SYNC", sizeof("SYNC"));
     }
 
-    if (cicloAttivo)
+    if (stato != SYNC)
     {
-      if (!attesa_conferme && millis() - inizioVerde >= DURATA_VERDE)
-      {
-        // Fine del verde: il gruppo di turno passa a giallo
-        invia_a_gruppo(turno, TXT("GIALLO"));
-        attesa_conferme = true;
+
+      // Fine del verde: il gruppo di turno passa a giallo
+      if (attesa_conferme == false && millis() - inizioVerde >= DURATA_VERDE)
+      { 
+        invia_a_gruppo(turno, "GIALLO", sizeof("GIALLO"));
+        attesa_conferme = true; // mi metto in attesa della conferma
         numeroConferme = 0;
-        inizioAttesa = millis();
+        inizioAttesa = millis(); // DAVE: Resilienza forse da togliere
       }
-      else if (attesa_conferme && numeroConferme >= 2)
+      //ho appena ricevuto le due conferme
+      else if (attesa_conferme == true && numeroConferme >= 2) 
       {
         // Entrambe le board del gruppo sono passate a rosso: verde all'altro gruppo
         attesa_conferme = false;
         numeroConferme = 0;
-        turno = 1 - turno;
-        invia_a_gruppo(turno, TXT("VERDE"));
+        turno = !turno;
+        invia_a_gruppo(turno, "VERDE", sizeof("VERDE"));
         inizioVerde = millis();
       }
-      else if (attesa_conferme && millis() - inizioAttesa >= DURATA_GIALLO + TIMEOUT_CONFERME)
+      // Se non ho ricevuto le conferme entro un certo periodo: errore vai in sync
+      else if (attesa_conferme && millis() - inizioAttesa >= DURATA_GIALLO + TIMEOUT_CONFERME) // DAVE: forse togliere
       {
         // Una CONFERMA non e' arrivata in tempo: per sicurezza torno in SYNC e riparto
         Serial.println("[ROOT] Conferme mancanti, risincronizzo");
@@ -294,10 +294,10 @@ void loop()
   if (stato == GIALLO && millis() - inizioGiallo >= DURATA_GIALLO)
   {
     stato = ROSSO;
-    if (SONO_ROOT)
+    if (SONO_ROOT) // DAVE: forse si può togliere
       numeroConferme++; // la root conferma a se' stessa senza mandare messaggi
     else
-      espmesh->sendTo(MAC_0, TXT("CONFERMA"));
+      espmesh->sendTo(MAC_0, "CONFERMA", sizeof("CONFERMA")); // Mando alla root che sono in rosso "CONFERMA"
   }
 
   // Nodo: se la root non si fa sentire da troppo tempo, vado in SYNC
