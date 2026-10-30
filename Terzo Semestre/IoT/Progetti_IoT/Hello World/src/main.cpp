@@ -18,6 +18,8 @@
 #define TXT(s) s, sizeof(s)
 
 // Inidirizzi MAC in byte
+
+// DAVE: Dobbiamo togliere tutta questa parte e renderla "MAC indipendent" (Plug and Play)
 const uint8_t MAC_0[6] = {0x34, 0x85, 0x18, 0x7B, 0x1F, 0x68}; // Antonio - ROOT
 const uint8_t MAC_3[6] = {0x34, 0x85, 0x18, 0x7B, 0x0A, 0x0C}; // Dave
 const uint8_t MAC_1[6] = {0x34, 0x85, 0x18, 0x7A, 0xB7, 0x00}; // Diletta
