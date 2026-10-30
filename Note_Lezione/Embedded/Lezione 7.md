@@ -44,3 +44,5 @@ Se vogliamo un tempo di incremento ( $T_{inc}$ )pari a  1 mS, abbiamo bisogno di
 Se ragioniamo in termini di frequenza di incremento avremo che $f_{inc} = 1 / T_{inc} = 10$ Hz
 
 84000 non va in 16 bit, quindi dobbiamo dividere 
+
+L'autoreload register fa scattare upload sul counter e controlla == non >=-
