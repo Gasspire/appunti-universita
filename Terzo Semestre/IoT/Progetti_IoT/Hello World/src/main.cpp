@@ -24,7 +24,6 @@ const uint8_t MAC_0[6] = {0x34, 0x85, 0x18, 0x7B, 0x1F, 0x68}; // Antonio - ROOT
 const uint8_t MAC_3[6] = {0x34, 0x85, 0x18, 0x7B, 0x0A, 0x0C}; // Dave
 const uint8_t MAC_1[6] = {0x34, 0x85, 0x18, 0x7A, 0xB7, 0x00}; // Diletta
 const uint8_t MAC_2[6] = {0x34, 0x85, 0x18, 0x7A, 0xFA, 0x14}; // Marco
-
 const uint8_t GRUPPO_0[6] = {0x01, 0x00, 0x5E, 0x00, 0x00, 0x00}; // Antonio + Marco
 const uint8_t GRUPPO_1[6] = {0x01, 0x00, 0x5E, 0x00, 0x00, 0x01}; // Diletta + Dave
 
@@ -36,9 +35,12 @@ enum STATI
   GIALLO
 };
 
+// DAVE: Aggiungere AP
+
+
 uint8_t turno = 0;
 uint8_t gruppo;
-uint8_t myMac[6];
+uint8_t myMac[6]; 
 int numNodi = 0;
 bool SONO_ROOT = false;
 STATI stato = SYNC;
@@ -55,7 +57,7 @@ unsigned long inizioGiallo = 0;
 unsigned long ultimoMsgRoot = 0;
 
 // Esegue un comando ricevuto (o che la root manda al proprio gruppo)
-void applica(const char *cmd)
+void applica_comando(const char *cmd)
 {
   if (strcmp(cmd, "VERDE") == 0)
   {
@@ -77,12 +79,12 @@ void applica(const char *cmd)
 }
 
 // Manda un comando a un gruppo; se la root fa parte di quel gruppo lo esegue subito anche lei
-void comandoGruppo(uint8_t g, const char *cmd, size_t len)
+void invia_a_gruppo(uint8_t g, const char *cmd, size_t len)
 {
   espmesh->sendToGroup(g == 0 ? GRUPPO_0 : GRUPPO_1, cmd, len);
   if (SONO_ROOT && gruppo == g)
   {
-    applica(cmd);
+    applica_comando(cmd);
   }
 }
 
@@ -146,7 +148,7 @@ void onMesh(const EspMeshEvent &e)
     }
     else
     {
-      applica(msg);
+      applica_comando(msg);
     }
     break;
   }
@@ -169,10 +171,9 @@ void setup()
   // Legge il MAC address hardware
   esp_read_mac(myMac, ESP_MAC_WIFI_STA);
 
-  // Stringa del MAC, solo per il display
+  // DAVE: Questa parte và tolta e resa dinamica
   char macStr[18];
-  snprintf(macStr, sizeof(macStr), "%02X:%02X:%02X:%02X:%02X:%02X", myMac[0],
-           myMac[1], myMac[2], myMac[3], myMac[4], myMac[5]);
+  snprintf(macStr, sizeof(macStr), "%02X:%02X:%02X:%02X:%02X:%02X", myMac[0], myMac[1], myMac[2], myMac[3], myMac[4], myMac[5]);
 
   // Confronta il MAC per determinare il ruolo automaticamente
   if (memcmp(myMac, MAC_0, 6) == 0)
@@ -185,7 +186,7 @@ void setup()
   else if (memcmp(myMac, MAC_1, 6) == 0 || memcmp(myMac, MAC_3, 6) == 0)
     gruppo = 1;
 
-  // Configuro la rete mesh con i parametri richiesti
+  // DAVE: Aggiungere configurazione AP
   EspMeshConfig config;
   config.router_ssid = "";                                         // vuoto perché senza AP
   config.on_event = onMesh;                                        // quando accade un evento, gestito da onMesh
@@ -193,6 +194,8 @@ void setup()
   config.mesh_id[5] = ID_GRUPPO;                                   // Stesso ID gruppo per tutte le board
   config.role = SONO_ROOT ? EspMeshRole::Root : EspMeshRole::Node; // root fissa, gli altri nodi
 
+
+  // DAVE: Questa parte và tolta, abbiamo bisogno sia dinamica
   if (IoTBoard::init_espmesh(config))
   {
     // Mi iscrivo al mio gruppo, altrimenti i messaggi sendToGroup vengono scartati
@@ -232,8 +235,8 @@ void loop()
       if (numNodi == NUM_BOARD && !cicloAttivo)
       {
         // Tutte le board collegate: (ri)parto. Il gruppo di turno va a verde, l'altro a rosso
-        comandoGruppo(turno, TXT("VERDE"));
-        comandoGruppo(1 - turno, TXT("ROSSO"));
+        invia_a_gruppo(turno, TXT("VERDE"));
+        invia_a_gruppo(1 - turno, TXT("ROSSO"));
         cicloAttivo = true;
         attesa_conferme = false;
         numeroConferme = 0;
@@ -262,7 +265,7 @@ void loop()
       if (!attesa_conferme && millis() - inizioVerde >= DURATA_VERDE)
       {
         // Fine del verde: il gruppo di turno passa a giallo
-        comandoGruppo(turno, TXT("GIALLO"));
+        invia_a_gruppo(turno, TXT("GIALLO"));
         attesa_conferme = true;
         numeroConferme = 0;
         inizioAttesa = millis();
@@ -273,7 +276,7 @@ void loop()
         attesa_conferme = false;
         numeroConferme = 0;
         turno = 1 - turno;
-        comandoGruppo(turno, TXT("VERDE"));
+        invia_a_gruppo(turno, TXT("VERDE"));
         inizioVerde = millis();
       }
       else if (attesa_conferme && millis() - inizioAttesa >= DURATA_GIALLO + TIMEOUT_CONFERME)
